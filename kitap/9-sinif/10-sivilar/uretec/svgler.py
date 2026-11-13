@@ -371,7 +371,7 @@ tuz = [(X(0), Y(20)), (X(4.9), Y(102.5))] + [(X(4.9 + i * 0.1), Y(102.5 + 4.2 * 
 o.append('<polyline fill="none" stroke="%s" stroke-width="1" points="%s"/>' % (SUK, ' '.join(f'{a:.1f},{b:.1f}' for a, b in saf)))
 o.append('<polyline fill="none" stroke="%s" stroke-width="1" points="%s"/>' % (U, ' '.join(f'{a:.1f},{b:.1f}' for a, b in tuz)))
 o.append(t(x1, Y(100) + 5.2, 'Saf su: kaynarken sıcaklık sabit', 2.9, 'end', '700', SUD))
-o.append(t(x1, Y(107) - 4.4, 'Tuzlu su: kaynarken sıcaklık artar', 2.9, 'end', '700', U))
+o.append(t(x1, Y(107) - 6.2, 'Tuzlu su: kaynarken sıcaklık artar', 2.9, 'end', '700', U))
 o.append(t((x0 + x1) / 2, y0 + 5.4, 'Isıtma süresi', 3.4, 'middle', '700'))
 o.append(t(4, (y0 + y1) / 2, 'Sıcaklık (°C)', 3.4, 'middle', '700', M, f'transform="rotate(-90 4 {(y0+y1)/2})"'))
 o.append('</g></svg>')
@@ -448,10 +448,10 @@ for (ox_, renk, kenar, ad, h_gen, h_dar, buk, bas1, bas2) in [
     o.append(tup(ox_ + 30, 9, yuz + h_gen, renk, kenar, buk))
     o.append(tup(ox_ + 56, 4, yuz + h_dar, renk, kenar, buk * 0.6))
     o.append(f'<line x1="{ox_+20}" y1="{yuz}" x2="{ox_+66}" y2="{yuz}" stroke="{kenar}" stroke-width=".3" stroke-dasharray="1 .8"/>')
-    o.append(t(ox_ + 30, 3.6, 'geniş boru', 3, 'middle', '400', S))
-    o.append(t(ox_ + 56, 3.6, 'dar boru', 3, 'middle', '400', S))
-    o.append(t(ox_ + 44, 62, bas1, 3.6, 'middle', '800', UK))
-    o.append(t(ox_ + 44, 67, bas2, 3.2, 'middle', '700', U))
+    o.append(t(ox_ + 30, 3.8, 'geniş boru', 3.8, 'middle', '400', S))
+    o.append(t(ox_ + 56, 3.8, 'dar boru', 3.8, 'middle', '400', S))
+    o.append(t(ox_ + 44, 62.5, bas1, 4.6, 'middle', '800', UK))
+    o.append(t(ox_ + 44, 68.4, bas2, 3.9, 'middle', '700', U))
 o.append('</g></svg>')
 w('kilcal', ''.join(o))
 
@@ -489,25 +489,25 @@ w('testbb', ''.join(o))
 # =========================================================
 # 14) Bağlam: rakım – kaynama noktası
 # =========================================================
-x0, x1, y0, y1 = 16, 114, 50, 6
+x0, x1, y0, y1 = 18, 114, 48, 7
 X = lambda h: x0 + h / 5000 * (x1 - x0)
 Y = lambda T: y0 - (T - 80) / 22 * (y0 - y1)
 o = ['<svg viewBox="0 0 120 60" class="grafik"><g font-family="Inter">']
 for T in range(80, 101, 5):
     o.append(f'<line x1="{x0}" y1="{Y(T):.1f}" x2="{x1}" y2="{Y(T):.1f}" stroke="#eef0f5" stroke-width=".3"/>')
-    o.append(t(x0 - 1.4, Y(T) + 1.2, str(T), 3.1, 'end', '400', S))
+    o.append(t(x0 - 1.4, Y(T) + 1.2, str(T), 4, 'end', '400', S))
 o.append(f'<line x1="{x0}" y1="{y0}" x2="{x1}" y2="{y0}" stroke="{M}" stroke-width=".5"/><line x1="{x0}" y1="{y0}" x2="{x0}" y2="{y1}" stroke="{M}" stroke-width=".5"/>')
 pts = []
 for h in range(0, 5001, 1000):
     P = 760 * (1 - 2.25577e-5 * h) ** 5.25588
     pts.append((h, tw(P)))
-    o.append(t(X(h), y0 + 4.2, f'{h}', 3.1, 'middle', '400', S))
+    o.append(t(X(h), y0 + 4.8, f'{h}', 3.8, 'middle', '400', S))
 o.append('<polyline fill="none" stroke="%s" stroke-width="1" points="%s"/>' % (U, ' '.join(f'{X(h):.1f},{Y(T):.1f}' for h, T in pts)))
 for h, T in pts:
     o.append(f'<circle cx="{X(h):.1f}" cy="{Y(T):.1f}" r="1.1" fill="{U}"/>')
-    o.append(t(X(h) + (1.6 if h < 5000 else -1.6), Y(T) - 2.2, f'{T:.0f}', 3, 'start' if h < 5000 else 'end', '700', UK))
-o.append(t((x0 + x1) / 2, y0 + 8.6, 'Deniz seviyesinden yükseklik (m)', 3.3, 'middle', '700'))
-o.append(t(3, (y0 + y1) / 2, 'KN (°C)', 3.3, 'middle', '700', M, f'transform="rotate(-90 3 {(y0+y1)/2})"'))
+    o.append(t(X(h) + (1.6 if h < 5000 else -1.6), Y(T) - 2.2, f'{T:.0f}', 4, 'start' if h < 5000 else 'end', '700', UK))
+o.append(t((x0 + x1) / 2, y0 + 10.4, 'Deniz seviyesinden yükseklik (m)', 4, 'middle', '700'))
+o.append(t(3, (y0 + y1) / 2, 'KN (°C)', 4, 'middle', '700', M, f'transform="rotate(-90 3 {(y0+y1)/2})"'))
 o.append('</g></svg>')
 w('rakim', ''.join(o))
 
