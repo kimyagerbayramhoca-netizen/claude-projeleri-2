@@ -1,0 +1,1425 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Bileşiklerin Adlandırılması · Kimya Rotası 9</title>
+<style>
+/* ==========================================================
+   KİMYA ROTASI — ortak sayfa ve kutu tasarımı (A4, baskı)
+   Her ünite kendi --unite rengini <body style> ile verir.
+   ========================================================== */
+
+@page { size: A4; margin: 0; }
+
+:root {
+  --unite: #4338ca;          /* ünite kimlik rengi (mol: indigo) */
+  --unite-acik: #eef0ff;
+  --unite-koyu: #2a2380;
+  --vurgu: #f59e0b;          /* ikincil vurgu (amber) */
+
+  --kavram: #4f46e5;   --kavram-bg: #eef2ff;
+  --hayat: #c26a06;    --hayat-bg: #fff6e5;
+  --dikkat: #e11d48;   --dikkat-bg: #fff1f3;
+  --ornek: #0f8f84;    --ornek-bg: #eafaf7;
+  --ipucu: #7c3aed;    --ipucu-bg: #f4f0ff;
+  --hata: #ea580c;     --hata-bg: #fff4ec;
+
+  --metin: #1d2133;
+  --soluk: #5d6478;
+  --cizgi: #dfe3ee;
+  --kagit: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Inter", "DejaVu Sans", sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.5;
+  color: var(--metin);
+  background: #8a8fa3;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* ---------- Sayfa ---------- */
+.sayfa {
+  width: 210mm; height: 297mm;
+  position: relative; overflow: hidden;
+  background: var(--kagit);
+  padding: 22mm 16mm 18mm 16mm;
+  page-break-after: always; break-after: page;
+  margin: 0 auto;
+}
+@media screen { .sayfa { margin: 8mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.25); } }
+
+.ust-serit {
+  position: absolute; top: 0; left: 0; right: 0; height: 13mm;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16mm; font-size: 8pt; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--unite-koyu); font-weight: 600;
+  border-bottom: 1.2mm solid var(--unite);
+  background: linear-gradient(90deg, var(--unite-acik), #fff 70%);
+}
+.ust-serit .baslik-k { display: flex; gap: 3mm; align-items: center; }
+.ust-serit .nokta { width: 2.4mm; height: 2.4mm; border-radius: 50%; background: var(--vurgu); }
+
+.alt-bilgi {
+  position: absolute; bottom: 5mm; left: 16mm; right: 16mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 7.5pt; color: var(--soluk);
+}
+.alt-bilgi .no {
+  min-width: 7.5mm; height: 7.5mm; border-radius: 50%;
+  background: var(--unite); color: #fff; font-weight: 700; font-size: 8.4pt;
+  display: grid; place-items: center;
+}
+.sayfa.cift .alt-bilgi { flex-direction: row-reverse; }
+
+/* ---------- Başlıklar ---------- */
+h1, h2, h3, h4 { font-family: "Inter Display", "Inter", sans-serif; margin: 0; line-height: 1.15; }
+h2.konu {
+  font-size: 21pt; font-weight: 800; color: var(--unite-koyu);
+  display: flex; align-items: baseline; gap: 3.5mm; margin-bottom: 1.5mm;
+}
+h2.konu .num {
+  font-size: 11pt; font-weight: 700; color: #fff; background: var(--unite);
+  padding: .6mm 2.6mm; border-radius: 2mm; transform: translateY(-1mm);
+}
+.alt-baslik { color: var(--soluk); font-size: 10pt; margin-bottom: 5mm; }
+h3 {
+  font-size: 13pt; font-weight: 750; color: var(--unite-koyu);
+  margin: 4.5mm 0 2mm; display: flex; align-items: center; gap: 2.2mm;
+}
+h3::before { content: ""; width: 1.4mm; height: 5mm; background: var(--vurgu); border-radius: 1mm; }
+p { margin: 0 0 2.4mm; }
+ul { margin: 0 0 2.4mm; padding-left: 5mm; }
+li { margin-bottom: 1mm; }
+b, strong { font-weight: 700; }
+.vurgu { background: linear-gradient(transparent 58%, #fde68a 58%); padding: 0 .5mm; }
+.k { color: var(--unite); font-weight: 700; }
+.kucuk { font-size: 8.6pt; color: var(--soluk); }
+.ortala { text-align: center; }
+
+/* Kimyasal formül ve üs */
+.f { white-space: nowrap; font-weight: 600; }
+sub, sup { font-size: 68%; line-height: 0; }
+.izotop { display: inline-flex; align-items: center; white-space: nowrap; font-weight: 600; }
+.izotop .yz { display: inline-flex; flex-direction: column; font-size: 62%; line-height: 1.05; text-align: right; margin-right: .3mm; font-weight: 600; }
+
+/* ---------- Izgara ---------- */
+.iki { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.iki-genis { display: grid; grid-template-columns: 1.25fr 1fr; gap: 5mm; }
+.uc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.dort { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+
+/* ---------- Kutular ---------- */
+.kutu {
+  border-radius: 3mm; padding: 3.2mm 4mm 3mm; margin: 0 0 3.5mm;
+  position: relative; break-inside: avoid;
+  background: var(--bg); border: .35mm solid color-mix(in srgb, var(--renk) 30%, #fff);
+}
+.kutu > .etiket {
+  display: inline-flex; align-items: center; gap: 1.6mm;
+  font-family: "Inter Display", sans-serif;
+  font-size: 7.6pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--renk);
+  padding: .7mm 2.4mm .7mm 1.6mm; border-radius: 1.4mm; margin-bottom: 2mm;
+}
+.kutu > .etiket svg { width: 3.4mm; height: 3.4mm; }
+.kutu p:last-child, .kutu ul:last-child { margin-bottom: 0; }
+.kavram { --renk: var(--kavram); --bg: var(--kavram-bg); }
+.hayat  { --renk: var(--hayat);  --bg: var(--hayat-bg); }
+.dikkat { --renk: var(--dikkat); --bg: var(--dikkat-bg); }
+.ornek  { --renk: var(--ornek);  --bg: var(--ornek-bg); }
+.ipucu  { --renk: var(--ipucu);  --bg: var(--ipucu-bg); }
+.hata   { --renk: var(--hata);   --bg: var(--hata-bg); }
+.duz    { --renk: var(--unite);  --bg: #fff; }
+
+.kutu.serit { border: none; border-left: 1.4mm solid var(--renk); border-radius: 0 3mm 3mm 0; }
+
+/* Yanılgı kartı: yanlış / doğru */
+.yanilgi { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-top: 1mm; }
+.yanilgi > div { border-radius: 2mm; padding: 2mm 2.6mm; font-size: 9.2pt; line-height: 1.4; }
+.yanilgi .yanlis { background: #fff; border: .3mm dashed var(--dikkat); }
+.yanilgi .dogru { background: #fff; border: .3mm solid var(--ornek); }
+.yanilgi b.y { color: var(--dikkat); }
+.yanilgi b.d { color: var(--ornek); }
+
+/* Çözümlü örnek */
+.ornek .soru { font-weight: 600; margin-bottom: 2mm; }
+.cozum { background: #fff; border-radius: 2mm; padding: 2.2mm 3mm; font-size: 9.4pt; }
+.cozum .adim { display: grid; grid-template-columns: 5mm 1fr; gap: 1.6mm; margin-bottom: 1.1mm; align-items: start; }
+.cozum .adim .n {
+  width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--ornek); color: #fff;
+  font-size: 7pt; font-weight: 700; display: grid; place-items: center; margin-top: .4mm;
+}
+.sonuc {
+  display: inline-block; margin-top: .8mm; font-weight: 700; color: var(--ornek);
+  border: .35mm solid var(--ornek); border-radius: 1.5mm; padding: .2mm 2mm;
+}
+.denklem {
+  font-family: "Inter", sans-serif; font-weight: 600; text-align: center;
+  font-size: 11pt; padding: 1.5mm 0; color: var(--unite-koyu);
+}
+.kesir { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 1mm; line-height: 1.2; }
+.kesir > span:first-child { border-bottom: .3mm solid currentColor; padding: 0 1mm; }
+.kesir > span:last-child { padding: 0 1mm; }
+
+/* Tablo */
+table.tablo { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9.2pt; margin: 1mm 0 3mm; }
+table.tablo th { background: var(--unite); color: #fff; font-weight: 700; padding: 1.6mm 2mm; text-align: left; }
+table.tablo th:first-child { border-top-left-radius: 2mm; }
+table.tablo th:last-child { border-top-right-radius: 2mm; }
+table.tablo td { padding: 1.6mm 2mm; border-bottom: .3mm solid var(--cizgi); }
+table.tablo tr:nth-child(even) td { background: #f7f8fc; }
+
+/* ---------- Soru düzeni ---------- */
+.soru-blok { break-inside: avoid; margin-bottom: 4.5mm; }
+.soru-ust { display: flex; gap: 2.4mm; align-items: flex-start; }
+.soru-no {
+  flex: none; width: 7.5mm; height: 7.5mm; border-radius: 2mm;
+  background: var(--unite); color: #fff; font-weight: 800; font-size: 10pt;
+  display: grid; place-items: center; font-family: "Inter Display", sans-serif;
+}
+.soru-metin { flex: 1; }
+.secenek { display: grid; grid-template-columns: 1fr 1fr; gap: .8mm 4mm; margin-top: 1.6mm; font-size: 9.6pt; }
+.secenek.tek { grid-template-columns: 1fr; }
+.secenek.bes { grid-template-columns: repeat(5, 1fr); }
+.secenek span b { color: var(--unite); margin-right: 1mm; }
+.oncul { margin: 1mm 0 1mm 1mm; }
+.oncul div { display: grid; grid-template-columns: 7mm 1fr; }
+.oncul div > b:first-child { color: var(--unite); }
+.veri { font-size: 8.4pt; color: var(--soluk); font-style: italic; }
+
+.etiket-soru svg { width: 3mm; height: 3mm; }
+.etiket-soru {
+  display: inline-flex; gap: 1.4mm; align-items: center;
+  font-size: 7pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  padding: .5mm 2mm; border-radius: 10mm; margin-bottom: 1.2mm;
+  color: var(--renk); background: var(--bg); border: .3mm solid var(--renk);
+}
+.zorluk { display: inline-flex; gap: .7mm; margin-left: 1.2mm; vertical-align: middle; }
+.zorluk i { width: 1.9mm; height: 1.9mm; border-radius: 50%; background: #d8dbe6; display: inline-block; }
+.zorluk i.d { background: var(--vurgu); }
+
+/* Bölüm kapağı tipi sayfa başı bandı */
+.bant {
+  margin: 0 -16mm 5mm; padding: 5mm 16mm 4mm; color: #fff;
+  background: linear-gradient(110deg, var(--renk, var(--unite)) 0%, color-mix(in srgb, var(--renk, var(--unite)) 70%, #000) 100%);
+  position: relative; overflow: hidden;
+}
+.bant h2 { font-size: 22pt; font-weight: 850; color: #fff; }
+.bant p { margin: 1mm 0 0; opacity: .92; font-size: 9.6pt; max-width: 135mm; }
+.bant .ikon-buyuk { position: absolute; right: 14mm; top: 50%; transform: translateY(-50%); opacity: .95; }
+
+/* Hata avcısı defter kartı */
+.defter {
+  background:
+    repeating-linear-gradient(transparent 0 6.1mm, #c9d6ee 6.1mm 6.4mm),
+    #fffef8;
+  border-radius: 2mm; padding: 1.2mm 4mm 1.6mm 14mm; position: relative;
+  font-family: "Caladea", "Bitstream Charter", serif; font-style: italic; font-size: 11pt;
+  line-height: 6.4mm; color: #24356b; border: .3mm solid #e6e1cc;
+}
+.defter::before { content: ""; position: absolute; left: 10mm; top: 0; bottom: 0; width: .35mm; background: #f2a7a7; }
+.defter .satir { position: relative; }
+.defter .satir .sn { position: absolute; left: -9.5mm; font-family: "Inter", sans-serif; font-style: normal; font-size: 7pt; color: #9aa3b8; font-weight: 700; }
+.defter .ogrenci { font-family: "Inter", sans-serif; font-style: normal; font-size: 7.2pt; color: var(--soluk); letter-spacing: .05em; text-transform: uppercase; }
+.duzelt {
+  border: .35mm dashed var(--hata); border-radius: 2mm; min-height: 26mm; margin-top: 2mm;
+  padding: 1.6mm 3mm; font-size: 8.4pt; color: var(--hata); font-weight: 600; background: #fff;
+}
+.sorgu { display: flex; gap: 2mm; flex-wrap: wrap; margin-top: 1.6mm; }
+.sorgu span { font-size: 8.2pt; background: #fff; border: .3mm solid var(--hata); color: var(--hata); border-radius: 10mm; padding: .2mm 2.2mm; font-weight: 600; }
+
+/* İpucu merdiveni */
+.merdiven { display: grid; gap: 1.8mm; margin-top: 2mm; }
+.basamak {
+  display: grid; grid-template-columns: 17mm 1fr; align-items: stretch;
+  border-radius: 2mm; overflow: hidden; background: #fff; border: .3mm solid #ddd3fb;
+}
+.basamak .bas {
+  background: var(--ipucu); color: #fff; font-size: 7pt; font-weight: 800; letter-spacing: .06em;
+  display: grid; place-items: center; text-align: center; line-height: 1.15; padding: 1mm;
+}
+.basamak:nth-child(2) .bas { background: #9061f0; }
+.basamak:nth-child(3) .bas { background: #a985f5; }
+.basamak .ic { padding: 1.6mm 3mm; font-size: 9.2pt; }
+.basamak:nth-child(2) { margin-left: 6mm; }
+.basamak:nth-child(3) { margin-left: 12mm; }
+.cevap-alani { border: .3mm dashed #b9a6f3; border-radius: 2mm; height: 24mm; margin-top: 2mm; background: #fff;
+  font-size: 7.6pt; color: #8b74d6; padding: 1mm 2.6mm; font-weight: 700; letter-spacing: .06em; }
+
+/* Öz değerlendirme */
+.kontrol { list-style: none; padding: 0; }
+.kontrol li { display: grid; grid-template-columns: 6mm 1fr auto; gap: 2mm; align-items: center; padding: 1.3mm 0; border-bottom: .3mm dotted var(--cizgi); font-size: 9.3pt; }
+.kontrol .kare { width: 4mm; height: 4mm; border: .4mm solid var(--unite); border-radius: 1mm; }
+.kontrol .yuz { display: flex; gap: 1.4mm; font-size: 7.4pt; color: var(--soluk); }
+.kontrol .yuz span { border: .3mm solid var(--cizgi); border-radius: 1mm; padding: 0 1.4mm; }
+
+/* Cevap anahtarı */
+.anahtar { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.4mm; margin-bottom: 4mm; }
+.anahtar div { border: .35mm solid var(--unite); border-radius: 1.6mm; text-align: center; overflow: hidden; font-size: 9pt; }
+.anahtar div b { display: block; background: var(--unite); color: #fff; font-size: 7.6pt; }
+.anahtar div span { display: block; font-weight: 800; color: var(--unite-koyu); padding: .6mm 0; }
+.coz-liste { columns: 2; column-gap: 6mm; font-size: 8.5pt; line-height: 1.42; }
+.coz-liste .c { break-inside: avoid; margin-bottom: 2.4mm; padding-left: 2.4mm; border-left: .6mm solid var(--renk, var(--unite)); }
+.coz-liste .c b:first-child { color: var(--renk, var(--unite)); }
+.coz-baslik { font-size: 9pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--renk, var(--unite)); margin: 2mm 0 1.4mm; column-span: all; }
+
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite: #854d0e; --unite-acik: #fbf5ea; --unite-koyu: #4f2d07; }
+.kapak { padding: 0; background: #3b2306; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 30mm; font-size: 11pt; font-weight: 700; color: #fcd34d; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 54pt; font-weight: 900; letter-spacing: -.02em; line-height: .98; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 10mm; display: inline-flex; align-items: center; gap: 4mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 26pt; font-weight: 800; color: #fcd34d; white-space: nowrap; }
+.kapak .avo b .f { font-weight: 800; }
+.kapak .avo span.ac { font-size: 9pt; opacity: .88; max-width: 74mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.4pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #e2d3b8; padding: .9mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.sema { width: 100%; height: auto; display: block; }
+.sema-kutu { border: .3mm solid var(--cizgi); border-radius: 3mm; padding: 2mm 2.4mm 1.4mm; background: #fff; margin-bottom: 3.5mm; }
+.sema-kutu .gb { font-size: 8pt; font-weight: 700; color: var(--unite-koyu); letter-spacing: .04em; margin-bottom: .6mm; }
+.sema-kutu .ga { font-size: 7.8pt; color: var(--soluk); line-height: 1.3; margin-top: .6mm; }
+table.tablo.sik td, table.tablo.sik th { padding: .85mm 2mm; }
+table.tablo td.ay { border-left: .3mm solid var(--cizgi); }
+table.tablo th.ay { border-left: .3mm solid rgba(255,255,255,.35); }
+.onek { display: grid; grid-template-columns: repeat(10, 1fr); gap: 1.4mm; margin: 1mm 0 3.5mm; }
+.onek div { background: var(--unite-acik); border-radius: 2mm; text-align: center; padding: 1.2mm 0 1mm; border: .3mm solid #ecdcbf; }
+.onek b { display: block; font-size: 12pt; color: var(--unite); font-family: "Inter Display"; font-weight: 800; line-height: 1.1; }
+.onek span { font-size: 8.4pt; font-weight: 600; color: var(--unite-koyu); }
+.kural { display: flex; flex-wrap: wrap; gap: 1.6mm; align-items: center; justify-content: center; margin: 1.5mm 0 1mm; font-size: 9pt; }
+.kural span { background: #fff; border: .35mm solid var(--unite); color: var(--unite-koyu); border-radius: 1.6mm; padding: .6mm 2.2mm; font-weight: 700; }
+.kural span.s { border-style: dashed; }
+.kural i { font-style: normal; font-weight: 800; color: var(--unite); }
+.yokla { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.6mm; margin-top: 1.2mm; }
+.yokla span { background: #fff; border: .3mm solid var(--cizgi); border-radius: 1.6mm; text-align: center; padding: .6mm 0; font-size: 9.4pt; }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+.test.devam .iki { min-height: 212mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 44mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.sayfa .duzelt { min-height: 30mm; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="80%" cy="18%" r="80%"><stop offset="0" stop-color="#c2410c"/><stop offset=".45" stop-color="#854d0e"/><stop offset="1" stop-color="#3b2306"/></radialGradient>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+    <!-- iyonik kristal motifi: küçük katyon, büyük anyon -->
+    <g transform="translate(0,16)">
+      <g fill="#ffffff" fill-opacity=".12" stroke="#ffffff" stroke-opacity=".22" stroke-width=".3">
+        <circle cx="122" cy="20" r="6.2"/><circle cx="154" cy="20" r="6.2"/><circle cx="186" cy="20" r="6.2"/><circle cx="138" cy="36" r="6.2"/><circle cx="170" cy="36" r="6.2"/><circle cx="202" cy="36" r="6.2"/><circle cx="122" cy="52" r="6.2"/><circle cx="154" cy="52" r="6.2"/><circle cx="186" cy="52" r="6.2"/>
+      </g>
+      <g fill="#fcd34d" fill-opacity=".85">
+        <circle cx="138" cy="20" r="3"/><circle cx="170" cy="20" r="3"/><circle cx="202" cy="20" r="3"/><circle cx="122" cy="36" r="3"/><circle cx="154" cy="36" r="3"/><circle cx="186" cy="36" r="3"/><circle cx="138" cy="52" r="3"/><circle cx="170" cy="52" r="3"/><circle cx="202" cy="52" r="3"/>
+      </g>
+    </g>
+    <!-- isim etiketi -->
+    <g transform="translate(152,102) rotate(-8)">
+      <rect x="0" y="0" width="52" height="15" rx="3" fill="#ffffff" fill-opacity=".95"/>
+      <circle cx="5" cy="7.5" r="1.6" fill="#854d0e"/>
+      <text x="29" y="6.4" text-anchor="middle" font-family="Inter" font-size="3.4" font-weight="700" fill="#854d0e" letter-spacing=".3">ADIM</text>
+      <text x="29" y="11.6" text-anchor="middle" font-family="Inter Display" font-size="5" font-weight="800" fill="#4f2d07">demir(III) oksit</text>
+    </g>
+    <path d="M156 109 Q 150 92 154 76" stroke="#ffffff" stroke-opacity=".5" stroke-width=".4" fill="none" stroke-dasharray="1.2 1"/>
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="12">
+      <text x="-6" y="170">amonyum nitrat · diazot pentaoksit · sülfat</text>
+      <text x="-30" y="186">sodyum hidrojen karbonat · bakır(II) · nitrür</text>
+      <text x="-12" y="202">kükürt trioksit · demir(III) · hidroksit</text>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 9. Sınıf</span><span>Tema 2 · Bölüm 2</span></div>
+    <div class="bolum">Bölüm 2 · Etkileşimler</div>
+    <h1>Bileşiklerin<br>Adlandırılması</h1>
+    <div class="slogan">Her formülün bir adı, her adın tek bir formülü var</div>
+    <div class="avo"><b><span class="f">Fe<sub>2</sub>O<sub>3</sub></span></b><span class="ac"><b style="font-size:10pt;color:#fff">demir(III) oksit</b><br>Parantezdeki Romen rakamı, demir iyonunun +3 yüklü olduğunu söyler. Pasın kırmızı-kahve rengi bu bileşikten gelir.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Yol haritası ve tek atomlu iyonlar</span><span>2</span></li>
+          <li><span>2 · Çok atomlu iyonlar</span><span>3</span></li>
+          <li><span>3 · İyonik bileşiklerde formül ve ad</span><span>4</span></li>
+          <li><span>4 · Birden çok yük alabilen metaller</span><span>5</span></li>
+          <li><span>5 · Moleküler bileşikler</span><span>6</span></li>
+          <li><span>6 · Yaygın adlar ve asitler</span><span>7</span></li>
+          <li><span>Tek sayfada adlandırma</span><span>8</span></li>
+          <li><span>Hata Avcısı</span><span>9</span></li>
+          <li><span>Bağlam temelli sorular</span><span>10</span></li>
+          <li><span>İpucu Merdiveni</span><span>11</span></li>
+          <li><span>Bölüm testi</span><span>12</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>14</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg></i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg></i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M8 8l5 5M13 8l-5 5"/></svg></i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v18M17 3v18M7 8h10M7 13h10M7 18h10"/></svg></i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Bir bileşiğin iyonik mi moleküler mi olduğuna bakıp doğru kuralı seçeceksin.</li>
+          <li>İyonlardan yük dengeli formül kurup IUPAC adını yazacaksın.</li>
+          <li>Latince sayı ön ekleri ve yaygın adları yerinde kullanacaksın.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · YOL HARİTASI + TEK ATOMLU İYONLAR
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Bileşiklerin Adlandırılması</span><span>Yol haritası</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Adlandırmanın yol haritası</h2>
+  <div class="alt-baslik">Ad vermeden önce tek bir soru sor: Bu bileşik iyonlardan mı, moleküllerden mi oluşuyor?</div>
+
+  <div class="iki-genis">
+    <div>
+      <p>Aynı madde farklı yerlerde farklı adlarla anılabilir. Bu karışıklığı önlemek için <b>IUPAC</b> (Uluslararası Temel ve Uygulamalı Kimya Birliği) ortak kurallar belirlemiştir. Bu kurallarla verilen ada <b class="k">sistematik ad</b> denir. Sistematik addan formül, formülden de ad tek bir şekilde bulunur.</p>
+      <p>Bölüm 1’de iyonik ve kovalent bağı öğrendin. Adlandırmada ilk adım bu ayrımdır, çünkü iki grubun kuralları farklıdır.</p>
+      <div class="kutu kavram">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+        <p><b>İyonik bileşik:</b> Genellikle bir <b>metal</b> ya da <b>amonyum</b> (<span class="f">NH<sub>4</sub><sup>+</sup></span>) iyonu içerir: <span class="f">KI</span>, <span class="f">MgO</span>, <span class="f">NH<sub>4</sub>Cl</span>. Formül, iyonların <b>en basit sayıca oranını</b> gösterir.</p>
+        <p><b>Moleküler bileşik:</b> Yalnızca <b>ametallerden</b> oluşur: <span class="f">CO<sub>2</sub></span>, <span class="f">PCl<sub>5</sub></span>, <span class="f">N<sub>2</sub>O</span>. Formül, bir moleküldeki gerçek atom sayılarını gösterir.</p>
+      </div>
+    </div>
+    <div class="sema-kutu" style="margin:0">
+      <div class="gb">KARAR ŞEMASI · Hangi kuralı kullanacağım?</div>
+      <svg class="sema" viewBox="0 0 100 128">
+        <defs><marker id="ok1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#854d0e"/></marker></defs>
+        <g font-family="Inter" text-anchor="middle">
+          <rect x="30" y="2" width="40" height="10" rx="5" fill="#854d0e"/>
+          <text x="50" y="8.6" font-size="4.6" font-weight="800" fill="#fff">FORMÜL</text>
+          <path d="M50 12 V18" stroke="#854d0e" stroke-width=".6" marker-end="url(#ok1)"/>
+          <rect x="14" y="19" width="72" height="13" rx="2.5" fill="#fbf5ea" stroke="#854d0e" stroke-width=".5"/>
+          <text x="50" y="24.6" font-size="3.9" font-weight="700" fill="#4f2d07">Metal ya da NH<tspan font-size="2.7" dy="1">4</tspan><tspan font-size="2.7" dy="-2.6">+</tspan><tspan dy="1.6"> var mı?</tspan></text>
+          <text x="50" y="29.6" font-size="3.1" fill="#5d6478">(Bölüm 1: iyonik mi, kovalent mi?)</text>
+          <path d="M30 32 L24 40" stroke="#854d0e" stroke-width=".6" marker-end="url(#ok1)"/>
+          <path d="M70 32 L76 40" stroke="#854d0e" stroke-width=".6" marker-end="url(#ok1)"/>
+          <text x="21" y="37" font-size="3.3" font-weight="700" fill="#0f8f84">Evet</text>
+          <text x="80" y="37" font-size="3.3" font-weight="700" fill="#e11d48">Hayır</text>
+
+          <rect x="2" y="41" width="46" height="9" rx="2" fill="#854d0e"/>
+          <text x="25" y="46.9" font-size="4" font-weight="800" fill="#fff">İYONİK</text>
+          <rect x="52" y="41" width="46" height="9" rx="2" fill="#4f2d07"/>
+          <text x="75" y="46.9" font-size="4" font-weight="800" fill="#fff">MOLEKÜLER</text>
+
+          <path d="M25 50 V55" stroke="#854d0e" stroke-width=".6" marker-end="url(#ok1)"/>
+          <rect x="2" y="56" width="46" height="13" rx="2.5" fill="#fbf5ea" stroke="#854d0e" stroke-width=".5"/>
+          <text x="25" y="61.6" font-size="3.4" font-weight="700" fill="#4f2d07">Metal birden çok</text>
+          <text x="25" y="66" font-size="3.4" font-weight="700" fill="#4f2d07">yük alabilir mi?</text>
+
+          <path d="M25 69 V74" stroke="#854d0e" stroke-width=".6" marker-end="url(#ok1)"/>
+          <rect x="2" y="75" width="46" height="21" rx="2.5" fill="#fff" stroke="#c9b48e" stroke-width=".4"/>
+          <text x="25" y="80" font-size="3.2" font-weight="800" fill="#0f8f84">Hayır (Na, Mg, Al…)</text>
+          <text x="25" y="85" font-size="3.3" fill="#1d2133">katyon adı + anyon adı</text>
+          <text x="25" y="91.4" font-size="3.3" font-weight="700" fill="#854d0e">KI → potasyum iyodür</text>
+
+          <path d="M25 96 V101" stroke="#854d0e" stroke-width=".6" marker-end="url(#ok1)"/>
+          <rect x="2" y="102" width="46" height="23" rx="2.5" fill="#fff" stroke="#c9b48e" stroke-width=".4"/>
+          <text x="25" y="107" font-size="3.2" font-weight="800" fill="#e11d48">Evet (Fe, Cu, Sn…)</text>
+          <text x="25" y="112" font-size="3.3" fill="#1d2133">katyon adı (Romen) +</text>
+          <text x="25" y="116.4" font-size="3.3" fill="#1d2133">anyon adı</text>
+          <text x="25" y="122" font-size="3.3" font-weight="700" fill="#854d0e">FeCl<tspan font-size="2.4" dy="1">3</tspan><tspan dy="-1"> → demir(III) klorür</tspan></text>
+
+          <path d="M75 50 V55" stroke="#4f2d07" stroke-width=".6" marker-end="url(#ok1)"/>
+          <rect x="52" y="56" width="46" height="27" rx="2.5" fill="#fff" stroke="#c9b48e" stroke-width=".4"/>
+          <text x="75" y="61.4" font-size="3.3" fill="#1d2133">Latince sayı + 1. ametal</text>
+          <text x="75" y="66" font-size="3.3" fill="#1d2133">Latince sayı + 2. ametal</text>
+          <text x="75" y="70.4" font-size="3.3" fill="#1d2133">(iyon adıyla)</text>
+          <text x="75" y="77.4" font-size="3.3" font-weight="700" fill="#4f2d07">PCl<tspan font-size="2.4" dy="1">5</tspan><tspan dy="-1"> → fosfor</tspan></text>
+          <text x="75" y="81.4" font-size="3.3" font-weight="700" fill="#4f2d07">pentaklorür</text>
+
+          <path d="M75 83 V88" stroke="#4f2d07" stroke-width=".6" marker-end="url(#ok1)"/>
+          <rect x="52" y="89" width="46" height="21" rx="2.5" fill="#fff6e5" stroke="#c26a06" stroke-width=".4" stroke-dasharray="1.4 .8"/>
+          <text x="75" y="94.4" font-size="3.2" font-weight="800" fill="#c26a06">Çok yaygın bir adı var mı?</text>
+          <text x="75" y="100" font-size="3.3" font-weight="700" fill="#4f2d07">H<tspan font-size="2.4" dy="1">2</tspan><tspan dy="-1">O → su</tspan></text>
+          <text x="75" y="105.4" font-size="3.3" font-weight="700" fill="#4f2d07">NH<tspan font-size="2.4" dy="1">3</tspan><tspan dy="-1"> → amonyak</tspan></text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <h3>Tek atomlu iyonların adları</h3>
+  <p>Metal katyonu <b>elementin adını</b> alır: <span class="f">Na<sup>+</sup></span> sodyum iyonu. Ametal anyonunun adı ise element adının köküne <b>-ür</b> eki getirilerek kurulur: klor → <b>klorür</b>, brom → <b>bromür</b>. Oksijenin anyonu istisnadır: <span class="f">O<sup>2−</sup></span> <b>oksit</b> diye okunur.</p>
+  <div class="iki">
+    <table class="tablo sik">
+      <tr><th>Katyon</th><th>Adı</th><th class="ay">Katyon</th><th>Adı</th></tr>
+      <tr><td><span class="f">Li<sup>+</sup></span></td><td>lityum</td><td class="ay"><span class="f">Mg<sup>2+</sup></span></td><td>magnezyum</td></tr>
+      <tr><td><span class="f">Na<sup>+</sup></span></td><td>sodyum</td><td class="ay"><span class="f">Ca<sup>2+</sup></span></td><td>kalsiyum</td></tr>
+      <tr><td><span class="f">K<sup>+</sup></span></td><td>potasyum</td><td class="ay"><span class="f">Ba<sup>2+</sup></span></td><td>baryum</td></tr>
+      <tr><td><span class="f">Cs<sup>+</sup></span></td><td>sezyum</td><td class="ay"><span class="f">Zn<sup>2+</sup></span></td><td>çinko</td></tr>
+      <tr><td><span class="f">Sr<sup>2+</sup></span></td><td>stronsiyum</td><td class="ay"><span class="f">Al<sup>3+</sup></span></td><td>alüminyum</td></tr>
+    </table>
+    <table class="tablo sik">
+      <tr><th>Anyon</th><th>Adı</th><th class="ay">Anyon</th><th>Adı</th></tr>
+      <tr><td><span class="f">F<sup>−</sup></span></td><td>florür</td><td class="ay"><span class="f">O<sup>2−</sup></span></td><td><b>oksit</b></td></tr>
+      <tr><td><span class="f">Cl<sup>−</sup></span></td><td>klorür</td><td class="ay"><span class="f">S<sup>2−</sup></span></td><td>sülfür</td></tr>
+      <tr><td><span class="f">Br<sup>−</sup></span></td><td>bromür</td><td class="ay"><span class="f">N<sup>3−</sup></span></td><td>nitrür</td></tr>
+      <tr><td><span class="f">I<sup>−</sup></span></td><td>iyodür</td><td class="ay"><span class="f">P<sup>3−</sup></span></td><td>fosfür</td></tr>
+      <tr><td><span class="f">H<sup>−</sup></span></td><td>hidrür</td><td class="ay"><span class="f">C<sup>4−</sup></span></td><td>karbür</td></tr>
+    </table>
+  </div>
+
+  <div class="iki">
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9.2pt">Diş macunu kutusundaki “florür içerir” yazısı, zehirli bir gaz olan flor (<span class="f">F<sub>2</sub></span>) için değil, diş minesini güçlendiren <b>florür iyonu</b> (<span class="f">F<sup>−</sup></span>) içindir. Bu iyon macuna çoğunlukla <b>sodyum florür</b> (<span class="f">NaF</span>) olarak katılır.</p>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgıları</div>
+      <div class="yanilgi" style="font-size:8.8pt">
+        <div class="yanlis"><b class="y">✗</b> “<span class="f">Cl<sup>−</sup></span> iyonunun adı klordur.”</div>
+        <div class="dogru"><b class="d">✓</b> Klor, <span class="f">Cl<sub>2</sub></span> elementinin adıdır. İyonun adı <b>klorür</b>.</div>
+        <div class="yanlis"><b class="y">✗</b> “<span class="f">NH<sub>4</sub>Cl</span> metal içermez, moleküler bileşiktir.”</div>
+        <div class="dogru"><b class="d">✓</b> <span class="f">NH<sub>4</sub><sup>+</sup></span> bir katyondur. <span class="f">NH<sub>4</sub>Cl</span> iyoniktir: <b>amonyum klorür</b>.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Bileşiklerin Adlandırılması</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · ÇOK ATOMLU İYONLAR
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Bileşiklerin Adlandırılması</span><span>Çok atomlu iyonlar</span></div>
+
+  <h2 class="konu"><span class="num">2</span>Çok atomlu iyonlar</h2>
+  <div class="alt-baslik">Birlikte hareket eden atom grupları: yük bütün gruba aittir.</div>
+
+  <div class="iki-genis">
+    <div>
+      <div class="kutu kavram">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+        <p>Birden fazla atomun birbirine bağlanarak oluşturduğu ve <b>toplu hâlde bir yük taşıyan</b> taneciklere <b class="k">çok atomlu iyon</b> (kök) denir. Bu gruplar bileşiklerde <b>tek bir parça</b> gibi davranır, adları ezberlenir.</p>
+        <p>Sık kullanılan çok atomlu iyonların hemen hepsi anyondur. Önemli tek katyon <b>amonyum</b> (<span class="f">NH<sub>4</sub><sup>+</sup></span>) iyonudur.</p>
+      </div>
+      <div class="kutu kavram serit">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> Ezberi kolaylaştıran iki ipucu</div>
+        <ul style="font-size:9.3pt">
+          <li><b>-at / -it:</b> Aynı ametalin iki oksijenli anyonundan oksijeni <b>fazla</b> olan <b>-at</b>, bir eksik olan <b>-it</b> ekini alır: <span class="f">NO<sub>3</sub><sup>−</sup></span> nitrat, <span class="f">NO<sub>2</sub><sup>−</sup></span> nitrit; <span class="f">SO<sub>4</sub><sup>2−</sup></span> sülfat, <span class="f">SO<sub>3</sub><sup>2−</sup></span> sülfit.</li>
+          <li><b>Hidrojen ekle:</b> Anyona bir H eklenince adın başına <b>hidrojen</b> gelir, yük 1 azalır: <span class="f">CO<sub>3</sub><sup>2−</sup></span> → <span class="f">HCO<sub>3</sub><sup>−</sup></span> hidrojen karbonat.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sema-kutu" style="margin:0">
+      <div class="gb">ATOM GRUBU = TEK PARÇA</div>
+      <svg class="sema" viewBox="0 0 100 92">
+        <g font-family="Inter" text-anchor="middle">
+          <!-- NH4+ -->
+          <g transform="translate(22,24)">
+            <rect x="-17" y="-17" width="34" height="34" rx="6" fill="#fbf5ea" stroke="#854d0e" stroke-width=".5" stroke-dasharray="1.6 1"/>
+            <circle cx="-8" cy="-8" r="3.6" fill="#e5e7eb" stroke="#9aa3b8" stroke-width=".3"/><circle cx="8" cy="-8" r="3.6" fill="#e5e7eb" stroke="#9aa3b8" stroke-width=".3"/>
+            <circle cx="-8" cy="8" r="3.6" fill="#e5e7eb" stroke="#9aa3b8" stroke-width=".3"/><circle cx="8" cy="8" r="3.6" fill="#e5e7eb" stroke="#9aa3b8" stroke-width=".3"/>
+            <circle r="6" fill="#4f6fd8"/>
+            <text y="2" font-size="5" font-weight="800" fill="#fff">N</text>
+            <text x="-8" y="-6.8" font-size="3.2" fill="#1d2133">H</text><text x="8" y="-6.8" font-size="3.2" fill="#1d2133">H</text>
+            <text x="-8" y="9.2" font-size="3.2" fill="#1d2133">H</text><text x="8" y="9.2" font-size="3.2" fill="#1d2133">H</text>
+            <circle cx="17" cy="-17" r="4.2" fill="#854d0e"/><text x="17" y="-15.4" font-size="5" font-weight="800" fill="#fff">+</text>
+          </g>
+          <text x="22" y="49" font-size="4.2" font-weight="800" fill="#4f2d07">amonyum</text>
+          <!-- SO4 2- -->
+          <g transform="translate(70,24)">
+            <rect x="-18" y="-17" width="36" height="34" rx="6" fill="#fbf5ea" stroke="#854d0e" stroke-width=".5" stroke-dasharray="1.6 1"/>
+            <circle cx="0" cy="-10.5" r="4.4" fill="#e85d5d"/><circle cx="0" cy="10.5" r="4.4" fill="#e85d5d"/>
+            <circle cx="-11" cy="0" r="4.4" fill="#e85d5d"/><circle cx="11" cy="0" r="4.4" fill="#e85d5d"/>
+            <circle r="6" fill="#e0b62c"/>
+            <text y="2" font-size="5" font-weight="800" fill="#4f2d07">S</text>
+            <text y="-9.3" font-size="3.4" font-weight="700" fill="#fff">O</text><text y="11.7" font-size="3.4" font-weight="700" fill="#fff">O</text>
+            <text x="-11" y="1.2" font-size="3.4" font-weight="700" fill="#fff">O</text><text x="11" y="1.2" font-size="3.4" font-weight="700" fill="#fff">O</text>
+            <rect x="12" y="-21" width="11" height="8" rx="4" fill="#854d0e"/><text x="17.5" y="-15.6" font-size="4.6" font-weight="800" fill="#fff">2−</text>
+          </g>
+          <text x="70" y="49" font-size="4.2" font-weight="800" fill="#4f2d07">sülfat</text>
+          <!-- karşılaştırma: sülfür ve sülfat -->
+          <g transform="translate(0,58)">
+            <rect x="4" y="0" width="92" height="30" rx="3" fill="#fff" stroke="#dfe3ee" stroke-width=".4"/>
+            <circle cx="16" cy="12" r="5" fill="#e0b62c"/><text x="16" y="13.8" font-size="4.6" font-weight="800" fill="#4f2d07">S</text>
+            <text x="16" y="23" font-size="3.6" font-weight="700" fill="#1d2133">S<tspan font-size="2.6" dy="-1.8">2−</tspan></text>
+            <text x="16" y="27.6" font-size="3.4" fill="#5d6478">sülfür</text>
+            <text x="34" y="14" font-size="6" font-weight="800" fill="#e11d48">≠</text>
+            <circle cx="56" cy="12" r="4" fill="#e0b62c"/>
+            <circle cx="56" cy="5" r="2.6" fill="#e85d5d"/><circle cx="56" cy="19" r="2.6" fill="#e85d5d"/><circle cx="49" cy="12" r="2.6" fill="#e85d5d"/><circle cx="63" cy="12" r="2.6" fill="#e85d5d"/>
+            <text x="56" y="27.6" font-size="3.4" fill="#5d6478">sülfat</text>
+            <text x="81" y="10" font-size="3.3" fill="#1d2133">Yükleri aynı</text>
+            <text x="81" y="14.6" font-size="3.3" fill="#1d2133">(2−), tanecikler</text>
+            <text x="81" y="19.2" font-size="3.3" font-weight="700" fill="#e11d48">tamamen farklı.</text>
+          </g>
+        </g>
+      </svg>
+      <div class="ga">Bileşikte grup bölünmez: <span class="f">Na<sub>2</sub>SO<sub>4</sub></span> içinde ayrı ayrı S ve O iyonları değil, bir tane <span class="f">SO<sub>4</sub><sup>2−</sup></span> grubu ve iki <span class="f">Na<sup>+</sup></span> iyonu vardır.</div>
+    </div>
+  </div>
+
+  <h3>Sık kullanılan çok atomlu iyonlar</h3>
+  <table class="tablo sik">
+    <tr><th>İyon</th><th>Adı</th><th class="ay">İyon</th><th>Adı</th><th class="ay">İyon</th><th>Adı</th></tr>
+    <tr><td><span class="f">NH<sub>4</sub><sup>+</sup></span></td><td><b>amonyum</b></td><td class="ay"><span class="f">SO<sub>4</sub><sup>2−</sup></span></td><td>sülfat</td><td class="ay"><span class="f">CH<sub>3</sub>COO<sup>−</sup></span></td><td>asetat</td></tr>
+    <tr><td><span class="f">OH<sup>−</sup></span></td><td>hidroksit</td><td class="ay"><span class="f">SO<sub>3</sub><sup>2−</sup></span></td><td>sülfit</td><td class="ay"><span class="f">MnO<sub>4</sub><sup>−</sup></span></td><td>permanganat</td></tr>
+    <tr><td><span class="f">CN<sup>−</sup></span></td><td>siyanür</td><td class="ay"><span class="f">HSO<sub>4</sub><sup>−</sup></span></td><td>hidrojen sülfat</td><td class="ay"><span class="f">ClO<sup>−</sup></span></td><td>hipoklorit</td></tr>
+    <tr><td><span class="f">NO<sub>3</sub><sup>−</sup></span></td><td>nitrat</td><td class="ay"><span class="f">CO<sub>3</sub><sup>2−</sup></span></td><td>karbonat</td><td class="ay"><span class="f">PO<sub>4</sub><sup>3−</sup></span></td><td>fosfat</td></tr>
+    <tr><td><span class="f">NO<sub>2</sub><sup>−</sup></span></td><td>nitrit</td><td class="ay"><span class="f">HCO<sub>3</sub><sup>−</sup></span></td><td>hidrojen karbonat <span class="kucuk">(bikarbonat)</span></td><td class="ay"><span class="f">HPO<sub>4</sub><sup>2−</sup></span></td><td>hidrojen fosfat</td></tr>
+  </table>
+  <p class="kucuk" style="margin-top:-1.5mm">Dikkat: <span class="f">OH<sup>−</sup></span> ve <span class="f">CN<sup>−</sup></span> iki atomlu oldukları hâlde adları tek atomlu anyonlar gibi -ür/-it ile biter (hidroksit, siyanür).</p>
+
+  <div class="iki">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 1</div>
+      <div class="soru">Fosfat iyonuna bir hidrojen eklenirse oluşan iyonun formülü, yükü ve adı ne olur?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Fosfat: <span class="f">PO<sub>4</sub><sup>3−</sup></span>. H, gruba +1 yük getirir.</span></div>
+        <div class="adim"><span class="n">2</span><span>Yük: −3 + 1 = −2 → <span class="f">HPO<sub>4</sub><sup>2−</sup></span></span></div>
+        <span class="sonuc">hidrojen fosfat iyonu</span>
+      </div>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Nitrat ve nitrür aynı iyonun iki adıdır; ikisinde de azot var.”</div>
+        <div class="dogru"><b class="d">✓</b> Nitrür tek atomlu <span class="f">N<sup>3−</sup></span>, nitrat dört atomlu <span class="f">NO<sub>3</sub><sup>−</sup></span> iyonudur. Ek değişirse iyon da değişir.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Bileşiklerin Adlandırılması</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · İYONİK BİLEŞİKLERDE FORMÜL VE AD
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Bileşiklerin Adlandırılması</span><span>İyonik bileşikler</span></div>
+
+  <h2 class="konu"><span class="num">3</span>İyonik bileşiklerde formül ve ad</h2>
+  <div class="alt-baslik">Formülü yük dengesi, adı ise “önce katyon, sonra anyon” kuralı belirler.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> İki temel kural</div>
+    <div class="iki" style="gap:4mm">
+      <div><b class="k">Formül:</b> Bileşik elektrikçe <b>nötrdür</b>. Katyonların toplam pozitif yükü, anyonların toplam negatif yüküne eşit olmalıdır. Formülde önce katyon, sonra anyon yazılır. Bir çok atomlu iyondan birden fazla gerekiyorsa iyon <b>paranteze</b> alınır.</div>
+      <div><b class="k">Ad:</b> Önce katyonun, sonra anyonun adı söylenir.
+        <div class="kural"><span>katyon adı</span><i>+</i><span>anyon adı</span></div>
+        İyon sayıları ada <b>yansımaz</b>; Latince sayı ön eki kullanılmaz: <span class="f">MgCl<sub>2</sub></span> magnezyum klorürdür.</div>
+    </div>
+  </div>
+
+  <div class="sema-kutu">
+    <div class="gb">ÇAPRAZ YÖNTEM · Yükün sayısal değeri karşı iyonun alt indisi olur</div>
+    <svg class="sema" viewBox="0 0 178 50">
+      <defs><marker id="ok2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#c26a06"/></marker></defs>
+      <g font-family="Inter" font-weight="700" fill="#1d2133">
+        <text x="20" y="14" font-size="9">Al</text><text x="29.4" y="8.6" font-size="5.2" fill="#c26a06">3+</text>
+        <text x="56" y="14" font-size="9">SO</text><text x="69" y="16.4" font-size="5.2">4</text><text x="69.4" y="8.6" font-size="5.2" fill="#c26a06">2−</text>
+        <path d="M33 11 L60.5 37" stroke="#c26a06" stroke-width=".6" fill="none" marker-end="url(#ok2)"/>
+        <path d="M71 11 L34.5 37" stroke="#c26a06" stroke-width=".6" fill="none" marker-end="url(#ok2)"/>
+        <text x="24" y="45" font-size="9">Al</text><text x="33" y="47.4" font-size="5.6" fill="#c26a06">2</text>
+        <text x="37" y="45" font-size="9">(SO</text><text x="53.6" y="47.4" font-size="5.2">4</text><text x="56.6" y="45" font-size="9">)</text><text x="60" y="47.4" font-size="5.6" fill="#c26a06">3</text>
+        <line x1="84" y1="4" x2="84" y2="48" stroke="#dfe3ee" stroke-width=".4"/>
+        <text x="90" y="12" font-size="4.2" fill="#854d0e" font-weight="800">KONTROL</text>
+        <text x="90" y="19" font-size="4.2" font-weight="500">2 · (+3) + 3 · (−2) = 0 ✓</text>
+        <text x="90" y="25.4" font-size="3.7" font-weight="500" fill="#5d6478">Sülfat grubu üç kez gerektiği için</text>
+        <text x="90" y="30" font-size="3.7" font-weight="500" fill="#5d6478">paranteze alınır.</text>
+        <text x="90" y="39" font-size="4.2" fill="#854d0e" font-weight="800">SADELEŞTİR</text>
+        <text x="90" y="46" font-size="4.2" font-weight="500">Ca<tspan font-size="2.9" dy="-1.8">2+</tspan><tspan dy="1.8"> + O</tspan><tspan font-size="2.9" dy="-1.8">2−</tspan><tspan dy="1.8"> → Ca</tspan><tspan font-size="2.9" dy="1">2</tspan><tspan dy="-1">O</tspan><tspan font-size="2.9" dy="1">2</tspan><tspan dy="-1"> → </tspan><tspan font-weight="800" fill="#c26a06">CaO</tspan><tspan font-size="3.6" fill="#5d6478"> (oran 1 : 1)</tspan></text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="uc">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Örnek 2 · Ad → formül</div>
+      <div class="soru" style="font-size:9.4pt">Baryum nitrat</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>İyonlar: <span class="f">Ba<sup>2+</sup></span> ve <span class="f">NO<sub>3</sub><sup>−</sup></span></span></div>
+        <div class="adim"><span class="n">2</span><span>+2 yükü dengelemek için 2 nitrat gerekir.</span></div>
+        <span class="sonuc"><span class="f">Ba(NO<sub>3</sub>)<sub>2</sub></span></span>
+      </div>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Örnek 3 · Ad → formül</div>
+      <div class="soru" style="font-size:9.4pt">Lityum nitrür</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>İyonlar: <span class="f">Li<sup>+</sup></span> ve <span class="f">N<sup>3−</sup></span></span></div>
+        <div class="adim"><span class="n">2</span><span>3 · (+1) + (−3) = 0 → 3 lityum, 1 azot</span></div>
+        <span class="sonuc"><span class="f">Li<sub>3</sub>N</span></span>
+      </div>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Örnek 4 · Formül → ad</div>
+      <div class="soru" style="font-size:9.4pt"><span class="f">(NH<sub>4</sub>)<sub>3</sub>PO<sub>4</sub></span></div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Parantez içi: <span class="f">NH<sub>4</sub><sup>+</sup></span>, kalan grup: <span class="f">PO<sub>4</sub><sup>3−</sup></span></span></div>
+        <div class="adim"><span class="n">2</span><span>Katyon : anyon = 3 : 1</span></div>
+        <span class="sonuc">amonyum fosfat</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “<span class="f">CaCl<sub>2</sub></span> iki klor içerdiği için kalsiyum diklorürdür.”</div>
+        <div class="dogru"><b class="d">✓</b> İyonik bileşiklerde Latince sayı kullanılmaz. Kalsiyumun yükü hep +2 olduğundan oran zaten bellidir: <b>kalsiyum klorür</b>.</div>
+      </div>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Parantezi unutma</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> Magnezyum hidroksit: MgOH<sub>2</sub> <span class="kucuk">(bir O, iki H gibi okunur)</span></div>
+        <div class="dogru"><b class="d">✓</b> <span class="f">Mg(OH)<sub>2</sub></span>: iki tane <span class="f">OH<sup>−</sup></span> grubu. Parantez, alt indisin <b>bütün gruba</b> ait olduğunu gösterir.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fdfaf3">
+    <p style="margin:0"><b class="k">Asetatlara özel yazım:</b> Ders kitaplarında asetat içeren bileşiklerin formülü çoğu zaman <b>anyon önde</b> yazılır: <span class="f">CH<sub>3</sub>COONa</span>. Okunuş kuralı değişmez, önce katyon söylenir: <b>sodyum asetat</b>.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Bileşiklerin Adlandırılması</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · DEĞİŞKEN YÜKLÜ METALLER
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Bileşiklerin Adlandırılması</span><span>Birden çok yük alabilen metaller</span></div>
+
+  <h2 class="konu"><span class="num">4</span>Birden çok yük alabilen metaller</h2>
+  <div class="alt-baslik">“Demir oksit” demek yetmez: Hangi demir iyonu? Cevabı Romen rakamı verir.</div>
+
+  <div class="iki-genis">
+    <div>
+      <p>1A ve 2A grubu metalleri ile alüminyum ve çinko bileşiklerinde hep aynı yükü alır. Ancak birçok geçiş metali ve bazı metaller (kalay, kurşun) farklı bileşiklerinde <b>farklı yüklü</b> katyonlar oluşturur. Örneğin demirin hem <span class="f">Fe<sup>2+</sup></span> hem <span class="f">Fe<sup>3+</sup></span> iyonu vardır; bu yüzden “demir klorür” adı iki ayrı maddeye (<span class="f">FeCl<sub>2</sub></span> ve <span class="f">FeCl<sub>3</sub></span>) uyar.</p>
+      <div class="kutu kavram">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+        <p>Böyle metallerde metal iyonunun yükü, adın hemen ardından <b>parantez içinde Romen rakamıyla</b> yazılır:</p>
+        <div class="kural"><span>metal adı (Romen rakamı)</span><i>+</i><span>anyon adı</span></div>
+        <p><span class="f">FeCl<sub>2</sub></span> → demir(II) klorür &nbsp;·&nbsp; <span class="f">FeCl<sub>3</sub></span> → demir(III) klorür. Okunuşu: “demir iki klorür”, “demir üç klorür”.</p>
+      </div>
+    </div>
+    <div>
+      <table class="tablo sik">
+        <tr><th>Metal</th><th>Yaygın iyon yükleri</th></tr>
+        <tr><td>Cr · krom</td><td>+2, +3, +6</td></tr>
+        <tr><td>Mn · mangan</td><td>+2, +3, +4, +7</td></tr>
+        <tr><td>Fe · demir</td><td>+2, +3</td></tr>
+        <tr><td>Co · kobalt</td><td>+2, +3</td></tr>
+        <tr><td>Cu · bakır</td><td>+1, +2</td></tr>
+        <tr><td>Sn · kalay</td><td>+2, +4</td></tr>
+        <tr><td>Pb · kurşun</td><td>+2, +4</td></tr>
+      </table>
+      <p class="kucuk" style="margin-top:-1.5mm">Hangi yükün söz konusu olduğunu formülden hesaplarız. Krom +6 ve mangan +7 yükleri daha çok çok atomlu iyonlarda (<span class="f">MnO<sub>4</sub><sup>−</sup></span> gibi) görülür.</p>
+    </div>
+  </div>
+
+  <div class="sema-kutu">
+    <div class="gb">AYNI METAL, FARKLI YÜK, FARKLI MADDE · Oksitlerin gerçek renkleri</div>
+    <svg class="sema" viewBox="0 0 178 38">
+      <g font-family="Inter" text-anchor="middle">
+        <rect x="2" y="2" width="31" height="15" rx="2.5" fill="#262626"/>
+        <rect x="38" y="2" width="31" height="15" rx="2.5" fill="#8e3b1f"/>
+        <rect x="74" y="2" width="31" height="15" rx="2.5" fill="#b83227"/>
+        <rect x="110" y="2" width="31" height="15" rx="2.5" fill="#1c1c1c"/>
+        <rect x="146" y="2" width="31" height="15" rx="2.5" fill="#3e7d3a"/>
+        <g font-size="3" fill="#fff" font-weight="600">
+          <text x="17.5" y="11">siyah</text><text x="53.5" y="11">kırmızı-kahve</text><text x="89.5" y="11">kırmızı</text><text x="125.5" y="11">siyah</text><text x="161.5" y="11">koyu yeşil</text>
+        </g>
+        <g font-size="4.6" font-weight="800" fill="#1d2133">
+          <text x="17.5" y="25">FeO</text>
+          <text x="53.5" y="25">Fe<tspan font-size="3.2" dy="1">2</tspan><tspan dy="-1">O</tspan><tspan font-size="3.2" dy="1">3</tspan></text>
+          <text x="89.5" y="25">Cu<tspan font-size="3.2" dy="1">2</tspan><tspan dy="-1">O</tspan></text>
+          <text x="125.5" y="25">CuO</text>
+          <text x="161.5" y="25">Cr<tspan font-size="3.2" dy="1">2</tspan><tspan dy="-1">O</tspan><tspan font-size="3.2" dy="1">3</tspan></text>
+        </g>
+        <g font-size="3.5" fill="#854d0e" font-weight="700">
+          <text x="17.5" y="31.5">demir(II) oksit</text><text x="53.5" y="31.5">demir(III) oksit</text><text x="89.5" y="31.5">bakır(I) oksit</text><text x="125.5" y="31.5">bakır(II) oksit</text><text x="161.5" y="31.5">krom(III) oksit</text>
+        </g>
+        <g font-size="3" fill="#5d6478">
+          <text x="17.5" y="36">Fe<tspan font-size="2.2" dy="-1.4">2+</tspan></text><text x="53.5" y="36">Fe<tspan font-size="2.2" dy="-1.4">3+</tspan><tspan dy="1.4"> · pasın ana bileşeni</tspan></text><text x="89.5" y="36">Cu<tspan font-size="2.2" dy="-1.4">+</tspan></text><text x="125.5" y="36">Cu<tspan font-size="2.2" dy="-1.4">2+</tspan></text><text x="161.5" y="36">Cr<tspan font-size="2.2" dy="-1.4">3+</tspan><tspan dy="1.4"> · boya pigmenti</tspan></text>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="iki">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 5 · Formülden ada</div>
+      <div class="soru"><span class="f">Cr<sub>2</sub>O<sub>3</sub></span> bileşiğini adlandırınız.</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Yükü belli olan iyondan başla: 3 tane <span class="f">O<sup>2−</sup></span> → toplam −6</span></div>
+        <div class="adim"><span class="n">2</span><span>2 krom +6 yükü paylaşır → her biri +3, yani <span class="f">Cr<sup>3+</sup></span></span></div>
+        <span class="sonuc">krom(III) oksit</span>
+      </div>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 6 · Addan formüle</div>
+      <div class="soru">Kalay(II) nitrat bileşiğinin formülünü yazınız.</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>(II) → <span class="f">Sn<sup>2+</sup></span>; nitrat → <span class="f">NO<sub>3</sub><sup>−</sup></span></span></div>
+        <div class="adim"><span class="n">2</span><span>+2 için iki nitrat gerekir; grup paranteze alınır.</span></div>
+        <span class="sonuc"><span class="f">Sn(NO<sub>3</sub>)<sub>2</sub></span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu dikkat">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “<span class="f">PbO<sub>2</sub></span>’de bir kurşun atomu var, o hâlde adı kurşun(I) oksittir.” ya da “<span class="f">Cu<sub>2</sub>O</span>’da iki bakır var, adı bakır(II) oksittir.”</div>
+      <div class="dogru"><b class="d">✓</b> Romen rakamı atom sayısı değil, <b>metal iyonunun yüküdür</b>. <span class="f">PbO<sub>2</sub></span>: 2·(−2) = −4 → <span class="f">Pb<sup>4+</sup></span>, kurşun(IV) oksit. <span class="f">Cu<sub>2</sub>O</span>: −2 yükü iki bakır paylaşır → <span class="f">Cu<sup>+</sup></span>, bakır(I) oksit.</div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Bileşiklerin Adlandırılması</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · MOLEKÜLER BİLEŞİKLER
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Bileşiklerin Adlandırılması</span><span>Moleküler bileşikler</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Moleküler bileşikler</h2>
+  <div class="alt-baslik">İyon yok, yük dengesi yok: Atomları Latince sayılarla tek tek sayarız.</div>
+
+  <p>İki ametal çoğu zaman birden fazla bileşik oluşturur. Azot ile oksijenin altı farklı bileşiği vardır ve hiçbir yük kuralı bunlardan hangisinin kastedildiğini söylemez. Bu yüzden moleküler bileşiklerin adında her atomun sayısı <b>Latince sayı ön ekleriyle</b> belirtilir.</p>
+
+  <div class="onek">
+    <div><b>1</b><span>mono</span></div><div><b>2</b><span>di</span></div><div><b>3</b><span>tri</span></div><div><b>4</b><span>tetra</span></div><div><b>5</b><span>penta</span></div>
+    <div><b>6</b><span>hekza</span></div><div><b>7</b><span>hepta</span></div><div><b>8</b><span>okta</span></div><div><b>9</b><span>nona</span></div><div><b>10</b><span>deka</span></div>
+  </div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Adlandırma kuralı</div>
+    <div class="kural"><span class="s">sayı (1 ise yazılmaz)</span><i>+</i><span>1. ametalin adı</span><i>+</i><span class="s">sayı (mono dahil)</span><i>+</i><span>2. ametalin iyon adı</span></div>
+    <ul style="font-size:9.3pt;margin-top:1.6mm">
+      <li>Formülde genellikle elektronegatifliği <b>küçük</b> olan ametal önce yazılır ve önce okunur.</li>
+      <li>İkinci ametal, anyon adıyla söylenir: oksit, klorür, florür, sülfür…</li>
+      <li>“mono” ile “oksit” birleşince araya giren o düşer: mono + oksit → <b>monoksit</b>.</li>
+    </ul>
+  </div>
+
+  <div class="sema-kutu">
+    <div class="gb">BİR ELEMENT ÇİFTİ, ALTI AD · Azot oksitleri <span style="font-weight:500;color:var(--soluk)">(toplar atom sayısını gösterir, molekül şekli değildir)</span></div>
+    <svg class="sema" viewBox="0 0 178 44">
+      <g font-family="Inter" text-anchor="middle">
+        <g fill="#4f6fd8">
+          <circle cx="12.3" cy="6" r="2.6"/><circle cx="17.7" cy="6" r="2.6"/>
+          <circle cx="44.6" cy="6" r="2.6"/>
+          <circle cx="74.2" cy="6" r="2.6"/>
+          <circle cx="100.1" cy="6" r="2.6"/><circle cx="105.5" cy="6" r="2.6"/>
+          <circle cx="129.7" cy="6" r="2.6"/><circle cx="135.1" cy="6" r="2.6"/>
+          <circle cx="159.3" cy="6" r="2.6"/><circle cx="164.7" cy="6" r="2.6"/>
+        </g>
+        <g fill="#e85d5d">
+          <circle cx="15" cy="12" r="2.6"/>
+          <circle cx="44.6" cy="12" r="2.6"/>
+          <circle cx="71.5" cy="12" r="2.6"/><circle cx="76.9" cy="12" r="2.6"/>
+          <circle cx="97.4" cy="12" r="2.6"/><circle cx="102.8" cy="12" r="2.6"/><circle cx="108.2" cy="12" r="2.6"/>
+          <circle cx="124.3" cy="12" r="2.6"/><circle cx="129.7" cy="12" r="2.6"/><circle cx="135.1" cy="12" r="2.6"/><circle cx="140.5" cy="12" r="2.6"/>
+          <circle cx="151.2" cy="12" r="2.6"/><circle cx="156.6" cy="12" r="2.6"/><circle cx="162" cy="12" r="2.6"/><circle cx="167.4" cy="12" r="2.6"/><circle cx="172.8" cy="12" r="2.6"/>
+        </g>
+        <g font-size="4.6" font-weight="800" fill="#1d2133">
+          <text x="15" y="24">N<tspan font-size="3.2" dy="1">2</tspan><tspan dy="-1">O</tspan></text>
+          <text x="44.6" y="24">NO</text>
+          <text x="74.2" y="24">NO<tspan font-size="3.2" dy="1">2</tspan></text>
+          <text x="102.8" y="24">N<tspan font-size="3.2" dy="1">2</tspan><tspan dy="-1">O</tspan><tspan font-size="3.2" dy="1">3</tspan></text>
+          <text x="132.4" y="24">N<tspan font-size="3.2" dy="1">2</tspan><tspan dy="-1">O</tspan><tspan font-size="3.2" dy="1">4</tspan></text>
+          <text x="162" y="24">N<tspan font-size="3.2" dy="1">2</tspan><tspan dy="-1">O</tspan><tspan font-size="3.2" dy="1">5</tspan></text>
+        </g>
+        <g font-size="3.5" fill="#854d0e" font-weight="700">
+          <text x="15" y="31">diazot</text><text x="15" y="35.5">monoksit</text>
+          <text x="44.6" y="31">azot</text><text x="44.6" y="35.5">monoksit</text>
+          <text x="74.2" y="31">azot</text><text x="74.2" y="35.5">dioksit</text>
+          <text x="102.8" y="31">diazot</text><text x="102.8" y="35.5">trioksit</text>
+          <text x="132.4" y="31">diazot</text><text x="132.4" y="35.5">tetraoksit</text>
+          <text x="162" y="31">diazot</text><text x="162" y="35.5">pentaoksit</text>
+        </g>
+        <g font-size="2.9" fill="#5d6478">
+          <text x="15" y="41">güldürücü gaz</text><text x="74.2" y="41">kahverengi, kirletici</text>
+        </g>
+        <g stroke="#dfe3ee" stroke-width=".3"><line x1="29.8" y1="2" x2="29.8" y2="42"/><line x1="59.4" y1="2" x2="59.4" y2="42"/><line x1="89" y1="2" x2="89" y2="42"/><line x1="117.6" y1="2" x2="117.6" y2="42"/><line x1="147.2" y1="2" x2="147.2" y2="42"/></g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="iki">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 7</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span><span class="f">SiCl<sub>4</sub></span>: 1 Si (ön ek yok) + 4 Cl → <b>silisyum tetraklorür</b></span></div>
+        <div class="adim"><span class="n">2</span><span><span class="f">P<sub>4</sub>O<sub>10</sub></span>: 4 P + 10 O → <b>tetrafosfor dekaoksit</b></span></div>
+        <div class="adim"><span class="n">3</span><span>İyot heptaflorür: 1 I + 7 F → <b><span class="f">IF<sub>7</sub></span></b></span></div>
+        <div class="adim"><span class="n">4</span><span>Dikükürt diklorür: 2 S + 2 Cl → <b><span class="f">S<sub>2</sub>Cl<sub>2</sub></span></b></span></div>
+      </div>
+      <p style="margin:2.4mm 0 1mm;font-size:9.3pt"><b style="color:var(--ornek)">Sıra sende:</b> Aşağıdakileri adlandır.</p>
+      <div class="yokla" style="grid-template-columns:repeat(4,1fr)"><span><span class="f">CBr<sub>4</sub></span></span><span><span class="f">SeO<sub>2</sub></span></span><span><span class="f">BF<sub>3</sub></span></span><span><span class="f">ClF<sub>3</sub></span></span></div>
+      <p class="kucuk" style="margin:1.6mm 0 0">Cevaplar: karbon tetrabromür · selenyum dioksit · bor triflorür · klor triflorür</p>
+    </div>
+    <div>
+      <div class="kutu dikkat">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “<span class="f">N<sub>2</sub>O<sub>5</sub></span>: azot pentaoksit.”</div>
+          <div class="dogru"><b class="d">✓</b> Birinci atomun sayısı 1’den farklıysa o da söylenir: <b>diazot pentaoksit</b>. Ön ek yalnızca 1 tane olan <b>ilk</b> atomda düşer.</div>
+        </div>
+      </div>
+      <div class="kutu hayat">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+        <p style="font-size:9.2pt"><b>Karbon monoksit</b> (<span class="f">CO</span>) renksiz, kokusuz ve çok zehirlidir; kötü yanan soba ve şofbenlerden sızabilir. <b>Karbon dioksit</b> (<span class="f">CO<sub>2</sub></span>) ise soluduğumuz havada bulunur. Tek bir ön ek, bambaşka iki madde demektir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Bileşiklerin Adlandırılması</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · YAYGIN ADLAR VE ASİTLER
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Bileşiklerin Adlandırılması</span><span>Yaygın adlar</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Yaygın adlar ve asitler</h2>
+  <div class="alt-baslik">Market rafındaki ad ile kimya defterindeki ad aynı maddeyi anlatır.</div>
+
+  <p>Bazı bileşikler, sistematik adlandırma kurallarından çok önce bilinip kullanılmıştır. Bunların geleneksel ya da ticari adları o kadar yaygınlaşmıştır ki sistematik adları neredeyse hiç kullanılmaz. Kimse bir bardak “dihidrojen monoksit” istemez!</p>
+
+  <table class="tablo sik">
+    <tr><th>Formül</th><th>Sistematik ad</th><th>Yaygın ad</th><th>Nerede karşılaşırız?</th></tr>
+    <tr><td><span class="f">H<sub>2</sub>O</span></td><td>dihidrojen monoksit</td><td><b>su</b></td><td>her yerde</td></tr>
+    <tr><td><span class="f">NH<sub>3</sub></span></td><td>azot trihidrür</td><td><b>amonyak</b></td><td>gübre üretimi, bazı temizlik ürünleri</td></tr>
+    <tr><td><span class="f">NaCl</span></td><td>sodyum klorür</td><td><b>sofra tuzu</b></td><td>mutfak</td></tr>
+    <tr><td><span class="f">NaHCO<sub>3</sub></span></td><td>sodyum hidrojen karbonat</td><td><b>yemek sodası</b> (karbonat)</td><td>hamur kabartma</td></tr>
+    <tr><td><span class="f">Na<sub>2</sub>CO<sub>3</sub></span></td><td>sodyum karbonat</td><td><b>çamaşır sodası</b></td><td>deterjan, cam üretimi</td></tr>
+    <tr><td><span class="f">NaOH</span></td><td>sodyum hidroksit</td><td><b>sud kostik</b></td><td>sabun yapımı, lavabo açıcı</td></tr>
+        <tr><td><span class="f">CaO</span></td><td>kalsiyum oksit</td><td><b>sönmemiş kireç</b></td><td>inşaat, kireç üretimi</td></tr>
+    <tr><td><span class="f">Ca(OH)<sub>2</sub></span></td><td>kalsiyum hidroksit</td><td><b>sönmüş kireç</b></td><td>badana, sıva</td></tr>
+    <tr><td><span class="f">CaCO<sub>3</sub></span></td><td>kalsiyum karbonat</td><td><b>kireç taşı</b>, mermer</td><td>yapı taşı, çimento hammaddesi</td></tr>
+    <tr><td><span class="f">N<sub>2</sub>O</span></td><td>diazot monoksit</td><td><b>güldürücü gaz</b></td><td>tıpta hafif anestezi</td></tr>
+  </table>
+
+  <div class="iki-genis">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Asitlerin adları</div>
+      <p style="font-size:9.3pt">Suda çözündüğünde <span class="f">H<sup>+</sup></span> iyonu veren hidrojenli bileşiklere <b>asit</b> denir. Oksijen içeren asitlerin adı anyonun adından türetilir: <b>-at</b> eki <b>-ik asit</b> olur. Gaz hâlindeki <span class="f">HCl</span> hidrojen klorür, sudaki çözeltisi hidroklorik asit diye adlandırılır.</p>
+      <table class="tablo sik" style="margin-bottom:0">
+        <tr><th>Formül</th><th>Asit adı</th><th>Nerede?</th></tr>
+        <tr><td><span class="f">HCl</span></td><td>hidroklorik asit</td><td>tuz ruhu</td></tr>
+        <tr><td><span class="f">H<sub>2</sub>SO<sub>4</sub></span></td><td>sülfürik asit <span class="kucuk">(sülfat)</span></td><td>zaç yağı</td></tr>
+        <tr><td><span class="f">HNO<sub>3</sub></span></td><td>nitrik asit <span class="kucuk">(nitrat)</span></td><td>kezzap</td></tr>
+        <tr><td><span class="f">H<sub>2</sub>CO<sub>3</sub></span></td><td>karbonik asit <span class="kucuk">(karbonat)</span></td><td>gazoz</td></tr>
+        <tr><td><span class="f">H<sub>3</sub>PO<sub>4</sub></span></td><td>fosforik asit <span class="kucuk">(fosfat)</span></td><td>kola</td></tr>
+        <tr><td><span class="f">CH<sub>3</sub>COOH</span></td><td>asetik asit <span class="kucuk">(asetat)</span></td><td>sirke</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="sema-kutu">
+        <div class="gb">ETİKET OKUYALIM</div>
+        <svg class="sema" viewBox="0 0 80 52">
+          <g font-family="Inter">
+            <rect x="9" y="1" width="10" height="6" rx="1.2" fill="#9aa3b8"/>
+            <path d="M6 7 H22 L26 12 V48 Q26 51 23 51 H5 Q2 51 2 48 V12z" fill="#eef2ff" stroke="#9aa3b8" stroke-width=".4"/>
+            <rect x="4" y="16" width="20" height="28" rx="1.5" fill="#fff" stroke="#c7cbe8" stroke-width=".3"/>
+            <text x="14" y="21.6" font-size="3.2" font-weight="800" fill="#1d2133" text-anchor="middle">ÇAMAŞIR</text>
+            <text x="14" y="25.4" font-size="3.2" font-weight="800" fill="#1d2133" text-anchor="middle">SUYU</text>
+            <g transform="translate(14,34)"><rect x="-4.2" y="-4.2" width="8.4" height="8.4" fill="#fff" stroke="#e11d48" stroke-width=".8" transform="rotate(45)"/></g>
+            <text x="14" y="36.2" font-size="5" font-weight="900" fill="#1d2133" text-anchor="middle">!</text>
+            <text x="31" y="12" font-size="3.4" font-weight="800" fill="#5d6478">İÇİNDEKİLER</text>
+            <path d="M24 22 H29" stroke="#854d0e" stroke-width=".4"/><path d="M24 34 H29" stroke="#854d0e" stroke-width=".4"/>
+            <text x="31" y="20.4" font-size="3.6" fill="#1d2133">sodyum hipoklorit</text>
+            <text x="31" y="25.2" font-size="3.6" font-weight="800" fill="#854d0e">NaClO</text>
+            <text x="31" y="32.4" font-size="3.6" fill="#1d2133">sodyum hidroksit</text>
+            <text x="31" y="37.2" font-size="3.6" font-weight="800" fill="#854d0e">NaOH</text>
+            <text x="31" y="45" font-size="3" fill="#5d6478">İkisi de iyonik; etikette</text>
+            <text x="31" y="48.6" font-size="3" fill="#5d6478">sistematik adları yazar.</text>
+          </g>
+        </svg>
+        <div class="ga">Çamaşır suyunu tuz ruhu (hidroklorik asit) içeren ürünlerle <b>asla karıştırma</b>: zehirli klor gazı açığa çıkar.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu dikkat">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “Kezzap ile tuz ruhu aynı asidin farklı adlarıdır.” ya da “Sönmüş kireç ile sönmemiş kireç aynı maddedir.”</div>
+      <div class="dogru"><b class="d">✓</b> Kezzap <span class="f">HNO<sub>3</sub></span>, tuz ruhu <span class="f">HCl</span> çözeltisidir. Sönmemiş kireç <span class="f">CaO</span>; suyla tepkimeye girip “sönünce” <span class="f">Ca(OH)<sub>2</sub></span> oluşur. Yaygın ad değişince madde de değişir.</div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Bileşiklerin Adlandırılması</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · ÖZET
+     ========================================================= -->
+<section class="sayfa cift ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Bileşiklerin Adlandırılması</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada adlandırma</h2><p>Sınavdan önceki gece bu sayfaya bakman yeter. Her kutuyu kendi cümlelerinle bir arkadaşına anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> İyonik bileşikler</div>
+      <ul style="font-size:9.1pt">
+        <li>Metal ya da <span class="f">NH<sub>4</sub><sup>+</sup></span> içerir</li>
+        <li>Formül: toplam yük sıfır; önce katyon, sonra anyon</li>
+        <li>Ad: <b>katyon adı + anyon adı</b>; Latince sayı yok</li>
+        <li>Birden çok yüklü metal: Romen rakamı = iyon yükü → demir(III) oksit</li>
+        <li>Tek atomlu anyon <b>-ür</b> (oksit istisna)</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Bilmen gereken kökler</div>
+      <ul style="font-size:9.1pt">
+        <li><span class="f">NH<sub>4</sub><sup>+</sup></span> amonyum · <span class="f">OH<sup>−</sup></span> hidroksit · <span class="f">CN<sup>−</sup></span> siyanür</li>
+        <li><span class="f">NO<sub>3</sub><sup>−</sup></span> nitrat · <span class="f">NO<sub>2</sub><sup>−</sup></span> nitrit · <span class="f">CH<sub>3</sub>COO<sup>−</sup></span> asetat</li>
+        <li><span class="f">SO<sub>4</sub><sup>2−</sup></span> sülfat · <span class="f">SO<sub>3</sub><sup>2−</sup></span> sülfit · <span class="f">CO<sub>3</sub><sup>2−</sup></span> karbonat</li>
+        <li><span class="f">HCO<sub>3</sub><sup>−</sup></span> hidrojen karbonat · <span class="f">PO<sub>4</sub><sup>3−</sup></span> fosfat</li>
+        <li><span class="f">MnO<sub>4</sub><sup>−</sup></span> permanganat · <span class="f">ClO<sup>−</sup></span> hipoklorit</li>
+      </ul>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Moleküler bileşikler</div>
+      <ul style="font-size:9.1pt">
+        <li>Yalnızca ametallerden oluşur</li>
+        <li>mono 1 · di 2 · tri 3 · tetra 4 · penta 5 · hekza 6 · hepta 7 · okta 8</li>
+        <li>İlk atom 1 taneyse ön ek almaz: <span class="f">CO<sub>2</sub></span> karbon dioksit</li>
+        <li>İkinci atom iyon adıyla, sayısı hep söylenir: <span class="f">N<sub>2</sub>O<sub>5</sub></span> diazot pentaoksit</li>
+        <li>Yaygın adlar: su, amonyak, kezzap, tuz ruhu…</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> En sık 4 hata</div>
+      <ul style="font-size:9.1pt">
+        <li>İyonik bileşiğe Latince ön ek koymak (“kalsiyum diklorür”)</li>
+        <li>Romen rakamını atom sayısı sanmak (<span class="f">Fe<sub>2</sub>O<sub>3</sub></span> → “demir(II)”)</li>
+        <li>Çok atomlu iyonda parantezi unutmak (MgOH<sub>2</sub>)</li>
+        <li>Sülfür/sülfit/sülfat, nitrür/nitrit/nitrat eklerini karıştırmak</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Bir bileşiğin iyonik mi moleküler mi olduğunu formülüne bakarak söyleyebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Tek atomlu ve çok atomlu sık kullanılan iyonların formül ve adlarını yazabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>İyonlardan yük dengeli formül kurabilir, gerektiğinde parantez kullanabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Birden çok yük alabilen metallerin bileşiklerinde Romen rakamını hesaplayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Moleküler bileşikleri Latince sayı ön ekleriyle adlandırıp adından formül yazabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Günlük hayattaki yaygın adları sistematik ad ve formülle eşleştirebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:4mm;height:36mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Bileşiklerin Adlandırılması</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Bileşiklerin Adlandırılması</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Aşağıdaki çözümleri dört farklı öğrenci yazdı. Her birinde bir hata var. Hatayı bul, hangi satırda olduğunu yaz, doğrusunu kutuya çöz.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Lityum oksitin formülünü yazınız. <span class="veri">(₃Li, ₈O)</span></p>
+      <div class="defter">
+        <div class="ogrenci">Ayşenur’un çözümü</div>
+        <div class="satir"><span class="sn">1</span>Lityum iki elektron verir: <span class="f">Li<sup>2+</sup></span></div>
+        <div class="satir"><span class="sn">2</span>Oksijen iki elektron alır: <span class="f">O<sup>2−</sup></span></div>
+        <div class="satir"><span class="sn">3</span>Yükler eşit, oran 1 : 1 → LiO</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> <span class="f">Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></span> bileşiğini adlandırınız.</p>
+      <div class="defter">
+        <div class="ogrenci">Baran’ın çözümü</div>
+        <div class="satir"><span class="sn">1</span>Üç sülfat var: 3 · (−2) = −6</div>
+        <div class="satir"><span class="sn">2</span>2 demir var → Romen rakamı II olur.</div>
+        <div class="satir"><span class="sn">3</span>Adı: demir(II) sülfat</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> <span class="f">PCl<sub>3</sub></span> bileşiğini adlandırınız.</p>
+      <div class="defter">
+        <div class="ogrenci">Elif’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>P ve Cl ametal → moleküler bileşik</div>
+        <div class="satir"><span class="sn">2</span>1 tane P var, başına “mono” gelir.</div>
+        <div class="satir"><span class="sn">3</span>Adı: monofosfor triklorür</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Amonyum karbonat bileşiğinin formülünü yazınız.</p>
+      <div class="defter">
+        <div class="ogrenci">Tuna’nın çözümü</div>
+        <div class="satir"><span class="sn">1</span>İyonlar: <span class="f">NH<sub>4</sub><sup>+</sup></span> ve <span class="f">CO<sub>3</sub><sup>2−</sup></span></div>
+        <div class="satir"><span class="sn">2</span>−2 yükü için 2 amonyum gerekir.</div>
+        <div class="satir"><span class="sn">3</span>Formül: <span class="f">NH<sub>4</sub><sub>2</sub>CO<sub>3</sub></span></div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Bir formülü kontrol etmenin en hızlı yolu <b>yükleri toplamaktır</b>. Toplam sıfır değilse ya da çok atomlu bir grubun parantezi eksikse hata büyük ihtimalle oradadır.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Bileşiklerin Adlandırılması</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Bileşiklerin Adlandırılması</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni, tabloyu ya da görseli oku; sonra hangi kuralın işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Tarım</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Bir tarım kooperatifinin deposundaki gübre çuvallarına etken maddenin adı ve formülü yazılmıştır.</p>
+          <table class="tablo sik">
+            <tr><th>Çuval</th><th>Etken madde</th><th>Formül</th></tr>
+            <tr><td>A</td><td>amonyum nitrat</td><td><span class="f">NH<sub>4</sub>NO<sub>3</sub></span></td></tr>
+            <tr><td>B</td><td>amonyum sülfat</td><td><span class="f">(NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub></span></td></tr>
+            <tr><td>C</td><td>kalsiyum nitrat</td><td><span class="f">Ca(NO<sub>3</sub>)<sub>2</sub></span></td></tr>
+            <tr><td>D</td><td>magnezyum sülfat</td><td><span class="f">MgSO<sub>4</sub></span></td></tr>
+            <tr><td>E</td><td>potasyum sülfat</td><td><span class="f">K<sub>2</sub>SO<sub>3</sub></span></td></tr>
+          </table>
+          <p>Hangi çuvaldaki ad–formül eşleştirmesi <b>yanlıştır</b>?</p>
+          <div class="secenek bes"><span><b>A)</b>A</span><span><b>B)</b>B</span><span><b>C)</b>C</span><span><b>D)</b>D</span><span><b>E)</b>E</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Laboratuvar</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>Laboratuvar dolabında etiketleri yalnızca formül olan üç şişe vardır.</p>
+          <svg viewBox="0 0 120 34" style="width:100%;margin:0 0 1.5mm">
+            <g font-family="Inter" text-anchor="middle">
+              <g>
+                <rect x="15" y="1" width="10" height="5" rx="1" fill="#9aa3b8"/><path d="M7 6 H33 V31 Q33 33 31 33 H9 Q7 33 7 31z" fill="#f3f4f8" stroke="#9aa3b8" stroke-width=".4"/>
+                <rect x="9" y="11" width="22" height="17" rx="1.5" fill="#fff" stroke="#c26a06" stroke-width=".5"/>
+                <text x="20" y="16.6" font-size="4" font-weight="800" fill="#c26a06">1</text>
+                <text x="20" y="24.6" font-size="4.8" font-weight="700" fill="#1d2133">Na<tspan font-size="3.8" dy="1.2">2</tspan><tspan dy="-1.2">SO</tspan><tspan font-size="3.8" dy="1.2">3</tspan></text>
+              </g><g>
+                <rect x="55" y="1" width="10" height="5" rx="1" fill="#9aa3b8"/><path d="M47 6 H73 V31 Q73 33 71 33 H49 Q47 33 47 31z" fill="#f3f4f8" stroke="#9aa3b8" stroke-width=".4"/>
+                <rect x="49" y="11" width="22" height="17" rx="1.5" fill="#fff" stroke="#c26a06" stroke-width=".5"/>
+                <text x="60" y="16.6" font-size="4" font-weight="800" fill="#c26a06">2</text>
+                <text x="60" y="24.6" font-size="4.8" font-weight="700" fill="#1d2133">Na<tspan font-size="3.8" dy="1.2">2</tspan><tspan dy="-1.2">SO</tspan><tspan font-size="3.8" dy="1.2">4</tspan></text>
+              </g><g>
+                <rect x="95" y="1" width="10" height="5" rx="1" fill="#9aa3b8"/><path d="M87 6 H113 V31 Q113 33 111 33 H89 Q87 33 87 31z" fill="#f3f4f8" stroke="#9aa3b8" stroke-width=".4"/>
+                <rect x="89" y="11" width="22" height="17" rx="1.5" fill="#fff" stroke="#c26a06" stroke-width=".5"/>
+                <text x="100" y="16.6" font-size="4" font-weight="800" fill="#c26a06">3</text>
+                <text x="100" y="24.6" font-size="4.8" font-weight="700" fill="#1d2133">Na<tspan font-size="3.8" dy="1.2">2</tspan><tspan dy="-1.2">S</tspan></text>
+              </g>
+            </g>
+          </svg>
+          <p>Bu şişelerdeki maddelerle ilgili;</p>
+          <div class="oncul"><div><b>I.</b><span>1. şişedeki madde sodyum sülfittir.</span></div><div><b>II.</b><span>3. şişedeki madde sodyum sülfattır.</span></div><div><b>III.</b><span>Üç maddede de katyon : anyon oranı 2 : 1’dir.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Sanat · Seramik</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Seramik ustaları sırlara renk vermek için metal oksitleri kullanır. Bir usta, kullandığı dört oksitteki metal iyonlarının yükünü aşağıdaki grafikte göstermiştir.</p>
+          <svg viewBox="0 0 120 74" style="width:100%;margin:0 0 1.5mm">
+            <g font-family="Inter" font-size="4.2" fill="#5d6478">
+              <g stroke="#e5e7f0" stroke-width=".3">
+                <line x1="20" y1="10" x2="114" y2="10"/><line x1="20" y1="23" x2="114" y2="23"/><line x1="20" y1="36" x2="114" y2="36"/><line x1="20" y1="49" x2="114" y2="49"/>
+              </g>
+              <line x1="20" y1="62" x2="114" y2="62" stroke="#1d2133" stroke-width=".5"/>
+              <line x1="20" y1="62" x2="20" y2="6" stroke="#1d2133" stroke-width=".5"/>
+              <text x="17" y="63.4" text-anchor="end">0</text><text x="17" y="50.4" text-anchor="end">+1</text><text x="17" y="37.4" text-anchor="end">+2</text><text x="17" y="24.4" text-anchor="end">+3</text><text x="17" y="11.4" text-anchor="end">+4</text>
+              <text x="3" y="4" fill="#1d2133" font-weight="700">Metal iyonunun yükü</text>
+              <rect x="27" y="36" width="14" height="26" fill="#3b5bdb"/>
+              <rect x="50" y="23" width="14" height="39" fill="#3e7d3a"/>
+              <rect x="73" y="10" width="14" height="52" fill="#6b4226"/>
+              <rect x="96" y="49" width="14" height="13" fill="#b83227"/>
+              <g text-anchor="middle" fill="#1d2133" font-weight="700">
+                <text x="34" y="67.6">kobalt</text><text x="57" y="67.6">krom</text><text x="80" y="67.6">mangan</text><text x="103" y="67.6">bakır</text>
+              </g>
+              <g text-anchor="middle" font-size="3.4">
+                <text x="34" y="72.4">mavi</text><text x="57" y="72.4">yeşil</text><text x="80" y="72.4">kahverengi</text><text x="103" y="72.4">kırmızı</text>
+              </g>
+            </g>
+          </svg>
+          <p>Grafiğe göre aşağıdaki formül–ad eşleştirmelerinden hangisi <b>doğrudur</b>?</p>
+          <div class="secenek tek"><span><b>A)</b><span class="f">CoO<sub>2</sub></span> – kobalt(II) oksit</span><span><b>B)</b><span class="f">Cr<sub>2</sub>O<sub>3</sub></span> – krom(III) oksit</span><span><b>C)</b><span class="f">MnO<sub>2</sub></span> – mangan(II) oksit</span><span><b>D)</b><span class="f">CuO</span> – bakır(I) oksit</span><span><b>E)</b><span class="f">Cr<sub>3</sub>O<sub>2</sub></span> – krom(III) oksit</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Çevre</div>
+        <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+          <p>Bir kentin hava kalitesi raporunda kirleticiler arasında <span class="f">SO<sub>2</sub></span>, <span class="f">NO<sub>2</sub></span> ve <span class="f">N<sub>2</sub>O<sub>4</sub></span> gazları ile havada asılı tanecikler hâlinde bulunan <span class="f">(NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub></span> sayılmıştır.</p>
+          <div class="oncul"><div><b>I.</b><span><span class="f">SO<sub>2</sub></span>’nin sistematik adı kükürt dioksittir.</span></div><div><b>II.</b><span><span class="f">(NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub></span> iyonik bir bileşiktir ve adı amonyum sülfattır.</span></div><div><b>III.</b><span><span class="f">NO<sub>2</sub></span> ile <span class="f">N<sub>2</sub>O<sub>4</sub></span> aynı elementlerden oluştuğu için ikisi de “azot oksit” diye adlandırılabilir.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Bileşiklerin Adlandırılması</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Bileşiklerin Adlandırılması</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, sadece o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p>Kromun iki oksidi <span class="f">Cr<sub>2</sub>O<sub>3</sub></span> (yeşil) ve <span class="f">CrO<sub>3</sub></span> (koyu kırmızı) bileşikleridir. Her iki oksitte kromun yükünü bulup bileşikleri adlandırınız.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Oksijenin yükü bellidir: <span class="f">O<sup>2−</sup></span>. Her formülde oksijenlerin toplam yükünü hesapla.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Toplam yük sıfır olmalı: Kromların toplam yükü, oksijenlerin toplam yüküne eşit ve zıt işaretlidir. Bunu krom atomu sayısına böl.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Bulduğun yükü Romen rakamıyla, boşluk bırakmadan metal adının yanına parantez içinde yaz.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p><b>Alüminyum sülfat</b> ve <b>amonyum fosfat</b> bileşiklerinin formüllerini yazınız. Hangisinin bir formül biriminde daha çok atom vardır?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">İyonları yaz: <span class="f">Al<sup>3+</sup></span> ile <span class="f">SO<sub>4</sub><sup>2−</sup></span>; <span class="f">NH<sub>4</sub><sup>+</sup></span> ile <span class="f">PO<sub>4</sub><sup>3−</sup></span>.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Yükleri dengele. Çok atomlu iyondan birden fazla gerekiyorsa paranteze al.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Atomları sayarken parantez dışındaki indisi, parantez içindeki her atomla çarp.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p>Azot ve oksijenden oluşan bir bileşiğin bir molekülünde toplam <b>7 atom</b> vardır ve oksijen atomu sayısı azot atomu sayısından <b>3 fazladır</b>. Bileşiğin formülünü ve sistematik adını yazınız.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Azot sayısına a de. Oksijen sayısı a + 3 olur; toplamı 7’ye eşitle.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">a = 2 çıkar. Formülü yaz; bu bileşik iyonik mi, moleküler mi?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Moleküler bileşikte iki atomun sayısını da Latince ön ekle söyle (ilk atom 1 değil!).</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Bileşiklerin Adlandırılması</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa cift test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Bileşiklerin Adlandırılması</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 25 dakika. Her sorunun yalnızca bir doğru cevabı vardır.</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>Aşağıdaki bileşiklerden hangisi <b>iyonik</b> yapılıdır?</p>
+        <div class="secenek bes"><span><b>A)</b><span class="f">NH<sub>4</sub>Br</span></span><span><b>B)</b><span class="f">SO<sub>2</sub></span></span><span><b>C)</b><span class="f">PCl<sub>3</sub></span></span><span><b>D)</b><span class="f">CCl<sub>4</sub></span></span><span><b>E)</b><span class="f">N<sub>2</sub>O</span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>Aşağıdaki iyonlardan hangisinin adı <b>yanlış</b> verilmiştir?</p>
+        <div class="secenek tek"><span><b>A)</b><span class="f">NO<sub>3</sub><sup>−</sup></span> : nitrat</span><span><b>B)</b><span class="f">SO<sub>3</sub><sup>2−</sup></span> : sülfit</span><span><b>C)</b><span class="f">OH<sup>−</sup></span> : hidroksit</span><span><b>D)</b><span class="f">N<sup>3−</sup></span> : nitrit</span><span><b>E)</b><span class="f">CN<sup>−</sup></span> : siyanür</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p>Potasyum fosfat bileşiğinin formülü aşağıdakilerden hangisidir?</p>
+        <div class="secenek"><span><b>A)</b><span class="f">KPO<sub>4</sub></span></span><span><b>B)</b><span class="f">K<sub>2</sub>PO<sub>4</sub></span></span><span><b>C)</b><span class="f">K<sub>3</sub>P</span></span><span><b>D)</b><span class="f">K(PO<sub>4</sub>)<sub>3</sub></span></span><span><b>E)</b><span class="f">K<sub>3</sub>PO<sub>4</sub></span></span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p><span class="f">SnF<sub>4</sub></span> bileşiğinin sistematik adı aşağıdakilerden hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>Kalay florür</span><span><b>B)</b>Kalay(IV) florür</span><span><b>C)</b>Kalay tetraflorür</span><span><b>D)</b>Kalay(II) florür</span><span><b>E)</b>Kalay(IV) florit</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p>Diazot tetraoksit bileşiğinin formülü aşağıdakilerden hangisidir?</p>
+        <div class="secenek"><span><b>A)</b><span class="f">N<sub>2</sub>O<sub>4</sub></span></span><span><b>B)</b><span class="f">NO<sub>4</sub></span></span><span><b>C)</b><span class="f">N<sub>4</sub>O<sub>2</sub></span></span><span><b>D)</b><span class="f">N<sub>2</sub>O<sub>5</sub></span></span><span><b>E)</b><span class="f">N<sub>2</sub>O<sub>3</sub></span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p>Aşağıdaki bileşiklerden hangisinin sistematik adında <b>Latince sayı ön eki</b> kullanılır?</p>
+        <div class="secenek"><span><b>A)</b><span class="f">MgCl<sub>2</sub></span></span><span><b>B)</b><span class="f">Al<sub>2</sub>O<sub>3</sub></span></span><span><b>C)</b><span class="f">KNO<sub>3</sub></span></span><span><b>D)</b><span class="f">PF<sub>5</sub></span></span><span><b>E)</b><span class="f">(NH<sub>4</sub>)<sub>2</sub>S</span></span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Bileşiklerin Adlandırılması</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · TEST (7–12)
+     ========================================================= -->
+<section class="sayfa test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Bileşiklerin Adlandırılması</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>Aşağıdaki formül–yaygın ad eşleştirmelerinden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b><span class="f">NaOH</span> – sud kostik</span><span><b>B)</b><span class="f">HNO<sub>3</sub></span> – kezzap</span><span><b>C)</b><span class="f">CaO</span> – sönmüş kireç</span><span><b>D)</b><span class="f">NaHCO<sub>3</sub></span> – yemek sodası</span><span><b>E)</b><span class="f">H<sub>2</sub>SO<sub>4</sub></span> – zaç yağı</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p><span class="f">Mg<sup>2+</sup></span> iyonu aşağıdaki anyonlardan hangisiyle katyon : anyon oranı <b>1 : 1</b> olan bir bileşik oluşturur?</p>
+        <div class="secenek bes"><span><b>A)</b><span class="f">Cl<sup>−</sup></span></span><span><b>B)</b><span class="f">NO<sub>3</sub><sup>−</sup></span></span><span><b>C)</b><span class="f">OH<sup>−</sup></span></span><span><b>D)</b><span class="f">PO<sub>4</sub><sup>3−</sup></span></span><span><b>E)</b><span class="f">CO<sub>3</sub><sup>2−</sup></span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>Adı verilen bileşiklerden hangisinin bir formül biriminde (ya da bir molekülünde) <b>en çok atom</b> bulunur?</p>
+        <div class="secenek tek"><span><b>A)</b>Amonyum nitrat</span><span><b>B)</b>Alüminyum sülfat</span><span><b>C)</b>Kalsiyum hidroksit</span><span><b>D)</b>Sodyum asetat</span><span><b>E)</b>Diazot pentaoksit</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p><span class="f">MnO<sub>2</sub></span> ve <span class="f">KMnO<sub>4</sub></span> bileşikleriyle ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span><span class="f">MnO<sub>2</sub></span>’de manganın yükü +4’tür; adı mangan(IV) oksittir.</span></div><div><b>II.</b><span><span class="f">KMnO<sub>4</sub></span>, <span class="f">K<sup>+</sup></span> ve <span class="f">MnO<sub>4</sub><sup>−</sup></span> iyonlarından oluşur.</span></div><div><b>III.</b><span><span class="f">KMnO<sub>4</sub></span>’ün adı potasyum mangan(VII) oksittir.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <p>X metali bileşiklerinde yalnızca <span class="f">X<sup>3+</sup></span> iyonu oluşturur. Buna göre X ile ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span><span class="f">Y<sup>2−</sup></span> anyonu ile oluşturduğu bileşiğin formülü <span class="f">X<sub>2</sub>Y<sub>3</sub></span>’tür.</span></div><div><b>II.</b><span>Nitratının formülü <span class="f">X(NO<sub>3</sub>)<sub>3</sub></span>’tür.</span></div><div><b>III.</b><span>Fosfatının formülü <span class="f">XPO<sub>4</sub></span>’tür.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p>Aşağıdaki ad–formül eşleştirmelerinden hangisi <b>doğrudur</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Kükürt hekzaflorür – <span class="f">SF<sub>6</sub></span></span><span><b>B)</b>Lityum nitrür – <span class="f">LiN</span></span><span><b>C)</b>Bakır(I) oksit – <span class="f">CuO</span></span><span><b>D)</b>Amonyum klorür – <span class="f">NH<sub>3</sub>Cl</span></span><span><b>E)</b>Karbon disülfür – <span class="f">C<sub>2</sub>S</span></span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fdfaf3;margin-top:2mm">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 3. ve 4. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Bileşiklerin Adlandırılması</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Bileşiklerin Adlandırılması</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>A</span></div><div><b>2</b><span>D</span></div><div><b>3</b><span>E</span></div><div><b>4</b><span>B</span></div>
+    <div><b>5</b><span>A</span></div><div><b>6</b><span>D</span></div><div><b>7</b><span>C</span></div><div><b>8</b><span>E</span></div>
+    <div><b>9</b><span>B</span></div><div><b>10</b><span>C</span></div><div><b>11</b><span>E</span></div><div><b>12</b><span>A</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · A</b> <span class="f">NH<sub>4</sub>Br</span>, <span class="f">NH<sub>4</sub><sup>+</sup></span> ve <span class="f">Br<sup>−</sup></span> iyonlarından oluşur (amonyum bromür). Diğerleri yalnızca ametal içerir.</div>
+    <div class="c"><b>2 · D</b> <span class="f">N<sup>3−</sup></span> tek atomlu anyondur: <b>nitrür</b>. Nitrit, <span class="f">NO<sub>2</sub><sup>−</sup></span> iyonunun adıdır.</div>
+    <div class="c"><b>3 · E</b> <span class="f">K<sup>+</sup></span> ve <span class="f">PO<sub>4</sub><sup>3−</sup></span>: −3 yükü için 3 potasyum → <span class="f">K<sub>3</sub>PO<sub>4</sub></span>.</div>
+    <div class="c"><b>4 · B</b> 4·(−1) = −4 → <span class="f">Sn<sup>4+</sup></span>. İyonik olduğu için ön ek değil Romen rakamı kullanılır: kalay(IV) florür.</div>
+    <div class="c"><b>5 · A</b> di → 2 N, tetra → 4 O: <span class="f">N<sub>2</sub>O<sub>4</sub></span>.</div>
+    <div class="c"><b>6 · D</b> <span class="f">PF<sub>5</sub></span> yalnız ametal içerir: fosfor pentaflorür. Diğerleri iyoniktir.</div>
+    <div class="c"><b>7 · C</b> <span class="f">CaO</span> sönmemiş kireçtir; sönmüş kireç <span class="f">Ca(OH)<sub>2</sub></span>’dir.</div>
+    <div class="c"><b>8 · E</b> +2 ve −2 yükleri 1 : 1 oranda dengelenir: <span class="f">MgCO<sub>3</sub></span>. Diğerleri: <span class="f">MgCl<sub>2</sub></span>, <span class="f">Mg(NO<sub>3</sub>)<sub>2</sub></span>, <span class="f">Mg(OH)<sub>2</sub></span>, <span class="f">Mg<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub></span>.</div>
+    <div class="c"><b>9 · B</b> <span class="f">Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></span>: 2 + 3·5 = 17 atom. A) 9 · C) 5 · D) 8 · E) 7.</div>
+    <div class="c"><b>10 · C</b> I ve II doğru. III yanlış: <span class="f">MnO<sub>4</sub><sup>−</sup></span> bir çok atomlu iyondur, bileşiğin adı <b>potasyum permanganat</b>tır.</div>
+    <div class="c"><b>11 · E</b> I: 2·(+3) + 3·(−2) = 0 ✓ · II: +3 için 3 nitrat ✓ · III: +3 ve −3 → 1 : 1 ✓.</div>
+    <div class="c"><b>12 · A</b> <span class="f">SF<sub>6</sub></span> kükürt hekzaflorür. Doğruları: <span class="f">Li<sub>3</sub>N</span>, <span class="f">Cu<sub>2</sub>O</span>, <span class="f">NH<sub>4</sub>Cl</span>, <span class="f">CS<sub>2</sub></span>.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · E</b> Potasyum sülfat <span class="f">K<sub>2</sub>SO<sub>4</sub></span>’tür. <span class="f">K<sub>2</sub>SO<sub>3</sub></span> sülfit iyonu içerir (potasyum sülfit).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · B</b> Krom +3 → <span class="f">Cr<sub>2</sub>O<sub>3</sub></span>, krom(III) oksit. Doğruları: <span class="f">CoO</span> kobalt(II) oksit, <span class="f">MnO<sub>2</sub></span> mangan(IV) oksit, <span class="f">Cu<sub>2</sub>O</span> bakır(I) oksit.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · D</b> I ✓ (<span class="f">SO<sub>3</sub><sup>2−</sup></span> sülfit). II ✗: <span class="f">Na<sub>2</sub>S</span> sodyum sülfürdür. III ✓: üçünde de 2 <span class="f">Na<sup>+</sup></span>, 1 anyon.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · C</b> I ✓, II ✓. III ✗: Moleküler bileşiklerde atom sayıları ön ekle belirtilir: azot dioksit ve diazot tetraoksit.</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1</b> <span class="f">Cr<sub>2</sub>O<sub>3</sub></span>: 3·(−2) = −6, 2 Cr → +3: <b>krom(III) oksit</b>. <span class="f">CrO<sub>3</sub></span>: −6, 1 Cr → +6: <b>krom(VI) oksit</b>.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2</b> <span class="f">Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></span> (17 atom), <span class="f">(NH<sub>4</sub>)<sub>3</sub>PO<sub>4</sub></span> (3·5 + 5 = 20 atom). Amonyum fosfatta daha çok atom var.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3</b> a + (a + 3) = 7 → a = 2: <span class="f">N<sub>2</sub>O<sub>5</sub></span>, <b>diazot pentaoksit</b>.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 1</b> Lityum 1A grubundadır, bir elektron verir: <span class="f">Li<sup>+</sup></span>. −2 yükü için 2 lityum → <span class="f">Li<sub>2</sub>O</span>.</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 2</b> Romen rakamı atom sayısı değil iyon yüküdür. −6 yükü 2 demir paylaşır → <span class="f">Fe<sup>3+</sup></span>: demir(III) sülfat.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 2</b> İlk atom 1 taneyse “mono” yazılmaz: fosfor triklorür.</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 3</b> Birden fazla çok atomlu iyon paranteze alınır: <span class="f">(NH<sub>4</sub>)<sub>2</sub>CO<sub>3</sub></span>.</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Bileşiklerin Adlandırılması</span><span class="no">14</span></div>
+</section>
+
+</body>
+</html>
