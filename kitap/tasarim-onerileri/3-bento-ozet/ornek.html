@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Bento ve Kimya Özeti · Mol Kavramı</title>
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --murekkep:#16141f;   /* ana koyu blok */
+  --metin:#23212e;
+  --gri:#5f5c6b;
+  --cizgi:#dcd9e3;
+  --kobalt:#3346e8;     /* mol / tanecik */
+  --kobalt-a:#e8eaff;
+  --mercan:#ff5a3c;     /* vurgu, yanılgı */
+  --mercan-a:#ffe6df;
+  --nane:#0e9f75;       /* atom molü, doğru */
+  --nane-a:#dff5ec;
+  --tereyag:#ffd84a;    /* sayı vurgusu */
+  --tereyag-a:#fff5cc;
+  --lila-a:#f1eefa;
+  --kagit:#ffffff;
+}
+html,body{ background:#d9d7de; }
+body{ font-family:"Inter",sans-serif; color:var(--metin); font-size:9.6pt; line-height:1.38;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact; font-feature-settings:"tnum" 0; }
+.sayfa{ width:210mm; height:297mm; overflow:hidden; background:var(--kagit); position:relative;
+  margin:0 auto 8mm; padding:9mm 10mm 0; page-break-after:always; break-after:page; }
+.sayfa:last-child{ page-break-after:auto; break-after:auto; margin-bottom:0; }
+@media print{ html,body{background:#fff} .sayfa{margin:0} }
+
+/* ---------- ortak bento dili ---------- */
+.ust{ display:flex; justify-content:space-between; align-items:center; height:6mm;
+  font:600 7pt/1 "JetBrains Mono",monospace; letter-spacing:.08em; text-transform:uppercase; color:var(--gri); }
+.ust .sag{ display:flex; gap:2mm; align-items:center; }
+.ust .pil{ background:var(--murekkep); color:#fff; border-radius:10mm; padding:1.2mm 2.6mm; }
+.bento{ display:grid; grid-template-columns:repeat(6,1fr); gap:3mm; margin-top:2.5mm; }
+.k{ border-radius:5mm; padding:4.2mm 4.6mm; position:relative; overflow:hidden; background:var(--lila-a); }
+.k.beyaz{ background:#fff; border:.35mm solid var(--cizgi); }
+.k.koyu{ background:var(--murekkep); color:#fff; }
+.k.kobalt{ background:var(--kobalt); color:#fff; }
+.k.mavi{ background:var(--kobalt-a); }
+.k.mercan{ background:var(--mercan); color:#fff; }
+.k.pembe{ background:var(--mercan-a); }
+.k.nane{ background:var(--nane-a); }
+.k.sari{ background:var(--tereyag-a); }
+.k.sarikoyu{ background:var(--tereyag); }
+.etk{ font:600 7pt/1 "JetBrains Mono",monospace; letter-spacing:.09em; text-transform:uppercase;
+  display:flex; align-items:center; gap:1.6mm; margin-bottom:2.6mm; opacity:.85; }
+.etk::before{ content:""; width:2.2mm; height:2.2mm; border-radius:50%; background:currentColor; flex:none; }
+.etk .no{ margin-left:auto; opacity:.7; }
+.etk.kare::before{ border-radius:.5mm; }
+.dev{ font-family:"Inter Display","Inter",sans-serif; font-weight:900; letter-spacing:-.035em; line-height:.86; }
+.ara{ font-family:"Inter Display","Inter",sans-serif; font-weight:800; letter-spacing:-.02em; line-height:1.05; }
+.mono{ font-family:"JetBrains Mono",monospace; }
+sub{ font-size:.68em; vertical-align:-.28em; line-height:0; }
+sup{ font-size:.62em; vertical-align:.62em; line-height:0; }
+b{ font-weight:700; }
+.alt{ position:absolute; left:10mm; right:10mm; bottom:6mm; display:flex; justify-content:space-between; align-items:center;
+  font:600 7pt/1 "JetBrains Mono",monospace; letter-spacing:.08em; text-transform:uppercase; color:var(--gri); }
+.alt .sn{ font:900 13pt/1 "Inter Display"; letter-spacing:-.02em; color:var(--murekkep); }
+
+/* kesir */
+.kesir{ display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; line-height:1.02; }
+.kesir > span:first-child{ border-bottom:.45mm solid currentColor; padding:0 1.2mm .4mm; }
+.kesir > span:last-child{ padding-top:.6mm; }
+
+/* adımlar */
+.adim{ display:grid; grid-template-columns:5.2mm 1fr; gap:2mm; align-items:start; margin-top:1.8mm; }
+.adim i{ font:700 7.5pt/5.2mm "JetBrains Mono"; font-style:normal; text-align:center; width:5.2mm; height:5.2mm;
+  border-radius:50%; background:var(--murekkep); color:#fff; }
+.sonuc{ margin-top:2.6mm; display:inline-flex; align-items:baseline; gap:2mm; background:var(--murekkep); color:#fff;
+  border-radius:10mm; padding:1.4mm 3.6mm; font-weight:700; }
+.sonuc .mono{ font-size:6.8pt; opacity:.7; letter-spacing:.08em; }
+
+/* ---------- SAYFA 1: KAPAK ---------- */
+.s1 .bento{ grid-template-rows:68mm 52mm 41mm 84mm; }
+.baslik-k{ grid-column:span 4; background:#fff; border:.35mm solid var(--cizgi); display:flex; flex-direction:column; justify-content:space-between; }
+.baslik-k h1{ font-size:66pt; color:var(--murekkep); }
+.baslik-k h1 span{ color:var(--kobalt); }
+.baslik-k .slogan{ font:500 12pt/1.25 "Inter"; color:var(--gri); max-width:92mm; }
+.baslik-k .slogan b{ color:var(--metin); }
+.bolum-k{ grid-column:span 2; display:flex; flex-direction:column; justify-content:space-between; }
+.bolum-k .dev{ font-size:118pt; line-height:.78; margin-left:-1.5mm; }
+.bolum-k .alt-y{ font:600 9.5pt/1.3 "Inter"; }
+.na-k{ grid-column:span 6; display:grid; grid-template-columns:1fr 52mm; gap:6mm; align-items:end; }
+.na-k .dev{ font-size:84pt; color:#fff; white-space:nowrap; }
+.na-k .dev sup{ font-size:.5em; vertical-align:.95em; color:var(--tereyag); letter-spacing:-.02em; }
+.na-k .dev .nokta{ color:var(--tereyag); }
+.na-k .ac{ font-size:10pt; line-height:1.4; color:#d9d7e6; }
+.na-k .ac b{ color:#fff; }
+.na-k .etk{ color:var(--tereyag); }
+.sayac{ position:absolute; left:4.6mm; right:4.6mm; bottom:3.2mm; height:2.6mm; display:flex; justify-content:space-between; align-items:flex-end; }
+.sayac span{ width:.3mm; height:1.3mm; background:#ffffff55; }
+.sayac span:nth-child(5n+1){ height:2.6mm; background:#ffffffaa; }
+.stat{ grid-column:span 3; }
+.s1 .stat{ grid-column:span 3; }
+.statlar{ grid-column:span 6; display:grid; grid-template-columns:repeat(4,1fr); gap:3mm; }
+.statlar .k{ padding:3.6mm 3.8mm; display:flex; flex-direction:column; }
+.statlar .dev{ font-size:30pt; color:var(--murekkep); }
+.statlar .dev small{ display:block; font-size:10.5pt; line-height:1.15; letter-spacing:0; font-weight:800; margin-top:1.2mm; }
+.statlar p{ font-size:9.5pt; line-height:1.3; margin-top:auto; }
+.konu-k{ grid-column:span 4; background:#fff; border:.35mm solid var(--cizgi); }
+.konular{ list-style:none; }
+.konular li{ display:grid; grid-template-columns:9mm 1fr auto; align-items:baseline; gap:2mm; padding:1.55mm 0; border-bottom:.3mm dashed var(--cizgi); font-size:10.2pt; }
+.konular li:last-child{ border-bottom:0; }
+.konular .n{ font:800 14pt/1 "Inter Display"; color:var(--kobalt); }
+.konular .s{ font:600 8pt/1 "JetBrains Mono"; color:var(--gri); }
+.konular li.etkinlik .n{ color:var(--mercan); font-size:11pt; }
+.serit{ display:flex; height:6mm; border-radius:3mm; overflow:hidden; margin-top:3mm; gap:.5mm; }
+.serit div{ display:flex; align-items:center; justify-content:center; font:700 6.6pt/1 "JetBrains Mono"; color:#fff; }
+.lejant{ display:flex; flex-wrap:wrap; gap:1.2mm 3.2mm; margin-top:2mm; font:600 7pt/1 "JetBrains Mono"; color:var(--gri); text-transform:uppercase; letter-spacing:.05em; }
+.lejant span{ display:inline-flex; align-items:center; gap:1.2mm; }
+.lejant span::before{ content:""; width:2.4mm; height:2.4mm; border-radius:.6mm; background:var(--c); }
+.sag-sutun{ grid-column:span 2; display:grid; grid-template-rows:auto 1fr; gap:3mm; }
+.rakam-k .satir{ display:flex; align-items:baseline; gap:2mm; padding:.9mm 0; }
+.rakam-k .satir .dev{ font-size:22pt; width:13mm; }
+.rakam-k .satir span{ font-size:9.5pt; }
+.hedef-k ul{ list-style:none; }
+.hedef-k li{ display:grid; grid-template-columns:4mm 1fr; gap:1.6mm; font-size:9.5pt; line-height:1.3; margin-bottom:1.6mm; }
+.hedef-k li::before{ content:""; width:3.2mm; height:3.2mm; border:.4mm solid currentColor; border-radius:.8mm; margin-top:.5mm; }
+
+/* ---------- SAYFA 2: KONU ---------- */
+.s2 .bento{ grid-template-rows:36mm 66mm 56mm 56mm 27mm; }
+.kb{ grid-column:span 6; background:none; padding:0 1mm; display:grid; grid-template-columns:auto 1fr; gap:6mm; align-items:end; border-radius:0; }
+.kb .dev.no{ font-size:78pt; color:var(--kobalt); line-height:.74; }
+.kb h2{ font-size:31pt; color:var(--murekkep); }
+.kb p{ font-size:11pt; color:var(--gri); margin-top:1.5mm; }
+.harita-k{ grid-column:span 4; background:#fff; border:.35mm solid var(--cizgi); padding-bottom:2mm; }
+.formul-k{ grid-column:span 2; display:flex; flex-direction:column; }
+.formul-k .f1{ font:900 25pt/1 "Inter Display"; letter-spacing:-.02em; display:flex; align-items:center; gap:2.4mm; margin-top:1mm; }
+.formul-k .f1 .kesir > span:first-child{ border-bottom-width:.6mm; }
+.formul-k .f2{ font:800 17pt/1 "Inter Display"; margin-top:4.5mm; padding-top:3.6mm; border-top:.3mm solid #ffffff33; }
+.formul-k .not{ font-size:9.5pt; color:#d9d7e6; margin-top:1.4mm; }
+.formul-k .na{ margin-top:auto; font:600 8pt/1.2 "JetBrains Mono"; color:var(--tereyag); }
+.atom-k{ grid-column:span 3; }
+.atom-k .denk{ display:flex; align-items:center; gap:2mm; margin:1mm 0 2.4mm; }
+.atom-k p{ font-size:9.6pt; }
+.yan-k{ grid-column:span 3; }
+.yan-k .x, .yan-k .v{ display:grid; grid-template-columns:6.5mm 1fr; gap:2mm; align-items:start; font-size:10pt; }
+.yan-k .x{ margin-bottom:2.4mm; }
+.yan-k .x i, .yan-k .v i{ font:900 9pt/6.5mm "Inter"; font-style:normal; width:6.5mm; height:6.5mm; border-radius:50%; text-align:center; color:#fff; }
+.yan-k .x i{ background:var(--mercan); }
+.yan-k .v i{ background:var(--nane); }
+.yan-k .x span{ text-decoration:line-through; text-decoration-color:var(--mercan); text-decoration-thickness:.5mm; font-weight:600; }
+.terazi{ display:grid; grid-template-columns:1fr 1fr; gap:2.4mm; margin-top:3mm; }
+.terazi div{ background:#fff; border-radius:3mm; padding:2.2mm 2.6mm; font-size:9.5pt; line-height:1.25; }
+.terazi .ara{ font-size:13pt; display:block; }
+.ornek-k{ grid-column:span 3; background:#fff; border:.35mm solid var(--cizgi); }
+.ornek-k .soru{ font-weight:600; font-size:10pt; margin-bottom:1mm; }
+.ornek-k .etk{ color:var(--kobalt); }
+.yokla-k{ grid-column:span 6; display:grid; grid-template-columns:auto 1fr auto; gap:5mm; align-items:center; }
+.yokla-k .ara{ font-size:15pt; }
+.yokla-k p{ font-size:10pt; }
+.ters{ transform:rotate(180deg); font:600 7.5pt/1.3 "JetBrains Mono"; color:var(--gri); text-align:right; }
+
+/* ---------- SAYFA 3: MOL ÖZETİ + SORULAR ---------- */
+.s3 .bento{ grid-template-rows:26mm 45mm 51mm 113mm; }
+.ozet-bas{ grid-column:span 6; background:none; padding:0 1mm; display:flex; justify-content:space-between; align-items:flex-end; border-radius:0; }
+.ozet-bas h2{ font-size:36pt; color:var(--murekkep); }
+.ozet-bas h2 span{ color:var(--mercan); }
+.ozet-bas p{ font-size:9.6pt; color:var(--gri); max-width:70mm; text-align:right; }
+.kart{ grid-column:span 2; display:flex; flex-direction:column; }
+.kart .etk{ padding-right:10mm; }
+.kart .kno{ position:absolute; right:4mm; top:3.4mm; font:700 7pt/1 "JetBrains Mono"; opacity:.6; }
+.kart p{ font-size:9.5pt; line-height:1.3; }
+.kart .buyuk{ font-size:30pt; }
+.kart ul{ list-style:none; font-size:9.5pt; line-height:1.3; }
+.kart ul li{ padding-left:3.2mm; position:relative; margin-bottom:.5mm; }
+.kart ul li::before{ content:""; position:absolute; left:0; top:1.6mm; width:1.5mm; height:1.5mm; border-radius:50%; background:currentColor; opacity:.6; }
+.cubuk{ display:flex; flex-direction:column; gap:1.4mm; margin-top:auto; }
+.cubuk .c{ display:grid; grid-template-columns:11mm 1fr; align-items:center; gap:1.8mm; font:600 8pt/1 "JetBrains Mono"; }
+.cubuk .c div{ height:4.6mm; border-radius:1.2mm; display:flex; align-items:center; padding-left:1.6mm; color:#fff; font-size:7.5pt; }
+.hata-sira{ counter-reset:h; list-style:none; font-size:9.5pt; line-height:1.25; }
+.hata-sira li{ counter-increment:h; display:grid; grid-template-columns:6mm 1fr; gap:1mm; margin-bottom:1.1mm; }
+.hata-sira li::before{ content:counter(h,decimal-leading-zero); font:800 9pt/1.3 "JetBrains Mono"; color:var(--mercan); }
+.sorular{ grid-column:span 6; display:grid; grid-template-columns:1.12fr 1fr; gap:3mm; }
+.q{ border-radius:5mm; padding:4mm 4.4mm; position:relative; overflow:hidden; }
+.q .qno{ font:900 26pt/.8 "Inter Display"; letter-spacing:-.03em; float:left; margin:0 2.6mm 0 0; }
+.q p{ font-size:9.6pt; line-height:1.34; }
+.oncul{ margin:1.4mm 0; font-size:9.5pt; }
+.oncul div{ display:grid; grid-template-columns:6mm 1fr; }
+.secenek{ display:flex; flex-wrap:wrap; gap:1mm; margin-top:1.8mm; font-size:9.5pt; }
+.secenek span{ border:.3mm solid var(--cizgi); background:#fff; border-radius:10mm; padding:.9mm 2.2mm; white-space:nowrap; }
+.secenek b{ margin-right:1mm; }
+.cozum{ background:#fff; border-radius:3mm; padding:2.2mm 2.8mm; margin:2mm 0; }
+.cozum .satir{ display:grid; grid-template-columns:5mm 1fr; font-size:9.6pt; padding:.7mm 0; border-bottom:.3mm dashed var(--cizgi); }
+.cozum .satir:last-child{ border-bottom:0; }
+.cozum .satir em{ font:700 8pt/1.5 "JetBrains Mono"; font-style:normal; color:var(--gri); }
+.bos{ border:.35mm dashed #b9b5c6; border-radius:2.5mm; height:9mm; margin-top:1.6mm; padding:1.4mm 2.2mm; font:600 7pt/1 "JetBrains Mono"; color:var(--gri); text-transform:uppercase; letter-spacing:.05em; }
+.bsm{ background:#fff; border-radius:2.5mm; padding:1.6mm 2.2mm; }
+.bsm span{ display:block; font:700 7pt/1.4 "JetBrains Mono"; color:var(--mercan); }
+.anahtar{ position:absolute; left:10mm; right:10mm; bottom:13.5mm; border:.35mm dashed #b9b5c6; border-radius:3mm; padding:1.8mm 3mm; transform:rotate(180deg); font:600 7.5pt/1.45 "JetBrains Mono"; color:var(--gri); }
+.anahtar b{ color:var(--murekkep); }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · ÜNİTE AÇILIŞI (BENTO KAPAK)
+     ========================================================= -->
+<section class="sayfa s1">
+  <div class="ust"><span>Kimya Rotası · 10. Sınıf · Tema 1</span><span class="sag"><span>Mol Özeti serisi</span><span class="pil">Bölüm 02</span></span></div>
+
+  <div class="bento">
+    <div class="k baslik-k">
+      <div class="etk" style="color:var(--kobalt)">Bölüm açılışı <span class="no">2 / 13</span></div>
+      <h1 class="dev">Mol<br><span>Kavramı</span></h1>
+      <p class="slogan"><b>Görünmeyeni saymanın kimyacı yolu.</b> Tek tek sayamadığımızı paketleyerek sayarız.</p>
+    </div>
+
+    <div class="k bolum-k mercan">
+      <div class="etk">Bölüm</div>
+      <div class="dev">02</div>
+      <div class="alt-y">Tanecik ⇄ mol ⇄ kütle<br>arasında köprü kur.</div>
+    </div>
+
+    <div class="k koyu na-k">
+      <div>
+        <div class="etk">Bölümün kahramanı · Avogadro sayısı</div>
+        <div class="dev">6<span class="nokta">,</span>02·10<sup>23</sup></div>
+      </div>
+      <p class="ac"><b>1 mol = 6,02·10<sup>23</sup> tane tanecik.</b> Bir dolu kaşık suda, bir gram hidrojende, bir avuç tuzda saklı olan sayı: <b>Avogadro sayısı</b>.</p>
+      <div class="sayac"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+
+    <div class="statlar">
+      <div class="k sari">
+        <div class="etk">Süre</div>
+        <div class="dev">≈19<small>katrilyon yıl</small></div>
+        <p>Saniyede bir sayarak 1 molü saymanın süresi.</p>
+      </div>
+      <div class="k mavi">
+        <div class="etk">Kıyas</div>
+        <div class="dev">≈1,4<small>milyon kat</small></div>
+        <p>Bu süre, evrenin yaşından (13,8 milyar yıl) bu kadar uzun.</p>
+      </div>
+      <div class="k nane">
+        <div class="etk">Su</div>
+        <div class="dev">18<small>g</small></div>
+        <p>1 mol su: ≈ 18 mL, bir yemek kaşığından biraz fazla.</p>
+      </div>
+      <div class="k pembe">
+        <div class="etk">Grafit</div>
+        <div class="dev">5,5<small>cm³</small></div>
+        <p>1 mol grafit (karbon) 12 g; hacmi yalnızca bu kadar.</p>
+      </div>
+    </div>
+
+    <div class="k konu-k">
+      <div class="etk" style="color:var(--murekkep)">Bu bölümde <span class="no">sayfa</span></div>
+      <ul class="konular">
+        <li><span class="n">1</span><span>Neden mol? Kimyanın sayma birimi</span><span class="s">02</span></li>
+        <li><span class="n">2</span><span>Atomun kütlesi: izotop, akb, ortalama kütle</span><span class="s">03</span></li>
+        <li><span class="n">3</span><span><b>Mol ile tanecik sayısı</b></span><span class="s">04</span></li>
+        <li><span class="n">4</span><span>Mol ile kütle</span><span class="s">05</span></li>
+        <li><span class="n">5</span><span>Karışım problemleri</span><span class="s">06</span></li>
+        <li class="etkinlik"><span class="n">★</span><span>Mol Özeti · Hata Avcısı · Bağlam · İpucu Merdiveni · Test</span><span class="s">07–13</span></li>
+      </ul>
+      <div class="serit" title="Bölümün sayfa dağılımı">
+        <div style="flex:5;background:var(--kobalt)">KONU · 5 SAYFA</div>
+        <div style="flex:1;background:var(--tereyag);color:var(--murekkep)">ÖZET</div>
+        <div style="flex:3;background:var(--mercan)">ETKİNLİK · 3</div>
+        <div style="flex:3;background:var(--murekkep)">TEST + CEVAP</div>
+      </div>
+      <div class="lejant">
+        <span style="--c:var(--kobalt)">Kavram</span>
+        <span style="--c:var(--nane)">Hayatın içinden</span>
+        <span style="--c:var(--mercan)">Kavram yanılgısı</span>
+        <span style="--c:#9aa3ff">Çözümlü örnek</span>
+        <span style="--c:var(--murekkep)">Hata avcısı</span>
+        <span style="--c:var(--tereyag)">İpucu merdiveni</span>
+      </div>
+    </div>
+
+    <div class="sag-sutun">
+      <div class="k sarikoyu rakam-k">
+        <div class="etk" style="margin-bottom:1.4mm">Rakamlarla bölüm</div>
+        <div class="satir"><span class="dev">5</span><span>konu</span></div>
+        <div class="satir"><span class="dev">8</span><span>çözümlü örnek</span></div>
+        <div class="satir"><span class="dev">23</span><span>soru</span></div>
+      </div>
+      <div class="k kobalt hedef-k">
+        <div class="etk">Bölüm sonunda</div>
+        <ul>
+          <li>Mol, tanecik sayısı ve kütle arasında geçiş yapacaksın.</li>
+          <li>İzotop ve ortalama atom kütlesini yorumlayacaksın.</li>
+          <li>Karışım problemlerini tek bilinmeyenle çözeceksin.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="sn">01</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · KONU: MOL İLE TANECİK SAYISI
+     ========================================================= -->
+<section class="sayfa s2">
+  <div class="ust"><span>Bölüm 02 · Mol Kavramı</span><span class="sag"><span>Konu 3 / 5</span><span class="pil">Tanecik</span></span></div>
+
+  <div class="bento">
+    <div class="k kb">
+      <div class="dev no">03</div>
+      <div>
+        <h2 class="ara">Mol ile tanecik sayısı</h2>
+        <p>Bütün hesaplar üç kutu arasında gidip gelir. Bugün soldaki köprüdeyiz.</p>
+      </div>
+    </div>
+
+    <div class="k harita-k">
+      <div class="etk" style="color:var(--kobalt)">Mol haritası <span class="no">Harita / 01</span></div>
+      <svg viewBox="0 0 120 46" style="width:100%;height:auto;display:block">
+        <defs>
+          <marker id="ok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#3346e8"/></marker>
+          <marker id="okg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#b9b5c6"/></marker>
+          <marker id="okn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#0e9f75"/></marker>
+        </defs>
+        <g font-family="Inter" text-anchor="middle">
+          <!-- Tanecik -->
+          <rect x="1" y="3" width="34" height="24" rx="5" fill="#3346e8"/>
+          <text x="18" y="12.5" font-size="4" font-weight="800" fill="#fff" letter-spacing=".2">TANECİK</text>
+          <text x="18" y="21" font-size="6.5" font-weight="900" fill="#ffd84a">N</text>
+          <text x="18" y="25" font-size="2.6" fill="#dfe2ff">tane</text>
+          <!-- Mol -->
+          <circle cx="60" cy="15" r="13" fill="#16141f"/>
+          <text x="60" y="15.5" font-size="7" font-weight="900" fill="#fff">MOL</text>
+          <text x="60" y="21.5" font-size="4" fill="#ffd84a" font-weight="700">n</text>
+          <!-- Kütle (sonraki konu) -->
+          <rect x="85" y="3" width="34" height="24" rx="5" fill="none" stroke="#b9b5c6" stroke-width=".5" stroke-dasharray="1.4 1"/>
+          <text x="102" y="12.5" font-size="4" font-weight="800" fill="#8c8899">KÜTLE</text>
+          <text x="102" y="20" font-size="4.6" font-weight="800" fill="#8c8899">m</text>
+          <text x="102" y="24.6" font-size="2.6" fill="#8c8899">4. konu</text>
+          <!-- oklar tanecik-mol -->
+          <path d="M36 10 H45.5" stroke="#3346e8" stroke-width=".7" marker-end="url(#ok)"/>
+          <text x="41" y="7.6" font-size="3.3" font-weight="800" fill="#3346e8">÷ N<tspan font-size="2.2" dy=".8">A</tspan></text>
+          <path d="M46.5 20 H37" stroke="#3346e8" stroke-width=".7" marker-end="url(#ok)"/>
+          <text x="41" y="25" font-size="3.3" font-weight="800" fill="#3346e8">× N<tspan font-size="2.2" dy=".8">A</tspan></text>
+          <!-- oklar mol-kütle (soluk) -->
+          <path d="M84 10 H74.5" stroke="#b9b5c6" stroke-width=".6" marker-end="url(#okg)"/>
+          <path d="M73.5 20 H83" stroke="#b9b5c6" stroke-width=".6" marker-end="url(#okg)"/>
+          <text x="79" y="7.6" font-size="3" font-weight="700" fill="#8c8899">÷ M<tspan font-size="2" dy=".8">A</tspan></text>
+          <text x="79" y="25" font-size="3" font-weight="700" fill="#8c8899">× M<tspan font-size="2" dy=".8">A</tspan></text>
+          <!-- atom molü dalı -->
+          <path d="M60 28.5 V34" stroke="#0e9f75" stroke-width=".7" marker-end="url(#okn)"/>
+          <rect x="26" y="34.5" width="68" height="10" rx="5" fill="#dff5ec"/>
+          <text x="60" y="40.9" font-size="3.4" font-weight="800" fill="#0a7556">ATOM MOLÜ = molekül molü × formüldeki atom sayısı</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="k koyu formul-k">
+      <div class="etk" style="color:var(--tereyag)">Formül</div>
+      <div class="f1">n = <span class="kesir"><span>N</span><span>N<sub>A</sub></span></span></div>
+      <div class="not">Taneden mole: böl.</div>
+      <div class="f2">N = n · N<sub>A</sub></div>
+      <div class="not">Molden taneye: çarp.</div>
+      <div class="na">N<sub>A</sub> = 6,02·10<sup>23</sup></div>
+    </div>
+
+    <div class="k nane atom-k">
+      <div class="etk" style="color:var(--nane)">Kavram · Molekül ve atom</div>
+      <div class="denk">
+        <svg viewBox="0 0 120 26" style="width:100%;height:auto">
+          <g font-family="Inter" text-anchor="middle">
+            <!-- CO2 molekülü -->
+            <circle cx="10" cy="12" r="5.6" fill="#ff5a3c"/><circle cx="20" cy="12" r="6.4" fill="#16141f"/><circle cx="30" cy="12" r="5.6" fill="#ff5a3c"/>
+            <text x="20" y="13.6" font-size="4.6" font-weight="800" fill="#fff">C</text>
+            <text x="10" y="13.6" font-size="4.2" font-weight="800" fill="#fff">O</text>
+            <text x="30" y="13.6" font-size="4.2" font-weight="800" fill="#fff">O</text>
+            <text x="20" y="24.5" font-size="3.4" font-weight="700" fill="#23212e">1 mol CO₂</text>
+            <text x="43" y="14" font-size="7" font-weight="800" fill="#0a7556">=</text>
+            <circle cx="56" cy="12" r="6.4" fill="#16141f"/><text x="56" y="13.6" font-size="4.6" font-weight="800" fill="#fff">C</text>
+            <text x="56" y="24.5" font-size="3.4" font-weight="700" fill="#23212e">1 mol C</text>
+            <text x="67" y="14" font-size="7" font-weight="800" fill="#0a7556">+</text>
+            <circle cx="77" cy="12" r="5.6" fill="#ff5a3c"/><circle cx="89" cy="12" r="5.6" fill="#ff5a3c"/>
+            <text x="77" y="13.6" font-size="4.2" font-weight="800" fill="#fff">O</text><text x="89" y="13.6" font-size="4.2" font-weight="800" fill="#fff">O</text>
+            <text x="83" y="24.5" font-size="3.4" font-weight="700" fill="#23212e">2 mol O</text>
+            <rect x="99" y="3" width="21" height="17" rx="4" fill="#0e9f75"/>
+            <text x="109.5" y="12.4" font-size="6.4" font-weight="900" fill="#fff">3</text>
+            <text x="109.5" y="17" font-size="2.8" font-weight="700" fill="#fff">mol atom</text>
+          </g>
+        </svg>
+      </div>
+      <p>Formüldeki küçük rakamlar, bir molekülde o atomdan <b>kaç tane</b> olduğunu söyler. X<sub>a</sub>Y<sub>b</sub> için:</p>
+      <p class="ara" style="font-size:15pt;margin-top:1.6mm;color:#0a7556">n<sub>atom</sub> = n · (a + b)</p>
+    </div>
+
+    <div class="k pembe yan-k">
+      <div class="etk" style="color:var(--mercan)">Kavram yanılgısı</div>
+      <div class="x"><i>✗</i><span>“Mol bir kütle birimidir.”</span></div>
+      <div class="v"><i>✓</i><div>Mol bir <b>sayı paketidir</b>. Aynı mol, aynı sayıda tanecik demektir; kütleler farklı olabilir.</div></div>
+      <div class="terazi">
+        <div><span class="ara">1 mol Fe</span>6,02·10<sup>23</sup> atom<br><b>56 g</b></div>
+        <div><span class="ara">1 mol H<sub>2</sub>O</span>6,02·10<sup>23</sup> molekül<br><b>18 g</b></div>
+      </div>
+    </div>
+
+    <div class="k ornek-k">
+      <div class="etk">Çözümlü örnek · 2 <span class="no">molden taneye</span></div>
+      <p class="soru">0,25 mol NH<sub>3</sub> için molekül sayısını, toplam atom molünü ve H atomu molünü bulunuz.</p>
+      <div class="adim"><i>1</i><span>N = 0,25 · 6,02·10<sup>23</sup> = <b>1,505·10<sup>23</sup></b> molekül</span></div>
+      <div class="adim"><i>2</i><span>1 NH<sub>3</sub> = 1 + 3 = 4 atom → 0,25 · 4 = <b>1 mol atom</b></span></div>
+      <div class="adim"><i>3</i><span>H atomu: 0,25 · 3 = <b>0,75 mol H</b></span></div>
+      <div class="sonuc"><span class="mono">SONUÇ</span><span>1,505·10<sup>23</sup> · 1 mol · 0,75 mol</span></div>
+    </div>
+
+    <div class="k ornek-k">
+      <div class="etk">Çözümlü örnek · 3 <span class="no">taneden mole</span></div>
+      <p class="soru">3,01·10<sup>23</sup> tane CO<sub>2</sub> molekülü kaç mol O atomu içerir?</p>
+      <div class="adim"><i>1</i><span>n = <span class="kesir"><span>3,01·10<sup>23</sup></span><span>6,02·10<sup>23</sup></span></span> = <b>0,5 mol</b> CO<sub>2</sub></span></div>
+      <div class="adim"><i>2</i><span>Her molekülde 2 O → 0,5 · 2</span></div>
+      <div class="sonuc"><span class="mono">SONUÇ</span>1 mol O atomu</div>
+    </div>
+
+    <div class="k sari yokla-k">
+      <div class="ara">Kendini<br>yokla</div>
+      <p>1 düzine bisiklette 24 tekerlek varsa, 1 mol H<sub>2</sub>O molekülünde kaç mol H atomu vardır? <span style="color:var(--gri)">Molekül “bisiklet”, atomlar “tekerlek” gibidir.</span></p>
+      <div class="ters">CEVAP<br>2 mol H</div>
+    </div>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="sn">04</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · MOL ÖZETİ KARTLARI + SORULAR
+     ========================================================= -->
+<section class="sayfa s3">
+  <div class="ust"><span>Bölüm 02 · Mol Kavramı</span><span class="sag"><span>Bölüm sonu</span><span class="pil">Mol Özeti</span></span></div>
+
+  <div class="bento">
+    <div class="k ozet-bas">
+      <h2 class="dev">Mol Özeti<span>.</span></h2>
+      <p>Bölümün 6 kartı. Sınavdan önceki gece bu sayfa yeter; sonra iki soruyla kendini sına.</p>
+    </div>
+
+    <!-- Kart 1 -->
+    <div class="k koyu kart">
+      <span class="kno">01/06</span>
+      <div class="etk" style="color:var(--tereyag)">Bölümün sayısı</div>
+      <div class="dev buyuk" style="color:#fff">6,02·10<sup style="color:var(--tereyag)">23</sup></div>
+      <p style="margin-top:auto;color:#d9d7e6"><b style="color:#fff">1 mol = N<sub>A</sub> tane.</b> Atom, molekül ya da iyon fark etmez.</p>
+    </div>
+    <!-- Kart 2 -->
+    <div class="k kobalt kart">
+      <span class="kno">02/06</span>
+      <div class="etk">Tek kural</div>
+      <div class="ara" style="font-size:16pt">Önce mole git.</div>
+      <div class="ara" style="font-size:15pt;margin-top:auto;display:flex;align-items:center;gap:1.6mm">n = <span class="kesir"><span>N</span><span>N<sub>A</sub></span></span> = <span class="kesir"><span>m</span><span>M<sub>A</sub></span></span></div>
+    </div>
+    <!-- Kart 3 -->
+    <div class="k nane kart">
+      <span class="kno">03/06</span>
+      <div class="etk" style="color:var(--nane)">Formül okuma</div>
+      <div class="ara" style="font-size:15pt;margin-bottom:1.6mm">1 mol X<sub>a</sub>Y<sub>b</sub></div>
+      <ul>
+        <li>N<sub>A</sub> tane molekül</li>
+        <li>a mol X, b mol Y atomu</li>
+        <li>(a + b) mol atom</li>
+        <li>1 tanesi M<sub>A</sub>/N<sub>A</sub> gram</li>
+      </ul>
+    </div>
+    <!-- Kart 4 -->
+    <div class="k sari kart">
+      <span class="kno">04/06</span>
+      <div class="etk">Ortalama kütle · Bor</div>
+      <div style="display:flex;align-items:baseline;gap:2mm"><span class="dev buyuk" style="color:var(--murekkep)">10,8</span><span class="mono" style="font-size:8pt;font-weight:700">akb</span></div>
+      <div style="display:flex;height:5mm;border-radius:1.4mm;overflow:hidden;margin-top:auto;font:700 7.2pt/5mm 'JetBrains Mono';color:#fff;text-align:center">
+        <div style="flex:20;background:var(--mercan)">¹⁰B %20</div><div style="flex:80;background:var(--murekkep)">¹¹B %80</div>
+      </div>
+      <p style="margin-top:1.2mm;font-size:9.5pt">10·0,20 + 11·0,80 = 10,8. Hiçbir bor atomu 10,8 değildir.</p>
+    </div>
+    <!-- Kart 5 -->
+    <div class="k pembe kart">
+      <span class="kno">05/06</span>
+      <div class="etk" style="color:var(--mercan)">Eşit kütle ≠ eşit sayı</div>
+      <p style="margin-bottom:1mm">64’er gram alınırsa:</p>
+      <div class="cubuk">
+        <div class="c"><span>O<sub>2</sub></span><div style="width:100%;background:var(--mercan)">2 mol</div></div>
+        <div class="c"><span>SO<sub>2</sub></span><div style="width:50%;background:var(--murekkep)">1 mol</div></div>
+      </div>
+      <p style="margin-top:1.4mm">M<sub>A</sub> küçükse mol büyük.</p>
+    </div>
+    <!-- Kart 6 -->
+    <div class="k beyaz kart">
+      <span class="kno">06/06</span>
+      <div class="etk" style="color:var(--murekkep)">En sık 4 hata</div>
+      <ol class="hata-sira">
+        <li>Atom yerine element çeşidi saymak</li>
+        <li><span>Alt simgeyi unutmak <span style="white-space:nowrap">(CO<sub>2</sub> ≠ 28)</span></span></li>
+        <li>1 tane molekülü 1 mol gibi tartmak</li>
+        <li>Eşit kütle = eşit tanecik sanmak</li>
+      </ol>
+    </div>
+
+    <div class="sorular">
+      <!-- Soru 1: bağlam temelli, grafikli, çoktan seçmeli -->
+      <div class="q" style="background:var(--kobalt-a)">
+        <div class="etk" style="color:var(--kobalt)">Bağlam · Laboratuvar <span class="no">çoktan seçmeli</span></div>
+        <p><span class="qno" style="color:var(--kobalt)">1</span>Bir öğrenci X ve Y elementlerinden farklı kütlelerde örnekler tartıp mol sayılarını hesaplıyor ve grafiği çiziyor.</p>
+        <svg viewBox="0 0 120 58" style="width:84%;height:auto;display:block;margin:1.2mm 0 .6mm">
+          <g font-family="Inter" font-size="3.6" fill="#5f5c6b">
+            <rect x="0" y="0" width="120" height="58" rx="4" fill="#fff"/>
+            <g stroke="#e3e1ea" stroke-width=".3">
+              <line x1="20" y1="8" x2="112" y2="8"/><line x1="20" y1="21" x2="112" y2="21"/><line x1="20" y1="34" x2="112" y2="34"/>
+              <line x1="43" y1="8" x2="43" y2="47"/><line x1="66" y1="8" x2="66" y2="47"/><line x1="89" y1="8" x2="89" y2="47"/><line x1="112" y1="8" x2="112" y2="47"/>
+            </g>
+            <line x1="20" y1="47" x2="114" y2="47" stroke="#16141f" stroke-width=".45"/>
+            <line x1="20" y1="47" x2="20" y2="5" stroke="#16141f" stroke-width=".45"/>
+            <text x="17" y="48.2" text-anchor="end">0</text>
+            <text x="17" y="35.2" text-anchor="end">0,25</text><text x="17" y="22.2" text-anchor="end">0,50</text><text x="17" y="9.2" text-anchor="end">0,75</text>
+            <text x="43" y="52" text-anchor="middle">6</text><text x="66" y="52" text-anchor="middle">12</text><text x="89" y="52" text-anchor="middle">18</text><text x="112" y="52" text-anchor="middle">24</text>
+            <text x="66" y="56.6" text-anchor="middle" fill="#16141f" font-weight="700">Kütle (g)</text>
+            <text x="3" y="5" fill="#16141f" font-weight="700">Mol</text>
+            <!-- X: 24 g/mol -> 24 g = 1 mol; ölçek: 0,75 mol = 39 birim => 1 mol = 52 ; x: 24 g = 92 birim -->
+            <!-- X çizgisi: (0,0) -> (24 g ; 1 mol) => y=47-52=-5 ; 0,75 mol'de (18 g) kes: (89, 8) -->
+            <line x1="20" y1="47" x2="89" y2="8" stroke="#3346e8" stroke-width="1.1"/>
+            <!-- Y: 32 g/mol -> 24 g = 0,75 mol => (112, 8) -->
+            <line x1="20" y1="47" x2="112" y2="8" stroke="#ff5a3c" stroke-width="1.1"/>
+            <!-- noktalar: X (12 g; 0,5 mol) = (66, 21); Y (16 g; 0,5 mol) = (81.33, 21) -->
+            <line x1="20" y1="21" x2="81.3" y2="21" stroke="#16141f" stroke-width=".3" stroke-dasharray="1 .8"/>
+            <circle cx="66" cy="21" r="1.4" fill="#3346e8"/>
+            <circle cx="81.3" cy="21" r="1.4" fill="#ff5a3c"/>
+            <text x="84" y="11" fill="#3346e8" font-weight="800" font-size="4.6">X</text>
+            <text x="105" y="16" fill="#ff5a3c" font-weight="800" font-size="4.6">Y</text>
+          </g>
+        </svg>
+        <p>Noktalar: X (12 g; 0,5 mol), Y (16 g; 0,5 mol). Buna göre;</p>
+        <div class="oncul">
+          <div><b>I.</b><span>X’in mol kütlesi 24 g/mol’dür.</span></div>
+          <div><b>II.</b><span>Eşit kütlede atom sayıları oranı N<sub>X</sub>/N<sub>Y</sub> = 4/3’tür.</span></div>
+          <div><b>III.</b><span>1 mol Y, 1 mol X’ten 8 g ağırdır.</span></div>
+        </div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>I ve II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II, III</span></div>
+      </div>
+
+      <!-- Soru 2: hata avcısı + ipucu merdiveni -->
+      <div class="q" style="background:var(--mercan-a)">
+        <div class="etk" style="color:var(--mercan)">Hata avcısı <span class="no">bul · düzelt</span></div>
+        <p><span class="qno" style="color:var(--mercan)">2</span><b>0,5 mol H<sub>2</sub>SO<sub>4</sub> kaç mol atom içerir?</b> Defne’nin çözümünde bir satır yanlış.</p>
+        <div class="cozum">
+          <div class="satir"><em>1</em><span>H<sub>2</sub>SO<sub>4</sub>’te H, S ve O var.</span></div>
+          <div class="satir"><em>2</em><span>Yani bir molekülde 3 atom bulunur.</span></div>
+          <div class="satir"><em>3</em><span>0,5 · 3 = 1,5 mol atom</span></div>
+        </div>
+        <div class="bos">Hangi satır? Neden? Doğrusu:</div>
+
+        <div class="etk" style="color:var(--murekkep);margin-top:3.2mm">İpucu merdiveni <span class="no">gerekirse bir basamak in</span></div>
+        <p><span class="qno" style="color:var(--murekkep)">3</span><b>1,8 mol atom içeren H<sub>2</sub>O örneği kaç tane molekül içerir?</b></p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.6mm;margin-top:1.6mm;font-size:9.5pt;line-height:1.25">
+          <div class="bsm"><span>BASAMAK 1</span>Bir molekülde kaç atom var?</div>
+          <div class="bsm"><span>BASAMAK 2</span>Atom molünü buna böl: molekül molü.</div>
+          <div class="bsm"><span>BASAMAK 3</span>Molden taneye: N<sub>A</sub> ile çarp.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="anahtar"><b>CEVAP ANAHTARI</b> · 1) E — X: 12/0,5 = 24, Y: 16/0,5 = 32 g/mol; 96 g için 4 mol X, 3 mol Y; 32 − 24 = 8 g. · 2) Satır 2 — element çeşidi sayılmış: 2 + 1 + 4 = 7 atom → 0,5 · 7 = 3,5 mol atom. · 3) 1,8 / 3 = 0,6 mol H<sub>2</sub>O → 0,6 · 6,02·10<sup>23</sup> = 3,612·10<sup>23</sup> molekül.</div>
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı · cevaplar ters çevrili</span><span class="sn">07</span></div>
+</section>
+
+</body>
+</html>
