@@ -4,10 +4,12 @@ Verilen ders işleyiş modülleri kaynak alınarak yeniden yazılan, baskıya ha
 Konu anlatımları ve sorular özgündür; kaynaklardan metin veya soru kopyalanmaz.
 
 ## Birleşik kitaplar
-- `kimya-rotasi-9-sinif.pdf`: 10 ünite, 144 sayfa
-- `kimya-rotasi-10-sinif.pdf`: 6 ünite, 84 sayfa
+- `kimya-rotasi-9-sinif.pdf`: 10 ünite, 150 sayfa
+- `kimya-rotasi-10-sinif.pdf`: 6 ünite, 89 sayfa
 
-Her ünitenin sayfa numarası kendi içinde 1'den başlar.
+Her kitapta genel kapak, "Bu kitabı nasıl kullanırım?" sayfası ve iki sayfalık içindekiler var.
+Sayfa numaraları baştan sona süreklidir. Baskıda her ünite sağ sayfada başlasın diye gerektiğinde araya boş sayfa eklenir.
+Ünite klasörlerindeki tek ünite PDF'leri kendi içinde 1'den numaralanır.
 
 ## Üniteler
 | Sınıf | Tema · Bölüm | Klasör |
@@ -39,8 +41,8 @@ Her ünitenin sayfa numarası kendi içinde 1'den başlar.
 ```
 cd kitap
 python3 araclar/derle.py 10-sinif/02-mol-kavrami
-pdfunite 9-sinif/*/[0-9]*.pdf kimya-rotasi-9-sinif.pdf
-pdfunite 10-sinif/*/[0-9]*.pdf kimya-rotasi-10-sinif.pdf
+node araclar/kitap.js 9-sinif     # birleşik kitap: kapak + içindekiler + üniteler
+node araclar/kitap.js 10-sinif
 ```
 
 ## Renk ve kutu sistemi
