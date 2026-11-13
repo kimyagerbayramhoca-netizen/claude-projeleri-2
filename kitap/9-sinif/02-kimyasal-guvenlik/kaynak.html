@@ -50,7 +50,7 @@
 .pikto > div { display: grid; grid-template-columns: 15mm 1fr; gap: 2.2mm; align-items: start; border: .3mm solid var(--cizgi); border-radius: 2.5mm; padding: 2mm 2.4mm; background: #fff; }
 .pikto svg { width: 15mm; height: 15mm; }
 .pikto b { display: block; color: var(--unite-koyu); font-size: 9.2pt; line-height: 1.2; margin-bottom: .6mm; }
-.pikto span { display: block; font-size: 7.9pt; line-height: 1.32; color: var(--metin); }
+.pikto > div > div > span { display: block; font-size: 7.9pt; line-height: 1.32; color: var(--metin); }
 .pikto i { display: block; font-style: normal; font-size: 7.5pt; color: var(--soluk); margin-top: .5mm; line-height: 1.25; }
 
 .isaretler { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 1mm 0 3.5mm; }
@@ -81,6 +81,7 @@
 .dy td { padding: 1.1mm 1.6mm; border-bottom: .3mm dotted #9fd3df; vertical-align: middle; }
 .dy td:first-child { width: 5mm; font-weight: 800; color: var(--unite); }
 .dy td:last-child { width: 18mm; text-align: right; white-space: nowrap; }
+.dy.tek td:last-child { width: 8mm; }
 .dy .kutucuk { display: inline-block; width: 5.4mm; height: 5mm; border: .35mm solid var(--unite); border-radius: 1mm; background: #fff; font-size: 6.8pt; font-weight: 800; color: var(--unite); text-align: center; line-height: 4.6mm; margin-left: 1mm; }
 .bos { display: inline-block; min-width: 26mm; border-bottom: .35mm solid var(--unite-koyu); height: 3.6mm; vertical-align: -0.6mm; }
 .kelime { display: flex; flex-wrap: wrap; gap: 1.6mm; margin: 1mm 0 1.6mm; }
@@ -245,7 +246,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; }
     <div class="bolum">Kimya Hayattır · Bölüm 2</div>
     <h1>Kimyasal<br>Güvenlik</h1>
     <div class="slogan">Kimyasal maddelerin kullanımı ve güvenlik</div>
-    <div class="avo"><b>ASİT → SU</b><span>Laboratuvarın en kısa kuralı: derişik asit suya yavaşça eklenir, tersi asla yapılmaz. Bu bölüm, bunun gibi kuralların <b>nedenini</b> anlatıyor.</span></div>
+    <div class="avo"><b>ASİT → SU</b><span>Laboratuvarın en kısa kuralı: derişik asit suya yavaşça eklenir, tersi asla yapılmaz. Bu bölüm, bunun gibi kuralların <em style="font-style:normal;font-weight:700;color:#fde68a">nedenini</em> anlatıyor.</span></div>
 
     <div class="alt">
       <div class="panel">
@@ -425,7 +426,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; }
           <rect x="14.6" y="54" width="26.8" height="20.4" fill="#bfe9f5"/>
           <g transform="rotate(-48 36 26)"><path d="M30 18 V36 h12 V18" fill="#fff" stroke="#0b4655" stroke-width="1"/><rect x="30.6" y="27" width="10.8" height="8.4" fill="#fde68a"/></g>
           <path d="M26 38 q-1 8 -2 16" fill="none" stroke="#e8b923" stroke-width="1"/>
-          <text x="29.5" y="80.5" font-size="4.6" fill="#1d2133">asit, bol suya azar azar</text>
+          <text x="29.5" y="80.5" font-size="4.4" fill="#1d2133">asit suya, azar azar</text>
           <text x="22" y="66" font-size="4.6" fill="#0b4655">su</text>
           <!-- yanlış: asit beherine su -->
           <path d="M75 48 V73 q0 2 2 2 H101 q2 0 2 -2 V48" fill="none" stroke="#0b4655" stroke-width="1"/>
@@ -434,7 +435,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; }
           <path d="M87 38 q-1 10 -2 20" fill="none" stroke="#7cc4dc" stroke-width="1"/>
           <g fill="#e11d48"><circle cx="80" cy="44" r="1.3"/><circle cx="76" cy="38" r="1"/><circle cx="96" cy="42" r="1.2"/><circle cx="101" cy="36" r="1"/><circle cx="84" cy="33" r=".9"/></g>
           <text x="90.5" y="66" font-size="4.6" fill="#8a5a00">asit</text>
-          <text x="90.5" y="80.5" font-size="4.6" fill="#e11d48">su asidin üstüne: sıçrama!</text>
+          <text x="90.5" y="80.5" font-size="4.4" fill="#e11d48">su aside: sıçrama!</text>
         </g>
       </svg>
     </div>
@@ -658,22 +659,22 @@ table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; }
   </ul>
 
   <div class="etkinlik" style="margin-bottom:0">
-    <div class="baslik">@ikon:test Mini Etkinlik 2 · Eşleştir</div>
-    <div style="display:grid;grid-template-columns:1fr auto;gap:4mm;align-items:center">
-      <table class="dy">
+    <div class="baslik">@ikon:test Mini Etkinlik 2 · Eşleştir <span style="text-transform:none;letter-spacing:0;font-weight:600;color:var(--soluk)">· Her ifadenin kutusuna uygun piktogramın harfini yaz.</span></div>
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:5mm;align-items:center">
+      <div style="display:grid;grid-template-columns:repeat(5,10.5mm);gap:1.2mm;text-align:center;font-weight:800;color:var(--unite-koyu);font-size:8.4pt;line-height:1">
+        <div><svg viewBox="0 0 100 100" style="width:10.5mm"><use href="#g-alev"/></svg>a</div>
+        <div><svg viewBox="0 0 100 100" style="width:10.5mm"><use href="#g-saglik"/></svg>b</div>
+        <div><svg viewBox="0 0 100 100" style="width:10.5mm"><use href="#g-gaz"/></svg>c</div>
+        <div><svg viewBox="0 0 100 100" style="width:10.5mm"><use href="#g-korozif"/></svg>d</div>
+        <div><svg viewBox="0 0 100 100" style="width:10.5mm"><use href="#g-cevre"/></svg>e</div>
+      </div>
+      <table class="dy tek" style="font-size:8.6pt">
         <tr><td>1</td><td>Tüp güneşte ısınırsa patlayabilir.</td><td><span class="kutucuk"></span></td></tr>
-        <tr><td>2</td><td>Lavaboya dökülürse dereye ulaşıp balıklara zarar verir.</td><td><span class="kutucuk"></span></td></tr>
-        <tr><td>3</td><td>Deriye değerse yanık yapar, metal kapağı bile aşındırır.</td><td><span class="kutucuk"></span></td></tr>
+        <tr><td>2</td><td>Lavaboya dökülürse dere canlılarına zarar verir.</td><td><span class="kutucuk"></span></td></tr>
+        <tr><td>3</td><td>Deriyi yakar, metal kapağı bile aşındırır.</td><td><span class="kutucuk"></span></td></tr>
         <tr><td>4</td><td>Yıllarca solunursa kansere yol açabilir.</td><td><span class="kutucuk"></span></td></tr>
         <tr><td>5</td><td>Küçük bir kıvılcımla tutuşabilir.</td><td><span class="kutucuk"></span></td></tr>
       </table>
-      <div style="display:grid;grid-template-columns:repeat(5,12mm);gap:1.6mm;text-align:center;font-weight:800;color:var(--unite-koyu);font-size:8.6pt">
-        <div><svg viewBox="0 0 100 100" style="width:12mm"><use href="#g-alev"/></svg>a</div>
-        <div><svg viewBox="0 0 100 100" style="width:12mm"><use href="#g-saglik"/></svg>b</div>
-        <div><svg viewBox="0 0 100 100" style="width:12mm"><use href="#g-gaz"/></svg>c</div>
-        <div><svg viewBox="0 0 100 100" style="width:12mm"><use href="#g-korozif"/></svg>d</div>
-        <div><svg viewBox="0 0 100 100" style="width:12mm"><use href="#g-cevre"/></svg>e</div>
-      </div>
     </div>
   </div>
 
@@ -796,7 +797,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; }
       <g font-family="Inter" font-size="4.6" fill="#1d2133">
         <rect x="6" y="86" width="34" height="4" rx="1" fill="#94a3b8"/><rect x="12" y="6" width="2.6" height="80" fill="#cbd5e1" stroke="#0b4655" stroke-width=".5"/>
         <path d="M14.6 20 H37" stroke="#64748b" stroke-width="1.6"/>
-        <path d="M40.5 62.3 A13 13 0 0 0 66.5 62.3 Z" fill="#bfe9f5" transform="translate(-13.5 -6)"/>
+        <path d="M27.63 52 A13 13 0 0 0 52.37 52 Z" fill="#bfe9f5"/>
         <path d="M37.5 12 V35.2 A13 13 0 1 0 42.5 35.2 V12" fill="none" stroke="#0b4655" stroke-width="1"/>
         <rect x="36.3" y="8" width="7.4" height="4.4" fill="#a16207"/>
         <rect x="39.1" y="1" width="1.8" height="22" fill="#fff" stroke="#0b4655" stroke-width=".5"/><circle cx="40" cy="23.5" r="1.5" fill="#ef4444"/>
@@ -807,19 +808,21 @@ table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; }
         <path d="M70 31 L67 22" stroke="#0b4655" stroke-width="3.4"/><path d="M70 31 L67 22" stroke="#e0f2fe" stroke-width="2"/>
         <path d="M131 62 V68 L122 86 H146 L137 68 V62" fill="#fff" stroke="#0b4655" stroke-width="1"/>
         <path d="M124.5 81 L122.6 85.2 H145.4 L143.5 81 Z" fill="#bfe9f5"/>
-        <path d="M26 64 H54" stroke="#64748b" stroke-width="2"/>
-        <path d="M29 65 L25 88 M51 65 L55 88" stroke="#0b4655" stroke-width="1.2"/>
+        <path d="M26 62 H54" stroke="#64748b" stroke-width="2"/>
+        <path d="M29 63 L25 88 M51 63 L55 88" stroke="#0b4655" stroke-width="1.2"/>
         <path d="M33 87 H47 V89 H33 Z" fill="#94a3b8"/><rect x="38.2" y="72" width="3.6" height="15" fill="#cbd5e1" stroke="#0b4655" stroke-width=".4"/>
-        <path d="M40 63 C43 67 42.5 70 40 72 C37.5 70 37 67 40 63 Z" fill="#60a5fa"/>
+        <path d="M40 64 C43 67 42.5 70 40 72 C37.5 70 37 67 40 64 Z" fill="#60a5fa"/>
         <g fill="#0e7490" font-weight="700">
           <text x="44" y="5">termometre</text>
-          <text x="2" y="48">cam</text><text x="2" y="53">balon</text>
-          <text x="57" y="68">tel kafes</text>
-          <text x="57" y="80">bunzen beki</text>
+          <text x="57" y="51">cam balon</text>
+          <text x="17" y="10">spor ve kıskaç</text>
+          <text x="58" y="64">tel kafes</text>
+          <text x="58" y="73">sacayağı</text>
+          <text x="58" y="83">bunzen beki</text>
           <text x="84" y="35">soğutucu</text>
           <text x="116" y="92" font-size="4.2">erlenmayer</text>
         </g>
-        <path d="M27 49 L10 50" stroke="#5d6478" stroke-width=".3"/><path d="M55 64 L56.5 66" stroke="#5d6478" stroke-width=".3"/><path d="M43 78 L56.5 78.5" stroke="#5d6478" stroke-width=".3"/>
+        <g stroke="#5d6478" stroke-width=".3"><path d="M51 47 L56 49.5"/><path d="M54 62 L57.5 62.6"/><path d="M53 72 L57.5 71.6"/><path d="M42 80 L57.5 81.6"/><path d="M20 11.5 L25 19"/></g>
         <g fill="#0f8f84" font-size="4">
           <text x="104" y="80">su girişi ↑</text>
           <text x="52" y="20">su çıkışı</text>
@@ -927,8 +930,8 @@ table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; }
       <p style="margin-bottom:1.4mm"><b>Görev:</b> Derişik asitten seyreltik bir çözelti hazırlama adımlarını yaz.</p>
       <div class="defter">
         <div class="ogrenci">Elif’in planı</div>
-        <div class="satir"><span class="sn">1</span>Önlüğümü, gözlüğümü ve eldivenimi taktım.</div>
-        <div class="satir"><span class="sn">2</span>Gereken asidi mezürle ölçüp behere koydum.</div>
+        <div class="satir"><span class="sn">1</span>Önlük, gözlük ve eldiven taktım.</div>
+        <div class="satir"><span class="sn">2</span>Asidi mezürle ölçüp behere koydum.</div>
         <div class="satir"><span class="sn">3</span>Üzerine suyu hızlıca ekleyip karıştırdım.</div>
       </div>
       <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
@@ -941,8 +944,8 @@ table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; }
       <div class="defter">
         <div class="ogrenci">Burak’ın yorumu</div>
         <div class="satir"><span class="sn">1</span>Alev: kolay tutuşur, ısıdan uzak tutmalıyım.</div>
-        <div class="satir"><span class="sn">2</span>Ünlem: tahriş eder, gözlük ve eldiven takarım.</div>
-        <div class="satir"><span class="sn">3</span>Kurukafa yok, yani zehirsiz; koklayıp tanırım.</div>
+        <div class="satir"><span class="sn">2</span>Ünlem: tahriş eder; gözlük, eldiven.</div>
+        <div class="satir"><span class="sn">3</span>Kurukafa yok, zehirsiz; koklayıp tanırım.</div>
       </div>
       <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
       <div class="duzelt">Doğrusu:</div>
@@ -955,7 +958,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; }
         <div class="ogrenci">Cansu’nun ölçümü</div>
         <div class="satir"><span class="sn">1</span>Mezürü düz ve sabit masaya koydum.</div>
         <div class="satir"><span class="sn">2</span>Gözümü sıvı yüzeyinin hizasına getirdim.</div>
-        <div class="satir"><span class="sn">3</span>Menisküsün en üst kenarını okudum: 26 mL.</div>
+        <div class="satir"><span class="sn">3</span>Menisküsün üst kenarını okudum: 26&nbsp;mL.</div>
       </div>
       <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
       <div class="duzelt">Doğrusu:</div>
@@ -1172,7 +1175,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; }
       </div></div></div>
 
       <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
-        <p><b>I.</b> Pipet &nbsp; <b>II.</b> Beherglas &nbsp; <b>III.</b> Balon joje &nbsp; <b>IV.</b> Erlenmayer</p>
+        <div class="oncul" style="display:grid;grid-template-columns:1fr 1fr"><div><b>I.</b><span>Pipet</span></div><div><b>II.</b><span>Beherglas</span></div><div><b>III.</b><span>Balon joje</span></div><div><b>IV.</b><span>Erlenmayer</span></div></div>
         <p>Yukarıdaki cam malzemelerden hangileri sıvı hacmini <b>hassas</b> ölçmek için kullanılır?</p>
         <div class="secenek"><span><b>A)</b>I ve II</span><span><b>B)</b>I ve III</span><span><b>C)</b>II ve IV</span><span><b>D)</b>I, III ve IV</span><span><b>E)</b>I, II, III ve IV</span></div>
       </div></div></div>
@@ -1285,7 +1288,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; }
     <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
     <div class="c" style="--renk:var(--ipucu)"><b>1</b> Alev: madde yanıcıdır; ısınınca çıkan buhar açık alevde tutuşabilir, ağzı açık kap buharı serbest bırakır. Güvenli plan: alevsiz ısıtıcı ya da sıcak su banyosu, çeker ocak veya iyi havalandırma, ağzı gevşek örtülü kap, ortamda başka alev yok. Ünlem için gözlük, eldiven, önlük.</div>
     <div class="c" style="--renk:var(--ipucu)"><b>2 · En az 4 bölme</b> [oksitleyici] · [yanıcı] · [zehirli + tahriş edici] · [aşındırıcı]. Ya da tahriş edici aşındırıcının yanına: [zehirli] · [aşındırıcı + tahriş edici].</div>
-    <div class="c" style="--renk:var(--ipucu)"><b>3</b> Hata balon jojededir: hacim ölçen cam ısıtılmaz; genleşir, ölçüsü bozulur, kırılabilir. Süzüntü beher ya da porselen kaba (kroze) alınır; kap sacayağındaki tel kafes üzerinde ısıtılır.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3</b> Hata balon jojededir: hacim ölçen cam ısıtılmaz; genleşir, ölçüsü bozulur, kırılabilir. Süzüntü beher gibi ısıya dayanıklı, geniş ağızlı bir kaba alınır; beher, sacayağındaki tel kafes üzerinde ısıtılır.</div>
 
     <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
     <div class="c" style="--renk:var(--hata)"><b>1 · Satır 3</b> Su aside eklenmez. Behere önce su konur, asit suya yavaşça ve karıştırarak eklenir.</div>
