@@ -66,14 +66,14 @@ BULUT = ('<radialGradient id="{id}" cx="{cx}" cy="50%" r="55%" fx="{fx}" fy="50%
          '<stop offset="1" stop-color="#e0f2fe" stop-opacity=".15"/></radialGradient>')
 
 # ------------------------------------------------------------------ 1) bağ / etkileşim (s.2)
-o = ['<svg viewBox="0 0 92 50" class="grafik"><g font-family="Inter">']
-w1, h1 = su(16, 27, 52.25, 1.6, True)   # H'lerden biri tam sağa (0°)
-w2, h2 = su(41, 27, 0, 1.6, True)       # alıcı O, H'leri sağa bakar
+o = ['<svg viewBox="0 0 96 50" class="grafik"><g font-family="Inter">']
+w1, h1 = su(12, 27, 52.25, 1.6, True)   # H'lerden biri tam sağa (0°)
+w2, h2 = su(39, 27, 0, 1.6, True)       # alıcı O, H'leri sağa bakar
 o += [w1, w2]
 hx, hy = h1[0]
-o.append(kesik(hx, hy, 41, 27, AMB, .9, 3.6))
-o.append(f'<path d="M{(16 + hx) / 2:.1f} {hy - 1.2:.1f} L51 12" stroke="{U}" stroke-width=".35" fill="none"/>')
-o.append(f'<path d="M{(hx + 41) / 2 + .5:.1f} {hy + 1.2:.1f} L51 40" stroke="{AMB}" stroke-width=".35" fill="none"/>')
+o.append(kesik(hx, hy, 39, 27, AMB, .9, 3.6))
+o.append(f'<path d="M{(12 + hx) / 2:.1f} {hy - 1.2:.1f} L51 12" stroke="{U}" stroke-width=".35" fill="none"/>')
+o.append(f'<path d="M{(hx + 39) / 2:.1f} {hy + .6:.1f} L51 40" stroke="{AMB}" stroke-width=".35" fill="none"/>')
 o.append(f'<text x="52" y="10" font-size="3.2" font-weight="800" fill="{UK}">O–H kovalent bağı</text>')
 o.append(f'<text x="52" y="14.4" font-size="2.9" fill="{S}">molekül içi · ≈ 460 kJ/mol</text>')
 o.append(f'<text x="52" y="18.6" font-size="3" font-weight="700" fill="{U}">GÜÇLÜ etkileşim</text>')
@@ -431,10 +431,10 @@ w('test5', ''.join(o))
 
 # ------------------------------------------------------------------ 14) bağlam: O2 çözünürlüğü
 dat = [(0, 14.6), (10, 11.3), (20, 9.1), (30, 7.6), (40, 6.4)]
-x0, x1, yt, yb = 14, 88, 5, 44
+x0, x1, yt, yb = 14, 88, 9, 42
 X = lambda t: x0 + 4 + t / 40 * (x1 - x0 - 8)
 Y = lambda v: yb - v / 16 * (yb - yt)
-o = [f'<svg viewBox="0 0 92 56" class="grafik"><g font-family="Inter" font-size="3" fill="{S}">']
+o = [f'<svg viewBox="0 0 92 54" class="grafik"><g font-family="Inter" font-size="3.8" fill="{S}">']
 for v in (0, 4, 8, 12, 16):
     o.append(f'<line x1="{x0}" y1="{Y(v):.1f}" x2="{x1}" y2="{Y(v):.1f}" stroke="#e5e7f0" stroke-width=".3"/><text x="{x0 - 1.5}" y="{Y(v) + 1:.1f}" text-anchor="end">{v}</text>')
 for t, _ in dat:
@@ -444,7 +444,7 @@ o.append('<polyline fill="none" stroke="%s" stroke-width=".9" points="%s"/>' % (
 for t, v in dat:
     o.append(f'<circle cx="{X(t):.1f}" cy="{Y(v):.1f}" r="1.1" fill="{U}"/><text x="{X(t) + 1.5:.1f}" y="{Y(v) - 1.6:.1f}" font-weight="700" fill="{M}">{str(v).replace(".", ",")}</text>')
 o.append(f'<text x="{(x0 + x1) / 2}" y="{yb + 9}" text-anchor="middle" fill="{M}" font-weight="700">Su sıcaklığı (°C)</text>')
-o.append(f'<text x="1" y="2.6" fill="{M}" font-weight="700">Çözünmüş O₂ (mg/L)</text>')
+o.append(f'<text x="1" y="3.6" fill="{M}" font-weight="700">Çözünmüş O₂ (mg/L)</text>')
 o.append('</g></svg>')
 w('oksijen', ''.join(o))
 
