@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Görev Rotası · Mol Kavramı</title>
+<style>
+/* =========================================================
+   GÖREV ROTASI — oyunlaştırılmış ders kitabı konsepti
+   Tek dosya, çevrimdışı. Fontlar: Inter, Inter Display, JetBrains Mono
+   ========================================================= */
+@page { size: A4; margin: 0; }
+:root{
+  --kagit:#FCFBF7;
+  --murekkep:#171A2F;
+  --soluk:#5F6380;
+  --cizgi:#DCD9E8;
+  --mor:#5B3DF5;   --mor-a:#EEEAFF;  --mor-k:#3A22C4;
+  --lime:#86C220;  --lime-a:#EEF8DC; --lime-k:#4D7A05;
+  --mercan:#F2513F;--mercan-a:#FFE9E5;--mercan-k:#B92A1B;
+  --turkuaz:#0EA2B6;--turkuaz-a:#DEF4F7;--turkuaz-k:#086E7C;
+  --sari:#FFB51C;  --sari-a:#FFF4D9; --sari-k:#9A6400;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Inter","DejaVu Sans",sans-serif;
+  font-size:9.8pt; line-height:1.42; color:var(--murekkep);
+  background:#9A9CB0;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  font-feature-settings:"cv11","ss01","tnum";
+}
+.sayfa{
+  width:210mm;height:297mm;position:relative;overflow:hidden;
+  background-color:var(--kagit);
+  background-image:radial-gradient(circle, #E4E1EE 0.28mm, transparent 0.32mm);
+  background-size:5mm 5mm; background-position:2.5mm 2.5mm;
+  padding:13mm 14mm 12mm 14mm;
+  break-after:page; page-break-after:always; margin:0 auto;
+}
+.sayfa:last-child{break-after:auto;page-break-after:auto}
+@media screen{.sayfa{margin:8mm auto;box-shadow:0 6px 30px rgba(0,0,0,.3)}}
+
+sub,sup{font-size:.68em;line-height:0}
+sub{vertical-align:-.3em} sup{vertical-align:.55em}
+.mono{font-family:"JetBrains Mono",monospace}
+.disp{font-family:"Inter Display","Inter",sans-serif}
+b,strong{font-weight:700}
+
+/* ---------- HUD şeridi (tek koyu alan) ---------- */
+.hud{
+  position:absolute;left:0;right:0;top:0;height:8.5mm;
+  background:var(--murekkep);color:#fff;
+  display:flex;align-items:center;gap:5mm;padding:0 14mm;
+  font-family:"JetBrains Mono",monospace;font-size:7.6pt;letter-spacing:.06em;text-transform:uppercase;
+}
+.hud .logo{display:flex;align-items:center;gap:2mm;font-weight:800}
+.hud .logo i{width:3.2mm;height:3.2mm;background:var(--lime);display:inline-block;transform:rotate(45deg);border-radius:.6mm}
+.hud .bos{flex:1}
+.hud .xp{display:flex;align-items:center;gap:2mm}
+.hud .xp b{color:var(--lime)}
+.hud .xpbar{width:28mm;height:2.4mm;border-radius:2mm;background:#3A3E5C;overflow:hidden;position:relative}
+.hud .xpbar i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--lime),#C9F25C);border-radius:2mm}
+.hud .nokta{display:flex;gap:1.2mm}
+.hud .nokta i{width:2.2mm;height:2.2mm;border-radius:50%;border:.35mm solid #8A8FB0;display:inline-block}
+.hud .nokta i.tam{background:var(--lime);border-color:var(--lime)}
+.hud .nokta i.simdi{background:#fff;border-color:#fff;box-shadow:0 0 0 .6mm rgba(134,194,32,.7)}
+
+/* ---------- Alt bilgi ---------- */
+.alt{
+  position:absolute;left:14mm;right:14mm;bottom:6mm;height:6mm;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:"JetBrains Mono",monospace;font-size:7.2pt;color:var(--soluk);letter-spacing:.05em;text-transform:uppercase;
+}
+.alt .no{
+  width:8mm;height:7mm;display:grid;place-items:center;color:#fff;font-weight:800;font-size:8.5pt;
+  background:var(--mor);clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);
+}
+
+/* ---------- Ortak bileşenler ---------- */
+.etiket{
+  display:inline-flex;align-items:center;gap:1.4mm;
+  font-family:"JetBrains Mono",monospace;font-weight:700;font-size:7.4pt;letter-spacing:.08em;text-transform:uppercase;
+}
+.cip{
+  display:inline-flex;align-items:center;gap:1.2mm;padding:.5mm 2.2mm;border-radius:10mm;
+  font-family:"JetBrains Mono",monospace;font-weight:800;font-size:7.6pt;letter-spacing:.04em;white-space:nowrap;
+  border:.35mm solid var(--murekkep);background:#fff;
+}
+.cip.xp{background:var(--lime);border-color:var(--murekkep)}
+.cip.koyu{background:var(--murekkep);color:#fff}
+.cip svg{width:3mm;height:3mm}
+.yildiz{color:var(--sari);letter-spacing:.05em;font-size:9pt}
+.yildiz s{color:#D6D3E2;text-decoration:none}
+.kart{
+  background:#fff;border:.45mm solid var(--murekkep);border-radius:3mm;
+  box-shadow:1.2mm 1.2mm 0 var(--murekkep);position:relative;
+}
+.ikon{width:4.2mm;height:4.2mm;flex:none}
+.kesir{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.1;margin:0 .6mm}
+.kesir>span:first-child{border-bottom:.35mm solid currentColor;padding:0 1mm .3mm}
+.kesir>span:last-child{padding:.3mm 1mm 0}
+.ters{transform:rotate(180deg);display:inline-block}
+
+/* =========================================================
+   SAYFA 1 — Ünite açılışı / rota haritası
+   ========================================================= */
+.s1-ust{display:grid;grid-template-columns:1fr 62mm;gap:5mm;margin-top:1mm}
+.s1-dunya{display:flex;align-items:center;gap:2.5mm}
+.s1-dunya .cip{font-size:8pt}
+.s1-baslik{font-family:"Inter Display","Inter",sans-serif;font-weight:900;font-size:44pt;line-height:.92;letter-spacing:-.035em;margin:2.5mm 0 1.5mm}
+.s1-baslik span{color:var(--mor)}
+.s1-baslik em{font-style:normal;position:relative;z-index:0}
+.s1-baslik em::after{content:"";position:absolute;left:-1mm;right:-1mm;bottom:1.6mm;height:4.2mm;background:var(--lime);z-index:-1;border-radius:1mm;transform:rotate(-1deg)}
+.s1-alt{font-size:12pt;color:var(--soluk);font-weight:500;margin:0}
+.s1-istat{display:flex;gap:2mm;margin-top:2.5mm;flex-wrap:wrap}
+.s1-istat .cip{background:#fff}
+
+.avo-kutu{position:relative;height:40mm}
+.avo-kutu svg.avo{position:absolute;right:0;bottom:0;width:30mm;height:32mm}
+.balon{
+  position:absolute;left:0;top:0;width:44mm;padding:2.4mm 3mm;
+  background:#fff;border:.45mm solid var(--murekkep);border-radius:3mm 3mm 3mm .8mm;
+  font-size:9.5pt;line-height:1.35;box-shadow:1mm 1mm 0 var(--murekkep);
+}
+.balon::after{content:"";position:absolute;right:6mm;bottom:-2.4mm;width:3.4mm;height:3.4mm;background:#fff;border-right:.45mm solid var(--murekkep);border-bottom:.45mm solid var(--murekkep);transform:rotate(45deg)}
+.balon b{color:var(--mor)}
+.balon .ad{display:block;font-family:"JetBrains Mono",monospace;font-weight:800;font-size:7.2pt;letter-spacing:.1em;color:var(--mor);margin-bottom:.6mm}
+
+.harita{margin-top:3mm;padding:3mm 3mm 2mm;border-radius:4mm}
+.harita-bas{display:flex;align-items:center;justify-content:space-between;padding:0 1mm 1mm}
+.harita-bas h2{font-family:"Inter Display","Inter",sans-serif;font-size:14pt;margin:0;font-weight:800;letter-spacing:-.01em}
+.harita-bas .etiket{color:var(--soluk)}
+.harita svg{display:block;width:96%;height:auto;margin:-2mm auto 0}
+
+.s1-rozet{margin-top:3.5mm}
+.bolum-bas{display:flex;align-items:baseline;gap:3mm;margin:0 0 2mm}
+.bolum-bas h3{font-family:"Inter Display","Inter",sans-serif;font-size:12.5pt;font-weight:800;margin:0;letter-spacing:-.01em}
+.bolum-bas p{margin:0;color:var(--soluk);font-size:9.5pt}
+.rozetler{display:grid;grid-template-columns:repeat(6,1fr);gap:2.5mm}
+.rozet{text-align:center}
+.rozet svg{width:16mm;height:17.6mm;display:block;margin:0 auto 1mm}
+.rozet b{display:block;font-size:9.5pt;line-height:1.15;font-family:"Inter Display","Inter",sans-serif}
+.rozet span{display:block;font-size:8pt;color:var(--soluk);line-height:1.25;margin-top:.6mm}
+
+.s1-alt-sira{display:grid;grid-template-columns:1.25fr 1fr;gap:5mm;margin-top:3.5mm}
+.hedef-kart{padding:3mm 4mm 3mm}
+.hedef-kart ol{margin:1.5mm 0 0;padding:0;list-style:none;counter-reset:h}
+.hedef-kart li{counter-increment:h;display:flex;gap:2.4mm;align-items:flex-start;margin:1.2mm 0;font-size:9.8pt}
+.hedef-kart li::before{content:counter(h);flex:none;width:5mm;height:5mm;border-radius:1.2mm;background:var(--mor-a);color:var(--mor-k);font-family:"JetBrains Mono",monospace;font-weight:800;font-size:8pt;display:grid;place-items:center;margin-top:.2mm}
+.seviye{margin-top:2.4mm;padding-top:2.2mm;border-top:.3mm dashed var(--cizgi)}
+.seviye-bar{display:flex;height:4.4mm;border:.4mm solid var(--murekkep);border-radius:2.4mm;overflow:hidden;margin-top:1.2mm}
+.seviye-bar i{flex:1;border-right:.4mm solid var(--murekkep)}
+.seviye-bar i:last-child{border-right:0}
+.seviye-ad{display:flex;justify-content:space-between;font-family:"JetBrains Mono",monospace;font-size:7.2pt;margin-top:.8mm;color:var(--soluk)}
+.seviye-ad b{color:var(--murekkep)}
+.lejant{padding:3mm 4mm}
+.lejant ul{list-style:none;margin:1.6mm 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:1.6mm 3mm}
+.lejant li{display:flex;gap:2mm;align-items:flex-start;font-size:8.6pt;line-height:1.25}
+.lejant li svg{width:6mm;height:6mm;flex:none}
+.lejant li b{display:block;font-size:9.5pt}
+
+/* =========================================================
+   SAYFA 2 — Konu anlatımı
+   ========================================================= */
+.kn-bas{display:grid;grid-template-columns:22mm 1fr 52mm;gap:4mm;align-items:center;margin-top:1mm}
+.kn-hex{width:22mm;height:24mm;display:block}
+.kn-bas .ust{display:flex;gap:2mm;align-items:center;color:var(--mor)}
+.kn-bas h1{font-family:"Inter Display","Inter",sans-serif;font-weight:900;font-size:25pt;line-height:1;letter-spacing:-.025em;margin:1.4mm 0 1.2mm}
+.kn-bas p{margin:0;color:var(--soluk);font-size:10pt}
+.gorev-kart{padding:2.4mm 3mm;background:var(--sari-a)}
+.gorev-kart .etiket{color:var(--sari-k)}
+.gorev-kart p{margin:1mm 0 1.6mm;font-size:9.5pt;line-height:1.3;color:var(--murekkep)}
+.gorev-kart .odul{display:flex;gap:1.5mm;flex-wrap:wrap}
+
+.s2-harita{display:grid;grid-template-columns:110mm 1fr;gap:4mm;margin-top:4mm}
+.mh-kart{padding:2.6mm 3mm 2mm;background:#fff}
+.mh-kart .etiket{color:var(--mor)}
+.mh-kart svg{display:block;width:100%;height:auto;margin-top:1mm}
+.yetenekler{display:flex;flex-direction:column;gap:2.6mm}
+.yetenek{display:grid;grid-template-columns:9mm 1fr;align-items:center;gap:2.4mm;padding:2mm 2.6mm;background:#fff;border:.45mm solid var(--murekkep);border-radius:2.6mm;box-shadow:.9mm .9mm 0 var(--murekkep)}
+.yetenek .yno{width:9mm;height:9mm;border-radius:2mm;display:grid;place-items:center;color:#fff;font-family:"JetBrains Mono",monospace;font-weight:800;font-size:8pt;line-height:1;text-align:center}
+.yetenek .yad{font-family:"JetBrains Mono",monospace;font-size:7pt;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--soluk)}
+.yetenek .yf{font-family:"Inter Display","Inter",sans-serif;font-weight:700;font-size:14pt;line-height:1.15;white-space:nowrap}
+.yetenek .yf i{font-style:italic;font-family:"Bitstream Charter","Caladea",serif;font-weight:700}
+
+.kavram{margin-top:4mm;display:grid;grid-template-columns:44mm 1fr;gap:4mm;padding:3mm 4mm;background:var(--mor-a);border-color:var(--mor-k)}
+.kavram > svg{width:44mm;height:22mm;display:block;align-self:center}
+.kavram .etiket{color:var(--mor-k)}
+.zincir{display:flex;flex-wrap:wrap;align-items:center;gap:1.2mm;margin:1.6mm 0 1.6mm}
+.zincir span{background:#fff;border:.35mm solid var(--mor-k);border-radius:1.6mm;padding:.4mm 2mm;font-weight:600;font-size:9.6pt}
+.zincir em{font-style:normal;font-weight:800;color:var(--mor)}
+.kavram p{margin:0;font-size:9.6pt}
+
+.ornekler{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:4mm}
+.ornek{padding:3mm 3.6mm 3mm;display:flex;flex-direction:column}
+.ornek .ob{display:flex;justify-content:space-between;align-items:center}
+.ornek .ob .etiket{color:var(--turkuaz-k)}
+.ornek .soru{margin:1.8mm 0 2mm;font-weight:600;font-size:10pt;line-height:1.35}
+.adim{display:grid;grid-template-columns:6mm 1fr;gap:2mm;margin:0 0 1.5mm;align-items:start;font-size:9.6pt}
+.adim i{font-style:normal;width:6mm;height:6mm;border-radius:50%;background:var(--turkuaz-a);border:.35mm solid var(--turkuaz-k);color:var(--turkuaz-k);display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-weight:800;font-size:7.6pt}
+.adim .mono{font-size:9pt}
+.ganimet{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:2mm;background:var(--lime-a);border:.4mm dashed var(--lime-k);border-radius:2mm;padding:1.6mm 2.6mm}
+.ganimet .etiket{color:var(--lime-k)}
+.ganimet b{font-family:"Inter Display","Inter",sans-serif;font-size:11pt}
+
+.s2-alt{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-top:4mm}
+.tuzak{padding:3mm 3.6mm;background:var(--mercan-a);border-color:var(--mercan-k)}
+.tuzak .tb{display:flex;align-items:center;gap:2mm}
+.tuzak .tb b{font-family:"Inter Display","Inter",sans-serif;font-size:15pt;font-weight:900;color:var(--mercan-k);letter-spacing:-.01em}
+.tuzak .tb .etiket{color:var(--mercan-k);margin-left:auto}
+.yanlis,.dogru{display:grid;grid-template-columns:5.4mm 1fr;gap:2mm;margin-top:1.8mm;font-size:9.6pt}
+.yanlis i,.dogru i{font-style:normal;width:5.4mm;height:5.4mm;border-radius:1.2mm;display:grid;place-items:center;color:#fff;font-weight:900;font-size:9pt}
+.yanlis i{background:var(--mercan)} .dogru i{background:var(--lime-k)}
+.yanlis span{text-decoration:line-through;text-decoration-color:rgba(185,42,27,.55);text-decoration-thickness:.35mm}
+.hizli{padding:3mm 3.6mm;display:grid;grid-template-columns:1fr 17mm;gap:2mm}
+.hizli .etiket{color:var(--mor)}
+.hizli .soru{margin:1.4mm 0 1.6mm;font-size:9.8pt;font-weight:600}
+.kilit{display:flex;gap:2mm;align-items:center;border:.35mm dashed var(--soluk);border-radius:2mm;padding:1.2mm 2mm;font-size:9pt;line-height:1.25;background:repeating-linear-gradient(-45deg,#fff 0 2mm,#F4F2FA 2mm 4mm)}
+.kilit svg{width:5mm;height:5mm;flex:none}
+.kilit .ters{font-size:9pt;display:block;width:max-content;margin-top:.6mm}
+.hizli .yan{display:flex;flex-direction:column;align-items:center;justify-content:space-between}
+.hizli .yan svg{width:17mm;height:18mm}
+.cevapkutu{border:.4mm solid var(--murekkep);border-radius:1.6mm;width:100%;height:8mm;margin-top:1.6mm;display:flex;align-items:center;padding:0 2mm;font-family:"JetBrains Mono",monospace;font-size:7.2pt;color:var(--soluk)}
+
+.avo-ipucu{margin-top:4.5mm;display:flex;align-items:center;gap:3mm;padding:2.2mm 3.4mm;border-radius:3mm;background:var(--murekkep);color:#fff;font-size:9.6pt}
+.avo-ipucu svg{width:9mm;height:10mm;flex:none}
+.avo-ipucu b{color:var(--lime)}
+
+/* =========================================================
+   SAYFA 3 — Görev arenası (sorular)
+   ========================================================= */
+.arena-bas{display:flex;align-items:flex-end;justify-content:space-between;gap:4mm;margin-top:1mm}
+.arena-bas h1{font-family:"Inter Display","Inter",sans-serif;font-weight:900;font-size:27pt;line-height:1;letter-spacing:-.03em;margin:1.2mm 0 0}
+.arena-bas h1 span{color:var(--mor)}
+.arena-bas .etiket{color:var(--mor)}
+.kurallar{display:flex;gap:2mm;margin-top:3mm}
+.kural{flex:1;display:flex;gap:2mm;align-items:center;padding:1.6mm 2.4mm;border:.35mm solid var(--cizgi);border-radius:2mm;background:#fff;font-size:8.8pt;line-height:1.25}
+.kural svg{width:5.4mm;height:5.4mm;flex:none}
+
+.arena{display:grid;grid-template-columns:1fr 1fr;gap:5mm 5mm;margin-top:4.5mm}
+.gorev{padding:2.8mm 3.4mm 3mm;display:flex;flex-direction:column}
+.gb{display:flex;align-items:center;gap:2mm;margin-bottom:1.6mm}
+.gb .gno{width:8mm;height:8mm;border-radius:2mm;display:grid;place-items:center;color:#fff;font-family:"JetBrains Mono",monospace;font-weight:800;font-size:9.5pt;flex:none}
+.gb .gt{display:flex;flex-direction:column;line-height:1.15}
+.gb .gt .etiket{font-size:6.9pt}
+.gb .gt b{font-family:"Inter Display","Inter",sans-serif;font-size:11pt}
+.gb .sag{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:.6mm}
+.gorev p{margin:0 0 1.4mm;font-size:9.6pt}
+.secenek{display:grid;grid-template-columns:1fr 1fr;gap:1.2mm 2.4mm;margin-top:1.2mm}
+.secenek span{display:flex;gap:1.6mm;align-items:center;font-size:9.6pt}
+.secenek em{font-style:normal}
+.secenek span i{font-style:normal;width:5mm;height:5mm;border-radius:50%;border:.35mm solid var(--murekkep);display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-weight:800;font-size:7.2pt;flex:none}
+.secenek.tek{grid-template-columns:1fr}
+.secenek.uc{grid-template-columns:repeat(3,1fr)}
+
+.g-baglam{border-color:var(--murekkep)}
+.g-baglam .gno{background:var(--turkuaz)}
+.g-baglam .gt .etiket{color:var(--turkuaz-k)}
+.baglam-ust{display:grid;grid-template-columns:1fr 20mm;gap:2mm;align-items:center}
+.baglam-ust svg{width:20mm;height:18mm}
+
+.g-hata .gno{background:var(--sari);color:var(--murekkep)}
+.g-hata .gt .etiket{color:var(--sari-k)}
+.terminal{border:.35mm solid var(--murekkep);border-radius:2mm;overflow:hidden;margin:.6mm 0 1.6mm}
+.terminal .tbas{background:var(--sari-a);padding:.8mm 2.4mm;font-family:"JetBrains Mono",monospace;font-size:7.4pt;font-weight:700;border-bottom:.35mm solid var(--murekkep);display:flex;justify-content:space-between}
+.terminal .satir{display:grid;grid-template-columns:7mm 1fr 5mm;align-items:center;border-bottom:.25mm dashed var(--cizgi);font-size:9.6pt;padding:.9mm 0}
+.terminal .satir:last-child{border-bottom:0}
+.terminal .satir .n{font-family:"JetBrains Mono",monospace;font-size:7.6pt;color:var(--soluk);text-align:center}
+.terminal .satir .k{width:3.6mm;height:3.6mm;border:.35mm solid var(--murekkep);border-radius:.8mm;background:#fff}
+.yaz{display:grid;grid-template-columns:auto 1fr;gap:1mm 2mm;align-items:end;font-size:9pt;margin-top:auto}
+.yaz span{font-family:"JetBrains Mono",monospace;font-size:7.4pt;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--soluk)}
+.yaz i{display:block;border-bottom:.35mm dotted var(--soluk);height:5.4mm}
+
+.g-ipucu .gno{background:var(--mor)}
+.g-ipucu .gt .etiket{color:var(--mor)}
+.merdiven{display:flex;flex-direction:column;gap:1.4mm;margin:.4mm 0 1.6mm}
+.basamak{display:grid;grid-template-columns:6mm 1fr auto;gap:2mm;align-items:center;border:.35mm solid var(--mor);border-radius:2mm;padding:1.2mm 2mm;background:var(--mor-a);font-size:9.2pt;line-height:1.28}
+.basamak:nth-child(2){margin-left:4mm} .basamak:nth-child(3){margin-left:8mm}
+.basamak svg{width:5.4mm;height:5.4mm}
+.basamak .bedel{font-family:"JetBrains Mono",monospace;font-weight:800;font-size:7.4pt;color:var(--mercan-k);white-space:nowrap}
+.xp-hesap{display:flex;align-items:center;gap:1.4mm;font-family:"JetBrains Mono",monospace;font-size:8.4pt;font-weight:700;margin-top:auto;flex-wrap:wrap}
+.xp-hesap .bos{display:inline-block;width:9mm;height:5.4mm;border:.35mm solid var(--murekkep);border-radius:1.2mm;background:#fff}
+
+.g-boss{background:#fff;border-color:var(--mercan-k);box-shadow:1.2mm 1.2mm 0 var(--mercan-k)}
+.g-boss .gno{background:var(--mercan)}
+.g-boss .gt .etiket{color:var(--mercan-k)}
+.boss-can{display:flex;align-items:center;gap:1.4mm;font-family:"JetBrains Mono",monospace;font-size:6.9pt;font-weight:700;color:var(--mercan-k)}
+.boss-can i{display:inline-block;width:4mm;height:2.6mm;background:var(--mercan);border-radius:.5mm}
+.kaplar{display:grid;grid-template-columns:repeat(3,1fr);gap:2mm;margin:.6mm 0 1.4mm}
+.kap{text-align:center;border:.35mm solid var(--cizgi);border-radius:2mm;padding:1mm 1mm 1.2mm;background:var(--kagit)}
+.kap svg{width:11mm;height:12mm;display:block;margin:0 auto}
+.kap b{display:block;font-family:"JetBrains Mono",monospace;font-size:7.4pt}
+.kap span{font-size:9.2pt;line-height:1.2;display:block;font-weight:600}
+.fazlar{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6mm;margin:0 0 1.6mm}
+.faz{border:.35mm dashed var(--mercan-k);border-radius:1.6mm;padding:.8mm 1.6mm 1mm;font-size:8.4pt;line-height:1.2;background:var(--mercan-a)}
+.faz b{font-family:"JetBrains Mono",monospace;font-size:7pt;color:var(--mercan-k);display:block}
+.faz i{display:block;border-bottom:.3mm dotted var(--mercan-k);height:4.4mm;font-style:normal}
+
+.ilerleme{margin-top:5mm;padding:3mm 4mm 3mm}
+.ilerleme .ib{display:flex;align-items:center;justify-content:space-between}
+.ilerleme .ib h3{margin:0;font-family:"Inter Display","Inter",sans-serif;font-size:12pt;font-weight:800}
+.ilerleme .ib p{margin:0;font-size:8.8pt;color:var(--soluk)}
+.xpray{position:relative;margin:2.6mm 0 1mm;height:13mm}
+.xpray .ray{position:absolute;left:0;right:0;top:4mm;height:5mm;border:.45mm solid var(--murekkep);border-radius:3mm;background:repeating-linear-gradient(90deg,#fff 0 calc(10% - .3mm),var(--cizgi) calc(10% - .3mm) 10%)}
+.xpray .dur{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center}
+.xpray .dur .kk{width:5.4mm;height:5.4mm;border:.45mm solid var(--murekkep);border-radius:1.2mm;background:#fff;margin-top:3.8mm}
+.xpray .dur span{font-family:"JetBrains Mono",monospace;font-size:7pt;font-weight:800;margin-top:.4mm;white-space:nowrap}
+.unvanlar{display:grid;grid-template-columns:4fr 3fr 3fr;font-family:"JetBrains Mono",monospace;font-size:7.2pt;margin-top:.6mm;color:var(--soluk)}
+.unvanlar span{border-left:.35mm solid var(--murekkep);padding-left:1.4mm}
+.unvanlar b{color:var(--murekkep)}
+.oz{display:grid;grid-template-columns:1fr auto;gap:1.4mm 3mm;align-items:center;margin-top:2.6mm;padding-top:2.4mm;border-top:.3mm dashed var(--cizgi)}
+.oz .bas{font-family:"JetBrains Mono",monospace;font-size:7.2pt;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--soluk)}
+.oz .ifade{font-size:9.6pt}
+.pil{display:flex;gap:2.4mm}
+.pil span{display:flex;align-items:center;gap:1mm;font-size:8pt;color:var(--soluk)}
+.pil svg{width:8.4mm;height:4.4mm}
+.not{display:grid;grid-template-columns:auto 1fr;gap:2mm;align-items:end;margin-top:2.4mm;font-family:"JetBrains Mono",monospace;font-size:7.4pt;font-weight:800;letter-spacing:.05em;color:var(--soluk)}
+.not i{border-bottom:.35mm dotted var(--soluk);height:4.6mm}
+.cevap-kilit{position:absolute;right:14mm;bottom:13.5mm;font-size:8pt;color:var(--soluk);font-family:"JetBrains Mono",monospace}
+</style>
+</head>
+<body>
+
+<!-- ============ ORTAK SİMGELER ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- AVO: rotanın rehberi. Altıgen gövde, yörüngeli anten -->
+    <symbol id="avo" viewBox="0 0 60 66">
+      <ellipse cx="30" cy="9" rx="15" ry="4.6" fill="none" stroke="#171A2F" stroke-width="1.6" transform="rotate(-12 30 9)"/>
+      <circle cx="44.2" cy="5.8" r="2.6" fill="#86C220" stroke="#171A2F" stroke-width="1.2"/>
+      <line x1="30" y1="12" x2="30" y2="20" stroke="#171A2F" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="30" cy="9.5" r="2.4" fill="#FFB51C" stroke="#171A2F" stroke-width="1.2"/>
+      <path d="M12 46 L5 52" stroke="#171A2F" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M48 44 L56 37" stroke="#171A2F" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="56" cy="36" r="2.4" fill="#fff" stroke="#171A2F" stroke-width="1.4"/>
+      <polygon points="30,20 48,30.5 48,51.5 30,62 12,51.5 12,30.5" fill="#5B3DF5" stroke="#171A2F" stroke-width="2" stroke-linejoin="round"/>
+      <polygon points="30,23 45,31.8 45,34 30,25.3 15,34 15,31.8" fill="#7E66FF"/>
+      <rect x="17.5" y="32" width="25" height="16" rx="5" fill="#fff" stroke="#171A2F" stroke-width="1.6"/>
+      <circle cx="25" cy="39" r="2.3" fill="#171A2F"/><circle cx="25.8" cy="38.2" r=".7" fill="#fff"/>
+      <circle cx="35" cy="39" r="2.3" fill="#171A2F"/><circle cx="35.8" cy="38.2" r=".7" fill="#fff"/>
+      <path d="M26.5 43.2 Q30 46.2 33.5 43.2" fill="none" stroke="#171A2F" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="21" cy="43.5" r="1.5" fill="#F2513F" opacity=".55"/><circle cx="39" cy="43.5" r="1.5" fill="#F2513F" opacity=".55"/>
+      <text x="30" y="57" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5.2" fill="#fff">n</text>
+    </symbol>
+    <!-- Dev Sayı: bölüm sonu boss'u -->
+    <symbol id="boss" viewBox="0 0 40 40">
+      <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#F2513F" stroke="#171A2F" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M9 9 L6 3 L13 7 M31 9 L34 3 L27 7" fill="#FFB51C" stroke="#171A2F" stroke-width="1.3" stroke-linejoin="round"/>
+      <path d="M11.5 16 L17.5 18.5 M28.5 16 L22.5 18.5" stroke="#171A2F" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="15" cy="21" r="2.4" fill="#fff" stroke="#171A2F" stroke-width="1.2"/><circle cx="15.4" cy="21.4" r="1" fill="#171A2F"/>
+      <circle cx="25" cy="21" r="2.4" fill="#fff" stroke="#171A2F" stroke-width="1.2"/><circle cx="24.6" cy="21.4" r="1" fill="#171A2F"/>
+      <path d="M14 29 L16.5 27 L19 29 L21.5 27 L24 29 L26 27.5" fill="none" stroke="#171A2F" stroke-width="1.4" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-hedef" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FFF4D9" stroke="#171A2F" stroke-width="1.8"/><circle cx="12" cy="12" r="6" fill="none" stroke="#171A2F" stroke-width="1.8"/><circle cx="12" cy="12" r="2.2" fill="#F2513F"/></symbol>
+    <symbol id="i-kilit" viewBox="0 0 24 24"><path d="M7.5 10.5 V7.5 a4.5 4.5 0 0 1 9 0 V10.5" fill="none" stroke="#171A2F" stroke-width="2"/><rect x="4.5" y="10.5" width="15" height="11" rx="2.5" fill="#EEEAFF" stroke="#171A2F" stroke-width="1.8"/><circle cx="12" cy="15.4" r="1.7" fill="#5B3DF5"/><path d="M12 16.5 V18.6" stroke="#5B3DF5" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-tuzak" viewBox="0 0 24 24"><path d="M12 2.5 L22.5 20.5 H1.5 Z" fill="#FFE9E5" stroke="#171A2F" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9 V14" stroke="#F2513F" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.4" fill="#F2513F"/></symbol>
+    <symbol id="i-xp" viewBox="0 0 24 24"><path d="M12 1.8 L14.8 8.6 L22 9.2 L16.5 14 L18.2 21.2 L12 17.4 L5.8 21.2 L7.5 14 L2 9.2 L9.2 8.6 Z" fill="#86C220" stroke="#171A2F" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bayrak" viewBox="0 0 24 24"><path d="M6 22 V2.5" stroke="#171A2F" stroke-width="2" stroke-linecap="round"/><path d="M6.5 3 H19 L16 7.5 L19 12 H6.5 Z" fill="#86C220" stroke="#171A2F" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-hata" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.2" fill="#FFF4D9" stroke="#171A2F" stroke-width="1.8"/><path d="M15.8 15.8 L21.5 21.5" stroke="#171A2F" stroke-width="2.6" stroke-linecap="round"/><path d="M7.6 7.6 L13.4 13.4 M13.4 7.6 L7.6 13.4" stroke="#F2513F" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-ipucu" viewBox="0 0 24 24"><path d="M5 21 H19 M7 21 V16 H12 V11 H17 V6 H20" fill="none" stroke="#171A2F" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="20" cy="4" r="2.4" fill="#5B3DF5" stroke="#171A2F" stroke-width="1.2"/></symbol>
+    <symbol id="i-dunya" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#DEF4F7" stroke="#171A2F" stroke-width="1.8"/><path d="M2.5 12 H21.5 M12 2 C7 7 7 17 12 22 C17 17 17 7 12 2" fill="none" stroke="#171A2F" stroke-width="1.4"/></symbol>
+    <symbol id="pil-tam" viewBox="0 0 34 18"><rect x="1" y="1.5" width="28" height="15" rx="3" fill="#fff" stroke="#171A2F" stroke-width="1.6"/><rect x="29.5" y="6" width="3" height="6" rx="1" fill="#171A2F"/><rect x="4" y="4.5" width="6.5" height="9" rx="1" fill="none" stroke="#86C220" stroke-width="1.3"/><rect x="11.8" y="4.5" width="6.5" height="9" rx="1" fill="none" stroke="#86C220" stroke-width="1.3"/><rect x="19.6" y="4.5" width="6.5" height="9" rx="1" fill="none" stroke="#86C220" stroke-width="1.3"/></symbol>
+    <symbol id="pil-yari" viewBox="0 0 34 18"><rect x="1" y="1.5" width="28" height="15" rx="3" fill="#fff" stroke="#171A2F" stroke-width="1.6"/><rect x="29.5" y="6" width="3" height="6" rx="1" fill="#171A2F"/><rect x="4" y="4.5" width="6.5" height="9" rx="1" fill="none" stroke="#FFB51C" stroke-width="1.3"/><rect x="11.8" y="4.5" width="6.5" height="9" rx="1" fill="none" stroke="#FFB51C" stroke-width="1.3"/></symbol>
+    <symbol id="pil-bos" viewBox="0 0 34 18"><rect x="1" y="1.5" width="28" height="15" rx="3" fill="#fff" stroke="#171A2F" stroke-width="1.6"/><rect x="29.5" y="6" width="3" height="6" rx="1" fill="#171A2F"/><rect x="4" y="4.5" width="6.5" height="9" rx="1" fill="none" stroke="#F2513F" stroke-width="1.3"/></symbol>
+    <!-- Rozet çerçevesi -->
+    <symbol id="rozet-cerceve" viewBox="0 0 40 44">
+      <polygon points="20,1.5 37.5,11.5 37.5,32.5 20,42.5 2.5,32.5 2.5,11.5" fill="#fff" stroke="#171A2F" stroke-width="1.8" stroke-linejoin="round"/>
+      <polygon points="20,5.6 34,13.7 34,30.3 20,38.4 6,30.3 6,13.7" fill="none" stroke="#B9B5CC" stroke-width=".9" stroke-dasharray="1.6 1.4"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- =====================================================
+     SAYFA 1 · ÜNİTE AÇILIŞI
+     ===================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span>Tema 1 · Dünya 2</span>
+    <span class="bos"></span>
+    <span class="nokta"><i class="simdi"></i><i></i><i></i><i></i><i></i><i></i></span>
+    <span class="xp">XP <b>0</b>/1300 <span class="xpbar"><i style="width:3%"></i></span></span>
+  </div>
+
+  <div class="s1-ust">
+    <div>
+      <div class="s1-dunya">
+        <span class="cip koyu">DÜNYA 2</span>
+        <span class="cip">SEVİYE 10 · TEMA 1</span>
+      </div>
+      <h1 class="s1-baslik"><span>Mol</span><br><em>Kavramı</em></h1>
+      <p class="s1-alt">Görünmeyeni saymanın kimyacı yolu.</p>
+      <div class="s1-istat">
+        <span class="cip">5 kontrol noktası</span>
+        <span class="cip">3 yan görev</span>
+        <span class="cip">1 boss</span>
+        <span class="cip xp">1300 XP</span>
+      </div>
+    </div>
+    <div class="avo-kutu">
+      <div class="balon"><span class="ad">AVO · ROTA REHBERİN</span>Selam! Bu dünyada <b>6,02·10<sup>23</sup></b> tane şeyi saymayı öğreneceğiz. Tek tek değil, <b>paketle</b>.</div>
+      <svg class="avo"><use href="#avo"/></svg>
+    </div>
+  </div>
+
+  <!-- ROTA HARİTASI -->
+  <div class="harita kart">
+    <div class="harita-bas">
+      <h2>Rota haritası</h2>
+      <span class="etiket">Sayfa no · kazanılacak XP</span>
+    </div>
+    <svg viewBox="0 0 176 102" font-family="Inter">
+      <!-- arazi süsleri -->
+      <g opacity=".9">
+        <circle cx="86" cy="73" r="2" fill="#DEF4F7" stroke="#0EA2B6" stroke-width=".5"/>
+        <circle cx="90" cy="73" r="1.3" fill="#fff" stroke="#0EA2B6" stroke-width=".5"/>
+        <circle cx="82.6" cy="73" r="1.3" fill="#fff" stroke="#0EA2B6" stroke-width=".5"/>
+        <path d="M112 48.5 l3 -5 l3 5 z" fill="#EEF8DC" stroke="#4D7A05" stroke-width=".5"/>
+        <path d="M117 48.5 l2.4 -3.8 l2.4 3.8 z" fill="#EEF8DC" stroke="#4D7A05" stroke-width=".5"/>
+        <text x="33" y="76" font-family="JetBrains Mono" font-size="2.6" fill="#B9B5CC" font-weight="700">×N<tspan font-size="1.8" dy=".6">A</tspan></text>
+              </g>
+      <!-- yol -->
+      <path id="yol" d="M12 87 L150 87 C172 87 172 55 150 55 L30 55 C8 55 8 22 30 22 L162 22"
+            fill="none" stroke="#EEEAFF" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 87 L150 87 C172 87 172 55 150 55 L30 55 C8 55 8 22 30 22 L162 22"
+            fill="none" stroke="#5B3DF5" stroke-width=".9" stroke-dasharray="2.4 2" stroke-linecap="round"/>
+      <!-- yön okları -->
+      <path d="M84 85.4 l2.4 1.6 l-2.4 1.6" fill="none" stroke="#5B3DF5" stroke-width=".8"/>
+      <path d="M72 53.4 l-2.4 1.6 l2.4 1.6" fill="none" stroke="#5B3DF5" stroke-width=".8"/>
+
+      <!-- BAŞLANGIÇ -->
+      <g>
+        <circle cx="12" cy="87" r="5.2" fill="#171A2F"/>
+        <path d="M10 84.6 L14.6 87 L10 89.4 Z" fill="#86C220"/>
+        <rect x="2" y="75.2" width="20" height="5" rx="2.5" fill="#86C220" stroke="#171A2F" stroke-width=".5"/>
+        <text x="12" y="78.7" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="2.6" fill="#171A2F">BURADASIN</text>
+        <text x="12" y="97" text-anchor="middle" font-weight="700" font-size="3.2" fill="#171A2F">Başla</text>
+      </g>
+
+      <!-- KN1 -->
+      <g>
+        <circle cx="52" cy="87" r="5.6" fill="#5B3DF5" stroke="#171A2F" stroke-width=".7"/>
+        <text x="52" y="88.9" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5" fill="#fff">1</text>
+        <text x="52" y="97.2" text-anchor="middle" font-weight="700" font-size="3.3" fill="#171A2F">Neden mol?</text>
+        <text x="52" y="101.2" text-anchor="middle" font-family="JetBrains Mono" font-size="2.6" fill="#5F6380">s.2 · <tspan fill="#4D7A05" font-weight="800">+100 XP</tspan></text>
+      </g>
+      <!-- KN2 -->
+      <g>
+        <circle cx="102" cy="87" r="5.6" fill="#5B3DF5" stroke="#171A2F" stroke-width=".7"/>
+        <text x="102" y="88.9" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5" fill="#fff">2</text>
+        <text x="102" y="97.2" text-anchor="middle" font-weight="700" font-size="3.3" fill="#171A2F">Atomun kütlesi</text>
+        <text x="102" y="101.2" text-anchor="middle" font-family="JetBrains Mono" font-size="2.6" fill="#5F6380">s.3 · <tspan fill="#4D7A05" font-weight="800">+150 XP</tspan></text>
+      </g>
+      <!-- KN3 -->
+      <g>
+        <circle cx="140" cy="55" r="5.6" fill="#5B3DF5" stroke="#171A2F" stroke-width=".7"/>
+        <text x="140" y="56.9" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5" fill="#fff">3</text>
+        <text x="140" y="65.2" text-anchor="middle" font-weight="700" font-size="3.3" fill="#171A2F">Mol ile tanecik</text>
+        <text x="140" y="69.2" text-anchor="middle" font-family="JetBrains Mono" font-size="2.6" fill="#5F6380">s.4 · <tspan fill="#4D7A05" font-weight="800">+150 XP</tspan></text>
+      </g>
+      <!-- KN4 -->
+      <g>
+        <circle cx="96" cy="55" r="5.6" fill="#5B3DF5" stroke="#171A2F" stroke-width=".7"/>
+        <text x="96" y="56.9" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5" fill="#fff">4</text>
+        <text x="96" y="65.2" text-anchor="middle" font-weight="700" font-size="3.3" fill="#171A2F">Mol ile kütle</text>
+        <text x="96" y="69.2" text-anchor="middle" font-family="JetBrains Mono" font-size="2.6" fill="#5F6380">s.5 · <tspan fill="#4D7A05" font-weight="800">+150 XP</tspan></text>
+      </g>
+      <!-- KN5 -->
+      <g>
+        <circle cx="52" cy="55" r="5.6" fill="#5B3DF5" stroke="#171A2F" stroke-width=".7"/>
+        <text x="52" y="56.9" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5" fill="#fff">5</text>
+        <text x="52" y="65.2" text-anchor="middle" font-weight="700" font-size="3.3" fill="#171A2F">Karışımlar</text>
+        <text x="52" y="69.2" text-anchor="middle" font-family="JetBrains Mono" font-size="2.6" fill="#5F6380">s.6 · <tspan fill="#4D7A05" font-weight="800">+150 XP</tspan></text>
+      </g>
+
+      <!-- KAYIT NOKTASI -->
+      <g>
+        <rect x="30.5" y="16.5" width="11" height="11" rx="2.4" fill="#EEF8DC" stroke="#171A2F" stroke-width=".7"/>
+        <use href="#i-bayrak" x="32" y="18" width="8" height="8"/>
+        <text x="36" y="33" text-anchor="middle" font-weight="700" font-size="3.3" fill="#171A2F">Kayıt noktası</text>
+        <text x="36" y="37" text-anchor="middle" font-family="JetBrains Mono" font-size="2.6" fill="#5F6380">s.7 · tek sayfa özet</text>
+      </g>
+      <!-- YAN GÖREVLER -->
+      <g>
+        <rect x="58" y="17" width="10" height="10" rx="1.6" transform="rotate(45 63 22)" fill="#FFF4D9" stroke="#171A2F" stroke-width=".7"/>
+        <use href="#i-hata" x="59.6" y="18.6" width="6.8" height="6.8"/>
+        <text x="63" y="33" text-anchor="middle" font-weight="700" font-size="3.3" fill="#171A2F">Hata Avcısı</text>
+        <text x="63" y="37" text-anchor="middle" font-family="JetBrains Mono" font-size="2.6" fill="#5F6380">s.8 · <tspan fill="#4D7A05" font-weight="800">+100 XP</tspan></text>
+      </g>
+      <g>
+        <rect x="88" y="17" width="10" height="10" rx="1.6" transform="rotate(45 93 22)" fill="#DEF4F7" stroke="#171A2F" stroke-width=".7"/>
+        <use href="#i-dunya" x="89.6" y="18.6" width="6.8" height="6.8"/>
+        <text x="93" y="33" text-anchor="middle" font-weight="700" font-size="3.3" fill="#171A2F">Hayatın içinden</text>
+        <text x="93" y="37" text-anchor="middle" font-family="JetBrains Mono" font-size="2.6" fill="#5F6380">s.9 · <tspan fill="#4D7A05" font-weight="800">+100 XP</tspan></text>
+      </g>
+      <g>
+        <rect x="118" y="17" width="10" height="10" rx="1.6" transform="rotate(45 123 22)" fill="#EEEAFF" stroke="#171A2F" stroke-width=".7"/>
+        <use href="#i-ipucu" x="119.6" y="18.6" width="6.8" height="6.8"/>
+        <text x="123" y="33" text-anchor="middle" font-weight="700" font-size="3.3" fill="#171A2F">İpucu Merdiveni</text>
+        <text x="123" y="37" text-anchor="middle" font-family="JetBrains Mono" font-size="2.6" fill="#5F6380">s.10 · <tspan fill="#4D7A05" font-weight="800">+100 XP</tspan></text>
+      </g>
+      <!-- BOSS -->
+      <g>
+        <circle cx="162" cy="22" r="11" fill="#FFE9E5" stroke="#F2513F" stroke-width=".6" stroke-dasharray="1.4 1"/>
+        <use href="#boss" x="153" y="13" width="18" height="18"/>
+        <rect x="149" y="2" width="26" height="5.2" rx="2.6" fill="#F2513F" stroke="#171A2F" stroke-width=".5"/>
+        <text x="162" y="5.6" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="2.7" fill="#fff">BOSS · +300 XP</text>
+        <text x="162" y="38" text-anchor="middle" font-weight="800" font-size="3.3" fill="#171A2F">Bölüm testi</text>
+        <text x="162" y="42" text-anchor="middle" font-family="JetBrains Mono" font-size="2.6" fill="#5F6380">s.11–12 · 12 soru</text>
+      </g>
+      <text x="162" y="47" text-anchor="middle" font-family="JetBrains Mono" font-size="2.4" fill="#5F6380">çözümler s.13</text>
+    </svg>
+  </div>
+
+  <!-- ROZETLER -->
+  <div class="s1-rozet">
+    <div class="bolum-bas"><h3>Kazanılacak rozetler</h3><p>Kontrol noktasını bitirince rozeti kendin boya. Kalem senden, rozet bizden.</p></div>
+    <div class="rozetler">
+      <div class="rozet">
+        <svg viewBox="0 0 40 44"><use href="#rozet-cerceve"/>
+          <path d="M12 19 L20 15 L28 19 L28 28 L20 32 L12 28 Z M12 19 L20 23 L28 19 M20 23 V32" fill="#FFF4D9" stroke="#171A2F" stroke-width="1.4" stroke-linejoin="round"/>
+          <text x="20" y="21" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="4" fill="#9A6400">N</text>
+        </svg>
+        <b>Paketçi</b><span>KN1 · “1 mol = N<sub>A</sub> tane” de</span>
+      </div>
+      <div class="rozet">
+        <svg viewBox="0 0 40 44"><use href="#rozet-cerceve"/>
+          <circle cx="18" cy="20" r="6.5" fill="#DEF4F7" stroke="#171A2F" stroke-width="1.5"/>
+          <path d="M22.8 24.8 L28.5 30.5" stroke="#171A2F" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="16.5" cy="19" r="1.4" fill="#0EA2B6"/><circle cx="19.6" cy="21.5" r="1.4" fill="#5B3DF5"/>
+        </svg>
+        <b>İzotop Dedektifi</b><span>KN2 · ortalama kütleyi hesapla</span>
+      </div>
+      <div class="rozet">
+        <svg viewBox="0 0 40 44"><use href="#rozet-cerceve"/>
+          <path d="M11 18.5 H27 M24 15.5 L27.5 18.5 L24 21.5 M29 26 H13 M16 23 L12.5 26 L16 29" fill="none" stroke="#5B3DF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <b>Işınlayıcı</b><span>KN3 · tanecik ⇄ mol, iki yönde</span>
+      </div>
+      <div class="rozet">
+        <svg viewBox="0 0 40 44"><use href="#rozet-cerceve"/>
+          <path d="M20 13 V30 M14 30 H26 M11 17 H29" stroke="#171A2F" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M11 17 L8 24 H14 Z M29 17 L26 24 H32 Z" fill="#EEF8DC" stroke="#171A2F" stroke-width="1.2" stroke-linejoin="round"/>
+        </svg>
+        <b>Terazi Ustası</b><span>KN4 · kütle ⇄ mol geçişi</span>
+      </div>
+      <div class="rozet">
+        <svg viewBox="0 0 40 44"><use href="#rozet-cerceve"/>
+          <path d="M13 13 V19 L9.5 28.5 Q9 30 10.6 30 H18.4 Q20 30 19.5 28.5 L16 19 V13" fill="#EEEAFF" stroke="#171A2F" stroke-width="1.3" stroke-linejoin="round"/>
+          <path d="M24 13 V19 L20.5 28.5 Q20 30 21.6 30 H29.4 Q31 30 30.5 28.5 L27 19 V13" fill="#FFE9E5" stroke="#171A2F" stroke-width="1.3" stroke-linejoin="round"/>
+          <text x="20.5" y="11" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="4.6" fill="#171A2F">x</text>
+        </svg>
+        <b>Karışım Kaşifi</b><span>KN5 · tek bilinmeyenle çöz</span>
+      </div>
+      <div class="rozet">
+        <svg viewBox="0 0 40 44"><use href="#rozet-cerceve"/>
+          <path d="M11 28 L10 16 L15.5 21 L20 13.5 L24.5 21 L30 16 L29 28 Z" fill="#FFB51C" stroke="#171A2F" stroke-width="1.4" stroke-linejoin="round"/>
+          <circle cx="20" cy="24" r="1.6" fill="#F2513F"/>
+        </svg>
+        <b>Boss Avcısı</b><span>Bölüm testinde 10+ doğru</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="s1-alt-sira">
+    <div class="kart hedef-kart">
+      <span class="etiket" style="color:var(--mor)"><svg class="ikon"><use href="#i-hedef"/></svg>Ana görevler · bu dünyanın sonunda</span>
+      <ol>
+        <li>Mol, tanecik sayısı ve kütle arasında rahatça geçiş yapacaksın.</li>
+        <li>İzotop ve ortalama atom kütlesini yorumlayacaksın.</li>
+        <li>Karışım problemlerini tek bilinmeyenle çözeceksin.</li>
+      </ol>
+      <div class="seviye">
+        <span class="etiket">Unvan merdiveni · toplam XP’ne göre</span>
+        <div class="seviye-bar"><i style="background:#fff"></i><i style="background:var(--lime-a)"></i><i style="background:#D6EFA8"></i><i style="background:var(--lime)"></i></div>
+        <div class="seviye-ad"><span><b>Çaylak</b> 0+</span><span><b>Kaşif</b> 400+</span><span><b>Usta</b> 800+</span><span><b>Efsane</b> 1100+</span></div>
+      </div>
+    </div>
+    <div class="kart lejant">
+      <span class="etiket" style="color:var(--soluk)">Rotadaki işaretler</span>
+      <ul>
+        <li><svg><use href="#i-hedef"/></svg><span><b>Görev</b>Çözümlü örnek, adım adım.</span></li>
+        <li><svg><use href="#i-kilit"/></svg><span><b>İpucu kilidi</b>Açarsan XP’den düşer.</span></li>
+        <li><svg><use href="#i-tuzak"/></svg><span><b>Tuzak!</b>En sık yapılan hata.</span></li>
+        <li><svg><use href="#i-xp"/></svg><span><b>XP</b>Bitirdiğin her iş puan.</span></li>
+        <li><svg><use href="#i-bayrak"/></svg><span><b>Kayıt noktası</b>Hepsi tek sayfada.</span></li>
+        <li><svg><use href="#boss"/></svg><span><b>Boss</b>Bölüm sonu sınavı.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Rota açılışı</span><span class="no">1</span></div>
+</section>
+
+<!-- =====================================================
+     SAYFA 2 · KONTROL NOKTASI 3
+     ===================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span>Dünya 2 · KN 3/5</span>
+    <span class="bos"></span>
+    <span class="nokta"><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="simdi"></i><i></i><i></i></span>
+    <span class="xp">XP <b>250</b>/1300 <span class="xpbar"><i style="width:19%"></i></span></span>
+  </div>
+
+  <div class="kn-bas">
+    <svg class="kn-hex" viewBox="0 0 44 48">
+      <polygon points="22,2 41,13 41,35 22,46 3,35 3,13" fill="#5B3DF5" stroke="#171A2F" stroke-width="2" stroke-linejoin="round"/>
+      <polygon points="22,2 41,13 41,17 22,6 3,17 3,13" fill="#7E66FF"/>
+      <text x="22" y="20" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5" fill="#C9BEFF">KN</text>
+      <text x="22" y="35" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="17" fill="#fff">3</text>
+    </svg>
+    <div>
+      <span class="ust etiket">Kontrol noktası 3 · s.4</span>
+      <h1>Mol ile tanecik sayısı</h1>
+      <p>Mol haritası: bütün hesaplar bu kutular arasında gidip gelir.</p>
+    </div>
+    <div class="kart gorev-kart">
+      <span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Ana görev</span>
+      <p>Tanecik sayısı ⇄ mol geçişini iki yönde yap, molekülden atom molüne in.</p>
+      <div class="odul"><span class="cip xp">+150 XP</span><span class="cip">Işınlayıcı rozeti</span></div>
+    </div>
+  </div>
+
+  <div class="s2-harita">
+    <div class="kart mh-kart">
+      <span class="etiket">Mol haritası · sen buradasın: sol yarı</span>
+      <svg viewBox="0 0 104 58" font-family="Inter">
+        <defs>
+          <marker id="ok" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="3.6" markerHeight="3.6" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#171A2F"/></marker>
+          <marker id="ok-m" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="3.6" markerHeight="3.6" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#5B3DF5"/></marker>
+          <marker id="ok-g" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="3.6" markerHeight="3.6" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#B9B5CC"/></marker>
+        </defs>
+        <!-- Tanecik -->
+        <rect x="1" y="5" width="28" height="22" rx="3" fill="#FFF4D9" stroke="#171A2F" stroke-width=".7"/>
+        <g fill="#FFB51C" stroke="#171A2F" stroke-width=".35">
+          <circle cx="7" cy="10" r="1.4"/><circle cx="11" cy="9" r="1.4"/><circle cx="15" cy="10.4" r="1.4"/><circle cx="19" cy="9.2" r="1.4"/><circle cx="23" cy="10" r="1.4"/>
+        </g>
+        <text x="15" y="18.6" text-anchor="middle" font-weight="800" font-size="3.6" fill="#171A2F">TANECİK</text>
+        <text x="15" y="23.4" text-anchor="middle" font-size="3.1" fill="#5F6380">sayısı · <tspan font-family="Bitstream Charter" font-style="italic" font-weight="700" fill="#171A2F">N</tspan></text>
+        <!-- Mol -->
+        <circle cx="52" cy="16" r="11.5" fill="#5B3DF5" stroke="#171A2F" stroke-width=".8"/>
+        <circle cx="52" cy="16" r="14" fill="none" stroke="#5B3DF5" stroke-width=".4" stroke-dasharray="1.2 1"/>
+        <text x="52" y="16.4" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="5.4" fill="#fff">MOL</text>
+        <text x="52" y="21.6" text-anchor="middle" font-family="Bitstream Charter" font-style="italic" font-weight="700" font-size="4" fill="#C9BEFF">n</text>
+        <!-- Kütle (kilitli) -->
+        <rect x="75" y="5" width="28" height="22" rx="3" fill="#F6F5FA" stroke="#B9B5CC" stroke-width=".7" stroke-dasharray="1.6 1.2"/>
+        <use href="#i-kilit" x="85" y="7.4" width="8" height="8" opacity=".65"/>
+        <text x="89" y="19.6" text-anchor="middle" font-weight="800" font-size="3.6" fill="#9C99B0">KÜTLE · <tspan font-family="Bitstream Charter" font-style="italic">m</tspan></text>
+        <text x="89" y="24" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="2.5" fill="#9C99B0">KN4’te açılır</text>
+        <!-- oklar tanecik ⇄ mol -->
+        <path d="M30.5 11 Q40 6.5 38.6 9" fill="none" stroke="none"/>
+        <path d="M30.5 12 L37.2 12" stroke="#171A2F" stroke-width=".7" marker-end="url(#ok)"/>
+        <text x="34" y="9.6" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="3" fill="#171A2F">÷N<tspan font-size="2" dy=".7">A</tspan></text>
+        <path d="M37.6 21 L30.8 21" stroke="#171A2F" stroke-width=".7" marker-end="url(#ok)"/>
+        <text x="34" y="25.4" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="3" fill="#171A2F">×N<tspan font-size="2" dy=".7">A</tspan></text>
+        <!-- oklar mol ⇄ kütle (soluk) -->
+        <path d="M66.6 12 L73.6 12" stroke="#B9B5CC" stroke-width=".7" marker-end="url(#ok-g)"/>
+        <text x="70" y="9.6" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="3" fill="#B9B5CC">×M<tspan font-size="2" dy=".7">A</tspan></text>
+        <path d="M73.6 21 L66.6 21" stroke="#B9B5CC" stroke-width=".7" marker-end="url(#ok-g)"/>
+        <text x="70" y="25.4" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="3" fill="#B9B5CC">÷M<tspan font-size="2" dy=".7">A</tspan></text>
+        <!-- aşağı: atom molü -->
+        <path d="M52 30.5 L52 38.4" stroke="#5B3DF5" stroke-width=".8" marker-end="url(#ok-m)"/>
+        <text x="54" y="35.6" font-family="JetBrains Mono" font-weight="800" font-size="3" fill="#5B3DF5">× (a+b)</text>
+        <rect x="33" y="40" width="38" height="14" rx="3" fill="#EEEAFF" stroke="#5B3DF5" stroke-width=".7"/>
+        <text x="52" y="46" text-anchor="middle" font-weight="800" font-size="3.5" fill="#3A22C4">ATOM MOLÜ</text>
+        <text x="52" y="50.8" text-anchor="middle" font-size="3" fill="#3A22C4">X<tspan font-size="2.1" dy=".7">a</tspan><tspan dy="-.7">Y</tspan><tspan font-size="2.1" dy=".7">b</tspan><tspan dy="-.7"> molekülü için</tspan></text>
+        <!-- not -->
+        <text x="1" y="40.5" font-family="JetBrains Mono" font-weight="800" font-size="2.6" fill="#5F6380">N<tspan font-size="1.9" dy=".6">A</tspan><tspan dy="-.6"> = 6,02·10</tspan><tspan font-size="1.9" dy="-1.2">23</tspan></text>
+        <text x="1" y="45" font-size="2.8" fill="#5F6380">1 mol = N<tspan font-size="2" dy=".6">A</tspan><tspan dy="-.6"> tane tanecik</tspan></text>
+        <text x="75" y="45" font-size="2.8" fill="#5F6380">Ne verilirse verilsin,</text>
+        <text x="75" y="49" font-size="2.8" fill="#5F6380">önce <tspan font-weight="800" fill="#5B3DF5">mole</tspan> git.</text>
+      </svg>
+    </div>
+    <div class="yetenekler">
+      <div class="yetenek">
+        <span class="yno" style="background:var(--sari);color:var(--murekkep)">Y1</span>
+        <div><div class="yad">Yetenek · tanecikten mole</div>
+          <div class="yf"><i>n</i> = <span class="kesir"><span><i>N</i></span><span><i>N</i><sub>A</sub></span></span></div></div>
+      </div>
+      <div class="yetenek">
+        <span class="yno" style="background:var(--mor)">Y2</span>
+        <div><div class="yad">Yetenek · molden taneciğe</div>
+          <div class="yf"><i>N</i> = <i>n</i> · <i>N</i><sub>A</sub></div></div>
+      </div>
+      <div class="yetenek">
+        <span class="yno" style="background:var(--turkuaz)">Y3</span>
+        <div><div class="yad">Yetenek · X<sub>a</sub>Y<sub>b</sub> için atom molü</div>
+          <div class="yf"><i>n</i><sub>atom</sub> = <i>n</i> · (a + b)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kart kavram">
+    <svg viewBox="0 0 88 44">
+      <!-- O=C=O -->
+      <line x1="20" y1="18" x2="68" y2="18" stroke="#171A2F" stroke-width="1.4"/>
+      <line x1="20" y1="21" x2="68" y2="21" stroke="#171A2F" stroke-width="1.4"/>
+      <circle cx="20" cy="19.5" r="10" fill="#F2513F" stroke="#171A2F" stroke-width="1.2"/>
+      <circle cx="44" cy="19.5" r="8.5" fill="#3B3F5C" stroke="#171A2F" stroke-width="1.2"/>
+      <circle cx="68" cy="19.5" r="10" fill="#F2513F" stroke="#171A2F" stroke-width="1.2"/>
+      <circle cx="16.5" cy="15.5" r="2.4" fill="#fff" opacity=".45"/><circle cx="41" cy="16" r="2" fill="#fff" opacity=".35"/><circle cx="64.5" cy="15.5" r="2.4" fill="#fff" opacity=".45"/>
+      <text x="20" y="23.4" text-anchor="middle" font-family="Inter" font-weight="800" font-size="10" fill="#fff">O</text>
+      <text x="44" y="23.2" text-anchor="middle" font-family="Inter" font-weight="800" font-size="9.5" fill="#fff">C</text>
+      <text x="68" y="23.4" text-anchor="middle" font-family="Inter" font-weight="800" font-size="10" fill="#fff">O</text>
+      <text x="44" y="40" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5" fill="#3A22C4">1 molekül = 3 atom</text>
+    </svg>
+    <div>
+      <span class="etiket"><svg class="ikon"><use href="#i-xp"/></svg>Kavram · molekül ve atom</span>
+      <div class="zincir">
+        <span>1 mol CO<sub>2</sub> molekülü</span><em>=</em><span>N<sub>A</sub> tane molekül</span><em>=</em><span>1 mol C + 2 mol O</span><em>=</em><span>3 mol atom</span><em>=</em><span>3·N<sub>A</sub> tane atom</span>
+      </div>
+      <p>Formüldeki küçük rakamlar, <b>bir molekülde</b> o atomdan kaç tane olduğunu gösterir.</p>
+    </div>
+  </div>
+
+  <div class="ornekler">
+    <div class="kart ornek">
+      <div class="ob"><span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Görev A · çözümlü</span><span class="yildiz">★<s>★★</s></span></div>
+      <p class="soru">0,25 mol NH<sub>3</sub> için molekül sayısını, toplam atom molünü ve H atomu molünü bul.</p>
+      <div class="adim"><i>1</i><div><b>Y2</b> ile taneciğe: <span class="mono">N = 0,25 · 6,02·10<sup>23</sup> = 1,505·10<sup>23</sup></span> tane</div></div>
+      <div class="adim"><i>2</i><div>Bir NH<sub>3</sub>’te 1 + 3 = 4 atom → <b>Y3</b>: <span class="mono">0,25 · 4 = 1</span> mol atom</div></div>
+      <div class="adim"><i>3</i><div>H atomu: <span class="mono">0,25 · 3 = 0,75</span> mol H</div></div>
+      <div class="ganimet"><span class="etiket">Sonuç</span><b>1,505·10<sup>23</sup> · 1 mol · 0,75 mol</b></div>
+    </div>
+    <div class="kart ornek">
+      <div class="ob"><span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Görev B · çözümlü</span><span class="yildiz">★★<s>★</s></span></div>
+      <p class="soru">3,01·10<sup>23</sup> tane CO<sub>2</sub> molekülü kaç mol O atomu içerir?</p>
+      <div class="adim"><i>1</i><div>Önce mole git (<b>Y1</b>): <span class="mono">n = <span class="kesir"><span>3,01·10<sup>23</sup></span><span>6,02·10<sup>23</sup></span></span> = 0,5</span> mol CO<sub>2</sub></div></div>
+      <div class="adim"><i>2</i><div>Her molekülde 2 O var → <span class="mono">0,5 · 2</span></div></div>
+      <div class="ganimet"><span class="etiket">Sonuç</span><b>1 mol O atomu</b></div>
+    </div>
+  </div>
+
+  <div class="s2-alt">
+    <div class="kart tuzak">
+      <div class="tb"><svg class="ikon" style="width:7mm;height:7mm"><use href="#i-tuzak"/></svg><b>Tuzak!</b><span class="etiket">Kavram yanılgısı</span></div>
+      <div class="yanlis"><i>✗</i><span>“0,5 mol CO<sub>2</sub> içinde 0,5 mol atom vardır.”</span></div>
+      <div class="dogru"><i>✓</i><span>Molekül molü ≠ atom molü. Her CO<sub>2</sub>’de 3 atom var: <b>0,5 · 3 = 1,5 mol atom</b>. Hesaba başlamadan sor: <b>“Neyin molü?”</b></span></div>
+    </div>
+    <div class="kart hizli">
+      <div>
+        <span class="etiket"><svg class="ikon"><use href="#i-xp"/></svg>Hızlı görev · +30 XP</span>
+        <p class="soru">1,204·10<sup>24</sup> tane H<sub>2</sub>O molekülü kaç mol H atomu içerir?</p>
+        <div class="kilit"><svg><use href="#i-kilit"/></svg><span>İpucu kilidi <b>(−10 XP)</b>: <span class="ters">N’yi N<sub>A</sub>’ya böl, sonra H’leri say.</span></span></div>
+        <div class="cevapkutu">CEVABIN:</div>
+      </div>
+      <div class="yan">
+        <svg><use href="#avo"/></svg>
+        <span class="ters mono" style="font-size:8pt;font-weight:800;color:var(--soluk)">4 mol H</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>KN 3 · Mol ile tanecik sayısı</span><span class="no">4</span></div>
+</section>
+
+<!-- =====================================================
+     SAYFA 3 · GÖREV ARENASI
+     ===================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span>Dünya 2 · Arena</span>
+    <span class="bos"></span>
+    <span class="nokta"><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="simdi"></i><i></i></span>
+    <span class="xp">XP <b>___</b>/1300 <span class="xpbar"><i style="width:0"></i></span></span>
+  </div>
+
+  <div class="arena-bas">
+    <div>
+      <span class="etiket">KN 1–4 karışık görevler</span>
+      <h1>Görev <span>Arenası</span></h1>
+    </div>
+    <span class="cip xp" style="font-size:9pt;padding:1mm 3mm">Bu sayfada 500 XP</span>
+  </div>
+  <div class="kurallar">
+    <div class="kural"><svg><use href="#i-hedef"/></svg><span>Görevler kolaydan zora. <b>★</b> sayısı zorluk.</span></div>
+    <div class="kural"><svg><use href="#i-kilit"/></svg><span>Her ipucu kilidi XP’den <b>düşer</b>. Önce kendin dene.</span></div>
+    <div class="kural"><svg><use href="#boss"/></svg><span>Boss’a girmeden en az <b>2 görev</b> bitir.</span></div>
+  </div>
+
+  <div class="arena">
+    <!-- GÖREV 1 · BAĞLAM -->
+    <div class="kart gorev g-baglam">
+      <div class="gb">
+        <span class="gno">1</span>
+        <span class="gt"><span class="etiket">Yan görev · hayatın içinden</span><b>Kuyumcu atölyesi</b></span>
+        <span class="sag"><span class="cip xp">+80 XP</span><span class="yildiz">★<s>★★</s></span></span>
+      </div>
+      <div class="baglam-ust">
+        <p>Kuyumcular elmasın kütlesini <b>karat</b> ile ölçer; 1 karat 0,2 gramdır. Elmas yalnızca karbon (C) atomlarından oluşur.</p>
+        <svg viewBox="0 0 40 36">
+          <path d="M8 12 L14 5 H26 L32 12 L20 31 Z" fill="#DEF4F7" stroke="#171A2F" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M8 12 H32 M14 5 L17 12 L20 31 L23 12 L26 5 M17 12 L20 5 L23 12" fill="none" stroke="#0EA2B6" stroke-width=".9" stroke-linejoin="round"/>
+          <rect x="25" y="25" width="14" height="8" rx="2" fill="#171A2F"/>
+          <text x="32" y="30.8" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5" fill="#86C220">3 ct</text>
+          <path d="M3 6 l1.4 2.8 l2.8 1.4 l-2.8 1.4 l-1.4 2.8 l-1.4 -2.8 l-2.8 -1.4 l2.8 -1.4 z" fill="#FFB51C" transform="translate(1 -2) scale(.8)"/>
+        </svg>
+      </div>
+      <p>Buna göre <b>3 karatlık</b> bir elmas yaklaşık kaç tane karbon atomu içerir? <span style="color:var(--soluk)">(C: 12 g/mol, N<sub>A</sub> = 6,02·10<sup>23</sup>)</span></p>
+      <div class="secenek uc">
+        <span><i>A</i><em>3,01·10<sup>21</sup></em></span><span><i>B</i><em>1,505·10<sup>22</sup></em></span><span><i>C</i><em>3,01·10<sup>22</sup></em></span>
+        <span><i>D</i><em>6,02·10<sup>22</sup></em></span><span><i>E</i><em>1,806·10<sup>23</sup></em></span>
+      </div>
+    </div>
+
+    <!-- GÖREV 2 · HATA AVCISI -->
+    <div class="kart gorev g-hata">
+      <div class="gb">
+        <span class="gno">2</span>
+        <span class="gt"><span class="etiket">Hata avcısı</span><b>Defne’nin çözümü</b></span>
+        <span class="sag"><span class="cip xp">+100 XP</span><span class="yildiz">★★<s>★</s></span></span>
+      </div>
+      <p><b>Soru:</b> 0,5 mol H<sub>2</sub>SO<sub>4</sub> kaç mol atom içerir?</p>
+      <div class="terminal">
+        <div class="tbas"><span>DEFNE · ÇÖZÜM</span><span>hatalı satırı işaretle ☐</span></div>
+        <div class="satir"><span class="n">1</span><span>H<sub>2</sub>SO<sub>4</sub>’te H, S ve O var.</span><span class="k"></span></div>
+        <div class="satir"><span class="n">2</span><span>Yani bir molekülde 3 atom bulunur.</span><span class="k"></span></div>
+        <div class="satir"><span class="n">3</span><span>0,5 · 3 = 1,5 mol atom</span><span class="k"></span></div>
+      </div>
+      <div class="yaz"><span>Neden?</span><i></i><span>Doğrusu</span><i></i></div>
+    </div>
+
+    <!-- GÖREV 3 · İPUCU MERDİVENİ -->
+    <div class="kart gorev g-ipucu">
+      <div class="gb">
+        <span class="gno">3</span>
+        <span class="gt"><span class="etiket">İpucu merdiveni</span><b>Gizemli X elementi</b></span>
+        <span class="sag"><span class="cip xp">+120 XP</span><span class="yildiz">★★<s>★</s></span></span>
+      </div>
+      <p>X<sub>2</sub>O<sub>3</sub> bileşiğinin 0,2 molü 32 gramdır. Buna göre X elementinin mol kütlesi kaç g/mol’dür? <span style="color:var(--soluk)">(O: 16 g/mol)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><svg><use href="#i-kilit"/></svg><span>Kütle ve mol verilmiş: bileşiğin mol kütlesini M<sub>A</sub> = m / n ile bul.</span><span class="bedel">−20 XP</span></div>
+        <div class="basamak"><svg><use href="#i-kilit"/></svg><span>M<sub>A</sub>, atomların toplamıdır: 2·X + 3·16 olarak yaz.</span><span class="bedel">−20 XP</span></div>
+        <div class="basamak"><svg><use href="#i-kilit"/></svg><span>160 = 2X + 48 denklemini çöz. Hangi element olabilir?</span><span class="bedel">−20 XP</span></div>
+      </div>
+      <div class="xp-hesap">KAZANCIN: 120 − (<span class="bos"></span> × 20) = <span class="bos"></span> XP</div>
+    </div>
+
+    <!-- GÖREV 4 · BOSS -->
+    <div class="kart gorev g-boss">
+      <div class="gb">
+        <span class="gno" style="background:none;width:9mm;height:9mm"><svg style="width:9mm;height:9mm"><use href="#boss"/></svg></span>
+        <span class="gt"><span class="etiket">Boss soru · 3 fazlı</span><b>Laboratuvar dolabı</b></span>
+        <span class="sag"><span class="cip xp">+200 XP</span><span class="yildiz">★★★</span></span>
+      </div>
+      <p style="margin-bottom:1mm">Üç kaptaki örneklerin toplam <b>atom</b> sayılarını büyükten küçüğe sırala. <span style="color:var(--soluk)">(H: 1, C: 12, N: 14, O: 16 g/mol)</span></p>
+      <div class="kaplar">
+        <div class="kap"><svg viewBox="0 0 24 26"><rect x="6" y="2" width="12" height="4" rx="1" fill="#171A2F"/><path d="M5 7 H19 V22 Q19 24.5 16.5 24.5 H7.5 Q5 24.5 5 22 Z" fill="#fff" stroke="#171A2F" stroke-width="1.2"/><path d="M5.6 14 H18.4 V22 Q18.4 23.9 16.5 23.9 H7.5 Q5.6 23.9 5.6 22 Z" fill="#EEEAFF"/></svg><b>KAP I</b><span>4,4 g CO<sub>2</sub></span></div>
+        <div class="kap"><svg viewBox="0 0 24 26"><rect x="6" y="2" width="12" height="4" rx="1" fill="#171A2F"/><path d="M5 7 H19 V22 Q19 24.5 16.5 24.5 H7.5 Q5 24.5 5 22 Z" fill="#fff" stroke="#171A2F" stroke-width="1.2"/><path d="M5.6 11 H18.4 V22 Q18.4 23.9 16.5 23.9 H7.5 Q5.6 23.9 5.6 22 Z" fill="#DEF4F7"/></svg><b>KAP II</b><span>1,204·10<sup>23</sup> tane H<sub>2</sub>O</span></div>
+        <div class="kap"><svg viewBox="0 0 24 26"><rect x="6" y="2" width="12" height="4" rx="1" fill="#171A2F"/><path d="M5 7 H19 V22 Q19 24.5 16.5 24.5 H7.5 Q5 24.5 5 22 Z" fill="#fff" stroke="#171A2F" stroke-width="1.2"/><path d="M5.6 17 H18.4 V22 Q18.4 23.9 16.5 23.9 H7.5 Q5.6 23.9 5.6 22 Z" fill="#EEF8DC"/></svg><b>KAP III</b><span>0,1 mol NH<sub>3</sub></span></div>
+      </div>
+      <div class="fazlar">
+        <div class="faz"><b>FAZ 1 · Kap I</b>atom molü: <i></i></div>
+        <div class="faz"><b>FAZ 2 · Kap II</b>atom molü: <i></i></div>
+        <div class="faz"><b>FAZ 3 · Kap III</b>atom molü: <i></i></div>
+      </div>
+      <div class="secenek uc">
+        <span><i>A</i><em>I &gt; II &gt; III</em></span><span><i>B</i><em>II &gt; III &gt; I</em></span><span><i>C</i><em>III &gt; II &gt; I</em></span>
+        <span><i>D</i><em>II &gt; I &gt; III</em></span><span><i>E</i><em>I = II &gt; III</em></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- İLERLEME + ÖZ DEĞERLENDİRME -->
+  <div class="kart ilerleme">
+    <div class="ib">
+      <h3>XP rayı</h3>
+      <p>Bitirdiğin görevin kutusunu işaretle, XP’ni topla ve HUD’a yaz.</p>
+    </div>
+    <div class="xpray">
+      <div class="ray"></div>
+      <div class="dur" style="left:16%"><span>G1 · 80</span><span class="kk"></span></div>
+      <div class="dur" style="left:36%"><span>G2 · 180</span><span class="kk"></span></div>
+      <div class="dur" style="left:60%"><span>G3 · 300</span><span class="kk"></span></div>
+      <div class="dur" style="left:96%"><span style="color:var(--mercan-k)">BOSS · 500</span><span class="kk" style="border-color:var(--mercan-k)"></span></div>
+    </div>
+    <div class="unvanlar"><span><b>Isınıyorum</b> 0–199</span><span><b>Rotadayım</b> 200–349</span><span><b>Arena ustası</b> 350–500</span></div>
+
+    <div class="oz">
+      <span class="bas">Şarj durumum · birini boya</span>
+      <span class="pil"><span><svg><use href="#pil-tam"/></svg>Tam</span><span><svg><use href="#pil-yari"/></svg>Yarım</span><span><svg><use href="#pil-bos"/></svg>Tekrar</span></span>
+      <span class="ifade">Mol ile tanecik sayısı arasında iki yönde de geçiş yapabilirim.</span>
+      <span class="pil"><span><svg><use href="#pil-tam"/></svg></span><span><svg><use href="#pil-yari"/></svg></span><span><svg><use href="#pil-bos"/></svg></span></span>
+      <span class="ifade">Molekül molünden atom molünü bulabilirim.</span>
+      <span class="pil"><span><svg><use href="#pil-tam"/></svg></span><span><svg><use href="#pil-yari"/></svg></span><span><svg><use href="#pil-bos"/></svg></span></span>
+      <span class="ifade">Bir çözümdeki hatalı adımı bulup nedenini söyleyebilirim.</span>
+      <span class="pil"><span><svg><use href="#pil-tam"/></svg></span><span><svg><use href="#pil-yari"/></svg></span><span><svg><use href="#pil-bos"/></svg></span></span>
+    </div>
+    <div class="not"><span>SONRAKİ HAMLEM ·</span><i></i></div>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="ters">Cevap kilidi: 1-C · 2-satır 2, 3,5 mol · 3-56 (Fe) · 4-B</span><span class="no">9</span></div>
+</section>
+
+</body>
+</html>
