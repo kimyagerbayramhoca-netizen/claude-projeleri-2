@@ -13,7 +13,7 @@ const path = require('path');
   const tasmalar = await sayfa.evaluate(() => {
     const sonuc = [];
     document.querySelectorAll('.sayfa:not(.kapak)').forEach((s, i) => {
-      const alt = s.getBoundingClientRect().bottom - 52; // ~14 mm alt boşluk
+      const alt = s.getBoundingClientRect().bottom - 50; // ~13 mm: sayfa numarası dairesinin üstü
       s.querySelectorAll(':scope > *:not(.alt-bilgi):not(.ust-serit):not(.arka)').forEach(el => {
         const b = el.getBoundingClientRect().bottom;
         if (b > alt) sonuc.push(`Sayfa ${i + 1}: ${Math.round(b - alt)}px taşma (${el.className || el.tagName})`);

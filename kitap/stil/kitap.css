@@ -60,13 +60,13 @@ body {
 .ust-serit .nokta { width: 2.4mm; height: 2.4mm; border-radius: 50%; background: var(--vurgu); }
 
 .alt-bilgi {
-  position: absolute; bottom: 7mm; left: 16mm; right: 16mm;
+  position: absolute; bottom: 5mm; left: 16mm; right: 16mm;
   display: flex; justify-content: space-between; align-items: center;
   font-size: 7.5pt; color: var(--soluk);
 }
 .alt-bilgi .no {
-  min-width: 9mm; height: 9mm; border-radius: 50%;
-  background: var(--unite); color: #fff; font-weight: 700; font-size: 9pt;
+  min-width: 7.5mm; height: 7.5mm; border-radius: 50%;
+  background: var(--unite); color: #fff; font-weight: 700; font-size: 8.4pt;
   display: grid; place-items: center;
 }
 .sayfa.cift .alt-bilgi { flex-direction: row-reverse; }
