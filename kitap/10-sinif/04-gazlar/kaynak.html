@@ -367,10 +367,13 @@
     <div>
       <p>Robert Boyle (1662), <b>miktarı ve sıcaklığı sabit</b> bir gazın basıncı arttıkça hacminin aynı oranda azaldığını gösterdi. Basınç ile hacim <b class="k">ters orantılıdır</b>, çarpımları sabittir:</p>
       <div class="denklem" style="font-size:13pt">P<sub>1</sub>·V<sub>1</sub> = P<sub>2</sub>·V<sub>2</sub> &nbsp;<span class="kucuk">(n ve T sabit)</span></div>
-      <p>Grafikte basınç iki katına çıkınca hacim yarıya iner; her noktada P·V = 4 atm·L’dir. P–V eğrisi eksenlere hiç değmeyen bir <b>hiperbol</b>, P·V çarpımı ise yatay bir doğrudur.</p>
-      <div class="kutu kavram" style="margin:0">
-        <div class="etiket">@ikon:kavram Neden?</div>
-        <p style="font-size:9.2pt">Hacim küçülünce birim hacimdeki tanecik sayısı artar; tanecikler çepere daha sık çarpar, basınç artar.</p>
+      <p>Hacim küçülünce birim hacimdeki tanecik sayısı artar, çarpışmalar sıklaşır. Grafikte her noktada P·V = 4 atm·L’dir: P–V eğrisi bir <b>hiperbol</b>, P·V çarpımı yatay bir doğrudur.</p>
+      <div class="kutu ornek" style="margin:0">
+        <div class="etiket">@ikon:ornek Çözümlü Örnek 2</div>
+        <div class="soru" style="margin-bottom:1.4mm">Yüzeyde (1 atm) 6 L hava içeren esnek balon, basıncın 3 atm olduğu derinliğe indiriliyor. Sıcaklık sabitse hacim kaç L olur?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>n, T sabit → 1 · 6 = 3 · V<sub>2</sub> → <b>V<sub>2</sub> = 2 L</b></span></div>
+        </div>
       </div>
     </div>
     <div class="grafik-kutu">
@@ -403,19 +406,8 @@
     </div>
   </div>
 
-  <div class="iki" style="margin-top:3.5mm">
-    <div class="kutu ornek">
-      <div class="etiket">@ikon:ornek Çözümlü Örnek 2</div>
-      <div class="soru">Su yüzeyinde (1 atm) 6 L hava içeren esnek bir balon, basıncın 3 atm olduğu derinliğe indiriliyor. Sıcaklık sabitse balonun hacmi kaç L olur?</div>
-      <div class="cozum">
-        <div class="adim"><span class="n">1</span><span>n, T sabit → 1 · 6 = 3 · V<sub>2</sub></span></div>
-        <span class="sonuc">V<sub>2</sub> = 2 L</span>
-      </div>
-    </div>
-    <div class="kutu hayat">
-      <div class="etiket">@ikon:hayat Hayatın İçinden</div>
-      <p style="font-size:9.2pt">Denizde her 10 m derinlik basınca yaklaşık <b>1 atm</b> ekler. Dalgıçlara yüzeye çıkarken nefeslerini tutmamaları öğretilir: basınç azaldıkça ciğerdeki havanın hacmi Boyle yasasına göre büyür ve dokulara zarar verebilir.</p>
-    </div>
+  <div class="kutu hayat serit" style="margin-top:3.5mm">
+    <p style="font-size:9.2pt;margin:0"><b style="color:var(--hayat)">Hayatın İçinden ·</b> Denizde her 10 m derinlik basınca yaklaşık <b>1 atm</b> ekler. Dalgıçlara yüzeye çıkarken nefeslerini tutmamaları öğretilir: basınç azaldıkça ciğerdeki havanın hacmi Boyle yasasına göre büyür ve dokulara zarar verebilir.</p>
   </div>
 
   <h3 style="margin-top:0">Charles yasası: hacim ve sıcaklık</h3>
@@ -452,7 +444,7 @@
           <text x="10" y="70" fill="#e11d48" font-size="3.8" font-weight="700">mutlak sıfır</text>
         </g>
       </svg>
-      <div class="ga">0 °C → 273 °C: kelvin 2 katına çıktı (273 → 546 K), hacim de 22,4 → 44,8 L.</div>
+      <div class="ga">273 K → 546 K: hacim 22,4 → 44,8 L.</div>
     </div>
   </div>
 
@@ -618,17 +610,16 @@
   <h2 class="konu"><span class="num">5</span>Kinetik teori ve ideal gaz denklemi</h2>
   <div class="alt-baslik">Gaz yasalarının “neden”i taneciklerin hareketinde saklıdır.</div>
 
-  <p><b class="k">Kinetik moleküler teori</b>, gazların basınç, hacim ve sıcaklık gibi gözlenebilir özelliklerini taneciklerin hareketi ve etkileşimiyle açıklar. Teorinin varsayımlarına tam olarak uyan gaza <b>ideal gaz</b> denir.</p>
-
-  <div class="iki-genis">
+  <div class="iki-genis" style="grid-template-columns:1.55fr 1fr">
     <div class="kutu kavram" style="margin:0">
-      <div class="etiket">@ikon:kavram Kinetik teorinin varsayımları</div>
-      <ul style="font-size:9.1pt;margin:0">
-        <li><b>Öz hacim ihmal edilir:</b> Taneciklerin kendi hacmi, kabın hacmi yanında yok sayılır.</li>
-        <li><b>Sürekli, rastgele hareket:</b> Tanecikler bir çarpışmaya kadar doğrusal ilerler, sonra yön değiştirir.</li>
-        <li><b>Esnek çarpışma:</b> Çarpışmalarda enerji aktarılır ama toplam kinetik enerji korunur.</li>
-        <li><b>Etkileşim yok:</b> Tanecikler arasındaki çekme ve itme kuvvetleri ihmal edilir.</li>
-        <li><b>Sıcaklık = ortalama kinetik enerji:</b> Ortalama kinetik enerji mutlak sıcaklıkla doğru orantılıdır. Aynı sıcaklıkta <b>bütün gazların</b> ortalama kinetik enerjisi eşittir.</li>
+      <div class="etiket">@ikon:kavram Kinetik moleküler teori</div>
+      <p style="font-size:9.1pt;margin-bottom:1.2mm">Gazların gözlenen davranışını tanecik hareketiyle açıklar. Varsayımlarına tam uyan gaza <b>ideal gaz</b> denir:</p>
+      <ul style="font-size:9pt;margin:0">
+        <li><b>Öz hacim ihmal edilir</b>: tanecik hacmi, kap hacmi yanında yok sayılır.</li>
+        <li><b>Sürekli, rastgele, doğrusal hareket</b>; yön çarpışmada değişir.</li>
+        <li><b>Esnek çarpışma</b>: toplam kinetik enerji korunur.</li>
+        <li><b>Etkileşim yok</b>: çekme ve itme kuvvetleri ihmal edilir.</li>
+        <li>Ortalama kinetik enerji <b>mutlak sıcaklıkla</b> doğru orantılıdır; aynı sıcaklıkta <b>bütün gazlarda eşittir</b>.</li>
       </ul>
     </div>
     <div class="grafik-kutu">
@@ -664,19 +655,18 @@
     </div>
     <div class="kutu kavram" style="margin:0">
       <div class="etiket">@ikon:kavram İdeal ve gerçek gaz</div>
-      <p style="font-size:9.1pt">Gerçek gazların taneciklerinin hacmi vardır ve aralarında zayıf da olsa çekim bulunur. Gerçek bir gaz şu koşullarda ideale <b>yaklaşır</b>:</p>
-      <p style="font-size:9.1pt;margin:0">↑ <b>yüksek sıcaklık</b> · ↓ <b>düşük basınç</b> · <b>küçük mol kütlesi</b> · <b>apolar</b> tanecikler (ör. He, H<sub>2</sub>)</p>
+      <p style="font-size:9.1pt;margin:0">Gerçek gaz taneciklerinin hacmi ve aralarında zayıf çekim vardır. Gerçek gaz <b>yüksek sıcaklık</b>, <b>düşük basınç</b>, <b>küçük mol kütlesi</b> ve <b>apolar</b> tanecik (ör. He, H<sub>2</sub>) durumunda ideale yaklaşır.</p>
     </div>
   </div>
 
   <h3>İdeal gaz denklemi</h3>
   <div class="iki-genis">
     <div>
-      <p>Boyle, Charles, Gay-Lussac ve Avogadro yasaları tek bir eşitlikte birleşir. Basınç <b>atm</b>, hacim <b>L</b>, sıcaklık <b>K</b> olmak zorundadır.</p>
+      <p>Dört gaz yasası tek eşitlikte birleşir. Basınç <b>atm</b>, hacim <b>L</b>, sıcaklık <b>K</b> olmalıdır.</p>
       <div class="formul-kart" style="grid-template-columns:1fr;margin:1mm 0 2mm">
-        <div><div class="denklem" style="font-size:18pt">P · V = n · R · T</div><span>R: ideal gaz sabiti, bütün gazlar için aynıdır</span></div>
+        <div><div class="denklem" style="font-size:17pt">P · V = n · R · T</div><span>R: ideal gaz sabiti, bütün gazlar için aynıdır</span></div>
       </div>
-      <p style="font-size:9.3pt"><b>R nereden gelir?</b> NŞA’da 1 mol gaz 22,4 L kaplar:<br>R = (1 atm · 22,4 L) / (1 mol · 273 K) = <span class="kesir"><span>22,4</span><span>273</span></span> ≈ <b>0,082 L·atm/(mol·K)</b></p>
+      <p style="font-size:9.2pt;margin:0"><b>R nereden gelir?</b> NŞA’da 1 mol gaz 22,4 L kaplar: R = (1 · 22,4) / (1 · 273) ≈ <b>0,082 L·atm/(mol·K)</b></p>
     </div>
     <div>
       <div class="kutu ornek" style="margin-bottom:3mm">
@@ -695,9 +685,8 @@
     <div class="etiket">@ikon:ornek Çözümlü Örnek 8 · Gazı tanı</div>
     <div class="soru">NŞA’da 5,6 L hacim kaplayan bir gaz örneği 11 g gelmektedir. Gazın mol kütlesi kaç g/mol’dür?</div>
     <div class="cozum">
-      <div class="adim"><span class="n">1</span><span>NŞA’da n = V / 22,4 = 5,6 / 22,4 = 0,25 mol <span class="kucuk">(PV = nRT ile de aynı sonuç: n = 1 · 5,6 / (0,082 · 273) ≈ 0,25)</span></span></div>
-      <div class="adim"><span class="n">2</span><span>M<sub>A</sub> = m / n = 11 / 0,25 = 44 g/mol</span></div>
-      <div class="adim"><span class="n">3</span><span>Gaz, örneğin {CO2} ya da {C3H8} olabilir: mol kütlesi tek başına gazı kesin olarak tanıtmaz.</span></div>
+      <div class="adim"><span class="n">1</span><span>NŞA’da n = 5,6 / 22,4 = 0,25 mol; M<sub>A</sub> = m / n = 11 / 0,25 = 44 g/mol</span></div>
+      <div class="adim"><span class="n">2</span><span>Örneğin {CO2} ya da {C3H8} olabilir: mol kütlesi tek başına gazı kesin olarak tanıtmaz.</span></div>
       <span class="sonuc">M<sub>A</sub> = 44 g/mol</span>
     </div>
   </div>
@@ -740,8 +729,7 @@
   <h3>Difüzyon ve efüzyon</h3>
   <table class="tablo">
     <tr><th style="width:18%"></th><th>Difüzyon (yayılma)</th><th>Efüzyon (sızma)</th></tr>
-    <tr><td><b>Ne olur?</b></td><td>Gaz tanecikleri başka bir gazın tanecikleri arasında yayılır.</td><td>Gaz, küçük bir delik ya da gözenekten boşluğa veya dışarıya kaçar.</td></tr>
-    <tr><td><b>Nedeni</b></td><td>Derişim farkı ve taneciklerin rastgele hareketi</td><td>Delik iki yanındaki basınç farkı</td></tr>
+    <tr><td><b>Ne olur?</b></td><td>Gaz, derişim farkıyla başka bir gazın tanecikleri arasında yayılır.</td><td>Gaz, basınç farkıyla küçük bir delik ya da gözenekten dışarı kaçar.</td></tr>
     <tr><td><b>Örnek</b></td><td>Açılan parfümün kokusunun odaya yayılması</td><td>Helyum balonunun birkaç günde sönmesi</td></tr>
   </table>
 
@@ -787,13 +775,13 @@
     <div>
       <div class="kutu hayat">
         <div class="etiket">@ikon:hayat Hayatın İçinden</div>
-        <p style="font-size:9.1pt">Doğal uranyumun çok küçük bir kısmı [[235|92|U]] izotopudur. Uranyum, gaz hâlindeki {UF6} bileşiğine çevrilip gözenekli zarlardan defalarca geçirilerek zenginleştirilebilir: hafif <sup>235</sup>UF<sub>6</sub>, ağır <sup>238</sup>UF<sub>6</sub>’dan çok az (yaklaşık %0,4) daha hızlı sızar.</p>
+        <p style="font-size:9.1pt">Doğal uranyumun yalnızca küçük bir kısmı uranyum-235’tir. Uranyum gaz hâlindeki {UF6}’ya çevrilip gözenekli zarlardan defalarca geçirilerek zenginleştirilebilir: hafif <sup>235</sup>UF<sub>6</sub>, ağır <sup>238</sup>UF<sub>6</sub>’dan yalnızca ≈ %0,4 hızlı sızar.</p>
       </div>
       <div class="kutu dikkat" style="margin:0">
         <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
         <div class="yanilgi" style="grid-template-columns:1fr">
           <div class="yanlis"><b class="y">✗</b> “Kaptaki gaz miktarı artarsa yayılma hızı da artar.”</div>
-          <div class="dogru"><b class="d">✓</b> Graham’a göre hız yalnızca <b>mol kütlesine</b> ve <b>sıcaklığa</b> bağlıdır.</div>
+          <div class="dogru"><b class="d">✓</b> Hız, <b>mol kütlesine</b> ve <b>sıcaklığa</b> bağlıdır.</div>
         </div>
       </div>
     </div>
@@ -954,7 +942,7 @@
       <div class="soru-blok">
         <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Güvenlik · Gaz kaçağı</div>
         <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
-          <p>Evlerde kullanılan doğal gazın büyük kısmı metan ({CH4}), tüplü LPG’nin büyük kısmı ise propan ve bütandır. Kaçak dedektörleri gazın birikebileceği yere takılır. Havanın ortalama mol kütlesi yaklaşık 29 g/mol’dür. <span class="veri">(LPG’yi yalnızca {C3H8} kabul ediniz. H: 1, C: 12 g/mol)</span></p>
+          <p>Doğal gazın büyük kısmı metan ({CH4}), tüplü LPG’nin büyük kısmı propan ve bütandır. Kaçak dedektörleri gazın birikeceği yere takılır. Havanın ortalama mol kütlesi yaklaşık 29 g/mol’dür. <span class="veri">(LPG’yi yalnızca {C3H8} kabul ediniz. H: 1, C: 12 g/mol)</span></p>
           <div class="oncul"><div><b>I.</b><span>Doğal gaz dedektörü tavana yakın, LPG dedektörü yere yakın takılmalıdır.</span></div><div><b>II.</b><span>Aynı koşullarda {CH4} gazının yayılma hızı {C3H8} gazınınkinin yaklaşık 1,66 katıdır.</span></div><div><b>III.</b><span>Aynı koşullarda {CH4} gazının yoğunluğu {C3H8} gazınınkinden büyüktür.</span></div></div>
           <p>yargılarından hangileri doğrudur?</p>
           <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve III</span><span><b>D)</b>I ve II</span><span><b>E)</b>I, II ve III</span></div>
@@ -982,8 +970,8 @@
               <text x="3" y="4" fill="#1d2133" font-weight="700">Basınç (atm)</text>
               <line x1="16" y1="78" x2="110" y2="10" stroke="#047857" stroke-width="1.2"/>
               <line x1="16" y1="78" x2="110" y2="44" stroke="#c26a06" stroke-width="1.2"/>
-              <text x="100" y="17" fill="#047857" font-weight="800" font-size="5.4">X</text>
-              <text x="102" y="42" fill="#c26a06" font-weight="800" font-size="5.4">Y</text>
+              <text x="90" y="16" fill="#047857" font-weight="800" font-size="5.4">X</text>
+              <text x="98" y="44" fill="#c26a06" font-weight="800" font-size="5.4">Y</text>
             </g>
           </svg>
           <p>Buna göre;</p>
@@ -1021,7 +1009,7 @@
         <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">T<sub>1</sub> = 300 K, T<sub>2</sub> = 450 K. Denklem: (1,2 · 3) / 300 = (0,9 · V<sub>2</sub>) / 450</div></div>
         <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">V<sub>2</sub> = (1,2 · 3 · 450) / (300 · 0,9). Önce payı, sonra paydayı hesapla.</div></div>
       </div>
-      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+      <div class="cevap-alani" style="height:21mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
     </div></div>
   </div>
 
@@ -1033,7 +1021,7 @@
         <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">M<sub>A</sub> = d·R·T / P = 0,7 · 0,082 · 400 / 0,82. Sadeleştirme: 0,082 / 0,82 = 0,1.</div></div>
         <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">C<sub>n</sub>H<sub>2n</sub>’nin mol kütlesi 12n + 2n = 14n’dir. 14n’yi bulduğun değere eşitle.</div></div>
       </div>
-      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+      <div class="cevap-alani" style="height:21mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
     </div></div>
   </div>
 
@@ -1045,7 +1033,7 @@
         <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Graham: t<sub>X</sub> / t<sub>CH4</sub> = √(M<sub>X</sub> / 16) = 2 eşitliğini yaz.</div></div>
         <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">İki tarafın karesini al: M<sub>X</sub> / 16 = 4. Bulduğun mol kütlesine sahip, S ve O içeren bir gaz düşün.</div></div>
       </div>
-      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+      <div class="cevap-alani" style="height:21mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
     </div></div>
   </div>
 
@@ -1148,8 +1136,8 @@
             <text x="15.6" y="84" text-anchor="middle">−273</text>
             <text x="62" y="84" text-anchor="middle">0</text>
             <text x="108.4" y="84" text-anchor="middle">273</text>
-            <text x="60" y="49" text-anchor="end">22,4</text>
-            <text x="60" y="64.3" text-anchor="end">11,2</text>
+            <text x="63.5" y="52" text-anchor="start">22,4</text>
+            <text x="63.5" y="67.3" text-anchor="start">11,2</text>
             <text x="90" y="90" text-anchor="middle" fill="#1d2133" font-weight="700">Sıcaklık (°C)</text>
             <text x="64" y="6" fill="#1d2133" font-weight="700">Hacim (L)</text>
             <line x1="15.6" y1="78" x2="45" y2="58.7" stroke="#047857" stroke-width=".9" stroke-dasharray="2 1.4"/>

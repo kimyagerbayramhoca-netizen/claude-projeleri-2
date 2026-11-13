@@ -33,6 +33,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
 .denk { font-weight: 600; text-align: center; font-size: 10.6pt; padding: 1.6mm 2mm; color: var(--unite-koyu); background: var(--unite-acik); border-radius: 2mm; margin: 1mm 0 3mm; }
 .denk.sol { text-align: left; }
 .ciz-tablo td, .ciz-tablo th { font-size: 9pt; }
+table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; font-size: 8.8pt; }
 .mini { font-size: 9pt; }
 .etiketler { display: flex; flex-wrap: wrap; gap: 1.6mm; margin: 1mm 0 3mm; }
 .etiketler span { border: .3mm solid var(--unite); color: var(--unite-koyu); background: #fff; border-radius: 10mm; padding: .2mm 2.4mm; font-size: 8.6pt; font-weight: 600; }
@@ -279,7 +280,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
     </div>
   </div>
 
-  <div class="iki" style="margin-top:3mm">
+  <div class="iki" style="margin-top:2mm">
     <div class="kutu ornek">
       <div class="etiket">@ikon:ornek Çözümlü Örnek 2</div>
       <div class="soru">4,8 g magnezyum şeridi havada yakılınca 8,0 g beyaz {MgO} tozu elde ediliyor. Kaç gram {O2} harcanmıştır?</div>
@@ -298,7 +299,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
     </div>
   </div>
 
-  <h3>Bir maddeyi dört farklı modelle görmek: etanol ({C2H5OH})</h3>
+  <h3><span>Bir maddeyi dört farklı modelle görmek: etanol ({C2H5OH})</span></h3>
   <svg viewBox="0 0 178 40" style="width:100%;height:auto">
     <g font-family="Inter" text-anchor="middle">
       <g fill="#fdf0f6" stroke="#e7b6cb" stroke-width=".35">
@@ -318,7 +319,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
       <text x="76.5" y="23.6" font-size="4.4" font-weight="700" fill="#1d2133">OH</text>
       <text x="66.3" y="35.5" font-size="3.4" font-weight="700" fill="#6b0f34">Çizgi-bağ formülü</text>
       <!-- Top-çubuk -->
-      <g stroke="#9aa3b8" stroke-width="1">
+      <g stroke="#9aa3b8" stroke-width="1" fill="none">
         <path d="M100 19 L110 15 L120 19 L126 15"/><path d="M100 19 L96 12M100 19 L95 24M100 19 L101 27M110 15 L108 7.5M110 15 L113 8"/>
       </g>
       <g stroke="#5d6478" stroke-width=".3" fill="#fff">
@@ -329,9 +330,9 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
       <!-- Uzay-dolgu -->
       <g stroke="#5d6478" stroke-width=".3" fill="#f8fafc">
         <circle cx="141.5" cy="13" r="3.2"/><circle cx="140.5" cy="23.5" r="3.2"/><circle cx="147" cy="27" r="3.2"/>
-        <circle cx="152.5" cy="9" r="3.2"/><circle cx="158.5" cy="10" r="3.2"/><circle cx="170" cy="14" r="3.2"/>
+        <circle cx="152.5" cy="9" r="3.2"/><circle cx="158.5" cy="10" r="3.2"/>
       </g>
-      <circle cx="146" cy="19" r="5" fill="#374151"/><circle cx="155" cy="15.5" r="5" fill="#4b5563"/><circle cx="164.5" cy="18" r="4.6" fill="#e11d48"/>
+      <circle cx="146" cy="19" r="5" fill="#374151"/><circle cx="155" cy="15.5" r="5" fill="#4b5563"/><circle cx="164.5" cy="18" r="4.6" fill="#e11d48"/><circle cx="170.5" cy="13.5" r="3.2" fill="#f8fafc" stroke="#5d6478" stroke-width=".3"/>
       <text x="154.9" y="35.5" font-size="3.4" font-weight="700" fill="#6b0f34">Uzay-dolgu modeli</text>
     </g>
   </svg>
@@ -354,7 +355,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
     <p class="mini">Suda iyi çözünen iki iyonik bileşiğin çözeltileri karıştırıldığında, bir katyon ile bir anyon birleşip <b>suda az çözünen</b> bir katı oluşturabilir. Bu katıya <b>çökelek (çökelti)</b>, olaya <b>çökelme tepkimesi</b> denir. Katyon ve anyonlar “eş değiştirdiği” için çökelme tepkimeleri <b>ikili (çift) yer değiştirme</b> tepkimeleridir: AB + CD → AD + CB.</p>
   </div>
 
-  <svg viewBox="0 0 178 50" style="width:100%;height:auto;margin-bottom:2mm">
+  <svg viewBox="0 0 178 49" style="width:90%;height:auto;margin:0 5% 0">
     <g font-family="Inter" text-anchor="middle" font-weight="700">
       <g fill="#eef6ff" stroke="#1d2133" stroke-width=".45">
         <path d="M6 10v28a3 3 0 0 0 3 3h26a3 3 0 0 0 3-3V10"/>
@@ -406,7 +407,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
       <table class="tablo ciz-tablo" style="margin-top:0">
         <tr><th>Genellikle suda iyi çözünür</th><th>Genellikle suda az çözünür</th></tr>
         <tr><td><span class="f">Li<sup>+</sup></span>, <span class="f">Na<sup>+</sup></span>, <span class="f">K<sup>+</sup></span> ve <span class="f">NH<sub>4</sub><sup>+</sup></span> tuzları</td><td><span class="f">CO<sub>3</sub><sup>2−</sup></span>, <span class="f">PO<sub>4</sub><sup>3−</sup></span> ve <span class="f">S<sup>2−</sup></span> bileşikleri (alkali ve <span class="f">NH<sub>4</sub><sup>+</sup></span> hariç)</td></tr>
-        <tr><td>Nitrat (<span class="f">NO<sub>3</sub><sup>−</sup></span>) ve asetat tuzları</td><td><span class="f">OH<sup>−</sup></span> bileşikleri (alkali metaller hariç; Ca, Ba kısmen)</td></tr>
+        <tr><td>Nitrat (<span class="f">NO<sub>3</sub><sup>−</sup></span>) ve asetat tuzları</td><td><span class="f">OH<sup>−</sup></span> bileşikleri (alkali metaller ve Ba hariç; {Ca(OH)2} az çözünür)</td></tr>
         <tr><td>Klorür, bromür, iyodürlerin çoğu</td><td><span class="f">Ag<sup>+</sup></span> ve <span class="f">Pb<sup>2+</sup></span> klorür, bromür, iyodürleri</td></tr>
         <tr><td>Sülfatların çoğu</td><td>{BaSO4}, {PbSO4} ({CaSO4} az çözünür)</td></tr>
       </table>
@@ -425,7 +426,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
   <div class="iki" style="margin-top:3mm">
     <div class="kutu hayat" style="margin-bottom:0">
       <div class="etiket">@ikon:hayat Hayatın İçinden</div>
-      <p class="mini">Mağaralardaki sarkıt ve dikitler, çaydanlıktaki kireç ve böbrek taşları birer çökelme ürünüdür. Böbrek taşlarının en yaygın türü <b>kalsiyum oksalattır</b>; idrardaki <span class="f">Ca<sup>2+</sup></span> ve oksalat iyonları birleşip az çözünen bir katı oluşturur. Bol su içmek bu iyonları seyreltir.</p>
+      <p class="mini">Sarkıt ve dikitler, çaydanlıktaki kireç ve böbrek taşları birer çökelme ürünüdür. Böbrek taşlarının en yaygın türü <b>kalsiyum oksalattır</b>: idrardaki <span class="f">Ca<sup>2+</sup></span> ve oksalat iyonları birleşip az çözünen bir katı oluşturur.</p>
     </div>
     <div class="kutu dikkat" style="margin-bottom:0">
       <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
@@ -448,25 +449,22 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
   <h2 class="konu"><span class="num">4</span>İndirgenme-yükseltgenme</h2>
   <div class="alt-baslik">Redoks tepkimelerinin kahramanı elektrondur: biri verir, öteki alır.</div>
 
-  <div class="iki">
-    <div class="kutu kavram">
-      <div class="etiket">@ikon:kavram Yükseltgenme</div>
-      <p class="mini">Bir taneciğin <b>elektron vermesidir</b>. Yükseltgenme basamağı (YB) <b>artar</b>.<br>{Zn} → <span class="f">Zn<sup>2+</sup></span> + 2e<sup>−</sup></p>
-    </div>
-    <div class="kutu kavram">
-      <div class="etiket">@ikon:kavram İndirgenme</div>
-      <p class="mini">Bir taneciğin <b>elektron almasıdır</b>. Yükseltgenme basamağı <b>azalır</b>.<br><span class="f">Cu<sup>2+</sup></span> + 2e<sup>−</sup> → {Cu}</p>
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:kavram Kavram</div>
+    <div class="iki" style="gap:4mm">
+      <p class="mini" style="margin:0"><b>Yükseltgenme:</b> bir taneciğin <b>elektron vermesidir</b>; yükseltgenme basamağı (YB) <b>artar</b>. &nbsp;{Zn} → <span class="f">Zn<sup>2+</sup></span> + 2e<sup>−</sup></p>
+      <p class="mini" style="margin:0"><b>İndirgenme:</b> bir taneciğin <b>elektron almasıdır</b>; YB <b>azalır</b>. &nbsp;<span class="f">Cu<sup>2+</sup></span> + 2e<sup>−</sup> → {Cu}</p>
     </div>
   </div>
-  <p>Serbest elektron ortamda kendi başına dolaşmaz: bir tanecik elektron veriyorsa bir başkası onu alıyordur. Bu yüzden yükseltgenme ve indirgenme <b>aynı anda</b> gerçekleşir ve böyle tepkimelere <b class="k">indirgenme-yükseltgenme (redoks)</b> tepkimesi denir. Verilen ve alınan toplam elektron sayısı eşittir.</p>
+  <p>Bir tanecik elektron veriyorsa bir başkası alıyordur; iki olay <b>aynı anda</b> gerçekleşir ve verilen elektron sayısı alınana eşittir. Böyle tepkimelere <b class="k">indirgenme-yükseltgenme (redoks)</b> tepkimesi denir.</p>
 
-  <svg viewBox="0 0 178 44" style="width:100%;height:auto;margin-bottom:2mm">
+  <svg viewBox="0 0 178 38" style="width:94%;height:auto;margin:0 3% 1mm">
     <g font-family="Inter" text-anchor="middle" font-weight="700">
       <!-- Zn plaka ve Cu2+ -->
       <circle cx="18" cy="16" r="7" fill="#9ca3af"/><text x="18" y="17.4" font-size="4" fill="#fff">Zn</text>
       <path d="M27 16h14" stroke="#5d6478" stroke-width=".6"/><path d="M39.5 14l2.5 2-2.5 2z" fill="#5d6478"/>
       <circle cx="52" cy="16" r="6" fill="#e5e7eb" stroke="#9ca3af" stroke-width=".5"/><text x="52" y="17.4" font-size="3.6" fill="#374151">Zn²⁺</text>
-      <text x="34" y="30" font-size="3.4" fill="#0f8f84">yükseltgenme · YB: 0 → +2</text>
+      <text x="34" y="28" font-size="3.4" fill="#0f8f84">yükseltgenme · YB: 0 → +2</text>
       <!-- elektron okları -->
       <path d="M58 9 Q89 -2 118 9" fill="none" stroke="#f59e0b" stroke-width=".8" stroke-dasharray="2 1.2"/>
       <path d="M116 6.4l3 2.9-4 .9z" fill="#f59e0b"/>
@@ -477,8 +475,8 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
       <circle cx="126" cy="16" r="6" fill="#bfdbfe" stroke="#2563eb" stroke-width=".5"/><text x="126" y="17.4" font-size="3.6" fill="#1e3a8a">Cu²⁺</text>
       <path d="M134 16h14" stroke="#5d6478" stroke-width=".6"/><path d="M146.5 14l2.5 2-2.5 2z" fill="#5d6478"/>
       <circle cx="160" cy="16" r="7" fill="#b45309"/><text x="160" y="17.4" font-size="4" fill="#fff">Cu</text>
-      <text x="143" y="30" font-size="3.4" fill="#e11d48">indirgenme · YB: +2 → 0</text>
-      <text x="89" y="41" font-size="3.6" fill="#6b0f34">Zn(k) + Cu²⁺(suda) → Zn²⁺(suda) + Cu(k) · mavi renk açılır, çinko üzerinde kızıl bakır birikir</text>
+      <text x="143" y="28" font-size="3.4" fill="#e11d48">indirgenme · YB: +2 → 0</text>
+      <text x="89" y="36" font-size="3.6" fill="#6b0f34">Zn(k) + Cu²⁺(suda) → Zn²⁺(suda) + Cu(k) · mavi renk açılır, çinko üzerinde kızıl bakır birikir</text>
     </g>
   </svg>
 
@@ -486,10 +484,10 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
     <div class="kutu kavram" style="margin-bottom:2.5mm">
       <div class="etiket">@ikon:kavram Yükseltgenme basamağı (YB) kuralları</div>
       <ul class="mini" style="margin-bottom:0">
-        <li>Serbest element: <b>0</b> ({Fe}, {O2}, {Cl2}, {Na}).</li>
-        <li>Tek atomlu iyon: <b>yükü kadar</b> (<span class="f">Al<sup>3+</sup></span> → +3, <span class="f">S<sup>2−</sup></span> → −2).</li>
-        <li>Bileşiklerde genellikle H <b>+1</b>, O <b>−2</b>; 1A grubu <b>+1</b>, 2A grubu <b>+2</b>.</li>
-        <li>Nötr bileşikte YB toplamı <b>0</b>, çok atomlu iyonda <b>iyon yükü</b>.</li>
+        <li>Serbest element: <b>0</b> ({Fe}, {O2}, {Na})</li>
+        <li>Tek atomlu iyon: <b>yükü kadar</b> (<span class="f">Al<sup>3+</sup></span> → +3)</li>
+        <li>Bileşikte: H <b>+1</b>, O <b>−2</b>, 1A <b>+1</b>, 2A <b>+2</b></li>
+        <li>YB toplamı: bileşikte <b>0</b>, iyonda <b>yük</b></li>
       </ul>
     </div>
     <div class="kutu ornek" style="margin-bottom:2.5mm">
@@ -503,26 +501,25 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
     </div>
   </div>
 
-  <h3>Hangi tepkimeler redokstur?</h3>
+  <h3>Metal tepkimeleri birer redoks tepkimesidir</h3>
   <table class="tablo">
     <tr><th>Tepkime tipi</th><th>Örnek denklem</th><th>Yükseltgenen → İndirgenen</th></tr>
     <tr><td>Metal + asit</td><td>{Mg}<sub class="h">(k)</sub> + 2{HCl}<sub class="h">(suda)</sub> → {MgCl2}<sub class="h">(suda)</sub> + {H2}<sub class="h">(g)</sub></td><td>Mg (0 → +2) · H (+1 → 0)</td></tr>
     <tr><td>Aktif metal + su</td><td>2{K}<sub class="h">(k)</sub> + 2{H2O}<sub class="h">(s)</sub> → 2{KOH}<sub class="h">(suda)</sub> + {H2}<sub class="h">(g)</sub></td><td>K (0 → +1) · H (+1 → 0)</td></tr>
     <tr><td>Metal + tuz çözeltisi</td><td>{Fe}<sub class="h">(k)</sub> + {CuSO4}<sub class="h">(suda)</sub> → {FeSO4}<sub class="h">(suda)</sub> + {Cu}<sub class="h">(k)</sub></td><td>Fe (0 → +2) · Cu (+2 → 0)</td></tr>
-    <tr><td>Yanma</td><td>{C}<sub class="h">(k)</sub> + {O2}<sub class="h">(g)</sub> → {CO2}<sub class="h">(g)</sub></td><td>C (0 → +4) · O (0 → −2)</td></tr>
   </table>
-  <p class="mini">İlk üç örnekte bir element, bileşikteki başka bir elementin yerini alır: bunlar <b>tekli yer değiştirme</b> tepkimeleridir. Bir metal, ancak kendisinden <b>daha az aktif</b> bir metalin iyonunu indirgeyebilir. Basit bir aktiflik sırası: <b>K &gt; Na &gt; Ca &gt; Mg &gt; Al &gt; Zn &gt; Fe &gt; Pb &gt; (H) &gt; Cu &gt; Ag &gt; Au</b>. H’nin sağındaki Cu, Ag, Au gibi <b>soy metaller</b> HCl çözeltisinden {H2} açığa çıkarmaz.</p>
+  <p class="mini">Bu örneklerde bir element, bileşikteki başka bir elementin yerini alır: <b>tekli yer değiştirme</b>. Yanma da bir redoks tepkimesidir (5. konu). Bir metal ancak <b>daha az aktif</b> bir metalin iyonunu indirgeyebilir. Aktiflik sırası: <b>K &gt; Na &gt; Ca &gt; Mg &gt; Al &gt; Zn &gt; Fe &gt; Pb &gt; (H) &gt; Cu &gt; Ag &gt; Au</b>. H’nin sağındaki Cu, Ag, Au gibi <b>soy metaller</b> HCl çözeltisinden {H2} açığa çıkarmaz.</p>
 
   <div class="iki">
     <div class="kutu hayat" style="margin-bottom:0">
       <div class="etiket">@ikon:hayat Hayatın İçinden</div>
-      <p class="mini">Gümüş takılar zamanla kararır: yüzeydeki Ag atomları havadaki kükürtlü gazlarla siyah gümüş sülfüre ({Ag2S}) dönüşür. Takı, sıcak kabartma tozlu su içinde alüminyum folyoya değdirilirse <b>Al yükseltgenir</b>, <span class="f">Ag<sup>+</sup></span> iyonları yeniden Ag’ye <b>indirgenir</b> ve parlaklık geri gelir.</p>
+      <p class="mini">Kararan gümüşün yüzeyinde siyah {Ag2S} vardır. Sıcak, yemek sodalı suda alüminyum folyoya değdirilince <b>Al yükseltgenir</b>, <span class="f">Ag<sup>+</sup></span> yeniden Ag’ye <b>indirgenir</b>.</p>
     </div>
     <div class="kutu dikkat" style="margin-bottom:0">
       <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
       <div class="yanilgi" style="grid-template-columns:1fr">
-        <div class="yanlis"><b class="y">✗</b> “Yükseltgenme, oksijenle birleşmek demektir.”</div>
-        <div class="dogru"><b class="d">✓</b> Yükseltgenme <b>elektron vermektir</b>. Zn + <span class="f">Cu<sup>2+</sup></span> tepkimesinde hiç oksijen yoktur ama Zn yükseltgenir.</div>
+        <div class="yanlis"><b class="y">✗</b> “Yükseltgenme, oksijenle birleşmektir.”</div>
+        <div class="dogru"><b class="d">✓</b> Yükseltgenme <b>elektron vermektir</b>. Zn + <span class="f">Cu<sup>2+</sup></span> tepkimesinde oksijen yoktur ama Zn yükseltgenir.</div>
       </div>
     </div>
   </div>
@@ -593,8 +590,8 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
       </g>
       <text x="44" y="30" font-size="3.3" fill="#1d2133">İkili (çift) yer değiştirme: AB + CD → AD + CB</text>
       <text x="44" y="35.5" font-size="3.1" fill="#5d6478">Tüm YB’ler aynı kalır.</text>
-      <text x="134" y="30" font-size="3.3" fill="#1d2133">Metal tepkimeleri tekli yer değiştirme: A + BC → AC + B</text>
-      <text x="134" y="35.5" font-size="3.1" fill="#5d6478">Elementel hâlde madde varsa redoks olma olasılığı yüksektir.</text>
+      <text x="134" y="30" font-size="3.3" fill="#1d2133">Metal tepkimeleri: A + BC → AC + B</text>
+      <text x="134" y="35.5" font-size="3.1" fill="#5d6478">En az iki elementin YB’si değişir.</text>
     </g>
   </svg>
 
@@ -642,20 +639,22 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
       <p class="mini">Asit ile baz tepkimeye girdiğinde <b>tuz ve genellikle su</b> oluşur. Tuzun <b>katyonu bazdan</b>, <b>anyonu asitten</b> gelir. Asit-baz tepkimeleri <b>ekzotermiktir</b>. Sulu ortamda gerçekleşen asit-baz tepkimelerine <b class="k">nötralleşme</b> denir. Kuvvetli asit ve kuvvetli baz arasındaki nötralleşmenin net iyon denklemi her zaman aynıdır:</p>
       <div class="denk" style="margin-bottom:0"><span class="f">H<sup>+</sup></span><sub class="h">(suda)</sub> + <span class="f">OH<sup>−</sup></span><sub class="h">(suda)</sub> → {H2O}<sub class="h">(s)</sub></div>
     </div>
-    <svg viewBox="0 0 80 62" style="width:100%;height:auto">
+    <svg viewBox="0 0 80 56" style="width:100%;height:auto">
       <g font-family="Inter" text-anchor="middle" font-weight="700">
         <text x="40" y="5" font-size="3.6" fill="#6b0f34">pH ölçeği (25 °C, yaklaşık)</text>
         <defs><linearGradient id="phg" x1="0" x2="1"><stop offset="0" stop-color="#dc2626"/><stop offset=".3" stop-color="#f59e0b"/><stop offset=".5" stop-color="#22c55e"/><stop offset=".72" stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs>
         <rect x="4" y="24" width="72" height="6" rx="1.5" fill="url(#phg)"/>
         <g font-size="2.8" fill="#1d2133" font-weight="600"><text x="4" y="34.5">0</text><text x="40" y="34.5">7</text><text x="76" y="34.5">14</text></g>
         <g font-size="2.8" fill="#1d2133" font-weight="600">
-          <path d="M14.3 23v-7M19.4 23v-12" stroke="#5d6478" stroke-width=".3"/>
-          <text x="11" y="14.6">Mide özsuyu ~2</text><text x="22" y="9.4">Sirke ~3</text>
-          <path d="M40 23v-5" stroke="#5d6478" stroke-width=".3"/><text x="40" y="16.6">Saf su 7</text>
-          <path d="M45.1 31v8M60.6 31v13M68.3 31v18" stroke="#5d6478" stroke-width=".3"/>
-          <text x="45.1" y="42">Kabartma tozu ~8</text><text x="60.6" y="47">Amonyaklı temizleyici ~11</text><text x="66" y="52">Çamaşır suyu ~12,5</text>
+          <g stroke="#5d6478" stroke-width=".3"><path d="M14.3 24v-11M19.4 24v-6M40 24v-6M68.3 24v-6M45.1 30v8M60.6 30v13.5"/></g>
+          <text x="4" y="12" text-anchor="start">Mide özsuyu ~2</text>
+          <text x="20.4" y="19" text-anchor="start">Sirke ~3</text>
+          <text x="40" y="17">Saf su 7</text>
+          <text x="76" y="17" text-anchor="end">Çamaşır suyu ~12,5</text>
+          <text x="44" y="40" text-anchor="end">Yemek sodası ~8</text>
+          <text x="76" y="46" text-anchor="end">Amonyaklı temizleyici ~11</text>
         </g>
-        <text x="16" y="59.5" font-size="3" fill="#dc2626">ASİDİK</text><text x="40" y="59.5" font-size="3" fill="#16a34a">NÖTR</text><text x="66" y="59.5" font-size="3" fill="#7c3aed">BAZİK</text>
+        <text x="12" y="53" font-size="3" fill="#dc2626">ASİDİK</text><text x="40" y="53" font-size="3" fill="#16a34a">NÖTR</text><text x="68" y="53" font-size="3" fill="#7c3aed">BAZİK</text>
       </g>
     </svg>
   </div>
@@ -777,7 +776,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
         <div class="satir"><span class="sn">3</span>Seyirci iyonlar: <span class="f">Mg<sup>2+</sup></span> ve <span class="f">OH<sup>−</sup></span></div>
       </div>
       <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
-      <div class="duzelt">Doğru çözüm:</div>
+      <div class="duzelt" style="min-height:31mm">Doğru çözüm:</div>
     </div>
 
     <div class="soru-blok">
@@ -790,7 +789,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
         <div class="satir"><span class="sn">3</span>YB’si artan indirgenir: Zn indirgenmiştir.</div>
       </div>
       <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
-      <div class="duzelt">Doğru çözüm:</div>
+      <div class="duzelt" style="min-height:31mm">Doğru çözüm:</div>
     </div>
 
     <div class="soru-blok">
@@ -803,7 +802,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
         <div class="satir"><span class="sn">3</span>Öyleyse çözelti baziktir.</div>
       </div>
       <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
-      <div class="duzelt">Doğru çözüm:</div>
+      <div class="duzelt" style="min-height:31mm">Doğru çözüm:</div>
     </div>
 
     <div class="soru-blok">
@@ -816,7 +815,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
         <div class="satir"><span class="sn">3</span>Cevap: 0,6 mol ürün</div>
       </div>
       <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
-      <div class="duzelt">Doğru çözüm:</div>
+      <div class="duzelt" style="min-height:31mm">Doğru çözüm:</div>
     </div>
   </div>
 
@@ -839,10 +838,9 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
       <div class="soru-blok">
         <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Sağlık</div>
         <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
-          <p>Mide özsuyunda {HCl} bulunur. Mide ekşimesinde kullanılan bir antasit tablet magnezyum hidroksit içerir:</p>
+          <p>Mide ekşimesinde kullanılan bir antasit, mide özsuyundaki {HCl}’yi magnezyum hidroksitle giderir. <span class="veri">(H: 1, O: 16, Mg: 24 g/mol)</span></p>
           <p class="ortala" style="font-size:9.2pt">{Mg(OH)2}<sub class="h">(k)</sub> + 2{HCl}<sub class="h">(suda)</sub> → {MgCl2}<sub class="h">(suda)</sub> + 2{H2O}<sub class="h">(s)</sub></p>
-          <p>Buna göre; <span class="veri">(H: 1, O: 16, Mg: 24 g/mol)</span></p>
-          <div class="oncul"><div><b>I.</b><span>Nötralleşme tepkimesidir.</span></div><div><b>II.</b><span>0,58 g {Mg(OH)2} tamamen tepkimeye girdiğinde 0,02 mol {HCl} harcanır.</span></div><div><b>III.</b><span>Magnezyum yükseltgenmiştir.</span></div></div>
+                    <div class="oncul"><div><b>I.</b><span>Nötralleşme tepkimesidir.</span></div><div><b>II.</b><span>0,58 g {Mg(OH)2} ile 0,02 mol {HCl} harcanır.</span></div><div><b>III.</b><span>Magnezyum yükseltgenmiştir.</span></div></div>
           <p>yargılarından hangileri doğrudur?</p>
           <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
         </div></div>
@@ -851,7 +849,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
       <div class="soru-blok">
         <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Endüstri</div>
         <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
-          <p>Demir yolu raylarının ek yerleri <b>termit</b> tepkimesiyle kaynatılır. Alüminyum tozu ile demir(III) oksit karışımı tutuşturulunca açığa çıkan ısı demiri eritecek kadar yüksektir:</p>
+          <p>Raylar <b>termit</b> tepkimesiyle kaynatılır; açığa çıkan ısı demiri eritir:</p>
           <p class="ortala" style="font-size:9.2pt">2{Al}<sub class="h">(k)</sub> + {Fe2O3}<sub class="h">(k)</sub> → {Al2O3}<sub class="h">(k)</sub> + 2{Fe}<sub class="h">(s)</sub></p>
           <p>5,4 g Al tamamen tepkimeye girdiğinde aktarılan elektron miktarı ve oluşan demirin kütlesi hangisidir? <span class="veri">(Al: 27, Fe: 56 g/mol)</span></p>
           <div class="secenek"><span><b>A)</b>0,2 mol e<sup>−</sup> · 5,6 g</span><span><b>B)</b>0,3 mol e<sup>−</sup> · 11,2 g</span><span><b>C)</b>0,6 mol e<sup>−</sup> · 5,6 g</span><span><b>D)</b>0,6 mol e<sup>−</sup> · 11,2 g</span><span><b>E)</b>1,2 mol e<sup>−</sup> · 22,4 g</span></div>
@@ -892,11 +890,11 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
   <div class="soru-blok">
     <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:lab Çevre · Geri kazanım</div>
     <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
-      <p>Bir maden işletmesinin atık suyunda çözünmüş {CuSO4} bulunuyor. Bakırı geri kazanmak isteyen bir ekip, eşit büyüklükteki metal plakaları önce atık suya, sonra ayrı bir kapta {HCl} çözeltisine daldırıp gözlemlerini tabloya yazıyor.</p>
-      <table class="tablo" style="margin-bottom:1.5mm">
+      <p>Bir maden işletmesinin atık suyunda çözünmüş {CuSO4} var. Bakırı geri kazanmak isteyen bir ekip, metal plakaları atık suya ve ayrı bir kapta {HCl} çözeltisine daldırıyor.</p>
+      <table class="tablo sik" style="margin:0 0 1.5mm">
         <tr><th>Metal</th><th>Atık su (<span class="f">Cu<sup>2+</sup></span> içeren)</th><th>{HCl} çözeltisi</th></tr>
-        <tr><td>Fe</td><td>Yüzeyde kızıl katı birikir, mavi renk açılır</td><td>Gaz çıkışı olur</td></tr>
-        <tr><td>Zn</td><td>Yüzeyde kızıl katı birikir, mavi renk açılır</td><td>Gaz çıkışı olur</td></tr>
+        <tr><td>Fe</td><td>Kızıl katı birikir, mavi renk açılır</td><td>Gaz çıkışı olur</td></tr>
+        <tr><td>Zn</td><td>Kızıl katı birikir, mavi renk açılır</td><td>Gaz çıkışı olur</td></tr>
         <tr><td>Ag</td><td>Değişim gözlenmez</td><td>Değişim gözlenmez</td></tr>
       </table>
       <p>Buna göre; &nbsp;<b>I.</b> Fe ve Zn, Cu’dan daha aktiftir. &nbsp;<b>II.</b> Ag metali {HCl} çözeltisinden {H2} gazı açığa çıkarır. &nbsp;<b>III.</b> Fe plaka kullanıldığında atık sudaki <span class="f">Cu<sup>2+</sup></span> iyonları indirgenir. &nbsp;yargılarından hangileri doğrudur?</p>
@@ -1058,7 +1056,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
     <div>
       <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
         <p>0,2 mol etan ({C2H6}) gazının tamamen yanması için kaç mol {O2} gerekir?</p>
-        <div class="secenek"><span><b>A)</b>0,35</span><span><b>B)</b>0,4</span><span><b>C)</b>0,7</span><span><b>D)</b>0,6</span><span><b>E)</b>1,4</span></div>
+        <div class="secenek"><span><b>A)</b>0,35</span><span><b>B)</b>0,4</span><span><b>C)</b>0,6</span><span><b>D)</b>0,7</span><span><b>E)</b>1,4</span></div>
       </div></div></div>
 
       <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
@@ -1093,7 +1091,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
   <div class="anahtar">
     <div><b>1</b><span>B</span></div><div><b>2</b><span>D</span></div><div><b>3</b><span>A</span></div><div><b>4</b><span>C</span></div>
     <div><b>5</b><span>E</span></div><div><b>6</b><span>B</span></div><div><b>7</b><span>D</span></div><div><b>8</b><span>A</span></div>
-    <div><b>9</b><span>E</span></div><div><b>10</b><span>C</span></div><div><b>11</b><span>A</span></div><div><b>12</b><span>C</span></div>
+    <div><b>9</b><span>E</span></div><div><b>10</b><span>D</span></div><div><b>11</b><span>A</span></div><div><b>12</b><span>C</span></div>
   </div>
 
   <div class="coz-liste">
@@ -1107,7 +1105,7 @@ sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
     <div class="c"><b>7 · D</b> {NH3}: −3 · {N2}: 0 · {N2O}: +1 · {HNO3}: +1 + x − 6 = 0 → +5 · {NO2}: +4.</div>
     <div class="c"><b>8 · A</b> K: 0 → +1, H: +1 → 0. B asit-baz, C sentez, D çökelme, E analiz; bunlarda YB değişmez.</div>
     <div class="c"><b>9 · E</b> Zn: 0 → +2 (2 e<sup>−</sup> verir), Cu: +2 → 0 (2 e<sup>−</sup> alır). Zn, bileşikteki Cu’nun yerini alır.</div>
-    <div class="c"><b>10 · C</b> 2{C2H6} + 7{O2} → 4{CO2} + 6{H2O}. 0,2 mol {C2H6} için 0,2·7/2 = 0,7 mol {O2}.</div>
+    <div class="c"><b>10 · D</b> 2{C2H6} + 7{O2} → 4{CO2} + 6{H2O}. 0,2 mol {C2H6} için 0,2·7/2 = 0,7 mol {O2}.</div>
     <div class="c"><b>11 · A</b> Metanol <span class="f">OH<sup>−</sup></span> vermez, nötrdür. {KOH} kuvvetli baz; {NH3} suyla <span class="f">OH<sup>−</sup></span> oluşturur; {Na2O} bazik oksit; {NaHCO3} bazik tuz.</div>
     <div class="c"><b>12 · C</b> Kuvvetli asit-kuvvetli baz nötralleşmesi (I ✓); <span class="f">K<sup>+</sup></span> bazdan, <span class="f">NO<sub>3</sub><sup>−</sup></span> asitten (II ✓). Nötralleşme ekzotermiktir (III ✗).</div>
 

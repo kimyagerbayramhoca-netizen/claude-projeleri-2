@@ -334,6 +334,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
       <marker id="kok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#ffffff" fill-opacity=".7"/></marker>
     </defs>
     <rect width="210" height="297" fill="url(#kg1)"/>
+    <g transform="translate(142,36) scale(0.72) translate(-118,-22)">
     <!-- silindir ve piston -->
     <g fill="none" stroke="#ffffff" stroke-opacity=".28" stroke-width=".6">
       <path d="M118 22 V122 H198 V22"/>
@@ -352,6 +353,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
     <g stroke="#ffffff" stroke-opacity=".7" stroke-width=".5" marker-end="url(#kok)">
       <path d="M134 62 l-8 -8"/><path d="M178 58 l10 4"/><path d="M152 84 l4 -11"/>
       <path d="M128 104 l-6 9"/><path d="M186 98 l7 8"/><path d="M164 112 l-10 4"/>
+    </g>
     </g>
     <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="15">
       <text x="-4" y="168">PV = nRT   PV = nRT   PV = nRT</text>
@@ -416,10 +418,10 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
 
   <div class="iki-genis">
     <div>
-      <p>Bir bisiklet pompasının ucunu parmağınla kapatıp pistonu ittiğinde içerideki hava sıkışır; aynı şeyi suyla denersen piston neredeyse hiç ilerlemez. Fark, taneciklerin arasındaki <b>boşluktan</b> gelir. Gaz hâlinde tanecikler arasındaki uzaklık, taneciklerin kendi boyutlarından çok büyüktür ve tanecikler arasındaki çekim kuvvetleri çok zayıftır.</p>
+      <p>Ucunu parmağınla kapattığın bir şırıngadaki hava kolayca sıkışır; şırınga suyla doluysa piston neredeyse hiç ilerlemez. Fark, tanecikler arasındaki <b>boşluktan</b> gelir. Gazda tanecikler arası uzaklık, taneciklerin boyutundan çok büyüktür; aralarındaki çekim çok zayıftır.</p>
       <p>Bu yüzden gazlar maddenin <b class="k">en düzensiz</b> hâlidir. Tanecikler birbirinden bağımsız olarak, sürekli ve gelişigüzel hareket eder; kabın çeperlerine çarparak <b>basınç</b> oluşturur.</p>
     </div>
-    <svg viewBox="0 0 150 70" class="grafik">
+    <svg viewBox="0 0 150 68" class="grafik">
       <g font-family="Inter" font-size="5" text-anchor="middle" fill="#1d2133">
         <g transform="translate(4,6)">
           <rect width="42" height="42" rx="2" fill="#f7f8fc" stroke="#9aa3b8" stroke-width=".5"/>
@@ -428,7 +430,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
             <circle cx="9" cy="26" r="3"/><circle cx="16" cy="26" r="3"/><circle cx="23" cy="26" r="3"/><circle cx="30" cy="26" r="3"/>
             <circle cx="9" cy="19" r="3"/><circle cx="16" cy="19" r="3"/><circle cx="23" cy="19" r="3"/><circle cx="30" cy="19" r="3"/>
           </g>
-          <text x="21" y="50" font-weight="700">Katı</text><text x="21" y="57" font-size="4" fill="#5d6478">düzenli, titreşir</text>
+          <text x="21" y="53" font-weight="700" font-size="6">Katı</text><text x="21" y="60" font-size="4.8" fill="#5d6478">düzenli</text>
         </g>
         <g transform="translate(54,6)">
           <rect width="42" height="42" rx="2" fill="#f7f8fc" stroke="#9aa3b8" stroke-width=".5"/>
@@ -437,7 +439,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
             <circle cx="9" cy="30" r="3"/><circle cx="17" cy="29.5" r="3"/><circle cx="24" cy="30.5" r="3"/><circle cx="32" cy="29.5" r="3"/>
             <circle cx="12" cy="23" r="3"/><circle cx="28" cy="23.5" r="3"/><circle cx="20" cy="23" r="3"/>
           </g>
-          <text x="21" y="50" font-weight="700">Sıvı</text><text x="21" y="57" font-size="4" fill="#5d6478">yakın, kayarak hareket</text>
+          <text x="21" y="53" font-weight="700" font-size="6">Sıvı</text><text x="21" y="60" font-size="4.8" fill="#5d6478">yakın, kayar</text>
         </g>
         <g transform="translate(104,6)">
           <rect width="42" height="42" rx="2" fill="#f7f8fc" stroke="#9aa3b8" stroke-width=".5"/>
@@ -448,9 +450,8 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
           <g stroke="#c26a06" stroke-width=".5" fill="none">
             <path d="M7 8 l6 5"/><path d="M33 6 l-6 3"/><path d="M20 20 l2 -7"/><path d="M35 30 l3 -6"/><path d="M8 35 l-3 -6"/><path d="M24 36 l7 -1"/>
           </g>
-          <text x="21" y="50" font-weight="700">Gaz</text><text x="21" y="57" font-size="4" fill="#5d6478">uzak, her yöne hızlı</text>
+          <text x="21" y="53" font-weight="700" font-size="6">Gaz</text><text x="21" y="60" font-size="4.8" fill="#5d6478">uzak, hızlı</text>
         </g>
-        <text x="75" y="68" font-size="4" fill="#5d6478">Aynı miktar madde: gaz hâlinde tanecikler kabın tamamını doldurur.</text>
       </g>
     </svg>
   </div>
@@ -481,19 +482,20 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
   <div class="iki">
     <div class="kutu hayat">
       <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
-      <p>Doğal gaz (büyük kısmı <span class="f">CH<sub>4</sub></span>) gemilerle taşınırken yaklaşık −162 °C’ye soğutularak sıvılaştırılır. Sıvılaşmış doğal gaz (LNG), gaz hâlindekinin yaklaşık <b>600’de biri</b> kadar yer kaplar. Tanecikler arasındaki büyük boşluklar ortadan kalkınca hacim çarpıcı biçimde küçülür.</p>
+      <p>Doğal gaz (büyük kısmı <span class="f">CH<sub>4</sub></span>) gemilerle taşınırken yaklaşık −162 °C’ye soğutularak sıvılaştırılır. Sıvılaşmış doğal gaz (LNG), gaz hâlindekinin yaklaşık <b>600’de biri</b> kadar yer kaplar: tanecikler arasındaki boşluklar kapanmıştır.</p>
     </div>
     <div class="kutu dikkat">
       <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
-      <div class="yanilgi">
+      <div class="yanilgi" style="grid-template-columns:1fr">
         <div class="yanlis"><b class="y">✗</b> “Gaz ısınınca tanecikleri büyür, bu yüzden genleşir.”</div>
         <div class="dogru"><b class="d">✓</b> Taneciklerin boyutu değişmez. Tanecikler <b>hızlanır</b>, aralarındaki ortalama <b>uzaklık artar</b>.</div>
       </div>
     </div>
   </div>
 
+
   <div class="kutu duz serit" style="--bg:#f5fbf8">
-    <p style="margin:0"><b class="k">Kendini yokla:</b> Kapalı bir kavanozdaki hava kavanozun yalnızca üst yarısında mı toplanır? <span class="kucuk">(Cevap: Hayır. Gaz tanecikleri kabın her yerine homojen dağılır; gazın hacmi kavanozun hacmine eşittir.)</span></p>
+    <p style="margin:0"><b class="k">İki tür kap:</b> <b>Sabit hacimli</b> kaplarda (çelik tüp, cam balon) V değişmez; gaz eklenince ya da ısıtılınca basınç artar. <b>Sabit basınçlı</b> kaplarda (serbest hareketli ideal piston, esnek balon) gazın basıncı dış basınca eşit kalır; değişikliğe hacim uyum sağlar.</p>
   </div>
 
   <div class="alt-bilgi"><span>Kimya Rotası 10 · Gazlar</span><span class="no">2</span></div>
@@ -508,11 +510,10 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
   <h2 class="konu"><span class="num">2</span>Basınç ve ölçülmesi</h2>
   <div class="alt-baslik">Milyarlarca küçük çarpışmanın toplamı: gaz basıncı.</div>
 
-  <div class="iki-genis">
+  <div class="iki-genis" style="grid-template-columns:1.35fr 1fr">
     <div>
-      <p><b class="k">Basınç</b>, birim yüzeye dik olarak etki eden kuvvettir (P = F / A). Gaz tanecikleri kabın çeperlerine çarptıkça çeperlere kuvvet uygular; bu kuvvetin birim alana düşen kısmı <b>gaz basıncıdır</b>.</p>
-      <p>Gaz basıncı; birim hacimdeki tanecik sayısı (n/V) arttıkça, tanecikler hızlandıkça (sıcaklık arttıkça) ve dolayısıyla birim zamandaki çarpışma sayısı arttıkça <b>artar</b>.</p>
-      <p>Atmosferdeki gazların yeryüzüne uyguladığı basınca <b>açık hava basıncı</b> (P<sub>0</sub>) denir. 1643’te Evangelista Torricelli, bir ucu kapalı, cıva dolu cam boruyu cıva çanağına ters çevirmiş; deniz kenarında borudaki cıvanın yaklaşık <b>76 cm</b> yükseklikte durduğunu görmüştür. Bu düzeneğe <b>barometre</b> denir.</p>
+      <p><b class="k">Basınç</b>, birim yüzeye dik etki eden kuvvettir (P = F / A). Gaz tanecikleri kabın çeperlerine çarparak kuvvet uygular; birim alana düşen bu kuvvet <b>gaz basıncıdır</b>. Birim hacimdeki tanecik sayısı ve sıcaklık arttıkça çarpışmalar sıklaşır, basınç <b>artar</b>.</p>
+      <p>Atmosferin yeryüzüne uyguladığı basınca <b>açık hava basıncı</b> (P<sub>0</sub>) denir. 1643’te Evangelista Torricelli, cıva dolu, bir ucu kapalı cam boruyu cıva çanağına ters çevirdi; deniz kenarında cıva sütunu yaklaşık <b>76 cm</b> yükseklikte kaldı. Bu düzenek <b>barometredir</b>.</p>
     </div>
     <svg viewBox="0 0 110 100" class="grafik">
       <g font-family="Inter" font-size="4.6" fill="#1d2133">
@@ -522,7 +523,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
         <!-- boru -->
         <rect x="29" y="8" width="10" height="80" fill="#fff" stroke="#5d6478" stroke-width=".7"/>
         <rect x="29.4" y="20" width="9.2" height="67.6" fill="#b9c0cf"/>
-        <text x="34" y="15.5" text-anchor="middle" font-size="3.6" fill="#5d6478">boşluk</text>
+        <path d="M29 14 H22" stroke="#9aa3b8" stroke-width=".3"/><text x="21" y="15.2" text-anchor="end" font-size="3.6" fill="#5d6478">boşluk</text>
         <!-- ölçü -->
         <path d="M46 20 V80" stroke="#047857" stroke-width=".5"/>
         <path d="M44 20 H48 M44 80 H48" stroke="#047857" stroke-width=".5"/>
@@ -544,9 +545,9 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
           <path d="M20 46 H24 V86 H36 V18" fill="none" stroke="#5d6478" stroke-width="3.4" stroke-linejoin="round"/>
           <path d="M20 46 H24 V86 H36 V18" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/>
           <path d="M24 64 V86 H36 V52" fill="none" stroke="#b9c0cf" stroke-width="2.2"/>
-          <path d="M28 64 H40 M33 52 H40" stroke="#c26a06" stroke-width=".4" stroke-dasharray="1 .8"/>
-          <path d="M39 52.5 V63.5" stroke="#c26a06" stroke-width=".5"/>
-          <text x="40.5" y="60" fill="#c26a06" font-weight="800" font-size="4.4">h</text>
+          <path d="M24 52 H36" stroke="#c26a06" stroke-width=".4" stroke-dasharray="1 .8"/>
+          <path d="M30 52.5 V63.5" stroke="#c26a06" stroke-width=".5"/>
+          <text x="28.5" y="60" text-anchor="end" fill="#c26a06" font-weight="800" font-size="4.4">h</text>
           <path d="M36 6 V15" stroke="#2563eb" stroke-width=".7"/><path d="M34 13 L36 16.5 L38 13z" fill="#2563eb"/>
           <text x="29" y="7" fill="#2563eb" font-weight="700">P<tspan font-size="3.2" dy="1">0</tspan></text>
           <text x="20" y="95" text-anchor="middle" font-size="3.8" fill="#5d6478">açık uçlu manometre</text>
@@ -564,7 +565,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
         <tr><td>milimetre cıva = torr</td><td>760 mmHg = 760 torr</td></tr>
         <tr><td>paskal (SI)</td><td>101 325 Pa ≈ 101,3 kPa</td></tr>
       </table>
-      <p class="kucuk" style="margin:0">1 bar = 10<sup>5</sup> Pa; 1 atm’den yalnızca %1,3 küçüktür.</p>
+      <p class="kucuk" style="margin:0">1 bar = 10<sup>5</sup> Pa (1 atm’ye çok yakın). <b>NŞA</b>: 0 °C ve 1 atm.</p>
     </div>
     <div class="kutu kavram" style="margin-bottom:0">
       <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Manometre</div>
@@ -601,7 +602,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
   <div class="iki">
     <div class="kutu hayat">
       <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
-      <p style="font-size:9.3pt">Yükseldikçe üstümüzdeki hava sütunu kısalır, açık hava basıncı düşer. Everest zirvesinde basınç deniz seviyesindekinin yaklaşık <b>üçte biri</b> kadardır. Su da düşük basınçta daha düşük sıcaklıkta kaynar; düdüklü tencere ise iç basıncı artırarak suyun 100 °C’nin üzerinde kaynamasını sağlar.</p>
+      <p style="font-size:9.3pt">Yükseldikçe açık hava basıncı düşer; Everest zirvesinde deniz seviyesindekinin yaklaşık <b>üçte biri</b> kadardır. Bu yüzden dağda su 100 °C’nin altında kaynar. Düdüklü tencere ise iç basıncı artırıp suyu 100 °C’nin üzerinde kaynatır.</p>
     </div>
     <div class="kutu dikkat">
       <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
@@ -612,9 +613,6 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
     </div>
   </div>
 
-  <div class="kutu duz serit" style="--bg:#f5fbf8">
-    <p style="margin:0"><b class="k">İki tür kap:</b> <b>Sabit hacimli</b> kaplarda (çelik tüp, cam balon) V değişmez, gaz eklenince ya da ısıtılınca basınç artar. <b>Sabit basınçlı</b> kaplarda (serbest hareketli ideal piston, esnek balon) gazın basıncı dış basınca eşit kalır; değişen niceliğe hacim uyum sağlar. <b>NŞA</b> (normal şartlar): 0 °C ve 1 atm.</p>
-  </div>
 
   <div class="alt-bilgi"><span>Kimya Rotası 10 · Gazlar</span><span class="no">3</span></div>
 </section>
@@ -628,15 +626,15 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
   <h2 class="konu"><span class="num">3</span>Boyle ve Charles yasaları</h2>
   <div class="alt-baslik">Dört nicelikten ikisini sabit tut, kalan ikisinin ilişkisine bak.</div>
 
-  <h3>Boyle yasası: basınç ve hacim</h3>
-  <div class="iki-genis">
+  <h3 style="margin-top:0">Boyle yasası: basınç ve hacim</h3>
+  <div class="iki-genis" style="grid-template-columns:1.5fr 1fr;align-items:start">
     <div>
       <p>Robert Boyle (1662), <b>miktarı ve sıcaklığı sabit</b> bir gazın basıncı arttıkça hacminin aynı oranda azaldığını gösterdi. Basınç ile hacim <b class="k">ters orantılıdır</b>, çarpımları sabittir:</p>
       <div class="denklem" style="font-size:13pt">P<sub>1</sub>·V<sub>1</sub> = P<sub>2</sub>·V<sub>2</sub> &nbsp;<span class="kucuk">(n ve T sabit)</span></div>
-      <p>Grafikte basınç iki katına çıkınca hacim yarıya iner (4 → 2 → 1 L); her noktada P·V = 4 atm·L’dir. Eğri bir <b>hiperboldür</b>, eksenlere hiç değmez. P·V çarpımı ise yatay bir doğrudur. Daha yüksek sıcaklıktaki aynı gazın P·V değeri daha büyüktür.</p>
+      <p>Grafikte basınç iki katına çıkınca hacim yarıya iner; her noktada P·V = 4 atm·L’dir. P–V eğrisi eksenlere hiç değmeyen bir <b>hiperbol</b>, P·V çarpımı ise yatay bir doğrudur.</p>
       <div class="kutu kavram" style="margin:0">
         <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Neden?</div>
-        <p style="font-size:9.2pt">Hacim küçülünce birim hacimdeki tanecik sayısı artar; tanecikler çepere daha sık çarpar ve basınç artar.</p>
+        <p style="font-size:9.2pt">Hacim küçülünce birim hacimdeki tanecik sayısı artar; tanecikler çepere daha sık çarpar, basınç artar.</p>
       </div>
     </div>
     <div class="grafik-kutu">
@@ -665,43 +663,37 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
           <text x="31" y="17" fill="#047857" font-weight="800" font-size="5">P</text>
         </g>
       </svg>
-      <div class="ga">Yeşil: basınç (hiperbol). Turuncu: P·V çarpımı (sabit).</div>
+      <div class="ga">Yeşil: basınç (hiperbol). Turuncu: P·V (sabit).</div>
     </div>
   </div>
 
-  <div class="iki" style="margin-top:3mm">
+  <div class="iki" style="margin-top:3.5mm">
     <div class="kutu ornek">
       <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 2</div>
-      <div class="soru">Su yüzeyinde (1 atm) 6 L hava içeren esnek bir balon, sıcaklığın değişmediği varsayılarak basıncın 3 atm olduğu derinliğe indiriliyor. Balonun hacmi kaç L olur?</div>
+      <div class="soru">Su yüzeyinde (1 atm) 6 L hava içeren esnek bir balon, basıncın 3 atm olduğu derinliğe indiriliyor. Sıcaklık sabitse balonun hacmi kaç L olur?</div>
       <div class="cozum">
-        <div class="adim"><span class="n">1</span><span>n ve T sabit → Boyle: 1 · 6 = 3 · V<sub>2</sub></span></div>
-        <div class="adim"><span class="n">2</span><span>V<sub>2</sub> = 6 / 3</span></div>
+        <div class="adim"><span class="n">1</span><span>n, T sabit → 1 · 6 = 3 · V<sub>2</sub></span></div>
         <span class="sonuc">V<sub>2</sub> = 2 L</span>
       </div>
     </div>
     <div class="kutu hayat">
       <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
-      <p style="font-size:9.3pt">Denizde her 10 m derinlik, basınca yaklaşık <b>1 atm</b> ekler. Bu yüzden dalış eğitmenleri, yüzeye çıkarken nefesin tutulmamasını öğretir: basınç azaldıkça ciğerdeki havanın hacmi Boyle yasasına göre büyür ve dokulara zarar verebilir.</p>
+      <p style="font-size:9.2pt">Denizde her 10 m derinlik basınca yaklaşık <b>1 atm</b> ekler. Dalgıçlara yüzeye çıkarken nefeslerini tutmamaları öğretilir: basınç azaldıkça ciğerdeki havanın hacmi Boyle yasasına göre büyür ve dokulara zarar verebilir.</p>
     </div>
   </div>
 
-  <h3 style="margin-top:1mm">Charles yasası: hacim ve sıcaklık</h3>
-  <div class="iki-genis">
+  <h3 style="margin-top:0">Charles yasası: hacim ve sıcaklık</h3>
+  <div class="iki-genis" style="grid-template-columns:1.5fr 1fr;align-items:start">
     <div>
-      <p><b>Miktarı ve basıncı sabit</b> bir gaz ısıtılınca genleşir. Jacques Charles’ın gözlemlerine göre hacim, <b class="k">mutlak sıcaklıkla doğru orantılıdır</b>:</p>
+      <p><b>Miktarı ve basıncı sabit</b> bir gaz ısıtılınca genleşir. Charles yasasına göre hacim <b class="k">mutlak sıcaklıkla doğru orantılıdır</b>:</p>
       <div class="denklem" style="font-size:13pt"><span class="kesir"><span>V<sub>1</sub></span><span>T<sub>1</sub></span></span> = <span class="kesir"><span>V<sub>2</sub></span><span>T<sub>2</sub></span></span> &nbsp;<span class="kucuk">(n ve P sabit, T kelvin)</span></div>
-      <p>V–t (°C) grafiğinin uzantısı sıcaklık eksenini <b>−273 °C</b>’de keser. Bu sıcaklığa <b>mutlak sıfır</b> (0 K) denir. Kesikli kısım bir uzantıdır: gerçek gazlar bu sıcaklıklara inmeden sıvılaşır.</p>
-      <div class="kutu ornek" style="margin:0">
-        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 3</div>
-        <div class="soru" style="margin-bottom:1.4mm">27 °C’de 3 L olan gaz, sabit basınçta 127 °C’ye ısıtılıyor. Son hacim?</div>
-        <div class="cozum">
-          <div class="adim"><span class="n">1</span><span>T<sub>1</sub> = 300 K, T<sub>2</sub> = 400 K</span></div>
-          <div class="adim"><span class="n">2</span><span>V<sub>2</sub> = 3 · 400 / 300 → <b>4 L</b></span></div>
-        </div>
+      <div class="kutu kavram" style="margin:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Mutlak sıfır</div>
+        <p style="font-size:9.2pt">V–t (°C) doğrusunun uzantısı sıcaklık eksenini <b>−273 °C</b>’de keser. Bu sıcaklık <b>0 K</b> (mutlak sıfır) kabul edilir. Kesikli kısım yalnızca uzantıdır; gerçek gazlar bu sıcaklıklara inmeden sıvılaşır. V–T (K) grafiği ise orijinden geçen bir doğrudur.</p>
       </div>
     </div>
     <div class="grafik-kutu">
-      <div class="gb">1 mol gaz, 1 atm: hacim – sıcaklık (°C)</div>
+      <div class="gb">1 mol gaz, 1 atm: V – t (°C)</div>
       <svg viewBox="0 0 120 90" class="grafik">
         <g font-family="Inter" font-size="4.4" fill="#5d6478">
           <g stroke="#e5e7f0" stroke-width=".3">
@@ -713,7 +705,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
           <text x="15.6" y="84" text-anchor="middle" fill="#e11d48" font-weight="700">−273</text>
           <text x="62" y="84" text-anchor="middle">0</text>
           <text x="108.4" y="84" text-anchor="middle">273</text>
-          <text x="60" y="49" text-anchor="end">22,4</text>
+          <text x="63.5" y="52" text-anchor="start">22,4</text>
           <text x="60" y="18.6" text-anchor="end">44,8</text>
           <text x="90" y="89" text-anchor="middle" fill="#1d2133" font-weight="700">Sıcaklık, t (°C)</text>
           <text x="64" y="6" fill="#1d2133" font-weight="700">V (L)</text>
@@ -724,15 +716,25 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
           <text x="10" y="70" fill="#e11d48" font-size="3.8" font-weight="700">mutlak sıfır</text>
         </g>
       </svg>
-      <div class="ga">0 °C → 22,4 L, 273 °C → 44,8 L: °C iki katına çıkmadı, <b>kelvin</b> iki katına çıktı (273 K → 546 K), hacim de iki katına çıktı. V–T (K) grafiği orijinden geçen bir doğrudur.</div>
+      <div class="ga">0 °C → 273 °C: kelvin 2 katına çıktı (273 → 546 K), hacim de 22,4 → 44,8 L.</div>
     </div>
   </div>
 
-  <div class="kutu dikkat" style="margin-top:3.5mm">
-    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
-    <div class="yanilgi">
-      <div class="yanlis"><b class="y">✗</b> “Sıcaklık 20 °C’den 40 °C’ye çıkarsa hacim iki katına çıkar.”</div>
-      <div class="dogru"><b class="d">✓</b> Oran kelvinle kurulur: 293 K → 313 K. Hacim yalnızca 313/293 ≈ <b>1,07 katına</b> çıkar.</div>
+  <div class="iki" style="margin-top:3.5mm">
+    <div class="kutu ornek" style="margin:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 3</div>
+      <div class="soru">27 °C’de 3 L olan gaz, sabit basınçta 127 °C’ye ısıtılıyor. Son hacim kaç L’dir?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>T<sub>1</sub> = 300 K, T<sub>2</sub> = 400 K → V<sub>2</sub> = 3 · 400 / 300</span></div>
+        <span class="sonuc">V<sub>2</sub> = 4 L</span>
+      </div>
+    </div>
+    <div class="kutu dikkat" style="margin:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “20 °C’den 40 °C’ye ısıtılan gazın hacmi iki katına çıkar.”</div>
+        <div class="dogru"><b class="d">✓</b> Oran kelvinle kurulur: 293 K → 313 K. Hacim yalnızca ≈ <b>1,07 katına</b> çıkar.</div>
+      </div>
     </div>
   </div>
 
@@ -750,20 +752,20 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
 
   <div class="iki">
     <div>
-      <h3 style="margin-top:0">Gay-Lussac yasası: basınç ve sıcaklık</h3>
-      <p><b>Miktarı ve hacmi sabit</b> bir gazın basıncı, mutlak sıcaklıkla <b class="k">doğru orantılıdır</b>. Isınan tanecikler çepere hem daha sık hem daha şiddetli çarpar.</p>
+      <h3 style="margin-top:0">Gay-Lussac yasası: P ve T</h3>
+      <p><b>Miktarı ve hacmi sabit</b> bir gazın basıncı, mutlak sıcaklıkla <b class="k">doğru orantılıdır</b>. Isınan tanecikler çepere daha sık ve daha şiddetli çarpar.</p>
       <div class="denklem"><span class="kesir"><span>P<sub>1</sub></span><span>T<sub>1</sub></span></span> = <span class="kesir"><span>P<sub>2</sub></span><span>T<sub>2</sub></span></span> &nbsp;<span class="kucuk">(n ve V sabit)</span></div>
     </div>
     <div>
-      <h3 style="margin-top:0">Avogadro yasası: hacim ve miktar</h3>
-      <p><b>Sıcaklığı ve basıncı aynı</b> olan gazlarda hacim, mol sayısıyla <b class="k">doğru orantılıdır</b>. Gazın türü önemli değildir: aynı koşulda eşit hacimler eşit sayıda tanecik içerir.</p>
+      <h3 style="margin-top:0">Avogadro yasası: V ve n</h3>
+      <p><b>Aynı sıcaklık ve basınçta</b> gazın hacmi mol sayısıyla <b class="k">doğru orantılıdır</b>. Gazın türü önemsizdir: eşit hacimler eşit sayıda tanecik içerir.</p>
       <div class="denklem"><span class="kesir"><span>V<sub>1</sub></span><span>n<sub>1</sub></span></span> = <span class="kesir"><span>V<sub>2</sub></span><span>n<sub>2</sub></span></span> &nbsp;<span class="kucuk">(P ve T sabit)</span></div>
     </div>
   </div>
 
-  <div class="iki">
+  <div class="uc" style="margin-top:1mm">
     <div class="grafik-kutu">
-      <div class="gb">Sabit hacimli kapta P – T (K)</div>
+      <div class="gb">Sabit hacimde P – T (K)</div>
       <svg viewBox="0 0 120 88" class="grafik">
         <g font-family="Inter" font-size="4.4" fill="#5d6478">
           <g stroke="#e5e7f0" stroke-width=".3">
@@ -784,10 +786,10 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
           <text x="66" y="21" fill="#047857" font-weight="700">(400; 1,6)</text>
         </g>
       </svg>
-      <div class="ga">Doğru orijinden geçer: P/T = 0,004 atm/K hep aynıdır.</div>
+      <div class="ga">Orijinden geçer: P/T = 0,004 atm/K.</div>
     </div>
     <div class="grafik-kutu">
-      <div class="gb">0 °C ve 1 atm’de V – n</div>
+      <div class="gb">0 °C, 1 atm’de V – n</div>
       <svg viewBox="0 0 120 88" class="grafik">
         <g font-family="Inter" font-size="4.4" fill="#5d6478">
           <g stroke="#e5e7f0" stroke-width=".3">
@@ -803,30 +805,34 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
           <text x="3" y="4" fill="#1d2133" font-weight="700">V (L)</text>
           <line x1="16" y1="78" x2="91.2" y2="17.1" stroke="#047857" stroke-width="1.2"/>
           <g fill="#047857"><circle cx="34.8" cy="62.8" r="1.3"/><circle cx="53.6" cy="47.5" r="1.3"/><circle cx="91.2" cy="17.1" r="1.3"/></g>
-          <text x="95" y="20" fill="#047857" font-weight="700">He, N₂, CO₂…</text>
-          <text x="95" y="25" fill="#047857" font-size="3.8">hepsi aynı doğru</text>
+          <text x="64" y="16" fill="#047857" font-weight="700" text-anchor="end">her gaz için</text><text x="64" y="21" fill="#047857" font-weight="700" text-anchor="end">aynı doğru</text>
         </g>
       </svg>
-      <div class="ga">NŞA’da 1 mol gaz <b>22,4 L</b> kaplar (molar hacim).</div>
+      <div class="ga">NŞA’da 1 mol gaz <b>22,4 L</b> kaplar.</div>
+    </div>
+    <div class="kutu dikkat" style="margin:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Aynı koşulda eşit hacimli gazların kütleleri eşittir.”</div>
+        <div class="dogru"><b class="d">✓</b> <b>Mol sayıları</b> eşittir. Kütleler, mol kütlelerine göre farklıdır.</div>
+      </div>
     </div>
   </div>
 
   <div class="iki" style="margin-top:3.5mm">
     <div class="kutu ornek">
       <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 4</div>
-      <div class="soru">27 °C’de basıncı 2,7 atm olan kapalı bir sprey kutusu, güneşte 127 °C’ye ısınıyor. Kutudaki basınç kaç atm olur?</div>
+      <div class="soru">27 °C’de iç basıncı 2,7 atm olan kapalı bir sprey kutusu güneşte 127 °C’ye ısınıyor. Kutudaki basınç kaç atm olur?</div>
       <div class="cozum">
-        <div class="adim"><span class="n">1</span><span>n ve V sabit → Gay-Lussac. 300 K → 400 K</span></div>
-        <div class="adim"><span class="n">2</span><span>P<sub>2</sub> = 2,7 · 400 / 300</span></div>
+        <div class="adim"><span class="n">1</span><span>n, V sabit; 300 K → 400 K: P<sub>2</sub> = 2,7 · 400 / 300</span></div>
         <span class="sonuc">P<sub>2</sub> = 3,6 atm</span>
       </div>
     </div>
     <div class="kutu ornek">
       <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 5</div>
-      <div class="soru">Serbest pistonlu bir kapta 0,5 mol gaz 12 L hacim kaplıyor. Aynı koşulda kaba 0,25 mol gaz eklenirse hacim kaç L olur?</div>
+      <div class="soru">Serbest pistonlu kapta 0,5 mol gaz 12 L hacim kaplıyor. Aynı koşulda 0,25 mol gaz eklenirse hacim kaç L olur?</div>
       <div class="cozum">
-        <div class="adim"><span class="n">1</span><span>P ve T sabit → Avogadro. n: 0,5 → 0,75 mol</span></div>
-        <div class="adim"><span class="n">2</span><span>V<sub>2</sub> = 12 · 0,75 / 0,5</span></div>
+        <div class="adim"><span class="n">1</span><span>P, T sabit; n: 0,5 → 0,75 mol: V<sub>2</sub> = 12 · 0,75 / 0,5</span></div>
         <span class="sonuc">V<sub>2</sub> = 18 L</span>
       </div>
     </div>
@@ -836,7 +842,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
     <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Birleşik gaz denklemi</div>
     <div class="iki-genis" style="gap:4mm;align-items:center">
       <div>
-        <p style="font-size:9.3pt">Dört yasa tek bir oranda birleşir. Hangi nicelik sabitse denklemden sadeleşir; kalan eşitlik ilgili yasayı verir.</p>
+        <p style="font-size:9.3pt">Dört yasa tek bir oranda birleşir. Sabit kalan nicelik denklemden sadeleşir; geriye ilgili yasa kalır.</p>
         <div class="denklem" style="font-size:14pt"><span class="kesir"><span>P<sub>1</sub>·V<sub>1</sub></span><span>n<sub>1</sub>·T<sub>1</sub></span></span> = <span class="kesir"><span>P<sub>2</sub>·V<sub>2</sub></span><span>n<sub>2</sub>·T<sub>2</sub></span></span></div>
       </div>
       <table class="tablo" style="margin:0;font-size:8.6pt">
@@ -850,27 +856,17 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
   </div>
 
   <div class="iki">
-    <div class="kutu ornek">
+    <div class="kutu ornek" style="margin:0">
       <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 6</div>
       <div class="soru">27 °C ve 2 atm’de 6 L olan gaz, miktarı değişmeden 127 °C ve 1 atm’ye getiriliyor. Yeni hacim kaç L’dir?</div>
       <div class="cozum">
         <div class="adim"><span class="n">1</span><span>n sabit: (2 · 6) / 300 = (1 · V<sub>2</sub>) / 400</span></div>
-        <div class="adim"><span class="n">2</span><span>V<sub>2</sub> = 12 · 400 / 300</span></div>
         <span class="sonuc">V<sub>2</sub> = 16 L</span>
       </div>
     </div>
-    <div>
-      <div class="kutu hayat">
-        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
-        <p style="font-size:9.2pt">Sprey kutularının üzerinde “50 °C’nin üzerindeki sıcaklıklara maruz bırakmayın” uyarısı bulunur. Sabit hacimli kutu ısınınca iç basınç artar ve kutu patlayabilir.</p>
-      </div>
-      <div class="kutu dikkat">
-        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
-        <div class="yanilgi" style="grid-template-columns:1fr">
-          <div class="yanlis"><b class="y">✗</b> “Aynı koşulda eşit hacimli gazların kütleleri eşittir.”</div>
-          <div class="dogru"><b class="d">✓</b> <b>Mol sayıları</b> eşittir. Kütleleri mol kütlelerine göre farklıdır.</div>
-        </div>
-      </div>
+    <div class="kutu hayat" style="margin:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9.2pt">Sprey kutularında “50 °C’nin üzerindeki sıcaklıklara maruz bırakmayın” uyarısı bulunur. Sabit hacimli kutu ısınınca iç basınç Gay-Lussac yasasına göre artar ve kutu patlayabilir.</p>
     </div>
   </div>
 
@@ -886,17 +882,16 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
   <h2 class="konu"><span class="num">5</span>Kinetik teori ve ideal gaz denklemi</h2>
   <div class="alt-baslik">Gaz yasalarının “neden”i taneciklerin hareketinde saklıdır.</div>
 
-  <p><b class="k">Kinetik moleküler teori</b>, gazların basınç, hacim ve sıcaklık gibi gözlenebilir özelliklerini taneciklerin hareketi ve etkileşimiyle açıklar. Teorinin varsayımlarına tam olarak uyan gaza <b>ideal gaz</b> denir.</p>
-
-  <div class="iki-genis">
+  <div class="iki-genis" style="grid-template-columns:1.55fr 1fr">
     <div class="kutu kavram" style="margin:0">
-      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kinetik teorinin varsayımları</div>
-      <ul style="font-size:9.1pt;margin:0">
-        <li><b>Öz hacim ihmal edilir:</b> Taneciklerin kendi hacmi, kabın hacmi yanında yok sayılır.</li>
-        <li><b>Sürekli, rastgele hareket:</b> Tanecikler bir çarpışmaya kadar doğrusal ilerler, sonra yön değiştirir.</li>
-        <li><b>Esnek çarpışma:</b> Çarpışmalarda enerji aktarılır ama toplam kinetik enerji korunur.</li>
-        <li><b>Etkileşim yok:</b> Tanecikler arasındaki çekme ve itme kuvvetleri ihmal edilir.</li>
-        <li><b>Sıcaklık = ortalama kinetik enerji:</b> Ortalama kinetik enerji mutlak sıcaklıkla doğru orantılıdır. Aynı sıcaklıkta <b>bütün gazların</b> ortalama kinetik enerjisi eşittir.</li>
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kinetik moleküler teori</div>
+      <p style="font-size:9.1pt;margin-bottom:1.2mm">Gazların gözlenen davranışını tanecik hareketiyle açıklar. Varsayımlarına tam uyan gaza <b>ideal gaz</b> denir:</p>
+      <ul style="font-size:9pt;margin:0">
+        <li><b>Öz hacim ihmal edilir</b>: tanecik hacmi, kap hacmi yanında yok sayılır.</li>
+        <li><b>Sürekli, rastgele, doğrusal hareket</b>; yön çarpışmada değişir.</li>
+        <li><b>Esnek çarpışma</b>: toplam kinetik enerji korunur.</li>
+        <li><b>Etkileşim yok</b>: çekme ve itme kuvvetleri ihmal edilir.</li>
+        <li>Ortalama kinetik enerji <b>mutlak sıcaklıkla</b> doğru orantılıdır; aynı sıcaklıkta <b>bütün gazlarda eşittir</b>.</li>
       </ul>
     </div>
     <div class="grafik-kutu">
@@ -932,19 +927,18 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
     </div>
     <div class="kutu kavram" style="margin:0">
       <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> İdeal ve gerçek gaz</div>
-      <p style="font-size:9.1pt">Gerçek gazların taneciklerinin hacmi vardır ve aralarında zayıf da olsa çekim bulunur. Gerçek bir gaz şu koşullarda ideale <b>yaklaşır</b>:</p>
-      <p style="font-size:9.1pt;margin:0">↑ <b>yüksek sıcaklık</b> · ↓ <b>düşük basınç</b> · <b>küçük mol kütlesi</b> · <b>apolar</b> tanecikler (ör. He, H<sub>2</sub>)</p>
+      <p style="font-size:9.1pt;margin:0">Gerçek gaz taneciklerinin hacmi ve aralarında zayıf çekim vardır. Gerçek gaz <b>yüksek sıcaklık</b>, <b>düşük basınç</b>, <b>küçük mol kütlesi</b> ve <b>apolar</b> tanecik (ör. He, H<sub>2</sub>) durumunda ideale yaklaşır.</p>
     </div>
   </div>
 
   <h3>İdeal gaz denklemi</h3>
   <div class="iki-genis">
     <div>
-      <p>Boyle, Charles, Gay-Lussac ve Avogadro yasaları tek bir eşitlikte birleşir. Basınç <b>atm</b>, hacim <b>L</b>, sıcaklık <b>K</b> olmak zorundadır.</p>
+      <p>Dört gaz yasası tek eşitlikte birleşir. Basınç <b>atm</b>, hacim <b>L</b>, sıcaklık <b>K</b> olmalıdır.</p>
       <div class="formul-kart" style="grid-template-columns:1fr;margin:1mm 0 2mm">
-        <div><div class="denklem" style="font-size:18pt">P · V = n · R · T</div><span>R: ideal gaz sabiti, bütün gazlar için aynıdır</span></div>
+        <div><div class="denklem" style="font-size:17pt">P · V = n · R · T</div><span>R: ideal gaz sabiti, bütün gazlar için aynıdır</span></div>
       </div>
-      <p style="font-size:9.3pt"><b>R nereden gelir?</b> NŞA’da 1 mol gaz 22,4 L kaplar:<br>R = (1 atm · 22,4 L) / (1 mol · 273 K) = <span class="kesir"><span>22,4</span><span>273</span></span> ≈ <b>0,082 L·atm/(mol·K)</b></p>
+      <p style="font-size:9.2pt;margin:0"><b>R nereden gelir?</b> NŞA’da 1 mol gaz 22,4 L kaplar: R = (1 · 22,4) / (1 · 273) ≈ <b>0,082 L·atm/(mol·K)</b></p>
     </div>
     <div>
       <div class="kutu ornek" style="margin-bottom:3mm">
@@ -963,9 +957,8 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
     <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 8 · Gazı tanı</div>
     <div class="soru">NŞA’da 5,6 L hacim kaplayan bir gaz örneği 11 g gelmektedir. Gazın mol kütlesi kaç g/mol’dür?</div>
     <div class="cozum">
-      <div class="adim"><span class="n">1</span><span>NŞA’da n = V / 22,4 = 5,6 / 22,4 = 0,25 mol <span class="kucuk">(PV = nRT ile de aynı sonuç: n = 1 · 5,6 / (0,082 · 273) ≈ 0,25)</span></span></div>
-      <div class="adim"><span class="n">2</span><span>M<sub>A</sub> = m / n = 11 / 0,25 = 44 g/mol</span></div>
-      <div class="adim"><span class="n">3</span><span>Gaz, örneğin <span class="f">CO<sub>2</sub></span> ya da <span class="f">C<sub>3</sub>H<sub>8</sub></span> olabilir: mol kütlesi tek başına gazı kesin olarak tanıtmaz.</span></div>
+      <div class="adim"><span class="n">1</span><span>NŞA’da n = 5,6 / 22,4 = 0,25 mol; M<sub>A</sub> = m / n = 11 / 0,25 = 44 g/mol</span></div>
+      <div class="adim"><span class="n">2</span><span>Örneğin <span class="f">CO<sub>2</sub></span> ya da <span class="f">C<sub>3</sub>H<sub>8</sub></span> olabilir: mol kütlesi tek başına gazı kesin olarak tanıtmaz.</span></div>
       <span class="sonuc">M<sub>A</sub> = 44 g/mol</span>
     </div>
   </div>
@@ -1008,8 +1001,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
   <h3>Difüzyon ve efüzyon</h3>
   <table class="tablo">
     <tr><th style="width:18%"></th><th>Difüzyon (yayılma)</th><th>Efüzyon (sızma)</th></tr>
-    <tr><td><b>Ne olur?</b></td><td>Gaz tanecikleri başka bir gazın tanecikleri arasında yayılır.</td><td>Gaz, küçük bir delik ya da gözenekten boşluğa veya dışarıya kaçar.</td></tr>
-    <tr><td><b>Nedeni</b></td><td>Derişim farkı ve taneciklerin rastgele hareketi</td><td>Delik iki yanındaki basınç farkı</td></tr>
+    <tr><td><b>Ne olur?</b></td><td>Gaz, derişim farkıyla başka bir gazın tanecikleri arasında yayılır.</td><td>Gaz, basınç farkıyla küçük bir delik ya da gözenekten dışarı kaçar.</td></tr>
     <tr><td><b>Örnek</b></td><td>Açılan parfümün kokusunun odaya yayılması</td><td>Helyum balonunun birkaç günde sönmesi</td></tr>
   </table>
 
@@ -1055,13 +1047,13 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
     <div>
       <div class="kutu hayat">
         <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
-        <p style="font-size:9.1pt">Doğal uranyumun çok küçük bir kısmı <span class="izotop"><span class="yz"><span>235</span><span>92</span></span>U</span> izotopudur. Uranyum, gaz hâlindeki <span class="f">UF<sub>6</sub></span> bileşiğine çevrilip gözenekli zarlardan defalarca geçirilerek zenginleştirilebilir: hafif <sup>235</sup>UF<sub>6</sub>, ağır <sup>238</sup>UF<sub>6</sub>’dan çok az (yaklaşık %0,4) daha hızlı sızar.</p>
+        <p style="font-size:9.1pt">Doğal uranyumun yalnızca küçük bir kısmı uranyum-235’tir. Uranyum gaz hâlindeki <span class="f">UF<sub>6</sub></span>’ya çevrilip gözenekli zarlardan defalarca geçirilerek zenginleştirilebilir: hafif <sup>235</sup>UF<sub>6</sub>, ağır <sup>238</sup>UF<sub>6</sub>’dan yalnızca ≈ %0,4 hızlı sızar.</p>
       </div>
       <div class="kutu dikkat" style="margin:0">
         <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
         <div class="yanilgi" style="grid-template-columns:1fr">
           <div class="yanlis"><b class="y">✗</b> “Kaptaki gaz miktarı artarsa yayılma hızı da artar.”</div>
-          <div class="dogru"><b class="d">✓</b> Graham’a göre hız yalnızca <b>mol kütlesine</b> ve <b>sıcaklığa</b> bağlıdır.</div>
+          <div class="dogru"><b class="d">✓</b> Hız, <b>mol kütlesine</b> ve <b>sıcaklığa</b> bağlıdır.</div>
         </div>
       </div>
     </div>
@@ -1222,7 +1214,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
       <div class="soru-blok">
         <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Güvenlik · Gaz kaçağı</div>
         <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
-          <p>Evlerde kullanılan doğal gazın büyük kısmı metan (<span class="f">CH<sub>4</sub></span>), tüplü LPG’nin büyük kısmı ise propan ve bütandır. Kaçak dedektörleri gazın birikebileceği yere takılır. Havanın ortalama mol kütlesi yaklaşık 29 g/mol’dür. <span class="veri">(LPG’yi yalnızca <span class="f">C<sub>3</sub>H<sub>8</sub></span> kabul ediniz. H: 1, C: 12 g/mol)</span></p>
+          <p>Doğal gazın büyük kısmı metan (<span class="f">CH<sub>4</sub></span>), tüplü LPG’nin büyük kısmı propan ve bütandır. Kaçak dedektörleri gazın birikeceği yere takılır. Havanın ortalama mol kütlesi yaklaşık 29 g/mol’dür. <span class="veri">(LPG’yi yalnızca <span class="f">C<sub>3</sub>H<sub>8</sub></span> kabul ediniz. H: 1, C: 12 g/mol)</span></p>
           <div class="oncul"><div><b>I.</b><span>Doğal gaz dedektörü tavana yakın, LPG dedektörü yere yakın takılmalıdır.</span></div><div><b>II.</b><span>Aynı koşullarda <span class="f">CH<sub>4</sub></span> gazının yayılma hızı <span class="f">C<sub>3</sub>H<sub>8</sub></span> gazınınkinin yaklaşık 1,66 katıdır.</span></div><div><b>III.</b><span>Aynı koşullarda <span class="f">CH<sub>4</sub></span> gazının yoğunluğu <span class="f">C<sub>3</sub>H<sub>8</sub></span> gazınınkinden büyüktür.</span></div></div>
           <p>yargılarından hangileri doğrudur?</p>
           <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve III</span><span><b>D)</b>I ve II</span><span><b>E)</b>I, II ve III</span></div>
@@ -1250,8 +1242,8 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
               <text x="3" y="4" fill="#1d2133" font-weight="700">Basınç (atm)</text>
               <line x1="16" y1="78" x2="110" y2="10" stroke="#047857" stroke-width="1.2"/>
               <line x1="16" y1="78" x2="110" y2="44" stroke="#c26a06" stroke-width="1.2"/>
-              <text x="100" y="17" fill="#047857" font-weight="800" font-size="5.4">X</text>
-              <text x="102" y="42" fill="#c26a06" font-weight="800" font-size="5.4">Y</text>
+              <text x="90" y="16" fill="#047857" font-weight="800" font-size="5.4">X</text>
+              <text x="98" y="44" fill="#c26a06" font-weight="800" font-size="5.4">Y</text>
             </g>
           </svg>
           <p>Buna göre;</p>
@@ -1289,7 +1281,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
         <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">T<sub>1</sub> = 300 K, T<sub>2</sub> = 450 K. Denklem: (1,2 · 3) / 300 = (0,9 · V<sub>2</sub>) / 450</div></div>
         <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">V<sub>2</sub> = (1,2 · 3 · 450) / (300 · 0,9). Önce payı, sonra paydayı hesapla.</div></div>
       </div>
-      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+      <div class="cevap-alani" style="height:21mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
     </div></div>
   </div>
 
@@ -1301,7 +1293,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
         <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">M<sub>A</sub> = d·R·T / P = 0,7 · 0,082 · 400 / 0,82. Sadeleştirme: 0,082 / 0,82 = 0,1.</div></div>
         <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">C<sub>n</sub>H<sub>2n</sub>’nin mol kütlesi 12n + 2n = 14n’dir. 14n’yi bulduğun değere eşitle.</div></div>
       </div>
-      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+      <div class="cevap-alani" style="height:21mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
     </div></div>
   </div>
 
@@ -1313,7 +1305,7 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
         <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Graham: t<sub>X</sub> / t<sub>CH4</sub> = √(M<sub>X</sub> / 16) = 2 eşitliğini yaz.</div></div>
         <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">İki tarafın karesini al: M<sub>X</sub> / 16 = 4. Bulduğun mol kütlesine sahip, S ve O içeren bir gaz düşün.</div></div>
       </div>
-      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+      <div class="cevap-alani" style="height:21mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
     </div></div>
   </div>
 
@@ -1416,8 +1408,8 @@ table.tablo tr:nth-child(even) td { background: #f7f8fc; }
             <text x="15.6" y="84" text-anchor="middle">−273</text>
             <text x="62" y="84" text-anchor="middle">0</text>
             <text x="108.4" y="84" text-anchor="middle">273</text>
-            <text x="60" y="49" text-anchor="end">22,4</text>
-            <text x="60" y="64.3" text-anchor="end">11,2</text>
+            <text x="63.5" y="52" text-anchor="start">22,4</text>
+            <text x="63.5" y="67.3" text-anchor="start">11,2</text>
             <text x="90" y="90" text-anchor="middle" fill="#1d2133" font-weight="700">Sıcaklık (°C)</text>
             <text x="64" y="6" fill="#1d2133" font-weight="700">Hacim (L)</text>
             <line x1="15.6" y1="78" x2="45" y2="58.7" stroke="#047857" stroke-width=".9" stroke-dasharray="2 1.4"/>
