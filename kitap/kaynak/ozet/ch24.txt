@@ -1,0 +1,305 @@
+QUOTE|ch24-176
+H2|Bölüme Bakış
+INTRO|Bu bölüm, Uhud'a giden yolu ve zaferin sınanmaya dönüştüğü o cumartesiyi anlatır.
+B1|Bedir'in intikamı Mekke'de bir yıl biriktirildi; Bedir'e sebep olan kervanın malları, onlarla ordu donatılacağı için dağıtılmayıp Dârü'n-Nedve'nin yanında bekletildi.
+B1|Hicretin üçüncü yılının Şevval ayında bu ordu Medine'ye yöneldiğinde genç İslâm toplumu, Bedir'den sonraki en ağır sınavının eşiğindeydi.
+B1|Sallâbî'nin ifadesiyle Uhud *kazanılmışken kaybedilen* bir savaştır; parlak zaferi okçuların açtığı gedik, Peygamber'in öldürüldüğü şayiası ve o dehşet anındaki sadakat tabloları izledi.
+B1|Savaşın tarihinde küçük bir ayrılık vardır; Sallâbî'nin özetinin girişinde tarih 11 Şevval 3 (6 Nisan 625) olarak verilir.
+B2|Hamrâü'l-Esed anlatısında ise iki müellif de savaşın Şevval'in ortasında bir cumartesi yapıldığını, ertesi pazarın Şevval'in on altısı olduğunu kaydeder.
+H2|Bedir'in Gölgesinde: Savaşın Dört Sebebi
+INTRO|İki müellif Uhud'un sebeplerini dinî, sosyal, ekonomik ve siyasî başlıklarda inceler.
+B1|Dinî sebep başta gelir; Kureyş'in bütün hazırlığının ardında İslâm davetini durdurma, insanlarla hidayetin arasına girme arzusu yatıyordu ve Allah bu niyeti Enfâl sûresinde haber vermişti.
+QUOTE|ch24-177
+TABLE|Müfessir|Âyetin yorumu
+ROW|Taberî|"İnsanları İslâm'a girmekten alıkoymak için mallarını harcarlar."
+ROW|İbn Kesîr|Kâfirler bu harcamayla insanların hak yoluna uymasını engellemek istiyordu.
+ROW|Şevkânî|Harcamanın asıl hedefi Rasûlullah'a (s.a.v.) savaş açmak ve bunun için ordular toplamaktı.
+ENDTABLE
+B1|Sallâbî buradan Uhud'un en önemli sebebinin dinî sebep olduğu sonucunu çıkarır.
+B1|Evlakî âyetin bugüne bakan yüzüne dikkat çeker; tarih tekerrür etmekte, İslâm'la savaşmak için bugün de servetler harcanmaktadır.
+B1|Sosyal sebep Bedir'in açtığı yaradaydı; liderlerin ve ileri gelenlerin öldürülmesi Kureyş için büyük bir yıkım ve utanç olmuş, bütün Mekke'yi zillet ve yenilgi duygusu sarmıştı.
+B1|İbn İshâk'ın naklettiğine göre Bedir'de yakınlarını kaybeden Abdullah b. Ebî Rebîa, İkrime b. Ebî Cehil, Hâris b. Hişâm, Huveytıb b. Abdüluzzâ ve Safvân b. Ümeyye, kervan ortaklarından intikam için bu mallarla yardım istedi.
+B2|"Muhammed sizi darmadağın edip seçkinlerinizi öldürdü" diyen bu kişilere Ebû Süfyân "Buna ilk evet diyen benim" cevabını verdi (İbn Hişâm, 3/68).
+B1|İntikam duygusu liderlerle sınırlı değildi; Cübeyr b. Mut'im, mızrakta neredeyse hiç ıskalamayan Habeşli kölesi Vahşî'ye, kendi amcası Tuayme b. Adiy'e karşılık Muhammed'in amcası Hamza'yı öldürürse özgür olacağını söyledi.
+B1|Ekonomik sebep de ağırdı; Mekke ekonomisinin dayandığı, kışın Yemen'e ve yazın Şam'a giden ve Kur'ân'ın "yaz ve kış yolculuğu" diye andığı (Kureyş 106/1-3) iki büyük kervan, İslâm devletinin seriyyeleriyle derinden sarsılmıştı.
+B2|Yemen'den alınan mallar Şam'da, Şam'dan alınanlar Yemen'de satıldığından bir güzergâhın kesilmesi ötekini de çökertiyordu.
+SOZ|💬 SAFVÂN B. ÜMEYYE|"Muhammed ve arkadaşları bizim ticaret imkânlarımızı iyice zorlaştırdılar. Sahil kısmını tamamen ele geçirmişlerdi. Eğer kendi ülkemizde kalıp sermayemizi yiyecek olsak ayakta kalamazdık; çünkü mallarımızı yazın Şam'a, kışın Yemen'e götürmek zorundaydık."|Vâkıdî, el-Megāzî, 1/195-196
+B1|Evlakî'ye göre bu tablo, Rasûlullah'ın Kureyş'e savaş meydanı kadar ekonomik alanda da baskı kurmaya önem verdiğini gösterir.
+B1|Siyasî açıdan Kureyş, Bedir'den önce Araplar arasında en çok saygı gören, kendisine savaş açılmayan ve merkezî konumu tartışılmayan kabileydi.
+B1|Bedir bu itibarı yerle bir ettiğinden Kureyş, kabileler üzerindeki liderliğini korumak için bedeli ne olursa olsun itibarını geri almalıydı.
+H2|Mekke Yola Çıkıyor, Medine Haber Alıyor
+INTRO|Kureyş yürüyüşe geçerken Rasûlullah (s.a.v.) haberi birkaç kaynaktan teyit etti ve sırrı korudu.
+B1|Kureyş üç bin savaşçılık bir ordu donattı; civardaki Arap kabileleri, Kinâne ve Tihâme halkı ve Arap olmayan katılımcılar da onlara eşlik etti.
+TABLE|Hanımını yanına alan lider|Hanımı
+ROW|Ebû Süfyân (komutan)|Hind bint Utbe
+ROW|Safvân b. Ümeyye|Berze bint Mes'ûd es-Sekafî
+ROW|İkrime b. Ebî Cehil|Ümmü Hakîm bint Hâris
+ROW|Hâris b. Hişâm|Fâtıma bint Velîd
+ENDTABLE
+B1|Sallâbî'ye göre kadınların ve kölelerin orduya katılması, savaşçıların geri dönüp kaçmasını engellemek içindi.
+B1|Yola çıkmadan önce Ebû İzzet Amr b. Abdullah el-Cumahî, Amr b. Âs, Hübeyre el-Mahzûmî ve İbnü'z-Ziba'râ'nın geniş propagandası kabileleri harekete geçirdi.
+B1|Hazırlık için elli bin dinar altın harcandı; ordu ilerleyip Medine'ye uzanan vadinin kenarındaki Batnü's-Sabha'ya ulaştı.
+B1|Mekke'nin bütün hareketlerini Rasûlullah'ın amcası Abbas b. Abdülmuttalib (r.a.) yakından izliyordu.
+B2|İbn Abdülber'in kaydına göre Abbas müşriklerle ilgili haberleri düzenli olarak Medine'ye yazıyor, Mekke'de kalan Müslümanlar ondan güç alıyordu.
+B2|Hicret etmek istediğinde Allah Rasûlü ona "Senin Mekke'de kalman daha hayırlıdır" diye yazmıştı (İbn Abdülber, el-İstîâb, 2/812).
+B1|Ordu harekete geçince Abbas'ın acil mektubunu taşıyan elçi beş yüz kilometreyi üç günde aşıp mektubu Kubâ Mescidi'ndeki Rasûlullah'a teslim etti.
+SOZ|💬 ABBAS B. ABDÜLMUTTALİB'İN MEKTUBU|"Kureyşliler toplanıp sana doğru yola çıktılar. Ne yapabiliyorsan yap, hazırlığını yap; onlar sana yönelmiş geliyorlar. Üç bin kişiler, iki yüz atlıları var, yedi yüz zırhlı adam, üç bin deve ve sahip oldukları bütün silahları yanlarına almışlar."|Vâkıdî, el-Megāzî, 1/204
+B1|Sallâbî'ye göre mektup, düşmanın Medine'ye yöneldiği bilgisini ve ordunun savaş kapasitesini veriyordu; kalabalık orduya karşı planlama bu iki bilgiye dayanacaktı.
+B1|Mektubu Übey b. Ka'b (r.a.) okudu; Allah Rasûlü onu gizli tutmasını istedi ve hemen Medine'ye dönüp Muhâcir ve Ensâr liderleriyle görüştü.
+B1|Tek kaynakla yetinmeyip Hubâb b. Münzir'i (r.a.) düşman ordusuna karışıp haber getirmesi için gönderdi.
+B2|Hubâb düşmanın üç aşağı beş yukarı üç bin kişi, iki yüz atlı ve tahminen yedi yüz zırhlı olduğunu, yanlarında tef ve darbuka taşıyan kadınlar gördüğünü bildirdi.
+QUOTE|ch24-178
+B1|Aynı görevle gönderilen Fedâle'nin oğulları Enes ve Munis, Kureyş'i Medine'ye iyice yaklaşmış ve atlarıyla develerini Medine'nin otlaklarına salmış buldu.
+B2|Evlakî'ye göre bilgi böylece bağımsız birden fazla kaynakla teyit edildi.
+B1|Haber kesinleşince Rasûlullah, hazırlık tamamlanmadan moral bozulmasın diye bilgiyi liderlik kadrosuyla sınırlı tuttu.
+B1|Ensâr'ın önde gelenlerinden Sa'd b. Rebî'e (r.a.) haberi verip "Vallahi, sonucun hayır olacağını umuyorum" dedi ve gizli tutmasını istedi.
+B2|Evlakî'nin anlatımına göre konuşma Sa'd'ın evinde geçti; Allah Rasûlü ayrılınca hanımı ne konuşulduğunu sordu, Sa'd "Sen buna karışma" deyince duyduklarını tek tek tekrarladı.
+B2|Sa'd "İnnâ lillâhi ve innâ ileyhi râciûn" diyerek Rasûlullah'a koştu ve haberin yayılmasından korktuğunu, sızdıranın kendisi sanılmasını istemediğini söyledi.
+B2|Allah Rasûlü ise sükûnetle "Onu boş ver" buyurdu (Halebî, 2/489).
+TABLE|Konu|Sallâbî|Evlakî
+ROW|Sa'd b. Rebî' sahnesinin dersi|Askerî sorumluluk taşıyanlar sırlar, planlar ve emirler konusunda en yakın çevreye karşı bile dikkatli olmalıdır; milletlerin pek çok hezimeti, hain bir eş, dost kılığındaki biri ya da görünüşte yakın gerçekte düşman birileri eliyle sızan sırlardan doğmuştur.|Sır, aileye ve en yakın akrabaya bile söylenmez; Sa'd sırrı vermemiş, hanımı duyduğunu söyleyince şüphe altında kalmamak için durumu hemen Rasûlullah'a açmıştı.
+ENDTABLE
+H2|Şûrâ ve Zırh: Medine'de Kalmak mı, Çıkmak mı?
+INTRO|Rasûlullah (s.a.v.) ashâbına danıştı, çoğunluğa uyup zırhını giydi ve kararından dönmedi.
+B1|Bilgileri tamamlayan Rasûlullah, düşmanı Medine'de mi bekleyeceklerini yoksa dışarıda mı karşılayacaklarını ashâbıyla istişare etti.
+B1|Kendi görüşü şehirde kalmaktı; "Biz korunaklı bir yerdeyiz" diyerek düşmanın ilerleyişine karışmadan beklemeyi önerdi; yerleşirlerse kendileri için kötü bir yere yerleşmiş olacaklarını, saldırırlarsa onlarla savaşılacağını söyledi (Taberî, Târîh, 2/60).
+B1|Abdullah b. Übey b. Selûl de bu görüşteydi; Evlakî'ye göre yaşlılar şehir içinde savunmayı, müşrikler girerse sokak sokak savaşmayı savunuyordu.
+B1|Gençler, özellikle Bedir'e katılamayanlar, "Ey Allah'ın Rasûlü! Bizi düşmanlarımıza karşı çıkar" diyerek dışarıda savaşmakta ısrar etti.
+B1|İbn Kesîr'e göre insanların çoğu çıkmama görüşüne razı olmadı; razı olsalardı öyle olacaktı, fakat kaza ve kader galip geldi.
+B2|Çıkmak isteyenlerin çoğu Bedir ehlinin kazandığı fazileti kaçırmış olanlardı.
+TABLE|Görüş|Sallâbî'nin kaydettiği gerekçe
+ROW|Dışarı çıkmak|Şehirde beklemek, Ensâr'ın İkinci Akabe'deki yardım taahhüdüne vefasızlık olurdu.
+ROW|Dışarı çıkmak|Muhâcirler Kureyş'i Ensâr'ın topraklarından uzak tutmayı borç biliyor, Bedir'i kaçıranlar şehadet arzusuyla yanıyordu.
+ROW|Dışarı çıkmak|Kuşatma düşman için zafer sayılacak, uzarsa şehrin ikmal yolları kesilebilecekti.
+ROW|Şehirde kalmak|Homojen olmayan Mekke ordusunda er geç anlaşmazlık çıkacak, korunaklı bir şehre saldırı sonuç vermeyecekti.
+ROW|Şehirde kalmak|Ailesini savunan daha kahramanca savaşır, kadınlar ve çocuklar destek olur, savunanlar taş gibi silahlar kullanabilirdi.
+ENDTABLE
+B1|Sonunda çoğunluğun görüşü ağır bastı; İbn İshâk'ın naklettiğine göre dışarı çıkma taraftarları yanından ayrılmayınca Allah Rasûlü evine girip zırhını giydi.
+B1|O içerideyken insanlar "Allah Rasûlü bir görüş ileri sürdü, ama siz farklı bir görüşte ısrar ettiniz!" diyerek birbirini suçlamaya başladı.
+TABLE|Rivayet|Geri adım teklifi|Rasûlullah'ın cevabı
+ROW|İbn İshâk|İnsanların isteğiyle Hz. Hamza (r.a.) "Bizim görüşümüz senin görüşüne tâbidir" dedi.|"Hiçbir peygamber savaş elbisesini giydikten sonra savaşmadan onu çıkarmaz." (Ahmed, 3/351; Abdürrezzâk, 5/364-365; İbn Sa'd, 2/38; Beyhakī, Delâil, 3/208)
+ROW|Evlakî|Fikir değiştiren gençler bizzat "Sen karar ver, biz uyalım" dedi.|"İstişâre eden ve sonra bir karar alan bir peygambere, Allah kendisiyle düşmanı arasında hüküm verinceye kadar o zırhı geri çıkarması yakışmaz." (Hâkim, 2/128; Beyhakī, Sünen, 7/40)
+ENDTABLE
+B1|Bu sahne, Kur'ân'ın sonra Uhud âyetleri arasında zikredeceği ilkenin canlı tatbikatıydı.
+QUOTE|ch24-179
+B1|Sallâbî bu şûrâdan iki ders çıkarır.
+B2|Birincisi, Rasûlullah ashâbını kendisinden farklı düşünseler bile görüşlerini açıkça söylemeye alıştırmıştı; fikir hürriyetinin olmadığı yerde istişarenin faydası olmaz.
+B2|O, içtihadında yanılanı ya da isabet etmeyeni hiç kınamamıştı; sahâbe de görüşlerini komutana dayatamayacaklarını bilecek kadar siyasî şuura sahipti.
+B2|İkincisi başarılı liderlikle ilgilidir; karar uygulamaya geçtikten sonra tereddüt edilip geri adım atılmaz, çünkü tereddüt karara güveni sarsar ve insanlar arasında karmaşa tohumları eker.
+B1|Karar verilince genel seferberlik ilân edildi; herkes silahlandı, insanlar yatarken bile silahlarını yanlarından ayırmadı.
+B1|Medine'yi korumak için Muhammed b. Mesleme komutasında en güçlü elli kişi seçildi.
+B1|Sa'd b. Muâz, Üseyd b. Hudayr ve Sa'd b. Ubâde bir grup sahâbîyle cuma gecesini silahlarını kuşanmış hâlde mescidin kapısında nöbetle geçirdi.
+H2|Uhud Yolunda: Mirbâ'nın Tarlası ve İbn Selûl'ün Dönüşü
+INTRO|Yolda gizlilik tedbirleri, münafıkların ayrılışı ve gençlerin savaş için yarışı yaşandı.
+B1|Rasûlullah'ın (s.a.v.) en çok dikkat ettiği noktalardan biri, hareket saatini ve plana uygun yolu seçmekti.
+B1|Vâkıdî'ye göre Allah Rasûlü gecenin ilk saatlerinde uyudu, seher vakti gelince "Rehberler nerede?" diye sordu.
+B2|Sallâbî'ye göre gece yarısından sonra hareketin hikmeti, havanın sakin ve hareketin az, düşmanın ise uykusuzluk ve yol yorgunluğuyla derin uykuda olmasıdır.
+B1|Aradığı yol gizli olmalıydı; "Bizi bu kavme götürecek, dikkatli ve bizi onlara hissettirmeyen bir yol bilen var mı?" diye sordu.
+B1|"Ben, ey Allah'ın Rasûlü!" diyen Ebû Hayseme orduyu genel yol yerine Hâriseoğulları'nın tarlaları ve malları arasından geçirdi.
+B1|Yol, gözleri görmeyen münafık Mirbâ b. Kayzî'nin bahçesinden geçiyordu.
+B2|Mirbâ "Eğer sen Allah'ın Rasûlü isen benim duvarımdan geçmeni helâl etmiyorum!" diye bağırarak Müslümanların yüzüne toprak serpti.
+B2|Sonra bir avuç toprak (Evlakî'nin anlatımında çamur) alıp, başkasına isabet etmeyeceğini bilse onu Rasûlullah'ın yüzüne vuracağına yemin etti.
+B1|Sahâbîler onu öldürmeye davranınca Rasûlullah "Onu öldürmeyin. Bu adamın hem kalbi hem gözleri kördür" diyerek onları durdurdu.
+B2|Bu sözden önce Abdüleşheloğulları'ndan Sa'd b. Zeyd ona saldırıp başını yarmıştı.
+B2|Evlakî, Rasûlullah'a hakaret ağır bir suç olduğu hâlde Allah Rasûlü'nün burada merhameti seçtiğine dikkat çeker.
+B1|Sallâbî bu olaydan önemli bir fıkhî ilke çıkarır.
+B2|Ağaçlar ve bahçeler arasından geçiş güvenliğe verilen önemi gösteriyordu; genel yollar düşmana Müslümanların sayısı hakkında ipucu verebilirdi.
+B2|Geçişte münafığın tarlası zarar gördü, ama yolun kısaltılmasında ordunun çıkarı olduğundan buna aldırılmadı.
+B2|Kamu çıkarı ile şahsî çıkar çatışıyordu ve dinin çıkarı demek olan kamu çıkarı özel maldan öncelikliydi.
+KAVRAM|💡 KAVRAM · DİNİN TEMEL AMAÇLARI|Âlimlerin üzerinde birleştiği sıralamayla dini, canı, aklı, nesli ve malı korumaktır; bunlar çatıştığında sıralamada önde olan öne geçer.
+B1|Şâtıbî'ye göre ölçü, maslahat ile mefsedet arasında doğru dengeyi kurabilmektir (el-Muvâfakāt, 2/651).
+B1|İzz b. Abdüsselâm'a göre tercih edilen maslahatı öne almak ve iki mefsedetten ağırını defetmek, ilim ve hikmet ehlinin ittifak ettiği bir husustur (Kavâidü'l-Ahkâm, 1/6-7).
+B1|Evlakî dersi tek cümlede özetler; cemaat ferdden, ordunun geçişi tarlanın zararından önce gelir.
+B1|Ordu Medine ile Uhud arasındaki Şavt'a varınca Abdullah b. Übey b. Selûl münafıklardan üç yüz kişiyle geri döndü.
+B2|Evlakî'nin rakamlarıyla bin kişilik ordunun üçte biri ayrılmış, geride yedi yüz kişi kalmıştı.
+B1|İbn Selûl dışarıda savaşma kararına itiraz ederek "Çoluk çocuğa ve fikir sahibi olmayanlara itaat edip beni dinlemedi. Neyin uğruna kendimizi ölüme atalım?" dedi.
+B2|Evlakî'nin rivayetinde kendini "hikmetli ve yaşlı bir adam" diye öne çıkarır, "sübyanların görüşüyle" hareket edildiğinden yakınır ve savaş olacağına inanmadığını söyler.
+B1|Sallâbî'ye göre ayrılığın asıl amacı orduda karışıklık ve tedirginlik çıkarıp morali çökertmek ve düşmanı cesaretlendirmekti.
+B1|Fakat Allah'ın hikmeti, "Allah, pisi temizden ayırıncaya kadar müminleri içinde bulunduğunuz şu durumda bırakacak değildir" (Âl-i İmrân 3/179) âyetinin bildirdiği gibi orduyu arındırmayı gerektiriyordu.
+B1|Abdullah b. Amr b. Harâm (r.a.) dönenlerin peşinden gidip kavimlerini ve Peygamberlerini düşman karşısında yarı yolda bırakmamaları için onlara Allah'ı hatırlattı.
+B2|Aldığı cevap Kur'ân'ın da kaydedeceği bir bahaneydi; "Sizin savaşacağınızı bilsek sizi onlara teslim etmeyiz. Fakat bizce savaş olmayacaktır" dediler.
+SOZ|💬 ABDULLAH B. AMR B. HARÂM|"Ey Allah'ın düşmanları! Allah sizi dergâhından uzaklaştırsın! Şüphesiz Allah Peygamberini size muhtaç etmeyecektir."|Sahîhu's-Sîre en-Nebeviyye, 277
+QUOTE|ch24-180
+B1|Sallâbî'ye göre münafıkların gerçek niyetini bu korku ve kaypaklık ele verdi; Kur'ân onları rezil etmeden önce kendi kendilerini herkesin önünde rezil etmişlerdi.
+B1|Evlakî'ye göre sakin zamanlarda münafık tanınmaz, en ön safta namaz kılıp hutbe bile veriyor olabilir; mümini münafıktan ayıran yer savaş meydanıdır.
+B1|Dönüş bazı müminleri de sarstı; geri dönmeye niyetlenen Selemeoğulları ile Hâriseoğulları'nı Allah sebat ettirip korudu ve bölümün başındaki âyet onlar hakkında indi.
+SOZ|💬 CÂBİR B. ABDULLAH|"Bu âyet bizim hakkımızda indi. Bu âyetin nâzil olmamasını istemezdim; çünkü Allah 'Allah onların yardımcısı idi' buyuruyor."|Buhârî, 4051
+B1|Sallâbî'nin ifadesiyle bu iki taife zaaflarını Allah'ın yardımıyla yenip nefislerine karşı zafer kazanmıştı.
+B1|İbn Selûl'ün tavrı karşısında sahâbe, orduyu bölen münafıkların öldürülmesini gerekli görenler ve görmeyenler olarak ikiye ayrıldı.
+B2|Kur'ân bu ikiliği "Size ne oluyor da münafıklar hakkında iki gruba ayrıldınız?" (Nisâ 4/88) diye eleştirdi.
+B1|Şeyheyn'de gürültü çıkaran topluluğun İbn Übey'in müttefiki Yahudiler olduğunu öğrenen Rasûlullah, "Şirk ehline karşı şirk ehlinden yardım dilemeyiz" buyurdu (Sahîhu's-Sîre, 278).
+B2|Sallâbî buna dayanarak İslâm düşmanlarından yardım isteyip onlara dayanmanın câiz olmadığını belirtir.
+B1|Şeyheyn karargâhında orduyu gözden geçiren Rasûlullah, on dört yaşında ve daha küçük on dört genci geri gönderdi.
+B2|Abdullah b. Ömer, Zeyd b. Sâbit, Üsâme b. Zeyd, Zeyd b. Erkam, Berâ b. Âzib ve Ebû Saîd el-Hudrî bunlar arasındaydı.
+B2|Evlakî gençlerin görülmemek için saklandıklarını, ama Rasûlullah'ın onları fark ettiğini de nakleder.
+B1|İyi bir okçu olduğu söylenen Râfi' b. Hadîc'e izin verilince geri çevrilen Semüre b. Cündeb, güreşte Râfi'yi yeneceğini söyleyerek Meriy b. Sinân'ın yanında ağladı.
+B2|Durum iletilince Rasûlullah ikisini "Güreşin bakalım" diyerek güreştirdi; Semüre Râfi'yi yenince ona da izin verdi.
+TABLE|Konu|Sallâbî|Evlakî
+ROW|Meriy b. Sinân|Semüre'nin üvey babası.|Semüre'nin süt babası.
+ROW|Gençler kıssasının dersi|Küçükler, kılıca ve oka dayanamayıp en kızgın anda kaçarak saflarda kargaşa çıkarmasınlar diye geri çevrildi; dikkat çeken, hiçbir kanun ya da komutan zorlamadan yaşlısıyla genciyle şehadete koşan bir toplumdur.|Kıssa eğitimin değerini gösterir; biri usta okçu, diğeri güçlü güreşçi iki genç, eğitimleri sayesinde herkese uygulanan kuralın dışında tutuldu.
+ENDTABLE
+H2|Savaş Düzeni: Elli Okçu ve Bir Emir
+INTRO|Rasûlullah (s.a.v.) orduyu yerleştirdi ve Ayneyn tepesindeki elli okçuya kesin bir emir verdi.
+TABLE|Üç tabur|Sancaktar
+ROW|Muhâcirler|Mus'ab b. Umeyr (r.a.)
+ROW|Ensâr'dan Evs|Üseyd b. Hudayr
+ROW|Ensâr'dan Hazrec|Hubâb b. Münzir
+ENDTABLE
+B1|Savaştan önce irâd ettiği ve Vâkıdî'nin kaydettiği hutbe o sabahın ruhunu yansıtır.
+QUOTE|ch24-181
+B1|Sallâbî hutbede üç hedef görür; cihad meydanında ciddiyet ve canlılığa teşvik, düşmana karşı sabra teşvik ve ihtilaf ile çekişmenin zararlarına karşı uyarı.
+B2|Ona göre nebevî rehberlik, ölümü yaşamaya tercih eden güçlü iradeler yoksa silah ve disiplince ne kadar güçlü olursa olsun orduların hiçbir anlamı kalmadığını öğretir.
+B1|Ordu arkası Uhud dağına, yüzü Medine'ye dönük yerleşti; Müslümanlar tepeleri tutup vadiyi bırakınca Mekke ordusu yüzünü Uhud'a, sırtını Medine'ye vermiş oldu.
+B1|Kanatlardan ve arkadan saldırı ihtimalini gören Rasûlullah, Abdullah b. Cübeyr (r.a.) komutasında seçtiği elli okçuyu Uhud'un karşısındaki Ayneyn tepesine yerleştirdi.
+B2|Evlakî'ye göre yedi yüz kişilik orduda elli okçu ayırmak büyük bir orandı ve mevzinin ne kadar kritik olduğunu gösteriyordu.
+B2|Okçular yerlerini koruyarak Müslümanları arkadan gelecek saldırılardan koruyacak ve süvarileri püskürtecekti.
+B1|Onlara verilen emir savaş tarihinde örnek gösterilecek kadar açıktı.
+QUOTE|ch24-182
+TABLE|Muhatap|Talimat
+ROW|Komutan Abdullah b. Cübeyr|"Atlıları oklarla bizden uzaklaştır, arkamızdan bize saldırmasınlar."
+ROW|Okçular|"Bizim öldürüldüğümüzü görürseniz imdadımıza koşmayın ve bizi savunmayın. Onlara ok yağdırın; çünkü atlar okların üstüne yürümez. Siz yerinizde kaldığınız müddetçe biz galip olacağız. Allah'ım! Onların üstüne seni şahit kılıyorum."
+ROW|Bütün ordu|"Ben size izin vermeden yerlerinizden ayrılmayın. Ben savaşmayı emretmeden de sizden hiç kimse savaşmasın."
+ENDTABLE
+B1|Ardından ashâbını namazdaki gibi saflara dizdi; aralarında yürüyerek "Sen ileri, sen geri" diye safları düzeltti ve arkadakilere yol açsınlar diye öne güçlüleri koydu.
+B1|Sallâbî, emir olmadan savaşa başlanmaması talimatında komuta ve sorumluluk birliği gibi çok önemli bir fayda görür.
+B1|Evlakî'ye göre Rasûlullah bu talimatlarla ashâbını itaate eğitiyordu; savaşa kimse kendi inisiyatifiyle başlamaz, izni emir verir.
+H2|Zafer Rüzgârı: Mübârezeler, Sancaklar ve Ebû Dücâne'nin Kılıcı
+INTRO|Bölme girişimleri boşa çıktı ve savaşın ilk saatleri Müslümanların zaferiyle geçti.
+B1|Savaştan önce Kureyş Müslüman saflarını içeriden bölmeyi denedi; Ebû Süfyân Ensâr'a "Bizimle yeğenimiz arasına girmeyin, biz de size dokunmayalım; sizinle savaşmaya ihtiyacımız yok" diye haber gönderdi.
+B2|Ensâr ona hoşlanmayacağı bir cevap verdi; Evlakî, Makrîzî'ye dayanarak bu haberin bir mektup olduğunu belirtir.
+B2|Evlakî'ye göre hicretin ardından Ensâr'ı erkeklerini öldürmek, kadınlarını câriye, mallarını ganimet edinmekle tehdit eden Kureyş'in "Sizinle savaşma niyetimiz yok" demesi bir hileydi.
+B2|Evlakî tuzağı, aslanın boğaları ayırıp tek tek yediği eski bir meselle anlatır; sırası gelen son boğa "Ben, beyaz boğanın yendiği gün yenmiştim" der.
+B1|İkinci deneme, Evs'ten olup İslâm gelince Medine'yi terk eden, bir zamanlar dindarlığıyla tanınmış Ebû Âmir er-Râhib eliyle yapıldı.
+B2|"Ey Evsliler! Ben Ebû Âmir!" diye seslenince "Hiç de hoş gelmedin, ey fâsık!" cevabını aldı.
+B2|"Benim kavmim benden sonra kötülüğe bulaşmış" dedi, sonra onlara karşı şiddetle savaşıp taş yağdırdı; Evlakî'nin ifadesiyle kavmini değiştiren kötülük değil, İslâm'dı.
+B1|İlk mübârezeye çıkan müşrik sancaktarı Talha b. Osman defalarca meydan okudu; kimse çıkmayınca Müslümanların inancıyla alay edip "Beni kılıcıyla cehenneme gönderecek veya kılıcımla cennete göndereceğim kimse yok mu?" diye bağırdı.
+B1|Ali b. Ebî Tâlib (r.a.) bir darbeyle ayağını kesti; avret yeri açılan Talha "Ey amca oğlu! Allah için bana merhamet et!" diye yalvarınca onu öldürmedi ve Rasûlullah (s.a.v.) tekbir getirdi.
+B2|Ali'ye onu neden öldürmediği soruldu.
+SOZ|💬 HZ. ALİ|"Amca oğlumun avret yeri açılınca benden merhamet diledi; ben de ondan hayâ ettim."|Halebî, 2/497-498; Taberî, Tefsîr, 7/218
+B1|Savaş kızışınca Rasûlullah eline bir kılıç alıp "Bunu benden kim alacak?" diye sordu; herkes "Ben, ben!" diye elini uzattı, ama "Kim hakkını vererek onu alacak?" deyince duraksadılar.
+B1|Simâk b. Haraşe Ebû Dücâne (r.a.) kılıcın hakkını sordu; "Eğilinceye kadar onunla düşmana vurmandır" cevabını alınca "Ben hakkını vererek onu alacağım" dedi (Müslim, 2472; Ahmed, 11826; Hâkim, 3/226).
+B1|Kırmızı sarığını başına bağlayınca Ensâr "Ebû Dücâne ölüm sarığını çıkardı" dedi.
+B2|Dilinde "Benim dostum benimle sözleşti, dağın eteğinde, hurma ağacının yanındaydık. Gerilerde son sırada olamam; Allah'ın ve Rasûlünün kılıcıyla vururum" beyitleri vardı (İbn Kesîr, el-Bidâye, 4/17).
+B1|İki saf arasında kasılarak yürüyünce Rasûlullah "Bu, Allah'ın buğzettiği bir yürüyüş şeklidir; ancak böyle bir yer müstesnadır" buyurdu.
+B2|Evlakî'ye göre Müslüman da Rasûlullah da tevazu ile yürür; düşman karşısında gurur göstermek istisnaî bir hâldir.
+B1|Kılıcı alamayan Zübeyr b. Avvâm (r.a.), Rasûlullah'ın halası Safiyye'nin oğlu ve Kureyşli olarak ondan önce istediğini söyleyip "Vallahi ne yapacağına bakacağım" diyerek Ebû Dücâne'yi izledi.
+B2|Ebû Dücâne önüne çıkanı yere seriyordu; yaralı bulduğu hiç kimseyi sağ bırakmayan bir müşrikle karşılaşınca onu bir darbede öldürdü.
+B2|Evlakî bu tanıklığı Abdullah b. Zübeyr'e nisbet eder.
+B1|Evlakî'nin eklediği hatırada Ka'b b. Mâlik, sıkıca zırhlanmış ve "Haydi koyunlar, mezbahacı için toplanın" diye bağıran iri bir müşriği omzundan uyluğuna kadar biçen Müslümanın yüzünü açıp "Ben Ebû Dücâne'yim" dediğini anlatır.
+B1|Ebû Dücâne'nin kılıcı bir ara insanları savaşa kışkırtan birinin başı üzerinde kalktı; velvele kopunca bunun Utbe'nin kızı Hind olduğunu anladı ve "Rasûlullah'ın kılıcıyla bir kadın öldürmek istemedim" diyerek kılıcını çekti.
+B1|Müslümanların parolası "Öldür, öldür" idi; göğüs göğse savaşta ölümü isteyerek çarpıştılar.
+B1|Tarih o gün Hamza, Mus'ab b. Umeyr, Ebû Dücâne, Ebû Talha el-Ensârî, Sa'd b. Ebî Vakkās ve daha nicelerinin kahramanlıklarını kaydetti.
+B1|Hamza, Abdüddâroğulları'ndan sancak taşıyanları birer birer düşürüyordu.
+KAVRAM|💡 KAVRAM · SANCAK|Evlakî'ye göre askerlere "Hâlâ savaştayız" diyen toplanma noktasıdır; düştüğünde savaşın kaybedildiği anlaşılırdı.
+B1|Ebû Süfyân, Bedir'de de sancağı taşıyan Abdüddâroğulları'nı "Ya sancağımıza iyi bakın ya da onu bize bırakın" diye kışkırtmış, onlar da gururla direnmişti.
+B1|Yedi sancaktar ardı ardına öldürüldü; sancağı kaldıran Habeşli köle Sevâb, kolları kesildiği hâlde onu göğsüne bastırıp "Üzerime düşeni yaptım mı?" diyordu; o da düşünce sancak yerde kaldı ve Kureyş meydandan kaçmaya başladı.
+B1|Vahşî ise bu karmaşada bir kayanın ardında pusuya yatmış, yalnızca Hamza'yı bekliyordu; Hamza'nın şehadeti sonraki bölümde anlatılır.
+B1|Kur'ân'a göre de savaşın ilk saatleri Müslümanların zaferiydi; Allah vaadini yerine getirmiş, müminler O'nun izniyle düşmanı kırıp geçiriyordu.
+H2|Tepedeki Gedik: Okçular ve Hâlid'in Süvarileri
+INTRO|Okçuların ganimet için tepeyi terk etmesi, Hâlid b. Velîd'e arkadan saldırma fırsatı verdi.
+B1|Ayneyn'deki okçular Kureyş'in hezimetini ve saçılan ganimetleri görünce savaşın bittiğini sandılar; aralarından "Ganimete koşun arkadaşlar, ganimete! Arkadaşlarınız her şeyi aldı, siz neden bekliyorsunuz?" diye bir ses yükseldi.
+B2|Komutanları Abdullah b. Cübeyr "Rasûlullah'ın size söylediklerini unuttunuz mu?" diye uyarınca "Vallahi, biz de gidip ganimetten payımızı alacağız" diye acı bir cevap aldı (Buhârî, 3039).
+B1|Evlakî'nin kaydına göre elli okçudan kırkı yerini terk etti; Evlakî bunu açıkça isyan sayar, çünkü savaşta komutana itaatsizlik en ağır hatalardandır.
+B1|İbn Abbas'ın tasvirine göre okçular tümüyle ganimete yönelince saflar, parmakların birbirine geçtiği gibi birbirine karıştı.
+B1|Kureyş süvarilerinin komutanı Hâlid b. Velîd, yanında İkrime b. Ebî Cehil ile gediği hemen fark etti; ordunun yanından dolanıp okçuların boşalttığı yerden arkaya geçerek saldırdı.
+B2|Kaçan müşrikler bunu görünce geri döndü; önden ve arkadan kuşatılan Müslümanlar ilk mevzilerini kaybetti, saflar dağıldı, onları bir arada tutan düzen ve birlik yok oldu.
+B1|Dağınık ve plansız savaşan Müslümanlar dostu düşmandan ayıramaz oldu; Huzeyfe b. Yemân'ın babası Yemân, Müslümanların kılıçları altında yanlışlıkla can verdi.
+QUOTE|ch24-183
+SOZ|💬 ABDULLAH B. MES'ÛD|"Bu âyet indirilene kadar ben içimizden dünyayı isteyenler olduğunu bilmezdim."|
+B1|Evlakî'ye göre Kur'ân olayların yalnızca dış yüzünü değil nefsin iç boyutunu da anlatır ve kalplerde olanı gün yüzüne çıkarır.
+H2|"Muhammed Öldürüldü!": Yara, Şayia ve Sebat
+INTRO|Rasûlullah'ın (s.a.v.) yaralanması ve öldürüldüğü şayiası, sebat edenleri sarsılanlardan ayırdı.
+B1|Müşriklerin asıl hedefi Rasûlullah'tı; İbn İshâk'a göre düşman safları yarıp ona ulaştı, atılan bir taşla yanı üzerine düştü, yan dişi kırıldı, yüzü yaralandı, dudakları yarıldı.
+B1|Enes b. Mâlik (r.a.) o anı nakleder; Evlakî rivayeti Müslim, 1794; Tirmizî, 3002; İbn Mâce, 4027 ve Ahmed, 11545 numaralarıyla verir.
+QUOTE|ch24-184
+B1|Bunun üzerine "Bu işte senin yapacağın bir şey yoktur. Allah ya tövbelerini kabul edip onları affeder ya da zalim olduklarından dolayı onlara azap eder" (Âl-i İmrân 3/128) âyeti indi.
+B2|Evlakî'ye göre âyet evrensel bir ilke koyar; insanların akıbeti Allah'ın elindedir, bu hak Rasûlullah'a bile verilmemişse başka kimse onu iddia edemez.
+B1|Tam o sırada Muhâcirlerin sancaktarı Mus'ab b. Umeyr'i şehit eden İbn Kamîe, Mus'ab Rasûlullah'a çok benzediği için "Ben Muhammed'i öldürdüm" diye bağırdı ve şayia bir anda yayıldı.
+B1|Müslümanların bir kısmı Medine'ye döndü, bir grup dağın başına çıktı, bir topluluk savaşmadan meydanın kenarında oturdu; bir başka topluluk ise Rasûlullah'ın öldüğünü sandığı hâlde savaşmayı seçti.
+B1|Evlakî, kalbine yenilgi işleyen bazılarının "Abdullah b. Übey'e bir elçi gönderelim de bizim için Ebû Süfyân'la bir ateşkes yapsın" dediğini nakleder ve bunu her devirde görülebilecek bir zaaf alameti sayar.
+B1|Bedir'e katılamadığı için çok üzülen Enes b. Nadr (r.a.), silahını bırakıp oturanlara sebebini sordu ve "Rasûlullah öldürüldü" cevabını aldı.
+SOZ|💬 ENES B. NADR|"Eğer Muhammed öldürülmüşse, şüphe yok ki Muhammed'in Rabbi öldürülmemiştir. O neyin uğruna öldüyse siz de onun için ölün."|Buhârî, 4048; İbn Hişâm, 3/88
+B1|Ardından "Allah'ım! Müslümanların yaptığından dolayı senden özür diliyorum; müşriklerin getirdiğinden dolayı da sana sığınıyorum" dedi ve Sa'd b. Muâz'a "Ey Sa'd! Ben Uhud'un arkasından cennetin kokusunu alıyorum" diyerek cephenin ortasına daldı.
+B2|Şehit düştüğünde vücudunda seksen küsur yara vardı; kız kardeşi onu ancak parmak uçlarından tanıyabildi.
+KAVRAM|💡 KAVRAM · SEBAT|Evlakî'nin adlandırmasıyla, meydanda yenilse bile kalbinde yenilgi taşımamaktır.
+B1|Kur'ân bu adamları "Müminlerden öyle adamlar vardır ki, Allah'a verdikleri söze sadık kaldılar" (Ahzâb 33/23) diye över.
+B1|Dağa kaçanları ise "Peygamber arkanızdan sizi çağırırken siz durmadan dağa yukarı kaçıyor, hiç kimseye dönüp bakmıyordunuz" (Âl-i İmrân 3/153) diye kınar.
+B2|Hemen ardından şeytanın onları bazı hataları yüzünden kaydırmak istediğini ve Allah'ın onları affettiğini bildirir (Âl-i İmrân 3/155).
+B1|Rasûlullah'ın sağ olduğunu ilk fark eden Ka'b b. Mâlik müjdeyi yüksek sesle haykırdı; Allah Rasûlü müşrikler öğrenmesin diye ona susmasını emretti.
+H2|Peygamber'in Etrafındaki Halka
+INTRO|Bir avuç sahâbî, kuşatılan Rasûlullah'ı (s.a.v.) canları pahasına korudu.
+B1|Rasûlullah kuşatmada yerinden sarsılmadı; hedefi kuşatmayı yarıp dağa tırmanmak ve ordusuna ulaşmaktı.
+TABLE|Konu|Sallâbî|Evlakî
+ROW|Yanında kalanlar|Düşmanın ortasında yalnızca dokuz kişi kalmıştı, yedisi Ensâr'dandı (Müslim, 1789).|Etrafında on iki kişinin kaldığı söylenir.
+ENDTABLE
+B1|Evlakî'nin anlatımında Allah Rasûlü düşman yaklaştıkça "Onları kim geri püskürtürse cennette benim arkadaşım olacaktır" diye sesleniyordu.
+B2|Ensâr'dan biri öldürülünceye kadar savaştı, ardından bir ikincisi, bir üçüncüsü; yedi Ensârî böylece onun ayaklarının dibinde birer birer şehit düştü.
+B2|Evlakî'ye göre Ensâr bu adı o gün kanlarıyla hak etmişti.
+B1|Talha b. Ubeydullah (r.a.) her yeri yaralanıncaya kadar savaştı ve bir ok sağ tarafını felç etti.
+B2|Rasûlullah bir kayaya çıkamayınca Talha dibine çömeldi, Allah Rasûlü onun sırtına basarak çıktı ve Zübeyr'in rivayetine göre "Talha görevini yaparak cenneti hak etti" buyurdu.
+B1|Sa'd b. Ebî Vakkās (r.a.) Rasûlullah'ın önünde ok atarken Allah Rasûlü oklarını ona uzatıp "At ey Sa'd! Anam babam sana feda olsun!" diyordu.
+B2|Hz. Ali bu sözü Sa'd'dan başkası için duymadığını belirtir (Müslim, 4436; Tirmizî, 3753; İbn Mâce, 129; Ahmed, 711); Evlakî bu şahitliği Buhârî'den nakleder.
+B1|Rasûlullah usta okçu Ebû Talha el-Ensârî (r.a.) için "Ordunun içinde Ebû Talha'nın sesi, müşrikler üzerinde bir topluluktan daha fazla korku salar" buyurmuştu.
+B2|Ebû Talha o gün iki üç yay kırdı ve deriden bir kalkanla Allah Rasûlü'nü korudu.
+B2|Enes'in anlatımına göre Rasûlullah okların düştüğü yere bakmak için başını kaldırdıkça Ebû Talha göğsünü siper edip "Hiçbir ok seni vurmasın, göğsüm senin yoluna feda olsun" diyordu.
+B2|Rivayet, Ebû Talha'nın "Ben gürbüz biriyim; ihtiyacına göre beni yönlendir ve ne istersen bana emret" sözüyle birlikte gelir (Müslim, 1812; Ahmed, 11613; İbn Hibbân, 4582).
+TABLE|Sahâbî|O çetin anda yaptığı
+ROW|Ebû Dücâne|Kendini kalkan yapıp Allah Rasûlü'nün üzerine eğildi; sırtına oklar saplanırken kıpırdamadı.
+ROW|Nüseybe bint Ka'b (r.anhâ)|Kılıcıyla ve oklarıyla Rasûlullah'ı savundu.
+ROW|Ebû Bekir ve Ebû Ubeyde b. Cerrâh (r.a.)|Yanından ayrılmadılar; Ebû Ubeyde yüzüne saplanan iki oku dişleriyle çekip çıkardı.
+ROW|Ömer b. Hattâb (r.a.)|Hâlid b. Velîd'in dağın tepesinden yaptığı saldırıyı püskürttü; Müslümanlar mevzilerine yeniden hâkim oldu.
+ENDTABLE
+B1|Etraflarında toplananlar kısa sürede otuza yaklaştı; aralarında Katâde b. Nu'mân, Sâbit b. Dahdâh, Sehl b. Huneyf, Abdurrahman b. Avf ve Zübeyr b. Avvâm da vardı.
+B1|Rasûlullah dağın ara yollarından birine çekilirken Übey b. Halef atını sürüp "Ey Muhammed! Eğer sen kurtulursan ben kurtulmayayım!" diye bağırarak yaklaştı.
+B2|Übey Mekke'de, her gün bir farak darı yedirdiği atının üstünde onu öldüreceğini söylemiş, Allah Rasûlü de "Aksine, ben seni Allah'ın izniyle öldüreceğim" demişti.
+B1|Sahâbîleri "Onu bırakın" diye durduran Rasûlullah, Hâris b. Sımme'den aldığı mızrağı öyle silkeledi ki etrafındakiler, silkelenen bir attan kaçışan sinekler gibi dağıldı.
+B2|Baştan ayağa zırhlı Übey'i miğferiyle zırhı arasındaki küçük bir boşluktan boynundan vurdu; Übey atından düşüp defalarca yuvarlandı, oysa yarası büyük değildi.
+B1|Kureyş'e dönen Übey "Vallahi Muhammed beni öldürdü" diye inledi; "Kalpten gitmişsin" diyenlere "O Mekke'de bana 'Seni öldüreceğim' demişti; Allah'a yemin ederim, bana tükürse beni öldürür" dedi.
+B1|Mekke'ye götürülürken şehre sekiz mil uzaklıktaki Seref'te öldü (Evlakî'nin naklettiği şekliyle Buhârî, Meğâzî, 19).
+B2|Hassân b. Sâbit'in bu olay üzerine söylediği beyitler de vardır (İbn Hişâm, 3/94).
+B1|Sallâbî olayda Rasûlullah'ın cesaretini, önceden haber verdiğinin aynen gerçekleşmesi mucizesini ve müşriklerin onun doğruluğuna inandıkları hâlde inatlarından iman etmeyişini görür.
+B1|Evlakî, Übey'in Rasûlullah'ın öldürdüğü kesin olarak bilinen tek kişi olduğunu kaydeder.
+B1|Müşrikleri püskürten Müslümanlar acılı, korkulu ve üzgündü; Allah'ın üzerlerine indirdiği hafif bir uyuklamanın ardından güven ve huzur buldular.
+QUOTE|ch24-185
+B1|Sallâbî, müfessirlerin canlarının derdine düşen grubun münafıklar olduğunda ittifak ettiğini belirtir.
+B1|Evlakî'ye göre ölenler yüzünden mücâhidleri suçlayanlar münafıkların izinden gider; ecel gelince insan ister savaşta ister evinde olsun ölür.
+B1|Müslümanlar Rasûlullah'ın etrafında toparlanınca kesin zafer ümidini yitiren ve yorulan müşrikler kovalamaktan ve safları yarma girişimlerinden vazgeçti.
+H2|Dağın Eteğinde Son Söz: Ebû Süfyân ve Ömer
+INTRO|Ebû Süfyân'ın seslenişine Müslümanlar önce sükûtla, sonra tevhidle cevap verdi.
+B1|Berâ b. Âzib'in anlatımına göre savaş durulunca Ebû Süfyân dağın eteğine yaklaşıp seslendi.
+TABLE|Ebû Süfyân'ın sözü|Müslümanların karşılığı
+ROW|"Muhammed aranızda mı?"|Rasûlullah (s.a.v.) "Ona cevap vermeyin" dedi.
+ROW|"Ebû Kuhâfe'nin oğlu aranızda mı?"|Yine "Ona cevap vermeyin" dedi.
+ROW|"Hattâb'ın oğlu aranızda mı?"|Cevap verilmedi.
+ROW|"Bunların hepsi öldürülmüş; sağ olsalardı mutlaka cevap verirlerdi."|Hz. Ömer kendini tutamayıp "Yalan söyledin, ey Allah'ın düşmanı! Allah seni üzecek şeyleri senden hiç ayırmasın!" dedi.
+ROW|"Yücel ey Hubel!"|Rasûlullah "Ona cevap verin" buyurup "Allah daha yüce ve daha büyüktür" denmesini öğretti.
+ROW|"Bizim Uzzâ'mız var, sizin Uzzâ'nız yok."|"Allah bizim Mevlâmızdır; sizin ise Mevlânız yoktur."
+ROW|"Bugün Bedir'e karşılıktır; savaşlar böyle döner, artık eşitlendik."|Bir rivayete göre Ömer "Hayır, eşitlik yoktur! Bizim ölülerimiz cennette, sizin ölüleriniz ise cehennemdedir" dedi (Ömerî, 2/392; Ahmed, 1/463).
+ENDTABLE
+B1|Evlakî diyaloğu Buhârî, 3039 ve Ebû Dâvûd, 2652'ye dayandırır; onun rivayetinde Ömer'in sözü "Saydığın üç kişi de seni kahretmek üzere hayattalar!" şeklindedir.
+B1|Evlakî, Ebû Süfyân'ın "Müsle yapılmış bazı cesetler bulacaksınız; bunu ben emretmedim, ama yapılmasına da üzülmedim" dediğini de nakleder.
+B1|Sallâbî'ye göre Ebû Süfyân'ın özellikle bu üç kişiyi sorması, müşriklerin onları İslâm binasını ayakta tutan temel taşlar saydığını ve onlar ölünce İslâm'ın ayakta kalamayacağına inandığını gösterir.
+B1|İbn Kayyım iki farklı tavrın hikmetini açıklar (Zâdü'l-Meâd, 3/202-203).
+TABLE|Tavır|Hikmeti
+ROW|İsimler tek tek sorulunca susmak|Yaralar henüz soğumamışken öfke ateşini körüklememek.
+ROW|Ebû Süfyân ilâhlarıyla ve şirkiyle övününce cevap vermek|Tevhidi yüceltmek, Allah'ın izzetini ilân etmek ve Müslümanların sarsılmadığını göstermek.
+ENDTABLE
+B1|Üç kişinin sağ olduğunu öğrenmek düşman için bir sürpriz olmuş, onu öfkelendirip zayıflatmıştı; İbn Kayyım'a göre önce susmak, sonra cevap vermek en isabetli taktikti.
+B1|Ebû Süfyân ordusuyla çekilip gidince Uhud'un en ağır saatleri, şehitlerin aranması başlayacaktı.
+H2|Bu Bölümün İbretleri
+INTRO|Uhud; istişare, itaat, ayıklanma ve ahlâk üzerine kalıcı dersler bırakır.
+B1|Uhud'un ilk dersi, kararın nasıl verildiği ve nasıl sahiplenildiğidir.
+B2|Rasûlullah'ın (s.a.v.) görüşü şehirde kalmaktı; fakat çoğunluk farklı düşününce onlara uydu, zırhını giydikten sonra da geri dönmedi.
+B2|Sallâbî'nin vurguladığı gibi istişare, görüşlerin korkmadan söylenebildiği bir ortamda anlam kazanır; karar verildikten sonraki tereddüt ise güveni sarsar.
+B2|İstişare ile kararlılık birbirinin rakibi değil, tamamlayıcısıdır.
+B1|İkinci ders itaatin ağırlığıdır.
+B2|Okçular emre uydukları sürece zafer onlarındı; ganimet için indiklerinde hezimet geldi.
+B2|Evlakî'nin ifadesiyle itaatsizlik küçük görünebilir, ama sonucu büyük olur.
+B2|Bir topluluğun başarısı çoğu zaman kimsenin görmediği bir tepede, cazibelere rağmen "Yerinizden ayrılmayın" emrine sadık kalabilenlere bağlıdır.
+B1|Üçüncü ders, zor zamanların insanları ayıklamasıdır.
+B2|Münafıklar yolda kendilerini ifşa etti; iki kabile sarsıldı ama Allah'ın yardımıyla toparlandı.
+B2|Şayia yayıldığında kimi kaçtı, kimi oturdu, kimi de "Muhammed'in Rabbi ölmemiştir" diyerek ölüme yürüdü.
+B1|Son ders sadakat ile ahlâkın birlikteliğidir.
+B2|Talha'nın sırtını basamak yapması, Ebû Talha'nın göğsünü siper etmesi ve yedi Ensârî'nin birer birer düşmesi, bir davaya bağlılığın sözle değil bedelle ölçüldüğünü gösterir.
+B2|Ali'nin yere düşen düşmanından hayâ edip onu bağışlaması ve Ebû Dücâne'nin Rasûlullah'ın kılıcını bir kadına indirmemesi, savaşın en kızgın anında bile ahlâkın terk edilmediğini hatırlatır.
+B2|Bütün tedbirleri alan ama Mekke'den ilk haber geldiğinde "Allah bize yeter; O ne güzel vekildir" diyen bir Peygamber'in ümmeti, sebeplere sarılmakla tevekkülü birbirinden ayırmaz.

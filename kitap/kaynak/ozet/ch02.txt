@@ -1,0 +1,246 @@
+QUOTE|ch02-7
+H2|Bölüme Bakış
+INTRO|Bölüm, İslâm'ın doğduğu karanlığı Sallâbî'nin dünya tablosu ve Evlakî'nin Arabistan sahnesiyle gösterir.
+B1|Milâdî altıncı yüzyılda Atlas Okyanusu'ndan Büyük Okyanus'a uzanan mâmur topraklar baştan başa bir putperestlik denizine dalmıştı.
+B1|Batıda Bizans'ın, doğuda Kisrâ'nın sarayları ihtişamla yükselirken gölgelerindeki halklar vergi, zulüm ve bitmeyen savaşlar altında eziliyordu.
+B1|Hindistan kendi içine kapanmış, insanları doğuştan belirlenen sınıflara bölmüştü.
+B1|Semavî dinlerin elinde kalan ışık ise tahrifin kalın bulutları ardında sönmek üzereydi.
+TABLE|Konu|Sallâbî|Evlakî
+ROW|Katkısı|Siyere bu manzarayı çizerek başlar; amacı İslâm'ın hangi karanlığın içine doğduğunu göstermektir.|Bu tabloya Arabistan'ın kendi sahnesini ekler; Yahudiliğin ve Hıristiyanlığın yarımadaya girişini, Medine Yahudilerinin aslında kimi beklediğini ve Necran'da ateş hendeklerine yürüyen bir avuç tevhid ehlini anlatır.
+ENDTABLE
+B1|Bölüm iki imparatorluk ve Hindistan'dan tahrife uğramış dinlere, oradan Arabistan'da yanan küçük tevhid kandillerine uzanır.
+B1|Işığın değeri, ancak karanlığın ne kadar koyu olduğu bilindiğinde anlaşılır.
+H2|Bizans: Sağılan Ama Beslenmeyen Topraklar
+INTRO|Sallâbî Bizans'ı, halkını vergi ve baskıyla ezen, kendi içinde çelişkili, zalim bir devlet olarak tanıtır.
+B1|Bizans İmparatorluğu adıyla tanınan Doğu Roma'nın hâkimiyeti Yunanistan ve Balkanlar'dan Küçük Asya'ya, yani Anadolu'ya, Suriye ve Filistin'den Akdeniz havzasına, Mısır'a ve Kuzey Afrika'ya uzanıyordu.
+B1|Sallâbî'ye göre devlet halklarına son derece zalimdi; önlerine sürekli zorluklar çıkarılıyor, hayat şartları ağırlaştırılıyor, vergiler kat kat artırılıyordu.
+B2|Bu yüzden imparatorluğun her yanında karışıklıklar ve isyanlar baş gösterip zamanla çoğaldı.
+B1|Yönetici sınıfın gündelik hayatı oyun, eğlence, sarhoşluk, bolluk ve israf üzerine kuruluydu.
+TABLE|Bölge|Durumu
+ROW|Mısır|Dinî baskının ve siyasî diktatörlüğün hedefiydi; müellife göre bol süt veren ama yemi esirgenen bir koyun gibi iyi sağılıyor, ama beslenmiyordu.
+ROW|Suriye|Zulüm, haksızlık ve kötülük yaygınlaşmış, idare aşırı güce dayanmıştı; Bizans'ın beklentilerini taşıyan bir binek hâline getirilen bölge, güçten başka şeye itibar etmeyen, halka en ufak şefkat duymayan yabancılarca yönetiliyordu.
+ENDTABLE
+B1|Vergi borçları öyle birikmişti ki Suriyeliler bu borçları kapatmak için çocuklarını satacak duruma gelmişti.
+B1|Sallâbî'nin bir medeniyet tarihinden aktardığına göre Bizans toplumunu asıl çarpıcı kılan, kendi içindeki çelişkiydi (*Mazisiyle ve Hâlihazırıyla Medeniyet*, 31).
+B2|Bir yanda dinî inanışlar zihinlere yerleşmiş, ruhbanlık ülkeyi kaplamıştı; sıradan insan bile derin dinî tartışmalara karışıyor, meşhur "Bizans mücadelesi"yle meşgul oluyordu.
+B2|Öbür yanda eğlencenin, sarhoşluğun, bolluğun ve israfın her çeşidine aşırı bir düşkünlük vardı.
+B1|İnsanlar arasında ya da insanlarla yırtıcı hayvanlar arasında düzenlenen dövüşler, seksen bin kişi alabilen arenalarda seyrediliyordu.
+B1|Güzelliği sevdikleri kadar şiddete ve zorbalığa da tutkundular; oyunları çoğu zaman kanlı biter, cezaları insanın tüylerini ürpertirdi.
+B1|İleri gelenlerin hayatı hayâsızlık, israf, komplo, dalkavukluk ve kötü âdetlerden ibaretti.
+H2|Kisrâ'nın Ülkesi: Fars İmparatorluğu
+INTRO|Sallâbî Fars'ı sapık inançların, kendini ilâh soyundan sayan sultanların ve ateşe tapınmanın ülkesi olarak tasvir eder.
+B1|Kaynaklarda "Fars Devleti" ya da "Kisrâ Devleti" diye de anılan Fars İmparatorluğu Doğu Roma'dan büyüktü ve içinde birçok sapık inanç bir arada yaşıyordu.
+TABLE|İnanç|Özelliği
+ROW|Zerdüştîlik|İmparatorluğun en köklü inanç sistemiydi.
+ROW|Maniheizm|Milâdî üçüncü yüzyılın başlarında Mani tarafından kurulmuştu.
+ROW|Mezdekiyye|Milâdî beşinci yüzyılın başlarında ortaya çıktı ve her şeyin mubah olduğunu savundu.
+ENDTABLE
+B1|Mezdekiyye'nin doğurduğu sonuçlar korkunç oldu.
+B2|Çiftçi ayaklanmaları yayıldı, saray yağmacıları hızla çoğaldı, insanlar tutuklandı, kadınlar esir alındı, taşınır taşınmaz bütün mallara el konuldu.
+B2|Yağma yüzünden yerleşim yerleri, çiftlikler ve evler hiç oturulmamış gibi bomboş kaldı.
+B1|Fars sultanları saltanatı babadan oğula devreder, kendilerini ilâhlar neslinden saydıkları için insanoğlunun üstünde görürlerdi.
+B1|Ülkenin bütün gelirini mülkleri sayar, onda tasavvuru güç bir kibir ve övünmeyle tasarruf ederlerdi; Sallâbî'nin ifadesiyle hayvanca bir hayat sürüyorlardı.
+B1|Ağır yük halkın sırtındaydı; pek çok çiftçi vergiden ve askerlikten kaçmak için işini bırakıp kiliselere ve mabetlere sığındı.
+B1|Farslarla Rumlar arasında tarihin çeşitli dönemlerinde uzun yıllar süren yıkıcı savaşlarda halklar değersiz bir yakıttı ve kralların arzularından başka hiçbir çıkarları yoktu.
+B1|Hâkim din Mecusîlikti; Mecusîler çok eski zamanlardan beri en büyüğü ateş olan tabiat unsurlarına taparlardı.
+B1|Her yere yayılan ateş tapınaklarında ibadete özgü son derece ince kurallar vardı; tapınak dışında ise herkes serbestti ve hevâsına göre yaşardı.
+B2|Sallâbî'ye göre bu yönüyle onlarla dinsizler arasında bir fark kalmamıştı.
+B1|Danimarkalı bir tarihçinin *Sâsânîler Devrinde İran* adlı eserine göre Mecusî din görevlilerine günde dört kez güneşe, ayrıca aya, ateşe ve suya ibadet etmek vacipti (*Sâsânîler Devrinde İran*, 55; Nedvî, *es-Sîretü'n-Nebeviyye*, 27).
+B2|Uyku, uyanma, yıkanma, zünnâr kuşanma, yeme, içme, hapşırma, tıraş olma, tırnak kesme, helâya gitme ve lamba yakma anlarının her biri için özel duaları vardı.
+B2|Ateşin sönmemesi, ateşle suyun birbirine değmemesi ve değerli maddelerin paslanmaması da görevleriydi, çünkü ateş de su da mukaddesti.
+B1|İran halkı ibadet ederken ateşe yönelirdi; Sâsânîlerin son kralı Yezdicerd bir defasında güneş üzerine yemin ederek onu "en büyük ilâh" diye nitelemişti.
+B1|Mecusîler her asırda *Seneviyye* inancını din edindiler.
+KAVRAM|💡 KAVRAM · SENEVİYYE|Biri nur ve hayır, diğeri karanlık ve şer ilâhı olan iki ayrı ilâha imandır.
+B1|Sallâbî bu inancı Mecusîliğin geçici bir sapması değil, her asırda tekrarlanan ayırt edici vasfı sayar.
+B1|Kâinatı iki gücün savaş alanı sayan bu anlayış, tevhidin tam karşı kutbundaydı.
+H2|Kendi İçine Kapanmış Bir Diyar: Hindistan
+INTRO|Sallâbî'ye göre altıncı yüzyıl Hindistan'ı, eşitsizliği dinî kanuna bağlayan sınıf düzeni ve putperestlikle en çöküntülü devrini yaşıyordu.
+B1|Sallâbî'ye göre Hindistan'ın din, ahlâk, sosyal hayat ve siyaset bakımından en kötü ve en çöküntülü devri, milâdî altıncı yüzyıla girilirken başladı.
+B1|Hayâsızlık kutsallaştırıldığı için her yere, hatta mabetlere kadar yayılmıştı.
+B1|Kadının ne değeri ne de koruyanı kalmıştı; kocası ölen kadının yakılması yaygın bir gelenekti.
+B2|Dul kadınların yeniden evlenmesine izin verilmez, yiyecek ve içecek konusunda kendilerine baskı uygulanırdı.
+B1|Ülke siyasî başıboşluk ve parçalanma içindeydi; aralarında yıkıcı savaşlar çıkan emirlikler çoğalmış, Hindistan dünyada olup bitenden uzak bir yalnızlığa düşmüştü.
+B1|Hindistan'da bir üniversitede tarih hocası olan Hintli bir tarihçi de İslâm öncesi Hintlileri dünyadan kopuk, kendi içine kapanmış ve çevresinden habersiz bir millet olarak tarif eder (Nedvî, *es-Sîretü'n-Nebeviyye*, 38).
+B2|Ona göre bu habersizlik olaylar karşısındaki duruşlarını zayıflatıp bir donukluk doğurmuş; edebiyat ruhsuzlaşmış, mimarlık ve ressamlık başta olmak üzere bütün güzel sanatlar aynı çöküşü yaşamıştı.
+B1|Toplumun omurgası, birbirinden kesin çizgilerle ayrılmış dört sınıftı.
+TABLE|Sınıf|Mensupları
+ROW|Berhemîler|En üstte yer alan kâhinler ve din adamları
+ROW|Şetriler|Askerler
+ROW|Veyşler|Çiftçilik ve ticaretle uğraşanlar
+ROW|Şuderler|En altta yer alan, hizmet işlerini görenler
+ENDTABLE
+B1|Bu eşitsizliği başka yerlerde görülenden farklı kılan, bizzat medenî, siyasî ve dinî kanuna dayanmasıydı.
+B2|Kanunu dinî sıfat taşıyan Hintli kanun koyucular yapmış, eşitsizlik böylece toplumun genel kabulüne ve hayatın anayasasına dönüşmüştü (*el-Kânûnu'l-Medenî el-İctimâî*, Menuşasenz, 1-10. bablar).
+B1|Aileler arasında da utanç verici bir ayrımcılık vardı; ihmal edilip kapı dışarı edilen yoksullar kendi memleketlerinin ve medeniyetlerinin dışında yaşamaya mahkûm bırakılmıştı.
+B1|İnançlarına göre kâinatın yaratıcısı Şuderleri kendi ayaklarından yaratmıştı; diğer üç sınıfa hizmet etmek ve onları rahatlatmak dışında hiçbir değerleri yoktu.
+B2|Mal edinemez, servet biriktiremez, Berhemîlerle bir arada oturamaz, onlara elleriyle dokunamaz, mukaddes kitapları öğrenemezlerdi.
+B1|Berhemîlere ise kimsenin ortak olamayacağı bir makam tanınmıştı; bir Berhemî günahları ve işleriyle diğer üç sınıfı tamamen yok etse bile bağışlanmış sayılır, ondan vergi alınmaz, hiçbir durumda ölümle cezalandırılmazdı.
+B1|Doğuştan belirlenen bir değer ölçüsü, insanın kaderini daha ilk nefesinde mühürlüyordu.
+B1|Dinî manzara da bu düzenden farksızdı; ülkenin asıl dini olan Berhemîlik ilâhlarının çokluğuyla ayrılıyordu ve milâdî altıncı yüzyılda zirvesine ulaştı.
+B1|Budizm Hindistan'da ve Orta Asya'da açık bir putperestliğe dönüşmüştü; Budistler putlarını yanlarında taşır, heykel yapar, konakladıkları her yere Buda'nın heykellerini dikerlerdi.
+B1|Sallâbî'nin tespitiyle hem Hinduizm hem Budizm aynı seviyede putperestti.
+H2|Tahrif Bulutları Altında Kitap Ehli
+INTRO|Sallâbî'ye göre bi'set öncesinde cahiliye metodu bütün insanlığa hâkimdi ve tahrife uğrayan semavî dinler hayata yön veremiyordu.
+B1|Sallâbî'ye göre İslâm şafağından önce insanlık dinî, iktisadî, siyasî ve sosyal bakımdan tarihinin en kötü aşamasındaydı; akîdeye, fikre ve nefislere *cahiliye metodu* hâkimdi.
+KAVRAM|💡 KAVRAM · CAHİLİYE|Müellifin kullandığı anlamda yalnızca bilgisizlik değil, vahyin yerine hevânın, ilâhî ölçünün yerine beşerî arzunun konduğu bütüncül bir hayat düzenidir.
+B1|Cehalet, hevâya uyma, toplumsal çözülme, fısk u fücur, zorbalık, zulüm, şiddet ve akîdevî sapmalar bu düzenin en bariz alâmetleriydi; bi'set öncesi dünya bütün sınıflarıyla istisnasız onun hâkimiyetindeydi.
+B1|Semavî dinler tebdil, tahrif ve tağyire uğramış, bu değişiklikler onların Allah'ın mesajı olma vasfını önemsizleştirecek noktaya varmıştı; böylece hayat üzerindeki tesirleri kalmadı.
+B2|Dine sızan beşerî fikirler ve bozuk düşünceler yüzünden mensupları, yakıcı savaşlara varan teorik çatışmalarla meşgul oldu.
+B1|İnsanların bir kısmı dinden çıkmış, bir kısmı hiç dine girmemiş, bir kısmı da semavî dinleri değiştirmeye girişmişti.
+B1|Allah'ın şeriatını arkalarına atıp O'nun izin vermediği, akla ve fıtrata ters kanunlar icat ettiler; bu bozulmanın başını halkların liderleri, rehberleri, rahipleri, papazları ve ileri gelenleri çekti.
+B1|Dinine bağlı kalıp tahrife bulaşmayan pek az insan ise hem kendini kurtarmak hem de başkalarının ıslahından ümit kestiği için halvete çekildi.
+B1|Yahudilik ruhsuz, cansız grup âyinlerine ve âdetlere dönüşmüş; komşuluk ve ilişki kurduğu, yönetimi altına girdiği ümmetlerden etkilenerek gelenek ve âdetlerinin çoğunu cahiliye putperestliğinden almıştı.
+B2|Bunu Yahudi tarihçilerin kendileri de itiraf eder.
+B1|Sallâbî'nin Nedvî'den aktardığı Yahudi ansiklopedisine göre peygamberlerin putperestliğe duyduğu nefretin şiddeti, put ibadetinin İsrâiloğulları'na sızdığını gösterir (Nedvî, *es-Sîretü'n-Nebeviyye*, 20).
+B2|Bu ibadetin kökü ancak Bâbil sürgününden dönülen döneme kadar kazınamamış, o süre boyunca şirk ve hurafe dolu inanışlar sürmüştü; meşhur Talmud da putperestliğin Yahudiler için özel bir çekiciliği olduğuna şahitlik etmiştir.
+B1|Sallâbî'ye göre milâdî altıncı yüzyılda haddinden fazla kutsal sayılan Bâbil Talmud'u, aklın ve dinin bu çöküşünün belgesidir.
+B2|İçinde hafif akla, boş söze, Allah'a karşı cürete ve akılla, dinle, gerçeklerle oynamaya dair garip örnekler vardır.
+B1|Hıristiyanlık aşırıların tahrifi ve cahillerin te'viliyle imtihan edildi; tevhidin nuru ve ibadetteki ihlâs kalın bulutların ardında kayboldu.
+B1|Mesih'in hakikati ve tabiatı üzerine tartışmalar Şam ve Irak Hıristiyanları arasında birçok savaşa yol açtı; evler, medreseler ve kiliseler rakip kamplara bölündü.
+B2|Hıristiyanlar birbirlerini tekfir edip öldürdüler; kötülükle savaşmak, ıslah etmek ve insanlığı iyiliğe çağırmak yerine birbirleriyle uğraştılar.
+B1|Nedvî'nin *Muasır İlim Işığında Hıristiyanlık Tarihi*'nden aktardığına göre putperestlik sona ermiş gibi görünse de gerçekten yok olmamış, nefislerin derinliklerine inerek Hıristiyanlık adının perdesi arkasında sürmüştü (Nedvî, *es-Sîretü'n-Nebeviyye*, 23).
+B2|Eski ilâhlarını bırakanlar şehitlerinden birine ilâhların vasıflarını yakıştırıp heykelini yaptılar; o asır bitmeden şehitlere ve velilere ibadet yayıldı ve bu kutsallar Allah ile kul arasına yerleşti.
+B2|Putperest bayramlarının adları değiştirildi; milâdî 400 yılında eski Güneş Bayramı, Mesih'in doğuş bayramına dönüştürüldü.
+B1|Yeni Katolik Ansiklopedisi de dördüncü asrın son çeyreğinden itibaren tek ilâhın üç asıldan oluştuğu inancının Hıristiyan dünyasına iyice yerleştiğini ve resmî bir akîde gibi kabul gördüğünü kaydeder (*Dâiretü'l-Maârifi'l-Kâtûlikiyye el-Cedîde*, "Teslîs" maddesi, 14/395).
+B2|Ansiklopediye göre bu inancın nasıl geliştiğine dair sır perdesi ancak on dokuzuncu yüzyılın ortalarında aralanabilmiştir.
+B1|Sallâbî'nin benzetmesiyle Hıristiyanlık, Yahudilik, Budizm ve Berhemîlik, putları yüceltme ve kutsallaştırmada aynı meydanda koşturulan yarış atları gibi birbiriyle yarışıyordu.
+H2|Yahudilik Arabistan'da: Beklenen Peygamberin Yurdunu Arayanlar
+INTRO|Evlakî'ye göre Yahudilik yarımadaya iki dalga hâlinde, önce etnik bir göçle, sonra siyasî bir din değiştirmeyle girdi.
+B1|İlk dalga Romalıların Kudüs'ü yıkmasıyla başladı; dağılan Yahudilerin bir kısmı, kitaplarında haber verilen ve beklenen peygamberin geleceği toprakları aramak için Arabistan'a kadar geldi.
+B2|Kitaplarındaki işaretleri Medine'de ve başka birkaç yerde görünce oralara yerleştiler.
+B1|Medine'deki üç Yahudi kabilesi bu göçün ürünüdür.
+TABLE|Kabile|Uğraşı|Şehirdeki yeri
+ROW|Benî Kaynukâ|Çoğunlukla zanaatkârdılar.|Şehrin pazarında etkiliydiler.
+ROW|Benî Nadîr|Hurmacılık ve tarımda önde geliyorlardı.|Şehrin dış mahallelerinde otururlardı.
+ROW|Benî Kurayza|Tarım ve ticaretle uğraşırlardı.|Güney kesimlerde yaşarlardı.
+ENDTABLE
+B1|Evlakî acı bir ironiye dikkat çeker; bu kabileler Hz. Muhammed'in (s.a.v.) geleceği toprakları arayarak o şehre ondan önce yerleşmişlerdi.
+B2|Fakat o peygamber gelip şehirlerine hicret edince, okudukları müjdeye sahip çıkmak yerine onu inkâr edeceklerdi.
+B1|İkinci dalganın kahramanı, Şam'a ticarî seferler düzenleyen Yemen Kralı Tubba Es'ad'dır.
+B1|Kral bir yolculuğunda Medine yakınlarından geçerken oğlunu bir süre şehirde bıraktı ve Medineliler kralın oğlunu öldürdü.
+B1|Dönüşte bunu öğrenen Tubba Es'ad şehri yok etmeye karar verip saldırıya geçti; ordusu Medine'yi rahatlıkla ezebilirdi.
+B1|Tam o sırada Medine'den iki Yahudi haham kralın huzuruna gelip onu uyardı.
+SOZ|💬 İKİ YAHUDİ HAHAM|"Bu bölge Allah tarafından korunmaktadır. Burayı yıkmaya kalkarsan Allah seni helâk eder."|
+B1|Hahamlar kralı saldırıdan vazgeçirmekle kalmayıp dinlerine de davet ettiler; Tubba Es'ad Yahudi oldu ve hahamları Yemen'e götürmek istedi, onlar da kabul etti.
+B1|Yemen'e dönerken Kureyş ile husumeti bulunan Hevâzin kabilesi karşılarına çıkıp kralla Mekke'nin arasını açmak istedi ve Tubba Es'ad Kureyş'e saldırmayı düşünmeye başladı.
+B1|İki haham yine araya girdi.
+SOZ|💬 İKİ HAHAM|"Burası Allah tarafından korunan başka bir beldedir. Mekke'ye saldırmamalı, bilakis oraya girip Kâbe'yi tavaf etmelisin."|
+B1|Kral "Haydi gidelim" deyince hahamlar, "Biz seninle gelemeyiz. Biz âlimiz; etrafında putlar varken Kâbe'yi tavaf etmemiz uygun olmaz" cevabını verdiler.
+B1|Evlakî'ye göre bu ret tarihî bir nottur; hahamlar putperestliği reddediyor, fakat Kâbe'nin ilâhî statüsünü tanıyorlardı.
+B2|Demek ki Kâbe, İbrâhim ve İsmâil'den kalan bir tevhid nişanesi olarak kitap ehli arasında hâlâ biliniyordu.
+B1|Tubba Es'ad tek başına gidip Kâbe'yi tavaf etti ve Kâbe'yi örtüyle giydiren ilk kişi oldu.
+B2|Her yıl örtüyü yeniler, yenisini eskisinin üzerine örttürürdü; çünkü Kâbe'yi giydirmek kutsal sayılır, eski örtü atılmazdı.
+B2|Bu uygulama örtüler ağırlık yapana kadar sürdü; sonunda eskilerin çıkarılıp tek bir yeni örtüyle örtülmesine karar verildi.
+B1|Kral iki hahamla Yemen'e varınca onlara dinlerini Yemen kabileleri arasında yayma özgürlüğü tanıyıp onları teşvik etti; birçok Yemen kabilesi Yahudiliği kabul etti.
+B1|Böylece Arabistan'da iki çeşit Yahudi ortaya çıktı.
+TABLE|Topluluk|Yaşadığı yer|Kökeni
+ROW|Etnik Yahudiler|Hayber ve Medine|Soyları İsrâiloğulları'na dayanır; Roma sürgününden sonra göç etmişlerdir.
+ROW|Yemenli Yahudiler|Yemen|Etnik olarak Araptırlar; Tubba Es'ad'dan sonra bu dini benimsemişlerdir.
+ENDTABLE
+B1|Evlakî, Yahudiliğin bazı dönemlerde Yemen örneğinde olduğu gibi dinini yaydığını, bazı dönemlerde ise bugün olduğu gibi onu kendine has kıldığını belirtir.
+H2|Necran'da Bir Tevhid Kandili: Kral ile Çocuk
+INTRO|Evlakî, Necran'daki tevhid ehlinin direnişini Sahîh-i Müslim'deki "Kral ile Çocuk" kıssası üzerinden anlatır.
+B1|Hz. Îsâ'nın (a.s.) gönderilmesinden sonra takipçilerinin bir kısmı yeryüzüne dağıldı.
+B1|Evlakî'ye göre Hıristiyanlık daha yolun başında birçok mezhebe bölünmüş, bunların çoğu sapkınlığa düşmüştü.
+B2|Yine de Allah'ın bir olduğuna, Îsâ'nın Allah'ın oğlu değil Rasûlü olduğuna inanan ve kilisenin bölünmesine, teslis akımına karşı asıl mesajı koruyan mümin gruplar vardı.
+B1|Bu tevhid ehlinden biri Yemen'e gidip Necran bölgesinde dinini gizlice, sabırla ve yavaş yavaş anlatmaya başladı.
+B1|O sırada Tubba Es'ad ölmüş, yerine oğlu Zûnüvâs geçmişti; yeni dini duyan Zûnüvâs onu yasakladı ve bağlılarına işkence etti.
+TABLE|Konu|Sallâbî|Evlakî
+ROW|Hıristiyan dünyası|Tevhidin nurunun ve ibadetteki ihlâsın kalın bulutlar ardında kaybolduğu karanlık bir tablo çizer.|Tahrifin genelleştiği bir dünyada bile tevhidi koruyan küçük adacıkların kaldığını tespit eder.
+ENDTABLE
+B1|Bu küçük topluluklar, bölümün başındaki hadiste istisna tutulan "Ehl-i Kitap'tan kalan kesimi" hatırlatır.
+B1|Evlakî'nin aktardığına göre birçok âlim, Sahîh-i Müslim'deki "Kral ile Çocuk" kıssasının Zûnüvâs ile Yemen'deki tevhid ehli arasında geçtiğini ve hadisteki kralın Zûnüvâs olduğunu söyler (Müslim, *Sahîh*, "Kral ile Çocuk" hadisi).
+B1|Sihir ve büyüyle uğraşan kralın sarayındaki sihirbaz iyice yaşlanınca yerine birinin yetiştirilmesini istedi; parlak ve zeki bir genç ona çırak verildi.
+B1|Her sabah erkenden sihirbaza gidip akşam geç dönen genç, yolu üzerindeki bir ibadethaneden yükselen farklı dua seslerini merak etti.
+B2|Uğradığında burasının Hz. Îsâ'nın sahih dinini anlatan bir rahibin yeri olduğunu gördü.
+B1|Duyduklarından çok etkilenen genç, sihirbazdan ders almak zorunda olduğu için rahibe ne yapabileceğini sordu.
+B1|Rahip ona sabah önce kendisine uğrayıp ders almasını, sihirbaz gecikmesini sorarsa ailesinin onu geç bıraktığını söylemesini öğütledi.
+B2|Akşam dönüşte yine uğrayacak, ailesi sorarsa sihirbazın geç bıraktığını söyleyecekti; böylece sabah bir ders, akşam bir ders alabilecekti.
+B1|Evlakî bu tedbiri, ilk bakışta yalan gibi görünse de davetin gizliliği ve gencin canının korunması için zarurî bir hikmet sayar.
+B2|Ona göre davet, açıldığı anda değil, açılana kadar gelişmesi için zaman kazandığında genişler.
+B1|Bir gün pazar yerine giren yırtıcı bir hayvan büyük bir kargaşa çıkardı ve kimse onunla baş edemedi.
+B1|Genç, "Allah'ım, bugün rahibin mi yoksa sihirbazın mı yolunun hak olduğunu öğrenmek istiyorum; bana hakkı göster. Eğer rahibin yolu hak ise bu hayvanı öldür" diye dua etti.
+B2|Yerden aldığı taşı fırlattı ve hayvan o anda öldü.
+B1|Olanları anlatınca rahip, gencin eriştiği mertebeyi ve önündeki imtihanı haber verdi.
+SOZ|💬 RAHİP|"Evladım, bugün sen yüce bir mertebeye eriştin. Bu yüzden imtihan olunacak, musibetlerden geçeceksin. Belaya uğradığında benim adımı verme."|
+B1|Evlakî burada genel bir ilkeye dikkat çeker; hiç kimse imtihandan geçmeden böyle yüksek bir mertebeye ulaşamaz.
+B2|Sınavlarda öğrencilerin seviyesi önce herkesin cevaplayabileceği kolay, sonra orta, en sonunda çok zor sorularla ayırt edilir; pekiyi alanla zayıf alan arasındaki fark böyle ortaya çıkar.
+B2|Allah da kullarını iman seviyelerine göre imtihan eder.
+QUOTE|ch02-8
+B1|Zamanla tanınan gence insanlar dertleri için gelir oldu; kralın gözleri görmeyen yakın bir arkadaşı da tedavi için ona geldi.
+B2|Genç, "Ben sana şifa veremem; şifayı ancak Allah verir" dedi, onu tedavi etti ve adamın gözleri açıldı.
+B1|Kral, "Seni kim iyileştirdi?" diye sorunca adam "Allah" dedi; "Senin benden başka Rabbin mi var?" sorusuna da "Evet, Allah benim de senin de Rabbindir" cevabını verdi.
+B1|Öfkelenen kralın başlattığı sorgu zincirinde işkenceye uğrayan arkadaş gencin, işkenceye uğrayan genç de rahibin adını verdi.
+B1|Rahip, dininden dönmesi için gördüğü bütün işkencelere rağmen vazgeçmedi ve sonunda başının ortasına konan bir testereyle ikiye biçildi.
+B1|Evlakî'ye göre rahibin daveti gizli yürütmesi korkudan değil, davetin selâmeti içindi; açık mücadele vakti gelince canıyla ödemeyi göze almıştı.
+B2|Bu, gizlilik zamanında aklı, açıklık zamanında yüreği çalışan bir müminin portresidir.
+B1|Evlakî gencin başından geçenleri, peygamberlere has mucize ile salih kullara nasip olan keramet ayrımı içinde değerlendirir.
+KAVRAM|💡 KAVRAM · MUCİZE VE KERAMET|Her ikisi de olağanüstü hâdiseler ve ilâhî yardımın eseridir; mucize peygamberlere has, keramet ise salih kullara nasip olandır.
+B2|Genç peygamber olmadığı için yaşadıkları kerametti.
+B1|Kral, dininden dönmeyen gencin öldürülmesi için iki kez emir verdi.
+TABLE|Teşebbüs|Kralın emri|Sonuç
+ROW|Dağ|Askerler onu bir dağın tepesine çıkaracak, dininden dönmezse aşağı atacaktı.|Genç "Allah'ım, dilediğin gibi beni onlardan kurtar" diye dua etti; dağ sarsıldı, askerlerin hepsi düşüp öldü, genç yürüyerek kralın huzuruna döndü.
+ROW|Deniz|Başka bir grup asker onu kayıkla denize açacak, ortasında dinden dönmezse suya atacaktı.|Genç yine dua etti; kayık alabora oldu, askerler boğuldu, genç yine yürüyerek geri geldi.
+ENDTABLE
+B1|Kral üçüncü bir grup hazırlarken genç ona kendisini nasıl öldürebileceğini söyledi.
+SOZ|💬 GENÇ|"Sana söyleyeceğimi yapmadıkça beni öldüremeyeceksin. Herkesi bir meydanda topla, beni bir ağacın gövdesine bağla, sadağından bir ok al ve 'Bu gencin Rabbi olan Allah'ın adıyla' diyerek bana at. O zaman beni öldürebilirsin."|
+B1|Kral dediklerini yaptı; ok gencin şakağına isabet etti, genç olduğu yerde can verdi ve meydandaki halk topluca iman etti.
+B1|Kralın danışmanları ona "Korktuğun şey başına geldi" dediler; çocuğu öldürmesinin tek amacı onu dininden döndürmekti, ama şimdi bütün halk o dini benimsemişti.
+B1|Evlakî, genç bu sözleri söylemeseydi Allah'ın onu korumaya devam edeceğini, yani sözünün kendi ölümünün anahtarı olduğunu hatırlatır.
+B2|Gencin gayesi kendi canını kurtarmak değil, halkın iman etmesiydi.
+B1|Evlakî bu kıssanın *istişhad* kavramının delilleri arasında zikredildiğini belirtir.
+KAVRAM|💡 KAVRAM · İSTİŞHAD|Kişinin Allah rızası için canını feda etmesidir.
+B1|Onun ifadesiyle İslâmsız yaşayan kişi aslında bir ölüdür; genç, halkının gerçek anlamda yaşaması için kendi canını vermiştir.
+H2|Ashâbu'l-Uhdûd: Ateşe Yürüyenler
+INTRO|Halkın iman etmesi üzerine Zûnüvâs müminleri ateş hendeklerinde yaktı; Kur'ân bu görünüşteki yenilgiyi "büyük kurtuluş" diye andı.
+B1|Halkın iman etmesi Zûnüvâs'ı çılgına çevirdi; askerlerine hendekler kazdırıp odunla doldurttu, ateşe verdirdi ve dininden dönmeyi reddeden herkesi ateşe girmeye zorladı.
+B1|Çok sayıda insan diri diri yakıldı; inançlarına sımsıkı sarılan bu insanlardan hiçbiri dinine sırtını dönmedi.
+B1|O günün en sarsıcı sahnesini Rasûlullah (s.a.v.) bizzat anlatır.
+QUOTE|ch02-9
+B1|Kadın ateşe yürüdü.
+B1|Evlakî, bebeğin konuşması vesilesiyle bir ayrıma dikkat çeker.
+B2|Buhârî'nin Ebû Hüreyre'den (r.a.) naklettiği hadis, beşikte konuşan üç çocuk olarak Meryem oğlu Îsâ'yı, büyük bir abid olan Cüreyc hakkında şahitlik eden bebeği ve annesinin duası üzerine konuşan, İsrâiloğulları'ndan bir kadının çocuğunu sayar (Buhârî, *Sahîh*, Enbiyâ, 3436).
+B2|Fakat "beşikte konuşan" ile "çocuk yaşta konuşan" aynı kümeyi anlatmaz; İmam Kurtubî bu farka işaret etmiş, *Fethu'l-Bârî* sahibi İbn Hacer el-Askalânî de çocuk yaşta konuşanlardan yedi kişi saymıştır.
+B2|Evlakî'ye göre Hendek halkının bebeği, beşikte konuşan üç kişiden değil, bu daha geniş gruptandır.
+B1|Bu kıssa Kur'ân'da Burûc sûresinde anlatılır.
+B1|İlk bakışta tablo açıktır; diri diri ateşe atılan insanlar yok edildi, bir devlet kuramadılar, kral kazandı.
+B1|Ne var ki Allah olanları bir yenilgi olarak değil, en büyük başarı olarak adlandırır.
+QUOTE|ch02-10
+B1|Dünya ölçülerine göre kaybeden, hatta hezimete uğrayan bu insanların neden büyük kurtuluşa erenler diye anıldığı sorusuna Evlakî açık bir cevap verir.
+B2|Asıl zafer ve kurtuluş, son ana kadar dine bağlı kalmak ve asla vazgeçmemektir; cennete girmek zafer kazanmak demektir.
+B1|Hendek halkı dünyada hayatlarını sürdüremedi ama dinlerine sadık kaldı; savaşı kaybetmiş gibi görünseler de gerçek savaşı kazandılar.
+B1|Aynı ilke İslâm tarihinde de işler; Mekke'de işkenceyle şehit edilen Yâsir (r.a.) ve Sümeyye (r.anhâ), Uhud'da öldürülen Hz. Hamza (r.a.) da bu ölçüye göre kazananlardır.
+B1|Kur'ân aynı ifadeyi Mâide sûresinde de tekrarlar (Mâide 5/119).
+B2|Dünyada geçici bir savaş kaybedilse de ebedî savaş kazanılmışsa kurtuluş elde edilmiştir.
+H2|Nebevî Teşhis: Hanîf Yaratılan İnsanlık
+INTRO|Sallâbî, bozulmanın bütün kavimleri kuşattığını Rasûlullah'ın (s.a.v.) bir hutbesiyle gösterir; aynı hutbe fıtratın aslen temiz olduğunu da hatırlatır.
+B1|Sallâbî, bozuk inançların istisnasız bütün kavimleri ve alanları kapladığını göstermek için bu hutbeyi nakleder; bölümün başındaki cümle hutbenin son kısmıdır.
+QUOTE|ch02-11
+B1|Sallâbî'ye göre hadis, insanlığın Allah'a şirk koşma noktasına düştüğüne, Allah'ın şeriatının bir kenara atıldığına ve semavî dinleri omuzlarında taşıması gereken ıslahçıların bile milletin sapmasına yardımcı olduğuna işaret eder.
+B2|Sapma tek bir alanda değil, birçok alanda birden gerçekleşmiştir.
+B1|Hadisin en ümit verici yanı, fıtratın aslının temiz olduğunu hatırlatmasıdır; bozulma sonradan, şeytanların müdahalesiyle gelmiştir.
+B1|Bizans'ın vergi tahsildarından Kisrâ'nın ilâhlık iddiasına, Hint kanun koyucusundan tahrif edilmiş kitapların şarihlerine kadar bölümde görülen her şey, o temiz fıtratın üzerine çekilmiş perdelerdir.
+B1|Sallâbî tabloyu bir ümitle bağlar; doğusundan batısına aynı karanlığı paylaşan bir dünyada vahyin inişi, o karanlığın tam ortasında yakılan ilk ışık olacaktı.
+H2|Bu Bölümün İbretleri
+INTRO|Bi'set öncesi dünya, ihtişam ile mutluluğun, bilgi ile kurtuluşun, dünyevî sonuç ile gerçek başarının aynı şey olmadığını öğretir.
+B1|Bir medeniyetin ihtişamı ile insanlığın mutluluğu aynı şey değildir.
+B2|Seksen bin kişilik arenalar kuran Bizans, çocuklarını satmak zorunda kalan Suriyelilerin üzerinde yükseliyordu.
+B2|Kendini ilâhların soyundan sayan Fars sultanları, savaşlarda yakıt olan halkların sırtında yaşıyordu.
+B2|Hindistan'da ise eşitsizlik bizzat dinî kanunun diliyle yazılmıştı.
+B1|Sallâbî'nin tespitleri, vahiy yerine hevânın ölçü alındığı her düzenin sonunda zayıfı ezen, güçlüyü kutsayan bir yapıya dönüştüğünü hatırlatır.
+B2|Cahiliye bu anlamda bir çağın adı olmaktan çok, her çağda yeniden kurulabilen bir hayat düzeninin adıdır.
+B1|Kitap ehlinin hikâyesi, hak bir dinin mensubu olmanın onu korumak anlamına gelmediğini gösterir.
+B2|Beşerî fikirler dine sızdığında din, aynı mabedin içinde birbirini tekfir eden, şehit ve veli heykelleri diken, eski bayramlara yeni adlar veren bir kalıba dönüşebilir.
+B1|Evlakî'nin anlattığı Medine Yahudileri başka bir tehlikeyi gösterir; beklenen peygamberin yurdunu bulmak için diyar diyar dolaşıp ona komşu olan bir topluluk, o geldiğinde bildiğini inkâr edebilmiştir.
+B2|Bilgi, teslimiyetle buluşmadıkça insanı kurtarmaz.
+B1|Necran'daki rahip ile genç, bu karanlıkta nasıl yaşanacağını öğretir.
+B2|Rahip davetin selâmeti için gizliliği seçmiş, ama vakti gelince testereye boyun eğmekten çekinmemiştir.
+B2|Genç, Allah'ın ona tekrar tekrar gösterdiği korumaya rağmen kendi canını halkının imanına anahtar yapmıştır.
+B1|Evlakî'nin ifadesiyle hiç kimse imtihandan geçmeden yüksek bir mertebeye ulaşamaz; imtihanın şiddeti de imanın derecesine göredir.
+B1|Burûc sûresinin ölçüsü başarıyı sonuçla değil, sadakatle tartar.
+B2|Hendek halkı, Yâsir ile Sümeyye ve Hz. Hamza, dünya gözüyle kaybetmiş görünenlerin aslında büyük kurtuluşa erdiğini haber verir.
+B1|Bölüm, Mekke'nin daha Rasûlullah (s.a.v.) doğmadan ilâhî bir koruma altında olduğuna dair ilk işaretleri de taşır.
+B2|Tubba Es'ad'ı uyaran iki haham hem Medine'yi hem Mekke'yi "Allah tarafından korunan belde" olarak tanıtmış, putların gölgesindeki Kâbe'nin bile hâlâ bir tevhid nişanesi olarak bilindiğini göstermişti.
+B1|Bütün insanlığın hanîf yaratıldığını bildiren hadis, karanlığın kalıcı olmadığını müjdeler.
+B2|Fıtrat temizdir; üzerindeki perdeler kaldırıldığında insan yeniden aslına döner.
+B1|Sonraki bölümler, o perdeleri kaldıracak çağrının hangi topraklarda ve hangi toplumun içinde yankılanacağını gösterecektir.

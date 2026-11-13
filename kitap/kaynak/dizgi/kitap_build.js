@@ -384,7 +384,7 @@ function buildMetin(lines, fnLines) {
 // ======================================================================
 //  KİTAP — Geniş Özet görünümü + düzyazı paragraflar, dipnotlar, kısım sayfaları, içindekiler
 //  Etiketler: COVER LEGEND TOC PART H1 UH1 H2 H3 INTRO P L B1 B2 KURAN HADIS KAVRAM SOZ
-//             TABLE ROW ENDTABLE SRCH SRC CLOSE PB   (+ dipnotlar.txt: FN|n|metin)
+//             TABLE ROW ENDTABLE NOTE SRCH SRC CLOSE PB   (+ dipnotlar.txt: FN|n|metin)
 // ======================================================================
 function buildKitap(lines, fnLines) {
   const footnotes = {};
@@ -415,7 +415,7 @@ function buildKitap(lines, fnLines) {
       margins: { top: 80, bottom: 80, left: 120, right: 120 }, verticalAlign: VerticalAlign.CENTER,
       children: [new Paragraph({ spacing: { before: 0, after: 0, line: 264, lineRule: LineRuleType.AUTO }, alignment: AlignmentType.LEFT,
         children: head ? [new TextRun({ text: txt, bold: true, color: "FFFFFF", size: 20 })]
-          : inline(txt, { size: 20, bold: i === 0, color: i === 0 ? TEAL : DARK }) })],
+          : inline(txt, { size: 20, bold: i === 0 && n > 2, color: i === 0 && n > 2 ? TEAL : DARK }) })],
     });
     const rows = [new TableRow({ tableHeader: true, cantSplit: true, children: table.header.map((t, i) => cell(t, i, BLUE, true)) })];
     table.rows.forEach((r, k) => rows.push(new TableRow({ cantSplit: true, children: r.map((t, i) => cell(t, i, k % 2 ? "F2F2F2" : "FFFFFF", false)) })));
@@ -534,6 +534,7 @@ function buildKitap(lines, fnLines) {
           border: { top: { style: BorderStyle.SINGLE, size: 12, color: GOLD, space: 12 } },
           children: [new TextRun({ text: rest, italics: true, color: GRAY, size: 22 })] }));
         break;
+      case "NOTE": body.push(...noteParagraphs(rest)); break;
       case "PB": body.push(pageBreak()); break;
       default: throw new Error("Bilinmeyen etiket (kitap): " + line.slice(0, 60));
     }

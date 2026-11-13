@@ -1,0 +1,271 @@
+QUOTE|ch10-61
+H2|Bölüme Bakış
+INTRO|Bu bölüm, Mekke'de bir neslin akîde, ibadet ve ahlâkla nasıl inşa edildiğini anlatır.
+B1|Dışarıdan bakana Mekke yılları durgun görünebilir; bu yıllarda kılıç çekilmedi, devlet kurulmadı, kanun konulmadı.
+B1|Oysa Dârü'l-Erkam'da, vadilerde gizlice kılınan namazlarda ve gece kıyamında okunan âyetlerde bir neslin Allah, âhiret ve nefis tasavvuru baştan inşa ediliyordu.
+B1|Sallâbî bu inşayı önce tâbi olduğu ilâhî kanunlarla, ardından Mekkî Kur'ân'ın sahâbenin zihninde düzelttiği inanç alanlarıyla inceler.
+B2|Sonra akîdenin günlük hayata dönüşünü ruh, akıl ve beden üçlüsüyle gösterir; çünkü nebevî terbiye insana bütün olarak hitap eden Kur'ân'dan beslenir.
+H2|Kâinatın Kanunları: Tedricîlik ve Değişim
+INTRO|Mekke'deki inşa, başta tedricîlik ve değişim olmak üzere ilâhî kanunlara göre yürüdü.
+B1|Sallâbî'ye göre devlet kurmak ve ümmetleri terbiye edip kalkındırmak; fertlere, halklara, ümmetlere ve devletlere hükmeden kanunlara bağlıdır.
+KAVRAM|💡 KAVRAM · RABBÂNÎ KANUNLAR|Her zaman ve mekânda insan hayatında işleyen sabit hükümlerdir.
+B1|Allah Rasûlü (s.a.v.) bu kanunlarla hikmet ve üstün bir basiretle çalışmıştır.
+B1|Muhammed Kutub'a göre Allah bu dinin ve kâinatın işleyişini harikulâde değil, cârî kanunlara göre yürütür (Vâkıunâ'l-Muâsır, 414).
+B2|Böylece sonraki nesiller, ilk Müslümanların olağanüstü yollarla kazandığını ve vahiy kesilince bunun bittiğini söyleyip geri kalamaz.
+B1|Bu kanunları iyi okuyan Müslüman, sebeplere sarılmadan yalnızca Müslümanlığına güvenmez; çünkü dava rastgele yerleşmez, sebepsiz yardım inmez, göz kapatarak aranan bulunmaz.
+B1|Sallâbî'nin aktardığı Hasan el-Bennâ, çoğunlukla galip gelen kevnî kanunlarla çarpışmamayı; onları yenmenin yolunu arayıp kullanmayı, akımlarını kendi yönüne çevirmeyi, birine karşı ötekinden yardım almayı ve yakın zafer saatini beklemeyi öğütler (Risâletü'l-Mü'temeri'l-Hâmis, 127).
+B1|Sallâbî'ye göre bu seviye siyeri, İslâm tarihini ve milletlerin tecrübelerini derinden araştırmayı, ortamı tanımayı ve hastalıkla ilacını eksiksiz teşhis etmeyi gerektirir.
+B1|Bu kanunların en önemlilerinden biri tederrüc sünnetidir.
+KAVRAM|💡 KAVRAM · TEDERRÜC|Hedefe basamak basamak ulaşma sünnetidir.
+B1|Sallâbî'ye göre başlangıç noktası yolun uzunluğudur; cahiliyenin hâkim olduğu dönemde halklarda kökleşen şer ve fesadı sökmek bu sünnete muhtaçtır.
+B1|İlk İslâm daveti de tedricen ilerledi.
+TABLE|Merhale|Mahiyeti
+ROW|Birinci|Seçme ve temel atma
+ROW|İkinci|Direniş ve karşı karşıya gelme
+ROW|Üçüncü|Zafer ve davanın yerleşmesi
+ENDTABLE
+B1|Bütün aşamalara aynı anda başlamak âcizlik ve meşakkat, birini öbürünün önüne almak karışıklık doğururdu.
+B1|Davanın bir gecede yerleşeceğini sananlar, ortamı anlamadan ve hazırlanmadan durumu bir anda değiştirmek ister.
+B1|Oysa bir andan kısa sürede yaratmaya kadir olan Allah gökleri ve yeri altı günde yaratmıştır; insan, hayvan ve bitkinin yaratılışı da merhalelidir.
+B1|Namaz, oruç ve zekât da aşama aşama son şeklini almıştır.
+B1|Karadâvî'ye göre tedricîlik, İslâm'ın doğduğunda bütün dünyaya hâkim olan köleliği bir anda kaldırmaya kalkışmamasını gerektirdi; bu, sosyal ve ekonomik hayatta deprem doğururdu (el-Hasâisu'l-Âmme li'l-İslâm, 166-168).
+B2|İzlenen yol köleliği besleyen kanalları daraltmak, önüne set çekmek ve azat yollarını sonuna kadar genişletmek, yani onu tedricen kaldırmaktı.
+B1|Allah Rasûlü on üç yıl Mekke'de kalıp dava yükünü ve cihadın zorluklarını taşıyacak mümin nesli yetiştirdi; Mekke dönemi bir yasama değil, terbiye ve inşa dönemiydi.
+B1|İkinci büyük kanun değişim kanunudur; Sallâbî'ye göre zillet hayatını seçip başına geleni değiştirmeye girişmeyen bir ümmet yeryüzünde yerleşemez.
+B1|Kur'ân bu kanunu şöyle ilân eder.
+QUOTE|ch10-62
+B1|İslâm ilk gün inançlar, düşünceler, değerler, ölçüler, kanunlar, nizamlar, çıkarlar ve ırkçılıklardan oluşan büyük engellerle karşılaştı.
+B1|Yeni din akîde ve ahlâkla birlikte nizam ve kanunları da değiştirmek, insanlığın önderliğini tâğutlardan alıp Allah'a ve İslâm'a iade etmek istiyordu.
+B1|Allah Rasûlü'nün değişimi nefislerin eğitimiyle başladı; arkadaşlarının inanç, fikir, şuur ve ahlâkını değiştirip içlerinden çok büyük insanlar yetiştirdi.
+B1|Önce iç dünyalar, sonra Medine ve Mekke, ardından Arap yarımadası, nihayet Fars ve Rum imparatorlukları değişti.
+B1|Bölüm başındaki âyetin ölüm ile hayatı, karanlık ile aydınlığı karşılaştırması bu değişimin büyüklüğünü anlatır.
+SOZ|💬 SALLÂBÎ|"Mesafe korkunç, nakil büyüktü."|
+H2|Akîdenin Tashihi: Tevhid, Risalet ve Gayb
+INTRO|Mekkî Kur'ân, sahâbenin Allah, peygamberler, melekler ve kitaplar hakkındaki tasavvurunu düzeltti.
+B1|Sallâbî'ye göre bi'setten önce sahâbenin düşüncesi kusurluydu; Allah'ın isim ve sıfatlarında haktan sapmış, bazı sıfatları inkâr ediyor, O'nu uygunsuz ya da bozuk manalı isimlerle anıyorlardı.
+B1|O'na çocuk ve ihtiyaç gibi eksiklikler nispet ediyor, melekleri Allah'ın kızları sayıyor, cinleri O'na ortak koşuyorlardı.
+B1|Kur'ân bu sapmayı haber verir (En'âm 6/100) ve "En güzel isimler Allah'ındır; O'na o isimlerle dua edin" diyerek düzeltir (A'râf 7/180).
+B1|Mekkî Kur'ân ibadete lâyık olanı tanıttı ve Allah Rasûlü (s.a.v.) ashâbı bu âyetlerle terbiye etti.
+B1|Bu tasavvurda Allah her eksiklikten münezzeh, sonsuz kemal sıfatlarıyla muttasıf, tek ve ortaksızdır; her şeyin yaratıcısı, sahibi ve yöneticisidir.
+B1|Açık gizli bütün nimetlerin kaynağı O'dur; ilmi her şeyi kuşatır, yerde ve gökte hiçbir şey O'na gizli kalmaz.
+B1|Amelleri meleklerine eksiksiz bir kitapta kaydettirir, kullarını asaletleri ortaya çıksın diye sevmedikleri imtihanlarla dener ve kendisine sığınana yardım eder.
+B1|"Yaratmak da emretmek de O'na aittir" (A'râf 7/54); ölümü ve hayatı, kimin daha güzel amel edeceğini sınamak için yaratmıştır (Mülk 67/2).
+B1|Allah'ın kullar üzerindeki hakkı, yalnız O'na ibadet edip hiçbir şeyi ortak koşmamalarıdır; "Yalnız Allah'a kulluk et ve şükredenlerden ol" (Zümer 39/66).
+B1|Sallâbî'ye göre tevhid üzerine bu olgun terbiye, İslâm'ın üzerine kurulduğu esas ve bütün peygamberlerin metodudur.
+TABLE|Peygamber|Kavmine çağrısı
+ROW|Hz. Nûh|"Ben sizin için apaçık bir uyarıcıyım; Allah'tan başkasına tapmayın" (Hûd 11/25-26).
+ROW|Hz. Hûd, Hz. Sâlih ve Hz. Şuayb|"Ey kavmim! Allah'a kulluk edin" (Hûd 11/50, 61, 84).
+ROW|Hz. Îsâ|"Allah benim de Rabbim, sizin de Rabbinizdir; öyleyse O'na kulluk edin" (Âl-i İmrân 3/51).
+ENDTABLE
+B1|Kur'ân bu ortak çağrıyı tek âyette toplar.
+QUOTE|ch10-63
+B1|Bu terbiyeyle sahâbe ulûhiyet, rubûbiyet ve isim-sıfat tevhidine aykırı her şeyden arındı.
+B1|Allah'tan başkasını hakem tanımadılar, O'nun rızası dışında kimseye itaat etmediler; hiçbir şeyi Allah'ı sevdikleri gibi sevmediler, O'ndan başkasından korkmadılar.
+B1|Allah'tan başkasına tevekkül etmediler, sığınmadılar, kurban kesip adak adamadılar; yalnız O'ndan yardım dilediler.
+B1|Başkası için rükû, secde ve tavaf etmediler; sıfatlarına tahrif ve teşbih yapmadan, O'nu hiçbir şeye benzetmeden iman ettiler.
+B1|Mekkî Kur'ân, Peygamber'in "bütün insanlara müjdeleyici ve uyarıcı" gönderildiğini bildirerek risaletin evrenselliğini yerleştirdi (Sebe 34/28).
+B2|Ahkâf sûresi cinlerden bir grubun Kur'ân'ı dinleyip kavimlerine uyarıcı olarak döndüğünü anlatır; pek çok âyet risaletin insanlara ve cinlere şâmil olduğunu gösterir.
+B1|Melekler hakkındaki inanç da düzeltildi; onlar Allah'ın yarattıklarındandır, O'na secde eder, ibadetten büyüklenmez, şirkten uzaktır ve O'nun emri olmadan kimseye zarar ya da fayda veremez (Fâtır 35/1).
+B1|Kur'ân'ın dura dura okunsun diye âyet âyet indirildiği (İsrâ 17/106), sözün en güzeli, birbiriyle uyumlu ve tekrar tekrar okunan bir kitap olduğu bildirildi (Zümer 39/23).
+B1|Önceden Tevrat, İncil ve Zebur'un (İsrâ 17/55; Âl-i İmrân 3/3) ve kıssası anlatılan ya da anlatılmayan pek çok peygamberin gönderildiği de bildirildi (Zuhruf 43/6; Gâfir 40/78).
+H2|Gözle Görülür Gibi: Cennet ve Cehennem
+INTRO|Mekkî Kur'ân âhiret inancını cennet ve cehennem tablolarıyla kalplere yerleştirdi.
+B1|Sallâbî'ye göre kıyametin hâllerinden söz etmeyen Mekkî sûre neredeyse yoktur; insanlar o günü sanki gözleriyle görüyordu.
+B1|Cennetin ilk dikkat çeken yanı benzersizliğidir; Allah nimetlerinin azını bildirmiş, akılların idrak edemediği çoğunu saklamıştır.
+B1|Bu mükâfatın sebebi, Allah'ın kullarını gece kıyamı ve infak gibi büyük amellere muvaffak kılmasıdır.
+QUOTE|ch10-64
+B1|Cennet ehli amellerine ve Allah'ın verdiği başarıya göre derece derecedir (Tâhâ 20/75; İsrâ 17/21); müminlere, imanda onlara uyan nesilleri de katılır (Tûr 52/21).
+B1|Orada bozulmayan su, tadı değişmeyen süt, içenlere lezzet veren şarap ve süzme bal ırmakları akar (Muhammed 47/15).
+B1|İyilerin kadehine Kâfûr pınarından, Allah'a yakın olanlarınkine Tesnîm'den katılır (İnsân 76/5-6; Mutaffifîn 83/22-28).
+B1|Cennet içkisi dünya içkilerinin ayıplarından temizdir; ne baş ağrıtır ne akıl giderir (Vâkıa 56/17-19).
+B1|Ebû Saîd el-Hudrî'nin (r.a.) rivayetine göre cennet ehlinin elbiseleri Tûbâ ağacının çiçek kapakçıklarından çıkar; Allah Rasûlü (s.a.v.) de cennette, gölgesinde binicinin yüz yıl yürüdüğü bir ağaç bulunduğunu bildirir (Buhârî, 3252; Müslim, 2826; Ahmed, 3/71).
+B1|Cennete ilk giren zümre dolunay gecesindeki ay, sonrakiler en parlak yıldız gibidir; orada abdest bozma, tükürme ve sümkürme yoktur, yenilen misk kokulu tere dönüşür (Buhârî, 3327; Müslim, 2834; ayrıca Müslim, 2835; Ebû Dâvûd, 4741).
+B1|Kapları altın ve gümüştendir; altın bilezikler, inciler ve ipek elbiseler giyerler (Fâtır 35/33; Buhârî, 3246; Müslim, 2834).
+B1|Cennete giren sıkıntı çekmez, elbisesi eskimez, gençliği tükenmez (Müslim, 2836; Ahmed, 2/269; Dârimî, 2861).
+B1|Gönüllerindeki kin sökülmüş kardeşler olarak tahtlarda karşılıklı otururlar (Hicr 15/47); mümin eşler orada da bir aradadır ve melekler onları her kapıdan selâmlar (Ra'd 13/23).
+B1|Ebû Saîd el-Hudrî'nin rivayetine göre Allah onlara rızâsını indirip ebediyen gazap etmeyeceğini bildirecektir (Buhârî, 6549; Müslim, 2829).
+B1|Onlara verilen en sevimli nimet ise perdenin kalkmasıdır.
+QUOTE|ch10-65
+B1|Allah Rasûlü'nün vasfıyla sahâbe cenneti gözlerinin önünde serilmiş gibi görür, şu an görülen bir şeyden etkilenir gibi etkilenirdi.
+B1|Sallâbî'ye göre bu kesin inanç ümmetin dirilişi için de önemlidir; cennet manzarası nefsinde canlanan insan Allah'ın rızasına koşar, her şeyini harcar, vehnden ve ölüm nefretinden kurtulur.
+B1|Sallâbî bu şevki ümmetin büyük zaferlerinde de görür.
+TABLE|Zafer|Bu ruhla savaşanlar
+ROW|Zellâka (Endülüs)|Yûsuf b. Tâşfîn'in Murâbıtları
+ROW|Hıttîn|Selâhaddin'in askerleri
+ROW|Aynicâlût|Kutuz'un ordusu
+ROW|İstanbul'un fethi|Fâtih ve askerleri
+ENDTABLE
+B1|Kur'ân dünyanın fâniliğini de öğretiyordu; bir gelin gibi süslenip sahiplerinin güç yetirdiğini sandığı yeryüzünü Allah'ın emri dün hiç yokmuş gibi biçilmiş bir tarlaya çevirir (Yûnus 10/24).
+B1|Ashâb Allah'tan hem korkar hem ümit ederdi.
+B1|Kur'ân yeryüzünün parçalanması, göklerin dürülmesi ve dağların ufalanması gibi korkunç manzaraları anlatır.
+B2|Kâfirlerin zillet ve hasretini, tâbi ile önderin ve kâfir ile şeytanın çekişmesini, şefaati, hesabı, terazileri ve sıratı da anlatır.
+B1|Cehennem ehlinin yemeği ne besleyen ne doyuran kuru dikendir (Ğâşiye 88/6-7); günahkâr karınlarda maden eriyiği gibi kaynayan zakkumu yer (Duhân 44/43-46) ve üstüne susamış develer gibi kaynar su içer (Vâkıa 56/51-55).
+B1|Azap derece derecedir; Allah Rasûlü'ne göre ateş ehlinin en hafif azap göreni, ayaklarının altına konan bir közle beyni kaynayan kişidir (Buhârî, 6561-6562; Müslim, 213).
+B1|Suçlular yüzüstü sürüklenir (Kamer 54/47-48), ateş onları üstten ve alttan kuşatır (Ankebût 29/55) ve kalplere tırmanan Hutame'ye atılırlar (Hümeze 104/4-7).
+B1|Orada "Rabbimiz! Bizi çıkar da yaptığımızın yerine iyi işler yapalım" diye feryat edenlere, düşünecek kadar ömür verildiği ve uyarıcı geldiği hatırlatılır (Fâtır 35/37).
+B1|"Şayet kulak vermiş veya aklımızı kullanmış olsaydık" diye hayıflanır (Mülk 67/10), şeytan arkadaşlarına "Keşke benimle senin aranda doğu ile batı arası kadar mesafe olsaydı" derler (Zuhruf 43/38).
+B1|Sallâbî'ye göre Mekkî Kur'ân Müslümanı Allah'ın azabından korkmaya da eğitti; ashâb cennet ve cehennemin fotoğrafını hafızasında canlı tutuyor, kalpleri her hâlde murâkabe şuuruyla doluyordu.
+B1|Bu yüzden bütün gayretlerini davete, cihada ve şeriatla hükmedecek bir devlet kurmaya harcadılar; Allah'tan onları peygamberler, sıddîklar, şehitler ve salihlerle beraber kılmasını dilediler.
+H2|Kader, İnsanın Hakikati ve Şeytan
+INTRO|Mekkî terbiye kader inancını yerleştirdi, insana hakikatini tanıttı ve onu şeytana karşı uyardı.
+B1|Allah Rasûlü (s.a.v.) "Biz her şeyi bir ölçüye göre yarattık" (Kamer 54/49) âyetinin ışığında kader inancını dört mertebeyle yerleştirdi.
+TABLE|Mertebe|Anlamı
+ROW|İlim|Yerde ve gökte zerre ağırlığınca hiçbir şey Allah'a gizli kalmaz (Yûnus 10/61).
+ROW|Kitâbet|Her iş ve bırakılan her iz apaçık bir kitapta yazılıdır (Yâsîn 36/12).
+ROW|Meşîet|Göklerde ve yerde Allah'ı âciz bırakacak hiçbir güç yoktur (Fâtır 35/44).
+ROW|Halk|Allah her şeyin yaratıcısı ve vekilidir (En'âm 6/102).
+ENDTABLE
+B1|Sallâbî'ye göre bu inanç sahâbede güzel meyveler verdi.
+B2|Kadere iman, Allah'ın istediği bir iman olduğundan ibadettir; fayda ve zarar verenin, aziz ve zelil kılanın yalnız Allah olduğuna inanmak şirkten kurtarır.
+B2|Ecelin Allah'ın elinde olduğuna ve her canın bir yazgısı bulunduğuna inanmak şecaat doğurur, zorlukta sabrı ve ecri Allah'tan beklemeyi kolaylaştırır; sahâbedeki eşsiz kalp huzuru buradandır.
+B2|Rızkın Allah'ın elinde olduğunu bilen kanaate ve izzet-i nefse ulaşır, başkasının elindekine göz dikmez ve yaratılmışların köleliğinden kurtulur.
+B1|Kur'ân insana Rabbini ve kıyameti tanıttıktan sonra nefsini de tanıtıp "nereden geldim, nereye gidiyorum" sorularını cevapladı.
+B1|Sahâbe insanın uzak aslının çamur olduğunu, Allah'ın onu şekillendirip ruhundan üflediğini, yakın aslının ise bir damla su olduğunu öğrendi (Secde 32/7-9).
+B1|İnsanın Rabbi katındaki değerini de tanıdılar.
+TABLE|İnsana verilen şeref|Âyet
+ROW|Meleklerin Âdem'e secdesi|Sâd 38/71-75
+ROW|En güzel şekilde yaratılması|Tîn 95/4
+ROW|Beyanın öğretilmesi|Rahmân 55/1-4
+ROW|Gece ve gündüzün, güneş ve ayın hizmetine verilmesi|Nahl 16/12
+ROW|Peygamberlerin gönderilmesi ve koruyucu melekler|İnfitâr 82/10
+ENDTABLE
+B1|Böylece sahâbe şerefiyle kendini aziz görürken aslıyla tevazu etti; kibirden kurtuldu, izzeti de onu Allah'tan başkasına boyun eğmekten alıkoydu.
+B1|Sallâbî'ye göre hidayetten mahrum insan ya Âd kavmi ve Firavun gibi kendini en büyük varlık sanıp ifrata, ya da ağaç, taş, nehir ve hayvan önünde eğilip tefrite düşer.
+B1|Kur'ân ise insanın yerini şöyle belirler.
+QUOTE|ch10-66
+B1|Sahâbeye göre insanın şerefi, yalnız Allah'a kul olup putlara ve insanlara kulluktan kurtulmasındadır.
+B1|Allah Rasûlü onlara Şeytan ile Âdem'in kıssasını anlatarak insanın gaddar düşmanıyla mücadelesinin hakikatini açıklıyordu.
+B1|Sallâbî'ye göre bu kıssa, insanlığın babası Âdem'in başka bir canlıdan tedricen gelmeyip kâmil bir insan olarak çamurdan yaratıldığını öğretir.
+B1|Melekler, emir âlemlerin Rabbinden geldiği için tereddütsüz secde etti; Allah'ın emrini hikmetini bilmeye bağlamadan yerine getirmek İslâm'ın özüdür.
+B1|İnsan tabiatındaki günaha meyilli zaafların en gizlisi ebedî yaşama arzusudur; İblis Âdem'e bu kapıdan, ağacın melek olmak ya da ebedî kalmak için yasaklandığını söyleyerek yaklaştı.
+B1|Şeytanın önden, arkadan, sağdan ve soldan geldiğini bilen sahâbe (A'râf 7/16-17), daima uyanık kalıp ona yol vermemek için hayırlara koştu.
+B1|İblisi düşüren haset ve kibirdi; günahların başlangıcı da kibirdir.
+B1|Allah Rasûlü "Kalbinde zerre kadar kibir bulunan cennete giremez" buyurmuştur (Müslim, 91; Ahmed, 1/399, 1/451; Ebû Dâvûd, 4091; İbn Mâce, 59).
+KAVRAM|💡 KAVRAM · KİBİR|Sallâbî'nin açıklamasıyla hakkı inatla reddetmek ve insanları hor görmektir.
+B1|"Ben ondan daha hayırlıyım; beni ateşten, onu çamurdan yarattın" diyen İblis aslıyla övünmüştü (A'râf 7/12).
+B2|Sahâbe ise övünmenin soy sopla değil takvâ ve itaatle olduğunu öğrendi ve "Kendinizi temize çıkarmayın" (Necm 53/32) uyarısını unutmadı.
+B1|Şeytanın insanla ilişkisi sırf düşmanlıktır ve bunu kaldıracak bir barış yoktur; Kur'ân "siz de onu düşman sayın" der (Fâtır 35/6).
+B1|Ona karşı en önemli silahlar, aralarını bozmasın diye sözün en güzelini söylemek (İsrâ 17/53) ve kötülüğü en güzel tutumla savmaktı (Mü'minûn 23/96-98).
+H2|Ruhun Tezkiyesi: Namaz, Zikir ve Dua
+INTRO|Akîde, tefekkür, namaz, zikir ve duayla beslenen bir ruh terbiyesiyle desteklendi.
+B1|Sallâbî'ye göre Allah Rasûlü (s.a.v.) ashâbını önce kâinat, mahlûkat ve Allah'ın kitabı üzerinde tedebbüre yöneltti ki yaratıcının büyüklüğünü ve hikmetini kavrasınlar.
+B1|Ardından O'nun ilminin, bir yaprağın düşüşünü bile kuşattığını düşünmeye çağırdı (En'âm 6/59); bu düşünce ruhu Allah'ın yüceliğiyle doldurup şüphelerden temizler.
+B1|Üçüncü ve en büyük yol ibadettir; çünkü ibadet Allah'a boyun eğmenin son haddidir ve O'ndan başkası buna lâyık değildir.
+TABLE|İbadetin çeşidi|Kapsamı
+ROW|Farz ibadetler|Tahâret, namaz, oruç, zekât ve hac
+ROW|Geniş anlamıyla ibadet|Allah rızası niyetiyle yapılan ve şeriata uyan her amel ve terk, hatta Allah'a yaklaşmak için yönelinen her duygu
+ENDTABLE
+B1|Arınmayan ve Rabbine bağlanmayan nefis sorumluluklarını taşıyamaz; ibadet ruha yakıt, azık ve harekete geçirici güç verir.
+B1|Sallâbî'nin delili, Allah Rasûlü'ne inen üçüncü sûredeki gece namazı, zikir ve Kur'ân okuma emridir.
+QUOTE|ch10-67
+B1|Sallâbî'ye göre ağır işlere ve zor yükümlülüklere hazırlık gece kıyamı, zikir ve tilavetle olur.
+B1|Kâfirlerin açıkça namaza izin vermeyeceğini anlayan Allah Rasûlü ashâbıyla Dârü'l-Erkam'a girdi, orada namaz kıldı ve onlara Allah'ın kitabını öğretti.
+B1|İbadetle arınma bu kadar önemli olmasaydı korku zamanında namazı bırakmalarını emrederdi; oysa Kureyş yerlerini keşfettikten sonra bile namazı ve tilaveti bırakmadılar.
+B1|Mekkî âyetler namazdaki huşûyu över (Mü'minûn 23/1-4), gündüzün iki ucunda ve gecenin ilk saatlerinde namazı emreder (Hûd 11/114), gece nafilesinin övülen makama götüreceğini bildirir (İsrâ 17/78-79) ve aileye sabırla namazı emretmeyi ister (Tâhâ 20/132).
+B1|Demek ki darlık zamanlarında hazırlık çok namaz, çok zikir, çok tilavet ve çok duadır.
+B1|İlk Müslümanlar namazın her hareketinde ayrı bir kulluk manası görüyordu.
+TABLE|Namazın parçası|Taşıdığı mana
+ROW|"Hamd âlemlerin Rabbi Allah'a mahsustur"|Bütün kemal sıfatlarını Allah'a ispat
+ROW|"Yalnız sana kulluk eder, yalnız senden yardım dileriz"|Tevhidi ikrar ve başkasından yardım dilemenin zillet olduğunu bilmek
+ROW|"Bizi doğru yola ilet"|Hidayete ve onda sebata muhtaçlığın itirafı
+ROW|Rükû|Kalbin ve azaların tevazuunu birleştiren yüceltme
+ROW|Secde|En şerefli azayı Allah için yere koymak ve kalbin de bedenle secdeye kapanması
+ROW|Oturuş|Rabbin huzurunda diz çöküp işlenenler için özür ve af dilemek
+ENDTABLE
+B1|Allah Rasûlü "Kulun Rabbine en yakın olduğu an secdede olduğu andır; öyleyse çok dua edin" buyurmuş (Müslim, 482), Kur'ân da "Secde et ve yaklaş" demişti (Alak 96/19).
+B1|Namaz aynı zamanda kulun Rabbine münâcâtıydı.
+QUOTE|ch10-68
+B1|Ashâb bundan, yardım dileyenin yönelişiyle ve huzurda durma arzusuyla yapılan münâcâtın nefsi arındırıp imanı güçlendiren en büyük sebeplerden olduğunu öğrendi.
+B1|Namaz nefse sükûnet de veriyordu; Allah Rasûlü'ne zor ve büyük bir şey isabet edince namaz kılardı, gözünün aydınlığı namazdaydı.
+B1|Namaz "hayâsızlıktan ve kötülükten alıkoyar" (Ankebût 29/45); Sallâbî'ye göre onları günahlardan koruyan sağlam bir tel örgü gibiydi.
+B1|Allah Rasûlü'nün "Namaz nurdur" sözü de bu anlamdadır (Müslim, 223; Tirmizî, 3517; Nesâî, 5/5; İbn Mâce, 280); namaz yolu aydınlatır, kalpte münâcât lezzetiyle parlar, yüzde görünür ve kıyamette sahibine nur olur (Hadîd 57/12).
+B1|Zikir, dua ve tilavet de ruhun gıdasıydı; kudsî bir hadiste Allah, "Ben kulumun zannı yanındayım; beni andığı zaman onunla beraberim... Bana yürüyerek gelirse ben ona koşarak giderim" buyurur (Buhârî, 7405; Müslim, 2675).
+B1|Ashâbın en büyük zikri Kur'ân tilavetiydi; Kur'ân onları şifa ve rahmet olarak tedavi ediyordu (İsrâ 17/82) ve kalplerin ancak Allah'ı anmakla huzur bulduğunu öğrenmişlerdi (Ra'd 13/28).
+B1|"Dua, ibadetin ta kendisidir" buyuran Allah Rasûlü (Ebû Dâvûd, 1479; Tirmizî, 3372; İbn Mâce, 3828; İbn Hibbân, 887), sabah akşam, eve girip çıkarken, çarşıya giderken, yerken, içerken ve giyinirken okunacak dualar öğretti.
+B2|Keder anında okunacak "Azîm ve Halîm olan Allah'tan başka ilâh yoktur" duası da bunlardandır (Buhârî, 6345; Müslim, 2730).
+B1|Böylece onlara her hastalığa karşı sürekli korunma ve sıkıntı anlarında şifa veren ilaç kazandırdı.
+H2|Aklın ve Bedenin Terbiyesi
+INTRO|Nebevî terbiye ruhla birlikte aklı ve bedeni de eğitti.
+B1|Akıl, Allah'ın teklife sebep kıldığı ve insanı davet yükünü taşımaya ehil kılan güç olduğundan bu terbiye sahâbenin düşünme, tefekkür ve tedebbürünü geliştirdi.
+B1|"Hakkında bilgin olmayan şeyin ardına düşme" (İsrâ 17/36) uyarısı bu terbiyenin özüdür.
+B1|Sallâbî akıl terbiyesinin beş unsurunu sayar.
+TABLE|Unsur|Âyet
+ROW|Aklı zan, tahmin ve taklide dayalı kabullerden arındırmak|Necm 53/28
+ROW|Gelen haberin doğruluğunu araştırmak|Hucurât 49/6
+ROW|Göklerin ve yerin hak ile yaratıldığını düşünmek|Hicr 15/85
+ROW|Şer'î hükümlerin hikmetini tefekkür etmek|En'âm 6/119
+ROW|Geçmiş ümmetlerin âkıbetinde Allah'ın kanunlarını görmek|Rûm 30/9
+ENDTABLE
+B1|Kur'ân kâinatı da düşünmeye çağırdı; yedi gök, yer ve içlerindeki her şey O'nu tesbih eder (İsrâ 17/44), rızkını taşımayan nice canlıyı Allah rızıklandırır (Ankebût 29/60) ve hayvanlar birer topluluktur (En'âm 6/38).
+B1|Bu âyetler aklı rabbânî bakışla kullanmayı öğretirken sahâbeyi, aklı kutsallaştırıp ona hak ettiğinden fazlasını veren felsefecilerin bataklığından da koruyordu.
+B1|Allah Rasûlü (s.a.v.) ashâbını bedence de terbiye etmek istedi; amaç, sınırı aşmadan ve bir yönü öbürüne feda etmeden her azanın vazifesini görmesiydi.
+B2|Bunun usulünü "Allah'ın kulları için çıkardığı süsü ve temiz rızıkları kim haram kıldı?" âyetinden aldı (A'râf 7/32).
+B1|Bedenî ihtiyaçlarını karşılayan insan Allah'a kulluk, yeryüzünü imar ve hayırda yardımlaşma vazifelerini görebilir; Kur'ân bu ihtiyaçları tek tek düzenledi.
+TABLE|İhtiyaç|Kur'ân'ın düzenlemesi
+ROW|Yeme içme|İsraf etmeden yiyip içmek (A'râf 7/31)
+ROW|Giyim ve mesken|Avreti örten, sıcaktan ve soğuktan koruyan giyim; huzur ve sükûn yeri olan evler (Nahl 16/80)
+ROW|Evlilik|Nikâhın helâl, zinanın haram kılınması (Mü'minûn 23/5-7)
+ROW|Mal|Meşrû yoldan edinip Allah yolunda harcamak (Hadîd 57/7)
+ENDTABLE
+B1|Zulmü ve haddi aşmayı yasaklayıp adaleti ve iyiliği emretti (Nahl 16/90); meşrû ve zararsız çalışmayı istedi, refahla şımaran memleketlerin helâkini hatırlatarak nimetle aldanmaktan sakındırdı (Kasas 28/58).
+B1|Bütün bunlar, cihadın yükünü ve hayatın zorluğunu taşıyacak dengeli bir şahsiyet hazırlamak içindi.
+H2|Akîdenin Meyvesi: Ahlâk
+INTRO|Mekke'de yerleşen akîde, hayatın her alanını kuşatan bir ahlâkla meyvesini verdi.
+B1|Sallâbî'ye göre üstün ahlâk akîdenin önemli bir parçasıdır ve sahih akîde ahlâksız olmaz.
+B1|Ashâb, Allah Rasûlü'nün (s.a.v.) okuduğu âyetleri dinleyip düşündükçe onlarla amel ediyordu; Mekkî âyetler güzel ahlâka teşvik ve ruhun yükselişine engel her şeyden arınma çağrısıyla doludur.
+B1|Sallâbî İslâm ahlâkının üç sabitesini sayar.
+TABLE|Sabite|Açıklama
+ROW|Kaynak|Yalnız Allah'tır; fıtratla uyuşan ve akl-ı selîme uygun ahlâkî değerleri O koyar.
+ROW|Mahiyet|Ahlâk kendisine bağlanılan bir dindir; sırf ferdî fazilet, sosyal âdâb ya da medenî zevk değildir.
+ROW|Sebat|Hayatın köklü değerleridir; tâğutların onlarla oynamasına ve onları hevâlarına göre şekillendirmesine izin verilmez.
+ENDTABLE
+B1|Ona göre akıl ve örf tek başına ölçü olamaz; akıl çevreden, şartlardan ve hevâdan etkilenir, örf ise nesilden nesile ve memleketten memlekete değişir.
+B1|Sallâbî'ye göre Allah Rasûlü'nün davet hedeflerinden biri insanları şeriatın maksatlarına döndürmekti; bunların merkezinde dinin koruduğu beş zarurî esas vardır (Şâtıbî, el-Muvâfakāt, 2/8).
+TABLE|Zarurî esas|Korunması
+ROW|Din|Allah'a ortak koşmamak, dosdoğru yola uymak, şeytanın yollarından sakınmak; Allah Rasûlü dini amel, davet, cihad ve hükümle korudu.
+ROW|Can|Haksız yere cana kıymak ve fakirlik korkusuyla çocuk öldürmek haram kılındı; kısas ve şahitlik şartı gibi tedbirler konuldu.
+ROW|Nesil|Kötülüklerin açığına da gizlisine de yaklaşmamak emredildi, zina hayâsızlık olarak yasaklandı (İsrâ 17/32); ümmetin gücü neslin korunmasındadır.
+ROW|Mal|Yetim malına en güzel şekilde yaklaşmak, ölçü ve tartıda adalet emredildi; mala tecavüz ve onu zayi etmek haram kılındı, borç şahitle güvenceye alındı.
+ROW|Akıl|Hükümlerin muhatabı akl-ı selîm sahibi olduğundan aklı bozan ve ona zarar veren her şey haram kılındı.
+ENDTABLE
+B1|Sallâbî'ye göre övülen ahlâka teşvik ve yerilen ahlâktan sakındırmada en kapsamlı âyetler İsrâ sûresindedir; bu manzume tevhidle başlar ve hemen aileye geçer.
+B1|Tevhidin başa konması tesadüf değildir; ona icabet adalete, insafa ve dürüstlüğe dönüş, ondan yüz çevirmek ise hakkı kabulde kibirlenme ve bâtıl alışkanlıklarda donup kalma bataklığıdır.
+QUOTE|ch10-69
+B1|Âyetler ardından akrabaya, yoksula ve yolcuya hakkını vermeyi, malı saçıp savurmamayı ve cimrilik ile büsbütün eli açıklık arasında itidali emreder, savuranları şeytanların kardeşi sayıp bu huydan nefret ettirir (İsrâ 17/26-29).
+B1|Verecek bir şey yokken bile gönül alıcı söz istenir; Sallâbî'ye göre insanlar çoğu zaman güzel sözü, başa kakılan maddî şeye tercih eder.
+B1|Sonra geçim endişesiyle çocukları öldürmemek, zinaya yaklaşmamak, haksız yere cana kıymamak, yetim malını korumak, sözü yerine getirmek, ölçü ve tartıyı doğru yapmak, bilinmeyenin ardına düşmemek ve böbürlenerek yürümemek emredilir (İsrâ 17/31-37).
+B1|Kur'ân kıssaları da tarihçiye yarayan anlatılar değil, üstün ahlâkı hatırlatan ve ümmetleri helâke götüren kötü ahlâktan nefret ettiren derslerdir.
+B1|Sallâbî bunun güzel bir örneğini Hz. Yûsuf'un kıssasında görür.
+B2|Âlimlere göre ümmetin işi belli ahlâklara sahip ıslahatçılar ve faziletli rehberler eliyle düzene girer; bu hasletler peygamberler için kırk sayılmış, faziletli yöneticiler için bir kısmıyla yetinilmiştir.
+B1|Mülkü ve nübüvveti kendinde toplayan Hz. Yûsuf'ta bunların önemlileri görülür.
+TABLE|Haslet|Yûsuf sûresindeki yeri
+ROW|Nefsini zaptetmek ve iffet|12/24
+ROW|Kardeşlerinin iftirası karşısında öfkesini içine gömen hilim|12/77
+ROW|Yumuşaklık ile sertliği yerinde kullanmak|12/59
+ROW|Rabbine dayanarak kendine güvenmek|12/55
+ROW|Kardeşlerini görür görmez tanıyan güçlü hafıza|12/58
+ROW|On bir yıldızın secde ettiği rüyadaki tasavvur gücü|12/4
+ROW|Yedi yıllık kıtlığa karşı alınan güzel tedbir|12/47
+ENDTABLE
+B1|Sallâbî'ye göre güçlü hafıza yöneticinin işleri ve insanları tanımasını, tasavvur gücü ise her şeyi açık seçik ortaya koymasını sağlar.
+B1|Ona göre ahlâk dinde ikinci planda değil, itikadın ve sahih imanın pratik tercümesidir; çünkü iman kalpte gizli bir duygu değil, açık ve yönlendirici bir ameldir.
+B1|Mü'minûn sûresi müminlerin kurtuluşunu ilân edip namazda huşû, boş şeylerden yüz çevirme, zekât, iffet, emanet ve ahde riayet gibi vasıflarını sayar (Mü'minûn 23/1-9).
+B1|Böylece Müslümanın hayatında namazdan konuşmaya, harcamadan öfkeye ve topluluk işlerindeki istişareye kadar ahlâkı olmayan alan kalmaz.
+B1|Bu ahlâkların hepsi Allah içindir; doğruluk, ahde vefa, haramlardan korunma ve af, kâr-zarar hesabına dayalı bir insan sözleşmesi değil, Allah ile yapılmış bir akittir.
+B1|Ahlâkı, insanı içeriden denetleyen vicdan, şer'î hükümlerin sınırları, iyiliği emredip kötülükten sakındıran toplum ve sağlam ahlâkî esaslara dayanması gereken devlet korur.
+B1|Sallâbî'ye göre Allah Rasûlü onları cahiliyenin kirinden arındırdı; aralarında cennetle müjdelenen on kişiden dokuzu vardı ve ümmetin kervanını yürüten rehberler oldular.
+H2|Bu Bölümün İbretleri
+INTRO|Mekke'deki inşa, kalıcı değişimin ilâhî kanunlara uymaktan, sağlam akîdeden ve bütüncül terbiyeden geçtiğini öğretir.
+B1|Sünnetullahı hesaba katmayan hiçbir değişim kalıcı olamaz.
+B2|Allah Rasûlü (s.a.v.) harikulâde yollara değil cârî kanunlara göre çalıştı; sebeplere sarıldı, merhaleleri karıştırmadı ve on üç yılı bir neslin terbiyesine ayırdı.
+B2|Bu, bir gecede sonuç bekleyenler için büyük bir derstir.
+B1|Değişim önce nefislerde başlar; bir toplum kendindekini değiştirmedikçe Allah onlarda bulunanı değiştirmez.
+B1|Allah'ı isim ve sıfatlarıyla doğru tanıyan, âhireti görür gibi bilen, kadere inanan ve değerini kullukta bulan insan korkudan, kibirden ve başkalarının elindekine göz dikmekten kurtulur.
+B2|Sahâbenin cesareti, kanaati ve kalp huzuru bu akîdenin meyveleriydi.
+B1|Şeytanın apaçık düşman olduğunu bilen mümin uyanıklığını hiç kaybetmemelidir.
+B1|Sallâbî'nin tablosunda Mekke'de yetişen insan secdeyle arınmış bir ruh, zanna değil delile yaslanan bir akıl ve israfa kaçmadan görevini gören bir beden üzerinde durur.
+B2|Bu üçü birbirinden ayrılmaz; birini ihmal eden terbiye eksik kalır.
+B1|Namaz, zikir ve dua darlık zamanlarının en güçlü hazırlığıdır; korku günlerinde bile namazı terk etmeyen nesil bunu hâl diliyle öğretmiştir.
+B1|Ahlâk ise bu yapının görünen yüzüdür.
+SOZ|💬 SALLÂBÎ|"Akîde İslâm sarayının komuta merkezi, kanunlar onun bölümleri ve yollarıysa, ahlâk bu saraya zarafet ve güzellik katan rabbânî boyadır; akîde İslâm çınarının kökü ve gövdesi, şeriat dallarıysa, ahlâk onun olgun meyvesi ve koyu gölgesidir."|
+B1|Ahlâkı Allah ile yapılmış bir akit olarak gören insan onu çıkarına göre eğip bükmez.

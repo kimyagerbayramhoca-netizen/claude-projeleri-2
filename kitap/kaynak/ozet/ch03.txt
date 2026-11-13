@@ -1,0 +1,256 @@
+QUOTE|ch03-12
+H2|Bölüme Bakış
+INTRO|Bölüm, cahiliye Arap toplumunu iki müellifin farklı bakışlarıyla ele alır.
+B1|Hz. Ömer (r.a.) bir gün hem ağlarken hem gülerken görülünce gülüşünü bir cahiliye hatırasıyla açıkladı.
+B2|Yolculukta dua etmek isteyip putunu unuttuğunu fark edince hurmalara put şekli verip onlara tapmış, gece acıkınca da putunu yemişti.
+B1|Bu hatıra, Hz. İsmâil'in (a.s.) davetiyle tevhide iman eden bir toplumun kendi yaptığı ilâhı yiyecek kadar nasıl düştüğünü sordurur.
+B1|Evlakî bunu tarihî bir merak değil, her ümmetin başına gelebilecek bir tehlikenin anatomisi sayar.
+B2|Bir nesil tevhidi alır, sonraki onu sıradanlaştırır, ondan sonraki unutur; nihayet biri "Ataların yolu budur" diyerek başka bir şeyi tevhid sayar.
+B1|Sallâbî ise Arap toplumunu dinî, siyasî, iktisadî, sosyal ve ahlâkî yönleriyle inceler.
+B2|Cahiliyenin bozukluklarını gizlemeden sıralar, Arapların fıtratındaki ve İslâm'ın yönünü çevirerek değerlendirdiği güzel hasletleri de toplar.
+H2|Üç Kol, Tek Kök: Adnân'dan Hâşimoğulları'na
+INTRO|Peygamberimizin (s.a.v.) nesebi, Arapların üç kolundan Adnânîler üzerinden Hâşimoğulları'na uzanır.
+B1|Tarihçiler Arapları soy bakımından üç kısma ayırır.
+TABLE|Kol|Kimlerdir|Durumu
+ROW|Bâide Arapları|Âd, Semûd, Amâlika, Tesm, Cedîs, Ümeym, Cürhüm ve Hadramevt gibi kabileler|Hükümleri Şam'a ve Mısır'a uzanan kralları vardı; İslâm'dan önce yok oldular, geride eserleri kalmadı.
+ROW|Âribe Arapları|Ya'rub b. Yeşcub b. Kahtân soyundan gelen Kahtânî ya da Güney Arapları|Yemen'in, Maîn memleketinin, Sebe ve Himyer'in kralları bu koldandı.
+ROW|Adnânî Araplar|Nesepleri Hz. İbrâhim'in oğlu Hz. İsmâil'e ulaşan Adnân'a nispet edilen Kuzey Arapları|Esas yurtları Mekke'dir; Müsta'ribe diye de anılırlar.
+ENDTABLE
+B1|Hz. İsmâil (a.s.) Arapçayı Cürhümlülerden öğrenmiş, onlardan bir kadınla evlenmiş, çocukları da Arap olarak yetişmişti.
+KAVRAM|💡 KAVRAM · MÜSTA'RİBE|"Sonradan Araplaşmış" Araplar demektir; Sallâbî'ye göre bu ad, araya Arap olmayan bir kan karışıp tam bir kaynaşma olması ve Arapçanın bu topluluğun dili olmasından doğar.
+B1|Peygamberimizin en üst dedesi Adnân, Hz. İsmâil'in zürriyetindendir; ondan oğlu Muad, ondan Nizâr gelir ve Nizâr'ın oğulları Mudar ile Rebîa'dan büyük kabile ağaçları dallanır.
+TABLE|Kabile|Yurdu
+ROW|Rebîa'dan Abdülkays, Benî Hanîfe, Bekir b. Vâil, Tağlib ve Temîm|Doğuda Bahreyn'den Yemâme'ye, Cezîre'den Basra çölüne kadar
+ROW|Mudar'dan Süleym|Medine yakınları
+ROW|Mudar'dan Sakîf|Tâif
+ROW|Mudar'dan Hevâzin|Mekke'nin doğusu
+ROW|Mudar'dan Esed, Zübyân ve Abs|Teymâ'nın doğusundan Kûfe'ye ve Havran'a uzanan topraklar
+ENDTABLE
+B1|Nesep âlimlerinin ezici çoğunluğu Arapları Adnânî ve Kahtânî diye ikiye ayırır; Sallâbî, bazı âlimlerin bütün Arapları Hz. İsmâil'e nispet ettiğini de kaydeder.
+B1|Buhârî *Sahîh*'inde Yemen'in Hz. İsmâil'e nispetine ayrı bir bab açıp Seleme'den (r.a.) bir rivayet nakleder.
+B2|Rasûlullah ok atışı yapan bir gruba "Atın ey İsmâil'in çocukları, çünkü babanız da atıcıydı" dedi.
+B2|Taraflardan birini desteklediğini söyleyince öbür taraf atmayı bıraktı; o da "Atın, ben hepinizle beraberim" buyurdu (Buhârî, 3507; ayrıca Buhârî, 2899; Ahmed, 4/50; İbn Hibbân, 4693).
+B1|Buhârî'nin bir başka nakline göre Huzâa, Allah'ın Seylü'l-Arim'i gönderdiği sırada Sebe kabilelerinden ayrılan bir topluluktur.
+B1|Peygamber Efendimiz'in üvey kızı Zeyneb bint Ebî Seleme'ye (r.anhâ), Rasûlullah'ın Mudar'dan olup olmadığı soruldu.
+SOZ|💬 ZEYNEB BİNT EBÎ SELEME|"Mudar'dan değilse kimden olacaktı? O, Kinâne oğlu Nadr'ın çocuklarındandır."|Buhârî, 3491
+B1|Kinâne soyundan gelen Kureyş, Fihr b. Mâlik b. Nadr b. Kinâne'nin evlatlarıdır.
+B2|Birçok kola ayrılan Kureyş'in Cumah, Sehm, Adiy, Mahzûm, Teym ve Zühre gibi tanınmış kollarının yanında Kusay soyundan Abdüddâr, Esed b. Abdüluzzâ ve Abdümenâf da en meşhurlardandı.
+B1|Abdümenâf'tan Abdüşems, Nevfel, Muttalib ve Hâşim kolları doğdu; Allah Teâlâ, Abdullah oğlu Muhammed'i Hâşim'in evinden seçti.
+B1|Bölümün başındaki hadis bu seçilmişliği bir merdivenin basamakları gibi anlatır.
+H2|Kumların Altındaki Medeniyetler: Sebe, Âd ve Semûd
+INTRO|Sallâbî, yarımadanın en meşhur üç kadim medeniyetini Kur'ân'ın işaretleriyle ele alır.
+B1|Yemen'deki Sebe halkı, kumlarda kaybolan ve denize dökülen sel ve yağmur suları için ileri mühendisliğe dayanan depolar ve barajlar kurmuştu.
+B2|En meşhuru Mârib Barajı'ydı; biriken suyu tarlalarında ve meyve bahçelerinde kullanırlardı.
+QUOTE|ch03-13
+B1|Kur'ân, Yemen ile Hicaz, Hicaz ile Şam arasında birbirinden görünen yerleşimler sayesinde kervanların gölge, su ve yiyecek bulmakta zorlanmadığına da işaret eder.
+B2|Bu yollarda gece gündüz güvenle gezmeleri söylenen halk "Rabbimiz, yolculuklarımızın arasını uzaklaştır" diyerek kendine yazık etti, dillerde dolaşan kıssalara dönüşüp darmadağın edildi (Sebe 34/18-19).
+B1|Hadramevt'in kuzeyinde, Ahkâf'ta yaşayan Âd kavmi sağlam evlerin, bahçelerin, tarlaların ve pınarların sahibiydi.
+B2|Allah'ın gönderdiği Hz. Hûd (a.s.), her yüksek yere alâmet dikip eğlenmelerini, ebedî kalacakmış gibi yapılar edinmelerini ve zorbalar gibi yakalamalarını hatırlatarak onları, davarlar, oğullar, bağlar ve pınarlar bağışlayan Allah'tan sakınmaya çağırdı (Şuarâ 26/123-134).
+B1|Hicr diyarındaki Semûd kavmi dağları yontup ev yapma gücüyle tanınıyordu.
+B2|Kardeşleri Hz. Sâlih (a.s.), bahçeler, pınarlar, ekinler ve salkımları sarkmış hurmalıklar içinde güvende bırakılacaklarını mı sandıklarını sordu (Şuarâ 26/141-150).
+B2|Ovalarında saraylar kurup dağlarında evler yontan kavmini bozgunculuktan sakındırdı (A'râf 7/74).
+B1|Sallâbî'nin kaydettiği gibi bu kavimlerin hepsi silindi; köyleri yerle bir oldu, sarayları yıkıldı, suları çekildi, ağaçları kurudu, bağ ve bahçeleri kurak toprağa döndü.
+B2|Geriye ibret alınacak birkaç kalıntıdan başka bir şey kalmadı.
+H2|İsmâil'in Tevhidinden Hübel'e
+INTRO|Putperestlik, Amr b. Luhay'ın Şam'dan getirdiği Hübel'le başlayıp bütün yarımadaya yayıldı.
+B1|Evlakî'ye göre Hz. İsmâil (a.s.) Mekke ve Hicaz Araplarının peygamberiydi; onun davetine uyan Araplar başlangıçta Allah'ın birliğine iman eden Müslümanlardı.
+B1|Rasûlullah (s.a.v.) gönderildiğinde yarımadada Mekke merkezli çoğunluk dini putperestlik ile önceki bölümde girişi görülen Yahudilik ve Hıristiyanlık vardı.
+B1|Evlakî'nin anlatımıyla putperestlik birdenbire gelmedi; Huzâa lideri Amr b. Luhay el-Huzâî'nin belirli bir yolculukla yaptığı tek bir hareketle başladı.
+B2|Çok cömert, güçlü ve saygın bu adamın sözleri kanun sayılırdı; Evlakî felaketin sosyolojik zeminini burada görür, çünkü yenilik çoğu zaman doğruluğuna değil getirenin itibarına bakılarak kabul edilir.
+B1|Amr ticaret için gittiği Şam'da ilk kez putlara tapan insanlar görünce "Bunlar nedir?" diye sordu.
+KAVRAM|💡 KAVRAM · ŞAM|Evlakî'nin hatırlattığı üzere klasik kaynaklarda bugünkü Suriye değil, merkezi Beytü'l-Makdis olan ve Suriye, Filistin, Lübnan ve Ürdün'ü kapsayan geniş bölgedir.
+SOZ|💬 ŞAMLI PUTPERESTLER|"Bunlar bizimle Allah arasındaki aracılarımızdır; bizi Allah'a yaklaştırsınlar diye onları aracı ediniriz. Yağmur istediğimizde onlara dua ederiz, onlar da bizim adımıza Allah'a başvurur. Çocuk istesek başka bir puta, savaşta başka bir puta gideriz."|
+B1|Evlakî bu sahnede şirkin kalbini görür; bu insanlar Allah'ı inkâr etmiyor, O'nu en yüce makam olarak tanıyordu, onları şirke düşüren aracılara duydukları ihtiyaçtı.
+B2|Kur'ân'ın "Onlara 'Sizi kim yarattı?' diye sorsan, 'Allah' derler; öyleyse nasıl da çevriliyorlar?" (Zuhruf 43/87) âyetiyle eleştirdiği zihniyet budur.
+B1|Sallâbî de Arapların putları Allah'la aralarında vasıta saydığını, ama bu putperestliğin onları Allah'ı tanımaktan, yüceltmekten, O'na ve âhirete iman etmekten alıkoyduğunu belirtir.
+B1|"Muhteşem!" diyen Amr, Rableri kendilerine yağmur ve mal versin diye başvuracak birilerine ihtiyaçları olduğunu söyleyip bir putu ülkesine götürmek istedi.
+B1|Şamlıların verdiği büyük ve gösterişli Hübel'i Mekke'ye getirip Harem'de Kâbe'nin yanına dikti ve halkına "Bu sizin adınıza Allah'a aracılık edecek; ne istiyorsanız ondan isteyin" dedi.
+B1|Mekke yarımadanın merkezi, yeniliği getiren de oranın dinî önderi olduğundan, her yıl hacca gelenler saygın bir adamın onayladığı bu şirki benimsedi ve şirk orman yangını gibi yayıldı.
+B1|Putperestlik zamanla ticarete de dönüştü; Hübel'e gelemeyecek kabileler memleketlerine kendi yerel "aracılarıyla" döndü, Mekke'de önce kabilelere satılık, sonra yolculukta taşınabilir putlar yapıldı.
+B2|Sonunda Kâbe'nin etrafı yaklaşık üç yüz altmış putla kuşatıldı.
+B1|Sallâbî de her kabilenin kendine özgü putunu kaydeder.
+TABLE|Put|Sahibi ve yeri
+ROW|Süvâ'|Huzeyl
+ROW|Vedd|Kelb
+ROW|Yegūs|Mezhic
+ROW|Yeûk|Heyvân
+ROW|Nesr|Himyer
+ROW|İsâf ve Nâile|Huzâa ve Kureyş
+ROW|Lât|Sakîf
+ROW|Menât|Kızıldeniz sahilinde dikiliydi; başta Evs ve Hazrec olmak üzere bütün Araplar onu yüceltirdi.
+ROW|Uzzâ|Zâtü Irk'ın yukarısındaydı; Kureyş'in en büyük putu sayılırdı.
+ENDTABLE
+B1|Bunların yanında evlere konan ve yolculukta taşınan sayısız küçük put vardı.
+B1|Buhârî'nin Ebû Recâ el-Utâridî'den naklettiğine göre bir taşa tapar, daha güzelini bulunca öncekini atarlardı; taş bulamayınca toprak toplayıp üzerine koyun sağar ve onu tavaf ederlerdi (Buhârî, 4376).
+B1|İbrâhim dininden kalan da tahrif edilmişti; hac iftiharla üstünlük taslama ve birbirinden nefret etme mevsimine dönmüş, hanîf inancının kalıntılarına sayısız hurafe yapışmıştı.
+QUOTE|ch03-14
+B1|Evlakî bu hadisi, kötü bir çığır açanın o yolda yürüyenlerin günahını da taşıdığını bildiren nebevî ilkenin canlı örneği sayar; Amr tek bir put getirdi ama yüzyıllarca Arabistan'ın işlediği şirkin vebalini yüklendi.
+B1|İki müellifin bilgileri yan yana konunca dikkat çekici bir tablo çıkar.
+TABLE|Konu|Sallâbî|Evlakî
+ROW|Huzâa kabilesi|Buhârî'ye dayanarak Huzâa'yı Arim seliyle Yemen'den dağılan Sebe kabilelerinin bir kolu sayar.|Putperestliği başlatan Amr b. Luhay'ı bu kabilenin lideri olarak anlatır.
+ENDTABLE
+H2|Hurmadan İlâh ve Tevhidin Son Bekçileri
+INTRO|Hurmadan ilâh şirkin saçmalığını gösterirken hanîfler tevhidin izini sürdürdü.
+B1|Evlakî'ye göre baştaki Ömer (r.a.) hatırası bu putperestliğin iç tutarsızlığını açıkça gösterir.
+B2|Asıl olan put değil, aracıya tapınma mantığıdır; put unutulursa yenisi yapılır.
+B2|Hurmadan ilâh şirkin saçmalığını, acıkınca yenen ilâh da ilâhlık iddiasının boşluğunu gösterir.
+B1|Aynı adamın iki hâli İslâm'ın dönüştürme gücünü belgeler; hurma putunu gece yiyen cahiliye Ömer'i, adaletiyle çağına damga vuran mü'minlerin emiri oldu.
+B1|Mısırlı yazar Abbas Mahmud el-Akkad'a göre İslâm olmasaydı Ömer, katı aile aristokrasisi Benî Adiy'e zirveyi kapattığından en iyi ihtimalle bu küçük Kureyş kolunun ya da Kureyş'in liderlerinden biri olurdu; ama en muhtemel senaryo başkaydı.
+SOZ|💬 ABBAS MAHMUD EL-AKKAD|"Ömer b. Hattâb genç yaşta ölürdü; çünkü o, İslâm'dan önce çok içerdi."|
+B1|İslâm'la ise kendi döneminde dünyanın üçte ikisine hükmeden, tarihin en büyük şahsiyetlerinden Ömer ortaya çıktı.
+B1|Cahiliyede tevhidin izini kaybetmeyenler de vardı; Sallâbî bunlara hanîf der.
+KAVRAM|💡 KAVRAM · HANÎF|Hz. İbrâhim'in tevhid çizgisine bağlı kalan, putlara kurban kesmeyen, putlara ibadeti ve ona bağlı hükümleri reddeden kimsedir.
+B1|Hakikat arayışı yedinci bölümde anlatılacak Zeyd b. Amr b. Nüfeyl bunlardandı.
+B2|Dikilen putlara kurban kesmez, ölü hayvan etini ve kanı yemez, kız çocuklarını diri diri gömmeyi çirkin görürdü.
+B2|Şiirlerinde bin ilâha tâbi olmaktansa tek Rabbe inandığını, Lât'ı ve Uzzâ'yı terk ettiğini, aklı yürüyünce yalnız Rahmân'a ibadet ettiğini söylerdi.
+B1|Kuss b. Sâide el-İyâdî, Hz. İbrâhim ile Hz. İsmâil'in şeriatıyla amel eden, hikmet ve fazilet sahibi bir hatipti; ölümden sonra dirilişe inanır, insanları tevhide ve putları bırakmaya çağırırdı.
+B1|Ebû Nuaym'ın İbn Abbas'tan (r.a.) naklettiğine göre Kuss, Ukâz panayırında kavmine hitap ederken eliyle Mekke'yi işaret edip oradan bir hakkın bilineceğini söyledi.
+B2|Hakkın ne olduğu sorulunca, Gālib oğlu Lüey'in evlâdından bir adamın çıkıp insanları ihlâs kelimesine, ebedî hayata ve tükenmeyen nimetlere çağıracağını haber verdi; ona yetişeceğini bilse ona ilk koşanın kendisi olacağını ekledi.
+B2|Kuss, Rasûlullah'ın (s.a.v.) zamanına yetişti ama bi'setten önce vefat etti (Ebû Nuaym, *Delâilü'n-Nübüvve*, 1/104-105).
+B1|Kuss'un ölümün kaçınılmazlığını anlatan meşhur bir şiiri vardır.
+QUOTE|ch03-15
+B1|Sallâbî, Araplardan bazılarının Hıristiyan, bazılarının Yahudi olduğunu, çoğunluğun ise putlara tapmayı sürdürdüğünü de kaydeder.
+H2|Kabile, Reis ve Kılıç
+INTRO|Yarımadanın hâkim düzeni, kendi örfü, reisleri ve savaşlarıyla kabilecilikti.
+B1|Halk bedevî ve şehirli diye ikiye ayrılırdı; güneyde Yemen'den kuzeydoğuda Hîre'ye, kuzeybatıda Gassânîler memleketine kadar hâkim düzen kabilecilikti.
+B2|Cemaatler tek bir halk potasında erimemiş, kabileler birbirine bağlı birlikler hâlinde yaşıyordu.
+KAVRAM|💡 KAVRAM · KABİLE|Aralarında kan ve cemaat bağı bulunan insanlardır; bu bağın şemsiyesi altında hak ve görevleri düzenleyen örfî bir kanun doğmuştu.
+B1|Kişiyi liderliğe kabiledeki yeri, cesareti, mürüvveti ve cömertliği taşırdı.
+B1|Hürmet görmek, emrinin yerine getirilmesi ve hükmüne razı olunması reisin edebî haklarıydı; dört maddî hakkını bir Arap şairi tek beyitte toplamıştır.
+TABLE|Hak|Anlamı
+ROW|Mirbâ'|Ganimetin dörtte biri
+ROW|Safâyâ|Taksimden önce kendisi için seçtiği mallar
+ROW|Neşîta|Düşmanla karşılaşmadan elde edilen mallar
+ROW|Fudûl|Bölünemeyen mallar
+ENDTABLE
+B1|Buna karşılık barışta çok cömert olmak, savaşta en ön safta durmak ve barış anlaşmalarını imzalamak reisin yükümlülüğüydü.
+B1|Açık ve serbest bir çevrede yetişen Arap hürriyete âşıktı, zulmü ve zilleti kabul etmezdi; ama bu hürriyet kabile asabiyetiyle sınırlıydı.
+B2|Her fert kabilesinin menfaati için çalışır, önemli günlerini ve övünç kaynaklarını korur, haklı da haksız da olsa ondan yana durur, kardeşi çağırınca delil istemezdi.
+B2|Ferdin şahsiyeti kabileninkinde eriyip gitmişti.
+B1|Şair Düreyd b. es-Simme, yalnızca Gaziyye kabilesinden biri olduğunu, kabilesi saparsa sapacağını, doğru yolda olursa doğru yolda olacağını söyler.
+B1|Her kabilenin, diğerleriyle anlaşma yaptığı ya da savaş açtığı siyasî bir kişiliği vardı; anlaşmaların meşhurlarından biri Hilfü'l-Fudûl, savaşların en meşhuru Ficâr Savaşı'dır.
+B1|Sallâbî'ye göre en basit sebeplerden savaş çıkar, "değer" adını hak etmeyen ama örf hâline gelmiş ölçüler uğruna insanların ölümüne aldırılmazdı.
+TABLE|Savaş|Sebep ve seyir
+ROW|Besûs Savaşı (Bekiroğulları ile Tağlib)|Tağlib lideri Küleyb koruma altına aldığı otlakta otlayan bir deveyi öldürünce Cessâs fırsat bulup onu öldürdü; savaş tam kırk yıl sürdü.
+ROW|Abs ile Zübyân savaşları|Dâhis ve Gabrâ adlı iki atın yarışında yapılan hile, öldürmeler ve intikamlarla dolu savaşlara yol açtı.
+ROW|Evs ile Hazrec savaşları|Amca oğulları arasındaki uzun savaşlar Buâs Günü'nde Evs'in lehine sona erdi.
+ENDTABLE
+B1|Sallâbî'ye göre Evs ile Hazrec savaşlarının fitilini sürekli Yahudiler çekiyordu; amaçları iki kabileyi de zayıf düşürüp liderliği ebediyen ellerinde tutmaktı.
+B1|Ferdî saldırılar da eksik olmazdı; bazı kabilelerin rızkı çoğu zaman kılıca bağlıydı ve hiçbir kabile gece gündüz bir baskına uğramayacağından emin değildi.
+B2|Baskınlar hayvanları talan edip yurtları sanki dün kimse oturmamış gibi harabeye çevirmek, mal gasp etmek ya da hür insanları köleleştirip satmak için yapılırdı.
+B2|Arap ve hür Zeyd b. Hârise (r.a.) ile Farslı ve hür Selmân (r.a.) bunun açık örnekleridir.
+B1|İslâm bu uygulamayı silip attı; Sallâbî'nin ifadesiyle artık kadın erkek herkes San'â'dan Hadramevt'e, Allah'tan ve koyunlarına saldıracak kurttan başka bir şeyden korkmadan yürüyebiliyordu.
+H2|Kervanlar ve Panayırlar
+INTRO|Tarımda yoksul yarımada, konumuyla ticaretin, panayırlarıyla da şiirin merkezi oldu.
+B1|Yarımadanın çoğu geniş ve uzun sahralar olduğundan tarım çok sınırlıydı; yalnız kenar bölgelerde, özellikle Yemen'de, Şam'da ve bazı vadilerde tarım alanları vardı.
+B2|Kırsalda hayvancılık yapılır, kabileler otlak için sürekli göç eder, bir yerde uzun durmazlardı.
+B1|Sallâbî'ye göre Araplar insanlık içinde sanata en uzak duranlardı; zanaatı küçümseyip yabancılara ve azatlılarına bırakırlardı.
+B2|Kâbe'yi yeniden inşa ederken bile Cidde açıklarında batan bir gemiden kurtulup Mekke'ye yerleşen Kıptî bir adamdan yardım istemişlerdi.
+B1|Afrika ile Güney Asya arasındaki stratejik konumu ise yarımadayı milletlerarası ticarette ileri bir merkez yapmıştı.
+B1|Tüccar şehirlilerin başında, Harem ehli olarak Arapların kalbinde ayrı yeri bulunan ve ticaretine kimsenin kötülük etmek istemediği Mekke ahalisi gelirdi.
+B2|Kur'ân bu ayrıcalığı "Çevrelerindeki insanlar kapılıp götürülürken bizim orayı güvenli bir harem kıldığımızı görmediler mi?" (Ankebût 29/67) âyetiyle hatırlatır.
+B1|Kureyş'in kışın Yemen'e, yazın Şam'a yaptığı iki büyük yolculuk, yıl içindeki diğer seferlerinin dışındaydı.
+QUOTE|ch03-16
+TABLE|Kervanın yönü|Taşınan mallar
+ROW|Şam'a ve başka yerlere|Koku, hurma, tahta, fildişi, deri, inci, halat, Yemen kürkleri, ipek kumaşlar, silah ve yarımadada bulunan ya da dışarıdan getirilen başka mallar
+ROW|Dönüşte|Buğday, hububat, üzüm, zeytin ve Şam kumaşları
+ENDTABLE
+B1|Yemenliler karada ve denizde ticaretle meşhurdu; Afrika sahillerine, Hindistan'a, Endonezya'ya, Sumatra'ya ve diğer Asya ülkelerine sefer düzenler, Hint Okyanusu'na açılırlardı.
+B2|Sallâbî'ye göre Müslüman olduktan sonra da bu memleketlere gitmeyi sürdürdükleri için oralarda İslâm'ın yayılmasına büyük hizmet ettiler.
+B1|Araplar Ukâz, Mecenne ve Zülmecâz gibi meşhur panayırları sırayla dolaşırdı.
+TABLE|Durak|Zamanı
+ROW|Ukâz|Zilkade hilâliyle birlikte
+ROW|Mecenne|Ayın yirmisi geçince
+ROW|Zülmecâz|Zilhicce hilâli görülür görülmez; burada sekiz gün kalınırdı
+ROW|Arafat|Zülmecâz'dan sonra
+ENDTABLE
+B1|Arefe ve Minâ günlerinde alışveriş yapmazlardı; İslâm "Rabbinizden bir lütuf aramanızda size bir günah yoktur" (Bakara 2/198) âyetiyle bu günlerde ticareti helâl kıldı.
+B1|Bu pazarlar edebiyat, şiir ve hitabet için de kurulur, büyük şairler ve hatipler ecdat menkıbeleriyle ve kendi eserleriyle yarışırdı.
+B2|Panayırlar böylece ticarî servetin yanında bir dil ve edebiyat hazinesine dönüştü; İslâm'dan sonra bir süre sürüp zamanla silindi.
+H2|Kadın, Nikâh ve Aile
+INTRO|Kadın, kız çocuğu, nikâh ve boşamadaki cahiliye zulümlerini Kur'ân tek tek kaldırdı.
+B1|Âdet ve gelenekler hayatın her alanına hâkimdi; nesep, soy ve kabileler arası ilişkiler örfî kanunlarla düzenlenirdi.
+B1|Soylarına çok düşkün olduklarından yabancılarla kız alıp vermezlerdi; İslâm bunu silip üstünlüğün ancak takvâ ve salih amelle olduğunu ilan etti.
+B1|Fasih söz ve belâgatli üslup onları derinden etkilerdi; şiir soylarının, ecdat menkıbelerinin ve iftiharlarının sicili, kültürlerinin divanıydı.
+B2|Bir mısra kabileyi yükseltir ya da alçaltırdı; bu yüzden en çok kabilede usta bir şair yetişmesine sevinirlerdi.
+B1|Kadın ise birçok kabilede değersiz bir eşya gibi görülürdü.
+B2|Ölen adamın karısı tereke malı sayılır; kocanın başka kadından olan en büyük oğlu onunla evlenebilir ya da başkasıyla evlenmesini engelleyebilirdi.
+B2|İslâm bunu yasakladı ve babaların nikâhladığı kadınlarla evlenmenin hayâsızlık ve iğrenç bir yol olduğunu bildirdi (Nisâ 4/22).
+B1|Anneyi, kızı, kız kardeşi, teyze ve halayı nikâhlamayı haram sayarlardı; ama kadınları, kızları ve çocukları mirasçı saymaz, yalnız ganimet getirebilen, at sırtında savaşanları vâris yaparlardı.
+B2|Bu örf, Rasûlullah (s.a.v.) zamanında Evs b. Sâbit (r.a.) vefat edene kadar sürdü.
+B1|Evs geride iki kız ve bir oğlan bırakınca amcasının iki oğlu mirasın tamamını aldı; hanımının, hiç olmazsa kızlarla evlenmeleri isteğini de reddettiler.
+B2|Kadın durumu arz edince Allah Rasûlü mirastan hiçbir şeyin yerinden kımıldatılmamasını emretti.
+B2|Kur'ân da ana babanın ve yakınların bıraktıklarından, az olsun çok olsun, erkekler gibi kadınlara da belirlenmiş pay ayırdı (Nisâ 4/7).
+B1|Kız çocuğu ayıp sayılırdı; çünkü savaşa gitmez, çoluk çocuğu saldırganlardan korumaz, erkekler gibi çalışıp mal getirmezdi.
+B2|Esir düşen kız şehvet için alınıp değiş tokuş edilir, çoğu zaman sahibine servet katmak için fuhşa zorlanırdı.
+B1|Bu yüzden kızın dünyaya gelişi babasında keder, hüzün ve utanç uyandırırdı.
+QUOTE|ch03-17
+B1|Çoğu kez, kız olmaktan başka hiçbir suçu olmayan kızlarını diri diri toprağa gömerlerdi.
+B2|Kur'ân bu cinayete şiddetle karşı çıktı ve "diri diri toprağa gömülen kıza, hangi günah sebebiyle öldürüldüğü" sorulacağını haber verdi (Tekvîr 81/8-9).
+B1|Bazıları fakirlikten ya da fakirlik korkusundan çocuklarını öldürürdü; İslâm bunu da haram kılıp "sizin de onların da rızkını biz veririz" buyurdu (En'âm 6/151; İsrâ 17/31).
+B1|Sallâbî yine de tabloyu tek renkle boyamaz; bazı kabileler kadına saygı duyar, evlilikte onun görüşünü alırdı.
+B2|Hür Arap kadını kocasından başkasıyla birlikte olmaktan tiksinir, cesaretiyle tanınır, savaşçılara eşlik edip onları yüreklendirir, gerektiğinde savaşırdı.
+B2|Bedevî kadın hayvanların otlatılıp sulanmasında eşine yardım eder, deve ve koyun yününü eğirip elbise, kürk ve aba dokurdu.
+B1|Nikâhın kimsenin ayıplamadığı birçok çeşidi vardı; Hz. Âişe (r.anhâ) cahiliye nikâhının dört çeşidini bildirir, bazı âlimler dört çeşit daha ekler.
+TABLE|Nikâh|Mahiyeti|Zikreden
+ROW|Bugünkü nikâh|Adam, velâyetindeki kadını isteyip mehrini vererek nikâhlar.|Hz. Âişe
+ROW|İstibdâ'|Koca, çocuğu emsallerinden üstün olsun diye hanımından belirli bir adamla ilişki kurmasını ister.|Hz. Âişe
+ROW|Ondan az erkekle birliktelik|Ondan az erkek bir kadınla ilişkiye girer; kadın doğumdan sonra çocuğu dilediğine nispet eder, o adam da reddedemez.|Hz. Âişe
+ROW|Bayraklı fahişeler|Kapılarına işaret olarak bayrak asan fahişelerin çocuğu, iz sürücülerin uygun gördüğü kişiye verilir.|Hz. Âişe
+ROW|Hıdn|Gizli dost tutmaktır.|Bazı âlimler
+ROW|Mut'a|Belli bir süreyle sınırlı nikâhtır.|Bazı âlimler
+ROW|Bedel|Eşlerin karşılıklı değiş tokuşudur.|Bazı âlimler
+ROW|Şiğâr|Mehirsiz olarak kız karşılığında kız vermektir; bâtıl bir nikâhtır.|Bazı âlimler
+ENDTABLE
+B1|Kur'ân "gizli dost tutmayanlar" (Nisâ 4/25) ifadesiyle bunlardan birine işaret eder.
+B1|Erkek sınırsız sayıda kadınla evlenebilir, iki kız kardeşi aynı anda nikâhında tutabilirdi; İslâm geldiğinde kimi on, kimi daha fazla kadınla evliydi ve aralarında adaletle davranmıyordu.
+B2|İslâm sayıyı en fazla dörtle sınırlayıp nafaka gücü ve kadınlar arasında adalet şartına bağladı, aksi hâlde bir kadınla yetinilmesini istedi.
+B1|Boşamanın da sınırı yoktu; erkek hanımını boşar, geri alır, yine boşar, yine alırdı.
+B2|Kur'ân boşamayı iki defayla sınırladı, sonrasının ya iyilikle tutmak ya güzellikle bırakmak olduğunu bildirdi; üçüncüden sonra kadın başkasıyla evlenip ayrılmadıkça ilk kocasına helâl olmaz (Bakara 2/229-230).
+B1|Cahiliyede zıhâr kadını ebediyen haram kılardı; İslâm onu çirkin ve asılsız bir söz sayıp (Mücâdele 58/2) keffârete bağladı.
+B2|Zıhârdan dönen, hanımına dokunmadan önce bir köle azat eder, imkân bulamazsa iki ay ardarda oruç tutar, ona da gücü yetmezse altmış fakiri doyururdu.
+KAVRAM|💡 KAVRAM · ZIHÂR|Kocanın hanımına "Sen bana annemin sırtı gibisin" demesidir.
+H2|Ahlâkın İki Yüzü
+INTRO|Sallâbî, cahiliye ahlâkının bozukluklarını da Arapları İslâm'a ehil kılan hasletleri de sayar.
+B1|Sallâbî'ye göre Arapların ahlâkı aşırı derecede bozulmuştu; içkiye ve kumara düşkündüler.
+B2|Baskın, yol kesme, ırkçılık, zulüm, kan dökme, intikam, gasp, yetim malı yeme, faiz, hırsızlık ve zina yaygındı.
+B2|Cehalet, taklitçilik ve bâtıl da olsa eskiye bağlılık hâkimdi; yazı ve hesap bilenler pek azdı.
+B1|Müellife göre zina esasen cariyeler ve vesikalı fahişeler arasında yaygındı, hür kadınlarda yok denecek kadar azdı.
+B2|Mekke'nin fethinden sonraki kadın biatinde Rasûlullah (s.a.v.) zina etmemeyi de şart koşunca, Ebû Süfyân'ın karısı ve Utbe'nin kızı Hind'in hür kadının zina edip edemeyeceğini şaşkınlıkla sorması bunun en açık delilidir.
+B1|Sallâbî'ye göre bu tablo herkes için geçerli değildi; zina etmeyen, kan dökmeyen, yetim malından ve faizden sakınan, kendilerini İslâm sancağını taşımaya ehil kılan hasletlere sahip çok insan vardı.
+B1|Bu hasletlerin başında zekâ ve uyanıklık gelir.
+B2|Hint, Roma, Yunan ve Fars'ın kalbine yerleşen felsefe, hikâye ve hurafeler temiz kalplerine girmemiş; fikrî güçleri hayalî felsefelerde, Bizans tartışmalarında ve kelâm mezheplerinde tükenmemişti.
+B2|Çağlarının hafızası en güçlü halkıydılar; Arapçada balın seksen, tilkinin iki yüz, aslanın beş yüz, devenin ve kılıcın biner ismi bulunması bunun göstergesidir.
+B2|Ümmî oldukları hâlde ince şuurlu, keskin hisli ve doğru yönlendirmeye açıktılar, uzun anlatımdan çok işaretten anlarlardı; aralarında usta iz sürücüler ve Hâris b. Kelede gibi tecrübî tıpla uğraşan doktorlar vardı.
+B1|İslâm bu zekâyı dini korumaya yöneltti; ümmîlik kalktı, onlar âlim, fakih ve hikmet sahibi oldular.
+B1|Cömertlik öyle kök salmıştı ki devesinden başka şeyi olmayan, misafiri gelince devesini onun için keserdi; kimi dağlardaki kuşlara ve vahşi hayvanlara bile yiyecek bırakırdı ve Hâtim et-Tâî'nin cömertliği dillere destandı.
+B1|Öldürülmekle övünür, eceliyle ölmeyi ayıp sayarlardı; şair Antere, zillet içinde âb-ı hayat içmektense izzetle acı bir kadehi seçtiğini söyler.
+B1|Güçlünün zayıfı, kadını ya da yaşlıyı ezmesine izin vermez, sığınandan yüz çevirmeyi alçaklık sayar, hürriyet için yaşayıp hürriyet için ölürlerdi.
+B1|Hîre Kralı Amr b. Hind, annesi kendi annesine hizmetten kaçınacak bir Arap var mı diye merak edip bir ziyafette annesinin, şair Amr b. Külsûm'ün annesi Leylâ'dan bir tabağı uzatmasını istemesini kararlaştırdı.
+B2|Leylâ ihtiyacı olanın kalkıp kendisinin alması gerektiğini söyledi; ısrar edilince bu zilleti haykırarak Tağlib kabilesine seslendi.
+B2|Annesinin sesini duyan Amr b. Külsûm, çadırın direğinde asılı kralın kılıcını alıp onun başını uçurdu (*Şerhu'l-Muallakāt*, 196).
+B1|Vefa ve doğruluk da kökleşmişti; yalanı ayıp sayan bu millette İslâm'a girmek için dille getirilen şehâdet yeterli görülürdü.
+B2|Henüz Müslüman olmayan Ebû Süfyân'ın savaşlar sürerken Bizans Kralı Herakleios'un Rasûlullah hakkındaki sorularını doğru cevaplaması ve kendisinden yalan rivayet edilmesinden utanmasa yalan söyleyeceğini itiraf etmesi bunun apaçık delilidir (Buhârî, 7; Müslim, 1773).
+B1|Hîre Kralı Nu'mân b. Münzir Kisrâ'ya Arapları anlatırken, birinin küçük bir işaretinin emir yerine geçtiğini, verdiği sözü canından başka bir şeyin çözemeyeceğini, tanımadıkları bir suçlu sığınsa bile canlarını ve mallarını ona siper ettiklerini söylemişti (*Bulûğu'l-Ereb*, 1/150).
+B1|İslâm bu vefayı sağlam ve temiz bir yöne çevirdi; ama konumu ne olursa olsun suçluyu barındırana karşı sert konuştu.
+B2|"Suçluyu barındıran kimseye Allah lânet etmiştir" hadisi bu tavrı dile getirir (Müslim, 1978; Nesâî, 7/232).
+B1|Bekir kabilesinin komutanı Hâris'in, oğlunun katili Mühelhil'i tanımadan esir alıp ona, Mühelhil'i gösterirse serbest bırakacağına söz vermesi ve aradığının bizzat esiri olduğunu öğrenince de sözünü tutması vefanın eşsiz bir örneğidir.
+B1|Hâni' b. Mes'ûd eş-Şeybânî, Kisrâ'nın öldürdüğü Nu'mân'ın emanetlerini teslim etmeyip kavmini savaşa çağırdı; Bekiroğulları bu sayede Zîkār'da Fars ordusunu bozguna uğrattı.
+SOZ|💬 HÂNİ' B. MES'ÛD EŞ-ŞEYBÂNÎ|"Ölüme evet, zillete hayır."|Taberî, Târîh, 2/207
+B1|Sahranın kazandırdığı sabır, tahammül ve aza rıza da bu hasletlerdendir.
+B2|Tıka basa doymanın zekâyı öldürdüğünü söyler, gün ortası sıcağında sarp dağlarda yürümeye, açlığa ve susuzluğa alışkındılar; günlerce yol alan biri birkaç hurma ve birkaç damla suyla yetinirdi.
+B1|Beden kuvvetiyle ruh büyüklüğünü birleştiren bu insanlar güçleri yetince hasımlarını affeder, komşu hakkını gözetirdi; bir şair, komşu kadın görününce o evine girene dek gözünü kapadığını söyler.
+B1|Sallâbî'ye göre bütün bu faziletler Arapların kalbinde birikmiş büyük bir sermayeydi; İslâm onu artırdı, güçlendirdi ve hayra yöneltti.
+B1|Farsların geniş bilgisine, Hintlilerin derin felsefesine, Rumların tekniğine ve Yunanlıların şiirdeki dehasına rağmen peygamber, o kavimlerin ulaşamadığı temiz fıtratı, hür kalbi ve üstün ruhu taşıyan bu bozulmamış, genç toplumdan seçildi.
+H2|Bu Bölümün İbretleri
+INTRO|Bölümün dersleri sapmanın anatomisi, şirkin özü ve cahiliyeye adil bakış etrafında toplanır.
+B1|Evlakî'nin çizdiği sapma anatomisi belki de en önemli derstir; tevhid kendiliğinden aktarılmaz, önce sıradanlaşır, sonra unutulur, nihayet "ataların yolu" adıyla başka bir şeyle yer değiştirir.
+B1|Bu değişim çoğu zaman bir kalabalıktan değil saygın bir şahıstan başlar; Amr b. Luhay'ın tek putu, Mekke'nin merkezî konumu ve onun itibarıyla birleşince bütün yarımadayı sardı.
+B1|Evlakî'ye göre hiçbir bid'at küçük kalmaz; ya kabul görüp büyür ya da reddedilip söner.
+B1|Kötü çığır açanın ardından gidenlerin vebalini de yüklendiğini bildiren nebevî ilke, sorumluluğun gelecek nesillere karşı da taşındığını hatırlatır.
+B1|Şirkin özü Allah'ı inkâr değil, Allah ile kul arasına aracılar koymaktır; hurmadan ilâh ve tavaf edilen toprak yığını bu mantığın gülünç sonucudur.
+B1|Hz. Ömer'in (r.a.) hayatı, cahiliyede kabile aristokrasisine çarpan ya da içki sofralarında tükenen zekâ, kararlılık ve liderliğin doğru mihvere kavuşunca dünyanın kaderini değiştirdiğini gösterir.
+B1|Sallâbî cahiliyeye adil bakmayı öğretir; Kur'ân'ın kaldırdığı kız gömme, kadını mirastan mahrum etme, evlilik ve boşamadaki keyfîlik gibi kusurları gizlemediği gibi cömertliği, vefayı, doğruluğu, hürriyet aşkını ve sabrı da görmezden gelmez.
+B2|Onun bakışıyla İslâm bu hasletleri söküp atmadı, yalnızca yönünü çevirdi; cahiliye bozulmuş bir toplumdan çok bozulmuş bir yönün hikâyesidir ve yön düzelince aynı sermaye yeryüzünü adaletle dolduracak bir neslin temeli oldu.
+B1|Sebe, Âd ve Semûd'un kalıntıları, şükürle buluşmayan barajların, sarayların ve dağlara oyulmuş evlerin medeniyeti ayakta tutamadığını gösterir; Kur'ân bu kıssalarda "çok sabreden ve çok şükreden herkes için ibretler" bulunduğunu söyler (Sebe 34/19).
+B1|Zeyd b. Amr ve Kuss b. Sâide gibi hanîfler, en koyu karanlıkta bile fıtratın hakikati aradığını ve birkaç kişinin dahi tevhidin kandilini taşıyabileceğini gösterir; Kuss'un Ukâz'da işaret ettiği hak çok geçmeden Mekke'den yükselecekti.

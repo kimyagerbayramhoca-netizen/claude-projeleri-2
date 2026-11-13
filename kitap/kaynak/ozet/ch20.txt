@@ -1,0 +1,314 @@
+QUOTE|ch20-144
+H2|Bölüme Bakış
+INTRO|Bölüm; nebevî mektebi, Medine pazarını, hicretin ikinci yılında farz kılınan ibadetleri, Hz. Âişe ile evliliği, cihadın meşruiyetini ve Bedir öncesi seriyyeleri ele alır.
+B1|Medine'nin ilk aylarında bir gece Rasûlullah (s.a.v.) baskın endişesiyle uyuyamadı ve "Keşke ashâbımdan sâlih biri bu gece nöbetimi tutsaydı" dedi.
+B2|O sırada bir silah şakırtısı duyuldu; "Kimdir o?" sorusuna "Ben, Sa'd b. Ebî Vakkâs'ım; nöbetini tutmaya geldim, ey Allah'ın Rasûlü" cevabı geldi.
+B2|Hz. Âişe'nin (r.anhâ) anlattığına göre Allah Rasûlü ancak bundan sonra rahat uyudu (Buhârî, 2885, 7231; Müslim, 2410; Evlakî'de Müslim, 2412).
+B1|Bu sahne genç devletin hâlini özetler; Mescid yükselmiş, kardeşlik kurulmuş, Vesîka yazılmıştı, ama şehir küçük, Müslümanlar azdı ve dört bir yan tehditle çevriliydi.
+B1|Topluluğun ayakta kalması için duvarlar ve sözleşmeler yetmezdi; ilimle yetişmiş insanlar, adil ve bereketli bir iktisat, farz ibadetlerle şekillenen bir hayat ve savunma gücü gerekiyordu.
+B1|Sallâbî'ye göre bu devlette küçük işlerle büyük işler arasında fark yoktu; hepsi binayı yükseltmek ve fırtınalara karşı dimdik durmak içindi.
+B1|Evlakî ise İslâm ordusunun kuruluşunu Medine'deki dördüncü büyük proje olarak görür.
+H2|Mescidde Bir Mektep
+INTRO|Nifakın doğduğu Medine'de ümmetin ilk direği ilimdi ve Mescid-i Nebevî bu ilmin mektebi oldu.
+B1|Medine'de ilk inen âyetler Bakara'nın başıydı; Sallâbî'ye göre bu âyetler insanları iman, küfür ve nifak ehli olarak üçe ayırıp Kitap Ehline yöneliyordu.
+B2|Erken bir Medine sûresi olan Bakara, "Ey insanlar! Sizi ve sizden öncekileri yaratan Rabbinize kulluk edin" (Bakara 2/21) diyerek bütün insanlığa sesleniyordu.
+B1|Sallâbî'ye göre nifak Medine'de tesadüfen çıkmadı; Mekke'de Müslümanlar ne gücünden korkulacak ne de iyiliği umulup yaltaklanılacak durumdaydı.
+B2|Nifak ancak güçlü bir Müslüman toplum ve devlet karşısında doğdu; bu yüzden Medine'de inen uzun sûrelerin neredeyse hiçbiri münafıkların vasıflarından boş değildir.
+B1|Sallâbî'nin ifadesiyle Allah'ın, cahil ve ilim kervanından geri kalmış bir ümmete yeryüzünün yönetimini vermesi düşünülemez.
+B2|Kur'ân "Hiç bilenlerle bilmeyenler bir olur mu?" (Zümer 39/9) diye sorar; Âdem'i farklı kılan ilk özellik de ona isimlerin öğretilmesiydi (Bakara 2/31).
+QUOTE|ch20-145
+B1|Sallâbî, Allah'ın Rasûlüne (s.a.v.) fazlasını istemesini emrettiği tek şeyin ilim olduğunu hatırlatır.
+B1|Mescid-i Nebevî bu ilmin mektebi, muallimi de bizzat Allah Rasûlü idi.
+B2|Önemli sözü anlaşılsın diye üç defa tekrar eder, bir topluluğa da üç kez selâm verirdi (Buhârî, 95).
+B2|Sözü acele etmeden, kelimeleri ayırarak söylerdi; dinleyen isterse kelimelerini sayabilirdi.
+B2|Hz. Âişe, hücresinin yanında hadisleri peş peşe sıralayan Ebû Hüreyre'yi (r.a.) duyunca bu farkı hatırlattı.
+SOZ|💬 HZ. ÂİŞE|"Rasûlullah sizin yaptığınız gibi sözü süratle sıralamazdı."|Buhârî, 3568
+B1|Dersin miktarında ve zamanında ölçülüydü; İbn Mes'ûd'un (r.a.) anlattığına göre bıkıp usanmasınlar diye öğütlerini aralıklı verirdi (Buhârî, 68).
+B1|Temsil, en çok başvurduğu öğretim araçlarından biriydi.
+KAVRAM|💡 KAVRAM · TEMSİL|Sallâbî'ye göre gözle görülmeyen manevî hakikatleri somutlaştıran, zihne yaklaştıran ve kalbe dokunan bir belâgat taşıyan misalle öğretmedir.
+B1|Kur'ân misalleri ancak bilenlerin kavrayabileceğini bildirir (Ankebût 29/43); Abdullah b. Ömer (r.a.) de Rasûlullah'tan bin misal ezberlediğini söyler.
+B2|Nebevî temsiller üzerine yazılan ilk eserlerden biri Râmehürmüzî'nin *Emsâlü'l-Hadîs*'idir.
+B1|Allah Rasûlü sorularla da zihinleri uyandırırdı.
+B2|"Allah'ın hataları sildiği ve dereceleri yükselttiği bir şeyi size göstereyim mi?" diye sorup zorluğa rağmen abdesti tam almayı, mescide sık gitmeyi ve namazdan sonra namazı beklemeyi anlattı (Müslim, 251).
+B2|"Müflis kimdir, biliyor musunuz?" sorusuna "parasız kişi" denince, asıl müflisin namaz, oruç ve zekâtla gelip sövdüğü, iftira ettiği ve kan döktüğü için hayırlarını kaptıran kişi olduğunu öğretti (Müslim, 2581).
+B2|Übey b. Ka'b (r.a.) Kur'ân'ın en büyük âyetinin Âyetü'l-Kürsî olduğunu söyleyince göğsüne vurup "Vallahi ilim sana helâl olsun, ey Ebü'l-Münzir!" dedi (Müslim, 810).
+H2|Muallim Peygamber, Edepli Talebe
+INTRO|Rasûlullah (s.a.v.) şefkatli bir muallim, sahâbe de onun karşısında edepli bir talebeydi.
+B1|Allah Rasûlü bazen bir olayı ya da nesneyi derse dönüştürürdü.
+B2|Çarşıda kulakları küçük, ölü bir oğlağı kulağından tutup "Hanginiz bunun bir dirheme kendisinin olmasını ister?" diye sordu; "Canlı olsa bile kusurluydu" cevabı gelince dünyanın Allah katında bundan da değersiz olduğunu söyledi (Müslim, 2957).
+B2|Müminlerin kenetlenmiş bir binanın kerpiçleri gibi olduğunu söylerken parmaklarını birbirine geçirdi (Buhârî, 2446).
+B2|Yere bir çizgi çizip "Bu Allah'ın yoludur" dedi; sağına soluna çizdiği çizgilerin her birinin başında bir şeytanın davet ettiğini anlattı.
+B2|İpeği sağ, altını sol eline alıp "Bu ikisi ümmetimin erkeklerine haramdır" buyurdu (Ebû Dâvûd, 4057).
+B2|Minberde herkesin görebileceği şekilde namaz kılıp "Bana uyasınız ve namazımı öğrenesiniz diye böyle yaptım" dedi (Buhârî, 377).
+B2|Söylenmesi utanç verici konulara "Ben size bir baba gibiyim, size öğretiyorum" diyerek başlardı (Ebû Dâvûd, 8).
+B1|Hitabındaki incelik de öğretiminin parçasıydı; Ebû Mûsâ el-Eş'arî'nin (r.a.) okuyuşu için "Sana Dâvûd ailesinin mizmarlarından bir mizmar verilmiş" diyerek iyiliği cesaretlendirdi (Buhârî, 5048; Müslim, 793).
+B1|Hata edene şefkatle yaklaşırdı.
+B2|Muâviye b. Hakem es-Sülemî (r.a.) cemaatle namazda hapşırana "yerhamükellah" demiş, kendisine bakanlara da "Vay anam, niye bana bakıyorsunuz?" diye karşılık vermişti.
+B2|Rasûlullah onu azarlamadı, kovmadı, dövmedi; yalnızca namazda insan sözünün yeri olmadığını, namazın tesbih, tekbir ve Kur'ân okumaktan ibaret olduğunu öğretti.
+SOZ|💬 MUÂVİYE B. HAKEM ES-SÜLEMÎ|"Ne ondan önce ne ondan sonra ondan daha güzel bir muallim görmedim."|Müslim, 537; Ebû Dâvûd, 930-931; Ahmed b. Hanbel, 5/447
+B1|Ayıplanacak durumu çoğu zaman isim vermeden düzeltirdi.
+B2|Zekât memuru İbn Lütbiyye "Bu sizin, bu da bana verilen hediye" deyince, ana-babasının evinde otursaydı hediye gelip gelmeyeceğini sordu ve hutbede isim anmadan genel bir uyarı yaptı.
+B1|Gerektiğinde öfkelenmesini de bilirdi.
+B2|Hz. Ömer'i Tevrat'tan bir nüsha okurken görünce yüzü değişti ve "Mûsâ sağ olup nübüvvetime yetişseydi bana tâbi olurdu" buyurdu.
+B2|Namazı uzatıp cemaati kaçıran imama (Buhârî, 90), kader hakkında Kur'ân'ın bir kısmını diğerine çarpanlara (İbn Mâce, 85) ve dinde aşırılıkta ısrar edenlere de öfkelendi (Buhârî, 20).
+B2|Sallâbî bu öfkenin yönlendirici ve öğretici olduğunu, ölçüyü aşmadığını ve muhataba göre değiştiğini vurgular.
+B1|Yaşanan olayları da ganimet bilirdi.
+B2|Esirler arasında çocuğunu bulup bağrına basan ve emziren bir anneyi gösterip "Bu kadın çocuğunu ateşe atar mı?" diye sordu; "Gücü yettikçe atmaz" denince Allah'ın kullarına merhametinin bundan fazla olduğunu bildirdi (Buhârî, 5999; Müslim, 2754).
+B1|Sahâbe de böyle bir muallimin karşısında edepli bir talebe oldu.
+B2|Hz. Ali'nin (r.a.) anlatımıyla meclistekiler onu başlarına kuş konmuş gibi kıpırdamadan dinler, o susunca konuşurlardı (Tirmizî, *eş-Şemâil*, 352).
+B2|Abdülfettâh Ebû Gudde bu benzetmeyi, başındaki keneleri yiyen kuş kaçmasın diye kımıldamayan devenin hâliyle açıklar.
+B2|Sahâbe birbirinin sözünü kesmez, anlamadığını sormaktan çekinmezdi; Hz. Hafsa, Bedir ve Hudeybiye ehlinin ateşe girmeyeceği müjdesi üzerine "İçinizden oraya uğramayacak kimse yoktur" âyetini (Meryem 19/71) sormuş, devamındaki âyetle (Meryem 19/72) cevaplanmıştı.
+B2|Câbir b. Abdullah tek bir hadis için devesine binip Abdullah b. Üneys'e kadar gitti; Enes'e göre sahâbe işittiği hadisi ezberleyinceye kadar kendi arasında müzakere ederdi.
+B2|Soruyu amel için sorar, müteşâbih âyetlerin peşine düşmez, hükmü açıklanmamış şeyleri kurcalamazlardı; Rasûlullah, sorusuyla haram kılınmamış bir şeyin haram kılınmasına sebep olanı suç bakımından Müslümanların en büyüğü saymıştı (Buhârî, 7289; Müslim, 2358).
+B2|Soru için uygun vakti kollar, onu yormamaya özen gösterirlerdi; Ebû Mûsâ, sabah namazından sonra ona Kur'ân, ferâiz ve rüya hakkında sorular sorduklarını anlatır.
+H2|Vergisiz Pazar ve Dürüst Terazi
+INTRO|Rasûlullah (s.a.v.), Yahudilerin hâkim olduğu Medine ekonomisinde vergisiz, hür ve ahlâklı bir Müslüman pazarı kurdu.
+B1|Sallâbî'ye göre Rasûlullah hicretin artırdığı iktisadi yükü, Muhâcir ile Ensâr arasındaki kardeşlik nizamıyla ve fakir muhacirlerin olabildiğince çoğunu barındıran Suffe ile hafifletmeye çalıştı.
+B1|Ama yaptığı araştırma, ekonomik gücün Yahudilerin elinde olduğunu gösteriyordu; pazara ve mallara hâkim olan Yahudiler fiyatlara tahakküm ediyor, malları stoklayıp ihtiyacı istismar ediyordu.
+B1|Müslümanların, servet kaynaklarında yarışacakları ve ticarette İslâm ahlâkının görüneceği kendi pazarlarına ihtiyacı vardı.
+B1|Allah Rasûlü bir alanı pazar yeri olarak belirleyip sınırlarını kendi ayaklarıyla çizdi; bu yer Sallâbî'ye göre Mescid-i Nebevî'nin batısında, Evlakî'ye göre mescidin yanındaydı.
+QUOTE|ch20-146
+KAVRAM|💡 KAVRAM · HARAC|Evlakî'nin açıklamasıyla devletin alışverişten aldığı paradır; Evlakî bu pazarda harac alınmayacağını söyleyerek onu vergisiz bir pazar olarak niteler.
+B1|Geniş bir alanda kurulan pazar Rasûlullah'ın gözetiminde gelişti; hile, aldatma ve sahtekârlık gibi cahiliye alışkanlıklarından arındırılırken hürriyeti ve herkese eşit imkân da gözetildi.
+B1|Evlakî'nin naklettiğine göre fiyatlar hızla yükselince sahâbe fiyatların sabitlenmesini istedi; Rasûlullah ise "Fiyatları belirleyen Allah'tır, ben müdahil olmak istemiyorum" dedi.
+B2|Evlakî'ye göre bu, fiyatların arz ve talebe göre değiştiğini, rızkı verenin ve fiyatları takdir edenin Allah olduğunu kabul eden, ticarete ve para akışına gereksiz kısıtlama getirmeyen bir anlayıştır.
+B1|Pazarın ahlâkı nebevî tavsiyelerle şekillendi.
+B2|Çarşıya girerken Allah'ı tevhid ile anana bin sevap yazılacağı, bin günahının silineceği ve cennette ona bir ev yapılacağı müjdelendi (Tirmizî, 3428).
+B2|Rasûlullah pazarlarda bağırıp çağırmaz, kötülüğe kötülükle karşılık vermez, affederdi (Buhârî, 2125).
+B2|Yola ve gölgeliğe pislik bırakmayı lânet sebebi saydı (Müslim, 269); okla pazardan geçene, kimseye zarar vermemek için okun demir ucunu tutmasını emretti (Buhârî, 7075).
+B2|Alırken, satarken ve hakkını isterken kolaylık gösterene rahmet diledi (Buhârî, 2076); güvenilir ve doğru tâcirin peygamberler, sıddîklar ve şehitlerle beraber olacağını müjdeledi (Tirmizî, 1209).
+B2|Yalan yeminin malı sattırdığını, ama kazancın bereketini giderdiğini haber verdi (Buhârî, 2087; Müslim, 1607).
+B2|Sallâbî'nin aktardığı Süyûtî'ye göre yeminle gelen revaç bereketin eksildiği yerdir; hırsızlık, yangın, sel ve hastalık gibi âfetler o mala musallat olur.
+B1|Sallâbî'ye göre çarşının özellikle anılması, buraların Allah'ı unutturan, insanı ticarete gömen ve şeytanın askerlerinin toplandığı yerler olmasındandır; oradaki zikir şeytanla bir savaştır.
+B1|Bu âdâbın tesiriyle Müslüman pazarları gelişti, Yahudi pazarları zayıfladı ve Müslümanlar zamanla Medine ekonomisine hâkim oldu.
+B2|Hz. Ömer de daha sonra bu pazarın ölçüsünü dinde fıkha bağlayacaktı.
+SOZ|💬 HZ. ÖMER|"Pazarımızda dinde fakih olandan başkası alışveriş yapmasın."|
+B1|Ölçü ve tartıdaki hileye karşı Kur'ân uyarıları pazarın ruhunu oluşturdu; Sallâbî'ye göre ölçü ve teraziler adaletin aletleridir ve onları eksik tutmak, Allah'ın indirdiği adalet yoluna aykırıdır.
+QUOTE|ch20-147
+B1|Sahâbe, Hz. Şuayb'ın kavminin kıssasından eksik ölçmenin ilâhî metodu iptal etmek ve Allah'ın gazabına uğramak demek olduğunu anlamıştı; bu, Medyen halkının helâk sebeplerindendi (Hûd 11/94-95).
+B1|Sallâbî'ye göre bu kötülük dünyaya da zarar verir; bolluk yerine darlık, ucuzluk yerine pahalılık getirir ve geçimi bozar.
+B1|"Ölçüyü ve tartıyı adaletle tam tutun" (En'âm 6/152) ve "Doğru terazi ile tartın" (İsrâ 17/35) emirleri Medine iktisadının temel taşları oldu.
+B1|Sahâbe böylece Rabbânî metottan sapmanın helâk olduğunu ve bu dinin şümulünün hayatın her alanına uzandığını kavradı.
+H2|Oruç, Fitre, Bayram ve Zekât
+INTRO|Hicretin ilk iki yılında temel ibadetler tedrîcle, peş peşe farz kılındı.
+B1|Sallâbî, temel ibadetlerin farz kılındığı bu ilk iki yılda tedrîc kanununun açıkça görüldüğünü söyler.
+KAVRAM|💡 KAVRAM · TEDRÎC KANUNU|İnsanların mevcut hâline riayet ederek onları tam zamanında daha iyiye götürmektir.
+TABLE|Zaman|Adım
+ROW|Hicretin ikinci yılı, Şaban|Oruç, geçmiş ümmetlere olduğu gibi farz kılındı ve İslâm'ın rükünlerinden biri oldu.
+ROW|Aynı yılın Ramazan ayı|Hür ya da köle, erkek ya da kadın, küçük ya da büyük her Müslümana fitre zekâtı farz kılındı.
+ROW|Aynı yıl|Rasûlullah (s.a.v.) ilk bayram namazını kıldırdı.
+ROW|Aynı yıl, Ramazan'dan sonra|Genel zekât farz kılındı.
+ENDTABLE
+B1|Evlakî orucun hikmetini, âyetin son cümlesine dayanarak takvâ diye özetler.
+QUOTE|ch20-148
+B1|Allah oruç ayını övmüş ve Kur'ân'ın inişi için onu bütün aylar arasından seçmişti (Bakara 2/185).
+B1|Sallâbî'ye göre oruç ümmet için eşi olmayan bir medrese ve nefsi arındıran bir eğitim devresidir.
+B2|Rasûlullah başka günlerde de oruç tutmayı teşvik ederek bu medreseyi bütün yıl açık tuttu; Allah rızası için bir gün oruç tutanın yüzünün cehennemden yetmiş yıllık mesafe uzaklaşacağını müjdeledi (Buhârî, 2840; Müslim, 1153).
+B1|İbn Abbâs'ın rivayetine göre fitre, oruçluyu boş ve çirkin sözlerden arındırmak ve yoksullara yiyecek olmak için farz kılındı.
+B2|Bayram namazından önce verilen fitre makbul bir zekât, sonra verilen ise sadakalardan bir sadaka sayılırdı (Ebû Dâvûd, 1609; İbn Mâce, 1827; Hâkim, *el-Müstedrek*, 1/409).
+B1|Sallâbî'ye göre fitre, şehrin yaygın gıdasından herkesin zorlanmadan verebileceği kadar bilerek az tutulmuştu; toplandığında ise muhtaç için zenginlik oluyordu, çünkü bayramda sevinç herkesi kucaklamalıydı.
+B1|İlk bayramda Rasûlullah insanlarla birlikte musallâya çıktı; Müslümanlar peş peşe yağan nimetlere şükür için tekbir ve tehlil getirerek yürüdü.
+B2|Bayram namazında öğüt verir, korkutur ve rağbet ettirirdi; erkekler, kadınlar, küçükler ve büyükler de verme ve fedakârlıkta yarışırdı.
+B2|Sallâbî bayramı karşılıklı sevginin mevsimlerinden biri sayar.
+B1|İbn Hacer, fitre ile zekâtın sırasını anlatan Kays b. Sa'd b. Ubâde (r.a.) rivayetinin isnadını sahih bulur; selef ve halefin çoğunluğu da bu görüştedir.
+SOZ|💬 KAYS B. SA'D B. UBÂDE|"Zekâtın farziyeti inmeden önce Rasûlullah bize fitre sadakasını emretti; zekât farz olunca ne emretti ne nehyetti, ama biz vermeye devam ettik."|
+B1|Sallâbî zekâtın Mekke ve Medine dönemlerindeki farkını ortaya koyar.
+TABLE|Dönem|Zekâtın durumu
+ROW|Mekke|Mutlaktı; şartı ve sınırı yoktu, fertlerin imanına, cömertliğine ve kardeşlik şuuruna bırakılmıştı.
+ROW|Medine|Cemaatin toprağı, varlığı ve hâkimiyeti oluşunca teklifler bağlayıcı kanuna dönüştü; şartları, nisabı, sarf yerleri ve teşkilatı belirlendi.
+ENDTABLE
+B1|Mekke âyetleri de yoksulu gözetmeyi imanın parçası saymıştı.
+B2|Cehennem ehli "Biz namaz kılanlardan değildik, yoksulu doyurmazdık" diyecekti (Müddessir 74/42-46); yoksulları mahrum bırakmak için ürünü gece toplamaya karar verenlerin bahçesi yanıp kül olmuştu (Kalem 68/19-33).
+B2|Ebu'd-Derdâ eşine, imanları sayesinde cehennem zincirinin yarısından kurtulduklarını, kalan yarısı için yoksulu doyurmaya teşvik etmesini söylerdi (Ebû Ubeyd, *el-Emvâl*, 35; Karadâvî, *Fıkhu'z-Zekât*, 1/70).
+B1|Sallâbî'ye göre zekât ferdi nefsin cimriliğinden korur (Haşr 59/9) ve malını eksiltmez, artırır; Allah hayra harcananın yerine yenisini verir (Sebe 34/39) ve sadakaları bereketlendirir (Bakara 2/276).
+B2|Gece gündüz, gizli açık infak edenlere ne korku vardır ne de üzüntü (Bakara 2/274).
+B1|Toplumda ise zenginle fakir arasında sevgi doğar, güven ve huzur yayılır, fertler tek bir vücut olduklarını hisseder.
+QUOTE|ch20-149
+B1|Sallâbî'ye göre zekât sosyal dengeyi de korur; râviler, Ömer b. Abdülazîz devrinde zekât verecek muhtaç bulunamadığını ve zekât malıyla köleler alınıp azat edildiğini nakleder.
+B2|Ona göre İslâm, ilk asırlarında hayat seviyesini bugün bile pek az milletin ulaşabildiği bir dereceye yükseltmişti.
+B1|Rasûlullah'ın beş rüknü sayarken zekâtı üçüncü sıraya koyması, onun Kur'ân'da olduğu gibi sünnette de dinin üçüncü direği olduğunu gösterir.
+H2|Medine'de Bir Yuva: Hz. Âişe ile Evlilik
+INTRO|Hz. Âişe ile evlilik, ev içindeki nebevî hayatın ümmete aktarılmasını sağladı.
+B1|Davet, cihad ve devletin yapılanması sürerken Rasûlullah (s.a.v.) ve ashâbının hayatında evlilikler de devam ediyordu.
+B1|Hz. Hatice'nin vefatından sonra, hicretten önce Mekke'de Hz. Âişe ile nikâh akdi yapılmıştı; evlilik hicretin ilk yılının Şevval ayında Medine'de gerçekleşti.
+B1|Sallâbî'ye göre evlenmek sahâbe için yemek içmek gibi tabii bir şey ve toplum inşasının önemli bir parçasıydı; bu, İslâm'ın fıtrat dini oluşunun yansımasıdır.
+B1|Rasûlullah o sırada elli dört yaşındaydı; Sallâbî bu rakamın akla yaşlılık getirdiğini kabul eder, ama asıl ölçünün canlılık, dirilik ve girişim gücü olduğunu söyler.
+B2|Ona göre otuz yaşında elli yaşının ağırlığını taşıyan da vardır, ellisinde otuzundan genç görünen de.
+B1|Sallâbî, Rasûlullah'ın ellilerinde iken himmet, azim ve kahramanlıkta gençliğinin baharında olduğunu gösteren deliller zikreder.
+B2|Kabilelere arz günlerinde Âmir b. Sa'saaoğulları'ndan Beyhare b. Firâs, o sırada ellisinde olan Rasûlullah'tan "genç" diye söz etmişti.
+SOZ|💬 BEYHARE B. FİRÂS|"Bu genci Kureyş'ten alabilirsem onunla bütün Arapları yenerim."|
+B1|Hicret yolunda Ebû Bekir tanınan bir yaşlı, ondan yaşlı olan Rasûlullah tanınmayan bir genç gibi görünüyordu; soranlara Ebû Bekir "Bana yol gösteren kılavuzumdur" derdi.
+B1|Rasûlullah'ın Hz. Âişe ile yarıştığı, bazen onun, bazen kendisinin öne geçtiği de nakledilir (Ahmed b. Hanbel, 6/264; Ebû Dâvûd, 2578).
+B1|Sallâbî'ye göre bu evliliğin hikmeti, hayatın büyük kısmının geçtiği ev içinde Rasûlullah'ın nasıl yaşadığının ümmete aktarılmasıdır.
+B2|Bu görevi başta Hz. Âişe, sonra diğer müminlerin anneleri üstlendi; Hz. Âişe'nin Allah vergisi zekâsı ve Rasûlullah'tan sonra yaklaşık elli yıl yaşaması, ezberlediklerini ümmete ulaştırmasını sağladı.
+H2|Tedâfü Kanunu: Cihadın Mânâsı, Aşamaları ve Gayeleri
+INTRO|Medine'deki askerî hareketlilik, tedâfü kanunu ve cihadın aşamalı meşruiyetiyle açıklanır.
+B1|Evlakî'ye göre Rasûlullah'ın (s.a.v.) Medine'deki dördüncü projesi, profesyonel bir ordu değil milis gücü olan İslâm ordusunun kurulmasıydı.
+B1|Medine'deki on yıl yoğun bir askerî hareketliliğe sahne oldu; iki müellif bunun rakamlarını farklı verir.
+TABLE|Konu|Sallâbî|Evlakî
+ROW|Rasûlullah'ın bizzat katıldığı gazveler|Yirmi yedi|On dokuz
+ROW|Gönderilen seriyyeler|Otuz sekiz civarında|Elli beş; gazvelerle birlikte yılda ortalama yedi sefer
+ENDTABLE
+B1|Sallâbî bu hareketliliği, Peygamber Efendimiz'in uyguladığı ilâhî kanunlardan tedâfü ile açıklar.
+KAVRAM|💡 KAVRAM · TEDÂFÜ KANUNU|Allah'ın insanların bir kısmını diğerleriyle savması kanunudur; Evlakî buna *sünnetü'l-müdâfaa* der.
+QUOTE|ch20-150
+B1|Sallâbî'ye göre bozgunculuğun böyle defedilmesi bütün insanlığa bir lütuftur; Hac sûresindeki savaş izni de "Allah kendi dinine yardım edenlere mutlaka yardım eder" (Hac 22/40) kaidesiyle biter.
+B2|Ashâb, hakkın onu omuzlayacak azimlere, koruyacak bileklere ve ona bağlanan kalplere muhtaç olduğunu anlamıştı.
+B1|Evlakî, Hac sûresinde manastırların, kiliselerin, havraların ve mescidlerin birlikte anılmasına dikkat çeker.
+B2|Ona göre Allah yolunda savaşan ilk ümmet olan, Hz. Mûsâ'ya tâbi İsrâiloğulları'nın cihadıyla havralar korunmuştu; Muhammed ümmetiyle de kiliseler ve mescidler korunacaktı.
+KAVRAM|💡 KAVRAM · CİHAD|Evlakî'ye göre sözlükte gayret sarf etmektir; duadan namaza anlam kazanan "salât" gibi, İslâm ile Allah yolunda savaşmak anlamını kazanmıştır.
+B1|Evlakî'ye göre her savaş bir zulüm ve şerdir; istilacı, sömürgeci ve tahakküm peşindeki bütün savaşlar bâtıldır.
+B2|Hak sayılabilecek tek savaş "Lâ ilâhe illallah" sancağı altında Allah yolunda yapılandır; "İman edenler Allah yolunda, inkâr edenler ise tâğût yolunda savaşırlar" (Nisâ 4/76).
+B1|İki müellif cihadın dört aşamada meşru kılındığında birleşir; Sallâbî Mekke'deki yasak dönemi için Zemahşerî (*el-Keşşâf*, 4/199) ve Âlûsî'ye (*Tefsîr*, 6/108) atıf yapar.
+TABLE|Aşama|Hüküm|Dayanak
+ROW|Mekke|Ellerin çekildiği yasak dönemi|İzin isteyenlere "Sabredin, ben henüz savaşmakla emrolunmadım" denildi.
+ROW|Medine'de ilk adım|Yalnızca savaş izni verildi.|"Kendileriyle savaşılan müminlere, zulme uğramaları sebebiyle savaş izni verildi" (Hac 22/39).
+ROW|İkinci adım|Savaşanlara karşı savaş emredildi.|"Sizinle savaşanlara karşı Allah yolunda siz de savaşın, ancak haddi aşmayın" (Bakara 2/190).
+ROW|Son aşama|Sallâbî'ye göre müşrikler topyekûn savaştığı gibi onlarla topyekûn savaşmak emredildi.|Tevbe 9/36; Evlakî İbn Kayyim'den naklen bunu "Allah'tan başka ilah olmadığına şehadet edinceye kadar insanlarla savaşmakla emrolundum" hadisine bağlar (Buhârî, 25; Müslim, 25).
+ENDTABLE
+B1|Sallâbî'ye göre bu aşamalılık nefsi eğitmek, insan tabiatına uymak ve yeni devletin hâline göre davranmak içindi.
+B2|Ordunun sayısı, hazırlığı ve eğitimi henüz oluşuyordu; Kureyş'in peşine düşmek zorunlu değil gönüllüydü, ama yurtta saldırıya uğranırsa savaş, İkinci Akabe Biatı'nın da gereği olarak farzdı.
+B1|İznin zamanını Ebû Şehbe hicretin ikinci yılının başları, Sâlih eş-Şâmî ise birinci yılın sonları olarak gösterir.
+B1|Cihadın gayelerini Sallâbî on bir, Evlakî yedi başlıkta sayar; iki liste büyük ölçüde örtüşür.
+B2|İlk gaye, "fitne kalmayıncaya ve din tamamen Allah'ın oluncaya kadar" (Enfâl 8/39) savaşarak inanç hürriyetini güvenceye almaktır.
+B2|Sallâbî'nin aktardığı Seyyid Kutub'a göre bu, insanları dine zorlamak değil; dine girmek isteyenin hiçbir güçten korkmamasını ve hidayeti engelleyen düzenlerin kalkmasını sağlamaktır (*Fî Zılâli'l-Kur'ân*, 1/187).
+B2|Evlakî "Dinde zorlama yoktur" (Bakara 2/256) âyetini hatırlatır; ona göre İslâm hükmü altında Müslüman olma fırsatı artar ve "Allah zincirler içinde cennete sürüklenenlere hayret eder" hadisi de bir şârihin açıklamasıyla buna işaret eder (Buhârî, 3010).
+B2|Diğer gayeler ibadethanelerin ve şiarların korunması, fesadın defedilmesi, müminlerin imtihan edilip arındırılması, Allah düşmanlarının korkutulması (Enfâl 8/60) ve münafıkların ayıklanmasıdır (Âl-i İmrân 3/179).
+B2|Evlakî münafıkların ayıklanmasını, Abdullah b. Übey'in Uhud'da ordunun üçte birini geri çekmesiyle örneklendirir.
+B2|Sallâbî ayrıca Allah'ın hükmünü ikame etmeyi ve zayıf erkekler, kadınlar ve çocuklar uğrunda zulmü defetmeyi (Nisâ 4/75) de sayar.
+B1|Sallâbî zulmü defetmenin üç hâlini fıkıh âlimlerinden nakleder.
+TABLE|Durum|Hüküm
+ROW|Küfür diyarında zayıf müminler zulme uğrarsa|Onları kurtarmak İslâm devletine farzdır; Kurtubî'ye göre esirleri mal karşılığı kurtarmak öncelikle gerekir.
+ROW|İslâm topraklarından biri işgal edilirse|İbn Kudâme'ye göre orada yaşayan herkese savaşmak farz olur.
+ROW|Düşman kendi tebaasına zulmederse|Serahsî'ye göre zulmü önleme imkânı varken ona razı olmak haramdır.
+ENDTABLE
+B1|Evlakî ise devlet gücünün davete kazandırdığı ivmeye dikkat çeker.
+TABLE|Dönem|Evlakî'ye göre Müslümanların sayısı
+ROW|Mekke'deki on üç yıllık davetin sonu|Birkaç yüz kişi
+ROW|Mekke fethi|On bin kişilik ordu
+ROW|Veda Haccı|Doksan bin kişi
+ROW|Rasûlullah'ın cenaze namazı|Yüz on dört bin kişi
+ENDTABLE
+H2|Mücahit Yetiştirmek: Gönül, Bilek ve İhlâs
+INTRO|Rasûlullah (s.a.v.) mücahitleri manevî yönlendirme ve pratik eğitimle yetiştirdi, ama hazırlığın değerini ihlâsa bağladı.
+B1|Sallâbî'ye göre Rasûlullah'ın metodu manevî yönlendirme ve pratik eğitim olmak üzere birbirine paralel iki yola dayanıyordu.
+B1|Mücahitlerin maneviyatını yükseltmek için büyük çaba harcıyor, onlara zafer ya da cennet ümidi veriyordu; kendi arzusunu da yeminle dile getirmişti.
+QUOTE|ch20-151
+B1|Cennete girenlerden hiçbirinin dünyaya dönmek istemeyeceğini, yalnız şehidin gördüğü ikram yüzünden on defa dönüp yeniden şehid olmayı arzu edeceğini haber vermişti (Buhârî, 2817; Müslim, 1877).
+B1|Evlakî başka hadisleri de sıralar.
+B2|Cihada denk amel soran adama, mücahit dönünceye kadar ara vermeden namaz kılıp oruç tutmaya gücünün yetip yetmeyeceğini sordu (Buhârî, 2785; Nesâî, 3128).
+B2|Muâz b. Cebel'e işin başının İslâm, direğinin namaz, zirvesinin Allah yolunda cihad olduğunu söyledi (Hâkim, *el-Müstedrek*; Beyhakî).
+B2|"Cennet kılıçların gölgesi altındadır" buyurdu (Buhârî, 2819; Müslim, 1902); gaziyi donatanı ve ailesine bakanı da gazi saydı (Buhârî, 2843; Müslim, 1896).
+B2|Bir gün bir gecelik nöbetin bir aylık oruç ve namazdan hayırlı olduğunu bildirdi (Müslim, 1916).
+B1|Sallâbî'ye göre sahâbe cihadı yalnızca savaş değil; nefsi dünyaya bağlanmaktan kurtaran, sabır ve fedakârlığa alıştıran, izzet kazandıran bir terbiye olarak görüyordu.
+B2|Allah müminlerin canlarını ve mallarını cennet karşılığında satın almıştı (Tevbe 9/111); îne alışverişine dalıp yalnızca ziraata razı olan ve cihadı terk edenlere ise dinlerine dönünceye kadar kalkmayacak bir zillet haber verilmişti (Ebû Dâvûd, 3462; Ahmed b. Hanbel, 2/42, 84).
+B1|Pratik eğitimde Rasûlullah mızraktan kılıca, ok atmaktan at üzerinde manevraya kadar yaşlısıyla genciyle ümmetin bütün gücünü seferber etmeye çalıştı.
+B1|"Onlara karşı gücünüzün yettiği kadar kuvvet hazırlayın" (Enfâl 8/60) âyetini okuduktan sonra âyetteki kuvveti tarif etti.
+QUOTE|ch20-152
+B1|Ok atmayı öğrenip terk edeni "bizden değildir" diye uyardı (Müslim, 1919; Ahmed b. Hanbel, 4/148; İbn Mâce, 2814).
+B1|Evlakî'ye göre Rasûlullah çölde yaşadığı için yüzme bilmeyen Araplara yüzmeyi öğrenmelerini söyledi; iki nişangâh arasında gidip gelerek atış talimi yapılırdı.
+B1|Allah'ın zikri dışında boş sayılmayan uğraşları bildiren hadis iki müellifte farklı sayıyla geçer.
+TABLE|Konu|Sallâbî|Evlakî
+ROW|Boş sayılmayan uğraşlar|Üç; at terbiyesi, eşle oynaşma ve yaydan ok atmak (Ebû Dâvûd, 2513; Tirmizî, 1637; Nesâî, 6/222-223).|Dört; nişangâhlar arasında yürümek, atını eğitmek, eşiyle oynamak ve yüzme öğrenip öğretmek (Nesâî, 8889; Beyhakî).
+ENDTABLE
+B1|Sallâbî'nin aktardığı hadiste Allah'ın bir ok sebebiyle onu sevap umarak yapanı, atanı ve atıcıya uzatanı cennete koyacağı da müjdelenir.
+B1|"Müşriklere karşı mallarınızla, canlarınızla ve dillerinizle cihad edin" emri seferberliğin topyekûn olduğunu gösterir (Ebû Dâvûd, 2504).
+B1|Evlakî'ye göre orduya katılmanın şartları Müslüman olmak, buluğa ermek, akıllı olmak, bedenî kusurlardan sâlim olmak ve gerekli mâlî imkâna sahip bulunmaktı.
+B1|Bütün bu hazırlık ihlâs olmadan anlam taşımazdı.
+B2|Rasûlullah, "Senin için savaştım" deyip de "yiğit" denilsin diye savaşan şehidin, "âlim" denilsin diye öğrenip öğretenin ve "cömert" denilsin diye infak edenin kıyamette aleyhine hüküm verilip yüzüstü ateşe sürükleneceğini haber verdi (Müslim, 1905; Ahmed b. Hanbel, 2/322; Nesâî, 6/23).
+B2|Sallâbî'ye göre sahâbe cihadın beklenen meyveyi vermesinin ihlâsa bağlı olduğuna içtenlikle inanmıştı.
+B1|Sallâbî'nin naklettiğine göre seriyyelerden önce, hicretin birinci yılında ve kardeşlik akdinin hemen ardından Rasûlullah "İslâm'ı telaffuz eden insanların isimlerini yazın" diyerek bir sayım yaptırdı.
+B2|Savaşabilecek Müslümanların bin beş yüze ulaştığını gören sahâbe, silahsız yatamadıkları ve geceleri tek başına çıkamadıkları günleri hatırladı.
+SOZ|💬 SAHÂBE|"Bin beş yüz kişi olduk, hâlâ korkacak mıyız?"|
+B1|Sallâbî'ye göre bu sayım yeni devletin düzenleme programının parçasıydı; seriyyeler ve gazveler hemen ardından başladı.
+H2|Kureyş'in Tehdidi ve Bedir Öncesi Seriyyeler
+INTRO|Kureyş düşmanlığının Mekke sınırlarını aşması Medine'nin askerî hazırlığını zorunlu kıldı ve Bedir'e kadar gazve ile seriyyeler birbirini izledi.
+B1|Umre için Mekke'ye gidip cahiliyeden dostu Ümeyye b. Halef'e misafir olan Sa'd b. Muâz'ı (r.a.) Ebû Cehil "Sâbiîleri barındırdığınız hâlde Mekke'de güven içinde dolaşıyorsun! Ebû Safvân'la birlikte olmasaydın evine sağ dönemezdin" diye tehdit etti.
+SOZ|💬 SA'D B. MUÂZ|"Beytullah'ı tavaf etmeme engel olursan, ben de senin Şam ticaret yolunu keserim."|Beyhakî
+B1|Sallâbî burada bir dönüm noktası görür; daha önce hiçbir Medineli Mekke'ye girmek için himayeye muhtaç değildi ve tehdit, Mekke yönetiminin Müslümanları artık savaş ehli saydığının ilanıydı.
+B2|Oysa İslâm devleti o güne kadar Kureyş'e ekonomik ambargo uygulamamış, tek bir kervanına dokunmamıştı.
+B1|Kureyş'in Abdullah b. Übey'e ve putperest Evs ve Hazreclilere yazdığı mektup, Muhammed'i ve ashâbını çıkarmazlarsa üzerlerine yürüyüp savaşanlarını öldüreceğini ve kadınlarını kendine helâl sayacağını bildiriyordu.
+B2|Evlakî'nin aktardığı lafızda tehdit "kadınlarınızı dul, çocuklarınızı yetim bırakırız" şeklindedir.
+B1|Savaşmak için toplananlara Rasûlullah (s.a.v.) "Onların size kurdukları tuzak, sizin kendinize yapmak istediğinizden daha büyük değildir; siz kendi çocuklarınızla ve kardeşlerinizle savaşmak istiyorsunuz" dedi ve topluluk dağıldı.
+B2|Sallâbî'ye göre bu, fitnenin beşikteyken bastırılmasının ve kabilecilik duygularının önüne geçilmesinin örneğidir.
+B1|Bölüm başındaki uykusuz gece de bu tehditlerin gölgesindeydi; Sallâbî o hadisten tedbirin meşruiyetini, ihtiyaç anında gevşememeyi ve saldırı korkusunda yöneticinin korunmasını çıkarır.
+B2|Ona göre Rasûlullah'ın güçlü tevekkülüne rağmen nöbet istemesi, Müslümanların tedbirde ona uyması içindi.
+B2|Evlakî de İbn Hacer'in aynı yöndeki tespitlerini aktarır; bu durum "Allah seni insanlardan koruyacaktır" (Mâide 5/67) âyetiyle sona ermiş, Rasûlullah dışarı çıkıp "Gidiniz; Allah bana kendi korumasını verdi" buyurmuştu.
+KAVRAM|💡 KAVRAM · GAZVE VE SERİYYE|Siyer âlimleri Rasûlullah'ın bizzat katıldığı seferlere gazve, katılmadan gönderdiği birliklere seriyye der.
+B1|Sallâbî'ye göre seriyyelerde sayı genellikle azdı; görevleri düşmanı yoklamak, korkutmak, engellemek ve haber toplamaktı.
+TABLE|Sefer|Kuvvet ve hedef|Sonuç
+ROW|Ebvâ (Veddân) Gazvesi|İlk gazve; Safer ayında iki yüz kişi|Savaş olmadı; Damreoğulları'nın lideriyle anlaşma yapıldı.
+ROW|Ubeyde b. Hâris seriyyesi|İslâm'ın ilk sancağıyla altmış muhacir; karşılarında Ebû Süfyân komutasında iki yüzü aşkın kişi|Râbiğ vadisinde ok atışıldı, kimse ölmedi.
+ROW|Hamza b. Abdülmuttalib'in birliği|Otuz kişi; Kızıldeniz sahilinde Ebû Cehil'in idaresindeki kervan|İki tarafın da müttefiki Mecdî b. Amr el-Cühenî araya girince savaşılmadan dönüldü.
+ROW|Buvât Gazvesi|Hicretin ikinci yılı Rebîülevvel'de iki yüz kişi; Ümeyye b. Halef'in yüz adamla koruduğu iki bin beş yüz develik kervan|Karşılaşma olmadı.
+ROW|Uşeyre Gazvesi|Medine'ye Ebû Seleme vekil bırakıldı; bir kervan takip edildi.|Kervan birkaç gün önce Şam'a geçmişti; Müdlicoğulları ve Damreoğulları ile anlaşmalar yapıldı.
+ROW|Sa'd b. Ebî Vakkâs'ın keşfi|Seksen muhacir|Harrâr'a kadar keşif yapıldı.
+ROW|Birinci Bedir Gazvesi|Medine'nin develerine ve koyunlarına saldıran Kürz b. Câbir el-Fihrî takip edildi.|Safvân vadisine kadar gidildi, yetişilemedi.
+ROW|Nahle seriyyesi|Abdullah b. Cahş ve sekiz muhacir; bir Kureyş kervanı|Amr b. Hadramî öldürüldü, iki esir alındı, kervan ele geçirildi.
+ENDTABLE
+B1|Ebvâ'daki yazılı metne göre Damreoğulları'nın malı ve canı güvencedeydi; Allah'ın dinine karşı savaşmadıkça saldırana karşı yardım görecek, Peygamber çağırınca icabet edeceklerdi (Muhammed Hamîdullah, *el-Vesâiku's-Siyâsiyye*, 220, no. 159).
+B2|Sallâbî bu saldırmazlık paktından, söz ve karar Müslümanlarda olmak şartıyla askerî, ekonomik ve ticari antlaşmaların şer'î siyasetin gereklerinden olduğunu çıkarır.
+B1|Evlakî ilk sancağın seriyyesini Ubeydullah b. Hâris adıyla anar ve seriyyenin geceleri yürüyüp gündüzleri gizlendiğini anlatır.
+B1|Râbiğ'de Sa'd b. Ebî Vakkâs (r.a.) Allah yolunda ilk oku attı; Utbe b. Gazvân ve Mikdâd b. Esved de müşriklerin safından Müslümanların safına geçti.
+B1|Sallâbî, Mecdî'nin Hamza (r.a.) ile kervan arasına girmesini Cüheyne ile önceden yapılmış anlaşmanın meyvesi sayar.
+B2|Ona göre düşmanla da anlaşması olan tarafla antlaşma yapmak ve zarar görülmedikçe savaş hazırlığından sonra bile arabuluculuğa icabet etmek câizdir.
+B1|Mekke'ye dönen Ebû Cehil kavmini uyardı.
+SOZ|💬 EBÛ CEHİL|"Muhammed Yesrib'e yerleşti ve öncü birliklerini göndermeye başladı; onun yolundan sakının, o ava dadanmış bir aslan gibidir."|
+B1|Uşeyre'de yetişilemeyen kervanın dönüşü Bedir'in sebebi olacaktı.
+B1|Sallâbî'ye göre Birinci Bedir bütün bedevilere ders oldu; bir daha Medine'ye saldırmaya kalkışan bedevîye rastlanmadı.
+B1|Bu seferlerin en dikkat çekicisi Abdullah b. Cahş'ın (r.a.) Nahle seriyyesiydi.
+B2|Rasûlullah ona iki gün yol aldıktan sonra açacağı mühürlü bir mektup verdi; mektup Mekke ile Tâif arasındaki bir yere gitmesini, arkadaşlarını kendisine uymaya çağırıp tercihi onlara bırakmasını emrediyordu.
+B2|Abdullah durumu anlatınca hiçbiri geride kalmadı.
+SOZ|💬 ABDULLAH B. CAHŞ|"İçinizde şehadeti arzu eden benimle gelsin, istemeyen dönsün; ben Rasûlullah'ın emrini yerine getirmek üzere devam edeceğim."|
+B1|Sallâbî bu usulde, Yahudilerin ve münafıkların da yaşadığı Medine'den hareket hattını gizlemenin ve ani hücum ilkesinin uygulamasını görür.
+B1|Nahle'de bir Kureyş kervanına rastlandı; savaşırlarsa haram ay çiğnenecek, bırakırlarsa kervan Harem'e girip kurtulacaktı.
+B2|Sallâbî'ye göre recep ayının son günüydü; Evlakî de haram ayda olup olmadıkları konusunda şüphe bulunduğunu söyler.
+B2|Seriyye istişare edip çarpışmaya karar verdi.
+B1|Medine'de Rasûlullah "Size haram ayda savaşmayı emretmemiştim" diyerek ganimete el sürmedi; Abdullah ve arkadaşları helâk olduklarını sanıp pişman oldu.
+B1|Kureyş, cahiliyede hâlâ saygı gören haram ay geleneğini kullanarak "Muhammed ve ashâbı haram ayı helâl saydı, kan döktü, mal aldı, insanları esir etti" propagandasını başlattı.
+B2|Sallâbî'ye göre propaganda önce başarılı oldu ve Medine'de bile tartışma doğurdu; Yahudiler de Amr, Hadramî ve Vâkıd isimlerinden savaşın kızışacağına dair kehanetler üreterek ateşi körükledi.
+B1|Sonunda vahiy meseleye son noktayı koydu.
+QUOTE|ch20-153
+B1|Evlakî'ye göre âyet bir denge kuruyordu; Abdullah'ın yaptığına bakarken Kureyş'in çok daha büyük suçlarını unutmamak gerekirdi.
+B2|İbn İshak'ın ifadesiyle Kureyş bir Müslümanı dininden döndürünceye kadar ona eziyet ediyordu ve bu fitne öldürmekten ağırdı.
+B1|Mükâfat uman seriyye mensupları için "İman edenler, hicret edenler ve Allah yolunda cihad edenler, işte onlar Allah'ın rahmetini umabilirler" (Bakara 2/218) âyeti indi.
+B1|Rasûlullah, kaybolan bir deveyi ararken geride kalan Sa'd b. Ebî Vakkâs ile Utbe b. Gazvân dönmeden Kureyş'in esirler için gönderdiği fidyeyi kabul etmedi.
+B2|"Sa'd b. Mâlik'i ve Utbe b. Gazvân'ı yakalamanızdan korkuyorum" dedi; ikisi dönünce fidye alınıp esirler bırakıldı.
+B1|Esirlerden Hakem b. Keysân Müslüman olup Medine'de kaldı, diğeri Mekke'ye kâfir olarak döndü.
+TABLE|Konu|Sallâbî|Evlakî
+ROW|Mekke'ye dönen esirin adı|Osman b. Abdullah|Osman b. Muğîre
+ROW|Hakem b. Keysân'ın akıbeti|Müslüman olup Medine'de kaldı.|Sonradan şehid düştüğünü de ekler.
+ENDTABLE
+B1|Nahle böylece Allah yolunda ilk ganimetin alındığı, ilk esirlerin tutulduğu ve ilk düşmanın öldürüldüğü sefer olarak tarihe geçti.
+B1|İbn Sa'd, Bedir'e kadarki seriyyelerin bütün mensuplarının muhacir olduğunu, hiçbir Ensârînin gönderilmediğini kaydeder; Sallâbî'ye göre bu, düşünülmüş bir planın parçasıydı.
+B1|İki müellif seriyyelerin hedeflerinde büyük ölçüde birleşir.
+TABLE|Hedef|Açıklama
+ROW|Caydırıcılık|Müslümanların vurma gücünü göstermek; Medine çevresindeki Yahudileri ve putperest kabileleri saldırmadan önce bin kere düşünmeye zorlamak.
+ROW|Kureyş'in itibarını kırmak|Evlakî'ye göre Arabistan'da Kureyş'e duyulan derin saygıyı kırmak ve bölgede rakip bir gücün varlığını ilan etmek.
+ROW|İttifak|Kabilelerle dostluk ve ittifak kurmak.
+ROW|Ekonomik baskı|Kureyş kervanlarının yolunu keserek ekonomik damarını baskı altına almak ve Bedir'e giden yolu açmak.
+ROW|Askerî okul (en önemlisi)|Otuz-altmış kişilik gruplarla keşif yapmayı, pusu kurmayı, bölgeyi ve kabileleri tanımayı öğretmek; Sallâbî'ye göre Ebû Ubeyde, Sa'd b. Ebî Vakkâs, Hâlid b. Velîd ve Amr b. Âs gibi fetih komutanları böyle yetişti.
+ENDTABLE
+B1|Seriyye komutanlarına verilen talimatlar bu ordunun ahlâkını belirledi.
+B2|Allah'ın adıyla gitmeleri, yaşlıları, küçük çocukları ve kadınları öldürmemeleri, ganimete hıyanet etmeyip onu bir araya toplamaları, ıslah edip iyilik yapmaları emredildi; çünkü Allah iyilik yapanları sever (Ebû Dâvûd, 2614; Beyhakî, *es-Sünenü'l-Kübrâ*, 9/90).
+B2|Bir başka talimat "Müjdeleyin, nefret ettirmeyin; kolaylaştırın, zorlaştırmayın" şeklindeydi (Müslim, 1732; Ebû Dâvûd, 4835; Ahmed b. Hanbel, 4/399).
+B1|Sallâbî'ye göre bu talimatlar sonraki İslâm fetihlerinin çekirdeği oldu ve halifelerle komutanlarca sürekli tekrarlandı.
+H2|Bu Bölümün İbretleri
+INTRO|Bölümün dersleri, genç devletin her adımında ahlâkın ve ölçünün yerini gösterir.
+B1|Devlet mescidde açılan bir mekteple ayağa kalktı; Sallâbî'nin ifadesiyle ilim temkinin direklerindendir.
+B1|Nebevî öğretimin sırrı tekrarda, ağır ve ölçülü konuşmada, temsilde ve soruda olduğu kadar muallimin şefkatindeydi.
+B2|Azar bekleyen Muâviye b. Hakem'in tecrübesi, bugün öğreten herkese azarlamadan, kovmadan ve dövmeden öğretmenin mümkün olduğunu hatırlatır.
+B1|Dinlerken susmak, sözü kesmemek ve amel niyetiyle sormak, ilmin talebeden beklediği edebin özüdür.
+B1|Pazarın sınırlarını kendi ayaklarıyla çizen devlet başkanı, Sallâbî'nin dediği gibi devletin küçük görünen işlerle kurulduğunu gösterir.
+B1|Vergisiz, hilesiz ve yalan yeminsiz pazarın kısa sürede ekonomiye yön vermesi, ahlâkın ticaretin engeli değil bereketinin kaynağı olduğunu gösterir.
+B1|Evlakî'nin hatırlattığı gibi Rasûlullah (s.a.v.) fiyatlara müdahaleyi bile reddederek rızkı verenin Allah olduğu inancını pazarın hürriyetiyle birleştirdi.
+B1|Fitre ve zekât varlıklıyı cimrilikten, yoksulu bayram sabahı yalnızlıktan kurtararak toplumu tek vücut yapan bir sistemdi; Ömer b. Abdülazîz devrindeki bolluk bunun en güzel meyvesidir.
+B1|Cihadın aşamalı meşruiyeti, ilâhî hükümlerin insanın ve toplumun hâline göre adım adım geldiğini öğretir.
+B1|En büyük amel bile ihlâssız olunca insanı ateşe sürükleyebilir.
+B1|Sa'd b. Ebî Vakkâs'ın nöbeti tevekkülün tedbiri dışlamadığını gösterir.
+B1|Esirlerin Sa'd ile Utbe'nin akıbeti belli olmadan teslim edilmemesi, liderin askerinin selâmetine verdiği önemi gösterir.
+B2|Sallâbî'ye göre modern askerî okullar da komutanının selâmetini önemsediğini hisseden askerin fedakârlıkta tereddüt etmediğini tespit etmiştir.
+B1|Evlakî'ye göre Nahle sonrası koparılan gürültü, düşmanın Müslümanların her adımını abartıp hakkı çarpıtacağının örneğidir; mümine düşen, propagandaya kapılmadan meselenin hakikatine bakmaktır.
+B1|Kur'ân haram ayda savaşı büyük günah sayarken Allah yolundan alıkoymanın ve fitnenin daha büyük olduğunu hatırlatarak denge kurmuştu.
+B1|Yaşlıya, çocuğa ve kadına dokunmayı yasaklayan talimatlar bu ordunun gücünü merhametle dizginlediğini gösterir.
+B1|Evlakî'nin ifadesiyle bütün savaşlar kötüdür; yalnızca Allah yolunda ve O'nun koyduğu sınırlar içinde yapılanı bundan müstesnadır.

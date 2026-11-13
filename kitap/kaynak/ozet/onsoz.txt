@@ -1,0 +1,33 @@
+H2|Bölüme Bakış
+INTRO|Önsöz, kitabın amacını, iki kaynağını, yöntemini ve planını tanıtır.
+B1|Bir insanın hayatını okumak çoğu zaman bir dönemi tanımaktır; Rasûlullah'ın (s.a.v.) hayatını okumak ise bundan fazlasıdır.
+B2|Bu hayat, Kur'ân'ın yeryüzünde yaşanmış tefsiri, ümmetin her çağda dönüp baktığı ölçü ve kalbin yeniden ayarlandığı aynadır.
+B1|Kitap, bu hayatın en kurucu dönemini, Cahiliye karanlığından Uhud'un sınavına uzanan yılları bir bütün hâlinde anlatır.
+B1|Birinci ana kaynak, çağdaş siyer çalışmalarının en kapsamlılarından olan Ali Muhammed Sallâbî'nin *Siyer-i Nebî*'sinin birinci cildidir.
+B1|İkinci ana kaynak, İbn Kesîr'in *el-Bidâye ve'n-Nihâye*'sini esas alan Enver el-Evlakî'nin *Rasulullah'ın Hayatı* serisidir.
+B2|Evlakî'nin önceki kitaplardaki müjdeler, hakikat arayıcıları ve Uhud şehidleri anlatımları, bu kitabın en dokunaklı sayfalarına kaynaklık etmiştir.
+B1|İki eser aynı hayatı farklı pencerelerden seyreder.
+TABLE|Konu|Sallâbî|Evlakî
+ROW|Anlatım|Olayları anlatmakla yetinmez; her hâdiseden sonra "dersler, ibretler ve faydalar" başlığıyla siyerin bugünkü davetçiye, eğitimciye ve devlet adamına ne söylediğini sorar.|Siyeri sahneler hâlinde, canlı bir anlatımla sunar.
+ROW|Odak|Sünnetullah, imtihan kanunu, tedâfü kanunu ve sebeplere sarılma kavramları okumasının omurgasıdır.|Olayların insanî yönü, sahâbîlerin kişilikleri ve kıssaların günümüze yansımaları.
+ROW|Sorular|Daha çok "neden" ve "nasıl" sorularına yönelir.|Daha çok "ne oldu" ve "nasıl yaşandı" sorularına yönelir.
+ENDTABLE
+B1|İki eser birleştirilirken olaylar tek bir kronolojik çizgide anlatıldı, birbirini tamamlayan ayrıntılar tek anlatıda buluştu.
+B2|Rivayet ya da yorum farkı bulunan yerlerde her iki görüş de sahibinin adıyla aktarıldı.
+B2|Kaynaklarda bulunmayan bilgi eklenmedi; âyet ve hadis mealleri ile rivayet kaynakları esas alınan eserlerdeki şekliyle verildi.
+B1|Kitap dört kısımdan oluşur.
+TABLE|Kısım|Başlık|Kapsamı
+ROW|Birinci|*Nübüvvetin Arifesinde*|Bi'setten önceki dünya, Arap yarımadası, Fil Yılı ve Peygamber Efendimiz'in doğumundan Hira'ya uzanan kırk yıl.
+ROW|İkinci|*Mekke'de Davet*|İlk vahiyden Tâif dönüşüne kadar on üç yıllık mücadele.
+ROW|Üçüncü|*Hicret*|Kabilelere arzdan Kuba'ya varışa uzanan büyük göç.
+ROW|Dördüncü|*Medine'de Devlet*|Mescid-i Nebevî'nin inşasından Uhud'a, yeni bir toplumun ve devletin kuruluşu.
+ENDTABLE
+B1|Her bölümün sonundaki "Bu Bölümün İbretleri" kısımları, olayların bugüne bakan yüzünü göstermeyi amaçlar.
+B1|Siyer geçmişte kalmış bir hikâye değildir; Sallâbî'nin ısrarla hatırlattığı gibi onda değişmeyen ilâhî kanunlar işler.
+B2|Bu kanunları tanıyan, kendi hayatını ve toplumunu da daha doğru okur.
+B1|Âyet ve hadisler renkli kutular içinde, Arapça asıllarıyla birlikte verilmiştir.
+B2|Âyetlerin Arapça metni, Kral Fahd Mushaf Basım Kompleksi'nin (KFGQPC) Hafs rivayetine göre hazırladığı Osmanî hatlı mushaftan alınmıştır.
+B2|Hadislerin Arapça lafızları öncelikle Sallâbî'nin eserinden verilmiş, orada bulunmayanlar hadis kaynaklarından tamamlanmıştır.
+B2|Arapça lafzın kaynağı tercümeninkinden farklıysa bu durum kutunun kaynak satırında belirtilmiştir.
+B1|Rabbimizden, okuyanların kalbinde Rasûlullah sevgisini artırmasını ve bu sevgiyi ona uymanın vesilesi kılmasını niyaz ederiz.
+B1|Kitaptaki her doğru Allah'tandır; hata ve eksikler ise bizim acizliğimizdendir.

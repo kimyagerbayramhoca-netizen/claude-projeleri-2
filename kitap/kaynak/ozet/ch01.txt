@@ -1,0 +1,233 @@
+QUOTE|ch01-1
+H2|Bölüme Bakış
+INTRO|Evlakî siyer derslerine bir Kur'ânî dua ve beş niyetle başlar.
+B1|Hz. Mûsâ (a.s.), peygamberlik yükünü omuzlarına aldığı o büyük anda Rabbine bu dört cümleyle yalvarmıştı.
+B1|Enver el-Evlakî, Rasûlullah'ın (s.a.v.) hayatını anlatan derslerine bilinçli olarak bu duayla başlar.
+B2|Çünkü siyer anlatan da bir bakıma tebliğ ve beyan vazifesi üstlenir ve aynı hassasiyetle Allah'tan yardım dilemelidir.
+B1|Duanın dört talebi vardır.
+TABLE|Talep|Anlamı
+ROW|*Şerh-i sadr*|Göğsün açılması, içteki darlığın kalkması, kalbin ilâhî hakikatlere genişlemesi.
+ROW|*Teysîr-i emr*|Vazifenin insan gücüyle değil, ilâhî tevfikle kolaylaşması.
+ROW|*Hall-i ukde*|Dildeki düğümün çözülmesi, ifadenin berraklaşması.
+ROW|Sözün anlaşılması|Bütün tebliğin gayesi; söz muhatap tarafından gerçekten anlaşılmalıdır, çünkü maksat yalnızca konuşmak değil, anlaşılmaktır.
+ENDTABLE
+B1|Evlakî geleneğe uygun olarak hamdi Allah'a, salât ve selâmı Efendimiz'e, ailesine ve ashâbına tahsis eder.
+B1|Ardından beş dilekte bulunur.
+B2|Okumaların bereketli kılınmasını, faydalı ilmin öğretilmesini ve öğrenilenden istifade edilmesini ister.
+B2|Rasûlullah'ı sevenlerden ve yolunu izleyenlerden olmayı, cennette onunla beraber bulunmayı diler.
+B1|Bu beş niyet, eserin entelektüel olduğu kadar manevî bir terbiye projesi olduğunu gösterir.
+B1|Evlakî'ye göre siyer "bilgi" olarak kalmamalı, "yol" hâline gelmelidir.
+B2|Öğrenilen sevilmeli, sevilen takip edilmeli, takip edilen de âhirette buluşmaya götürmelidir.
+B1|Dua ile niyetler okura da model sunar; siyer okumak salt zihnî bir faaliyet değil, kalbin açılmasını ve mânânın kavranmasını isteyen bir uğraştır.
+B1|Bölüm, kitabın bütününe kapı aralayan dört soruyu ele alır; siyer nedir, niçin okunur, hangi kaynaklardan ve hangi usulle okunur?
+H2|"Yol" Anlamında Bir Kelime: Sîret
+INTRO|Sîret, "yol" anlamından Hz. Peygamber'in (s.a.v.) hayatını konu alan müstakil bir ilmin adına dönüşmüştür.
+B1|Siyer kelimesinin tekili olan *sîret*, sözlükte "yol, yürümek, seyr ve yolculuk" demektir.
+B2|Arapçada "sâra fülân", "falanca yürüdü, yola çıktı, bir hâlden başka bir hâle geçti" anlamına gelir.
+B1|Kelimenin dayandığı S-Y-R kökü hareket, yol alma, geçiş ve seyahat anlamları taşır; bu kökten gelen "sîra" "yürümenin biçimi, tarzı" demektir.
+KAVRAM|💡 KAVRAM · SÎRET|Bir kişinin hayatı boyunca yürüdüğü yol, yani hâl ve hareketlerinin bütünüdür; kelime yalnızca yürümeyi değil, kişinin *nasıl* yürüdüğünü, hangi yolu seçtiğini ve bu seçimde nasıl bir karakter sergilediğini anlatır.
+B1|Hans Wehr'in Arapça sözlüğü kelimeye gidişat, davranış, hâl, tutum, hayat tarzı, tavır, tepki ve hareket biçimi ile biyografi olmak üzere sekiz anlam boyutu yükler (Hans Wehr, Arapça sözlük, "sîret" maddesi).
+B1|Bu anlamlar sîretin sıradan bir "hayat hikâyesi" terimi olmadığını, kişinin zaman içindeki istikametini, belirli durumlardaki tepkilerini, iç dünyasını, olaylar ve insanlar karşısındaki sabit duruşunu ve gündelik hayatını kuşatan alışkanlıklarını birlikte ifade ettiğini gösterir.
+B2|Kısacası sîret, kişinin ne yaptığı kadar kim olduğunu da anlatır.
+B1|Kelime ilk anlamıyla herkesin hayatı için kullanılabilir; Ebû Bekir'in (r.a.), Ömer'in (r.a.) ya da bir yöneticinin sîretinden söz edilebilir.
+B1|Zamanla özelleşen kelime, tek başına söylendiğinde Hz. Peygamber'in hayatını ifade eder olmuştur.
+B2|Böylece *ilmü's-siyer* adlı müstakil bir ilim doğmuş; megâzî, şemâil ve delâil literatürü bu çatı altında toplanmıştır.
+B1|Evlakî bu özelleşmeyi anlamlı bulur; ona göre Müslüman zihninde asıl yol tektir.
+B2|Sahâbe ve sonraki nesiller "sîret" derken örnek alınacak o model hayatı kastetmişlerdir.
+B1|Sahâbe ve tâbiîn neslinde sîret çoğu zaman *megâzî* kelimesiyle birlikte kullanılırdı.
+KAVRAM|💡 KAVRAM · MEGÂZÎ|Sözlükte savaşlar, gazveler demektir; Rasûlullah'ın Medine hayatının önemli kısmı gazve ve seriyyelerle geçtiği için zamanla peygamberî hayatın bütününü karşılamıştır.
+B1|Erken dönem siyer kitaplarının çoğu bu yüzden *Kitâbü'l-Megâzî* adını taşır; İbn İshâk'ın eseri ve Vâkıdî'nin *Megâzî*'si bu geleneğin klasikleridir.
+B1|Sahâbenin çocuklarına megâzîyi öğretmesi, bir hayat hikâyesini "ders" hâline getirmenin ilk örneklerindendir.
+H2|Sahâbenin Evlatlarına Öğrettiği İlim
+INTRO|Evlakî siyer okumak için yedi temel sebep sayar ve bunları eserinin omurgası yapar.
+B1|Bu sebepler bilginin ötesine geçerek imana, sevgiye, ittibâya, Kur'ân kavrayışına, hareket metoduna, ibadete ve kimlik inşasına, yani Müslüman varoluşunun yedi boyutuna karşılık gelir.
+B2|Her biri bir öncekini tamamlar; bütünü "siyer eksenli" bir hayat anlayışı ortaya koyar.
+B1|Birinci ve en temel sebep, Hz. Muhammed'in (s.a.v.) hayatının İslâm tarihinin ta kendisi olmasıdır; onu okuyan bir dinin tarihini de öğrenir.
+B2|Davetten eğitime, aileden savaşa ve barışa, devletten sosyal ahlâka kadar her alandaki örnek davranış onun hayatında mevcuttur.
+B2|Bu yüzden siyer, "İslâm nedir?" sorusuna nazariyeden değil, yaşanmış hayattan verilmiş cevaptır.
+B1|İlk neslin bu ilme verdiği değeri, cennetle müjdelenen on sahâbîden Sa'd b. Ebî Vakkâs'ın (r.a.) oğlu Muhammed anlatır.
+SOZ|💬 MUHAMMED B. SA'D B. EBÎ VAKKÂS|"Babam bize Rasûlullah'ın savaşlarını ve sîretini öğretir, 'Bunlar sizin atalarınızın sünnetidir, onları bilin' derdi."|
+B1|Hz. Ali'nin (r.a.) torunu Ali b. Hüseyin, yani Zeynelâbidîn de aynı gerçeğe şahitlik eder.
+SOZ|💬 ZEYNELÂBİDÎN|"Bize Rasûlullah'ın sîreti de Kur'ân'ın öğretildiği gibi öğretilirdi."|
+B1|Evlakî'ye göre bu rivayetler, ilk neslin siyer eğitimini Kur'ân eğitimiyle aynı ciddiyette ve düzende yürüttüğünü gösterir.
+B2|Onlar için bu ilim bir tercih değil, bir zorunluluktu; bu tavır, Kur'ân'ı doğru anlamanın siyeri bilmekten geçtiğine dair erken bir farkındalıktır.
+B1|Evlakî'ye göre Hz. Mûsâ'nın ya da Hz. Îsâ'nın hayatını Kur'ân'dan öğreniriz; çünkü Allah onların hayatlarının belirleyici sahnelerini Kitabı'nda zikretmiştir.
+B1|Hz. Muhammed ise bir istisnadır; Kur'ân'da hayatına dair önemli işaretler ve atıflar bulunur, ama ayrıntılı biyografisi yer almaz ve bu boşluğu siyer doldurur.
+B2|Evlakî'nin ifadesiyle siyer, Kur'ân'ın bilinçli olarak tamamlanmaya bıraktığı bir alandır; onun hayatının ümmetine emanet edilmesi, bu ümmetin "ona şahitlik etme" sorumluluğunu gösterir.
+H2|Tanıdıkça Artan Sevgi
+INTRO|İkinci sebep, Rasûlullah'ı (s.a.v.) tanıdıkça derinleşen ve imanın ölçüsü olan sevgidir.
+B1|Sevgi Müslüman varoluşunun duygusal omurgasıdır; siyer onu yüzeysel bir aidiyet duygusundan derin bir kalp bağına dönüştürür.
+B1|Onu sevmek bir ibadet ve dinin parçasıdır; sevgi ise yüzeysel bilgiyle değil, derin bir tanışıklıkla derinleşir.
+B1|Evlakî'nin istisnasız saydığı kurala göre onu en iyi tanıyan ve ona en yakın olan sahâbîler, onu en çok sevenlerdir.
+QUOTE|ch01-2
+B1|Hz. Ömer (r.a.) ile Allah Rasûlü arasındaki bir konuşma, bu ölçünün iki kademesini ortaya koyar.
+B2|Ömer onu nefsi hariç herkesten çok sevdiğini söyleyince Rasûlullah, "Sizden biriniz beni nefsinden de daha çok sevmedikçe gerçek anlamda iman etmiş olmaz" buyurdu.
+B2|Ömer, "Ey Allah'ın Rasûlü, artık seni nefsimden de daha çok seviyorum" deyince "Şimdi kâmil imana eriştin" cevabını aldı (Buhârî, 6632).
+TABLE|Sevginin kademesi|İmanın durumu
+ROW|Onu nefsi hariç herkesten çok sevmek|İman vardır, ama henüz kâmil değildir.
+ROW|Onu nefsinden bile çok sevmek|Kâmil imana erilmiştir.
+ENDTABLE
+B1|Evlakî'ye göre sevgi yalnızca bir duygu değil, ölçülebilen ve geliştirilebilen manevî bir hâldir.
+B1|Sevginin tanışıklıkla katlanarak büyüdüğünün en canlı belgelerinden biri, Rasûlullah'ın en çetin düşmanlarından ve İslâm'a tuzak kuranların öncülerinden olan Amr b. Âs'ın (r.a.) hayatıdır.
+B1|Ölüm döşeğinde ağlayan Amr'ı oğlu Abdullah (r.a.) müjdelerle teselli etmek isteyince, o hayatını üç safhada özetledi.
+B1|İlk safhada en çok hor gördüğü kişi Rasûlullah idi; tek arzusu fırsat bulup onu öldürmekti ve o hâlde ölse cehennemlik olacağından emindi.
+B1|İkinci safhada Allah kalbine İslâm sevgisini yerleştirdi; biat için uzattığı elini, Allah Rasûlü'nün eli üzerine konacağı anda geri çekti.
+B2|"Ne oldu?" sorusuna "Bir şartım var" diye cevap verdi; şartı, Rasûlullah'ın Allah'tan onun bağışlanmasını ve ona merhamet edilmesini istemesiydi.
+B2|Müslümanlara karşı işlediği cürümlerin ağırlığını çok iyi biliyordu (Müslim, 121, 123).
+QUOTE|ch01-3
+B1|Evlakî'ye göre Rasûlullah burada İslâm'a girişi, hicreti ve haccı öncesini silen üç büyük rahmet kapısı olarak öğretmiş; Amr'a verilen şahsî cevap bütün ümmete bir ümit ilânı olmuştur.
+SOZ|💬 AMR B. ÂS · ÜÇÜNCÜ SAFHA|"Baş düşmanım olan Muhammed, bana dünyadaki en sevgili insan oluverdi. Onu öyle sevdim, ona öyle hürmet ettim ki yüzüne doğrudan bakamıyordum; onu ne zaman görsem bakışlarımı yere indirirdim. Bugün benden onu tarif etmemi isteseniz bunu yapamam. Bu hâl üzere ölürsem cennete gitmeyi umuyorum."|
+B1|Bir başka rivayette Rasûlullah'ın onun hakkında, "İnsanlar İslâm'a girdiler, Amr b. Âs ise iman etti" buyurduğu kaydedilir (Tirmizî, 3844).
+B1|Sevginin dışarıdan bir şahidi, Kisrâ'nın, Kayser'in ve Habeş Necâşîsi'nin huzurunda bulunmuş, çağının en güçlü hükümdarlarını yakından tanımış diplomat Süheyl b. Amr'dır.
+B2|Kureyş onu Hudeybiye Antlaşması'ndan önce Rasûlullah ile müzakereye göndermişti.
+B1|Evlakî'nin aktardığına göre Süheyl, sahâbenin Rasûlullah'a davranışını bizzat görünce Kureyş'e şunları söyledi.
+SOZ|💬 SÜHEYL B. AMR|"Kayser'i, Kisrâ'yı ve Habeşistan Necâşîsi'ni ziyaret ettim; fakat hayatım boyunca bağlıları tarafından Muhammed kadar sevilen ve saygı gören bir lider görmedim. O abdest alırken ashâbı, azalarından damlayan suyu kapmak için yarışıyordu. Ne yaparsanız yapın, onlar liderlerinden asla vazgeçecek bir topluluk değildir."|
+NOTE|Evlakî bu sözleri Süheyl b. Amr'a nispet eder. Buhârî'nin Hudeybiye rivayetinde (Şurût, 15; nr. 2731-2732) ise benzer sözler, Kureyş adına müzakereye gelen Urve b. Mes'ûd es-Sekafî'ye aittir.
+B1|Evlakî bu sözlerde üç katman görür.
+B2|Sevgi devlet gücüyle değil, ahlâkla kazanılır.
+B2|Sahâbe ona her temas noktasında bereket arar.
+B2|Böyle bir topluluk dağıtılamaz.
+B1|Kur'ân bu sevgiyi bir sıralamaya bağlar.
+QUOTE|ch01-4
+B1|Evlakî'nin dikkat çektiği gibi âyet babalar, oğullar, kardeşler, eşler, akraba, mallar, ticaret ve evler olmak üzere dünyaya ait sekiz bağı sayar.
+B1|Bunlar tabii bağlardır ve hiçbiri haram değildir; yeter ki Allah, Rasûlü ve O'nun yolunda cihad sevgisinin önüne geçmesin.
+B2|Demek ki mesele sevmek değil, sevginin sıralamasıdır.
+H2|Sevgiden İttibâya, Âyetten Hayata
+INTRO|Sevgi ittibâya, ittibâ da Kur'ân'ı ve davet metodunu doğru kavramaya götürür.
+B1|Siyer okumanın üçüncü sebebi ittibâdır; sevgi ona zemin hazırlar, ittibâ da sevginin amelî karşılığıdır.
+SOZ|💬 İBN HAZM|"Her kim âhiretin izzetini, bu dünyanın hikmetini, ahlâk ve şahsiyetin tecessüm etmiş hâlini istiyorsa Allah'ın peygamberi Muhammed'e (s.a.v.) tâbi olsun."|
+B1|Sözdeki üç gaye âhirette zillete düşmemek, bu hayatta sapmayan isabetli bir yol bulmak ve soyut bir "iyi insan" tanımı yerine somut, canlı bir modeli örnek almaktır.
+B2|Üçüne verilen cevap tektir, o da ittibâdır; siyer okumak bu ittibânın hazırlığıdır.
+B1|Dördüncü sebep, Kur'ân'ın daha derin kavranmasıdır.
+B1|Âyetlerin bir kısmı olaya bağlı olmaksızın âhireti, kalbin inceliklerini, yaratılışı, tevhidi, helal ve haramın esaslarını, kıyamet sahnelerini, cennet ve cehennemi anlatır.
+B1|Bir kısmı ise belirli olayların öncesinde, sırasında ya da sonrasında inmiştir ve iniş sebepleri bilinmeden tam anlaşılamaz.
+TABLE|Sûre|İlgili olay|Siyerin katkısı
+ROW|Ahzâb|Adını hicretin beşinci yılındaki Ahzâb (Hendek) Savaşı'ndan alır; kuşatmadaki Müslümanların ruh hâlini, münafıkların tutumunu ve zaferin gelişini anlatır.|Siyere başvurulmadan bu sahneler canlanmaz.
+ROW|Âl-i İmrân|Başlarında Necran heyetinin Medine ziyareti ve Rasûlullah ile tartışması, ortasından sonuna doğru hicretin üçüncü yılındaki Uhud Savaşı vardır.|Savaşın ayrıntılarını sûre değil, siyer verir.
+ENDTABLE
+B1|Klasik tefsir geleneğinin *esbâb-ı nüzûl* ilmini bu ihtiyaçtan doğurduğunu hatırlatan Evlakî, siyeri hadis ve fıkıhla birlikte vazgeçilmez bir tefsir aracı sayar.
+B1|Beşinci sebep, İslâmî hareket metodunun tanınmasıdır; Rasûlullah'ın davetinde belirgin safhalar vardır.
+TABLE|Safha|Özellikleri
+ROW|Gizli davet|Mekke'nin ilk yıllarında küçük halkalar, bireysel temaslar ve Erkam'ın evi etrafında yürüdü.
+ROW|Açık davet|Safâ tepesinden yapılan umumi çağrı ile kabilelere ve yöneticilere gönderilen mektuplar bu safhayı temsil eder.
+ROW|Müdafaa ve mücadele|Hicretten sonra Medine devletinin kurulmasıyla başladı.
+ENDTABLE
+B1|Evlakî'ye göre bu safhalar tarih bilgisinden öte bir yol haritasıdır.
+B1|Münîr el-Gadbân, bu ilerleyişin şartların dayatmasıyla değil, Allah'ın peygamberine her adımda yol gösterdiği ilâhî yönlendirmeyle gerçekleştiğine inandıklarını söyler.
+B2|Evlakî bu ayrımı kritik bulur; her şey konjonktürel olsaydı siyerden genel ilkeler çıkarılamazdı.
+B1|Reşîd Rızâ, sahâbenin Kur'ân'ın rehberliğine uymayı ve her meselede adil ve dengeli olmayı siyer aracılığıyla öğrendiğini, sözlü yönlendirmenin tek başına yetmeyeceğini vurgular.
+B1|Başka ümmetler peygamberlerinin ayak izlerini kaybetmişken Müslümanlar Kur'ân'ın ve Sünnet'in nasıl uygulandığını bilir.
+B2|Söz ile örnek aynı bütünlük içinde korunmuştur; "vasat ümmet" olmanın pratik temeli budur.
+B1|Bu canlı örneğin gerekliliğini küçük bir hadise gösterir; bir sahâbî oruç âyetini lafzî anlayıp yastığının altına biri beyaz biri siyah iki iplik koymuş, sahurda renkleri ayırt edemediği için yemeye devam etmişti.
+QUOTE|ch01-5
+B1|Durumu arz edince Allah Rasûlü gülümsedi; âyetin odaya iplik koyup ona bakmak olmadığını, beyaz ipliğin ufukta beliren ilk aydınlık, siyahın gecenin son karanlığı olduğunu açıkladı (Buhârî, 1916, 4509; Müslim, 1092; Tirmizî, 2970-2971; Ebû Dâvûd, 2349).
+B1|Evlakî bu hadiseden üç ders çıkarır.
+B2|Lafzî mânâ her zaman doğru mânâ değildir.
+B2|Sahâbe yanılabilir, ama sorma cesareti ve dürüstlüğü örnektir.
+B2|Vahyin pratik yorumu da vahiy kadar gereklidir ve bu yorumun güvencesi Rasûlullah'tır.
+H2|İbadet Olan Bir Okuma, Kimlik Kuran Bir Hafıza
+INTRO|Altıncı ve yedinci sebepler, siyer okumanın bizzat ibadet olması ve Müslüman kimliğini ayakta tutmasıdır.
+B1|Siyer meclisleri ilim halkası olduğu kadar zikir halkasıdır ve onları okumakta ecir vardır.
+B1|Evlakî'ye göre Rasûlullah'tan (s.a.v.) söz edilen meclisi Allah rahmetiyle kuşatır, oraya sekînet iner, melekler o halkayı çevreler ve o meclis Allah katında daha hayırlı meclislerde anılır.
+QUOTE|ch01-6
+B1|Evlakî âyetteki sıralamaya dikkat çeker.
+TABLE|Âyetteki unsur|Evlakî'ye göre anlamı
+ROW|Allah'ı sevmek|Bir iddiadır.
+ROW|Rasûlullah'a uymak|İddianın delilidir.
+ROW|Allah'ın sevgisi|Bunun sonucudur.
+ROW|Mağfiret|Rahmetin kendisidir.
+ENDTABLE
+B1|Sevgi iddiası ittibâ ile ispat edilir; siyer ise ittibânın "nasıl"ını öğreten kaynaktır.
+B1|Yedinci sebep, çağdaş Müslümanın belki en büyük mücadelesi olan kimlik meselesine dokunur.
+B1|Evlakî, çağımızı şekillendiren küresel medeniyetin yapısını anlatırken *New York Times* yazarı Thomas Friedman'ın sözünü aktarır.
+SOZ|💬 THOMAS FRIEDMAN|"Piyasanın gizli eli, gizli bir yumruk olmadan hayatta kalamaz. McDonald's, F-15'lerin tasarımcısı McDonnell Douglas olmaksızın asla büyüyemez."|New York Times
+B1|Evlakî'ye göre tüketim kültürünün yumuşak yüzünün ardında sert bir güç durur; bu medeniyet tercih sunmaz, yerel kültürlere yaşama hakkı tanımayan bir tek tipleştirme baskısı uygular.
+B1|Rus yazar Soljenitsin'in sözü bu mücadelenin özünü verir.
+SOZ|💬 SOLJENİTSİN|"Bir halkı imha etmek için önce onları köklerinden ayırmalısınız."|
+B1|Bir halkı yok etmek için fiziksel saldırı gerekmez; onu tarihinden, dilinden, kahramanlarından ve hatıralarından koparmak yeter.
+B2|Kökünden koparılan ağaç en hafif rüzgârla devrilir.
+B1|Evlakî, ibadetlerini yerine getiren ama İslâmî kimliği olmayan bir kuşağın tablosunu çizer.
+B2|Bu gençler bir rock yıldızı ya da futbolcuyla bir sahâbîden daha çok ortak nokta hisseder; takım kadrolarını ezberler, sahâbenin isimlerini unutur.
+B2|Allah'ın peygamberlerinden pek azını ismen tanır ve Müslüman kimliğini ulusal kimliğin bir alt başlığı gibi taşır.
+B1|Evlakî bu krize karşı iki sütun önerir.
+TABLE|Sütun|İçeriği|İşlevi
+ROW|İslâm tarihini iyi öğrenmek|Peygamberlerin, Rasûlullah'ın ve sahâbenin, ardından Râşid Halifeler, Emevîler, Abbasîler ve sonrasının tarihi; tarih ümmetin göbek bağıdır.|Köklerin derinleşmesini sağlar.
+ROW|Küresel ümmetin parçası olduğunu bilmek|İngiliz, Amerikalı, Pakistanlı ya da Türkiyeli olmak İslâmî kimliği bastırmamalı; Filistin'de ya da Keşmir'de yaşananlar her Müslümanı kendi evinde olup bitiyormuş gibi ilgilendirmelidir.|Dalların genişlemesini sağlar.
+ENDTABLE
+B1|Evlakî ulus-devlet mefhumunu da İslâm'ın bütüncül kimliğini parçalayan bir proje olarak okur.
+B1|Soljenitsin'in formülü tersine çevrilirse bir halkı diri tutmanın yolu, onu köklerine bağlamak ve kardeşleriyle dayanışma içine sokmaktır; siyer bu işin omurgasıdır.
+H2|Hayatın Kendisi Bir Delil
+INTRO|Evlakî peygamberliğin klasik delillerine Rasûlullah'ın (s.a.v.) hayatının bütününü de ekler.
+B1|*Delâilü'n-Nübüvve* geleneği peygamberliğin delillerini Kur'ân, mucizeler, gaybî haberler ve önceki kitaplardaki müjdeler olarak sıralar.
+TABLE|Dönem|Hâli
+ROW|Kırk yaşına kadar|Ticaret yapan, ailesine bakan, toplumda saygı gören, en belirgin vasfı ahlâkı olduğu için "el-Emîn" diye anılan, güç ve nüfuz arzusuna dair hiçbir emare taşımayan sade bir Mekke asilzadesidir.
+ROW|Kırk yaşından sonra|Aniden dünyanın o güne dek gördüğü en büyük değişimi başlatır; okuma yazma bilmeyen bir ümmî iken eşi görülmemiş bir Kitab'ı insanlığa sunar.
+ENDTABLE
+B1|Yirmi üç yıl içinde siyasî lider, komutan, devlet kurucusu, hâkim ve kanun koyucu; mübelliğ, öğretmen, namazda imam ve müftü; geniş bir ailenin reisi, eş, baba, dede, komşu ve dost olarak sayısız rolü aynı anda taşır.
+B1|Evlakî'ye göre bütün bu rollere aynı anda ve hatasız yetmek, her birinde tarihin en büyükleri arasına girmek beşer gücünü aşar; bu yüzden siyer okumak peygamberliğin bir delilini gözlemlemektir.
+B1|Evlakî bu tespiti Amerikalı yazar Michael H. Hart'ın tanıklığıyla destekler; Hart, Hz. Muhammed'i en etkin yüz kişi listesinin başına koymuş ve okurlarının çoğu gayrimüslim olduğu için gerekçesini uzunca açıklamıştır.
+SOZ|💬 MICHAEL H. HART|"Muhammed'i ilk sırada tercih etmem bazı okurları şaşırtabilir... Fakat o, hem dinî hem dünyevî düzeyde son derece başarılı olmuş tarihteki tek kişidir."|Dünyaya Yön Veren En Etkin 100 Kişi, takdim
+B1|Hart'ın yargısı bir imana değil, ölçüme dayanır.
+B1|Evlakî'ye göre bu hayat parça parça incelense de o askerî, dinî ve siyasî liderlikte, ailesine ve torunlarına şefkatte, adalette ve bir nesli sıfırdan inşa eden öğretmenlikte zirvededir.
+B1|Bu seçilmişliğin gündelik bir izi olarak tarihte hiçbir insanın adı kendisinden sonra bu kadar çok kişiye verilmemiştir.
+B1|Evlakî, Amerika'daki Nijeryalı bir imamın adının "Muhammed el-Âşir" olduğunu anlatır; "âşir" onuncu demektir, çünkü babası bütün oğullarına Muhammed adını koyup onları sayılarla ayırmıştır.
+TABLE|Bölge|Aynı kökten isimler
+ROW|Pakistan ve Hindistan|Muhammed Hârûn, Muhammed Süleyman gibi bileşik isimler
+ROW|Türkiye|Mehmet, Muhammet ve Ahmet
+ROW|Arap dünyası|Ahmed, Mahmûd, Hâmid ve Hamîd
+ENDTABLE
+B1|"Muhammed" övülmüş demektir ve o, isminin mânâsını hayatıyla kuşanmıştır.
+B1|Adı her anıldığında ümmet ona salavat getirir; Müslümanlar her saat dilimine yayıldığı için "Eşhedü enne Muhammede'r-Rasûlullâh" sesi günün hiçbir dakikasında yeryüzünden eksik olmaz.
+B2|Evlakî bunu "Senin için zikrini yücelttik" (İnşirâh 94/4) âyetinin gözle görülür tecellisi sayar.
+H2|Kaynaklar ve Usul: Siyer ile Hadis Arasında
+INTRO|Evlakî'nin kaynak tercihi, siyer ile hadis arasındaki eski usul farkını ve buna yöneltilen çağdaş itirazı gündeme getirir.
+B1|Bir siyer çalışmasının değeri büyük ölçüde kaynak tercihine bağlıdır; Evlakî iki ana kaynak belirler.
+B1|Birincisi İbn Kesîr'in (ö. 774/1373) *el-Bidâye ve'n-Nihâye*'sidir (İbn Kesîr, *el-Bidâye ve'n-Nihâye*, Sîret kısmı).
+B2|İbn Kesîr müstakil bir siyer kitabı değil; yaratılışın başlangıcından geçmiş peygamberlere, Rasûlullah'ın (s.a.v.) hayatına, Râşid Halifeler, Emevî ve Abbasî dönemlerine, kendi devrine, fitnelere, kıyamet alâmetlerine, cennet ve cehenneme uzanan bir tarih ansiklopedisi yazmıştır.
+B2|"Başlangıç ve Son" anlamındaki adı, tarihi varlığın ilk anından âhirete uzanan bir bütün sayan tasavvuru yansıtır; siyer kısmı bu anlatının kalbindedir.
+B1|İkincisi, hadis usulüne dayanan çağdaş bir çalışma olan İbrahim Muhammed el-Alî'nin *Sahîhü's-Sîreti'n-Nebeviyye*'sidir.
+B2|Eser yalnızca sahih rivayetleri kabul eder ve Buhârî, Müslim, Ebû Dâvûd gibi ana hadis kitaplarının siyerle ilgili bölümlerini tarar.
+B1|Bu iki kaynak, siyer ile hadis ilmi arasındaki eski bir usul farkını hatırlatır.
+TABLE|Konu|Hadis ilmi|Siyer
+ROW|Usul|Sıkı (*müteşeddid*) davranır; senedi titizlikle tahkik eder, rivayetleri sahih, hasen ve zayıf diye ayırır, cerh ve ta'dîli merkeze alır.|Klasik anlayışta daha esnek (*mütesâhil*) bir usulle yazılmıştır.
+ROW|Gerekçe|Helal ve haramın, namaz, oruç ve zekât hükümlerinin kaynağıdır; hükmü zayıf rivayete dayandırmak, Allah'a emretmediği bir şeyi nispet etme riskini doğurur.|Tarih sayıldığı ve hüküm doğurmadığı için esnek davranılmıştır.
+ENDTABLE
+SOZ|💬 İMAM AHMED B. HANBEL|"Tarihten söz ettiğimizde ise daha mütesâhiliz."|
+B1|İbn İshâk, İbn Sa'd ve Vâkıdî gibi klasik müellifler bütünlüğü kurmak için zayıf rivayetleri de kullanmış, isnadları çoğunlukla eleştirmeden aktarıp değerlendirmeyi okura bırakmışlardır.
+B1|Son dönemde bazı âlimler bu ayrıma itiraz etti.
+B2|Onlara göre İmam Ahmed'in zamanında hilafet vardı ve siyer genel dersler için okunuyordu; bugün ise davetin nasıl yapılacağı ve İslâm'ın yeniden nasıl ikame edileceği siyerden öğrenilecektir.
+B2|Siyer bu yönüyle uygulanan bir fıkıh hâline geldiği için hadis usulü ona da tatbik edilmelidir.
+B1|Said Havvâ'nın *el-Esâs fi's-Sünne*'si ve İbrahim el-Alî'nin *Sahîhü's-Sîreti'n-Nebeviyye*'si, İbn İshâk ya da İbn Hişâm yerine doğrudan Buhârî ve Müslim'i kullanan bu yaklaşımın ürünleridir.
+B1|Evlakî ise ana tabloyu sahih rivayetlerle kurmayı, bağlamı ve nüansları klasik kaynaklarla zenginleştirmeyi önerir.
+B1|İbn Kesîr'i seçmesinin sebebi de budur; o hem siyer kaynaklarından hem hadis kitaplarından rivayet eder, rivayet bolluğu ile sahihlik denetimini aynı eserde birleştirir.
+B1|İbn Kesîr'in isnadların tamamını zikretmesi metni ağırlaştırır, tematik sebeplerle kronolojik kaymalar yapar ve aynı olaya dair farklı rivayetleri bir arada vermesi okuru zorlar.
+B2|Evlakî bu son özelliği dürüstlüğün göstergesi sayar.
+B1|Evlakî çağdaş *fıkhu's-sîre* literatüründen başka eserleri de tanıtır.
+TABLE|Müellif|Eser|Yaklaşımı
+ROW|Münîr el-Gadbân|*el-Minhâc el-Harekî*|Siyeri gizli ve açık safhalara ayırarak sistematik bir hareket metodu çıkarır.
+ROW|Muhammed Gazâlî|*Fıkhu's-Sîre*|Terbiye derslerini öne çıkarır.
+ROW|M. Said Ramazan el-Bûtî|*Fıkhu's-Sîre*|Fıkhî çıkarımları öne çıkarır.
+ROW|Selman el-Avde|*el-Gurabâ*|"İslâm garip olarak başladı ve başladığı gibi yine garipliğe dönecektir; ne mutlu gariplere" hadisinden hareketle ilk dönemin garipleriyle bugünün garipleri arasında köprü kurar (Müslim, Kitâbü'l-Îmân; Ebû Hüreyre rivayeti).
+ROW|Muhammed el-Abdâh|*et-Tarîk ile'l-Medîne*|Mekke'den Medine'ye uzanan yürüyüşün her durağından dersler çıkarır.
+ENDTABLE
+H2|Bu Bölümün İbretleri
+INTRO|Evlakî siyer okumanın yedi sebebini bir ağacın katmanlarına benzeterek bölümü toparlar.
+B1|Evlakî'ye göre bu katmanların sıralaması tesadüfi değildir; her biri bir öncekinin yokluğunda zayıflar.
+TABLE|Katman|Karşılığı|Açıklama
+ROW|Kök|İslâm tarihi|Ağacın sağlamlığı ondan gelir; tarih olmadan sevgi yüzeysel kalır.
+ROW|Gövde|Sevgi|Ağacın özsuyudur; sevgi olmadan ittibâ kuru bir taklide döner.
+ROW|Dallar|İttibâ|Sevgi onlarda amele dönüşür; ittibâ olmadan Kur'ân metinde donar.
+ROW|Yapraklar|Kur'ân kavrayışı|Kur'ân kavranmadan hareket pusulasız kalır.
+ROW|Çiçek|Hareket metodu|Metot olmadan ibadet hayatın bir köşesine sıkışır.
+ROW|Meyve|İbadet|İbadetin olmadığı yerde kimlik bir gösteriye dönüşür.
+ROW|Tohum|Kimlik|Sonraki nesillere aktarılır.
+ENDTABLE
+B1|Bu tablonun iki sonucu vardır.
+B2|Siyer okumak isteğe bağlı bir ek faaliyet değil, Müslüman varoluşunun zorunlu bir parçasıdır.
+B2|Siyer okunurken kalp, akıl, ahlâk ve sosyal davranış aynı anda eğitilir; bu yüzden siyer çalışması akademik bir konudan çok manevî bir tâlimdir.
+B1|Amr b. Âs'ın hikâyesi bu tâlimin neler doğurabileceğini gösterir; onu en büyük düşmanlıktan en derin sevgiye taşıyan, Rasûlullah'ı (s.a.v.) yakından tanımak olmuştur.
+B1|Sahâbenin megâzîyi çocuklarına Kur'ân gibi öğretmesi, yeni nesillere aktarılması gereken mirası hatırlatır.
+B1|Siyerden kopan bir ümmet kimliğinden de kopar; siyerine bağlanan ümmet ise geçmişini ve geleceğini aynı anda inşa eder.
+B1|Hz. Muhammed'in hayatı, yaratılışın başlangıcından kıyamete uzanan büyük anlatının kalbidir.
+B1|Onu tanımak tarihi, vahyi, ümmeti ve kendimizi tanımaktır; onu sevmek en güzel ahlâkı sevmektir.
+B1|Onun yolundan gitmek ise bu dünyada hikmete, âhirette izzete kavuşmaktır.
