@@ -12,4 +12,6 @@ Kitap dört kısımdan oluşur. *Nübüvvetin Arifesinde* başlıklı birinci k�
 
 Her bölümün sonunda yer alan "Bu Bölümün İbretleri" başlıklı kısımlar, anlatılan olayların bugüne bakan yüzünü göstermeyi amaçlar. Siyer, sadece geçmişte kalmış bir hikâye değildir; Sallâbî'nin ısrarla hatırlattığı gibi, onda değişmeyen ilâhî kanunların işleyişini görürüz. Bu kanunları tanıyan, kendi hayatını ve toplumunu da daha doğru okur.
 
+Kitapta âyet ve hadisler renkli kutular içinde, Arapça asıllarıyla birlikte verilmiştir. Âyet-i kerîmelerin Arapça metni, Kral Fahd Mushaf Basım Kompleksi'nin (KFGQPC) Hafs rivayetine göre hazırladığı Osmanî hatlı mushaf metninden alınmıştır. Hadislerin Arapça lafızları ise öncelikle Sallâbî'nin eserinde yer aldığı şekliyle verilmiş, orada bulunmayanlar hadis kaynaklarından tamamlanmıştır. Arapça lafzın alındığı kaynak tercümeninkinden farklı olduğunda bu durum kutunun kaynak satırında belirtilmiştir.
+
 Rabbimizden, bu satırları okuyanların kalplerinde Rasûlullah'a (s.a.v.) duyulan sevgiyi artırmasını, bu sevgiyi de ona uymanın vesilesi kılmasını niyaz ederiz. Kitapta bulunan her doğru Allah'tandır; hata ve eksikler ise bizim acizliğimizdendir.
