@@ -55,10 +55,10 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
 
 .ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
 .test .iki { min-height: 196mm; }
-.test.devam .iki { min-height: 212mm; }
+.test.devam .iki { min-height: 200mm; }
 .test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
 .test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
-.cizgili { height: 44mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+.cizgili { height: 32mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
   background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
 .cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
 .not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
@@ -137,7 +137,7 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
   <h2 class="konu"><span class="num">1</span>Zayıf etkileşimler ve dipoller</h2>
   <div class="alt-baslik">Bir bardak suyu bir arada tutan, molekülleri birbirine çeken zayıf kuvvetlerdir.</div>
 
-  <p>Bölüm 1’de atomları ve iyonları bir arada tutan <b>güçlü etkileşimleri</b> (iyonik, kovalent ve metalik bağ) tanıdın. Peki su molekülleri neden birbirinden kopup hemen havaya karışmaz? Çünkü moleküller de birbirini çeker. Tanecikler arasındaki bu çekimler kimyasal bağlardan çok daha zayıftır. Bunlara <b class="k">zayıf etkileşimler</b> ya da <b class="k">moleküller arası etkileşimler</b> denir.</p>
+  <p>Bölüm 1’de atomları ve iyonları bir arada tutan <b>güçlü etkileşimleri</b> (iyonik, kovalent, metalik bağ) tanıdın. Su molekülleri ise birbirinden kopup hemen havaya karışmaz, çünkü moleküller de birbirini çeker. Kimyasal bağlardan çok daha zayıf olan bu çekimlere <b class="k">zayıf etkileşimler</b> ya da <b class="k">moleküller arası etkileşimler</b> denir.</p>
 
   <div class="iki-genis" style="grid-template-columns:1fr 1fr;align-items:center;margin-bottom:3mm">
     <div class="karsit">
@@ -149,30 +149,25 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
 
   <div class="kutu kavram">
     <div class="etiket">@ikon:kavram Kavram</div>
-    <p><b>Yoğun faz:</b> Maddenin katı ve sıvı hâlleridir. Bu hâllerde tanecikler birbirine çok yakındır ve zayıf etkileşimler etkilidir. Gaz hâlinde tanecikler birbirinden çok uzak olduğundan aralarındaki etkileşimler genellikle ihmal edilir. Bu yüzden etkileşim türleri hep “yoğun fazda” ifadesiyle anlatılır.</p>
+    <p><b>Yoğun faz:</b> Maddenin katı ve sıvı hâlleridir. Tanecikler birbirine çok yakın olduğundan zayıf etkileşimler etkilidir. Gazda tanecikler çok uzaktır, etkileşimler genellikle ihmal edilir. Etkileşimler bu yüzden “yoğun fazda” anlatılır.</p>
   </div>
 
   <h3>Dipol: iki kutuplu tanecik</h3>
-  <p>Zayıf etkileşimlerin hepsinin temelinde elektriksel çekim vardır: Kısmi pozitif (<b>δ+</b>) bir bölge, kısmi negatif (<b>δ−</b>) bir bölgeyi çeker. Bir taneciğin bir ucunun δ+, diğer ucunun δ− yüklü olmasına <b class="k">dipol</b> (iki kutup) denir.</p>
+  <p>Zayıf etkileşimlerin temelinde elektriksel çekim vardır: Kısmi pozitif (<b>δ+</b>) bir bölge, kısmi negatif (<b>δ−</b>) bir bölgeyi çeker. Bir taneciğin bir ucunun δ+, diğer ucunun δ− olmasına <b class="k">dipol</b> (iki kutup) denir. <span class="kucuk" style="color:var(--metin)">Hatırla (Bölüm 2): <b>polar</b> {H2O}, {NH3}, {HCl}, {H2S}, {SO2}, {PCl3} · <b>apolar</b> {H2}, {N2}, {Cl2}, {CO2}, {CH4}, {CCl4}, {BF3}. Soy gaz atomları apolar gibi davranır.</span></p>
 
-  <div class="grafik-kutu"><!--SVG:dipol--></div>
+  <div class="grafik-kutu" style="margin-bottom:3mm"><!--SVG:dipol--></div>
 
-  <div class="uc" style="gap:3mm">
-    <div class="kutu kavram" style="margin-bottom:3mm"><div class="etiket">@ikon:kavram Kalıcı dipol</div><p style="font-size:9pt">Polar moleküllerde elektronegatiflik farkı ve molekül şekli nedeniyle sürekli var olan kutuplanmadır. {HCl}, {H2O}, {NH3} gibi.</p></div>
-    <div class="kutu kavram" style="margin-bottom:3mm"><div class="etiket">@ikon:kavram Anlık dipol</div><p style="font-size:9pt">Elektronların hareketiyle bulutun bir an bir tarafa toplanmasıdır. Her tanecikte oluşur. Apolar moleküllerin ve soy gazların tek dipol türüdür.</p></div>
-    <div class="kutu kavram" style="margin-bottom:3mm"><div class="etiket">@ikon:kavram İndüklenmiş dipol</div><p style="font-size:9pt">Yakındaki bir iyonun ya da dipolün etkisiyle oluşan kutuplanmadır. “İndüklemek”, bir etkiyle oluşturmak demektir.</p></div>
+  <div class="hatirlat" style="margin-bottom:3.5mm">
+    <div><b>Kalıcı dipol</b>Polar moleküllerde elektronegatiflik farkı ve molekül şekli nedeniyle sürekli var olan kutuplanma.</div>
+    <div><b>Anlık dipol</b>Elektron bulutunun bir an bir yana toplanması. Her tanecikte oluşur; apolar tanecikler için tek dipol türüdür.</div>
+    <div><b>İndüklenmiş dipol</b>Yakındaki bir iyon ya da dipolün etkisiyle oluşan kutuplanma. “İndüklemek”: etkiyle oluşturmak.</div>
   </div>
 
-  <div class="iki">
-    <div class="kutu duz serit" style="--bg:#f6fbfe;margin-bottom:0">
-      <p style="margin:0;font-size:9pt"><b class="k">Hatırlatma (Bölüm 2):</b> <b>Polar:</b> {H2O}, {NH3}, {HCl}, {H2S}, {SO2}, {CH3Cl}, {PCl3} · <b>Apolar:</b> {H2}, {O2}, {N2}, {Cl2}, {CO2}, {CH4}, {CCl4}, {BF3} · Soy gaz atomları (He, Ne, Ar…) apolar gibi davranır.</p>
-    </div>
-    <div class="kutu dikkat" style="margin-bottom:0">
-      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
-      <div class="yanilgi">
-        <div class="yanlis"><b class="y">✗</b> “Apolar moleküllerde hiç dipol oluşmaz.”</div>
-        <div class="dogru"><b class="d">✓</b> <b>Kalıcı</b> dipol oluşmaz ama elektron hareketiyle her an <b>anlık</b> dipoller oluşur.</div>
-      </div>
+  <div class="kutu dikkat" style="margin-bottom:0">
+    <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “Apolar moleküllerde ve soy gaz atomlarında hiç dipol oluşmaz.”</div>
+      <div class="dogru"><b class="d">✓</b> <b>Kalıcı</b> dipol oluşmaz; ama elektron hareketiyle her an <b>anlık</b> dipoller oluşur ve kaybolur.</div>
     </div>
   </div>
 
@@ -192,13 +187,12 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
     <div>
       <h3 style="margin-top:0">İyon–dipol etkileşimi</h3>
       <p>Bir <b>iyon</b> ile <b>polar molekül</b> arasındaki çekimdir. Katyon, polar molekülün δ− ucunu; anyon ise δ+ ucunu çeker. Sofra tuzu suda böyle çözünür: Su molekülleri iyonları kristalden koparıp her birinin çevresini sarar.</p>
-      <p style="margin:0">İyonun yükü büyüdükçe çekim güçlenir: Mg<sup>2+</sup> iyonu su moleküllerini Na<sup>+</sup> iyonundan daha güçlü çeker. İyon–dipol etkileşimi, zayıf etkileşimler arasında <b>en güçlü</b> olanıdır.</p>
+      <p style="margin:0">İyonun yükü büyüdükçe çekim güçlenir: Mg<sup>2+</sup> suyu Na<sup>+</sup> iyonundan daha güçlü çeker. İyon–dipol, zayıf etkileşimlerin <b>en güçlüsüdür</b>. <span class="kucuk">(İyon bir molekül değildir; ama bu etkileşim zayıf etkileşimler içinde incelenir.)</span></p>
     </div>
     <div class="grafik-kutu" style="margin:0"><div class="gb">NaCl’ün suda çözünmesi: iyonları saran su molekülleri</div><!--SVG:hidratasyon--></div>
   </div>
-  <p class="kucuk" style="margin:1.6mm 0 0">Not: İyon bir molekül değildir. Ancak polar moleküllerle etkileşimi, zayıf etkileşimler içinde incelenir.</p>
 
-  <div class="iki-genis" style="grid-template-columns:1fr 1.15fr;align-items:center;margin-top:1mm">
+  <div class="iki-genis" style="grid-template-columns:1fr 1.15fr;align-items:center;margin-top:3mm">
     <div class="grafik-kutu" style="margin:0"><div class="gb">Sıvı HCl’de moleküllerin dizilişi (temsilî)</div><!--SVG:dipoldipol--></div>
     <div>
       <h3 style="margin-top:0">Dipol–dipol etkileşimi</h3>
@@ -209,7 +203,7 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
 
   <div class="kutu kavram" style="margin-top:3.5mm">
     <div class="etiket">@ikon:kavram Etkin (baskın) etkileşim</div>
-    <p>Tanecikler arasında aynı anda birden fazla etkileşim bulunabilir. Bunlardan <b>en güçlü olanına etkin etkileşim</b> denir. Sıvı {HCl}’de moleküller arasında hem London kuvvetleri (sayfa 4) hem de dipol–dipol etkileşimi vardır; etkin olan <b>dipol–dipol</b> etkileşimidir.</p>
+    <p>Tanecikler arasında aynı anda birden fazla etkileşim bulunabilir; <b>en güçlü olanına etkin etkileşim</b> denir. Sıvı {HCl}’de hem London kuvvetleri (sayfa 4) hem dipol–dipol etkileşimi vardır; etkin olan <b>dipol–dipol</b> etkileşimidir.</p>
   </div>
 
   <div class="kutu ornek">
@@ -225,13 +219,13 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
   <div class="iki">
     <div class="kutu hayat" style="margin-bottom:0">
       <div class="etiket">@ikon:hayat Hayatın İçinden</div>
-      <p style="font-size:9.2pt">Mikrodalga fırın, yiyeceklerdeki su moleküllerinin <b>kalıcı dipollerini</b> çok hızlı yön değiştiren elektrik alanla sürekli döndürür. Dönen moleküllerin komşularına sürtünüp çarpması ısı açığa çıkarır. Bu yüzden içinde su bulunan yiyecekler çabuk ısınır.</p>
+      <p style="font-size:9.1pt">Mikrodalga fırın, yiyeceklerdeki su moleküllerinin <b>kalıcı dipollerini</b> hızla yön değiştiren elektrik alanla sürekli döndürür. Dönen moleküllerin komşularına çarpması ısı açığa çıkarır; sulu yiyecekler bu yüzden çabuk ısınır.</p>
     </div>
     <div class="kutu dikkat" style="margin-bottom:0">
       <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
       <div class="yanilgi" style="grid-template-columns:1fr">
-        <div class="yanlis"><b class="y">✗</b> “Tuz suda çözünürken iyonlarla su arasında yeni kimyasal bağlar oluşur.”</div>
-        <div class="dogru"><b class="d">✓</b> İyonlar su molekülleriyle <b>iyon–dipol</b> etkileşimi kurar. Yeni madde oluşmaz; çözünme fiziksel bir olaydır.</div>
+        <div class="yanlis"><b class="y">✗</b> “Tuz suda çözünürken iyonlarla su arasında kimyasal bağ oluşur.”</div>
+        <div class="dogru"><b class="d">✓</b> İyonlar suyla <b>iyon–dipol</b> etkileşimi kurar. Yeni madde oluşmaz; çözünme fiziksel olaydır.</div>
       </div>
     </div>
   </div>
@@ -277,7 +271,7 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
 
   <div class="kutu hayat" style="margin-bottom:0">
     <div class="etiket">@ikon:hayat Hayatın İçinden</div>
-    <p style="font-size:9.3pt">Geko kertenkeleleri cam gibi pürüzsüz yüzeylerde bile baş aşağı yürüyebilir. Ayak tabanlarında milyonlarca mikroskobik kıl ve bu kılların uçlarında daha da ince dallar vardır. Her ucun yüzeyle kurduğu London çekimi çok küçüktür. Ancak bu uçların sayısı o kadar fazladır ki toplam çekim hayvanın ağırlığını taşımaya yeter. Bilim insanları bu fikirden yola çıkarak yapıştırıcısız tutunan “geko bantlar” geliştirmektedir.</p>
+    <p style="font-size:9.2pt">Geko kertenkeleleri cam gibi pürüzsüz yüzeylerde bile baş aşağı yürüyebilir. Ayak tabanlarındaki milyonlarca mikroskobik kılın ucu daha da ince dallara ayrılır. Her ucun yüzeyle kurduğu London çekimi çok küçüktür; ama uçlar o kadar çoktur ki toplam çekim hayvanın ağırlığını taşır. Bu fikirden yola çıkılarak yapıştırıcısız “geko bantlar” geliştirilmektedir.</p>
   </div>
 
   <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">4</span></div>
@@ -294,36 +288,30 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
 
   <div class="iki-genis" style="grid-template-columns:1fr 1.1fr;align-items:center">
     <div>
-      <p>Bir molekülde <b>F, O ya da N</b> atomuna kovalent bağla bağlı <b>H atomu</b>, komşu molekülün F, O ya da N atomundaki ortaklanmamış elektron çiftini çeker. Bu özel ve güçlü çekime <b class="k">hidrojen bağı</b> denir ve “···” ile gösterilir.</p>
-      <p style="margin:0"><b>Neden bu kadar güçlü?</b> F, O ve N hem çok elektronegatif hem de küçük atomlardır. Bağ elektronlarını kendine çekerler; H atomunun çekirdeği neredeyse açıkta kalır (δ+ çok büyüktür). Bu küçük ve güçlü δ+ uç, komşu atoma çok yaklaşabilir.</p>
+      <p>Bir molekülde <b>F, O ya da N</b> atomuna bağlı <b>H atomu</b>, komşu molekülün F, O ya da N atomundaki ortaklanmamış elektron çiftini çeker. Bu güçlü çekime <b class="k">hidrojen bağı</b> denir; “···” ile gösterilir.</p>
+      <p style="margin:0;font-size:9.5pt"><b>Neden güçlü?</b> Küçük ve çok elektronegatif F, O, N bağ elektronlarını kendine çeker. H’nin çekirdeği neredeyse açıkta kalır; bu küçük, güçlü δ+ uç komşu atoma çok yaklaşabilir.</p>
     </div>
     <div class="grafik-kutu" style="margin:0"><!--SVG:hbag--></div>
   </div>
 
   <div class="kutu kavram" style="margin-top:3.5mm">
     <div class="etiket">@ikon:hedef H–FON kuralı</div>
-    <div class="iki" style="gap:4mm">
-      <p style="font-size:9.3pt;margin:0"><b class="k">Verici:</b> Bir molekülde F, O ya da N atomuna <b>doğrudan bağlı</b> H atomu bulunmalı (H–F, H–O, H–N).<br><b class="k">Alıcı:</b> Diğer molekülde ortaklanmamış elektron çifti olan bir F, O ya da N atomu bulunmalı.</p>
-      <p style="font-size:9.3pt;margin:0">Bir maddenin <b>kendi molekülleri</b> arasında hidrojen bağı olması için molekülde hem verici hem alıcı bulunmalıdır. Hidrojen bağı olan maddelerde dipol–dipol ve London kuvvetleri de vardır; etkin olan hidrojen bağıdır.</p>
-    </div>
+    <p style="font-size:9.3pt"><b class="k">Verici:</b> F, O ya da N’ye <b>doğrudan bağlı</b> H (H–F, H–O, H–N). &nbsp;<b class="k">Alıcı:</b> Komşu molekülde elektron çifti olan F, O ya da N. Bir maddenin <b>kendi molekülleri</b> arasında H bağı için molekülde ikisi birden bulunmalıdır. H bağı olan maddelerde dipol–dipol ve London da vardır; etkin olan hidrojen bağıdır.</p>
   </div>
 
   <table class="tablo sik">
-    <tr><th>Madde</th><th class="on">Kendi molekülleri arasında H bağı</th><th class="on">Su ile H bağı</th><th>Gerekçe</th></tr>
-    <tr><td>{H2O}, {NH3}, HF</td><td class="on ev">var</td><td class="on ev">var</td><td>O–H, N–H, F–H bağı içerir</td></tr>
-    <tr><td>{CH3OH}, {C2H5OH} (alkoller)</td><td class="on ev">var</td><td class="on ev">var</td><td>–OH grubu içerir</td></tr>
-    <tr><td>{CH3}–O–{CH3} (dimetil eter)</td><td class="on ha">yok</td><td class="on ev">var</td><td>H’ler C’ye bağlı; ama O atomu alıcı olabilir</td></tr>
-    <tr><td>{CH2O} (formaldehit)</td><td class="on ha">yok</td><td class="on ev">var</td><td>H’ler C’ye bağlı; O atomu alıcı</td></tr>
-    <tr><td>{CH4}, {H2S}, {HCl}</td><td class="on ha">yok</td><td class="on ha">yok</td><td>H; F, O ya da N’ye bağlı değil ve alıcı atom yok</td></tr>
+    <tr><th>Madde</th><th class="on">Kendi arasında H bağı</th><th class="on">Su ile H bağı</th><th>Gerekçe</th></tr>
+    <tr><td>{H2O}, {NH3}, HF, {CH3OH}</td><td class="on ev">var</td><td class="on ev">var</td><td>O–H, N–H ya da F–H bağı içerir</td></tr>
+    <tr><td>{CH3}–O–{CH3}, {CH2O}</td><td class="on ha">yok</td><td class="on ev">var</td><td>H’ler C’ye bağlı; ama O atomu alıcıdır</td></tr>
+    <tr><td>{CH4}, {H2S}, {HCl}</td><td class="on ha">yok</td><td class="on ha">yok</td><td>Ne verici H ne de F, O, N alıcısı var</td></tr>
   </table>
 
   <div class="kutu ornek">
     <div class="etiket">@ikon:ornek Çözümlü Örnek 2</div>
-    <div class="soru">Etanol ({CH3}–{CH2}–OH) ile dimetil eterin ({CH3}–O–{CH3}) formülü aynıdır: {C2H6O}. İkisinin de elektron sayısı 26’dır. Etanol 78 °C’ta, dimetil eter ise −24 °C’ta kaynar. Bu büyük farkı açıklayınız.</div>
+    <div class="soru">Etanol ({CH3}–{CH2}–OH) ve dimetil eter ({CH3}–O–{CH3}) aynı formüllüdür ({C2H6O}, 26 e<sup>−</sup>). Etanol 78 °C’ta, eter −24 °C’ta kaynar. Farkı açıklayınız.</div>
     <div class="cozum">
-      <div class="adim"><span class="n">1</span><span>Elektron sayıları eşit olduğu için London kuvvetleri yaklaşık aynıdır; fark başka bir etkileşimden gelmelidir.</span></div>
-      <div class="adim"><span class="n">2</span><span>Etanolde O’ya bağlı H var (verici) ve O alıcıdır → kendi molekülleri arasında <b>hidrojen bağı</b>.</span></div>
-      <div class="adim"><span class="n">3</span><span>Eterde bütün H’ler C’ye bağlı; verici yok → moleküller arasında yalnız <b>dipol–dipol</b> ve London.</span></div>
+      <div class="adim"><span class="n">1</span><span>Elektron sayıları eşit → London kuvvetleri yaklaşık aynı; fark başka etkileşimden gelir.</span></div>
+      <div class="adim"><span class="n">2</span><span>Etanolde O’ya bağlı H var → kendi molekülleri arasında <b>hidrojen bağı</b>. Eterde H’ler C’ye bağlı → yalnız <b>dipol–dipol</b> ve London.</span></div>
       <span class="sonuc">Hidrojen bağı daha güçlü → etanolün kaynama noktası çok daha yüksek</span>
     </div>
   </div>
@@ -331,13 +319,13 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
   <div class="iki">
     <div class="kutu hayat" style="margin-bottom:0">
       <div class="etiket">@ikon:hayat Hayatın İçinden</div>
-      <p style="font-size:9.1pt">Çoğu maddenin katısı sıvısından yoğundur; buz ise suda yüzer. Donan suda her molekül dört komşusuyla hidrojen bağı kurar ve boşluklu, düzenli bir yapı oluşur. Bu yüzden buzun yoğunluğu (≈ 0,92 g/cm³) sıvı sudan (≈ 1,00 g/cm³) küçüktür. Göller yüzeyden donar, alttaki su canlılar için sıvı kalır.</p>
+      <p style="font-size:9.1pt">Buzda her molekül dört komşusuyla hidrojen bağı kurar; boşluklu, düzenli bir yapı oluşur. Bu yüzden buz (≈ 0,92 g/cm³) sıvı sudan (≈ 1,00 g/cm³) daha az yoğundur ve yüzer. Göller yüzeyden donar, alttaki su canlılar için sıvı kalır.</p>
     </div>
     <div class="kutu dikkat" style="margin-bottom:0">
       <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
       <div class="yanilgi" style="grid-template-columns:1fr">
         <div class="yanlis"><b class="y">✗</b> “Hidrojen bağı, su molekülündeki O–H bağının adıdır.”</div>
-        <div class="dogru"><b class="d">✓</b> O–H bağı molekül <b>içindeki</b> kovalent bağdır. Hidrojen bağı ise bir molekülün H’si ile <b>komşu</b> molekülün O’su arasındaki zayıf etkileşimdir.</div>
+        <div class="dogru"><b class="d">✓</b> O–H, molekül <b>içi</b> kovalent bağdır. Hidrojen bağı, bir molekülün H’si ile <b>komşu</b> molekülün O’su arasındadır.</div>
       </div>
     </div>
   </div>
@@ -364,23 +352,23 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
     </table>
     <div class="kutu kavram" style="margin:0">
       <div class="etiket">@ikon:kavram Kaynama noktası</div>
-      <p style="font-size:9.1pt">Bir sıvı kaynarken molekülleri birbirinden ayrılır; molekül içindeki bağlar <b>kopmaz</b>. Aynı dış basınçta, tanecikler arası etkileşim ne kadar güçlüyse <b>kaynama ve erime noktası</b> o kadar yüksektir.</p>
+      <p style="font-size:9.1pt">Kaynayan sıvının molekülleri birbirinden ayrılır; molekül içi bağlar <b>kopmaz</b>. Aynı dış basınçta etkileşim ne kadar güçlüyse <b>kaynama ve erime noktası</b> o kadar yüksektir.</p>
     </div>
   </div>
   <p class="kucuk" style="margin:1.4mm 0 3mm">Diğer etkenler (tanecik büyüklüğü, elektron sayısı) yaklaşık aynıyken genel sıralama: <b>iyon–dipol &gt; hidrojen bağı &gt; dipol–dipol &gt; London</b>.</p>
 
   <div class="iki-genis" style="grid-template-columns:1.15fr 1fr;align-items:center">
     <div class="grafik-kutu" style="margin:0"><div class="gb">4A–7A grubu hidrürlerinin kaynama noktaları (1 atm)</div><!--SVG:hidrur--></div>
-    <div style="font-size:9.3pt">
-      <p><b>4A</b> hidrürleri ({CH4} → {SnH4}) apolardır; yalnızca London kuvvetleri vardır. Periyot arttıkça elektron sayısı arttığı için kaynama noktası düzenli yükselir.</p>
-      <p><b>5A, 6A, 7A</b> gruplarında 3.–5. periyotlar aynı eğilimi izler. Ancak ilk üyeler <b>{NH3}, {H2O} ve HF</b> beklenenin çok üstündedir: moleküllerinin arasında <b>hidrojen bağı</b> vardır.</p>
-      <p style="margin:0">Su, {H2S}’den 160 °C daha yüksek sıcaklıkta kaynar. Hidrojen bağları olmasaydı su, oda koşullarında gaz olurdu.</p>
+    <div style="font-size:9.2pt">
+      <p><b>4A</b> hidrürleri apolardır; yalnız London kuvvetleri vardır. Periyot arttıkça elektron sayısı ve kaynama noktası düzenli artar.</p>
+      <p><b>5A, 6A, 7A</b> gruplarında 3.–5. periyotlar aynı eğilimi izler. İlk üyeler <b>{NH3}, {H2O} ve HF</b> ise beklenenin çok üstündedir: aralarında <b>hidrojen bağı</b> vardır.</p>
+      <p style="margin:0">Su, {H2S}’den 160 °C yüksekte kaynar. Hidrojen bağları olmasaydı oda koşullarında gaz olurdu.</p>
     </div>
   </div>
 
   <h3>Kaynama noktalarını karşılaştırırken üç soru</h3>
   <div class="adimlar">
-    <div><b class="n">1</b><b>Etkin etkileşim türü farklı mı?</b> Benzer büyüklükteki taneciklerde hidrojen bağı &gt; dipol–dipol &gt; London.</div>
+    <div><b class="n">1</b><b>Etkin etkileşim türü farklı mı?</b> Benzer büyüklükte: H bağı &gt; dipol–dipol &gt; London. <span class="kucuk">Elektron sayısı çok farklıysa London öne geçebilir: {I2} (106 e<sup>−</sup>) 184 °C’ta, sudan yüksekte kaynar.</span></div>
     <div><b class="n">2</b><b>Tür aynı mı?</b> Elektron sayısı fazla olanın London kuvvetleri güçlüdür: HBr &gt; HCl, {C3H8} &gt; {C2H6}.</div>
     <div><b class="n">3</b><b>Elektron sayısı da eşit mi?</b> Polar olan apolardan, dallanması az olan çok dallanmış olandan yüksek kaynar.</div>
   </div>
@@ -388,19 +376,15 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
   <div class="iki-genis" style="grid-template-columns:1fr 1.1fr;align-items:start;margin-top:3.5mm">
     <div class="grafik-kutu" style="margin:0"><div class="gb">Hepsi 18 elektronlu: farkı etkileşim türü yaratır</div><!--SVG:onsekiz--></div>
     <div>
-      <div class="kutu ornek" style="margin-bottom:2.6mm">
+      <div class="kutu ornek" style="margin-bottom:0">
         <div class="etiket">@ikon:ornek Çözümlü Örnek 3</div>
         <div class="soru" style="font-size:9.3pt">10’ar elektronlu {CH4}, {NH3}, HF ve {H2O}’yu aynı basınçtaki kaynama noktalarına göre sıralayınız.</div>
         <div class="cozum" style="font-size:9pt">
           <div class="adim"><span class="n">1</span><span>{CH4} apolar, yalnız London → en düşük.</span></div>
-          <div class="adim"><span class="n">2</span><span>Diğer üçünde hidrojen bağı var. {H2O}’nun 2 H atomu ve 2 elektron çifti var; molekül başına en çok H bağını o kurar.</span></div>
-          <div class="adim"><span class="n">3</span><span>F, N’den daha elektronegatif → HF’nin H bağı {NH3}’ünkünden güçlü.</span></div>
+          <div class="adim"><span class="n">2</span><span>Diğerlerinde H bağı var. {H2O}’nun 2 H’si ve 2 elektron çifti var; molekül başına en çok H bağını o kurar.</span></div>
+          <div class="adim"><span class="n">3</span><span>F, N’den elektronegatif → HF’nin H bağı {NH3}’ünkünden güçlü.</span></div>
           <span class="sonuc">{H2O} &gt; HF &gt; {NH3} &gt; {CH4}</span>
         </div>
-      </div>
-      <div class="kutu dikkat serit" style="margin-bottom:0">
-        <div class="etiket">@ikon:dikkat Dikkat</div>
-        <p style="font-size:8.9pt">Elektron sayısı çok farklıysa London kuvvetleri öne geçebilir. Apolar {I2} (106 e<sup>−</sup>) 184 °C’ta kaynar; bu, suyun kaynama noktasından yüksektir.</p>
       </div>
     </div>
   </div>
@@ -421,7 +405,7 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
 
   <div class="kutu kavram">
     <div class="etiket">@ikon:kavram Benzer benzeri çözer</div>
-    <p>Etkileşim türleri birbirine benzeyen maddeler genellikle birbiri içinde iyi çözünür ve homojen karışım oluşturur. <b>İyonik ve polar</b> maddeler polar çözücülerde (su, etanol), <b>apolar</b> maddeler apolar çözücülerde (hekzan, {CCl4}, benzin) iyi çözünür. Polar ve apolar sıvılar genellikle birbirine karışmaz, iki ayrı faz oluşturur.</p>
+    <p>Etkileşim türleri benzer maddeler genellikle birbiri içinde iyi çözünür (homojen karışım). <b>İyonik ve polar</b> maddeler polar çözücülerde (su, etanol), <b>apolar</b> maddeler apolar çözücülerde (hekzan, {CCl4}, benzin) iyi çözünür. Polar ve apolar sıvılar genellikle karışmaz.</p>
   </div>
 
   <table class="tablo sik">
@@ -429,17 +413,16 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
     <tr><td>Etanol + su</td><td>polar (–OH) + polar (–OH)</td><td>hidrojen bağı</td><td>her oranda karışır</td></tr>
     <tr><td>NaCl + su</td><td>iyon + polar</td><td>iyon–dipol</td><td>çözünür</td></tr>
     <tr><td>{I2} + {CCl4}</td><td>apolar + apolar</td><td>London</td><td>çözünür (mor renkli)</td></tr>
-    <tr><td>{I2} + su</td><td>apolar + polar</td><td>dipol–indüklenmiş dipol</td><td>çok az çözünür</td></tr>
     <tr><td>Zeytinyağı + su</td><td>apolar + polar</td><td>dipol–indüklenmiş dipol</td><td>karışmaz, iki faz</td></tr>
   </table>
 
   <div class="kutu ornek">
     <div class="etiket">@ikon:ornek Çözümlü Örnek 4</div>
-    <div class="soru">İçinde su bulunan üç deney tüpünden I.’ye metanol ({CH3OH}), II.’ye {CCl4}, III.’ye {KNO3} katısı ekleniyor ve tüpler çalkalanıyor. Her tüpte su ile eklenen madde arasındaki etkin etkileşimi ve karışımın türünü belirleyiniz.</div>
+    <div class="soru">Su bulunan üç tüpten I.’ye metanol ({CH3OH}), II.’ye {CCl4}, III.’ye {KNO3} katısı eklenip çalkalanıyor. Su ile eklenen madde arasındaki etkin etkileşimi ve karışımın türünü belirleyiniz.</div>
     <div class="cozum">
-      <div class="adim"><span class="n">1</span><span>I. Metanolde O–H var → su ile <b>hidrojen bağı</b> kurar; benzer etkileşim → <b>homojen</b>.</span></div>
-      <div class="adim"><span class="n">2</span><span>II. {CCl4} apolar, su polar → <b>dipol–indüklenmiş dipol</b>. Su molekülleri birbirini daha güçlü çeker → karışmaz, <b>heterojen</b> (yoğun olan {CCl4} alta çöker).</span></div>
-      <div class="adim"><span class="n">3</span><span>III. K<sup>+</sup> ve <span class="f">NO<sub>3</sub><sup>−</sup></span> iyonları suyla <b>iyon–dipol</b> etkileşimi kurar → çözünür, <b>homojen</b>.</span></div>
+      <div class="adim"><span class="n">1</span><span>I. Metanolde O–H var → suyla <b>hidrojen bağı</b>; benzer etkileşim → <b>homojen</b>.</span></div>
+      <div class="adim"><span class="n">2</span><span>II. {CCl4} apolar → <b>dipol–indüklenmiş dipol</b>. Su molekülleri birbirini daha güçlü çeker → <b>heterojen</b> ({CCl4} alta çöker).</span></div>
+      <div class="adim"><span class="n">3</span><span>III. K<sup>+</sup> ve <span class="f">NO<sub>3</sub><sup>−</sup></span> iyonları suyla <b>iyon–dipol</b> etkileşimi kurar → <b>homojen</b>.</span></div>
     </div>
   </div>
 
@@ -447,13 +430,13 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
     <div class="kutu dikkat" style="margin-bottom:0">
       <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
       <div class="yanilgi" style="grid-template-columns:1fr">
-        <div class="yanlis"><b class="y">✗</b> “Su ile yağ arasında hiçbir çekim yoktur, bu yüzden karışmazlar.”</div>
-        <div class="dogru"><b class="d">✓</b> Aralarında dipol–indüklenmiş dipol ve London çekimi <b>vardır</b>. Ancak su molekülleri arasındaki hidrojen bağları çok daha güçlü olduğu için su molekülleri birbirine tutunur, yağ dışarıda kalır.</div>
+        <div class="yanlis"><b class="y">✗</b> “Su ile yağ arasında hiç çekim yoktur.”</div>
+        <div class="dogru"><b class="d">✓</b> Dipol–indüklenmiş dipol ve London çekimi <b>vardır</b>; ama sudaki hidrojen bağları çok daha güçlü olduğundan su molekülleri birbirine tutunur, yağ dışarıda kalır.</div>
       </div>
     </div>
     <div class="kutu hayat" style="margin-bottom:0">
       <div class="etiket">@ikon:hayat Hayatın İçinden</div>
-      <p style="font-size:9.1pt">Tabaktaki yağ, yalnız suyla durulanınca çıkmaz. Deterjan moleküllerinin bir ucu iyonik ya da polardır ve suyla etkileşir. Uzun, apolar ucu ise yağ tanecikleri arasına girer. Deterjan, iki ayrı dünyayı birbirine bağlayan bir köprü gibi çalışır ve yağı suyla birlikte sürükler.</p>
+      <p style="font-size:9.1pt">Tabaktaki yağ yalnız suyla çıkmaz. Deterjan molekülünün iyonik ucu suyla, uzun apolar ucu yağla etkileşir. Deterjan iki dünya arasında köprü kurar ve yağı suyla birlikte sürükler.</p>
     </div>
   </div>
 
@@ -535,7 +518,7 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
       <p style="margin-bottom:1.4mm"><b>Soru:</b> Su kaynarken hangi etkileşimlerin üstesinden gelinir?</p>
       <div class="defter">
         <div class="ogrenci">Ece’nin çözümü</div>
-        <div class="satir"><span class="sn">1</span>Kaynarken moleküller sıvıdan ayrılıp gaz olur.</div>
+        <div class="satir"><span class="sn">1</span>Kaynarken moleküller gaz hâline geçer.</div>
         <div class="satir"><span class="sn">2</span>Bunun için O–H bağları kopmalıdır.</div>
         <div class="satir"><span class="sn">3</span>Bu bağlar güçlü, KN bu yüzden yüksek.</div>
       </div>
@@ -602,7 +585,7 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
       <div class="soru-blok">
         <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Endüstri</div>
         <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
-          <p>Evlerde ve araçlarda kullanılan LPG, propan ve bütan gazlarının basınç altında sıvılaştırılmış karışımıdır. Tüpten çıkan sıvı buharlaşarak yakılır. Kışın soğuk havada bütanın buharlaşması yavaşlar; bu nedenle kış karışımlarında propan oranı artırılır.</p>
+          <p>LPG, basınç altında sıvılaştırılmış propan ve bütan karışımıdır. Soğuk havada bütanın buharlaşması yavaşladığı için kış karışımlarında propan oranı artırılır.</p>
           <table class="tablo sik" style="margin:1mm 0 2mm">
             <tr><th>Madde</th><th class="on">Elektron sayısı</th><th class="on">KN (1 atm)</th></tr>
             <tr><td>Propan, {C3H8}</td><td class="on">26</td><td class="on">−42 °C</td></tr>
@@ -617,14 +600,14 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
       <div class="soru-blok">
         <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Sağlık</div>
         <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
-          <p>Vitaminler suda ve yağda çözünenler olarak iki gruba ayrılır. Suda çözünenlerin fazlası idrarla atılırken yağda çözünenler vücutta depolanabilir.</p>
+          <p>Vitaminler suda ve yağda çözünenler olarak ikiye ayrılır. Suda çözünenlerin fazlası idrarla atılır; yağda çözünenler vücutta depolanabilir.</p>
           <table class="tablo sik" style="margin:1mm 0 2mm">
             <tr><th>Vitamin</th><th>Molekül yapısının özelliği</th></tr>
             <tr><td>C vitamini ({C6H8O6})</td><td>Küçük molekül, 4 tane –OH grubu</td></tr>
             <tr><td>A vitamini ({C20H30O})</td><td>Uzun hidrokarbon zinciri, 1 tane –OH grubu</td></tr>
           </table>
           <p>Buna göre aşağıdaki ifadelerden hangisi <b>yanlıştır</b>?</p>
-          <div class="secenek tek"><span><b>A)</b>C vitamini su molekülleriyle hidrojen bağı kurar.</span><span><b>B)</b>A vitamini molekülünün büyük kısmı apolardır.</span><span><b>C)</b>A vitamini molekülleri arasında London kuvvetleri vardır.</span><span><b>D)</b>C vitamininin fazlası suda çözünerek vücuttan atılabilir.</span><span><b>E)</b>A vitamini –OH grubu içerdiği için suda C vitamininden daha iyi çözünür.</span></div>
+          <div class="secenek tek"><span><b>A)</b>C vitamini suyla hidrojen bağı kurar.</span><span><b>B)</b>A vitamini molekülünün büyük kısmı apolardır.</span><span><b>C)</b>A vitamini molekülleri arasında London kuvvetleri vardır.</span><span><b>D)</b>C vitamininin fazlası idrarla atılabilir.</span><span><b>E)</b>A vitamini –OH içerdiği için suda C vitamininden iyi çözünür.</span></div>
         </div></div>
       </div>
     </div>
@@ -633,8 +616,8 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
       <div class="soru-blok">
         <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Çevre</div>
         <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
-          <p>Fabrika ve santrallerin soğutma suyunu akarsulara sıcak olarak bırakması “ısıl kirlilik” yaratır. Grafikte, havayla dengedeki tatlı suda çözünebilen en fazla oksijen miktarı sıcaklığa göre verilmiştir.</p>
-          <div class="grafik-kutu" style="margin:1mm 0 2mm"><!--SVG:oksijen--></div>
+          <p>Santrallerin soğutma suyunu akarsuya sıcak bırakması “ısıl kirlilik” yaratır. Grafikte, havayla dengedeki tatlı suda çözünebilen oksijen miktarı verilmiştir.</p>
+          <div class="grafik-kutu" style="margin:1mm auto 2mm;width:82%"><!--SVG:oksijen--></div>
           <div class="oncul"><div><b>I.</b><span>{O2} ile {H2O} molekülleri arasındaki etkin etkileşim dipol–indüklenmiş dipol etkileşimidir.</span></div><div><b>II.</b><span>30 °C’taki suda çözünen {O2} miktarı, 10 °C’takinin yarısından azdır.</span></div><div><b>III.</b><span>{O2} moleküllerinde kalıcı dipol bulunur.</span></div></div>
           <p>yargılarından hangileri doğrudur?</p>
           <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>II ve III</span></div>
@@ -644,7 +627,7 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
       <div class="soru-blok">
         <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:lab Laboratuvar</div>
         <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
-          <p>Bir öğrenci temiz bir cam yüzeye ve parafin (mum) sürülmüş bir yüzeye birer damla su damlatıyor. Cam yüzeyde Si–O–H grupları bulunur; parafin ise uzun zincirli, apolar hidrokarbonlardan oluşur.</p>
+          <p>Temiz cam ve parafin (mum) kaplı yüzeye birer damla su damlatılıyor. Cam yüzeyde Si–O–H grupları vardır; parafin, uzun zincirli apolar hidrokarbonlardır.</p>
           <div class="grafik-kutu" style="margin:1mm 0 2mm"><!--SVG:damla--></div>
           <div class="oncul"><div><b>I.</b><span>Su ile cam yüzeyi arasında hidrojen bağları oluşabilir.</span></div><div><b>II.</b><span>Su ile parafin arasında dipol–indüklenmiş dipol etkileşimi vardır.</span></div><div><b>III.</b><span>Parafin molekülleri arasında hidrojen bağları vardır.</span></div></div>
           <p>yargılarından hangileri doğrudur?</p>
@@ -672,7 +655,7 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
         <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Elektron sayılarını hesapla: Ne 10, HF 10, HCl 18, {Cl2} 34. Hidrojen bağlı madde en yükseğe yerleşir.</div></div>
         <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">{Cl2}’nin elektron sayısı HCl’ninkinin yaklaşık iki katıdır. Bu farkta London kuvvetleri, HCl’nin dipol katkısını geçer.</div></div>
       </div>
-      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+      <div class="cevap-alani" style="height:19mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
     </div></div>
   </div>
 
@@ -684,7 +667,7 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
         <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Hangi molekülde O’ya <b>doğrudan</b> bağlı H var? O molekül kendi molekülleriyle hidrojen bağı kurar.</div></div>
         <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Diğer molekülün O atomu alıcı olabilir: su molekülünün H’si ona bağlanabilir mi?</div></div>
       </div>
-      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+      <div class="cevap-alani" style="height:19mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
     </div></div>
   </div>
 
@@ -696,7 +679,7 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
         <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">“Benzer benzeri çözer”: Apolar {I2} hangi sıvıyı, iyonik NaCl hangi sıvıyı seçer?</div></div>
         <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Tanecik türlerine bak: {I2} + hekzan → ? &nbsp;·&nbsp; Na<sup>+</sup>, Cl<sup>−</sup> + su → ?</div></div>
       </div>
-      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+      <div class="cevap-alani" style="height:19mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
     </div></div>
   </div>
 
@@ -770,7 +753,7 @@ table.tablo td.on, table.tablo th.on { text-align: center; }
       <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
         <p>X: {CH3}–{CH2}–{CH2}–{CH2}–{CH3} &nbsp;(n-pentan)<br>Y: C(CH<sub>3</sub>)<sub>4</sub> &nbsp;(neopentan)<br>Z: {CH3}–{CH2}–{CH2}–{CH3} &nbsp;(n-bütan)</p>
         <p>Bu maddelerin aynı basınçtaki kaynama noktalarının büyükten küçüğe sıralanışı hangisidir?</p>
-        <div class="secenek bes"><span><b>A)</b>X &gt; Y &gt; Z</span><span><b>B)</b>Y &gt; X &gt; Z</span><span><b>C)</b>X &gt; Z &gt; Y</span><span><b>D)</b>Z &gt; Y &gt; X</span><span><b>E)</b>X = Y &gt; Z</span></div>
+        <div class="secenek"><span><b>A)</b>X &gt; Y &gt; Z</span><span><b>B)</b>Y &gt; X &gt; Z</span><span><b>C)</b>X &gt; Z &gt; Y</span><span><b>D)</b>Z &gt; Y &gt; X</span><span><b>E)</b>X = Y &gt; Z</span></div>
       </div></div></div>
     </div>
     <div>

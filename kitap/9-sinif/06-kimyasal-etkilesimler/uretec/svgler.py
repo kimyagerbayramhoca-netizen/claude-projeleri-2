@@ -198,17 +198,16 @@ def nokta_sembol(sym, x, y, n, renk=U):
 
 
 sat = [('Li', 3), ('Be', 4), ('B', 5), ('C', 6), ('N', 7), ('O', 8), ('F', 9), ('Ne', 10)]
-o = [f'<svg viewBox="0 0 184 46" class="grafik"><g {FONT}>']
+o = [f'<svg viewBox="0 0 184 35" class="grafik"><g {FONT}>']
 beklenen_tek = {'Li': 1, 'Be': 2, 'B': 3, 'C': 4, 'N': 3, 'O': 2, 'F': 1, 'Ne': 0}
 for i, (s, z) in enumerate(sat):
     x = 14 + i * 22.5
-    o.append(f'<rect x="{x-10}" y="2" width="20" height="42" rx="2.4" fill="{UA}"/>')
-    o.append(f'<text x="{x}" y="8" text-anchor="middle" font-size="3.6" fill="{S}">{z}{s} · {DEG[s]} e⁻</text>'.replace(f'{z}{s}', f'{s}'))
-    g, tek = nokta_sembol(s, x, 20, DEG[s])
+    o.append(f'<rect x="{x-10}" y="1" width="20" height="33" rx="2.4" fill="{UA}"/>')
+    o.append(f'<text x="{x}" y="6.4" text-anchor="middle" font-size="3.8" fill="{S}">{DEG[s]} e⁻</text>')
+    g, tek = nokta_sembol(s, x, 16.5, DEG[s])
     assert tek == beklenen_tek[s], (s, tek)
     o.append(g)
-    o.append(f'<text x="{x}" y="34" text-anchor="middle" font-size="3.5" fill="{S}">tek nokta</text>')
-    o.append(f'<text x="{x}" y="40.5" text-anchor="middle" font-size="5" font-weight="800" fill="{UK}">{tek}</text>')
+    o.append(f'<text x="{x}" y="30" text-anchor="middle" font-size="3.8" fill="{UK}">tek: <tspan font-weight="800" font-size="4.6">{tek}</tspan></text>')
 o.append('</g></svg>')
 w('atomlar', ''.join(o))
 
@@ -221,7 +220,7 @@ o.append(f'<text x="49" y="18.5" text-anchor="middle" font-size="6" fill="{S}">+
 g, _ = nokta_sembol('F', 60, 16, 7); o.append(g)
 o.append(f'<defs><marker id="caok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="{U}"/></marker></defs>')
 o.append(f'<path d="M72 16 H90" stroke="{U}" stroke-width=".8" marker-end="url(#caok)"/>')
-o.append(f'<text x="81" y="12" text-anchor="middle" font-size="3.4" fill="{UK}">2 e⁻ aktarımı</text>')
+o.append(f'<text x="81" y="12" text-anchor="middle" font-size="4" fill="{UK}">2 e⁻ verir</text>')
 # eğri oklar: Ca'dan F'lere
 o.append(f'<path d="M33 10 Q24 2 15 9" fill="none" stroke="{AMB}" stroke-width=".5" stroke-dasharray="1 .8" marker-end="url(#caok)"/>')
 o.append(f'<path d="M40 10 Q49 2 58 9" fill="none" stroke="{AMB}" stroke-width=".5" stroke-dasharray="1 .8" marker-end="url(#caok)"/>')
@@ -236,7 +235,7 @@ def koseli(x, y, gen, sym, n, yuk, renk_n=U, ek_amb=0):
 o.append(koseli(104, 16, 18, 'F', 8, '−'))
 o.append(koseli(130, 16, 16, 'Ca', 0, '2+'))
 o.append(koseli(158, 16, 18, 'F', 8, '−'))
-o.append(f'<text x="131" y="32.5" text-anchor="middle" font-size="3.6" fill="{S}">Ca²⁺ ve 2 F⁻  →  CaF₂ (katyon : anyon = 1 : 2)</text>')
+o.append(f'<text x="131" y="32.5" text-anchor="middle" font-size="4.2" fill="{S}">katyon : anyon = 1 : 2</text>')
 o.append('</g></svg>')
 w('caf2', ''.join(o))
 
@@ -254,21 +253,21 @@ def katman(cx, cy, p, dag, etiket, renkler=None, ek=None):
             if ek and (i, j) in ek:
                 c = ek[(i, j)]
             s.append(f'<circle cx="{cx + r*math.cos(a):.2f}" cy="{cy + r*math.sin(a):.2f}" r="1" fill="{c}"/>')
-    s.append(f'<text x="{cx}" y="{cy + 8 + (len(dag)-1)*4.6 + 6.5}" text-anchor="middle" font-size="4" font-weight="700" fill="{UK}">{etiket}</text>')
+    s.append(f'<text x="{cx}" y="{cy + 8 + (len(dag)-1)*4.6 + 6.5}" text-anchor="middle" font-size="4.8" font-weight="700" fill="{UK}">{etiket}</text>')
     return ''.join(s)
 
-o = [f'<svg viewBox="0 0 188 62" class="grafik"><g {FONT}>']
+o = [f'<svg viewBox="0 0 188 64" class="grafik"><g {FONT}>']
 o.append(f'<defs><marker id="kok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="{AMB}"/></marker>'
          f'<marker id="kok2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="{U}"/></marker></defs>')
 o.append(katman(22, 28, 11, [2, 8, 1], 'Na  (2-8-1)', ek={(2, 0): AMB}))
 o.append(katman(70, 28, 17, [2, 8, 7], 'Cl  (2-8-7)'))
-o.append(f'<path d="M22 10 Q46 -2 64 9" fill="none" stroke="{AMB}" stroke-width=".6" marker-end="url(#kok)"/>')
-o.append(f'<text x="44" y="5" text-anchor="middle" font-size="3.4" fill="#a16207" font-weight="700">1 e⁻</text>')
+o.append(f'<path d="M24 10.6 Q46 6 63 9.6" fill="none" stroke="{AMB}" stroke-width=".6" marker-end="url(#kok)"/>')
+o.append(f'<text x="44" y="5.2" text-anchor="middle" font-size="4.4" fill="#a16207" font-weight="700">1 e⁻</text>')
 o.append(f'<path d="M94 28 H106" stroke="{U}" stroke-width=".8" marker-end="url(#kok2)"/>')
 o.append(katman(124, 28, 11, [2, 8], 'Na⁺  (2-8)'))
 o.append(katman(166, 28, 17, [2, 8, 8], 'Cl⁻  (2-8-8)', ek={(2, 7): AMB}))
-o.append(f'<text x="124" y="7" text-anchor="middle" font-size="3.4" fill="{IND}" font-weight="700">katyon · küçülür</text>')
-o.append(f'<text x="166" y="5" text-anchor="middle" font-size="3.4" fill="{RED}" font-weight="700">anyon · büyür</text>')
+o.append(f'<text x="124" y="7" text-anchor="middle" font-size="4.2" fill="{IND}" font-weight="700">katyon · küçülür</text>')
+o.append(f'<text x="166" y="5" text-anchor="middle" font-size="4.2" fill="{RED}" font-weight="700">anyon · büyür</text>')
 o.append('</g></svg>')
 w('nacl_aktarim', ''.join(o))
 
@@ -295,7 +294,7 @@ def deniz(x0, y0, yuk, e_basina, etiket, tohum):
         if all(math.hypot(ex - a, ey - b) > 5.6 for a, b in noktalar):
             s.append(f'<circle cx="{ex:.1f}" cy="{ey:.1f}" r=".9" fill="{AMB}"/>')
             yer += 1
-    s.append(f'<text x="{x0+39}" y="{y0+52}" text-anchor="middle" font-size="4" font-weight="700" fill="{UK}">{etiket}</text>')
+    s.append(f'<text x="{x0+39}" y="{y0+52}" text-anchor="middle" font-size="4.6" font-weight="700" fill="{UK}">{etiket}</text>')
     return ''.join(s), len(noktalar), toplam_e
 
 o = [f'<svg viewBox="0 0 176 62" class="grafik"><g {FONT}>']
@@ -355,14 +354,14 @@ o.append('</g></svg>')
 w('alkali', ''.join(o))
 
 # ---------- NaCl kristali (izometrik)
-o = [f'<svg viewBox="0 0 88 76" class="grafik"><g {FONT}>']
+o = [f'<svg viewBox="2 4 82 76" class="grafik"><g {FONT}>']
 top = []
 for i in range(3):
     for j in range(3):
         for k in range(3):
             top.append((i, j, k))
 def proj(i, j, k):
-    return 12 + i * 20 + j * 9, 62 - k * 20 - j * 9
+    return 10 + i * 20 + j * 9, 64 - k * 20 - j * 5
 top.sort(key=lambda t: (-t[1], t[2], t[0]))
 # çizgiler
 for i, j, k in top:
@@ -374,42 +373,42 @@ for i, j, k in top:
 for i, j, k in top:
     x, y = proj(i, j, k)
     if (i + j + k) % 2 == 0:
-        o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5.2" fill="{U}" stroke="#fff" stroke-width=".4"/>')
+        o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4.6" fill="{U}" stroke="#fff" stroke-width=".4"/>')
     else:
-        o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="2.9" fill="{AMB}" stroke="#fff" stroke-width=".4"/>')
-o.append(f'<circle cx="60" cy="71" r="2.6" fill="{U}"/><text x="64" y="72.3" font-size="3.8" fill="{M}">Cl⁻</text>')
-o.append(f'<circle cx="75" cy="71" r="1.6" fill="{AMB}"/><text x="78" y="72.3" font-size="3.8" fill="{M}">Na⁺</text>')
+        o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="2.6" fill="{AMB}" stroke="#fff" stroke-width=".4"/>')
+o.append(f'<circle cx="56" cy="75" r="2.6" fill="{U}"/><text x="60" y="76.3" font-size="3.8" fill="{M}">Cl⁻</text>')
+o.append(f'<circle cx="71" cy="75" r="1.6" fill="{AMB}"/><text x="74" y="76.3" font-size="3.8" fill="{M}">Na⁺</text>')
 o.append('</g></svg>')
 w('nacl_kristal', ''.join(o))
 
 # ---------- Bağ türleri ağacı
-o = [f'<svg viewBox="0 0 180 50" class="grafik"><g {FONT} text-anchor="middle">']
-o.append(f'<rect x="40" y="1" width="100" height="11" rx="3" fill="{U}"/><text x="90" y="8.2" font-size="4.4" font-weight="800" fill="#fff">GÜÇLÜ ETKİLEŞİM = KİMYASAL BAĞ</text>')
-kol = [(30, 'METALİK BAĞ', 'metal + metal', 'Fe, Cu, pirinç'),
-       (90, 'İYONİK BAĞ', 'metal + ametal', 'NaCl, MgO, KNO₃'),
-       (150, 'KOVALENT BAĞ', 'ametal + ametal', 'H₂, H₂O, CO₂')]
+o = [f'<svg viewBox="0 0 126 46" class="grafik"><g {FONT} text-anchor="middle">']
+o.append(f'<rect x="18" y="1" width="90" height="10" rx="3" fill="{U}"/><text x="63" y="7.6" font-size="4.6" font-weight="800" fill="#fff">GÜÇLÜ ETKİLEŞİM = KİMYASAL BAĞ</text>')
+kol = [(21, 'METALİK', 'metal + metal', 'Fe, Cu, pirinç'),
+       (63, 'İYONİK', 'metal + ametal', 'NaCl, MgO'),
+       (105, 'KOVALENT', 'ametal + ametal', 'H₂, H₂O, CO₂')]
 for x, a, b, c in kol:
-    o.append(f'<path d="M90 12 V16 H{x} V20" fill="none" stroke="{UK}" stroke-width=".45"/>')
-    o.append(f'<rect x="{x-27}" y="20" width="54" height="28" rx="3" fill="{UA}" stroke="{U}" stroke-width=".4"/>')
-    o.append(f'<text x="{x}" y="27.5" font-size="4.3" font-weight="800" fill="{UK}">{a}</text>')
-    o.append(f'<text x="{x}" y="34.5" font-size="3.8" fill="{M}">{b}</text>')
-    o.append(f'<text x="{x}" y="42" font-size="3.6" fill="{S}">{c}</text>')
+    o.append(f'<path d="M63 11 V14.5 H{x} V18" fill="none" stroke="{UK}" stroke-width=".45"/>')
+    o.append(f'<rect x="{x-20}" y="18" width="40" height="27" rx="3" fill="{UA}" stroke="{U}" stroke-width=".4"/>')
+    o.append(f'<text x="{x}" y="25.5" font-size="4.8" font-weight="800" fill="{UK}">{a}</text>')
+    o.append(f'<text x="{x}" y="32.5" font-size="4.2" fill="{M}">{b}</text>')
+    o.append(f'<text x="{x}" y="40" font-size="4" fill="{S}">{c}</text>')
 o.append('</g></svg>')
 w('agac', ''.join(o))
 
 # ---------- H–H ve H–Cl elektron bulutu
-o = [f'<svg viewBox="0 0 150 34" class="grafik"><g {FONT} text-anchor="middle">']
+o = [f'<svg viewBox="4 0 142 35" class="grafik"><g {FONT} text-anchor="middle">']
 o.append('<defs><radialGradient id="eb1" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#86efac"/><stop offset="1" stop-color="#86efac" stop-opacity=".15"/></radialGradient>'
          '<radialGradient id="eb2" cx="68%" cy="50%" r="55%"><stop offset="0" stop-color="#86efac"/><stop offset="1" stop-color="#86efac" stop-opacity=".12"/></radialGradient></defs>')
 o.append('<ellipse cx="34" cy="16" rx="24" ry="11" fill="url(#eb1)"/>')
 o.append(f'<circle cx="24" cy="16" r="1.4" fill="{M}"/><circle cx="44" cy="16" r="1.4" fill="{M}"/>')
 o.append(f'<text x="24" y="11" font-size="4.6" font-weight="700" fill="{M}">H</text><text x="44" y="11" font-size="4.6" font-weight="700" fill="{M}">H</text>')
-o.append(f'<text x="34" y="32" font-size="3.8" font-weight="700" fill="{UK}">apolar: eşit paylaşım</text>')
+o.append(f'<text x="34" y="32" font-size="4.6" font-weight="700" fill="{UK}">apolar: eşit paylaşım</text>')
 o.append('<ellipse cx="112" cy="16" rx="30" ry="12" fill="url(#eb2)"/>')
 o.append(f'<circle cx="96" cy="16" r="1.4" fill="{M}"/><circle cx="122" cy="16" r="2" fill="{M}"/>')
 o.append(f'<text x="96" y="11" font-size="4.6" font-weight="700" fill="{M}">H</text><text x="122" y="10.5" font-size="4.6" font-weight="700" fill="{M}">Cl</text>')
 o.append(f'<text x="88" y="18" font-size="4.4" font-weight="700" fill="{IND}">δ+</text><text x="138" y="18" font-size="4.4" font-weight="700" fill="{RED}">δ−</text>')
-o.append(f'<text x="112" y="32" font-size="3.8" font-weight="700" fill="{UK}">polar: elektronlar Cl’ye kayar</text>')
+o.append(f'<text x="112" y="32" font-size="4.6" font-weight="700" fill="{UK}">polar: elektronlar Cl’ye kayar</text>')
 o.append('</g></svg>')
 w('bulut', ''.join(o))
 
@@ -424,43 +423,44 @@ def ok(x1, y1, x2, y2, c, gen=.6):
     return s
 
 def panel(x0, y0, baslik, merkez, cevre, lp_yon, sonuc, polar, net=None):
-    """cevre: [(sembol, açı derece, uzunluk)] ; lp_yon: merkez çiftlerinin açıları"""
-    s = [f'<rect x="{x0}" y="{y0}" width="56" height="50" rx="3" fill="{"#fff1f3" if polar else UA}" stroke="{RED if polar else U}" stroke-width=".4"/>']
-    s.append(f'<text x="{x0+28}" y="{y0+6}" text-anchor="middle" font-size="4.4" font-weight="800" fill="{M}">{baslik}</text>')
-    cx, cy = x0 + 28, y0 + 26
-    s.append(f'<text x="{cx}" y="{cy+2.2}" text-anchor="middle" font-size="6" font-weight="800" fill="{M}">{merkez}</text>')
-    for sym, a, L in cevre:
+    """cevre: [(sembol, açı derece, uzunluk, bağ derecesi)] ; lp_yon: merkez çiftlerinin açıları"""
+    G, Y = 42, 47
+    s = [f'<rect x="{x0}" y="{y0}" width="{G}" height="{Y}" rx="3" fill="{"#fff1f3" if polar else UA}" stroke="{RED if polar else U}" stroke-width=".4"/>']
+    s.append(f'<text x="{x0+G/2}" y="{y0+6.4}" text-anchor="middle" font-size="5" font-weight="800" fill="{M}">{baslik}</text>')
+    cx, cy = x0 + G/2 + 2, y0 + 24
+    s.append(f'<text x="{cx}" y="{cy+2.1}" text-anchor="middle" font-size="5.8" font-weight="800" fill="{M}">{merkez}</text>')
+    en = {'H': 2.2, 'C': 2.6, 'N': 3.0, 'O': 3.4, 'F': 4.0, 'Cl': 3.2, 'B': 2.0, 'S': 2.6}
+    for sym, a, L, der in cevre:
         r = math.radians(a); ux, uy = math.cos(r), -math.sin(r)
+        nx, ny = -uy, ux
         ex, ey = cx + ux * L, cy + uy * L
-        s.append(f'<line x1="{cx + ux*4:.2f}" y1="{cy + uy*4:.2f}" x2="{ex - ux*3.6:.2f}" y2="{ey - uy*3.6:.2f}" stroke="{M}" stroke-width=".5"/>')
-        s.append(f'<text x="{ex:.2f}" y="{ey+2:.2f}" text-anchor="middle" font-size="5.4" font-weight="700" fill="{M}">{sym}</text>')
-        # bağ dipolü: elektronegatif uca doğru
-        en = {'H': 2.2, 'C': 2.6, 'N': 3.0, 'O': 3.4, 'F': 4.0, 'Cl': 3.2, 'B': 2.0, 'S': 2.6}
-        mz = merkez.split('<')[0]
-        d = en[sym] - en[mz]
-        if abs(d) > 0.05:
-            nx, ny = -uy, ux
-            k = 3.0
-            a1, a2 = (0.30, 0.78) if d > 0 else (0.78, 0.30)
-            s.append(ok(cx + ux*L*a1 + nx*k, cy + uy*L*a1 + ny*k, cx + ux*L*a2 + nx*k, cy + uy*L*a2 + ny*k, IND, .45))
+        uc = 2.9 + (1.6 if len(sym) == 2 and abs(ux) > .5 else 0)
+        for f in {1: [0], 2: [-.8, .8]}[der]:
+            s.append(f'<line x1="{cx + ux*3.6 + nx*f:.2f}" y1="{cy + uy*3.6 + ny*f:.2f}" x2="{ex - ux*uc + nx*f:.2f}" y2="{ey - uy*uc + ny*f:.2f}" stroke="{M}" stroke-width=".45"/>')
+        s.append(f'<text x="{ex:.2f}" y="{ey+1.9:.2f}" text-anchor="middle" font-size="5.2" font-weight="700" fill="{M}">{sym}</text>')
+        d = en[sym] - en[merkez]
+        if abs(d) > 0.05:  # bağ dipolü: elektronegatif uca doğru
+            k = 2.9 if der == 1 else 3.4
+            a1, a2 = (0.30, 0.80) if d > 0 else (0.80, 0.30)
+            s.append(ok(cx + ux*L*a1 + nx*k, cy + uy*L*a1 + ny*k, cx + ux*L*a2 + nx*k, cy + uy*L*a2 + ny*k, IND, .42))
     for a in lp_yon:
         r = math.radians(a); ux, uy = math.cos(r), -math.sin(r)
         px, py = -uy, ux
-        mx, my = cx + ux * 6.2, cy + uy * 6.2 - 0.6
-        for t in (-1.1, 1.1):
-            s.append(f'<circle cx="{mx + px*t:.2f}" cy="{my + py*t:.2f}" r=".75" fill="{U}"/>')
+        mx, my = cx + ux * 5.6, cy + uy * 5.6 - 0.4
+        for t in (-1.0, 1.0):
+            s.append(f'<circle cx="{mx + px*t:.2f}" cy="{my + py*t:.2f}" r=".7" fill="{U}"/>')
     if net:
-        s.append(ok(net[0] + x0, net[1] + y0, net[2] + x0, net[3] + y0, RED, .9))
-    s.append(f'<text x="{x0+28}" y="{y0+47}" text-anchor="middle" font-size="3.8" font-weight="800" fill="{RED if polar else UK}">{sonuc}</text>')
+        s.append(ok(net[0] + x0, net[1] + y0, net[2] + x0, net[3] + y0, RED, .8))
+    s.append(f'<text x="{x0+G/2}" y="{y0+Y-2.6}" text-anchor="middle" font-size="4" font-weight="800" fill="{RED if polar else UK}">{sonuc}</text>')
     return ''.join(s)
 
-o = [f'<svg viewBox="0 0 182 106" class="grafik"><g {FONT}>']
-o.append(panel(1, 1, 'CO₂', 'C', [('O', 180, 15), ('O', 0, 15)], [], 'APOLAR · μ = 0', False))
-o.append(panel(63, 1, 'BF₃', 'B', [('F', 90, 14), ('F', 210, 14), ('F', 330, 14)], [], 'APOLAR · μ = 0', False))
-o.append(panel(125, 1, 'CCl₄', 'C', [('Cl', 90, 14), ('Cl', 270, 14), ('Cl', 180, 15), ('Cl', 0, 15)], [], 'APOLAR · μ = 0', False))
-o.append(panel(1, 55, 'H₂O', 'O', [('H', 215, 14), ('H', 325, 14)], [60, 120], 'POLAR · μ ≠ 0', True, net=(8, 34, 8, 18)))
-o.append(panel(63, 55, 'NH₃', 'N', [('H', 180, 14), ('H', 0, 14), ('H', 270, 13)], [90], 'POLAR · μ ≠ 0', True, net=(8, 34, 8, 18)))
-o.append(panel(125, 55, 'CHCl₃', 'C', [('H', 90, 13), ('Cl', 270, 14), ('Cl', 180, 15), ('Cl', 0, 15)], [], 'POLAR · μ ≠ 0', True, net=(8, 16, 8, 34)))
+o = [f'<svg viewBox="0 0 265 49" class="grafik"><g {FONT}>']
+o.append(panel(1, 1, 'CO₂', 'C', [('O', 180, 12.5, 2), ('O', 0, 12.5, 2)], [], 'APOLAR · μ = 0', False))
+o.append(panel(45, 1, 'BF₃', 'B', [('F', 90, 12, 1), ('F', 210, 12, 1), ('F', 330, 12, 1)], [], 'APOLAR · μ = 0', False))
+o.append(panel(89, 1, 'CCl₄', 'C', [('Cl', 90, 11, 1), ('Cl', 270, 11, 1), ('Cl', 180, 13, 1), ('Cl', 0, 13, 1)], [], 'APOLAR · μ = 0', False))
+o.append(panel(133, 1, 'H₂O', 'O', [('H', 215, 12, 1), ('H', 325, 12, 1)], [60, 120], 'POLAR · μ ≠ 0', True, net=(4.5, 32, 4.5, 15)))
+o.append(panel(177, 1, 'NH₃', 'N', [('H', 180, 12, 1), ('H', 0, 12, 1), ('H', 270, 11, 1)], [90], 'POLAR · μ ≠ 0', True, net=(4.5, 32, 4.5, 15)))
+o.append(panel(221, 1, 'CHCl₃', 'C', [('H', 90, 11, 1), ('Cl', 270, 11, 1), ('Cl', 180, 13, 1), ('Cl', 0, 13, 1)], [], 'POLAR · μ ≠ 0', True, net=(4.5, 15, 4.5, 32)))
 o.append('</g></svg>')
 w('polarlik', ''.join(o))
 

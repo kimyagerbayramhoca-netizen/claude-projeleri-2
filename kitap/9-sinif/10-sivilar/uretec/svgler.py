@@ -171,41 +171,41 @@ w('etkenler', ''.join(o))
 # =========================================================
 # 4) Kapalı kapta denge + hız-zaman grafiği
 # =========================================================
-o = ['<svg viewBox="0 0 180 62" class="grafik"><defs>' + ok(AMB, 'dg-a', 3) + ok(TEAL, 'dg-t', 3) + ok(M, 'dg-o', 3) + '</defs><g font-family="Inter">']
-durumlar = [(20, 34, 0, 3, 0, 'Kap kapatıldı', 'yalnızca buharlaşma'),
-            (60, 36, 4, 3, 1, 'Buharlaşma > yoğuşma', 'sıvı azalıyor'),
-            (100, 37, 8, 3, 3, 'Denge', 'buharlaşma = yoğuşma')]
+o = ['<svg viewBox="0 0 180 54" class="grafik"><defs>' + ok(AMB, 'dg-a', 3) + ok(TEAL, 'dg-t', 3) + ok(M, 'dg-o', 3) + '</defs><g font-family="Inter">']
+durumlar = [(20, 28, 0, 3, 0, 'Kap kapatıldı', 'yalnızca buharlaşma'),
+            (60, 29.5, 4, 3, 1, 'Buharlaşma > yoğuşma', 'sıvı azalıyor'),
+            (100, 30.5, 8, 3, 3, 'Denge', 'buharlaşma = yoğuşma')]
 random.seed(3)
 for cx, sev, nb, up, dn, e1, e2 in durumlar:
-    l, r, top, bot = cx - 15, cx + 15, 8, 48
+    l, r, top, bot = cx - 15, cx + 15, 6, 40
     o.append(f'<rect x="{l+.4}" y="{sev}" width="{r-l-.8}" height="{bot-sev-.4}" fill="{SU}"/>')
     o.append(f'<rect x="{l}" y="{top}" width="{r-l}" height="{bot-top}" rx="1.6" fill="none" stroke="{CAM}" stroke-width=".8"/>')
     o.append(f'<rect x="{l-1.5}" y="{top-2.4}" width="{r-l+3}" height="2.4" rx=".8" fill="{U}"/>')
     for i in range(nb):
-        o.append(mol(l + 4 + (i * 7.3) % 22 + random.uniform(-1, 1), top + 4 + (i * 11) % 18 + random.uniform(0, 2), 1.2, '#fcd34d', '#b45309'))
+        o.append(mol(l + 4 + (i * 7.3) % 22 + random.uniform(-1, 1), top + 3.5 + (i * 11) % 13 + random.uniform(0, 1.5), 1.2, '#fcd34d', '#b45309'))
     for i in range(up):
         xx = l + 6 + i * 9
         o.append(f'<path d="M{xx} {sev-1} V{sev-8}" stroke="{AMB}" stroke-width=".55" marker-end="url(#dg-a)"/>')
     for i in range(dn):
         xx = l + 10.5 + i * 9 - (4.5 if dn == 1 else 0) + (0 if dn == 1 else -4.5)
         o.append(f'<path d="M{xx} {sev-8} V{sev-1}" stroke="{TEAL}" stroke-width=".55" marker-end="url(#dg-t)"/>')
-    o.append(t(cx, 53, e1, 3.2, 'middle', '700', UK))
-    o.append(t(cx, 57.4, e2, 3, 'middle', '400', S))
+    o.append(t(cx, 45, e1, 3.2, 'middle', '700', UK))
+    o.append(t(cx, 49.4, e2, 3, 'middle', '400', S))
 # grafik
-gx0, gx1, gy0, gy1 = 128, 176, 46, 8
+gx0, gx1, gy0, gy1 = 128, 176, 38, 6
 o.append(f'<line x1="{gx0}" y1="{gy0}" x2="{gx1+1}" y2="{gy0}" stroke="{M}" stroke-width=".45" marker-end="url(#dg-o)"/>')
 o.append(f'<line x1="{gx0}" y1="{gy0}" x2="{gx0}" y2="{gy1-2}" stroke="{M}" stroke-width=".45" marker-end="url(#dg-o)"/>')
-o.append(f'<line x1="{gx0}" y1="18" x2="{gx1-2}" y2="18" stroke="{AMB}" stroke-width=".9"/>')
-pts = [(gx0 + i, 18 + (gy0 - 18) * math.exp(-i / 6.5)) for i in range(0, 47)]
+o.append(f'<line x1="{gx0}" y1="15" x2="{gx1-2}" y2="15" stroke="{AMB}" stroke-width=".9"/>')
+pts = [(gx0 + i, 15 + (gy0 - 15) * math.exp(-i / 6.5)) for i in range(0, 47)]
 o.append('<polyline fill="none" stroke="%s" stroke-width=".9" points="%s"/>' % (TEAL, ' '.join(f'{a:.1f},{b:.1f}' for a, b in pts)))
-o.append(f'<line x1="156" y1="{gy0}" x2="156" y2="12" stroke="{S}" stroke-width=".35" stroke-dasharray="1 .8"/>')
-o.append(t(157, 11.5, 'denge', 3, 'start', '700', S))
-o.append(t(gx0 + 2, 15.6, 'buharlaşma hızı', 3, 'start', '700', '#b45309'))
-o.append(t(gx0 + 5, 35, 'yoğuşma hızı', 3, 'start', '700', TEAL))
+o.append(f'<line x1="156" y1="{gy0}" x2="156" y2="9" stroke="{S}" stroke-width=".35" stroke-dasharray="1 .8"/>')
+o.append(t(157, 8.5, 'denge', 3, 'start', '700', S))
+o.append(t(gx0 + 2, 12.6, 'buharlaşma hızı', 3, 'start', '700', '#b45309'))
+o.append(t(gx0 + 5, 29, 'yoğuşma hızı', 3, 'start', '700', TEAL))
 o.append(t(gx0 - 1.5, gy1 + 1, 'hız', 3.2, 'end', '700'))
 o.append(t(gx1, gy0 + 4.4, 'zaman', 3.2, 'end', '700'))
-o.append(t(152, 53, 'Sabit sıcaklıkta hızlar', 3, 'middle', '700', UK))
-o.append(t(152, 57.4, 'eşitlenince sıvı miktarı sabit', 3, 'middle', '400', S))
+o.append(t(152, 45, 'Sabit sıcaklıkta hızlar', 3, 'middle', '700', UK))
+o.append(t(152, 49.4, 'eşitlenince sıvı miktarı sabit', 3, 'middle', '400', S))
 o.append('</g></svg>')
 w('denge', ''.join(o))
 
@@ -318,11 +318,11 @@ w('kabarcik', ''.join(o))
 # =========================================================
 # 8) Suyun buhar basıncı eğrisi üzerinde kaynama noktası okuma
 # =========================================================
-x0, x1, y0, y1 = 22, 126, 80, 6
+x0, x1, y0, y1 = 22, 126, 64, 5
 Ta, Tb, Pmax = 60, 125, 1700
 X = lambda T: x0 + (T - Ta) / (Tb - Ta) * (x1 - x0)
 Y = lambda P: y0 - P / Pmax * (y0 - y1)
-o = ['<svg viewBox="0 0 180 90" class="grafik"><g font-family="Inter">']
+o = ['<svg viewBox="0 0 180 74" class="grafik"><g font-family="Inter">']
 for T in range(60, 126, 10):
     o.append(f'<line x1="{X(T):.1f}" y1="{y0}" x2="{X(T):.1f}" y2="{y1}" stroke="#eef0f5" stroke-width=".3"/>')
     o.append(t(X(T), y0 + 4.2, str(T), 3.3, 'middle', '400', S))
@@ -337,7 +337,7 @@ while T <= 125:
     T += 0.5
 o.append('<polyline fill="none" stroke="%s" stroke-width="1.1" points="%s"/>' % (SUK, ' '.join(f'{a:.1f},{b:.1f}' for a, b in pts)))
 seviyeler = [(250, 'Everest zirvesi', '≈ 250 mmHg', '#64748b'), (596, '≈ 2000 m yayla', '≈ 600 mmHg', TEAL),
-             (760, 'Deniz seviyesi', '760 mmHg', U), (1520, 'Düdüklü tencere', '≈ 1520 mmHg (2 atm)', '#b45309')]
+             (760, 'Deniz seviyesi', '760 mmHg', U), (1490, 'Düdüklü tencere', '≈ 1490 mmHg (≈ 2 atm)', '#b45309')]
 for P, ad, pet, renk in seviyeler:
     T = tw(P)
     o.append(f'<line x1="{x0}" y1="{Y(P):.1f}" x2="{x1}" y2="{Y(P):.1f}" stroke="{renk}" stroke-width=".45" stroke-dasharray="1.6 1"/>')
@@ -345,9 +345,10 @@ for P, ad, pet, renk in seviyeler:
     o.append(f'<circle cx="{X(T):.1f}" cy="{Y(P):.1f}" r="1.3" fill="{renk}"/>')
     o.append(f'<rect x="{X(T)-5.4:.1f}" y="{y0-6.4}" width="10.8" height="4.6" rx="1" fill="#fff" stroke="{renk}" stroke-width=".35"/>')
     o.append(t(X(T), y0 - 2.9, f'{round(T)}', 3.1, 'middle', '800', renk))
-    o.append(t(x1 + 2.4, Y(P) - .2, ad, 3.3, 'start', '800', renk))
-    o.append(t(x1 + 2.4, Y(P) + 3.6, pet, 3, 'start', '400', S))
-o.append(t(X(70), Y(1450), 'Suyun buhar basıncı', 3.4, 'start', '800', SUK))
+    dy = {760: -4.6, 596: 3.4}.get(P, -.2)
+    o.append(t(x1 + 2.4, Y(P) + dy, ad, 3.3, 'start', '800', renk))
+    o.append(t(x1 + 2.4, Y(P) + dy + 3.7, pet, 3, 'start', '400', S))
+o.append(t(X(64), Y(1150), 'Suyun buhar basıncı', 3.4, 'start', '800', SUK))
 o.append(t((x0 + x1) / 2, y0 + 9, 'Sıcaklık (°C)', 3.6, 'middle', '700'))
 o.append(t(3, (y0 + y1) / 2, 'Basınç (mmHg)', 3.6, 'middle', '700', M, f'transform="rotate(-90 3 {(y0+y1)/2})"'))
 o.append('</g></svg>')
@@ -356,10 +357,10 @@ w('suegrisi', ''.join(o))
 # =========================================================
 # 9) Saf su ve tuzlu su ısıtma eğrisi
 # =========================================================
-x0, x1, y0, y1 = 16, 116, 58, 8
+x0, x1, y0, y1 = 16, 116, 46, 8
 X = lambda tt: x0 + tt / 10 * (x1 - x0)
 Y = lambda T: y0 - (T - 20) / (112 - 20) * (y0 - y1)
-o = ['<svg viewBox="0 0 120 68" class="grafik"><defs>' + ok(M, 'is-o', 3) + '</defs><g font-family="Inter">']
+o = ['<svg viewBox="0 0 120 54" class="grafik"><defs>' + ok(M, 'is-o', 3) + '</defs><g font-family="Inter">']
 o.append(f'<line x1="{x0}" y1="{y0}" x2="{x1+2}" y2="{y0}" stroke="{M}" stroke-width=".5" marker-end="url(#is-o)"/>')
 o.append(f'<line x1="{x0}" y1="{y0}" x2="{x0}" y2="{y1-3}" stroke="{M}" stroke-width=".5" marker-end="url(#is-o)"/>')
 o.append(f'<line x1="{x0}" y1="{Y(100):.1f}" x2="{x1}" y2="{Y(100):.1f}" stroke="{S}" stroke-width=".3" stroke-dasharray="1 .8"/>')

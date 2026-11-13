@@ -21,6 +21,11 @@ def alt(s):
     return s.translate(str.maketrans('0123456789', '₀₁₂₃₄₅₆₇₈₉'))
 
 
+def sy(v, f='{:.0f}'):
+    """Sayıyı eksi işaretiyle (−) ve ondalık virgülle yazar."""
+    return f.format(v).replace('-', '−').replace('.', ',')
+
+
 def w(ad, s):
     open(os.path.join(D, ad + '.svg'), 'w', encoding='utf-8').write(s)
 
@@ -67,14 +72,14 @@ w2, h2 = su(41, 27, 0, 1.6, True)       # alıcı O, H'leri sağa bakar
 o += [w1, w2]
 hx, hy = h1[0]
 o.append(kesik(hx, hy, 41, 27, AMB, .9, 3.6))
-o.append(f'<path d="M{(16 + hx) / 2:.1f} {hy - 1.2:.1f} L54 12" stroke="{U}" stroke-width=".35" fill="none"/>')
-o.append(f'<path d="M{(hx + 41) / 2 + .5:.1f} {hy + 1.2:.1f} L54 40" stroke="{AMB}" stroke-width=".35" fill="none"/>')
-o.append(f'<text x="55" y="10" font-size="3.3" font-weight="800" fill="{UK}">O–H kovalent bağı</text>')
-o.append(f'<text x="55" y="14.4" font-size="3.1" fill="{S}">molekül içi · ≈ 460 kJ/mol</text>')
-o.append(f'<text x="55" y="18.6" font-size="3.1" font-weight="700" fill="{U}">GÜÇLÜ etkileşim</text>')
-o.append(f'<text x="55" y="38" font-size="3.3" font-weight="800" fill="#b45309">Hidrojen bağı</text>')
-o.append(f'<text x="55" y="42.4" font-size="3.1" fill="{S}">moleküller arası · ≈ 20 kJ/mol</text>')
-o.append(f'<text x="55" y="46.6" font-size="3.1" font-weight="700" fill="#b45309">ZAYIF etkileşim</text>')
+o.append(f'<path d="M{(16 + hx) / 2:.1f} {hy - 1.2:.1f} L51 12" stroke="{U}" stroke-width=".35" fill="none"/>')
+o.append(f'<path d="M{(hx + 41) / 2 + .5:.1f} {hy + 1.2:.1f} L51 40" stroke="{AMB}" stroke-width=".35" fill="none"/>')
+o.append(f'<text x="52" y="10" font-size="3.2" font-weight="800" fill="{UK}">O–H kovalent bağı</text>')
+o.append(f'<text x="52" y="14.4" font-size="2.9" fill="{S}">molekül içi · ≈ 460 kJ/mol</text>')
+o.append(f'<text x="52" y="18.6" font-size="3" font-weight="700" fill="{U}">GÜÇLÜ etkileşim</text>')
+o.append(f'<text x="52" y="38" font-size="3.2" font-weight="800" fill="#b45309">Hidrojen bağı</text>')
+o.append(f'<text x="52" y="42.4" font-size="2.9" fill="{S}">moleküller arası · ≈ 20 kJ/mol</text>')
+o.append(f'<text x="52" y="46.6" font-size="3" font-weight="700" fill="#b45309">ZAYIF etkileşim</text>')
 o.append('</g></svg>')
 w('bag', ''.join(o))
 
@@ -166,8 +171,7 @@ o.append(kesik(33, 15, 51, 15, AMB, .8, 0))
 o.append(f'<text x="42" y="12.6" font-size="2.8" font-weight="700" fill="#b45309">çekim</text>')
 o.append(f'<text x="22" y="28.5" font-size="3" font-weight="700" fill="{M}">1 · Anlık dipol</text>')
 o.append(f'<text x="62" y="28.5" font-size="3" font-weight="700" fill="{M}">2 · İndüklenmiş dipol</text>')
-o.append(f'<text x="42" y="33" font-size="2.7" fill="{S}">Bir taneciğin anlık kutbu komşusunu kutuplar; kutuplar birbirini çeker.</text>')
-o.append(f'<text x="84" y="16" font-size="2.7" fill="{S}">tekrar</text><text x="84" y="19.5" font-size="2.7" fill="{S}">tekrar…</text>')
+o.append(f'<text x="42" y="33" font-size="2.7" fill="{S}">Anlık kutup komşuyu kutuplar; zıt kutuplar birbirini çeker.</text>')
 o.append('</g></svg>')
 w('london', ''.join(o))
 
@@ -179,7 +183,7 @@ Y = lambda v: ybot - (v + 200) / 400 * (ybot - ytop)
 o = ['<svg viewBox="0 0 92 62" class="grafik"><g font-family="Inter" font-size="3" fill="' + S + '">']
 for v in (-200, -100, 0, 100, 200):
     o.append(f'<line x1="{x0}" y1="{Y(v):.1f}" x2="{x1}" y2="{Y(v):.1f}" stroke="#e5e7f0" stroke-width=".3"/>')
-    o.append(f'<text x="{x0 - 1.5}" y="{Y(v) + 1:.1f}" text-anchor="end">{v}</text>'.replace('-', '−'))
+    o.append(f'<text x="{x0 - 1.5}" y="{Y(v) + 1:.1f}" text-anchor="end">{sy(v)}</text>')
 o.append(f'<line x1="{x0}" y1="{ybot}" x2="{x1}" y2="{ybot}" stroke="{M}" stroke-width=".4"/>')
 o.append(f'<line x1="{x0}" y1="{ybot}" x2="{x0}" y2="{ytop - 2}" stroke="{M}" stroke-width=".4"/>')
 o.append(f'<text x="1" y="3" fill="{M}" font-weight="700" font-size="3">KN (°C)</text>')
@@ -187,7 +191,7 @@ bw = 11
 for i, (f, e, kn, hal_) in enumerate(hal):
     cx = x0 + 10 + i * 18
     o.append(f'<rect x="{cx - bw / 2}" y="{Y(kn):.1f}" width="{bw}" height="{ybot - Y(kn):.1f}" rx="1" fill="{renk_hal[hal_]}"/>')
-    o.append(f'<text x="{cx}" y="{Y(kn) - 1.3:.1f}" text-anchor="middle" font-weight="700" fill="{M}">{kn:.0f}</text>'.replace('-', '−'))
+    o.append(f'<text x="{cx}" y="{Y(kn) - 1.3:.1f}" text-anchor="middle" font-weight="700" fill="{M}">{sy(kn)}</text>')
     o.append(f'<text x="{cx}" y="{ybot + 4.2}" text-anchor="middle" font-weight="800" fill="{M}" font-size="3.6">{alt(f)}</text>')
     o.append(f'<text x="{cx}" y="{ybot + 8.2}" text-anchor="middle" font-size="2.8">{e} e⁻</text>')
     o.append(f'<text x="{cx}" y="{ybot + 12}" text-anchor="middle" font-size="2.8" font-weight="700" fill="{UK}">{hal_}</text>')
@@ -288,7 +292,7 @@ o = [f'<svg viewBox="0 0 120 86" class="grafik"><g font-family="Inter" font-size
 for v in range(-180, 121, 30):
     o.append(f'<line x1="{x0}" y1="{Yv(v):.1f}" x2="{x1}" y2="{Yv(v):.1f}" stroke="#e5e7f0" stroke-width=".3"/>')
     if v % 60 == 0:
-        o.append(f'<text x="{x0 - 1.5}" y="{Yv(v) + 1:.1f}" text-anchor="end">{v}</text>'.replace('-', '−'))
+        o.append(f'<text x="{x0 - 1.5}" y="{Yv(v) + 1:.1f}" text-anchor="end">{sy(v)}</text>')
 o.append(f'<line x1="{x0}" y1="{Yv(0):.1f}" x2="{x1}" y2="{Yv(0):.1f}" stroke="#cbd5e1" stroke-width=".4"/>')
 o.append(f'<line x1="{x0}" y1="{yb}" x2="{x1}" y2="{yb}" stroke="{M}" stroke-width=".45"/>')
 o.append(f'<line x1="{x0}" y1="{yb}" x2="{x0}" y2="{yt - 3}" stroke="{M}" stroke-width=".45"/>')
@@ -325,13 +329,13 @@ o = [f'<svg viewBox="0 0 92 58" class="grafik"><g font-family="Inter" font-size=
 for v in (-200, -150, -100, -50, 0, 50, 100):
     o.append(f'<line x1="{x0}" y1="{Y(v):.1f}" x2="{x1}" y2="{Y(v):.1f}" stroke="#e5e7f0" stroke-width=".3"/>')
     if v % 100 == 0:
-        o.append(f'<text x="{x0 - 1.5}" y="{Y(v) + 1:.1f}" text-anchor="end">{v}</text>'.replace('-', '−'))
+        o.append(f'<text x="{x0 - 1.5}" y="{Y(v) + 1:.1f}" text-anchor="end">{sy(v)}</text>')
 o.append(f'<line x1="{x0}" y1="{yb}" x2="{x1}" y2="{yb}" stroke="{M}" stroke-width=".4"/><line x1="{x0}" y1="{yb}" x2="{x0}" y2="{yt - 2}" stroke="{M}" stroke-width=".4"/>')
 o.append(f'<text x="1" y="3" fill="{M}" font-weight="700">KN (°C)</text>')
 for i, (f, kn, t) in enumerate(on8):
     cx = x0 + 8.5 + i * 15
     o.append(f'<rect x="{cx - 5}" y="{Y(kn):.1f}" width="10" height="{yb - Y(kn):.1f}" rx="1" fill="{rk[t]}"/>')
-    o.append(f'<text x="{cx}" y="{Y(kn) - 1.2:.1f}" text-anchor="middle" font-weight="700" fill="{M}">{kn:.0f}</text>'.replace('-', '−'))
+    o.append(f'<text x="{cx}" y="{Y(kn) - 1.2:.1f}" text-anchor="middle" font-weight="700" fill="{M}">{sy(kn)}</text>')
     o.append(f'<text x="{cx}" y="{yb + 4.2}" text-anchor="middle" font-weight="800" fill="{M}" font-size="3.3">{alt(f)}</text>')
 for k, (t, ad) in enumerate((('L', 'London'), ('D', 'Dipol–dipol'), ('H', 'Hidrojen bağı'))):
     xx = 6 + k * 30
@@ -385,7 +389,7 @@ sw_ = []
 pts = []
 import random
 random.seed(7)
-merkez = [(150, 52, 90), (176, 70, 30), (128, 76, 150), (160, 92, 75), (186, 108, 120), (136, 112, 20), (112, 52, 200), (190, 40, 250)]
+merkez = [(156, 46, 90), (182, 64, 30), (136, 70, 150), (166, 86, 75), (190, 102, 120), (194, 34, 250), (150, 110, 20)]
 for (x, y, a) in merkez:
     s_, hh = su(x, y, a, 2.2)
     sw_.append(s_)
@@ -412,7 +416,7 @@ o = [f'<svg viewBox="0 0 84 48" class="grafik"><g font-family="Inter" font-size=
 x0, x1, yt, yb = 16, 80, 5, 38
 Y = lambda v: yb - (v + 100) / 220 * (yb - yt)
 for v in (-100, -50, 0, 50, 100):
-    o.append(f'<line x1="{x0}" y1="{Y(v):.1f}" x2="{x1}" y2="{Y(v):.1f}" stroke="#e5e7f0" stroke-width=".3"/><text x="{x0 - 1.5}" y="{Y(v) + 1:.1f}" text-anchor="end">{v}</text>'.replace('-1', '−1').replace('-5', '−5'))
+    o.append(f'<line x1="{x0}" y1="{Y(v):.1f}" x2="{x1}" y2="{Y(v):.1f}" stroke="#e5e7f0" stroke-width=".3"/><text x="{x0 - 1.5}" y="{Y(v) + 1:.1f}" text-anchor="end">{sy(v)}</text>')
 o.append(f'<line x1="{x0}" y1="{yb}" x2="{x1}" y2="{yb}" stroke="{M}" stroke-width=".4"/><line x1="{x0}" y1="{yb}" x2="{x0}" y2="{yt - 2}" stroke="{M}" stroke-width=".4"/>')
 dat = [('H2O', 100.0), ('H2S', -60.3), ('H2Se', -41.3), ('H2Te', -2.2)]
 pts = [(x0 + 9 + k * 16, Y(v)) for k, (_, v) in enumerate(dat)]
