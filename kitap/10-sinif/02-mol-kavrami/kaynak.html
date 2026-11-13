@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Mol Kavramı · Kimya Rotası 10</title>
+<style>
+/*KITAP_CSS*/
+
+/* ---- Bu üniteye özel ---- */
+.kapak { padding: 0; background: #1e1a5c; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 30mm; font-size: 11pt; font-weight: 700; color: #fbbf24; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 62pt; font-weight: 900; letter-spacing: -.02em; line-height: .95; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 10mm; display: inline-flex; align-items: baseline; gap: 3mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 26pt; font-weight: 800; color: #fbbf24; }
+.kapak .avo span { font-size: 9pt; opacity: .85; max-width: 52mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.4pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #cfd3e3; padding: .9mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.olcek { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 2mm 0 4mm; }
+.olcek div { border-radius: 3mm; padding: 3mm; background: var(--unite-acik); text-align: center; }
+.olcek b { display: block; font-size: 12.5pt; color: var(--unite-koyu); font-family: "Inter Display"; font-weight: 800; }
+.olcek span { font-size: 8.2pt; color: var(--soluk); line-height: 1.3; display: block; }
+
+.formul-kart { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin: 2mm 0 4mm; }
+.formul-kart > div { border: .4mm solid var(--unite); border-radius: 3mm; padding: 2.6mm; text-align: center; background: #fff; }
+.formul-kart > div .denklem { font-size: 13pt; padding: .5mm 0; }
+.formul-kart > div > span { font-size: 8pt; color: var(--soluk); display: block; }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; }
+.test.devam .iki { min-height: 222mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 44mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="80%" cy="20%" r="70%"><stop offset="0" stop-color="#5b4ff0"/><stop offset="1" stop-color="#1e1a5c"/></radialGradient>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+    <g fill="none" stroke="#ffffff" stroke-opacity=".10" stroke-width=".35">
+      <circle cx="160" cy="70" r="22"/><circle cx="160" cy="70" r="38"/><circle cx="160" cy="70" r="54"/><circle cx="160" cy="70" r="70"/>
+    </g>
+    <g fill="#fbbf24"><circle cx="160" cy="70" r="5"/></g>
+    <g fill="#ffffff" fill-opacity=".85">
+      <circle cx="182" cy="70" r="1.6"/><circle cx="141" cy="51" r="1.6"/><circle cx="198" cy="70" r="1.3"/>
+      <circle cx="122" cy="70" r="1.3"/><circle cx="160" cy="16" r="1.3"/><circle cx="198" cy="114" r="1.1"/>
+      <circle cx="111" cy="117" r="1.1"/>
+    </g>
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="15">
+      <text x="-4" y="168">6,02·10²³ 6,02·10²³ 6,02·10²³</text>
+      <text x="-30" y="186">6,02·10²³ 6,02·10²³ 6,02·10²³ 6,02·10²³</text>
+      <text x="-14" y="204">6,02·10²³ 6,02·10²³ 6,02·10²³</text>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 10. Sınıf</span><span>Tema 1 · Bölüm 2</span></div>
+    <div class="bolum">Bölüm 2</div>
+    <h1>Mol<br>Kavramı</h1>
+    <div class="slogan">Görünmeyeni saymanın kimyacı yolu</div>
+    <div class="avo"><b>6,02·10^23</b><span>Bir mol; bir dolu kaşık suda, bir gram hidrojende, bir avuç tuzda saklı olan sayı.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Neden mol? Kimyanın sayma birimi</span><span>2</span></li>
+          <li><span>2 · Atomun kütlesi: izotop, akb, ortalama kütle</span><span>3</span></li>
+          <li><span>3 · Mol ile tanecik sayısı</span><span>4</span></li>
+          <li><span>4 · Mol ile kütle</span><span>5</span></li>
+          <li><span>5 · Karışım problemleri</span><span>6</span></li>
+          <li><span>Tek sayfada mol (özet)</span><span>7</span></li>
+          <li><span>Hata Avcısı</span><span>8</span></li>
+          <li><span>Bağlam temelli sorular</span><span>9</span></li>
+          <li><span>İpucu Merdiveni</span><span>10</span></li>
+          <li><span>Bölüm testi</span><span>11</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>13</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i>@ikon:kavram</i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i>@ikon:hayat</i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i>@ikon:dikkat</i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i>@ikon:ornek</i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i>@ikon:hata</i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i>@ikon:ipucu</i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Mol, tanecik sayısı ve kütle arasında rahatça geçiş yapacaksın.</li>
+          <li>İzotop ve ortalama atom kütlesini yorumlayacaksın.</li>
+          <li>Karışım problemlerini tek bilinmeyenle çözeceksin.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · NEDEN MOL?
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Mol Kavramı</span><span>Neden mol?</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Neden mol?</h2>
+  <div class="alt-baslik">Çok küçük şeyleri tek tek saymak yerine paketleyerek sayarız.</div>
+
+  <p>Manav yumurtayı <b>düzine</b> (12), kırtasiyeci kâğıdı <b>top</b> (500) ile satar. Tek tek saymak yerine “paket” kullanmak işi kolaylaştırır. Atomlar ve moleküller o kadar küçüktür ki bir damla suda bile trilyonlarca trilyon tane bulunur. Kimyacılar bu yüzden kendi “paketlerini” tanımlamıştır: <b class="k">mol</b>.</p>
+
+  <table class="tablo">
+    <tr><th>Paket adı</th><th>Kaç tane?</th><th>Nerede kullanılır?</th></tr>
+    <tr><td>1 düzine</td><td>12</td><td>Yumurta, kalem</td></tr>
+    <tr><td>1 top</td><td>500</td><td>Fotokopi kâğıdı</td></tr>
+    <tr><td><b>1 mol</b></td><td><b>6,02·10^23</b></td><td>Atom, molekül, iyon (tanecikler)</td></tr>
+  </table>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:kavram Kavram</div>
+    <p><b>Mol:</b> 6,02·10^23 tane tanecik içeren madde miktarıdır. Uluslararası Birim Sistemi’nde (SI) madde miktarının birimidir ve <b>mol</b> ile gösterilir.</p>
+    <p><b>Avogadro sayısı:</b> 6,02·10^23 sayısıdır. N<sub>A</sub> ile gösterilir. “1 mol” demek, “N<sub>A</sub> tane” demektir.</p>
+  </div>
+
+  <h3>Bu sayı ne kadar büyük?</h3>
+  <div class="olcek">
+    <div><b>≈ 19 katrilyon yıl</b><span>Saniyede bir sayarak 1 molü saymanın süresi</span></div>
+    <div><b>≈ 1,4 milyon kat</b><span>Bu süre, evrenin yaşından (13,8 milyar yıl) bu kadar uzun</span></div>
+    <div><b>18 g</b><span>1 mol suyun kütlesi; yaklaşık 18 mL, bir yemek kaşığından biraz fazla</span></div>
+    <div><b>12 g</b><span>1 mol grafitin (karbon) kütlesi; hacmi yalnızca ≈ 5,5 cm³</span></div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu hayat">
+      <div class="etiket">@ikon:hayat Hayatın İçinden</div>
+      <p>Eczacı, ilaç etkin maddesini miligramla tartar ama vücutta etki eden şey <b>molekül sayısıdır</b>. Aynı kütlede iki farklı ilaç, çok farklı sayıda molekül içerebilir. Mol, kütle ile tanecik sayısı arasındaki köprüdür.</p>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+      <div class="yanilgi">
+        <div class="yanlis"><b class="y">✗</b> “Mol bir kütle birimidir.”</div>
+        <div class="dogru"><b class="d">✓</b> Mol bir <b>sayı paketidir</b>. 1 mol demir ile 1 mol su aynı sayıda tanecik içerir, kütleleri farklıdır.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fafbff">
+    <p style="margin:0"><b class="k">Kendini yokla:</b> 1 düzine bisiklette 24 tekerlek varsa 1 mol <span class="f">H<sub>2</sub>O</span> molekülünde kaç mol H atomu vardır? <span class="kucuk">(Cevap: 2 mol. Molekül, “bisiklet”; atomlar “tekerlek” gibidir.)</span></p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · ATOMUN KÜTLESİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Mol Kavramı</span><span>Atomun kütlesi</span></div>
+
+  <h2 class="konu"><span class="num">2</span>Atomun kütlesi</h2>
+  <div class="alt-baslik">İzotop, atomik kütle birimi ve ortalama atom kütlesi (kavramsal düzeyde)</div>
+
+  <div class="iki-genis">
+    <div>
+      <h3>İzotop atomlar</h3>
+      <p>Proton sayıları (atom numaraları) <b>aynı</b>, nötron sayıları dolayısıyla kütle numaraları <b>farklı</b> olan atomlara <b class="k">izotop</b> denir. İzotoplar aynı elementin atomlarıdır; bu yüzden aynı sembolle yazılır.</p>
+      <ul>
+        <li>Karbonun izotopları: [[12|6|C]], [[13|6|C]], [[14|6|C]]</li>
+        <li>Hidrojenin izotopları özel adlar alır: [[1|1|H]] (hidrojen), [[2|1|D]] (döteryum), [[3|1|T]] (trityum).</li>
+      </ul>
+      <p>Kimyasal özellikleri proton ve elektron sayısı belirler. Bu yüzden nötr izotopların <b>kimyasal özellikleri aynı</b>, kütleye bağlı <b>fiziksel özellikleri farklıdır</b> (örneğin yoğunluk).</p>
+    </div>
+    <svg viewBox="0 0 220 150" style="width:100%;height:auto">
+      <g font-family="Inter" font-size="8" text-anchor="middle" fill="#1d2133">
+        <g transform="translate(40,62)">
+          <circle r="34" fill="none" stroke="#c7cbe8" stroke-dasharray="2 2"/>
+          <circle r="7" fill="#e11d48"/>
+          <circle cx="0" cy="-34" r="3" fill="#4338ca"/>
+          <text y="56" font-weight="700">¹H</text><text y="66" fill="#5d6478">1p · 0n</text>
+        </g>
+        <g transform="translate(110,62)">
+          <circle r="34" fill="none" stroke="#c7cbe8" stroke-dasharray="2 2"/>
+          <circle cx="-4" r="7" fill="#e11d48"/><circle cx="4.5" r="7" fill="#9aa3b8"/>
+          <circle cx="0" cy="-34" r="3" fill="#4338ca"/>
+          <text y="56" font-weight="700">²H (D)</text><text y="66" fill="#5d6478">1p · 1n</text>
+        </g>
+        <g transform="translate(180,62)">
+          <circle r="34" fill="none" stroke="#c7cbe8" stroke-dasharray="2 2"/>
+          <circle cx="-4" cy="3" r="7" fill="#e11d48"/><circle cx="5" cy="3" r="7" fill="#9aa3b8"/><circle cx="0.5" cy="-5" r="7" fill="#9aa3b8"/>
+          <circle cx="0" cy="-34" r="3" fill="#4338ca"/>
+          <text y="56" font-weight="700">³H (T)</text><text y="66" fill="#5d6478">1p · 2n</text>
+        </g>
+        <text x="110" y="146" font-size="7.4" fill="#5d6478"><tspan fill="#e11d48">●</tspan> proton  <tspan fill="#9aa3b8">●</tspan> nötron  <tspan fill="#4338ca">●</tspan> elektron · hepsinde 1 proton var</text>
+      </g>
+    </svg>
+  </div>
+
+  <h3>Atomun kütlesini nasıl ifade ederiz?</h3>
+  <div class="uc">
+    <div class="kutu kavram">
+      <div class="etiket">@ikon:kavram akb</div>
+      <p style="font-size:9.3pt">Bir tane [[12|6|C]] atomunun kütlesinin <b>1/12’si</b> <b>1 atomik kütle birimi</b> (akb) kabul edilir. Dalton (Da) da denir.</p>
+    </div>
+    <div class="kutu kavram">
+      <div class="etiket">@ikon:kavram Bağıl kütle</div>
+      <p style="font-size:9.3pt">Bir atomun kütlesinin, standart <sup>12</sup>C atomuna göre bulunan değeridir. 1 tane <sup>32</sup>S atomu 32 akb, 1 tane <sup>20</sup>Ne atomu 20 akb’dir.</p>
+    </div>
+    <div class="kutu kavram">
+      <div class="etiket">@ikon:kavram Ortalama kütle</div>
+      <p style="font-size:9.3pt">Elementin doğal izotoplarının kütlelerinin, <b>doğada bulunma yüzdelerine</b> göre ağırlıklı ortalamasıdır. Periyodik tablodaki değer budur.</p>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 1</div>
+    <div class="iki-genis" style="gap:4mm">
+      <div>
+        <div class="soru">Bor elementinin doğada iki izotopu vardır: <sup>10</sup>B (%20) ve <sup>11</sup>B (%80). Borun ortalama atom kütlesi kaçtır?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>Her izotopun kütlesini bolluk oranıyla çarp: 10·0,20 = 2,0 &nbsp;ve&nbsp; 11·0,80 = 8,8</span></div>
+          <div class="adim"><span class="n">2</span><span>Topla: 2,0 + 8,8 = 10,8</span></div>
+          <span class="sonuc">Ortalama atom kütlesi = 10,8 akb</span>
+        </div>
+      </div>
+      <svg viewBox="0 0 120 80" style="width:100%">
+        <g font-family="Inter" font-size="7" fill="#1d2133">
+          <rect x="10" y="10" width="20" height="60" rx="2" fill="#c7d2fe"/>
+          <rect x="10" y="58" width="20" height="12" rx="2" fill="#0f8f84"/>
+          <text x="20" y="77" text-anchor="middle">¹⁰B</text><text x="20" y="55" text-anchor="middle" font-size="6">%20</text>
+          <rect x="40" y="10" width="20" height="60" rx="2" fill="#c7d2fe"/>
+          <rect x="40" y="22" width="20" height="48" rx="2" fill="#4338ca"/>
+          <text x="50" y="77" text-anchor="middle">¹¹B</text><text x="50" y="19" text-anchor="middle" font-size="6">%80</text>
+          <text x="90" y="30" text-anchor="middle" font-size="6.5" fill="#5d6478">Ortalama, bol</text>
+          <text x="90" y="38" text-anchor="middle" font-size="6.5" fill="#5d6478">olan izotopa</text>
+          <text x="90" y="46" text-anchor="middle" font-size="6.5" fill="#5d6478">yakındır:</text>
+          <text x="90" y="58" text-anchor="middle" font-size="10" font-weight="800" fill="#0f8f84">10,8</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="kutu dikkat">
+    <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “Doğada kütlesi 10,8 akb olan bir bor atomu vardır.”</div>
+      <div class="dogru"><b class="d">✓</b> 10,8 bir <b>ortalamadır</b>. Tek tek bakıldığında her bor atomu ya 10 ya da 11 akb’dir.</div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · MOL – TANECİK
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Mol Kavramı</span><span>Mol ve tanecik sayısı</span></div>
+
+  <h2 class="konu"><span class="num">3</span>Mol ile tanecik sayısı</h2>
+  <div class="alt-baslik">Mol haritası: bütün hesaplar bu üç kutu arasında gidip gelir.</div>
+
+  <svg viewBox="0 0 178 61" style="width:100%;height:auto;margin-bottom:3mm">
+    <defs>
+      <marker id="ok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#4338ca"/></marker>
+      <marker id="ok2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#c26a06"/></marker>
+    </defs>
+    <g font-family="Inter" text-anchor="middle">
+      <rect x="2" y="12" width="44" height="22" rx="4" fill="#eef0ff" stroke="#4338ca" stroke-width=".6"/>
+      <text x="24" y="21.5" font-size="5" font-weight="800" fill="#2a2380">TANECİK SAYISI</text>
+      <text x="24" y="29" font-size="4.4" fill="#5d6478">N (tane)</text>
+
+      <circle cx="89" cy="23" r="15" fill="#4338ca"/>
+      <text x="89" y="23" font-size="8" font-weight="900" fill="#fff">MOL</text>
+      <text x="89" y="29.5" font-size="4.4" fill="#e0e3ff">n</text>
+
+      <rect x="132" y="12" width="44" height="22" rx="4" fill="#fff6e5" stroke="#c26a06" stroke-width=".6"/>
+      <text x="154" y="21.5" font-size="5" font-weight="800" fill="#8a4a03">KÜTLE</text>
+      <text x="154" y="29" font-size="4.4" fill="#5d6478">m (gram)</text>
+
+      <path d="M47 18 H71" stroke="#4338ca" stroke-width=".7" marker-end="url(#ok)"/>
+      <text x="59" y="15.5" font-size="4" fill="#4338ca" font-weight="700">÷ N<tspan font-size="2.8" dy="1">A</tspan></text>
+      <path d="M72 28 H48" stroke="#4338ca" stroke-width=".7" marker-end="url(#ok)"/>
+      <text x="59" y="34" font-size="4" fill="#4338ca" font-weight="700">× N<tspan font-size="2.8" dy="1">A</tspan></text>
+
+      <path d="M131 18 H107" stroke="#c26a06" stroke-width=".7" marker-end="url(#ok2)"/>
+      <text x="119" y="15.5" font-size="4" fill="#c26a06" font-weight="700">÷ M<tspan font-size="2.8" dy="1">A</tspan></text>
+      <path d="M106 28 H130" stroke="#c26a06" stroke-width=".7" marker-end="url(#ok2)"/>
+      <text x="119" y="34" font-size="4" fill="#c26a06" font-weight="700">× M<tspan font-size="2.8" dy="1">A</tspan></text>
+
+      <path d="M89 39 V50" stroke="#0f8f84" stroke-width=".7" stroke-dasharray="1.4 1"/>
+      <rect x="34" y="49" width="110" height="10" rx="3" fill="#eafaf7" stroke="#0f8f84" stroke-width=".6"/>
+      <text x="89" y="55.4" font-size="3.8" font-weight="800" fill="#0b6b62">ATOM MOLÜ = molekül molü × formüldeki atom sayısı</text>
+      <text x="3" y="6" font-size="4" text-anchor="start" fill="#5d6478">N<tspan font-size="2.8" dy="1">A</tspan><tspan dy="-1"> = 6,02·10</tspan><tspan font-size="2.8" dy="-1.6">23</tspan><tspan dy="1.6">   ·   M</tspan><tspan font-size="2.8" dy="1">A</tspan><tspan dy="-1"> = mol kütlesi (g/mol)</tspan></text>
+    </g>
+  </svg>
+
+  <div class="formul-kart">
+    <div><div class="denklem">n = <span class="kesir"><span>N</span><span>N<sub>A</sub></span></span></div><span>Tanecik sayısından mole</span></div>
+    <div><div class="denklem">N = n · N<sub>A</sub></div><span>Molden tanecik sayısına</span></div>
+    <div><div class="denklem">n<sub>atom</sub> = n · (a+b)</div><span><span class="f">X<sub>a</sub>Y<sub>b</sub></span> için toplam atom molü</span></div>
+  </div>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:kavram Molekül ve atom</div>
+    <p>1 mol {CO2} molekülü = N<sub>A</sub> tane molekül = <b>1 mol C</b> + <b>2 mol O</b> atomu = toplam <b>3 mol atom</b> = 3·N<sub>A</sub> tane atom. Formüldeki küçük rakamlar, bir molekülde o atomdan kaç tane olduğunu gösterir.</p>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 2</div>
+    <div class="soru">0,25 mol {NH3} için molekül sayısını, toplam atom molünü ve H atomu molünü bulunuz.</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>Molekül sayısı: N = 0,25 · 6,02·10^23 = <b>1,505·10^23 tane</b></span></div>
+      <div class="adim"><span class="n">2</span><span>Bir {NH3} molekülünde 1 + 3 = 4 atom var → 0,25 · 4 = <b>1 mol atom</b></span></div>
+      <div class="adim"><span class="n">3</span><span>H atomu: 0,25 · 3 = <b>0,75 mol H</b></span></div>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu ornek">
+      <div class="etiket">@ikon:ornek Çözümlü Örnek 3</div>
+      <div class="soru">3,01·10^23 tane {CO2} molekülü kaç mol O atomu içerir?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>n = 3,01·10^23 / 6,02·10^23 = 0,5 mol {CO2}</span></div>
+        <div class="adim"><span class="n">2</span><span>Her molekülde 2 O → 0,5 · 2</span></div>
+        <span class="sonuc">1 mol O atomu</span>
+      </div>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket">@ikon:ornek Çözümlü Örnek 4</div>
+      <div class="soru">1,2 mol atom içeren {C2H6} gazı kaç moldür?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Bir {C2H6} molekülünde 2 + 6 = 8 atom</span></div>
+        <div class="adim"><span class="n">2</span><span>Ters yönde böl: 1,2 / 8</span></div>
+        <span class="sonuc">0,15 mol {C2H6}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · MOL – KÜTLE
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Mol Kavramı</span><span>Mol ve kütle</span></div>
+
+  <h2 class="konu"><span class="num">4</span>Mol ile kütle</h2>
+  <div class="alt-baslik">Terazi tanecik saymaz, kütle ölçer. Mol kütlesi ikisini birbirine bağlar.</div>
+
+  <div class="iki-genis">
+    <div>
+      <p>1 mol taneciğin gram cinsinden kütlesine <b class="k">mol kütlesi</b> denir; M<sub>A</sub> ile gösterilir, birimi <b>g/mol</b>’dür. Tanecik atomsa <i>atom kütlesi</i>, molekülse <i>molekül kütlesi</i> adını alır.</p>
+      <p>Bir bileşiğin mol kütlesi, formüldeki atomların mol kütlelerinin toplamıdır:</p>
+      <div class="kutu duz serit" style="--bg:#fafbff;padding:2.4mm 3.4mm">
+        <p style="margin:0">{H2SO4}: (2·1) + (1·32) + (4·16) = <b>98 g/mol</b><br>
+        {CaCO3}: 40 + 12 + (3·16) = <b>100 g/mol</b><br>
+        {Mg(OH)2}: 24 + 2·(16 + 1) = <b>58 g/mol</b></p>
+      </div>
+    </div>
+    <div>
+      <div class="formul-kart" style="grid-template-columns:1fr;margin-top:0">
+        <div><div class="denklem" style="font-size:16pt">n = <span class="kesir"><span>m</span><span>M<sub>A</sub></span></span></div><span>n: mol · m: kütle (g) · M<sub>A</sub>: mol kütlesi (g/mol)</span></div>
+      </div>
+      <div class="not-kagidi kucuk" style="color:var(--metin)"><b>Bu bölümde kullanılacak mol kütleleri (g/mol):</b><br>H: 1 · He: 4 · C: 12 · N: 14 · O: 16 · Na: 23 · Mg: 24 · S: 32 · Ca: 40</div>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu dikkat">
+      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Mol kütlesi maddeyi tanıtır, ayırt edicidir.”</div>
+        <div class="dogru"><b class="d">✓</b> {CO} ve {N2} ikisi de 28 g/mol’dür. Mol kütlesi tek başına <b>ayırt edici değildir</b>.</div>
+      </div>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “1 tane {H2O} molekülü 18 gramdır.”</div>
+        <div class="dogru"><b class="d">✓</b> 1 tane molekül <b>18 akb</b>; 1 <b>mol</b> molekül 18 gramdır. 1 tanesi 18/N<sub>A</sub> gramdır.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 5</div>
+    <div class="iki" style="gap:4mm">
+      <div>
+        <div class="soru">0,4 mol {CaCO3} kaç gramdır?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>M<sub>A</sub> = 100 g/mol</span></div>
+          <div class="adim"><span class="n">2</span><span>m = n · M<sub>A</sub> = 0,4 · 100</span></div>
+          <span class="sonuc">40 g</span>
+        </div>
+      </div>
+      <div>
+        <div class="soru">9 g {H2O} kaç tane molekül, kaç mol atom içerir?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>n = 9 / 18 = 0,5 mol {H2O}</span></div>
+          <div class="adim"><span class="n">2</span><span>N = 0,5 · N<sub>A</sub> = 3,01·10^23 molekül</span></div>
+          <div class="adim"><span class="n">3</span><span>Atom: 0,5 · 3 = 1,5 mol atom</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 6 · Haritada iki adım</div>
+    <div class="soru">6,4 g {SO2} gazındaki oksijen atomlarının toplam kütlesi kaç gramdır?</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>Kütleden mole: M<sub>A</sub>({SO2}) = 32 + 2·16 = 64 g/mol → n = 6,4 / 64 = 0,1 mol {SO2}</span></div>
+      <div class="adim"><span class="n">2</span><span>Molekülden atoma: 0,1 · 2 = 0,2 mol O atomu</span></div>
+      <div class="adim"><span class="n">3</span><span>Molden kütleye: 0,2 · 16 = 3,2 g &nbsp;<span class="kucuk">(Kontrol: S kısmı 0,1·32 = 3,2 g; toplam 6,4 g ✓)</span></span></div>
+      <span class="sonuc">3,2 g oksijen</span>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · KARIŞIM PROBLEMLERİ
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Mol Kavramı</span><span>Karışım problemleri</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Karışım problemleri</h2>
+  <div class="alt-baslik">İki madde, bir toplam: tek bilinmeyenle çöz.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:hedef 3 Adımlık Strateji</div>
+    <div class="uc" style="gap:3mm">
+      <div><b class="k">1 · Bilinmeyeni koy</b><br><span style="font-size:9pt">Karışımın toplam molü biliniyorsa birine <b>x</b>, diğerine <b>(toplam − x)</b> de.</span></div>
+      <div><b class="k">2 · Ortak niceliği topla</b><br><span style="font-size:9pt">Soruda verilen toplam (kütle, H atomu molü, C atomu molü…) her bileşen için ayrı yazılıp toplanır.</span></div>
+      <div><b class="k">3 · Çöz ve kontrol et</b><br><span style="font-size:9pt">x’i bul, istenen niceliği hesapla, sonucu toplam değere geri koyup doğrula.</span></div>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 7</div>
+    <div class="soru">{CH4} ve {C2H6} gazlarından oluşan 0,5 mollük karışım toplam 2,4 mol H atomu içeriyor. Karışım kaç gramdır?</div>
+    <div class="cozum">
+      <table class="tablo" style="margin:0 0 2mm">
+        <tr><th></th><th>{CH4}</th><th>{C2H6}</th><th>Toplam</th></tr>
+        <tr><td>Mol</td><td>x</td><td>0,5 − x</td><td>0,5</td></tr>
+        <tr><td>H atomu (mol)</td><td>4x</td><td>6(0,5 − x)</td><td>2,4</td></tr>
+      </table>
+      <div class="adim"><span class="n">1</span><span>4x + 3 − 6x = 2,4 → 2x = 0,6 → <b>x = 0,3</b>. Yani 0,3 mol {CH4}, 0,2 mol {C2H6}.</span></div>
+      <div class="adim"><span class="n">2</span><span>Kütle: 0,3·16 + 0,2·30 = 4,8 + 6,0</span></div>
+      <div class="adim"><span class="n">3</span><span>Kontrol: H = 0,3·4 + 0,2·6 = 1,2 + 1,2 = 2,4 ✓</span></div>
+      <span class="sonuc">10,8 g</span>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 8 · Eşit kütle tuzağı</div>
+    <div class="soru">Eşit kütlelerde {O2} ve {SO2} gazları alınıyor. Molekül sayıları oranını ve atom sayıları oranını bulunuz.</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span><b>Akıllı kütle seç:</b> Mol kütleleri 32 ve 64 → ikisini de bölen bir kütle al: 64 g.</span></div>
+      <div class="adim"><span class="n">2</span><span>{O2}: 64/32 = 2 mol &nbsp;·&nbsp; {SO2}: 64/64 = 1 mol → molekül oranı <b>2 / 1</b></span></div>
+      <div class="adim"><span class="n">3</span><span>Atom: {O2} → 2·2 = 4 mol, {SO2} → 1·3 = 3 mol → atom oranı <b>4 / 3</b></span></div>
+    </div>
+  </div>
+
+  <div class="kutu dikkat">
+    <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “Kütleleri eşitse tanecik sayıları da eşittir.”</div>
+      <div class="dogru"><b class="d">✓</b> Eşit kütlede, mol kütlesi <b>küçük</b> olan maddenin mol sayısı <b>büyüktür</b>: n = m / M<sub>A</sub>.</div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · TEK SAYFADA MOL
+     ========================================================= -->
+<section class="sayfa ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Mol Kavramı</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada mol</h2><p>Sınavdan önceki gece bu sayfaya bakman yeter. Her kutuyu kendi cümlelerinle bir arkadaşına anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket">@ikon:kavram 1 mol <span class="f" style="text-transform:none">X<sub>a</sub>Y<sub>b</sub></span> için</div>
+      <ul style="font-size:9.2pt">
+        <li>N<sub>A</sub> tane <b>molekül</b></li>
+        <li><b>a</b> mol X atomu, <b>b</b> mol Y atomu</li>
+        <li><b>(a + b)</b> mol atom = (a + b)·N<sub>A</sub> tane atom</li>
+        <li>Kütlesi M<sub>A</sub> = (a·X + b·Y) gram</li>
+        <li>1 tanesinin kütlesi M<sub>A</sub>/N<sub>A</sub> gram (= M<sub>A</sub> akb)</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket">@ikon:ornek Üç formül, tek harita</div>
+      <div class="denklem" style="font-size:12pt">n = <span class="kesir"><span>N</span><span>N<sub>A</sub></span></span> = <span class="kesir"><span>m</span><span>M<sub>A</sub></span></span></div>
+      <p style="font-size:9pt;margin:1mm 0 0">Tanecik ⇄ <b>mol</b> ⇄ kütle. Ne verilirse verilsin <b>önce mole git</b>, sonra istenene dön. N<sub>A</sub> = 6,02·10^23.</p>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket">@ikon:kavram İzotop ve ortalama kütle</div>
+      <ul style="font-size:9.2pt">
+        <li>İzotop: proton sayısı aynı, nötron sayısı farklı</li>
+        <li>Kimyasal özellik aynı, fiziksel özellik farklı</li>
+        <li>Ortalama kütle = Σ (izotop kütlesi × bolluk oranı)</li>
+        <li>1 akb = <sup>12</sup>C kütlesinin 1/12’si; 1 g = N<sub>A</sub> akb</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket">@ikon:dikkat En sık 4 hata</div>
+      <ul style="font-size:9.2pt">
+        <li>Atom sayısı yerine <b>element çeşidini</b> saymak</li>
+        <li>Mol kütlesinde alt simgeyi unutmak ({CO2} ≠ 28)</li>
+        <li>1 <b>tane</b> molekülü 1 <b>mol</b> gibi tartmak</li>
+        <li>Eşit kütle = eşit tanecik sanmak</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Mol ve Avogadro sayısını kendi cümlelerimle tanımlayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>İzotop atomların benzer ve farklı yönlerini söyleyebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bolluk yüzdelerinden ortalama atom kütlesini hesaplayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Mol, tanecik sayısı ve kütle arasında her yönde geçiş yapabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Molekül molünden atom molünü bulabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>İki bileşenli karışım problemini tek bilinmeyenle çözebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:5mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Mol Kavramı</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Aşağıdaki çözümleri dört farklı öğrenci yazdı. Her birinde bir hata var. Hatayı bul, hangi satırda olduğunu yaz, doğrusunu kutuya çöz.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> 0,5 mol {H2SO4} kaç mol atom içerir?</p>
+      <div class="defter">
+        <div class="ogrenci">Defne’nin çözümü</div>
+        <div class="satir"><span class="sn">1</span>{H2SO4}’te H, S ve O var.</div>
+        <div class="satir"><span class="sn">2</span>Yani bir molekülde 3 atom bulunur.</div>
+        <div class="satir"><span class="sn">3</span>0,5 · 3 = 1,5 mol atom</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> 11 g {CO2} kaç moldür?</p>
+      <div class="defter">
+        <div class="ogrenci">Emir’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>M<sub>A</sub>({CO2}) = 12 + 16 = 28 g/mol</div>
+        <div class="satir"><span class="sn">2</span>n = m / M<sub>A</sub> = 11 / 28</div>
+        <div class="satir"><span class="sn">3</span>n ≈ 0,39 mol</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> 1 tane {SO3} molekülü kaç gramdır? (N<sub>A</sub> = 6,02·10^23)</p>
+      <div class="defter">
+        <div class="ogrenci">Zeynep’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>M<sub>A</sub>({SO3}) = 32 + 3 · 16 = 80 g/mol</div>
+        <div class="satir"><span class="sn">2</span>Mol kütlesi molekülün kütlesidir.</div>
+        <div class="satir"><span class="sn">3</span>Cevap: 80 gram</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> 16’şar gram {CH4} ve {O2} alınıyor. Hangisi daha çok molekül içerir?</p>
+      <div class="defter">
+        <div class="ogrenci">Kerem’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>İki gazın kütlesi de 16 g.</div>
+        <div class="satir"><span class="sn">2</span>Kütleleri eşit olduğu için mol sayıları eşit.</div>
+        <div class="satir"><span class="sn">3</span>Molekül sayıları eşittir.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Bir çözümü kontrol etmenin en hızlı yolu <b>birimlere bakmaktır</b>. “mol”, “tane”, “gram” ve “akb” birbirine karışıyorsa hata büyük ihtimalle oradadır.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Mol Kavramı</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni ve görseli oku, sonra hangi bilginin işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Sağlık</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Bir sporcunun günlük C vitamini ihtiyacı için diyetisyeni 0,88 g askorbik asit ({C6H8O6}) öneriyor. Askorbik asidin mol kütlesi 176 g/mol’dür.</p>
+          <p>Buna göre sporcunun günlük aldığı askorbik asit için;</p>
+          <div class="oncul"><div><b>I.</b><span>5·10^-3 moldür.</span></div><div><b>II.</b><span>3,01·10^21 tane molekül içerir.</span></div><div><b>III.</b><span>0,005 mol O atomu içerir.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Kuyumculuk</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Kuyumcular elmasın kütlesini <b>karat</b> ile ölçer; 1 karat 0,2 gramdır. Elmas yalnızca karbon (C) atomlarından oluşur.</p>
+          <p>Buna göre 3 karatlık bir elmas yaklaşık kaç tane karbon atomu içerir? <span class="veri">(C: 12 g/mol, N<sub>A</sub> = 6,02·10^23)</span></p>
+          <div class="secenek"><span><b>A)</b>3,01·10^21</span><span><b>B)</b>1,505·10^22</span><span><b>C)</b>3,01·10^22</span><span><b>D)</b>6,02·10^22</span><span><b>E)</b>1,806·10^23</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:lab Laboratuvar</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>Bir öğrenci X ve Y elementlerinden farklı kütlelerde örnekler tartıp mol sayılarını hesaplıyor ve aşağıdaki grafiği çiziyor.</p>
+          <svg viewBox="0 0 120 78" style="width:100%;margin:1mm 0 2mm">
+            <g font-family="Inter" font-size="4.4" fill="#5d6478">
+              <g stroke="#e5e7f0" stroke-width=".3">
+                <line x1="18" y1="10" x2="112" y2="10"/><line x1="18" y1="28" x2="112" y2="28"/><line x1="18" y1="46" x2="112" y2="46"/>
+                <line x1="41.5" y1="10" x2="41.5" y2="64"/><line x1="65" y1="10" x2="65" y2="64"/><line x1="88.5" y1="10" x2="88.5" y2="64"/><line x1="112" y1="10" x2="112" y2="64"/>
+              </g>
+              <line x1="18" y1="64" x2="114" y2="64" stroke="#1d2133" stroke-width=".5"/>
+              <line x1="18" y1="64" x2="18" y2="7" stroke="#1d2133" stroke-width=".5"/>
+              <text x="15" y="65.5" text-anchor="end">0</text>
+              <text x="15" y="47.5" text-anchor="end">0,25</text><text x="15" y="29.5" text-anchor="end">0,50</text><text x="15" y="11.5" text-anchor="end">0,75</text>
+              <text x="41.5" y="69.5" text-anchor="middle">6</text><text x="65" y="69.5" text-anchor="middle">12</text><text x="88.5" y="69.5" text-anchor="middle">18</text><text x="112" y="69.5" text-anchor="middle">24</text>
+              <text x="66" y="76" text-anchor="middle" fill="#1d2133" font-weight="700">Kütle (g)</text>
+              <text x="3" y="5" fill="#1d2133" font-weight="700">Mol</text>
+              <!-- X: 12 g -> 0,5 mol (MA 24); Y: 16 g -> 0,5 mol (MA 32) -->
+              <line x1="18" y1="64" x2="112" y2="10" stroke="#4338ca" stroke-width="1.1"/>
+              <line x1="18" y1="64" x2="112" y2="28" stroke="#c26a06" stroke-width="1.1"/>
+              <circle cx="65" cy="37" r="1.3" fill="#4338ca"/>
+              <circle cx="80.7" cy="40" r="1.3" fill="#c26a06"/>
+              <text x="103" y="13" fill="#4338ca" font-weight="800" font-size="5.4">X</text>
+              <text x="104" y="27" fill="#c26a06" font-weight="800" font-size="5.4">Y</text>
+            </g>
+          </svg>
+          <p style="font-size:9.2pt">Grafikte X için (12 g; 0,5 mol), Y için (16 g; 0,5 mol) noktaları işaretlenmiştir. Buna göre;</p>
+          <div class="oncul"><div><b>I.</b><span>X’in mol kütlesi 24 g/mol’dür.</span></div><div><b>II.</b><span>Eşit kütlede X ve Y’nin atom sayıları oranı N<sub>X</sub>/N<sub>Y</sub> = 4/3’tür.</span></div><div><b>III.</b><span>1 mol Y, 1 mol X’ten 8 g ağırdır.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>I ve II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:lab Laboratuvar dolabı</div>
+    <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+      <p>Laboratuvar sorumlusu üç kaptaki örneklerin etiketlerini aşağıdaki gibi yazmıştır. <span class="veri">(H: 1, C: 12, N: 14, O: 16 g/mol; N<sub>A</sub> = 6,02·10^23)</span></p>
+      <table class="tablo">
+        <tr><th>Kap I</th><th>Kap II</th><th>Kap III</th></tr>
+        <tr><td>4,4 g {CO2}</td><td>1,204·10^23 tane {H2O} molekülü</td><td>0,1 mol {NH3}</td></tr>
+      </table>
+      <p>Buna göre kaplardaki <b>toplam atom sayılarının</b> büyükten küçüğe sıralanışı hangisidir?</p>
+      <div class="secenek bes"><span><b>A)</b>I &gt; II &gt; III</span><span><b>B)</b>II &gt; III &gt; I</span><span><b>C)</b>III &gt; II &gt; I</span><span><b>D)</b>II &gt; I &gt; III</span><span><b>E)</b>I = II &gt; III</span></div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Mol Kavramı</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, sadece o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p><b>{X2O3}</b> bileşiğinin 0,2 molü 32 gramdır. Buna göre X elementinin mol kütlesi kaç g/mol’dür? <span class="veri">(O: 16 g/mol)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Kütle ve mol verilmiş: bileşiğin mol kütlesini M<sub>A</sub> = m / n ile bul.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">M<sub>A</sub>, formüldeki atomların toplamıdır: 2·X + 3·16 olarak yaz.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">160 = 2X + 48 denklemini çöz. Bulduğun değer hangi elemente ait olabilir?</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p>{C2H4} ve {C3H8} gazlarından oluşan 0,4 mollük karışım 14,4 gramdır. Karışımda toplam kaç mol H atomu vardır? <span class="veri">(H: 1, C: 12 g/mol)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">{C2H4} için x mol, {C3H8} için (0,4 − x) mol de. Mol kütlelerini hesapla: 28 ve 44 g/mol.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Kütleler toplamını yaz: 28x + 44(0,4 − x) = 14,4</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">x’i bulunca H atomlarını say: {C2H4}’te 4, {C3H8}’de 8 H var.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p><b>Eşit sayıda atom</b> içeren {SO3} ve {CH4} örneklerinin kütleleri oranı m<sub>SO3</sub> / m<sub>CH4</sub> kaçtır? <span class="veri">(H: 1, C: 12, O: 16, S: 32 g/mol)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">{SO3} molekülünde 4, {CH4} molekülünde 5 atom var. İkisine de bölünebilen bir atom molü seç (örneğin 20 mol atom).</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">20 mol atom için: {SO3} → 20/4 = 5 mol, {CH4} → 20/5 = 4 mol.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Mollerini kütleye çevir (M<sub>A</sub>: 80 ve 16) ve oranı sadeleştir.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Mol Kavramı</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 25 dakika. Gerekli mol kütleleri (g/mol): H: 1 · He: 4 · C: 12 · O: 16 · Mg: 24 · N<sub>A</sub> = 6,02·10^23</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>0,3 mol {C3H8} gazı toplam kaç mol atom içerir?</p>
+        <div class="secenek"><span><b>A)</b>0,3</span><span><b>B)</b>1,1</span><span><b>C)</b>2,4</span><span><b>D)</b>3,3</span><span><b>E)</b>3,6</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>1,204·10^24 tane He atomu kaç moldür?</p>
+        <div class="secenek"><span><b>A)</b>0,5</span><span><b>B)</b>1</span><span><b>C)</b>2</span><span><b>D)</b>4</span><span><b>E)</b>12</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p>0,5 mol {Mg(OH)2} bileşiği kaç gramdır?</p>
+        <div class="secenek"><span><b>A)</b>20,5</span><span><b>B)</b>29</span><span><b>C)</b>41</span><span><b>D)</b>58</span><span><b>E)</b>116</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p>6,4 g {O2} gazı ile ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>0,2 moldür.</span></div><div><b>II.</b><span>1,204·10^23 tane molekül içerir.</span></div><div><b>III.</b><span>0,4 mol O atomu içerir.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p>Aşağıdaki madde çiftlerinden hangisinin mol kütleleri birbirine eşittir? <span class="veri">(N: 14, S: 32 g/mol)</span></p>
+        <div class="secenek tek"><span><b>A)</b>{CO} – {N2}</span><span><b>B)</b>{CO2} – {SO2}</span><span><b>C)</b>{H2O} – {NH3}</span><span><b>D)</b>{CH4} – {O2}</span><span><b>E)</b>{NO} – {O2}</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p>1 tane karbon atomunun kütlesi kaç gramdır? (C: 12 g/mol)</p>
+        <div class="secenek"><span><b>A)</b>12</span><span><b>B)</b>12·N<sub>A</sub></span><span><b>C)</b>12/N<sub>A</sub></span><span><b>D)</b>N<sub>A</sub>/12</span><span><b>E)</b>1/12</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · TEST (7–12)
+     ========================================================= -->
+<section class="sayfa cift test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Mol Kavramı</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>Aşağıdakilerden hangisi en fazla sayıda atom içerir?</p>
+        <div class="secenek tek"><span><b>A)</b>1 mol He</span><span><b>B)</b>0,5 mol {H2O}</span><span><b>C)</b>8 g {CH4}</span><span><b>D)</b>3,01·10^23 tane {CO2} molekülü</span><span><b>E)</b>4,4 g {CO2}</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p>X elementinin 0,25 molü 10 gramdır. Buna göre X’in mol kütlesi kaç g/mol’dür?</p>
+        <div class="secenek"><span><b>A)</b>10</span><span><b>B)</b>20</span><span><b>C)</b>25</span><span><b>D)</b>40</span><span><b>E)</b>80</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>Bir X elementinin doğada iki izotopu bulunur: <sup>63</sup>X (%70) ve <sup>65</sup>X (%30). Buna göre X’in ortalama atom kütlesi kaçtır?</p>
+        <div class="secenek"><span><b>A)</b>63,0</span><span><b>B)</b>63,6</span><span><b>C)</b>64,0</span><span><b>D)</b>64,4</span><span><b>E)</b>65,0</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p>Nötr izotop atomlarla ilgili aşağıdaki ifadelerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Proton sayıları aynıdır.</span><span><b>B)</b>Nötron sayıları farklıdır.</span><span><b>C)</b>Kütle numaraları farklıdır.</span><span><b>D)</b>Kimyasal özellikleri aynıdır.</span><span><b>E)</b>Fiziksel özellikleri aynıdır.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <p>{CH4} ve {C2H4} gazlarından oluşan 0,5 mollük karışım 0,7 mol C atomu içermektedir. Buna göre karışım kaç gramdır?</p>
+        <div class="secenek"><span><b>A)</b>8,0</span><span><b>B)</b>9,6</span><span><b>C)</b>10,4</span><span><b>D)</b>11,2</span><span><b>E)</b>12,8</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p>Eşit kütlelerde {CH4} ve {SO2} gazları için;</p>
+        <div class="oncul"><div><b>I.</b><span>Molekül sayıları oranı N<sub>CH4</sub>/N<sub>SO2</sub> = 4’tür.</span></div><div><b>II.</b><span>Toplam atom sayıları eşittir.</span></div><div><b>III.</b><span>{CH4}’teki H atomu sayısı, {SO2}’deki O atomu sayısının 8 katıdır.</span></div></div>
+        <p>yargılarından hangileri doğrudur? <span class="veri">(S: 32 g/mol)</span></p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fafbff;margin-top:2mm">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 3. ve 4. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Mol Kavramı</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>D</span></div><div><b>2</b><span>C</span></div><div><b>3</b><span>B</span></div><div><b>4</b><span>E</span></div>
+    <div><b>5</b><span>A</span></div><div><b>6</b><span>C</span></div><div><b>7</b><span>C</span></div><div><b>8</b><span>D</span></div>
+    <div><b>9</b><span>B</span></div><div><b>10</b><span>E</span></div><div><b>11</b><span>C</span></div><div><b>12</b><span>D</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · D</b> Bir {C3H8} molekülünde 3 + 8 = 11 atom. 0,3·11 = 3,3 mol atom.</div>
+    <div class="c"><b>2 · C</b> n = 1,204·10^24 / 6,02·10^23 = 2 mol.</div>
+    <div class="c"><b>3 · B</b> M<sub>A</sub> = 24 + 2·17 = 58 g/mol; 0,5·58 = 29 g.</div>
+    <div class="c"><b>4 · E</b> n = 6,4/32 = 0,2 mol (I); 0,2·N<sub>A</sub> = 1,204·10^23 (II); 0,2·2 = 0,4 mol O (III).</div>
+    <div class="c"><b>5 · A</b> {CO} = 12 + 16 = 28, {N2} = 2·14 = 28. Diğer çiftler: 44–64, 18–17, 16–32, 30–32.</div>
+    <div class="c"><b>6 · C</b> 1 mol C (N<sub>A</sub> tane) 12 g ise 1 tanesi 12/N<sub>A</sub> ≈ 2·10^-23 g.</div>
+    <div class="c"><b>7 · C</b> Atom molleri: A) 1 · B) 1,5 · C) 8/16 = 0,5 mol {CH4} → 2,5 · D) 0,5·3 = 1,5 · E) 0,1·3 = 0,3.</div>
+    <div class="c"><b>8 · D</b> M<sub>A</sub> = m/n = 10/0,25 = 40 g/mol.</div>
+    <div class="c"><b>9 · B</b> 63·0,70 + 65·0,30 = 44,1 + 19,5 = 63,6.</div>
+    <div class="c"><b>10 · E</b> Nötron sayısı, dolayısıyla kütle farklı olduğundan yoğunluk gibi fiziksel özellikler farklıdır.</div>
+    <div class="c"><b>11 · C</b> C atomu: x + 2(0,5 − x) = 0,7 → x = 0,3 mol {CH4}, 0,2 mol {C2H4}. Kütle: 0,3·16 + 0,2·28 = 4,8 + 5,6 = 10,4 g.</div>
+    <div class="c"><b>12 · D</b> 64 g al: {CH4} 4 mol, {SO2} 1 mol → oran 4 (I ✓). Atom: 20 mol ve 3 mol (II ✗). H: 16 mol, O: 2 mol → 8 kat (III ✓).</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> n = 0,88/176 = 0,005 = 5·10^-3 mol (I ✓). N = 0,005·N<sub>A</sub> = 3,01·10^21 (II ✓). O atomu 0,005·6 = 0,03 mol (III ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · C</b> 3·0,2 = 0,6 g C; n = 0,6/12 = 0,05 mol; 0,05·6,02·10^23 = 3,01·10^22 atom.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · E</b> X: 12/0,5 = 24, Y: 16/0,5 = 32 g/mol (I ✓). m = 96 g için 4 mol X, 3 mol Y → 4/3 (II ✓). 32 − 24 = 8 g (III ✓).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · B</b> I: 0,1 mol {CO2} → 0,3 mol atom · II: 0,2 mol {H2O} → 0,6 · III: 0,1 mol {NH3} → 0,4. Sıra: II &gt; III &gt; I.</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1 · 56 g/mol</b> M<sub>A</sub> = 32/0,2 = 160; 2X + 48 = 160 → X = 56 (demir, Fe).</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2 · 2,4 mol H</b> 28x + 17,6 − 44x = 14,4 → x = 0,2. 0,2 mol {C2H4} (0,8 mol H) + 0,2 mol {C3H8} (1,6 mol H).</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3 · 25/4</b> 5 mol {SO3} = 400 g, 4 mol {CH4} = 64 g → 400/64 = 25/4.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 2</b> Element çeşidi sayılmış. {H2SO4}’te 2 + 1 + 4 = 7 atom → 0,5·7 = 3,5 mol atom.</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 1</b> O’nun alt simgesi unutulmuş. M<sub>A</sub> = 12 + 2·16 = 44 → n = 11/44 = 0,25 mol.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 2</b> 80 g, 1 <b>mol</b> {SO3}’ün kütlesidir. 1 tanesi 80/N<sub>A</sub> ≈ 1,33·10^-22 g (ya da 80 akb).</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 2</b> Eşit kütle eşit mol demek değildir. {CH4}: 16/16 = 1 mol, {O2}: 16/32 = 0,5 mol → {CH4} 2 kat fazla molekül içerir.</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Mol Kavramı</span><span class="no">13</span></div>
+</section>
+
+</body>
+</html>
