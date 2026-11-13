@@ -316,7 +316,7 @@ for k, (ad, renk, fs_, kn) in enumerate(grup):
     yy = 13 + k * 4.4
     o.append(f'<line x1="66" y1="{yy - 1}" x2="71" y2="{yy - 1}" stroke="{renk}" stroke-width="1"/>')
     o.append(f'<text x="73" y="{yy}" font-size="2.8" fill="{M}"><tspan font-weight="800">{ad}</tspan> {alt(fs_[0])} → {alt(fs_[3])}</text>')
-o.append(f'<text x="{Xp(2) + 7.5}" y="{yt + 2.6}" font-size="2.6" font-weight="800" fill="#b45309">hidrojen bağı</text>')
+o.append(f'<text x="{Xp(2)}" y="{Yv(-45) + 3.6:.1f}" text-anchor="middle" font-size="2.6" font-weight="800" fill="#b45309">H bağı</text>')
 o.append('</g></svg>')
 w('hidrur', ''.join(o))
 
