@@ -1,0 +1,1934 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Periyodik Tablo · Kimya Rotası 9</title>
+<style>
+/*KITAP_CSS*/
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite: #be185d; --unite-acik: #fdeef5; --unite-koyu: #7a0f3c; }
+.kapak { padding: 0; background: #4a0b26; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 30mm; font-size: 11pt; font-weight: 700; color: #fbbf24; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 60pt; font-weight: 900; letter-spacing: -.02em; line-height: .95; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 10mm; display: inline-flex; align-items: baseline; gap: 3mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 26pt; font-weight: 800; color: #fbbf24; }
+.kapak .avo span { font-size: 9pt; opacity: .85; max-width: 60mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.2pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #e3cfd9; padding: .8mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.olcek { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2mm; margin: 1mm 0 3.5mm; }
+.olcek div { border-radius: 2.4mm; padding: 1.8mm 1mm; background: var(--unite-acik); text-align: center; }
+.olcek b { display: block; font-size: 13pt; color: var(--unite-koyu); font-family: "Inter Display"; font-weight: 800; line-height: 1.1; }
+.olcek span { font-size: 7.6pt; color: var(--soluk); line-height: 1.2; display: block; }
+
+.dizilim { font-family: "Inter", sans-serif; font-weight: 600; letter-spacing: .01em; white-space: nowrap; }
+.kart-izgara { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+.kart-izgara .kutu { margin: 0; padding: 2.6mm 3.4mm 2.4mm; }
+.kart-izgara .kutu ul { font-size: 8.9pt; margin: 0; padding-left: 4mm; line-height: 1.38; }
+.kart-izgara .kutu li { margin-bottom: .5mm; }
+.grup-bas { display: flex; align-items: baseline; gap: 2mm; margin-bottom: 1.2mm; }
+.grup-bas b { font-size: 11.5pt; color: var(--unite-koyu); font-family: "Inter Display"; font-weight: 800; }
+.grup-bas span { font-size: 8pt; color: var(--soluk); }
+.rozet { display: inline-block; font-size: 7.4pt; font-weight: 800; color: #fff; background: var(--unite); border-radius: 1.2mm; padding: .2mm 1.6mm; }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; }
+.test.devam .iki { min-height: 222mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 40mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="82%" cy="18%" r="75%"><stop offset="0" stop-color="#e2478a"/><stop offset=".55" stop-color="#8f1347"/><stop offset="1" stop-color="#4a0b26"/></radialGradient>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+<!--BAS:kapak-->
+<rect x="89.00" y="34.00" width="5.6" height="5.6" rx=".9" fill="#fbbf24" fill-opacity="0.9"/>
+<rect x="196.10" y="34.00" width="5.6" height="5.6" rx=".9" fill="#fbbf24" fill-opacity="0.9"/>
+<rect x="89.00" y="40.30" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.34"/>
+<rect x="95.30" y="40.30" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.34"/>
+<rect x="164.60" y="40.30" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="170.90" y="40.30" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="177.20" y="40.30" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="183.50" y="40.30" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="189.80" y="40.30" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="196.10" y="40.30" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="89.00" y="46.60" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.34"/>
+<rect x="95.30" y="46.60" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.34"/>
+<rect x="164.60" y="46.60" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="170.90" y="46.60" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="177.20" y="46.60" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="183.50" y="46.60" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="189.80" y="46.60" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="196.10" y="46.60" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="89.00" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.34"/>
+<rect x="95.30" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.34"/>
+<rect x="101.60" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="107.90" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="114.20" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="120.50" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="126.80" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="133.10" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="139.40" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="145.70" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="152.00" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="158.30" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="164.60" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="170.90" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="177.20" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="183.50" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="189.80" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="196.10" y="52.90" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="89.00" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.34"/>
+<rect x="95.30" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.34"/>
+<rect x="101.60" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="107.90" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="114.20" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="120.50" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="126.80" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="133.10" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="139.40" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="145.70" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="152.00" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="158.30" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="164.60" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="170.90" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="177.20" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="183.50" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="189.80" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="196.10" y="59.20" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="89.00" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.34"/>
+<rect x="95.30" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.34"/>
+<rect x="101.60" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="107.90" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="114.20" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="120.50" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="126.80" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="133.10" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="139.40" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="145.70" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="152.00" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="158.30" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="164.60" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="170.90" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="177.20" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="183.50" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="189.80" y="81.10" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="107.90" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="114.20" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="120.50" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="126.80" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="133.10" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="139.40" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="145.70" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="152.00" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="158.30" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="164.60" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="170.90" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="177.20" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="183.50" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="189.80" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="196.10" y="65.50" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="89.00" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.34"/>
+<rect x="95.30" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.34"/>
+<rect x="101.60" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="107.90" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="114.20" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="120.50" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="126.80" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="133.10" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="139.40" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="145.70" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="152.00" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="158.30" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="164.60" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="170.90" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="177.20" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="183.50" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="189.80" y="87.40" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.24"/>
+<rect x="107.90" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="114.20" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="120.50" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="126.80" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="133.10" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="139.40" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="145.70" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="152.00" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="158.30" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.12"/>
+<rect x="164.60" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="170.90" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="177.20" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="183.50" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="189.80" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<rect x="196.10" y="71.80" width="5.6" height="5.6" rx=".9" fill="#ffffff" fill-opacity="0.18"/>
+<!--SON:kapak-->
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="14">
+      <text x="-6" y="196">s · p · d · f · s · p · d · f · s · p</text>
+      <text x="-22" y="214">1A 2A 3A 4A 5A 6A 7A 8A 1A 2A 3A</text>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 9. Sınıf</span><span>Tema 1 · Bölüm 4</span></div>
+    <div class="bolum">Bölüm 4</div>
+    <h1>Periyodik<br>Tablo</h1>
+    <div class="slogan">Elementlerin adresi: periyot, grup ve blok</div>
+    <div class="avo"><b>118</b><span>element, 7 periyot ve 18 grup. Hepsi atom numarası sırasıyla dizilmiş tek bir tabloda.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Periyodik tablonun hikâyesi</span><span>2</span></li>
+          <li><span>2 · Modern tablonun yapısı</span><span>3</span></li>
+          <li><span>3 · Elektron diziliminden yer bulma</span><span>4</span></li>
+          <li><span>4 · Kısa yollar ve özel durumlar</span><span>5</span></li>
+          <li><span>5 · Metal, ametal, yarı metal, soy gaz</span><span>6</span></li>
+          <li><span>6 · Grupların özel adları</span><span>7</span></li>
+          <li><span>7 · Atomdan iyona</span><span>8</span></li>
+          <li><span>Tek sayfada periyodik tablo (özet)</span><span>9</span></li>
+          <li><span>Hata Avcısı</span><span>10</span></li>
+          <li><span>Bağlam temelli sorular</span><span>11</span></li>
+          <li><span>İpucu Merdiveni</span><span>12</span></li>
+          <li><span>Bölüm testi</span><span>13</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>15</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i>@ikon:kavram</i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i>@ikon:hayat</i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i>@ikon:dikkat</i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i>@ikon:ornek</i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i>@ikon:hata</i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i>@ikon:ipucu</i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Periyodik tablonun nasıl geliştiğini ve nasıl düzenlendiğini açıklayacaksın.</li>
+          <li>Temel hâl elektron diziliminden bir elementin periyot, grup ve bloğunu bulacaksın.</li>
+          <li>Elementleri metal, ametal, yarı metal ve soy gaz olarak sınıflandırıp grup adlarını kullanacaksın.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · TARİHÇE
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Tablonun hikâyesi</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Periyodik tablonun hikâyesi</h2>
+  <div class="alt-baslik">Dağınık bir element listesinden düzenli bir haritaya yaklaşık yüz yıllık yolculuk</div>
+
+  <p>1800’lerde yeni elementler birbiri ardına keşfediliyordu; 1869’a gelindiğinde bilinen element sayısı 60’ı geçmişti. Bu kadar elementi ezberlemek yerine bilim insanları şu soruyu sordu: <b>Elementlerin özellikleri arasında bir düzen var mı?</b> Bu soruya verilen cevaplar adım adım bugünkü tabloyu oluşturdu.</p>
+
+  <svg viewBox="0 0 178 44" style="width:100%;height:auto;margin:1mm 0 3mm">
+    <g font-family="Inter" text-anchor="middle">
+      <line x1="4" y1="17" x2="174" y2="17" stroke="#be185d" stroke-width=".8"/>
+      <path d="M174 15 L178 17 L174 19 Z" fill="#be185d"/>
+      <g font-size="3.6" font-weight="800" fill="#7a0f3c">
+        <text x="13" y="11">1829</text><text x="37" y="11">1865</text><text x="61" y="11">1869</text><text x="85" y="11">1870</text>
+        <text x="109" y="11">1894</text><text x="135" y="11">1913</text><text x="161" y="11">2016</text>
+      </g>
+      <g fill="#fff" stroke="#be185d" stroke-width=".7">
+        <circle cx="13" cy="17" r="2.2"/><circle cx="37" cy="17" r="2.2"/><circle cx="85" cy="17" r="2.2"/>
+        <circle cx="109" cy="17" r="2.2"/><circle cx="161" cy="17" r="2.2"/>
+      </g>
+      <circle cx="61" cy="17" r="3" fill="#be185d"/><circle cx="135" cy="17" r="3" fill="#be185d"/>
+      <g font-size="3.4" font-weight="700" fill="#1d2133">
+        <text x="13" y="26">Döbereiner</text><text x="37" y="26">Newlands</text><text x="61" y="26">Mendeleyev</text><text x="85" y="26">L. Meyer</text>
+        <text x="109" y="26">Rayleigh–Ramsay</text><text x="135" y="26">Moseley</text><text x="161" y="26">IUPAC</text>
+      </g>
+      <g font-size="2.9" fill="#5d6478">
+        <text x="13" y="31">benzer elementler</text><text x="13" y="34.6">üçlü gruplar</text>
+        <text x="37" y="31">her 8. element</text><text x="37" y="34.6">birinciye benzer</text>
+        <text x="61" y="31">boşluklu tablo,</text><text x="61" y="34.6">tahminler</text>
+        <text x="85" y="31">atom hacmi</text><text x="85" y="34.6">periyodik değişir</text>
+        <text x="109" y="31">argon bulundu;</text><text x="109" y="34.6">soy gaz sütunu</text>
+        <text x="135" y="31">atom numarası</text><text x="135" y="34.6">ölçüldü</text>
+        <text x="161" y="31">7. periyot</text><text x="161" y="34.6">tamamlandı</text>
+      </g>
+      <text x="89" y="42" font-size="2.8" fill="#9aa3b8">Sıralama ölçütü: 1913’e kadar atom kütlesi → 1913’ten sonra atom numarası</text>
+    </g>
+  </svg>
+
+  <table class="tablo sik">
+    <tr><th style="width:21%">Bilim insanı</th><th style="width:20%">Sıralama ölçütü</th><th>Katkısı</th><th style="width:25%">Eksik kalan yönü</th></tr>
+    <tr><td><b>Döbereiner</b></td><td>Atom kütlesi</td><td>Benzer elementleri üçlü gruplara ayırdı; ortadakinin kütlesi diğer ikisinin ortalamasına yakındır.</td><td>Az sayıda üçlüde işe yaradı.</td></tr>
+    <tr><td><b>Newlands</b></td><td>Artan atom kütlesi</td><td>Elementleri sıralayınca her sekizincinin birinciye benzediğini gördü (oktavlar kuralı).</td><td>Kalsiyumdan sonraki ağır elementlerde bozuldu.</td></tr>
+    <tr><td><b>Mendeleyev</b></td><td>Artan atom kütlesi ve benzer özellikler</td><td>Benzerleri aynı sütuna koydu, bilinmeyen elementler için <b>boşluk bıraktı</b> ve özelliklerini önceden tahmin etti.</td><td>Birkaç yerde kütle sırasını bozmak zorunda kaldı.</td></tr>
+    <tr><td><b>Lothar Meyer</b></td><td>Atom kütlesi</td><td>Atom hacminin kütleyle birlikte dalgalanarak tekrar ettiğini grafikle gösterdi.</td><td>Yeni element tahmini yapmadı.</td></tr>
+    <tr><td><b>Moseley</b></td><td>Atom numarası</td><td>X ışınlarıyla atom numaralarını belirledi; sıralamanın atom numarasına göre yapılmasını önerdi.</td><td>Bugünkü tablonun temeli oldu.</td></tr>
+  </table>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:kavram Kavram</div>
+    <p><b>Periyodik yasa:</b> Elementler artan <b>atom numarasına</b> göre dizildiğinde fiziksel ve kimyasal özellikleri belirli aralıklarla tekrar eder. “Periyodik” sözcüğü bu düzenli tekrarı anlatır; takvimdeki haftaların tekrarlanması gibi.</p>
+  </div>
+
+  <div class="iki">
+    <div class="kutu hayat">
+      <div class="etiket">@ikon:hayat Hayatın İçinden</div>
+      <p style="font-size:9.3pt">Mendeleyev, silisyumun altındaki boşluğa “eka-silisyum” adını verdi; atom kütlesini yaklaşık 72, yoğunluğunu yaklaşık 5,5 g/cm³ olarak tahmin etti. 1886’da Clemens Winkler germanyumu keşfetti: atom kütlesi 72,6, yoğunluğu yaklaşık 5,3 g/cm³ çıktı. Tahminlerin tutması tabloya güveni büyük ölçüde artırdı.</p>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Mendeleyev elementleri atom numarasına göre sıraladı.”</div>
+        <div class="dogru"><b class="d">✓</b> 1869’da atom numarası bilinmiyordu; Mendeleyev <b>atom kütlesini</b> kullandı. Tellürü (127,6) iyottan (126,9) önceye koyması gibi istisnalar, ancak Moseley’in atom numarasıyla açıklandı.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 1 · Döbereiner üçlüsü</div>
+    <div class="soru">Lityum (6,9) ve potasyumun (39,1) atom kütleleri veriliyor. Döbereiner’in yaklaşımına göre bu üçlünün ortasındaki sodyumun atom kütlesi yaklaşık kaç olmalıdır?</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>Ortadaki elementin kütlesi, uçtakilerin ortalamasıdır: (6,9 + 39,1) / 2 = 46,0 / 2</span></div>
+      <div class="adim"><span class="n">2</span><span>Tahmin 23,0 çıkar. Sodyumun gerçek atom kütlesi de 23,0’tür; bu üçlüde kural çok iyi işler.</span></div>
+      <span class="sonuc">≈ 23,0</span>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · MODERN TABLONUN YAPISI
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Modern tablonun yapısı</span></div>
+
+  <h2 class="konu"><span class="num">2</span>Modern tablonun yapısı</h2>
+  <div class="alt-baslik">Yatay sıralar periyot, düşey sütunlar grup; renkler blokları gösteriyor.</div>
+
+  <p>Modern periyodik tabloda elementler <b>artan atom numarasına</b> göre dizilir. Yatay sıralara <b class="k">periyot</b>, düşey sütunlara <b class="k">grup</b> denir. Tabloda <b>7 periyot</b> ve <b>18 sütun</b> vardır. Altta ayrı yazılan iki satır, yer kazanmak için dışarı alınmış 6. ve 7. periyot elementleridir.</p>
+
+<!--BAS:buyuk-->
+<svg viewBox="0 0 186 113" style="width:100%;height:auto">
+<g font-family="Inter" text-anchor="middle">
+<text x="11.80" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">1</text>
+<text x="11.80" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">1A</text>
+<text x="21.90" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">2</text>
+<text x="21.90" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">2A</text>
+<text x="32.00" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">3</text>
+<text x="32.00" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">3B</text>
+<text x="42.10" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">4</text>
+<text x="42.10" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">4B</text>
+<text x="52.20" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">5</text>
+<text x="52.20" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">5B</text>
+<text x="62.30" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">6</text>
+<text x="62.30" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">6B</text>
+<text x="72.40" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">7</text>
+<text x="72.40" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">7B</text>
+<text x="82.50" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">8</text>
+<text x="82.50" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">8B</text>
+<text x="92.60" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">9</text>
+<text x="92.60" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">8B</text>
+<text x="102.70" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">10</text>
+<text x="102.70" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">8B</text>
+<text x="112.80" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">11</text>
+<text x="112.80" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">1B</text>
+<text x="122.90" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">12</text>
+<text x="122.90" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">2B</text>
+<text x="133.00" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">13</text>
+<text x="133.00" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">3A</text>
+<text x="143.10" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">14</text>
+<text x="143.10" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">4A</text>
+<text x="153.20" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">15</text>
+<text x="153.20" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">5A</text>
+<text x="163.30" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">16</text>
+<text x="163.30" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">6A</text>
+<text x="173.40" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">17</text>
+<text x="173.40" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">7A</text>
+<text x="183.50" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">18</text>
+<text x="183.50" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">8A</text>
+<text x="3" y="15.10" font-size="3.4" font-weight="800" fill="#7a0f3c">1</text>
+<text x="3" y="25.40" font-size="3.4" font-weight="800" fill="#7a0f3c">2</text>
+<text x="3" y="35.70" font-size="3.4" font-weight="800" fill="#7a0f3c">3</text>
+<text x="3" y="46.00" font-size="3.4" font-weight="800" fill="#7a0f3c">4</text>
+<text x="3" y="56.30" font-size="3.4" font-weight="800" fill="#7a0f3c">5</text>
+<text x="3" y="66.60" font-size="3.4" font-weight="800" fill="#7a0f3c">6</text>
+<text x="3" y="76.90" font-size="3.4" font-weight="800" fill="#7a0f3c">7</text>
+<rect x="7.00" y="9.00" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="8.00" y="11.70" font-size="2.3" text-anchor="start" fill="#3b4256">1</text>
+<text x="11.80" y="16.60" font-size="4.1" font-weight="800" fill="#1d2133">H</text>
+<rect x="178.70" y="9.00" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="179.70" y="11.70" font-size="2.3" text-anchor="start" fill="#3b4256">2</text>
+<text x="183.50" y="16.60" font-size="4.1" font-weight="800" fill="#1d2133">He</text>
+<rect x="7.00" y="19.30" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="8.00" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">3</text>
+<text x="11.80" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">Li</text>
+<rect x="17.10" y="19.30" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="18.10" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">4</text>
+<text x="21.90" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">Be</text>
+<rect x="128.20" y="19.30" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="129.20" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">5</text>
+<text x="133.00" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">B</text>
+<rect x="138.30" y="19.30" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="139.30" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">6</text>
+<text x="143.10" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">C</text>
+<rect x="148.40" y="19.30" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="149.40" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">7</text>
+<text x="153.20" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">N</text>
+<rect x="158.50" y="19.30" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="159.50" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">8</text>
+<text x="163.30" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">O</text>
+<rect x="168.60" y="19.30" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="169.60" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">9</text>
+<text x="173.40" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">F</text>
+<rect x="178.70" y="19.30" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="179.70" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">10</text>
+<text x="183.50" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">Ne</text>
+<rect x="7.00" y="29.60" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="8.00" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">11</text>
+<text x="11.80" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">Na</text>
+<rect x="17.10" y="29.60" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="18.10" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">12</text>
+<text x="21.90" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">Mg</text>
+<rect x="128.20" y="29.60" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="129.20" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">13</text>
+<text x="133.00" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">Al</text>
+<rect x="138.30" y="29.60" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="139.30" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">14</text>
+<text x="143.10" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">Si</text>
+<rect x="148.40" y="29.60" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="149.40" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">15</text>
+<text x="153.20" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">P</text>
+<rect x="158.50" y="29.60" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="159.50" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">16</text>
+<text x="163.30" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">S</text>
+<rect x="168.60" y="29.60" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="169.60" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">17</text>
+<text x="173.40" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">Cl</text>
+<rect x="178.70" y="29.60" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="179.70" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">18</text>
+<text x="183.50" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">Ar</text>
+<rect x="7.00" y="39.90" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="8.00" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">19</text>
+<text x="11.80" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">K</text>
+<rect x="17.10" y="39.90" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="18.10" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">20</text>
+<text x="21.90" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Ca</text>
+<rect x="27.20" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="28.20" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">21</text>
+<text x="32.00" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Sc</text>
+<rect x="37.30" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="38.30" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">22</text>
+<text x="42.10" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Ti</text>
+<rect x="47.40" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="48.40" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">23</text>
+<text x="52.20" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">V</text>
+<rect x="57.50" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="58.50" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">24</text>
+<text x="62.30" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Cr</text>
+<rect x="67.60" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="68.60" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">25</text>
+<text x="72.40" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Mn</text>
+<rect x="77.70" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="78.70" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">26</text>
+<text x="82.50" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Fe</text>
+<rect x="87.80" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="88.80" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">27</text>
+<text x="92.60" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Co</text>
+<rect x="97.90" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="98.90" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">28</text>
+<text x="102.70" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Ni</text>
+<rect x="108.00" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="109.00" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">29</text>
+<text x="112.80" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Cu</text>
+<rect x="118.10" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="119.10" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">30</text>
+<text x="122.90" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Zn</text>
+<rect x="128.20" y="39.90" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="129.20" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">31</text>
+<text x="133.00" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Ga</text>
+<rect x="138.30" y="39.90" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="139.30" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">32</text>
+<text x="143.10" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Ge</text>
+<rect x="148.40" y="39.90" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="149.40" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">33</text>
+<text x="153.20" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">As</text>
+<rect x="158.50" y="39.90" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="159.50" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">34</text>
+<text x="163.30" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Se</text>
+<rect x="168.60" y="39.90" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="169.60" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">35</text>
+<text x="173.40" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Br</text>
+<rect x="178.70" y="39.90" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="179.70" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">36</text>
+<text x="183.50" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Kr</text>
+<rect x="7.00" y="50.20" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="8.00" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">37</text>
+<text x="11.80" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Rb</text>
+<rect x="17.10" y="50.20" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="18.10" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">38</text>
+<text x="21.90" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Sr</text>
+<rect x="27.20" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="28.20" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">39</text>
+<text x="32.00" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Y</text>
+<rect x="37.30" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="38.30" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">40</text>
+<text x="42.10" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Zr</text>
+<rect x="47.40" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="48.40" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">41</text>
+<text x="52.20" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Nb</text>
+<rect x="57.50" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="58.50" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">42</text>
+<text x="62.30" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Mo</text>
+<rect x="67.60" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="68.60" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">43</text>
+<text x="72.40" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Tc</text>
+<rect x="77.70" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="78.70" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">44</text>
+<text x="82.50" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Ru</text>
+<rect x="87.80" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="88.80" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">45</text>
+<text x="92.60" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Rh</text>
+<rect x="97.90" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="98.90" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">46</text>
+<text x="102.70" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Pd</text>
+<rect x="108.00" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="109.00" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">47</text>
+<text x="112.80" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Ag</text>
+<rect x="118.10" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="119.10" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">48</text>
+<text x="122.90" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Cd</text>
+<rect x="128.20" y="50.20" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="129.20" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">49</text>
+<text x="133.00" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">In</text>
+<rect x="138.30" y="50.20" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="139.30" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">50</text>
+<text x="143.10" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Sn</text>
+<rect x="148.40" y="50.20" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="149.40" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">51</text>
+<text x="153.20" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Sb</text>
+<rect x="158.50" y="50.20" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="159.50" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">52</text>
+<text x="163.30" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Te</text>
+<rect x="168.60" y="50.20" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="169.60" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">53</text>
+<text x="173.40" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">I</text>
+<rect x="178.70" y="50.20" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="179.70" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">54</text>
+<text x="183.50" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Xe</text>
+<rect x="7.00" y="60.50" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="8.00" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">55</text>
+<text x="11.80" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Cs</text>
+<rect x="17.10" y="60.50" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="18.10" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">56</text>
+<text x="21.90" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Ba</text>
+<rect x="37.30" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="38.30" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">72</text>
+<text x="42.10" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Hf</text>
+<rect x="47.40" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="48.40" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">73</text>
+<text x="52.20" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Ta</text>
+<rect x="57.50" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="58.50" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">74</text>
+<text x="62.30" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">W</text>
+<rect x="67.60" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="68.60" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">75</text>
+<text x="72.40" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Re</text>
+<rect x="77.70" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="78.70" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">76</text>
+<text x="82.50" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Os</text>
+<rect x="87.80" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="88.80" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">77</text>
+<text x="92.60" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Ir</text>
+<rect x="97.90" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="98.90" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">78</text>
+<text x="102.70" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Pt</text>
+<rect x="108.00" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="109.00" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">79</text>
+<text x="112.80" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Au</text>
+<rect x="118.10" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="119.10" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">80</text>
+<text x="122.90" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Hg</text>
+<rect x="128.20" y="60.50" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="129.20" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">81</text>
+<text x="133.00" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Tl</text>
+<rect x="138.30" y="60.50" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="139.30" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">82</text>
+<text x="143.10" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Pb</text>
+<rect x="148.40" y="60.50" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="149.40" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">83</text>
+<text x="153.20" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Bi</text>
+<rect x="158.50" y="60.50" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="159.50" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">84</text>
+<text x="163.30" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Po</text>
+<rect x="168.60" y="60.50" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="169.60" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">85</text>
+<text x="173.40" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">At</text>
+<rect x="178.70" y="60.50" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="179.70" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">86</text>
+<text x="183.50" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Rn</text>
+<rect x="7.00" y="70.80" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="8.00" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">87</text>
+<text x="11.80" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Fr</text>
+<rect x="17.10" y="70.80" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="18.10" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">88</text>
+<text x="21.90" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Ra</text>
+<rect x="37.30" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="38.30" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">104</text>
+<text x="42.10" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Rf</text>
+<rect x="47.40" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="48.40" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">105</text>
+<text x="52.20" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Db</text>
+<rect x="57.50" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="58.50" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">106</text>
+<text x="62.30" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Sg</text>
+<rect x="67.60" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="68.60" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">107</text>
+<text x="72.40" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Bh</text>
+<rect x="77.70" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="78.70" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">108</text>
+<text x="82.50" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Hs</text>
+<rect x="87.80" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="88.80" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">109</text>
+<text x="92.60" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Mt</text>
+<rect x="97.90" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="98.90" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">110</text>
+<text x="102.70" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Ds</text>
+<rect x="108.00" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="109.00" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">111</text>
+<text x="112.80" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Rg</text>
+<rect x="118.10" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="119.10" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">112</text>
+<text x="122.90" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Cn</text>
+<rect x="128.20" y="70.80" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="129.20" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">113</text>
+<text x="133.00" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Nh</text>
+<rect x="138.30" y="70.80" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="139.30" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">114</text>
+<text x="143.10" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Fl</text>
+<rect x="148.40" y="70.80" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="149.40" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">115</text>
+<text x="153.20" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Mc</text>
+<rect x="158.50" y="70.80" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="159.50" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">116</text>
+<text x="163.30" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Lv</text>
+<rect x="168.60" y="70.80" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="169.60" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">117</text>
+<text x="173.40" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Ts</text>
+<rect x="178.70" y="70.80" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="179.70" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">118</text>
+<text x="183.50" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Og</text>
+<rect x="27.20" y="60.50" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25" stroke-dasharray="1 .6"/>
+<text x="32.00" y="65.10" font-size="2.3" font-weight="700" fill="#15803d">57–71</text>
+<text x="32.00" y="68.10" font-size="2.3" fill="#15803d">f bloku</text>
+<rect x="27.20" y="70.80" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25" stroke-dasharray="1 .6"/>
+<text x="32.00" y="75.40" font-size="2.3" font-weight="700" fill="#15803d">89–103</text>
+<text x="32.00" y="78.40" font-size="2.3" fill="#15803d">f bloku</text>
+<text x="26.00" y="90.30" font-size="3" font-weight="700" text-anchor="end" fill="#15803d">Lantanitler (6. periyot)</text>
+<rect x="27.20" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="28.20" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">57</text>
+<text x="32.00" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">La</text>
+<rect x="37.30" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="38.30" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">58</text>
+<text x="42.10" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Ce</text>
+<rect x="47.40" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="48.40" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">59</text>
+<text x="52.20" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Pr</text>
+<rect x="57.50" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="58.50" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">60</text>
+<text x="62.30" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Nd</text>
+<rect x="67.60" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="68.60" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">61</text>
+<text x="72.40" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Pm</text>
+<rect x="77.70" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="78.70" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">62</text>
+<text x="82.50" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Sm</text>
+<rect x="87.80" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="88.80" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">63</text>
+<text x="92.60" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Eu</text>
+<rect x="97.90" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="98.90" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">64</text>
+<text x="102.70" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Gd</text>
+<rect x="108.00" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="109.00" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">65</text>
+<text x="112.80" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Tb</text>
+<rect x="118.10" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="119.10" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">66</text>
+<text x="122.90" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Dy</text>
+<rect x="128.20" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="129.20" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">67</text>
+<text x="133.00" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Ho</text>
+<rect x="138.30" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="139.30" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">68</text>
+<text x="143.10" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Er</text>
+<rect x="148.40" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="149.40" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">69</text>
+<text x="153.20" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Tm</text>
+<rect x="158.50" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="159.50" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">70</text>
+<text x="163.30" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Yb</text>
+<rect x="168.60" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="169.60" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">71</text>
+<text x="173.40" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Lu</text>
+<text x="26.00" y="100.60" font-size="3" font-weight="700" text-anchor="end" fill="#15803d">Aktinitler (7. periyot)</text>
+<rect x="27.20" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="28.20" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">89</text>
+<text x="32.00" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Ac</text>
+<rect x="37.30" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="38.30" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">90</text>
+<text x="42.10" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Th</text>
+<rect x="47.40" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="48.40" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">91</text>
+<text x="52.20" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Pa</text>
+<rect x="57.50" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="58.50" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">92</text>
+<text x="62.30" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">U</text>
+<rect x="67.60" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="68.60" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">93</text>
+<text x="72.40" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Np</text>
+<rect x="77.70" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="78.70" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">94</text>
+<text x="82.50" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Pu</text>
+<rect x="87.80" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="88.80" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">95</text>
+<text x="92.60" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Am</text>
+<rect x="97.90" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="98.90" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">96</text>
+<text x="102.70" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Cm</text>
+<rect x="108.00" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="109.00" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">97</text>
+<text x="112.80" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Bk</text>
+<rect x="118.10" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="119.10" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">98</text>
+<text x="122.90" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Cf</text>
+<rect x="128.20" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="129.20" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">99</text>
+<text x="133.00" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Es</text>
+<rect x="138.30" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="139.30" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">100</text>
+<text x="143.10" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Fm</text>
+<rect x="148.40" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="149.40" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">101</text>
+<text x="153.20" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Md</text>
+<rect x="158.50" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="159.50" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">102</text>
+<text x="163.30" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">No</text>
+<rect x="168.60" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="169.60" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">103</text>
+<text x="173.40" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Lr</text>
+<text x="77.70" y="13.40" font-size="2.9" fill="#5d6478">1–3. periyotlarda geçiş elementi yoktur:</text>
+<text x="77.70" y="17.40" font-size="2.9" fill="#5d6478">2A’dan sonra doğrudan 3A gelir.</text>
+<rect x="7" y="107.30000000000001" width="5" height="3.6" rx=".8" fill="#fbcfe8" stroke="#be185d" stroke-width=".3"/>
+<text x="13.2" y="110.20000000000002" font-size="3.1" text-anchor="start" font-weight="700" fill="#be185d">s bloku</text>
+<rect x="39" y="107.30000000000001" width="5" height="3.6" rx=".8" fill="#fde7a8" stroke="#b45309" stroke-width=".3"/>
+<text x="45.2" y="110.20000000000002" font-size="3.1" text-anchor="start" font-weight="700" fill="#b45309">d bloku</text>
+<rect x="71" y="107.30000000000001" width="5" height="3.6" rx=".8" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".3"/>
+<text x="77.2" y="110.20000000000002" font-size="3.1" text-anchor="start" font-weight="700" fill="#1d4ed8">p bloku</text>
+<rect x="101" y="107.30000000000001" width="5" height="3.6" rx=".8" fill="#c9f2d6" stroke="#15803d" stroke-width=".3"/>
+<text x="107.2" y="110.20000000000002" font-size="3.1" text-anchor="start" font-weight="700" fill="#15803d">f bloku (iç geçiş)</text>
+<text x="183" y="110.20000000000002" font-size="2.8" text-anchor="end" fill="#5d6478">Üst satır: IUPAC grup no · alt satır: A/B adı</text>
+</g></svg>
+<!--SON:buyuk-->
+
+  <div class="olcek" style="margin-top:2mm">
+    <div><b>2</b><span>1. periyot</span></div><div><b>8</b><span>2. periyot</span></div><div><b>8</b><span>3. periyot</span></div>
+    <div><b>18</b><span>4. periyot</span></div><div><b>18</b><span>5. periyot</span></div><div><b>32</b><span>6. periyot</span></div><div><b>32</b><span>7. periyot</span></div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu kavram">
+      <div class="etiket">@ikon:kavram İki adlandırma</div>
+      <p style="font-size:9.2pt"><b>A/B sistemi:</b> 8 tane A grubu (baş grup) ve 8 tane B grubu (geçiş elementleri) vardır. 8B grubu <b>üç sütunu</b> birlikte kapsar.</p>
+      <p style="font-size:9.2pt"><b>IUPAC sistemi:</b> Sütunlar soldan sağa 1’den 18’e numaralanır.</p>
+      <p style="font-size:9.2pt;margin:0">Dönüşüm: 1A, 2A → 1, 2 · 3B–7B → 3–7 · 8B → 8, 9, 10 · 1B, 2B → 11, 12 · 3A–8A → 13–18</p>
+    </div>
+    <div>
+      <div class="kutu kavram">
+        <div class="etiket">@ikon:kavram Periyot ve grup</div>
+        <ul style="font-size:9.2pt;margin:0">
+          <li>1. periyot hariç her periyot bir <b>1A</b> elementiyle başlar; her periyot bir <b>8A</b> elementiyle biter.</li>
+          <li>İlk üç periyotta yalnızca A grubu vardır; geçiş elementleri 4. periyotta başlar.</li>
+          <li>Aynı gruptaki elementlerin kimyasal özellikleri benzerdir (1A’daki H bu benzerliğe uymaz).</li>
+        </ul>
+      </div>
+      <div class="kutu dikkat" style="margin:0">
+        <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+        <p style="font-size:9pt;margin:0"><b class="y" style="color:var(--dikkat)">✗</b> “18 sütun olduğuna göre her periyotta 18 element vardır.” <b style="color:var(--ornek)">✓</b> Periyotlardaki element sayıları 2, 8, 8, 18, 18, 32, 32’dir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · ELEKTRON DİZİLİMİNDEN YER BULMA
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Yer bulma</span></div>
+
+  <h2 class="konu"><span class="num">3</span>Elektron diziliminden yer bulma</h2>
+  <div class="alt-baslik">En büyük katman periyodu, son orbital bloğu, değerlik elektronları grubu söyler.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:kavram Kavram</div>
+    <p><b>Blok:</b> Temel hâl elektron diziliminde en son yazılan orbitalin türüdür. Tabloda <b>s, p, d</b> ve <b>f</b> olmak üzere dört blok vardır. s ve p bloku A gruplarını (baş grup), d bloku B gruplarını (geçiş elementleri), f bloku lantanit ve aktinitleri (iç geçiş elementleri) oluşturur.</p>
+    <p><b>Değerlik (valans) elektronları:</b> Kimyasal tepkimelere katılan en dış elektronlardır. A grubunda <b>ns + np</b>, B grubunda <b>ns + (n−1)d</b> orbitallerindeki elektronlar sayılır (n: en büyük enerji düzeyi).</p>
+  </div>
+
+  <svg viewBox="0 0 178 38" style="width:100%;height:auto;margin:0 0 3mm">
+    <defs><marker id="ok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#be185d"/></marker></defs>
+    <g font-family="Inter" text-anchor="middle">
+      <rect x="1" y="9" width="30" height="20" rx="3" fill="#fdeef5" stroke="#be185d" stroke-width=".5"/>
+      <text x="16" y="17.5" font-size="3.7" font-weight="800" fill="#7a0f3c">Atom no (Z)</text>
+      <text x="16" y="23.5" font-size="3" fill="#5d6478">= elektron sayısı</text>
+      <path d="M32 19 H40" stroke="#be185d" stroke-width=".7" marker-end="url(#ok)"/>
+      <rect x="41" y="9" width="36" height="20" rx="3" fill="#fff" stroke="#be185d" stroke-width=".5"/>
+      <text x="59" y="17.5" font-size="3.7" font-weight="800" fill="#7a0f3c">Temel hâl</text>
+      <text x="59" y="23.5" font-size="3.4" font-weight="700" fill="#7a0f3c">elektron dizilimi</text>
+      <path d="M78 19 L86 7" stroke="#be185d" stroke-width=".7" marker-end="url(#ok)"/>
+      <path d="M78 19 H86" stroke="#be185d" stroke-width=".7" marker-end="url(#ok)"/>
+      <path d="M78 19 L86 31" stroke="#be185d" stroke-width=".7" marker-end="url(#ok)"/>
+      <rect x="87" y="1" width="52" height="10" rx="2.5" fill="#fdeef5" stroke="#be185d" stroke-width=".4"/>
+      <text x="113" y="7.4" font-size="3.3" fill="#1d2133">en büyük n → <tspan font-weight="800" fill="#be185d">PERİYOT</tspan></text>
+      <rect x="87" y="14" width="52" height="10" rx="2.5" fill="#fdeef5" stroke="#be185d" stroke-width=".4"/>
+      <text x="113" y="20.4" font-size="3.3" fill="#1d2133">son orbital → <tspan font-weight="800" fill="#be185d">BLOK</tspan> (s, p, d, f)</text>
+      <rect x="87" y="27" width="52" height="10" rx="2.5" fill="#fdeef5" stroke="#be185d" stroke-width=".4"/>
+      <text x="113" y="33.4" font-size="3.3" fill="#1d2133">değerlik e⁻ sayısı → <tspan font-weight="800" fill="#be185d">GRUP</tspan></text>
+      <path d="M140 19 H146" stroke="#be185d" stroke-width=".7" marker-end="url(#ok)"/>
+      <rect x="147" y="5" width="30" height="28" rx="3" fill="#be185d"/>
+      <text x="162" y="13" font-size="3.2" font-weight="800" fill="#fff">s veya p ile</text>
+      <text x="162" y="17" font-size="3.2" font-weight="800" fill="#fff">bitiyorsa: A</text>
+      <text x="162" y="24" font-size="3.2" font-weight="800" fill="#fde68a">d ile</text>
+      <text x="162" y="28" font-size="3.2" font-weight="800" fill="#fde68a">bitiyorsa: B</text>
+    </g>
+  </svg>
+
+  <div class="iki-genis">
+    <div>
+      <div class="kutu ornek">
+        <div class="etiket">@ikon:ornek Çözümlü Örnek 2 · A grubu</div>
+        <div class="soru"><sub>15</sub>P ve <sub>20</sub>Ca elementlerinin periyodik tablodaki yerlerini bulunuz.</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span><sub>15</sub>P: <span class="dizilim">1s^2 2s^2 2p^6 3s^2 3p^3</span> → en büyük n = 3, son orbital p (A grubu), değerlik e⁻ = 2 + 3 = 5</span></div>
+          <div class="adim"><span class="n">2</span><span><sub>20</sub>Ca: <span class="dizilim">1s^2 2s^2 2p^6 3s^2 3p^6 4s^2</span> → n = 4, son orbital s (A grubu), değerlik e⁻ = 2</span></div>
+          <span class="sonuc">P: 3. periyot 5A (15) · Ca: 4. periyot 2A (2)</span>
+        </div>
+      </div>
+      <div class="kutu ornek" style="margin-bottom:0">
+        <div class="etiket">@ikon:ornek Çözümlü Örnek 3 · B grubu</div>
+        <div class="soru"><sub>27</sub>Co elementinin yerini bulunuz.</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span><span class="dizilim">1s^2 2s^2 2p^6 3s^2 3p^6 4s^2 3d^7</span> → n = 4, son orbital d (B grubu)</span></div>
+          <div class="adim"><span class="n">2</span><span>Değerlik e⁻ = 4s + 3d = 2 + 7 = 9 → 8B grubunun 2. sütunu</span></div>
+          <span class="sonuc">4. periyot 8B (9. grup), d bloku</span>
+        </div>
+      </div>
+    </div>
+    <table class="tablo sik" style="margin:0;font-size:8.8pt">
+      <tr><th>Son terimler</th><th>A/B</th><th>IUPAC</th></tr>
+      <tr><td><span class="dizilim">s^1</span></td><td>1A</td><td>1</td></tr>
+      <tr><td><span class="dizilim">s^2</span> (He hariç)</td><td>2A</td><td>2</td></tr>
+      <tr><td><span class="dizilim">s^2 p^1 … s^2 p^5</span></td><td>3A … 7A</td><td>13 … 17</td></tr>
+      <tr><td><span class="dizilim">s^2 p^6</span> ve He</td><td>8A</td><td>18</td></tr>
+      <tr><td><span class="dizilim">s^2 d^1 … s^2 d^5</span></td><td>3B … 7B</td><td>3 … 7</td></tr>
+      <tr><td><span class="dizilim">s^2 d^6</span>, <span class="dizilim">d^7</span>, <span class="dizilim">d^8</span></td><td>8B</td><td>8, 9, 10</td></tr>
+      <tr><td><span class="dizilim">s^1 d^10</span></td><td>1B</td><td>11</td></tr>
+      <tr><td><span class="dizilim">s^2 d^10</span></td><td>2B</td><td>12</td></tr>
+      <tr><td colspan="3" class="kucuk" style="line-height:1.35">p ile biten 4. periyot ve sonrası elementlerde dolu d orbitali de sayılırsa IUPAC numarası doğrudan çıkar: <span class="dizilim">4s^2 3d^10 4p^4</span> → 2 + 10 + 4 = 16.</td></tr>
+    </table>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · KISA YOLLAR VE ÖZEL DURUMLAR
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Kısa yollar ve özel durumlar</span></div>
+
+  <h2 class="konu"><span class="num">4</span>Kısa yollar ve özel durumlar</h2>
+  <div class="alt-baslik">Katman dizilimi, soy gaz yöntemi ve dikkat isteyen istisnalar</div>
+
+  <div class="iki-genis">
+    <div>
+      <h3 style="margin-top:0">İlk 20 element: katmanlarla bul</h3>
+      <p>Atom numarası 1–20 olan elementlerin hepsi A grubundadır. Elektronları katmanlara dağıtmak yeterlidir: <b>katman sayısı = periyot</b>, <b>son katmandaki elektron sayısı = A grubu numarası</b>.</p>
+      <p style="margin:0"><sub>17</sub>Cl: 2 · 8 · 7 → 3 katman, son katmanda 7 → <b>3. periyot 7A</b><br><sub>19</sub>K: 2 · 8 · 8 · 1 → 4 katman, son katmanda 1 → <b>4. periyot 1A</b></p>
+    </div>
+    <svg viewBox="0 0 100 52" style="width:100%;height:auto">
+      <g font-family="Inter" text-anchor="middle">
+        <g transform="translate(24,24)" fill="none" stroke="#e3b5c9" stroke-width=".5">
+          <circle r="8"/><circle r="14"/><circle r="20"/>
+        </g>
+        <circle cx="24" cy="24" r="4" fill="#be185d"/><text x="24" y="25.3" font-size="3" font-weight="800" fill="#fff">17+</text>
+        <g fill="#1d4ed8">
+          <circle cx="24" cy="16" r="1.2"/><circle cx="24" cy="32" r="1.2"/>
+          <circle cx="24" cy="10" r="1.2"/><circle cx="24" cy="38" r="1.2"/><circle cx="10" cy="24" r="1.2"/><circle cx="38" cy="24" r="1.2"/>
+          <circle cx="14.1" cy="14.1" r="1.2"/><circle cx="33.9" cy="33.9" r="1.2"/><circle cx="33.9" cy="14.1" r="1.2"/><circle cx="14.1" cy="33.9" r="1.2"/>
+          <circle cx="24" cy="4" r="1.2"/><circle cx="41.3" cy="14" r="1.2"/><circle cx="41.3" cy="34" r="1.2"/><circle cx="24" cy="44" r="1.2"/>
+          <circle cx="6.7" cy="34" r="1.2"/><circle cx="6.7" cy="14" r="1.2"/><circle cx="14" cy="6.7" r="1.2"/>
+        </g>
+        <text x="24" y="50.5" font-size="3.4" font-weight="700" fill="#1d2133">Cl: 2 · 8 · 7</text>
+        <g transform="translate(76,24)" fill="none" stroke="#e3b5c9" stroke-width=".5">
+          <circle r="6.5"/><circle r="11"/><circle r="15.5"/><circle r="20"/>
+        </g>
+        <circle cx="76" cy="24" r="3.6" fill="#be185d"/><text x="76" y="25.2" font-size="2.8" font-weight="800" fill="#fff">19+</text>
+        <g fill="#1d4ed8">
+          <circle cx="76" cy="17.5" r="1.1"/><circle cx="76" cy="30.5" r="1.1"/>
+          <circle cx="76" cy="13" r="1.1"/><circle cx="76" cy="35" r="1.1"/><circle cx="65" cy="24" r="1.1"/><circle cx="87" cy="24" r="1.1"/>
+          <circle cx="68.2" cy="16.2" r="1.1"/><circle cx="83.8" cy="31.8" r="1.1"/><circle cx="83.8" cy="16.2" r="1.1"/><circle cx="68.2" cy="31.8" r="1.1"/>
+          <circle cx="76" cy="8.5" r="1.1"/><circle cx="76" cy="39.5" r="1.1"/><circle cx="60.5" cy="24" r="1.1"/><circle cx="91.5" cy="24" r="1.1"/>
+          <circle cx="65" cy="13" r="1.1"/><circle cx="87" cy="35" r="1.1"/><circle cx="87" cy="13" r="1.1"/><circle cx="65" cy="35" r="1.1"/>
+        </g>
+        <circle cx="90.1" cy="9.9" r="1.5" fill="#f59e0b"/>
+        <text x="76" y="50.5" font-size="3.4" font-weight="700" fill="#1d2133">K: 2 · 8 · 8 · 1</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="kutu ipucu" style="margin-top:3mm">
+    <div class="etiket">@ikon:ipucu Soy gaz yöntemi</div>
+    <p style="font-size:9.3pt">Soy gazların atom numaralarını bil: <b>2, 10, 18, 36, 54, 86</b>. Elementin atom numarasından küçük en yakın soy gazı bul. Element, o soy gazın <b>bir alt periyodundadır</b>; aradaki fark, sütun sırasını verir.</p>
+    <p style="font-size:9.3pt;margin:0"><b>4. ve 5. periyotta</b> fark doğrudan IUPAC grup numarasıdır: <sub>51</sub>X → 51 − 36 = 15 → 5. periyot 15. grup (5A). <b>2. ve 3. periyotta</b> fark 1 ya da 2 ise grup 1 ya da 2’dir; fark 3–8 ise 10 eklenir: <sub>13</sub>X → 13 − 10 = 3 → 3. periyot 13. grup (3A).</p>
+  </div>
+
+  <h3>Dikkat isteyen durumlar</h3>
+  <div class="uc">
+    <div class="kutu duz serit" style="--bg:#fdf6fa;margin:0">
+      <p style="font-size:9pt;margin:0"><b class="k">Helyum:</b> <span class="dizilim">1s^2</span> ile s blokunda biter ama kararlı soy gaz olduğu için <b>8A</b> grubundadır. 2A’ya yazılmaz.</p>
+    </div>
+    <div class="kutu duz serit" style="--bg:#fdf6fa;margin:0">
+      <p style="font-size:9pt;margin:0"><b class="k">Cr ve Cu:</b> Yarı dolu ve tam dolu d orbitali daha kararlıdır: <sub>24</sub>Cr <span class="dizilim">4s^1 3d^5</span> → 6B; <sub>29</sub>Cu <span class="dizilim">4s^1 3d^10</span> → 1B.</p>
+    </div>
+    <div class="kutu duz serit" style="--bg:#fdf6fa;margin:0">
+      <p style="font-size:9pt;margin:0"><b class="k">Sıra:</b> 8A’dan sonra yeni periyot 1A ile başlar. 2A’dan sonra 2. ve 3. periyotta 3A, 4. periyottan itibaren 3B gelir.</p>
+    </div>
+  </div>
+
+  <div class="kutu ornek" style="margin-top:3.5mm">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 4</div>
+    <div class="iki" style="gap:4mm">
+      <div>
+        <div class="soru">3. periyotta bulunan ve temel hâlde 3 yarı dolu orbitali olan element hangisidir, hangi gruptadır?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>3 yarı dolu orbital için üç p orbitaline birer elektron gerekir: <span class="dizilim">3p^3</span></span></div>
+          <div class="adim"><span class="n">2</span><span><span class="dizilim">1s^2 2s^2 2p^6 3s^2 3p^3</span> → 15 elektron, değerlik 2 + 3 = 5</span></div>
+          <span class="sonuc">Z = 15 (fosfor), 5A grubu</span>
+        </div>
+      </div>
+      <div>
+        <div class="soru">Değerlik elektronları <span class="dizilim">5s^2 5p^5</span> olan elementin atom numarası ve yeri nedir?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>n = 5 → 5. periyot; son orbital p → A grubu; 2 + 5 = 7 → 7A</span></div>
+          <div class="adim"><span class="n">2</span><span>4. periyodun soy gazı 36’dır; 5. periyotta 17. sütun: 36 + 17 = 53</span></div>
+          <span class="sonuc">Z = 53 (iyot), 5. periyot 7A</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu dikkat">
+    <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “Bir elementin tablodaki yerini bilirsem nötron sayısını ve kütle numarasını da bulurum.”</div>
+      <div class="dogru"><b class="d">✓</b> Yer; atom numarasını, elektron sayısını ve dizilimini verir. Nötron sayısı izotoptan izotopa değiştiği için <b>yerden bulunamaz</b>.</div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · METAL, AMETAL, YARI METAL, SOY GAZ
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Elementlerin sınıfları</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Metal, ametal, yarı metal, soy gaz</h2>
+  <div class="alt-baslik">Tablonun solu ve ortası metal, sağ üstü ametal; arada basamak şeklinde yarı metaller.</div>
+
+  <div class="iki-genis" style="grid-template-columns:1.55fr 1fr">
+<!--BAS:metal-->
+<svg viewBox="0 0 120 63" style="width:100%;height:auto">
+<g font-family="Inter" text-anchor="middle">
+<rect x="1.00" y="1.00" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="4.10" y="5.30" font-size="2.9" font-weight="700" fill="#1d2133">H</text>
+<rect x="113.20" y="1.00" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="5.30" font-size="2.9" font-weight="700" fill="#1d2133">He</text>
+<rect x="1.00" y="7.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="4.10" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">Li</text>
+<rect x="7.60" y="7.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="10.70" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">Be</text>
+<rect x="80.20" y="7.60" width="6.2" height="6.2" rx=".7" fill="#fde68a" stroke="#a16207" stroke-width=".2"/>
+<text x="83.30" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">B</text>
+<rect x="86.80" y="7.60" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="89.90" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">C</text>
+<rect x="93.40" y="7.60" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="96.50" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">N</text>
+<rect x="100.00" y="7.60" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="103.10" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">O</text>
+<rect x="106.60" y="7.60" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="109.70" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">F</text>
+<rect x="113.20" y="7.60" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">Ne</text>
+<rect x="1.00" y="14.20" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="4.10" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">Na</text>
+<rect x="7.60" y="14.20" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="10.70" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">Mg</text>
+<rect x="80.20" y="14.20" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="83.30" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">Al</text>
+<rect x="86.80" y="14.20" width="6.2" height="6.2" rx=".7" fill="#fde68a" stroke="#a16207" stroke-width=".2"/>
+<text x="89.90" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">Si</text>
+<rect x="93.40" y="14.20" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="96.50" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">P</text>
+<rect x="100.00" y="14.20" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="103.10" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">S</text>
+<rect x="106.60" y="14.20" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="109.70" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">Cl</text>
+<rect x="113.20" y="14.20" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">Ar</text>
+<rect x="1.00" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="4.10" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">K</text>
+<rect x="7.60" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="10.70" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Ca</text>
+<rect x="14.20" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="17.30" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Sc</text>
+<rect x="20.80" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="23.90" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Ti</text>
+<rect x="27.40" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="30.50" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">V</text>
+<rect x="34.00" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="37.10" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Cr</text>
+<rect x="40.60" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="43.70" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Mn</text>
+<rect x="47.20" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="50.30" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Fe</text>
+<rect x="53.80" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="56.90" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Co</text>
+<rect x="60.40" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="63.50" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Ni</text>
+<rect x="67.00" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="70.10" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Cu</text>
+<rect x="73.60" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="76.70" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Zn</text>
+<rect x="80.20" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="83.30" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Ga</text>
+<rect x="86.80" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fde68a" stroke="#a16207" stroke-width=".2"/>
+<text x="89.90" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Ge</text>
+<rect x="93.40" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fde68a" stroke="#a16207" stroke-width=".2"/>
+<text x="96.50" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">As</text>
+<rect x="100.00" y="20.80" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="103.10" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Se</text>
+<rect x="106.60" y="20.80" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="109.70" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Br</text>
+<rect x="113.20" y="20.80" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Kr</text>
+<rect x="1.00" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="4.10" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Rb</text>
+<rect x="7.60" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="10.70" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Sr</text>
+<rect x="14.20" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="17.30" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Y</text>
+<rect x="20.80" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="23.90" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Zr</text>
+<rect x="27.40" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="30.50" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Nb</text>
+<rect x="34.00" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="37.10" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Mo</text>
+<rect x="40.60" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="43.70" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Tc</text>
+<rect x="47.20" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="50.30" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Ru</text>
+<rect x="53.80" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="56.90" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Rh</text>
+<rect x="60.40" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="63.50" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Pd</text>
+<rect x="67.00" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="70.10" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Ag</text>
+<rect x="73.60" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="76.70" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Cd</text>
+<rect x="80.20" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="83.30" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">In</text>
+<rect x="86.80" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="89.90" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Sn</text>
+<rect x="93.40" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fde68a" stroke="#a16207" stroke-width=".2"/>
+<text x="96.50" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Sb</text>
+<rect x="100.00" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fde68a" stroke="#a16207" stroke-width=".2"/>
+<text x="103.10" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Te</text>
+<rect x="106.60" y="27.40" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="109.70" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">I</text>
+<rect x="113.20" y="27.40" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Xe</text>
+<rect x="1.00" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="4.10" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Cs</text>
+<rect x="7.60" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="10.70" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Ba</text>
+<rect x="20.80" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="23.90" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Hf</text>
+<rect x="27.40" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="30.50" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Ta</text>
+<rect x="34.00" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="37.10" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">W</text>
+<rect x="40.60" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="43.70" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Re</text>
+<rect x="47.20" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="50.30" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Os</text>
+<rect x="53.80" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="56.90" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Ir</text>
+<rect x="60.40" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="63.50" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Pt</text>
+<rect x="67.00" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="70.10" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Au</text>
+<rect x="73.60" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="76.70" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Hg</text>
+<rect x="80.20" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="83.30" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Tl</text>
+<rect x="86.80" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="89.90" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Pb</text>
+<rect x="93.40" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="96.50" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Bi</text>
+<rect x="100.00" y="34.00" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="103.10" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Po</text>
+<rect x="106.60" y="34.00" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="109.70" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">At</text>
+<rect x="113.20" y="34.00" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Rn</text>
+<rect x="1.00" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="4.10" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Fr</text>
+<rect x="7.60" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="10.70" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Ra</text>
+<rect x="20.80" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="23.90" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Rf</text>
+<rect x="27.40" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="30.50" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Db</text>
+<rect x="34.00" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="37.10" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Sg</text>
+<rect x="40.60" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="43.70" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Bh</text>
+<rect x="47.20" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="50.30" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Hs</text>
+<rect x="53.80" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="56.90" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Mt</text>
+<rect x="60.40" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="63.50" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Ds</text>
+<rect x="67.00" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="70.10" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Rg</text>
+<rect x="73.60" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="76.70" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Cn</text>
+<rect x="80.20" y="40.60" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="83.30" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Nh</text>
+<rect x="86.80" y="40.60" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="89.90" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Fl</text>
+<rect x="93.40" y="40.60" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="96.50" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Mc</text>
+<rect x="100.00" y="40.60" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="103.10" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Lv</text>
+<rect x="106.60" y="40.60" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="109.70" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Ts</text>
+<rect x="113.20" y="40.60" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Og</text>
+<rect x="14.20" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2" stroke-dasharray=".8 .5"/>
+<text x="17.30" y="38.10" font-size="2.6" font-weight="700" fill="#be185d">*</text>
+<rect x="14.20" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2" stroke-dasharray=".8 .5"/>
+<text x="17.30" y="44.70" font-size="2.6" font-weight="700" fill="#be185d">*</text>
+<path d="M80.00 7.40 V14.00 H86.60 V20.60 H86.60 V27.20 H93.20 V33.80 H99.80 V40.40" fill="none" stroke="#1d2133" stroke-width=".7"/>
+<rect x="14.20" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="17.30" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">La</text>
+<rect x="20.80" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="23.90" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Ce</text>
+<rect x="27.40" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="30.50" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Pr</text>
+<rect x="34.00" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="37.10" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Nd</text>
+<rect x="40.60" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="43.70" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Pm</text>
+<rect x="47.20" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="50.30" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Sm</text>
+<rect x="53.80" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="56.90" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Eu</text>
+<rect x="60.40" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="63.50" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Gd</text>
+<rect x="67.00" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="70.10" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Tb</text>
+<rect x="73.60" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="76.70" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Dy</text>
+<rect x="80.20" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="83.30" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Ho</text>
+<rect x="86.80" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="89.90" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Er</text>
+<rect x="93.40" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="96.50" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Tm</text>
+<rect x="100.00" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="103.10" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Yb</text>
+<rect x="106.60" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="109.70" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Lu</text>
+<text x="13.20" y="53.10" font-size="2.6" font-weight="700" text-anchor="end" fill="#be185d">*</text>
+<rect x="14.20" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="17.30" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Ac</text>
+<rect x="20.80" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="23.90" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Th</text>
+<rect x="27.40" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="30.50" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Pa</text>
+<rect x="34.00" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="37.10" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">U</text>
+<rect x="40.60" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="43.70" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Np</text>
+<rect x="47.20" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="50.30" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Pu</text>
+<rect x="53.80" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="56.90" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Am</text>
+<rect x="60.40" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="63.50" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Cm</text>
+<rect x="67.00" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="70.10" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Bk</text>
+<rect x="73.60" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="76.70" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Cf</text>
+<rect x="80.20" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="83.30" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Es</text>
+<rect x="86.80" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="89.90" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Fm</text>
+<rect x="93.40" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="96.50" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Md</text>
+<rect x="100.00" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="103.10" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">No</text>
+<rect x="106.60" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="109.70" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Lr</text>
+<text x="13.20" y="59.70" font-size="2.6" font-weight="700" text-anchor="end" fill="#be185d">*</text>
+</g></svg>
+<!--SON:metal-->
+    <div style="font-size:8.8pt">
+      <div class="lejant" style="grid-template-columns:1fr;gap:1.2mm;margin-bottom:2mm">
+        <div><i style="background:#fbd3e4;border:.3mm solid #be185d"></i>Metal (elementlerin çoğu)</div>
+        <div><i style="background:#cdeafe;border:.3mm solid #0369a1"></i>Ametal: H, C, N, O, F, P, S, Cl, Se, Br, I</div>
+        <div><i style="background:#fde68a;border:.3mm solid #a16207"></i>Yarı metal: B, Si, Ge, As, Sb, Te</div>
+        <div><i style="background:#dcfce7;border:.3mm solid #15803d"></i>Soy gaz: 8A grubu</div>
+        <div><i style="background:#eceef3;border:.3mm solid #8a90a3"></i>Sınıfı kesinleşmemiş</div>
+      </div>
+      <p class="kucuk" style="margin:0">Kalın çizgi metallerle yarı metalleri ayıran “merdiven”dir. Gri kutulardaki elementler (Po, At ve 113–117) çok az miktarda elde edilebildiği için sınıfları kaynaklara göre değişir. * işaretli satırlar (lantanit ve aktinitler) metaldir.</p>
+    </div>
+  </div>
+
+  <table class="tablo sik" style="margin-top:2.5mm">
+    <tr><th style="width:17%">Özellik</th><th>Metal</th><th>Ametal</th><th>Yarı metal</th><th>Soy gaz</th></tr>
+    <tr><td><b>Görünüş</b></td><td>Parlak</td><td>Çoğu mat</td><td>Parlak</td><td>Renksiz gaz</td></tr>
+    <tr><td><b>İletkenlik</b></td><td>Isı ve elektriği iyi iletir</td><td>İletmez (grafit hariç)</td><td>Yarı iletken</td><td>İletmez</td></tr>
+    <tr><td><b>İşlenebilirlik</b></td><td>Tel ve levha olur</td><td>Katıları kırılgan</td><td>Kırılgan</td><td>—</td></tr>
+    <tr><td><b>Oda koşulu</b></td><td>Katı (cıva sıvı)</td><td>Katı, sıvı (brom) veya gaz</td><td>Katı</td><td>Gaz</td></tr>
+    <tr><td><b>Tanecik</b></td><td>Atomlar (metalik kristal)</td><td>Çoğu molekül: {O2}, {N2}, {S8}</td><td>Ağ örgü (Si)</td><td>Tek atom</td></tr>
+    <tr><td><b>Tepkimede</b></td><td>e⁻ verir, katyon olur; bileşiklerinde yalnız + değer</td><td>Metalle e⁻ alır, anyon olur; + ve − değer (F yalnız 1−)</td><td>Koşula göre metale ya da ametale benzer</td><td>Tepkimeye çok isteksiz</td></tr>
+  </table>
+
+  <div class="iki">
+    <div class="kutu hayat">
+      <div class="etiket">@ikon:hayat Hayatın İçinden</div>
+      <p style="font-size:9.2pt">Bilgisayar ve telefon çipleri çok saf <b>silisyumdan</b> üretilir. Silisyum yarı iletken olduğu için içine çok az miktarda bor ya da fosfor katılarak iletkenliği istenen düzeye ayarlanır. Metal kadar iyi, ametal kadar kötü iletmeyen bu “ara” davranış, transistörün temelidir.</p>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Hidrojen 1A grubunda olduğu için metaldir.”</div>
+        <div class="dogru"><b class="d">✓</b> Hidrojen tek değerlik elektronu yüzünden 1A’dadır ama bir <b>ametaldir</b>; oda koşulunda {H2} molekülleri hâlinde gazdır ve elektrik iletmez.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:kavram Bağ türüne kısa bakış</div>
+    <p style="font-size:9.2pt">Metal ile ametal atomları arasında elektron alışverişi olur ve <b>iyonik</b> bileşik oluşur ({NaCl}, {MgO}). Ametal atomları kendi aralarında elektronlarını <b>ortaklaşa</b> kullanır ({H2O}, {CO2}). Bağların ayrıntısı “Etkileşimler” temasında işlenecektir.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · GRUPLARIN ÖZEL ADLARI
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Grupların özel adları</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Grupların özel adları</h2>
+  <div class="alt-baslik">Aynı gruptaki elementler aynı sayıda değerlik elektronu taşır; bu yüzden “aile” gibi davranırlar.</div>
+
+  <div class="kart-izgara">
+    <div class="kutu duz">
+      <div class="grup-bas"><span class="rozet">1A · 1</span><b>Alkali metaller</b><span>Li, Na, K, Rb, Cs, Fr</span></div>
+      <ul>
+        <li>Değerlik elektronu 1; bileşiklerinde yalnız <b>1+</b> yüklüdür.</li>
+        <li>En aktif metallerdir; doğada serbest bulunmaz, gazyağı altında saklanır.</li>
+        <li>Yumuşaktır (bıçakla kesilir), taze kesilen yüzeyi parlaktır. Li, Na ve K sudan hafiftir.</li>
+        <li>Suyla {H2} gazı ve bazik çözelti oluşturur: 2Na + 2{H2O} → 2{NaOH} + {H2}</li>
+      </ul>
+    </div>
+    <div class="kutu duz">
+      <div class="grup-bas"><span class="rozet">2A · 2</span><b>Toprak alkali metaller</b><span>Be, Mg, Ca, Sr, Ba, Ra</span></div>
+      <ul>
+        <li>Değerlik elektronu 2; bileşiklerinde <b>2+</b> yüklüdür.</li>
+        <li>Aynı periyottaki alkali metalden daha sert ve daha az aktiftir.</li>
+        <li>Be dışındakiler suyla {H2} açığa çıkarır; oksit ve hidroksitlerinin çözeltileri baziktir.</li>
+        <li>Kalsiyum kemik ve dişlerin, magnezyum klorofilin yapısında bulunur.</li>
+      </ul>
+    </div>
+    <div class="kutu duz">
+      <div class="grup-bas"><span class="rozet">3A · 13</span><b>Toprak metalleri</b><span>B, Al, Ga, In, Tl</span></div>
+      <ul>
+        <li>Değerlik elektronu 3. <b>Bor yarı metal</b>, diğerleri metaldir.</li>
+        <li>Alüminyum bileşiklerinde 3+ yüklüdür; oksidi {Al2O3} hem asitle hem bazla tepkimeye girer (<b>amfoter</b>).</li>
+        <li>Galyum 30 °C’ye yakın bir sıcaklıkta erir; avuçta sıvılaşabilir.</li>
+      </ul>
+    </div>
+    <div class="kutu duz">
+      <div class="grup-bas"><span class="rozet">4A–6A · 14–16</span><b>Karbon, azot, oksijen grupları</b></div>
+      <ul>
+        <li>Bu gruplarda ametal, yarı metal ve metal bir arada bulunur: 4A’da C ametal, Si ve Ge yarı metal, Sn ve Pb metaldir.</li>
+        <li>Değerlik elektronları sırasıyla 4, 5 ve 6’dır.</li>
+        <li>Gruplar, en üstteki elementin adıyla anılır.</li>
+      </ul>
+    </div>
+    <div class="kutu duz">
+      <div class="grup-bas"><span class="rozet">7A · 17</span><b>Halojenler</b><span>F, Cl, Br, I, At, Ts</span></div>
+      <ul>
+        <li>Değerlik elektronu 7; F, Cl, Br ve I <b>iki atomlu</b> moleküllerdir: {F2}, {Cl2}, {Br2}, {I2}.</li>
+        <li>Bulundukları periyodun en aktif ametalleridir; metallerle tuz oluşturur (“halojen”: tuz yapan).</li>
+        <li>Flor bileşiklerinde yalnız 1− olur; diğerleri 1− dışında pozitif değerler de alabilir.</li>
+      </ul>
+    </div>
+    <div class="kutu duz">
+      <div class="grup-bas"><span class="rozet">8A · 18</span><b>Soy (asal) gazlar</b><span>He, Ne, Ar, Kr, Xe, Rn, Og</span></div>
+      <ul>
+        <li>Değerlik elektronu 8 (He: 2). Orbitalleri tam dolu olduğu için çok kararlıdır.</li>
+        <li>Oda koşulunda tek atomlu gazdır; erime ve kaynama noktaları çok düşüktür.</li>
+        <li>Kullanım: He balonlarda, Ne ışıklı tabelalarda, Ar kaynakta koruyucu gaz olarak.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="iki" style="margin-top:3mm">
+    <div class="kutu kavram" style="margin:0">
+      <div class="etiket">@ikon:kavram B grupları · Geçiş metalleri</div>
+      <ul style="font-size:8.9pt;margin:0;padding-left:4mm;line-height:1.38">
+        <li>d blokundadır, 4. periyottan başlar; 10 sütundur (8B üç sütun).</li>
+        <li>Hepsi metaldir; cıva hariç oda koşulunda katıdır. Çoğu sert, erime noktası yüksek ve yoğundur.</li>
+        <li>Birçoğu birden çok pozitif değer alır (Fe<sup>2+</sup>/Fe<sup>3+</sup>, Cu<sup>+</sup>/Cu<sup>2+</sup>); bileşikleri genellikle renklidir.</li>
+        <li><b>Lantanit ve aktinitler</b> (f bloku) iç geçiş metalleridir; aktinitlerin hepsi radyoaktiftir.</li>
+      </ul>
+    </div>
+    <div>
+      <svg viewBox="0 0 88 46" style="width:100%;height:auto">
+        <g font-family="Inter" text-anchor="middle">
+          <text x="44" y="4.5" font-size="3.4" font-weight="800" fill="#7a0f3c">Halojenler oda koşulunda</text>
+          <g stroke="#9aa3b8" stroke-width=".5" fill="#fff">
+            <path d="M7 9 V33 a5 5 0 0 0 10 0 V9"/><path d="M29 9 V33 a5 5 0 0 0 10 0 V9"/>
+            <path d="M51 9 V33 a5 5 0 0 0 10 0 V9"/><path d="M73 9 V33 a5 5 0 0 0 10 0 V9"/>
+          </g>
+          <path d="M7.3 11 V33 a4.7 4.7 0 0 0 9.4 0 V11 Z" fill="#fef9c3" opacity=".9"/>
+          <path d="M29.3 11 V33 a4.7 4.7 0 0 0 9.4 0 V11 Z" fill="#d9f99d" opacity=".9"/>
+          <path d="M51.3 27 V33 a4.7 4.7 0 0 0 9.4 0 V27 Z" fill="#9a3412"/>
+          <path d="M51.3 16 V27 h9.4 V16 Z" fill="#fdba74" opacity=".45"/>
+          <g fill="#3b0764"><circle cx="76" cy="35" r="1.6"/><circle cx="79.5" cy="36" r="1.5"/><circle cx="78" cy="33" r="1.3"/></g>
+          <g font-size="3.4" font-weight="800" fill="#1d2133">
+            <text x="12" y="44">F₂ gaz</text><text x="34" y="44">Cl₂ gaz</text><text x="56" y="44">Br₂ sıvı</text><text x="78" y="44">I₂ katı</text>
+          </g>
+        </g>
+      </svg>
+      <p class="kucuk" style="margin:1mm 0 0">F₂ soluk sarı, Cl₂ sarımsı yeşil gaz; Br₂ kırmızımsı kahverengi sıvı; I₂ koyu mor-siyah katıdır.</p>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · ATOMDAN İYONA
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Atomdan iyona</span></div>
+
+  <h2 class="konu"><span class="num">7</span>Atomdan iyona</h2>
+  <div class="alt-baslik">Atomlar elektron vererek ya da alarak soy gazların kararlı dizilimine benzemeye çalışır.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:kavram Kavram</div>
+    <p><b>İyon:</b> Elektron vermiş ya da almış, yüklü atom veya atom grubudur. Pozitif yüklü iyona <b>katyon</b> (Na<sup>+</sup>, Mg<sup>2+</sup>), negatif yüklü iyona <b>anyon</b> (Cl<sup>−</sup>, O<sup>2−</sup>) denir.</p>
+    <div class="denklem">İyon yükü = proton sayısı − elektron sayısı</div>
+  </div>
+
+  <svg viewBox="0 0 178 46" style="width:100%;height:auto;margin-bottom:2mm">
+    <defs><marker id="ok2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#be185d"/></marker></defs>
+    <g font-family="Inter" text-anchor="middle">
+      <g fill="none" stroke="#e3b5c9" stroke-width=".5">
+        <circle cx="18" cy="20" r="7"/><circle cx="18" cy="20" r="12"/><circle cx="18" cy="20" r="17"/>
+        <circle cx="66" cy="20" r="7"/><circle cx="66" cy="20" r="12"/>
+        <circle cx="112" cy="20" r="7"/><circle cx="112" cy="20" r="12"/><circle cx="112" cy="20" r="17"/>
+        <circle cx="160" cy="20" r="7"/><circle cx="160" cy="20" r="12"/><circle cx="160" cy="20" r="17"/>
+      </g>
+      <g fill="#be185d"><circle cx="18" cy="20" r="3.4"/><circle cx="66" cy="20" r="3.4"/><circle cx="112" cy="20" r="3.4"/><circle cx="160" cy="20" r="3.4"/></g>
+      <g font-size="2.7" font-weight="800" fill="#fff"><text x="18" y="21">11+</text><text x="66" y="21">11+</text><text x="112" y="21">17+</text><text x="160" y="21">17+</text></g>
+      <g font-size="3.4" font-weight="700" fill="#1d2133">
+        <text x="18" y="43">Na · 2 · 8 · 1</text><text x="66" y="43">Na⁺ · 2 · 8</text><text x="112" y="43">Cl · 2 · 8 · 7</text><text x="160" y="43">Cl⁻ · 2 · 8 · 8</text>
+      </g>
+      <circle cx="18" cy="3" r="1.6" fill="#f59e0b"/>
+      <path d="M36 14 H50" stroke="#be185d" stroke-width=".7" marker-end="url(#ok2)"/>
+      <text x="43" y="11" font-size="2.9" fill="#be185d" font-weight="700">1 e⁻ verir</text>
+      <text x="43" y="27" font-size="2.7" fill="#5d6478">Ne dizilimi</text>
+      <path d="M130 14 H144" stroke="#be185d" stroke-width=".7" marker-end="url(#ok2)"/>
+      <text x="137" y="11" font-size="2.9" fill="#be185d" font-weight="700">1 e⁻ alır</text>
+      <text x="137" y="27" font-size="2.7" fill="#5d6478">Ar dizilimi</text>
+      <circle cx="160" cy="3" r="1.6" fill="#f59e0b"/>
+      <line x1="89" y1="4" x2="89" y2="40" stroke="#e5e7f0" stroke-width=".5" stroke-dasharray="1.4 1"/>
+    </g>
+  </svg>
+
+  <div class="iki">
+    <div>
+      <table class="tablo sik" style="margin-top:0">
+        <tr><th>Atom iyona dönüşünce</th><th>Durum</th></tr>
+        <tr><td>Proton sayısı, nötron sayısı</td><td>Değişmez</td></tr>
+        <tr><td>Kütle numarası, çekirdek</td><td>Değişmez</td></tr>
+        <tr><td>Elektron sayısı ve dizilimi</td><td><b>Değişir</b></td></tr>
+        <tr><td>Kimyasal özellikler</td><td><b>Değişir</b></td></tr>
+      </table>
+      <table class="tablo sik">
+        <tr><th>Grup</th><th>1A</th><th>2A</th><th>3A (Al)</th><th>5A</th><th>6A</th><th>7A</th></tr>
+        <tr><td>Kararlı iyon</td><td>1+</td><td>2+</td><td>3+</td><td>3−</td><td>2−</td><td>1−</td></tr>
+      </table>
+    </div>
+    <div class="kutu ornek" style="margin:0">
+      <div class="etiket">@ikon:ornek Çözümlü Örnek 5</div>
+      <div class="soru"><sub>16</sub>S<sup>2−</sup> iyonunun elektron sayısını ve dizilimini bulunuz. Hangi soy gaza benzer?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Yük = p − e → −2 = 16 − e → e = 18</span></div>
+        <div class="adim"><span class="n">2</span><span>18 elektronu sırayla yerleştir: <span class="dizilim">1s^2 2s^2 2p^6 3s^2 3p^6</span></span></div>
+        <span class="sonuc">18 e⁻, <sub>18</sub>Ar ile aynı dizilim</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu kavram" style="margin-top:3mm">
+    <div class="etiket">@ikon:kavram İzoelektronik tanecikler</div>
+    <p style="font-size:9.3pt">Elektron sayıları ve elektron dizilimleri <b>aynı</b> olan, en az biri iyon olan taneciklere <b>izoelektronik</b> denir. Örneğin <sub>8</sub>O<sup>2−</sup>, <sub>9</sub>F<sup>−</sup>, <sub>10</sub>Ne, <sub>11</sub>Na<sup>+</sup>, <sub>12</sub>Mg<sup>2+</sup> ve <sub>13</sub>Al<sup>3+</sup> taneciklerinin hepsinde 10 elektron vardır: <span class="dizilim">1s^2 2s^2 2p^6</span>. Proton sayıları farklı olduğu için bunlar farklı taneciklerdir.</p>
+  </div>
+
+  <div class="iki">
+    <div class="kutu ornek">
+      <div class="etiket">@ikon:ornek Çözümlü Örnek 6</div>
+      <div class="soru">X<sup>3−</sup> iyonu 18 elektronludur. X’in periyodik tablodaki yeri nedir?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>−3 = p − 18 → p = 15. Nötr X atomu 15 elektronludur.</span></div>
+        <div class="adim"><span class="n">2</span><span>Atomun dizilimi: <span class="dizilim">… 3s^2 3p^3</span></span></div>
+        <span class="sonuc">3. periyot 5A (fosfor)</span>
+      </div>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Na<sup>+</sup> iyonu Ne gibi 10 elektronlu; o hâlde sodyum 2. periyot 8A’dadır.”</div>
+        <div class="dogru"><b class="d">✓</b> Yer, <b>nötr atomun temel hâl</b> diziliminden bulunur. Na: 2 · 8 · 1 → 3. periyot 1A.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · ÖZET
+     ========================================================= -->
+<section class="sayfa ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada periyodik tablo</h2><p>Her kutuyu kapat, içindekini kendi cümlelerinle söylemeye çalış, sonra kontrol et.</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket">@ikon:kavram Tablonun yapısı</div>
+      <ul style="font-size:9.1pt">
+        <li>Sıralama ölçütü: <b>atom numarası</b> (Moseley, 1913)</li>
+        <li>7 periyot: 2, 8, 8, 18, 18, 32, 32 element</li>
+        <li>18 sütun: 8 A grubu + 8 B grubu (8B = 3 sütun)</li>
+        <li>3A–8A → 13–18 · 8B → 8, 9, 10 · 1B, 2B → 11, 12</li>
+        <li>Bloklar: s, p (A grupları) · d (B) · f (iç geçiş)</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket">@ikon:ornek Yer bulmada 3 adım</div>
+      <ul style="font-size:9.1pt">
+        <li><b>1.</b> Nötr atomun temel hâl dizilimini yaz.</li>
+        <li><b>2.</b> En büyük n → periyot; son orbital → blok.</li>
+        <li><b>3.</b> s/p: ns + np → A grubu · d: ns + (n−1)d → B grubu</li>
+        <li>Kısa yol: en yakın küçük soy gaz + fark</li>
+        <li>İstisnalar: He → 8A · Cr → 6B · Cu → 1B</li>
+      </ul>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket">@ikon:kavram Sınıflar ve aileler</div>
+      <ul style="font-size:9.1pt">
+        <li>Metal: parlak, iletken, tel-levha · Ametal: iletmez, kırılgan</li>
+        <li>Yarı metal: B, Si, Ge, As, Sb, Te (yarı iletken)</li>
+        <li>1A alkali · 2A toprak alkali · 3A toprak metalleri</li>
+        <li>7A halojenler · 8A soy gazlar · B: geçiş metalleri</li>
+        <li>H 1A’dadır ama ametaldir.</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket">@ikon:dikkat En sık 4 hata</div>
+      <ul style="font-size:9.1pt">
+        <li>Mendeleyev’in atom numarası kullandığını sanmak</li>
+        <li>3d’yi 4s’den önce doldurmak (<sub>19</sub>K’yi 3. periyoda koymak)</li>
+        <li>d ile biten elementi A grubuna yazmak (Fe → “8A”)</li>
+        <li>İyonun ya da He’nin dizilimine bakıp yanlış gruba koymak</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Döbereiner’den Moseley’e tablonun gelişimini sıralayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>A/B ve IUPAC grup adlarını birbirine çevirebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Temel hâl diziliminden periyot, grup ve bloğu bulabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Metal, ametal, yarı metal ve soy gazları özellikleriyle ayırt edebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Alkali metal, toprak alkali metal, halojen ve soy gaz örnekleri verebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bir iyonun yükünü ve elektron dizilimini bulabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:5mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Dört öğrenci elementlerin yerini buldu ama her çözümde bir hata var. Hatalı satırı bul, nedenini yaz, doğru çözümü kutuya yap.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> <sub>19</sub>K elementinin yeri neresidir?</p>
+      <div class="defter">
+        <div class="ogrenci">Elif’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>K: 1s^2 2s^2 2p^6 3s^2 3p^6 3d^1</div>
+        <div class="satir"><span class="sn">2</span>En büyük enerji düzeyi 3 → 3. periyot</div>
+        <div class="satir"><span class="sn">3</span>d ile bitiyor → 3B grubu</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> <sub>26</sub>Fe elementinin yeri neresidir?</p>
+      <div class="defter">
+        <div class="ogrenci">Burak’ın çözümü</div>
+        <div class="satir"><span class="sn">1</span>Fe: 1s^2 2s^2 2p^6 3s^2 3p^6 4s^2 3d^6</div>
+        <div class="satir"><span class="sn">2</span>Değerlik e⁻ = 2 + 6 = 8 → 8A grubu</div>
+        <div class="satir"><span class="sn">3</span>En büyük enerji düzeyi 4 → 4. periyot</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> <sub>17</sub>Cl elementinin grubu nedir?</p>
+      <div class="defter">
+        <div class="ogrenci">Selin’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>Cl 1 e⁻ alırsa Cl⁻ iyonu 18 e⁻ olur.</div>
+        <div class="satir"><span class="sn">2</span>Yer için Cl⁻ dizilimini kullanırım: …3s^2 3p^6</div>
+        <div class="satir"><span class="sn">3</span>Değerlik e⁻ 8 → 3. periyot 8A</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> <sub>2</sub>He hangi grupta, hangi sınıftadır?</p>
+      <div class="defter">
+        <div class="ogrenci">Mert’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>He: 1s^2 → 1. periyot</div>
+        <div class="satir"><span class="sn">2</span>Son orbital s, değerlik e⁻ sayısı 2</div>
+        <div class="satir"><span class="sn">3</span>s^2 ile bittiği için 2A, toprak alkali metal</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Sonucu her zaman tabloda kontrol et. Bulduğun yerde gerçekten o atom numarasına sahip bir element var mı? Örneğin 3. periyotta 3B diye bir kutu yoktur.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni, tabloyu ya da grafiği oku; sonra hangi bilginin işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Sağlık</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Bir mineral takviyesinin etiketinde aşağıdaki elementler yazılıdır.</p>
+          <table class="tablo sik" style="font-size:8.6pt">
+            <tr><th>Element</th><th>Z</th><th>Vücuttaki görevi</th></tr>
+            <tr><td>Ca</td><td>20</td><td>Kemik ve diş yapısı</td></tr>
+            <tr><td>Mg</td><td>12</td><td>Kas ve sinir işleyişi</td></tr>
+            <tr><td>Fe</td><td>26</td><td>Hemoglobinde oksijen taşıma</td></tr>
+            <tr><td>Zn</td><td>30</td><td>Bağışıklık sistemi</td></tr>
+            <tr><td>Se</td><td>34</td><td>Antioksidan enzimler</td></tr>
+            <tr><td>I</td><td>53</td><td>Tiroit hormonları</td></tr>
+          </table>
+          <p>Buna göre;</p>
+          <div class="oncul"><div><b>I.</b><span>Ca ve Mg aynı gruptadır.</span></div><div><b>II.</b><span>Fe ve Zn d bloku elementidir.</span></div><div><b>III.</b><span>Se ve I aynı periyottadır.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Enerji</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>İnce film güneş pillerinin bir türü bakır (<sub>29</sub>Cu), indiyum (<sub>49</sub>In), galyum (<sub>31</sub>Ga) ve selenyum (<sub>34</sub>Se) içerir. Bu elementlerle ilgili;</p>
+          <div class="oncul"><div><b>I.</b><span>Ga ve In aynı gruptadır.</span></div><div><b>II.</b><span>Cu, d bloku elementidir.</span></div><div><b>III.</b><span>Se bir ametaldir.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Bilim tarihi</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Kükürt (S), selenyum (Se) ve tellür (Te) benzer özellikler gösteren bir üçlüdür. Grafikte S ve Te’nin atom kütleleri verilmiş, Se’nin değeri silinmiştir.</p>
+          <svg viewBox="0 0 110 62" style="width:100%;margin:1mm 0 2mm">
+            <g font-family="Inter" font-size="4" fill="#5d6478">
+              <g stroke="#e5e7f0" stroke-width=".3">
+                <line x1="16" y1="10" x2="104" y2="10"/><line x1="16" y1="20" x2="104" y2="20"/><line x1="16" y1="30" x2="104" y2="30"/><line x1="16" y1="40" x2="104" y2="40"/>
+              </g>
+              <line x1="16" y1="50" x2="106" y2="50" stroke="#1d2133" stroke-width=".5"/>
+              <line x1="16" y1="50" x2="16" y2="6" stroke="#1d2133" stroke-width=".5"/>
+              <text x="13" y="51.4" text-anchor="end">0</text><text x="13" y="41.4" text-anchor="end">30</text><text x="13" y="31.4" text-anchor="end">60</text>
+              <text x="13" y="21.4" text-anchor="end">90</text><text x="13" y="11.4" text-anchor="end">120</text>
+              <!-- ölçek: 30 birim = 10 -->
+              <rect x="28" y="39.3" width="14" height="10.7" fill="#c26a06"/>
+              <rect x="53" y="20" width="14" height="30" fill="none" stroke="#c26a06" stroke-width=".5" stroke-dasharray="1.5 1"/>
+              <text x="60" y="36" text-anchor="middle" font-size="7" font-weight="800" fill="#c26a06">?</text>
+              <rect x="78" y="7.47" width="14" height="42.53" fill="#c26a06"/>
+              <text x="35" y="37.5" text-anchor="middle" fill="#1d2133" font-weight="700">32,1</text>
+              <text x="85" y="5.8" text-anchor="middle" fill="#1d2133" font-weight="700">127,6</text>
+              <text x="35" y="56" text-anchor="middle" fill="#1d2133" font-weight="700">S</text><text x="60" y="56" text-anchor="middle" fill="#1d2133" font-weight="700">Se</text><text x="85" y="56" text-anchor="middle" fill="#1d2133" font-weight="700">Te</text>
+              <text x="3" y="4" fill="#1d2133" font-weight="700">Atom kütlesi</text>
+            </g>
+          </svg>
+          <p>Döbereiner’in yaklaşımına göre Se’nin atom kütlesi yaklaşık kaç olmalıdır?</p>
+          <div class="secenek"><span><b>A)</b>47,9</span><span><b>B)</b>79,9</span><span><b>C)</b>95,5</span><span><b>D)</b>63,8</span><span><b>E)</b>159,7</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:lab Laboratuvar</div>
+        <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+          <p>Bir öğrenci oda koşulunda katı olan üç element örneğini inceleyip gözlemlerini tabloya yazıyor.</p>
+          <table class="tablo sik" style="font-size:8.6pt">
+            <tr><th>Örnek</th><th>Görünüş</th><th>Elektrik iletkenliği</th><th>Çekiçle vurulunca</th></tr>
+            <tr><td><b>X</b></td><td>Parlak, gri</td><td>Çok iyi</td><td>Yassılaşır</td></tr>
+            <tr><td><b>Y</b></td><td>Mat, sarı</td><td>İletmez</td><td>Toz olur</td></tr>
+            <tr><td><b>Z</b></td><td>Parlak, gri</td><td>Zayıf (yarı iletken)</td><td>Kırılır</td></tr>
+          </table>
+          <p>Buna göre X, Y ve Z’nin sınıfları hangi seçenekte doğru verilmiştir?</p>
+          <div class="secenek tek"><span><b>A)</b>X metal · Y ametal · Z yarı metal</span><span><b>B)</b>X metal · Y yarı metal · Z ametal</span><span><b>C)</b>X yarı metal · Y ametal · Z metal</span><span><b>D)</b>X metal · Y ametal · Z metal</span><span><b>E)</b>X ametal · Y metal · Z yarı metal</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, yalnızca o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p>X<sup>2+</sup> iyonunun 18 elektronu vardır. X’in periyodik tablodaki yeri neresidir? X ile aynı grupta, bir üst periyotta bulunan elementin atom numarası kaçtır?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">İyon yükü = p − e. 2 = p − 18 eşitliğinden proton sayısını bul.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Nötr atomun (iyonun değil!) temel hâl dizilimini ya da katman dizilimini yaz.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Bir üst periyoda çıkmak için 1A ve 2A gruplarında, üstteki periyodun element sayısını çıkar (3. periyot: 8 element).</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p>Periyodik tabloda <b>5. periyot 6B</b> grubunda bulunan elementin atom numarası kaçtır?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">5. periyot, 4. periyodun soy gazından hemen sonra başlar. 4. periyodun soy gazı kriptonun atom numarası 36’dır.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">6B grubunun IUPAC numarasını bul (3B–7B → 3–7).</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">4. ve 5. periyotta sütun sırası IUPAC numarasına eşittir: 36’ya bu sayıyı ekle.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p>Atom numarası 51 olan elementin periyodunu, grubunu (A/B ve IUPAC), bloğunu ve metal/ametal/yarı metal sınıfını bulunuz.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">51’den küçük en yakın soy gaz hangisi? (2, 10, 18, 36, 54, 86)</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Element o soy gazın bir alt periyodundadır; farkı hesapla ve 5. periyotta bunun IUPAC grup numarası olduğunu hatırla.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">IUPAC 13–18 arası A gruplarıdır (p bloku). Bu kutunun “merdiven” çizgisine göre konumuna bak.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 25 dakika. Elektron dizilimlerini yazarken orbitallerin dolma sırasına dikkat et.</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>Modern periyodik tabloda elementler hangi niceliğe göre sıralanmıştır ve bu sıralamayı öneren bilim insanı kimdir?</p>
+        <div class="secenek tek"><span><b>A)</b>Atom kütlesi – Mendeleyev</span><span><b>B)</b>Atom numarası – Moseley</span><span><b>C)</b>Atom numarası – Mendeleyev</span><span><b>D)</b>Atom hacmi – Meyer</span><span><b>E)</b>Kütle numarası – Newlands</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>Modern periyodik tablo ile ilgili aşağıdaki ifadelerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>7 periyot ve 18 sütundan oluşur.</span><span><b>B)</b>8B grubu üç sütunu kapsar.</span><span><b>C)</b>İlk üç periyotta geçiş elementi bulunmaz.</span><span><b>D)</b>6. ve 7. periyotlarda 32’şer element vardır.</span><span><b>E)</b>Bütün periyotlar bir alkali metalle başlar.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p>Atom numarası 33 olan arsenik (As) elementinin periyodik tablodaki yeri aşağıdakilerden hangisidir?</p>
+        <div class="secenek"><span><b>A)</b>4. periyot 5B</span><span><b>B)</b>3. periyot 5A</span><span><b>C)</b>4. periyot 3A</span><span><b>D)</b>4. periyot 5A</span><span><b>E)</b>5. periyot 3A</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p>Temel hâl elektron dizilimi <span class="dizilim">1s^2 2s^2 2p^6 3s^2 3p^6 4s^2 3d^7</span> olan elementin IUPAC sistemine göre grup numarası kaçtır?</p>
+        <div class="secenek bes"><span><b>A)</b>2</span><span><b>B)</b>7</span><span><b>C)</b>9</span><span><b>D)</b>10</span><span><b>E)</b>17</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p><sub>14</sub>Si elementi ile ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>Yarı metaldir.</span></div><div><b>II.</b><span>p bloku elementidir.</span></div><div><b>III.</b><span>Elektriği metaller kadar iyi iletir.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>I ve II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p>Halojenler ile ilgili aşağıdakilerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Değerlik elektron sayıları 7’dir.</span><span><b>B)</b>F, Cl, Br ve I iki atomlu moleküller hâlinde bulunur.</span><span><b>C)</b>Oda koşulunda brom sıvıdır.</span><span><b>D)</b>Bütün bileşiklerinde yalnızca 1− değer alırlar.</span><span><b>E)</b>Metallerle tuz oluştururlar.</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · TEST (7–12)
+     ========================================================= -->
+<section class="sayfa cift test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>Atom numaraları verilen elementlerden hangisi bir <b>toprak alkali metaldir</b>?</p>
+        <div class="secenek bes"><span><b>A)</b>38</span><span><b>B)</b>3</span><span><b>C)</b>13</span><span><b>D)</b>2</span><span><b>E)</b>30</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p><sub>20</sub>Ca<sup>2+</sup> iyonu ile ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>18 elektronu vardır.</span></div><div><b>II.</b><span><sub>18</sub>Ar atomu ile izoelektroniktir.</span></div><div><b>III.</b><span>Ca elementi 3. periyotta yer alır.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>Aşağıdaki tanecik çiftlerinden hangisi <b>izoelektroniktir</b>?</p>
+        <div class="secenek tek"><span><b>A)</b><sub>11</sub>Na ve <sub>10</sub>Ne</span><span><b>B)</b><sub>12</sub>Mg<sup>2+</sup> ve <sub>9</sub>F<sup>−</sup></span><span><b>C)</b><sub>17</sub>Cl<sup>−</sup> ve <sub>10</sub>Ne</span><span><b>D)</b><sub>19</sub>K<sup>+</sup> ve <sub>10</sub>Ne</span><span><b>E)</b><sub>8</sub>O<sup>2−</sup> ve <sub>18</sub>Ar</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p>Periyodik tablonun ilk dört periyodunda X, Y, Z, T ve Q elementlerinin yerleri gösterilmiştir.</p>
+<!--BAS:test10-->
+<svg viewBox="0 0 108 30" style="width:100%;height:auto">
+<g font-family="Inter" text-anchor="middle">
+<rect x="6.00" y="6.00" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="100.35" y="6.00" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="6.00" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fdeef5" stroke="#9aa3b8" stroke-width=".22"/>
+<text x="8.60" y="15.45" font-size="3.6" font-weight="800" fill="#7a0f3c">X</text>
+<rect x="11.55" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="72.60" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="78.15" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="83.70" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="89.25" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="94.80" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="100.35" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fdeef5" stroke="#9aa3b8" stroke-width=".22"/>
+<text x="102.95" y="15.45" font-size="3.6" font-weight="800" fill="#7a0f3c">Q</text>
+<rect x="6.00" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="11.55" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="72.60" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="78.15" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="83.70" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="89.25" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="94.80" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fdeef5" stroke="#9aa3b8" stroke-width=".22"/>
+<text x="97.40" y="21.00" font-size="3.6" font-weight="800" fill="#7a0f3c">Z</text>
+<rect x="100.35" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="6.00" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="11.55" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fdeef5" stroke="#9aa3b8" stroke-width=".22"/>
+<text x="14.15" y="26.55" font-size="3.6" font-weight="800" fill="#7a0f3c">T</text>
+<rect x="17.10" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="22.65" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="28.20" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="33.75" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="39.30" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="44.85" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fdeef5" stroke="#9aa3b8" stroke-width=".22"/>
+<text x="47.45" y="26.55" font-size="3.6" font-weight="800" fill="#7a0f3c">Y</text>
+<rect x="50.40" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="55.95" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="61.50" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="67.05" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="72.60" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="78.15" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="83.70" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="89.25" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="94.80" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="100.35" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<text x="8.60" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">1A</text>
+<text x="14.15" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">2A</text>
+<text x="75.20" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">3A</text>
+<text x="80.75" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">4A</text>
+<text x="86.30" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">5A</text>
+<text x="91.85" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">6A</text>
+<text x="97.40" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">7A</text>
+<text x="102.95" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">8A</text>
+<text x="2.6" y="9.70" font-size="2.6" font-weight="700" fill="#5d6478">1</text>
+<text x="2.6" y="15.25" font-size="2.6" font-weight="700" fill="#5d6478">2</text>
+<text x="2.6" y="20.80" font-size="2.6" font-weight="700" fill="#5d6478">3</text>
+<text x="2.6" y="26.35" font-size="2.6" font-weight="700" fill="#5d6478">4</text>
+</g></svg>
+<!--SON:test10-->
+        <div class="oncul"><div><b>I.</b><span>X ve T s bloku elementidir.</span></div><div><b>II.</b><span>Y bir geçiş metalidir.</span></div><div><b>III.</b><span>Z ve Q aynı periyottadır.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve III</span><span><b>D)</b>I ve II</span><span><b>E)</b>II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <p>X<sup>3+</sup> iyonunun temel hâl elektron dizilimi <span class="dizilim">1s^2 2s^2 2p^6</span> şeklindedir. X elementinin yeri neresidir?</p>
+        <div class="secenek"><span><b>A)</b>2. periyot 8A</span><span><b>B)</b>2. periyot 5A</span><span><b>C)</b>3. periyot 3B</span><span><b>D)</b>4. periyot 3A</span><span><b>E)</b>3. periyot 3A</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p>3. periyot 3A grubundaki elementin hemen altında, 4. periyotta bulunan elementin atom numarası kaçtır?</p>
+        <div class="secenek bes"><span><b>A)</b>31</span><span><b>B)</b>21</span><span><b>C)</b>29</span><span><b>D)</b>30</span><span><b>E)</b>49</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fdf6fa;margin-top:2mm">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 3. ve 4. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">14</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 15 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>B</span></div><div><b>2</b><span>E</span></div><div><b>3</b><span>D</span></div><div><b>4</b><span>C</span></div>
+    <div><b>5</b><span>B</span></div><div><b>6</b><span>D</span></div><div><b>7</b><span>A</span></div><div><b>8</b><span>C</span></div>
+    <div><b>9</b><span>B</span></div><div><b>10</b><span>D</span></div><div><b>11</b><span>E</span></div><div><b>12</b><span>A</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · B</b> Moseley (1913) atom numaralarını ölçtü ve sıralamanın atom numarasına göre yapılmasını önerdi. Mendeleyev atom kütlesini kullanmıştı.</div>
+    <div class="c"><b>2 · E</b> 1. periyot hidrojenle başlar; H 1A’dadır ama alkali metal değildir. Diğer ifadeler doğrudur.</div>
+    <div class="c"><b>3 · D</b> <span class="dizilim">… 4s^2 3d^10 4p^3</span>: n = 4, p ile bitiyor, değerlik 2 + 3 = 5 → 4. periyot 5A (15. grup).</div>
+    <div class="c"><b>4 · C</b> d ile bitiyor → B grubu; 2 + 7 = 9 → 8B’nin 2. sütunu, IUPAC 9 (kobalt).</div>
+    <div class="c"><b>5 · B</b> Si: <span class="dizilim">3s^2 3p^2</span> → p bloku (II ✓), yarı metal (I ✓). Yarı iletkendir, metaller kadar iyi iletmez (III ✗).</div>
+    <div class="c"><b>6 · D</b> Yalnızca flor her bileşiğinde 1− olur; klor, brom ve iyot pozitif değerler de alabilir.</div>
+    <div class="c"><b>7 · A</b> 38: 36 + 2 → 5. periyot 2A (stronsiyum). 3: alkali metal, 13: toprak metali, 2: soy gaz (He), 30: 2B (Zn).</div>
+    <div class="c"><b>8 · C</b> e = 20 − 2 = 18 (I ✓), Ar ile aynı dizilim (II ✓). Ca atomu 2 · 8 · 8 · 2 → 4. periyot (III ✗).</div>
+    <div class="c"><b>9 · B</b> Mg<sup>2+</sup>: 12 − 2 = 10, F<sup>−</sup>: 9 + 1 = 10 elektron. A) 11–10 · C) 18–10 · D) 18–10 · E) 10–18.</div>
+    <div class="c"><b>10 · D</b> X (2. periyot 1A) ve T (4. periyot 2A) s bloku (I ✓). Y, 4. periyot 8B sütununda → geçiş metali (II ✓). Z 3., Q 2. periyotta (III ✗).</div>
+    <div class="c"><b>11 · E</b> p − 3 = 10 → p = 13. Nötr atom 2 · 8 · 3 → 3. periyot 3A (alüminyum).</div>
+    <div class="c"><b>12 · A</b> 3. periyot 3A: Z = 13. 3A grubunda alta inerken alttaki periyodun element sayısı eklenir: 13 + 18 = 31 (galyum).</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> Ca (4. periyot) ve Mg (3. periyot) 2A’dadır (I ✓). Fe <span class="dizilim">4s^2 3d^6</span>, Zn <span class="dizilim">4s^2 3d^10</span> → d bloku (II ✓). Se 4., I 5. periyotta (III ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · B</b> (32,1 + 127,6) / 2 ≈ 79,9. Selenyumun gerçek atom kütlesi 79,0’dur; tahmin oldukça yakındır.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · E</b> Ga (31) ve In (49) 3A’dadır (I ✓). Cu <span class="dizilim">4s^1 3d^10</span> → d bloku, 1B (II ✓). Se 6A’da bir ametaldir (III ✓).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · A</b> X parlak, iletken ve dövülebilir → metal. Y mat, iletmez, kırılgan → ametal. Z parlak ama kırılgan ve yarı iletken → yarı metal.</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1 · Ca; 12</b> p = 18 + 2 = 20 → 2 · 8 · 8 · 2 → 4. periyot 2A. Bir üstü: 20 − 8 = 12 (magnezyum).</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2 · 42</b> 6B = IUPAC 6; 36 + 6 = 42 (molibden).</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3 · Sb</b> 51 − 36 = 15 → 5. periyot, 15. grup = 5A, p bloku (<span class="dizilim">5s^2 4d^10 5p^3</span>). Antimon bir yarı metaldir.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 1</b> 4s, 3d’den önce dolar: <span class="dizilim">… 3p^6 4s^1</span>. K, 4. periyot 1A’dadır. (3. periyotta 3B grubu zaten yoktur.)</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 2</b> d ile biten element B grubundadır. Değerlik 8 → 8B (8. grup, 1. sütun); 4. periyot.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 2</b> Yer iyondan değil, nötr atomun diziliminden bulunur: <span class="dizilim">… 3s^2 3p^5</span> → 3. periyot 7A.</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 3</b> He soy gazdır; tam dolu dizilimi nedeniyle 8A (18. grup) grubundadır, metal değildir.</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">15</span></div>
+</section>
+
+</body>
+</html>

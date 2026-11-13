@@ -1,0 +1,246 @@
+<svg viewBox="0 0 120 63" style="width:100%;height:auto">
+<g font-family="Inter" text-anchor="middle">
+<rect x="1.00" y="1.00" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="4.10" y="5.30" font-size="2.9" font-weight="700" fill="#1d2133">H</text>
+<rect x="113.20" y="1.00" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="5.30" font-size="2.9" font-weight="700" fill="#1d2133">He</text>
+<rect x="1.00" y="7.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="4.10" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">Li</text>
+<rect x="7.60" y="7.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="10.70" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">Be</text>
+<rect x="80.20" y="7.60" width="6.2" height="6.2" rx=".7" fill="#fde68a" stroke="#a16207" stroke-width=".2"/>
+<text x="83.30" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">B</text>
+<rect x="86.80" y="7.60" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="89.90" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">C</text>
+<rect x="93.40" y="7.60" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="96.50" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">N</text>
+<rect x="100.00" y="7.60" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="103.10" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">O</text>
+<rect x="106.60" y="7.60" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="109.70" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">F</text>
+<rect x="113.20" y="7.60" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="11.90" font-size="2.9" font-weight="700" fill="#1d2133">Ne</text>
+<rect x="1.00" y="14.20" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="4.10" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">Na</text>
+<rect x="7.60" y="14.20" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="10.70" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">Mg</text>
+<rect x="80.20" y="14.20" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="83.30" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">Al</text>
+<rect x="86.80" y="14.20" width="6.2" height="6.2" rx=".7" fill="#fde68a" stroke="#a16207" stroke-width=".2"/>
+<text x="89.90" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">Si</text>
+<rect x="93.40" y="14.20" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="96.50" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">P</text>
+<rect x="100.00" y="14.20" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="103.10" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">S</text>
+<rect x="106.60" y="14.20" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="109.70" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">Cl</text>
+<rect x="113.20" y="14.20" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="18.50" font-size="2.9" font-weight="700" fill="#1d2133">Ar</text>
+<rect x="1.00" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="4.10" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">K</text>
+<rect x="7.60" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="10.70" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Ca</text>
+<rect x="14.20" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="17.30" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Sc</text>
+<rect x="20.80" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="23.90" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Ti</text>
+<rect x="27.40" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="30.50" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">V</text>
+<rect x="34.00" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="37.10" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Cr</text>
+<rect x="40.60" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="43.70" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Mn</text>
+<rect x="47.20" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="50.30" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Fe</text>
+<rect x="53.80" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="56.90" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Co</text>
+<rect x="60.40" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="63.50" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Ni</text>
+<rect x="67.00" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="70.10" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Cu</text>
+<rect x="73.60" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="76.70" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Zn</text>
+<rect x="80.20" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="83.30" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Ga</text>
+<rect x="86.80" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fde68a" stroke="#a16207" stroke-width=".2"/>
+<text x="89.90" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Ge</text>
+<rect x="93.40" y="20.80" width="6.2" height="6.2" rx=".7" fill="#fde68a" stroke="#a16207" stroke-width=".2"/>
+<text x="96.50" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">As</text>
+<rect x="100.00" y="20.80" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="103.10" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Se</text>
+<rect x="106.60" y="20.80" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="109.70" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Br</text>
+<rect x="113.20" y="20.80" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="25.10" font-size="2.9" font-weight="700" fill="#1d2133">Kr</text>
+<rect x="1.00" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="4.10" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Rb</text>
+<rect x="7.60" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="10.70" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Sr</text>
+<rect x="14.20" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="17.30" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Y</text>
+<rect x="20.80" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="23.90" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Zr</text>
+<rect x="27.40" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="30.50" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Nb</text>
+<rect x="34.00" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="37.10" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Mo</text>
+<rect x="40.60" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="43.70" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Tc</text>
+<rect x="47.20" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="50.30" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Ru</text>
+<rect x="53.80" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="56.90" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Rh</text>
+<rect x="60.40" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="63.50" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Pd</text>
+<rect x="67.00" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="70.10" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Ag</text>
+<rect x="73.60" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="76.70" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Cd</text>
+<rect x="80.20" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="83.30" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">In</text>
+<rect x="86.80" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="89.90" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Sn</text>
+<rect x="93.40" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fde68a" stroke="#a16207" stroke-width=".2"/>
+<text x="96.50" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Sb</text>
+<rect x="100.00" y="27.40" width="6.2" height="6.2" rx=".7" fill="#fde68a" stroke="#a16207" stroke-width=".2"/>
+<text x="103.10" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Te</text>
+<rect x="106.60" y="27.40" width="6.2" height="6.2" rx=".7" fill="#cdeafe" stroke="#0369a1" stroke-width=".2"/>
+<text x="109.70" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">I</text>
+<rect x="113.20" y="27.40" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="31.70" font-size="2.9" font-weight="700" fill="#1d2133">Xe</text>
+<rect x="1.00" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="4.10" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Cs</text>
+<rect x="7.60" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="10.70" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Ba</text>
+<rect x="20.80" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="23.90" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Hf</text>
+<rect x="27.40" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="30.50" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Ta</text>
+<rect x="34.00" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="37.10" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">W</text>
+<rect x="40.60" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="43.70" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Re</text>
+<rect x="47.20" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="50.30" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Os</text>
+<rect x="53.80" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="56.90" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Ir</text>
+<rect x="60.40" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="63.50" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Pt</text>
+<rect x="67.00" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="70.10" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Au</text>
+<rect x="73.60" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="76.70" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Hg</text>
+<rect x="80.20" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="83.30" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Tl</text>
+<rect x="86.80" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="89.90" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Pb</text>
+<rect x="93.40" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="96.50" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Bi</text>
+<rect x="100.00" y="34.00" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="103.10" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Po</text>
+<rect x="106.60" y="34.00" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="109.70" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">At</text>
+<rect x="113.20" y="34.00" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="38.30" font-size="2.9" font-weight="700" fill="#1d2133">Rn</text>
+<rect x="1.00" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="4.10" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Fr</text>
+<rect x="7.60" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="10.70" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Ra</text>
+<rect x="20.80" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="23.90" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Rf</text>
+<rect x="27.40" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="30.50" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Db</text>
+<rect x="34.00" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="37.10" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Sg</text>
+<rect x="40.60" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="43.70" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Bh</text>
+<rect x="47.20" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="50.30" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Hs</text>
+<rect x="53.80" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="56.90" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Mt</text>
+<rect x="60.40" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="63.50" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Ds</text>
+<rect x="67.00" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="70.10" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Rg</text>
+<rect x="73.60" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="76.70" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Cn</text>
+<rect x="80.20" y="40.60" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="83.30" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Nh</text>
+<rect x="86.80" y="40.60" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="89.90" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Fl</text>
+<rect x="93.40" y="40.60" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="96.50" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Mc</text>
+<rect x="100.00" y="40.60" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="103.10" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Lv</text>
+<rect x="106.60" y="40.60" width="6.2" height="6.2" rx=".7" fill="#eceef3" stroke="#8a90a3" stroke-width=".2"/>
+<text x="109.70" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Ts</text>
+<rect x="113.20" y="40.60" width="6.2" height="6.2" rx=".7" fill="#dcfce7" stroke="#15803d" stroke-width=".2"/>
+<text x="116.30" y="44.90" font-size="2.9" font-weight="700" fill="#1d2133">Og</text>
+<rect x="14.20" y="34.00" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2" stroke-dasharray=".8 .5"/>
+<text x="17.30" y="38.10" font-size="2.6" font-weight="700" fill="#be185d">*</text>
+<rect x="14.20" y="40.60" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2" stroke-dasharray=".8 .5"/>
+<text x="17.30" y="44.70" font-size="2.6" font-weight="700" fill="#be185d">*</text>
+<path d="M80.00 7.40 V14.00 H86.60 V20.60 H86.60 V27.20 H93.20 V33.80 H99.80 V40.40" fill="none" stroke="#1d2133" stroke-width=".7"/>
+<rect x="14.20" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="17.30" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">La</text>
+<rect x="20.80" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="23.90" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Ce</text>
+<rect x="27.40" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="30.50" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Pr</text>
+<rect x="34.00" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="37.10" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Nd</text>
+<rect x="40.60" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="43.70" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Pm</text>
+<rect x="47.20" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="50.30" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Sm</text>
+<rect x="53.80" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="56.90" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Eu</text>
+<rect x="60.40" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="63.50" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Gd</text>
+<rect x="67.00" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="70.10" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Tb</text>
+<rect x="73.60" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="76.70" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Dy</text>
+<rect x="80.20" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="83.30" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Ho</text>
+<rect x="86.80" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="89.90" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Er</text>
+<rect x="93.40" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="96.50" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Tm</text>
+<rect x="100.00" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="103.10" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Yb</text>
+<rect x="106.60" y="48.80" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="109.70" y="53.10" font-size="2.9" font-weight="700" fill="#1d2133">Lu</text>
+<text x="13.20" y="53.10" font-size="2.6" font-weight="700" text-anchor="end" fill="#be185d">*</text>
+<rect x="14.20" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="17.30" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Ac</text>
+<rect x="20.80" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="23.90" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Th</text>
+<rect x="27.40" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="30.50" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Pa</text>
+<rect x="34.00" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="37.10" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">U</text>
+<rect x="40.60" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="43.70" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Np</text>
+<rect x="47.20" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="50.30" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Pu</text>
+<rect x="53.80" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="56.90" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Am</text>
+<rect x="60.40" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="63.50" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Cm</text>
+<rect x="67.00" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="70.10" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Bk</text>
+<rect x="73.60" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="76.70" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Cf</text>
+<rect x="80.20" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="83.30" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Es</text>
+<rect x="86.80" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="89.90" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Fm</text>
+<rect x="93.40" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="96.50" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Md</text>
+<rect x="100.00" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="103.10" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">No</text>
+<rect x="106.60" y="55.40" width="6.2" height="6.2" rx=".7" fill="#fbd3e4" stroke="#be185d" stroke-width=".2"/>
+<text x="109.70" y="59.70" font-size="2.9" font-weight="700" fill="#1d2133">Lr</text>
+<text x="13.20" y="59.70" font-size="2.6" font-weight="700" text-anchor="end" fill="#be185d">*</text>
+</g></svg>

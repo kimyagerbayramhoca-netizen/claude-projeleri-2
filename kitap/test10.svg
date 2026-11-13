@@ -1,0 +1,56 @@
+<svg viewBox="0 0 108 30" style="width:100%;height:auto">
+<g font-family="Inter" text-anchor="middle">
+<rect x="6.00" y="6.00" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="100.35" y="6.00" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="6.00" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fdeef5" stroke="#9aa3b8" stroke-width=".22"/>
+<text x="8.60" y="15.45" font-size="3.6" font-weight="800" fill="#7a0f3c">X</text>
+<rect x="11.55" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="72.60" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="78.15" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="83.70" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="89.25" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="94.80" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="100.35" y="11.55" width="5.2" height="5.2" rx=".5" fill="#fdeef5" stroke="#9aa3b8" stroke-width=".22"/>
+<text x="102.95" y="15.45" font-size="3.6" font-weight="800" fill="#7a0f3c">Q</text>
+<rect x="6.00" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="11.55" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="72.60" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="78.15" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="83.70" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="89.25" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="94.80" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fdeef5" stroke="#9aa3b8" stroke-width=".22"/>
+<text x="97.40" y="21.00" font-size="3.6" font-weight="800" fill="#7a0f3c">Z</text>
+<rect x="100.35" y="17.10" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="6.00" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="11.55" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fdeef5" stroke="#9aa3b8" stroke-width=".22"/>
+<text x="14.15" y="26.55" font-size="3.6" font-weight="800" fill="#7a0f3c">T</text>
+<rect x="17.10" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="22.65" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="28.20" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="33.75" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="39.30" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="44.85" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fdeef5" stroke="#9aa3b8" stroke-width=".22"/>
+<text x="47.45" y="26.55" font-size="3.6" font-weight="800" fill="#7a0f3c">Y</text>
+<rect x="50.40" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="55.95" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="61.50" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="67.05" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="72.60" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="78.15" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="83.70" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="89.25" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="94.80" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<rect x="100.35" y="22.65" width="5.2" height="5.2" rx=".5" fill="#fff" stroke="#9aa3b8" stroke-width=".22"/>
+<text x="8.60" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">1A</text>
+<text x="14.15" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">2A</text>
+<text x="75.20" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">3A</text>
+<text x="80.75" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">4A</text>
+<text x="86.30" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">5A</text>
+<text x="91.85" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">6A</text>
+<text x="97.40" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">7A</text>
+<text x="102.95" y="4.3" font-size="2.4" font-weight="700" fill="#5d6478">8A</text>
+<text x="2.6" y="9.70" font-size="2.6" font-weight="700" fill="#5d6478">1</text>
+<text x="2.6" y="15.25" font-size="2.6" font-weight="700" fill="#5d6478">2</text>
+<text x="2.6" y="20.80" font-size="2.6" font-weight="700" fill="#5d6478">3</text>
+<text x="2.6" y="26.35" font-size="2.6" font-weight="700" fill="#5d6478">4</text>
+</g></svg>

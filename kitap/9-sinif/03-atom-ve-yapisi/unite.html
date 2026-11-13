@@ -1,0 +1,1369 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Atom ve Yapısı · Kimya Rotası 9</title>
+<style>
+/* ==========================================================
+   KİMYA ROTASI — ortak sayfa ve kutu tasarımı (A4, baskı)
+   Her ünite kendi --unite rengini <body style> ile verir.
+   ========================================================== */
+
+@page { size: A4; margin: 0; }
+
+:root {
+  --unite: #4338ca;          /* ünite kimlik rengi (mol: indigo) */
+  --unite-acik: #eef0ff;
+  --unite-koyu: #2a2380;
+  --vurgu: #f59e0b;          /* ikincil vurgu (amber) */
+
+  --kavram: #4f46e5;   --kavram-bg: #eef2ff;
+  --hayat: #c26a06;    --hayat-bg: #fff6e5;
+  --dikkat: #e11d48;   --dikkat-bg: #fff1f3;
+  --ornek: #0f8f84;    --ornek-bg: #eafaf7;
+  --ipucu: #7c3aed;    --ipucu-bg: #f4f0ff;
+  --hata: #ea580c;     --hata-bg: #fff4ec;
+
+  --metin: #1d2133;
+  --soluk: #5d6478;
+  --cizgi: #dfe3ee;
+  --kagit: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Inter", "DejaVu Sans", sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.5;
+  color: var(--metin);
+  background: #8a8fa3;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* ---------- Sayfa ---------- */
+.sayfa {
+  width: 210mm; height: 297mm;
+  position: relative; overflow: hidden;
+  background: var(--kagit);
+  padding: 22mm 16mm 18mm 16mm;
+  page-break-after: always; break-after: page;
+  margin: 0 auto;
+}
+@media screen { .sayfa { margin: 8mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.25); } }
+
+.ust-serit {
+  position: absolute; top: 0; left: 0; right: 0; height: 13mm;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16mm; font-size: 8pt; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--unite-koyu); font-weight: 600;
+  border-bottom: 1.2mm solid var(--unite);
+  background: linear-gradient(90deg, var(--unite-acik), #fff 70%);
+}
+.ust-serit .baslik-k { display: flex; gap: 3mm; align-items: center; }
+.ust-serit .nokta { width: 2.4mm; height: 2.4mm; border-radius: 50%; background: var(--vurgu); }
+
+.alt-bilgi {
+  position: absolute; bottom: 5mm; left: 16mm; right: 16mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 7.5pt; color: var(--soluk);
+}
+.alt-bilgi .no {
+  min-width: 7.5mm; height: 7.5mm; border-radius: 50%;
+  background: var(--unite); color: #fff; font-weight: 700; font-size: 8.4pt;
+  display: grid; place-items: center;
+}
+.sayfa.cift .alt-bilgi { flex-direction: row-reverse; }
+
+/* ---------- Başlıklar ---------- */
+h1, h2, h3, h4 { font-family: "Inter Display", "Inter", sans-serif; margin: 0; line-height: 1.15; }
+h2.konu {
+  font-size: 21pt; font-weight: 800; color: var(--unite-koyu);
+  display: flex; align-items: baseline; gap: 3.5mm; margin-bottom: 1.5mm;
+}
+h2.konu .num {
+  font-size: 11pt; font-weight: 700; color: #fff; background: var(--unite);
+  padding: .6mm 2.6mm; border-radius: 2mm; transform: translateY(-1mm);
+}
+.alt-baslik { color: var(--soluk); font-size: 10pt; margin-bottom: 5mm; }
+h3 {
+  font-size: 13pt; font-weight: 750; color: var(--unite-koyu);
+  margin: 4.5mm 0 2mm; display: flex; align-items: center; gap: 2.2mm;
+}
+h3::before { content: ""; width: 1.4mm; height: 5mm; background: var(--vurgu); border-radius: 1mm; }
+p { margin: 0 0 2.4mm; }
+ul { margin: 0 0 2.4mm; padding-left: 5mm; }
+li { margin-bottom: 1mm; }
+b, strong { font-weight: 700; }
+.vurgu { background: linear-gradient(transparent 58%, #fde68a 58%); padding: 0 .5mm; }
+.k { color: var(--unite); font-weight: 700; }
+.kucuk { font-size: 8.6pt; color: var(--soluk); }
+.ortala { text-align: center; }
+
+/* Kimyasal formül ve üs */
+.f { white-space: nowrap; font-weight: 600; }
+sub, sup { font-size: 68%; line-height: 0; }
+.izotop { display: inline-flex; align-items: center; white-space: nowrap; font-weight: 600; }
+.izotop .yz { display: inline-flex; flex-direction: column; font-size: 62%; line-height: 1.05; text-align: right; margin-right: .3mm; font-weight: 600; }
+
+/* ---------- Izgara ---------- */
+.iki { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.iki-genis { display: grid; grid-template-columns: 1.25fr 1fr; gap: 5mm; }
+.uc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.dort { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+
+/* ---------- Kutular ---------- */
+.kutu {
+  border-radius: 3mm; padding: 3.2mm 4mm 3mm; margin: 0 0 3.5mm;
+  position: relative; break-inside: avoid;
+  background: var(--bg); border: .35mm solid color-mix(in srgb, var(--renk) 30%, #fff);
+}
+.kutu > .etiket {
+  display: inline-flex; align-items: center; gap: 1.6mm;
+  font-family: "Inter Display", sans-serif;
+  font-size: 7.6pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--renk);
+  padding: .7mm 2.4mm .7mm 1.6mm; border-radius: 1.4mm; margin-bottom: 2mm;
+}
+.kutu > .etiket svg { width: 3.4mm; height: 3.4mm; }
+.kutu p:last-child, .kutu ul:last-child { margin-bottom: 0; }
+.kavram { --renk: var(--kavram); --bg: var(--kavram-bg); }
+.hayat  { --renk: var(--hayat);  --bg: var(--hayat-bg); }
+.dikkat { --renk: var(--dikkat); --bg: var(--dikkat-bg); }
+.ornek  { --renk: var(--ornek);  --bg: var(--ornek-bg); }
+.ipucu  { --renk: var(--ipucu);  --bg: var(--ipucu-bg); }
+.hata   { --renk: var(--hata);   --bg: var(--hata-bg); }
+.duz    { --renk: var(--unite);  --bg: #fff; }
+
+.kutu.serit { border: none; border-left: 1.4mm solid var(--renk); border-radius: 0 3mm 3mm 0; }
+
+/* Yanılgı kartı: yanlış / doğru */
+.yanilgi { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-top: 1mm; }
+.yanilgi > div { border-radius: 2mm; padding: 2mm 2.6mm; font-size: 9.2pt; line-height: 1.4; }
+.yanilgi .yanlis { background: #fff; border: .3mm dashed var(--dikkat); }
+.yanilgi .dogru { background: #fff; border: .3mm solid var(--ornek); }
+.yanilgi b.y { color: var(--dikkat); }
+.yanilgi b.d { color: var(--ornek); }
+
+/* Çözümlü örnek */
+.ornek .soru { font-weight: 600; margin-bottom: 2mm; }
+.cozum { background: #fff; border-radius: 2mm; padding: 2.2mm 3mm; font-size: 9.4pt; }
+.cozum .adim { display: grid; grid-template-columns: 5mm 1fr; gap: 1.6mm; margin-bottom: 1.1mm; align-items: start; }
+.cozum .adim .n {
+  width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--ornek); color: #fff;
+  font-size: 7pt; font-weight: 700; display: grid; place-items: center; margin-top: .4mm;
+}
+.sonuc {
+  display: inline-block; margin-top: .8mm; font-weight: 700; color: var(--ornek);
+  border: .35mm solid var(--ornek); border-radius: 1.5mm; padding: .2mm 2mm;
+}
+.denklem {
+  font-family: "Inter", sans-serif; font-weight: 600; text-align: center;
+  font-size: 11pt; padding: 1.5mm 0; color: var(--unite-koyu);
+}
+.kesir { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 1mm; line-height: 1.2; }
+.kesir > span:first-child { border-bottom: .3mm solid currentColor; padding: 0 1mm; }
+.kesir > span:last-child { padding: 0 1mm; }
+
+/* Tablo */
+table.tablo { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9.2pt; margin: 1mm 0 3mm; }
+table.tablo th { background: var(--unite); color: #fff; font-weight: 700; padding: 1.6mm 2mm; text-align: left; }
+table.tablo th:first-child { border-top-left-radius: 2mm; }
+table.tablo th:last-child { border-top-right-radius: 2mm; }
+table.tablo td { padding: 1.6mm 2mm; border-bottom: .3mm solid var(--cizgi); }
+table.tablo tr:nth-child(even) td { background: #f7f8fc; }
+
+/* ---------- Soru düzeni ---------- */
+.soru-blok { break-inside: avoid; margin-bottom: 4.5mm; }
+.soru-ust { display: flex; gap: 2.4mm; align-items: flex-start; }
+.soru-no {
+  flex: none; width: 7.5mm; height: 7.5mm; border-radius: 2mm;
+  background: var(--unite); color: #fff; font-weight: 800; font-size: 10pt;
+  display: grid; place-items: center; font-family: "Inter Display", sans-serif;
+}
+.soru-metin { flex: 1; }
+.secenek { display: grid; grid-template-columns: 1fr 1fr; gap: .8mm 4mm; margin-top: 1.6mm; font-size: 9.6pt; }
+.secenek.tek { grid-template-columns: 1fr; }
+.secenek.bes { grid-template-columns: repeat(5, 1fr); }
+.secenek span b { color: var(--unite); margin-right: 1mm; }
+.oncul { margin: 1mm 0 1mm 1mm; }
+.oncul div { display: grid; grid-template-columns: 7mm 1fr; }
+.oncul div > b:first-child { color: var(--unite); }
+.veri { font-size: 8.4pt; color: var(--soluk); font-style: italic; }
+
+.etiket-soru svg { width: 3mm; height: 3mm; }
+.etiket-soru {
+  display: inline-flex; gap: 1.4mm; align-items: center;
+  font-size: 7pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  padding: .5mm 2mm; border-radius: 10mm; margin-bottom: 1.2mm;
+  color: var(--renk); background: var(--bg); border: .3mm solid var(--renk);
+}
+.zorluk { display: inline-flex; gap: .7mm; margin-left: 1.2mm; vertical-align: middle; }
+.zorluk i { width: 1.9mm; height: 1.9mm; border-radius: 50%; background: #d8dbe6; display: inline-block; }
+.zorluk i.d { background: var(--vurgu); }
+
+/* Bölüm kapağı tipi sayfa başı bandı */
+.bant {
+  margin: 0 -16mm 5mm; padding: 5mm 16mm 4mm; color: #fff;
+  background: linear-gradient(110deg, var(--renk, var(--unite)) 0%, color-mix(in srgb, var(--renk, var(--unite)) 70%, #000) 100%);
+  position: relative; overflow: hidden;
+}
+.bant h2 { font-size: 22pt; font-weight: 850; color: #fff; }
+.bant p { margin: 1mm 0 0; opacity: .92; font-size: 9.6pt; max-width: 135mm; }
+.bant .ikon-buyuk { position: absolute; right: 14mm; top: 50%; transform: translateY(-50%); opacity: .95; }
+
+/* Hata avcısı defter kartı */
+.defter {
+  background:
+    repeating-linear-gradient(transparent 0 6.1mm, #c9d6ee 6.1mm 6.4mm),
+    #fffef8;
+  border-radius: 2mm; padding: 1.2mm 4mm 1.6mm 14mm; position: relative;
+  font-family: "Caladea", "Bitstream Charter", serif; font-style: italic; font-size: 11pt;
+  line-height: 6.4mm; color: #24356b; border: .3mm solid #e6e1cc;
+}
+.defter::before { content: ""; position: absolute; left: 10mm; top: 0; bottom: 0; width: .35mm; background: #f2a7a7; }
+.defter .satir { position: relative; }
+.defter .satir .sn { position: absolute; left: -9.5mm; font-family: "Inter", sans-serif; font-style: normal; font-size: 7pt; color: #9aa3b8; font-weight: 700; }
+.defter .ogrenci { font-family: "Inter", sans-serif; font-style: normal; font-size: 7.2pt; color: var(--soluk); letter-spacing: .05em; text-transform: uppercase; }
+.duzelt {
+  border: .35mm dashed var(--hata); border-radius: 2mm; min-height: 26mm; margin-top: 2mm;
+  padding: 1.6mm 3mm; font-size: 8.4pt; color: var(--hata); font-weight: 600; background: #fff;
+}
+.sorgu { display: flex; gap: 2mm; flex-wrap: wrap; margin-top: 1.6mm; }
+.sorgu span { font-size: 8.2pt; background: #fff; border: .3mm solid var(--hata); color: var(--hata); border-radius: 10mm; padding: .2mm 2.2mm; font-weight: 600; }
+
+/* İpucu merdiveni */
+.merdiven { display: grid; gap: 1.8mm; margin-top: 2mm; }
+.basamak {
+  display: grid; grid-template-columns: 17mm 1fr; align-items: stretch;
+  border-radius: 2mm; overflow: hidden; background: #fff; border: .3mm solid #ddd3fb;
+}
+.basamak .bas {
+  background: var(--ipucu); color: #fff; font-size: 7pt; font-weight: 800; letter-spacing: .06em;
+  display: grid; place-items: center; text-align: center; line-height: 1.15; padding: 1mm;
+}
+.basamak:nth-child(2) .bas { background: #9061f0; }
+.basamak:nth-child(3) .bas { background: #a985f5; }
+.basamak .ic { padding: 1.6mm 3mm; font-size: 9.2pt; }
+.basamak:nth-child(2) { margin-left: 6mm; }
+.basamak:nth-child(3) { margin-left: 12mm; }
+.cevap-alani { border: .3mm dashed #b9a6f3; border-radius: 2mm; height: 24mm; margin-top: 2mm; background: #fff;
+  font-size: 7.6pt; color: #8b74d6; padding: 1mm 2.6mm; font-weight: 700; letter-spacing: .06em; }
+
+/* Öz değerlendirme */
+.kontrol { list-style: none; padding: 0; }
+.kontrol li { display: grid; grid-template-columns: 6mm 1fr auto; gap: 2mm; align-items: center; padding: 1.3mm 0; border-bottom: .3mm dotted var(--cizgi); font-size: 9.3pt; }
+.kontrol .kare { width: 4mm; height: 4mm; border: .4mm solid var(--unite); border-radius: 1mm; }
+.kontrol .yuz { display: flex; gap: 1.4mm; font-size: 7.4pt; color: var(--soluk); }
+.kontrol .yuz span { border: .3mm solid var(--cizgi); border-radius: 1mm; padding: 0 1.4mm; }
+
+/* Cevap anahtarı */
+.anahtar { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.4mm; margin-bottom: 4mm; }
+.anahtar div { border: .35mm solid var(--unite); border-radius: 1.6mm; text-align: center; overflow: hidden; font-size: 9pt; }
+.anahtar div b { display: block; background: var(--unite); color: #fff; font-size: 7.6pt; }
+.anahtar div span { display: block; font-weight: 800; color: var(--unite-koyu); padding: .6mm 0; }
+.coz-liste { columns: 2; column-gap: 6mm; font-size: 8.5pt; line-height: 1.42; }
+.coz-liste .c { break-inside: avoid; margin-bottom: 2.4mm; padding-left: 2.4mm; border-left: .6mm solid var(--renk, var(--unite)); }
+.coz-liste .c b:first-child { color: var(--renk, var(--unite)); }
+.coz-baslik { font-size: 9pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--renk, var(--unite)); margin: 2mm 0 1.4mm; column-span: all; }
+
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite: #5b21b6; --unite-acik: #f3efff; --unite-koyu: #3b1677; }
+.kapak { padding: 0; background: #2a0f5c; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 30mm; font-size: 11pt; font-weight: 700; color: #fbbf24; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 62pt; font-weight: 900; letter-spacing: -.02em; line-height: .95; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 10mm; display: inline-flex; align-items: center; gap: 4mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 30pt; font-weight: 800; color: #fbbf24; }
+.kapak .avo > span { font-size: 9pt; opacity: .85; max-width: 62mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.4pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #d6cfe8; padding: .8mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.olcek { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 2mm 0 3.5mm; }
+.olcek div { border-radius: 3mm; padding: 2.4mm; background: var(--unite-acik); text-align: center; }
+.olcek b { display: block; font-size: 11.5pt; color: var(--unite-koyu); font-family: "Inter Display"; font-weight: 800; }
+.olcek span { font-size: 8pt; color: var(--soluk); line-height: 1.3; display: block; }
+
+.formul-kart { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 2mm 0 3.5mm; }
+.formul-kart > div { border: .4mm solid var(--unite); border-radius: 3mm; padding: 2.2mm; text-align: center; background: #fff; }
+.formul-kart > div .denklem { font-size: 11.5pt; padding: .3mm 0; }
+.formul-kart > div > span { font-size: 7.8pt; color: var(--soluk); display: block; line-height: 1.3; }
+
+.model-kart { border-left: 1.2mm solid var(--unite); background: var(--unite-acik); border-radius: 0 3mm 3mm 0; padding: 2.4mm 3.4mm; margin-bottom: 3mm; font-size: 9.3pt; }
+.model-kart h4 { font-size: 11pt; color: var(--unite-koyu); margin-bottom: 1.2mm; display: flex; justify-content: space-between; align-items: baseline; }
+.model-kart h4 span { font-size: 8pt; font-weight: 700; color: #fff; background: var(--unite); border-radius: 1.4mm; padding: .3mm 1.8mm; }
+.model-kart ul { margin-bottom: 1mm; }
+.model-kart li { margin-bottom: .6mm; }
+.eksik { font-size: 8.6pt; color: #9f1239; }
+.eksik b { color: #be123c; }
+
+/* Orbital kutucukları */
+.orb { display: inline-flex; vertical-align: middle; margin: 0 .4mm; }
+.orb i { width: 5mm; height: 5mm; border: .3mm solid var(--unite-koyu); margin-left: -.3mm; display: grid; place-items: center; font-style: normal; font-size: 8.4pt; font-weight: 700; background: #fff; color: var(--unite-koyu); line-height: 1; letter-spacing: -.4mm; }
+.orb-et { font-size: 7.6pt; color: var(--soluk); font-weight: 700; margin-right: .6mm; }
+.dizilim { font-weight: 600; white-space: nowrap; }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; }
+.test.devam .iki { min-height: 222mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 44mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="80%" cy="20%" r="70%"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#2a0f5c"/></radialGradient>
+      <radialGradient id="bulut" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#c4b5fd" stop-opacity=".55"/><stop offset=".55" stop-color="#a78bfa" stop-opacity=".18"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+    <circle cx="158" cy="72" r="62" fill="url(#bulut)"/>
+    <g fill="none" stroke="#ffffff" stroke-opacity=".16" stroke-width=".4">
+      <ellipse cx="158" cy="72" rx="58" ry="20"/>
+      <ellipse cx="158" cy="72" rx="58" ry="20" transform="rotate(60 158 72)"/>
+      <ellipse cx="158" cy="72" rx="58" ry="20" transform="rotate(-60 158 72)"/>
+    </g>
+    <g>
+      <circle cx="155.5" cy="70.5" r="3.2" fill="#f87171"/><circle cx="160.5" cy="70.5" r="3.2" fill="#e5e7eb"/>
+      <circle cx="158" cy="74.5" r="3.2" fill="#f87171"/><circle cx="158" cy="67" r="3.2" fill="#e5e7eb"/>
+    </g>
+    <g fill="#fbbf24">
+      <circle cx="216" cy="72" r="1.8"/><circle cx="129" cy="47" r="1.8"/><circle cx="187" cy="97" r="1.8"/>
+      <circle cx="129" cy="97" r="1.6"/><circle cx="187" cy="47" r="1.6"/>
+    </g>
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="14">
+      <text x="-6" y="170">p⁺ n⁰ e⁻ p⁺ n⁰ e⁻ p⁺ n⁰ e⁻ p⁺ n⁰</text>
+      <text x="-22" y="188">1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰</text>
+      <text x="-10" y="206">p⁺ n⁰ e⁻ p⁺ n⁰ e⁻ p⁺ n⁰ e⁻ p⁺ n⁰</text>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 9. Sınıf</span><span>Tema 1 · Bölüm 3</span></div>
+    <div class="bolum">Bölüm 3</div>
+    <h1>Atom ve<br>Yapısı</h1>
+    <div class="slogan">İki bin yıllık bir merakın bugünkü hâli</div>
+    <div class="avo"><b>A = p + n</b><span>Bir atomun kimliğini proton sayısı, kütlesini çekirdeği, kimyasını ise elektronları belirler.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Atom modelleri: Dalton ve Thomson</span><span>2</span></li>
+          <li><span>2 · Rutherford, Bohr ve modern model</span><span>3</span></li>
+          <li><span>3 · Atomun yapısı: p, n, e ve iyonlar</span><span>4</span></li>
+          <li><span>4 · Enerji düzeyleri ve orbitaller</span><span>5</span></li>
+          <li><span>5 · Elektron dizilimi kuralları</span><span>6</span></li>
+          <li><span>6 · Değerlik elektronu, küresel simetri</span><span>7</span></li>
+          <li><span>Tek sayfada atom (özet)</span><span>8</span></li>
+          <li><span>Hata Avcısı</span><span>9</span></li>
+          <li><span>Bağlam temelli sorular</span><span>10</span></li>
+          <li><span>İpucu Merdiveni</span><span>11</span></li>
+          <li><span>Bölüm testi</span><span>12</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>14</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg></i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg></i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M8 8l5 5M13 8l-5 5"/></svg></i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v18M17 3v18M7 8h10M7 13h10M7 18h10"/></svg></i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Atom modellerinin hangi deneyle, neden değiştiğini açıklayacaksın.</li>
+          <li>Atom ve iyonlarda proton, nötron, elektron sayılarını bulacaksın.</li>
+          <li>Atomların elektron dizilimini kurallara uygun yazacaksın.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · DALTON VE THOMSON
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Atom ve Yapısı</span><span>Atom modelleri</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Atom modellerinin yolculuğu</h2>
+  <div class="alt-baslik">Kimse bir atomu çıplak gözle görmedi. Bildiklerimizi deneylerden çıkardık ve modellerle anlattık.</div>
+
+  <svg viewBox="0 0 178 50" style="width:100%;height:37mm;margin-bottom:1mm">
+    <defs>
+      <radialGradient id="dg" cx="35%" cy="35%" r="70%"><stop offset="0" stop-color="#e9e3ff"/><stop offset="1" stop-color="#7c5cc4"/></radialGradient>
+      <radialGradient id="tg" cx="40%" cy="40%" r="70%"><stop offset="0" stop-color="#ffe4ec"/><stop offset="1" stop-color="#f59ab5"/></radialGradient>
+      <radialGradient id="mg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#5b21b6" stop-opacity=".55"/><stop offset=".6" stop-color="#7c3aed" stop-opacity=".18"/><stop offset="1" stop-color="#7c3aed" stop-opacity="0"/></radialGradient>
+      <marker id="zok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#5b21b6"/></marker>
+    </defs>
+    <line x1="4" y1="36" x2="175" y2="36" stroke="#5b21b6" stroke-width=".6" marker-end="url(#zok)"/>
+    <g font-family="Inter" text-anchor="middle">
+      <!-- Dalton -->
+      <circle cx="19" cy="17" r="11" fill="url(#dg)"/>
+      <circle cx="19" cy="36" r="1.4" fill="#5b21b6"/>
+      <text x="19" y="42" font-size="4.4" font-weight="800" fill="#3b1677">Dalton</text>
+      <text x="19" y="47" font-size="3.6" fill="#5d6478">1803–1808</text>
+      <!-- Thomson -->
+      <circle cx="54" cy="17" r="11" fill="url(#tg)"/>
+      <g fill="#3b4cc0"><circle cx="49" cy="12" r="1.3"/><circle cx="57" cy="10" r="1.3"/><circle cx="60" cy="18" r="1.3"/><circle cx="52" cy="19" r="1.3"/><circle cx="47" cy="22" r="1.3"/><circle cx="56" cy="25" r="1.3"/></g>
+      <circle cx="54" cy="36" r="1.4" fill="#5b21b6"/>
+      <text x="54" y="42" font-size="4.4" font-weight="800" fill="#3b1677">Thomson</text>
+      <text x="54" y="47" font-size="3.6" fill="#5d6478">1897 · 1904</text>
+      <!-- Rutherford -->
+      <g fill="none" stroke="#9aa3b8" stroke-width=".35">
+        <ellipse cx="89" cy="17" rx="11" ry="4"/><ellipse cx="89" cy="17" rx="11" ry="4" transform="rotate(60 89 17)"/><ellipse cx="89" cy="17" rx="11" ry="4" transform="rotate(-60 89 17)"/>
+      </g>
+      <circle cx="89" cy="17" r="1.6" fill="#e11d48"/>
+      <g fill="#3b4cc0"><circle cx="100" cy="17" r="1.1"/><circle cx="83.5" cy="7.5" r="1.1"/><circle cx="83.5" cy="26.5" r="1.1"/></g>
+      <circle cx="89" cy="36" r="1.4" fill="#5b21b6"/>
+      <text x="89" y="42" font-size="4.4" font-weight="800" fill="#3b1677">Rutherford</text>
+      <text x="89" y="47" font-size="3.6" fill="#5d6478">1911</text>
+      <!-- Bohr -->
+      <g fill="none" stroke="#7c5cc4" stroke-width=".4"><circle cx="124" cy="17" r="5"/><circle cx="124" cy="17" r="8"/><circle cx="124" cy="17" r="11"/></g>
+      <circle cx="124" cy="17" r="1.8" fill="#e11d48"/>
+      <g fill="#3b4cc0"><circle cx="129" cy="17" r="1.1"/><circle cx="119" cy="17" r="1.1"/><circle cx="124" cy="9" r="1.1"/><circle cx="116.2" cy="23.8" r="1.1"/><circle cx="131.8" cy="23.8" r="1.1"/></g>
+      <circle cx="124" cy="36" r="1.4" fill="#5b21b6"/>
+      <text x="124" y="42" font-size="4.4" font-weight="800" fill="#3b1677">Bohr</text>
+      <text x="124" y="47" font-size="3.6" fill="#5d6478">1913</text>
+      <!-- Modern -->
+      <circle cx="159" cy="17" r="12" fill="url(#mg)"/>
+      <circle cx="159" cy="17" r="1.6" fill="#e11d48"/>
+      <circle cx="159" cy="36" r="1.4" fill="#5b21b6"/>
+      <text x="159" y="42" font-size="4.4" font-weight="800" fill="#3b1677">Modern model</text>
+      <text x="159" y="47" font-size="3.6" fill="#5d6478">1926 sonrası</text>
+    </g>
+  </svg>
+
+  <div class="iki" style="gap:4mm">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Teori ve model</div>
+      <p style="font-size:9.2pt"><b>Teori (kuram):</b> Bir olayı açıklamak ve sonuçlarını öngörmek için deneylere dayanarak kurulan kapsamlı açıklamadır.</p>
+      <p style="font-size:9.2pt"><b>Model:</b> Bir teoriyi temsil eden çizim, benzetme ya da matematiksel ifadedir. Atom modelleri de atomu anlatan bu tür temsillerdir.</p>
+    </div>
+    <div>
+      <p style="font-size:9.3pt">“Atom” sözcüğü Yunanca <i>atomos</i> (bölünemez) kelimesinden gelir. Antik Yunan’da Demokritos maddenin bölünemez taneciklerden oluştuğunu ileri sürdü; ancak bu deneye dayanmayan bir <b>düşünceydi</b>. Bilimsel ilk model 19. yüzyılın başında geldi; sonraki her model, öncekinin açıklayamadığı bir <b>deney sonucunu</b> açıklamak için doğdu.</p>
+    </div>
+  </div>
+
+  <div class="iki" style="gap:4mm">
+    <div class="model-kart">
+      <h4>Dalton atom modeli <span>1803–1808</span></h4>
+      <p style="margin-bottom:1mm">John Dalton, kütlenin korunumu ve sabit oranlar yasalarını açıklamak için ilk bilimsel atom teorisini kurdu.</p>
+      <ul>
+        <li>Madde, bölünemeyen içi dolu küreciklerden (atomlardan) oluşur.</li>
+        <li>Bir elementin bütün atomları <b>özdeştir</b>; farklı elementlerin atomları farklıdır.</li>
+        <li>Tepkimede atomlar yok olmaz, başka atoma dönüşmez; yeniden düzenlenir ve belirli tam sayılı oranlarda birleşir.</li>
+      </ul>
+      <div class="eksik"><b>Eksik kalan:</b> Atomun bölünebildiği (elektron, proton, nötron), aynı elementin farklı kütleli atomlarının (izotop) bulunduğu, iyonların varlığı.</div>
+    </div>
+    <div class="model-kart">
+      <h4>Thomson atom modeli <span>1897 · 1904</span></h4>
+      <p style="margin-bottom:1mm">J. J. Thomson, 1897’de <b>katot ışınlarının</b> elektrik ve manyetik alanda saptığını, yani negatif yüklü taneciklerden oluştuğunu gösterdi. Bu tanecikler bugün <b>elektron</b> diye bilinir.</p>
+      <ul>
+        <li>Atom, pozitif yükün düzgün dağıldığı bir küredir; elektronlar bu kürenin içine gömülüdür (“üzümlü kek” benzetmesi).</li>
+        <li>Pozitif ve negatif yük miktarları eşittir; atom nötrdür.</li>
+        <li>Atom bölünebilir; içinde daha küçük tanecikler vardır.</li>
+      </ul>
+      <div class="eksik"><b>Eksik kalan:</b> Atomun büyük kısmının boşluk olduğu ve pozitif yükün küçük bir çekirdekte toplandığı.</div>
+    </div>
+  </div>
+
+  <div class="iki" style="gap:4mm">
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9.2pt">Eski tüplü televizyon ekranları, Thomson’un düzeneğine benzeyen bir <b>katot ışın tüpüydü</b>. Mıknatıslarla yönlendirilen elektron demeti ekrandaki ışıyan noktalara çarparak görüntü oluştururdu.</p>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 1</div>
+      <div class="soru" style="font-size:9.3pt">Musluk suyunun elektrik iletmesi ve <span class="izotop"><span class="yz"><span>35</span><span>17</span></span>Cl</span> ile <span class="izotop"><span class="yz"><span>37</span><span>17</span></span>Cl</span> atomlarının farklı kütleli olması Dalton modeliyle neden açıklanamaz?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Dalton modelinde elektron yoktur; iyon ve elektriksel yük kavramı da yoktur.</span></div>
+        <div class="adim"><span class="n">2</span><span>Dalton’a göre bir elementin bütün atomları özdeştir; izotoplar bu varsayıma uymaz.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Atom ve Yapısı</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · RUTHERFORD, BOHR, MODERN
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Atom ve Yapısı</span><span>Atom modelleri</span></div>
+
+  <h2 class="konu"><span class="num">2</span>Çekirdek, katmanlar ve elektron bulutu</h2>
+  <div class="alt-baslik" style="margin-bottom:3mm">Altın levhaya çarpan alfa tanecikleri ve hidrojenin renkli çizgileri atomu yeniden tanımladı.</div>
+
+  <div class="iki-genis" style="gap:4mm">
+    <div>
+      <h3 style="margin-top:0">Rutherford: Altın levha deneyi</h3>
+      <p style="font-size:9.4pt">1909’da Rutherford’un öğrencileri Geiger ve Marsden, radyoaktif bir kaynaktan çıkan pozitif yüklü <b>alfa (α) taneciklerini</b> çok ince bir altın levhaya gönderdi. Levhanın çevresindeki ışıldayan ekran, taneciklerin nereye çarptığını gösteriyordu.</p>
+      <table class="tablo" style="font-size:8.6pt;margin-bottom:2mm">
+        <tr><th>Gözlem</th><th>Sonuç (1911)</th></tr>
+        <tr><td>Taneciklerin çok büyük kısmı sapmadan geçti.</td><td>Atomun hacminin büyük kısmı <b>boşluktur</b>.</td></tr>
+        <tr><td>Bir kısmı küçük açılarla saptı.</td><td>Atomda pozitif yüklü bir bölge vardır.</td></tr>
+        <tr><td>Çok azı geri döndü.</td><td>Pozitif yük ve kütle çok küçük bir <b>çekirdekte</b> toplanmıştır.</td></tr>
+      </table>
+    </div>
+    <svg viewBox="0 0 100 82" style="width:100%;height:auto">
+      <defs><marker id="aok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#c2410c"/></marker></defs>
+      <g font-family="Inter" font-size="3.8" fill="#1d2133">
+        <path d="M58 6 A30 30 0 1 1 57.9 6" fill="none" stroke="#a7f3d0" stroke-width="2.4" stroke-dasharray="44 10" transform="rotate(10 58 36)"/>
+        <rect x="2" y="30" width="14" height="12" rx="1.5" fill="#9aa3b8"/>
+        <text x="9" y="48" text-anchor="middle" font-size="3.4" fill="#5d6478">α kaynağı</text>
+        <rect x="56.5" y="22" width="3" height="28" fill="#f2c94c" stroke="#b7791f" stroke-width=".3"/>
+        <text x="58" y="19" text-anchor="middle" font-size="3.4" fill="#8a5a00">altın levha</text>
+        <g stroke="#c2410c" stroke-width=".55" fill="none">
+          <path d="M16 34 H86" marker-end="url(#aok)"/>
+          <path d="M16 36 H86" marker-end="url(#aok)"/>
+          <path d="M16 38 H86" marker-end="url(#aok)"/>
+          <path d="M16 35 H58 L84 20" marker-end="url(#aok)"/>
+          <path d="M16 37 H58 L82 55" marker-end="url(#aok)"/>
+          <path d="M16 36.5 H57 L34 18" marker-end="url(#aok)"/>
+        </g>
+        <text x="58" y="78" text-anchor="middle" font-size="3.4" fill="#0f766e">çevredeki ışıldayan ekran</text>
+        <!-- yakın görünüm -->
+        <g transform="translate(70,62)">
+          <circle r="11" fill="#fff" stroke="#5b21b6" stroke-width=".4"/>
+          <g fill="#e11d48"><circle cx="-4" cy="-4" r="1"/><circle cx="4" cy="3" r="1"/></g>
+          <g stroke="#c2410c" stroke-width=".35" fill="none"><path d="M-10 0 H10"/><path d="M-10 -4 H-5.5 L-10 -7.5"/><path d="M-10 -2 H10"/><path d="M-10 6 H10"/></g>
+        </g>
+        <text x="88" y="78" text-anchor="middle" font-size="3" fill="#5d6478">yakından</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="model-kart" style="margin-bottom:2.6mm">
+    <h4>Rutherford atom modeli <span>1911</span></h4>
+    <p style="margin:0">Atomun merkezinde pozitif yüklü, çok küçük ama kütlenin neredeyse tamamını taşıyan bir <b>çekirdek</b> vardır. Elektronlar çekirdeğin çevresindeki geniş boşlukta dolaşır (gezegen modeli). 1919’da çekirdekteki pozitif tanecik <b>proton</b> olarak tanımlandı. Rutherford, çekirdekte yüksüz tanecikler de olması gerektiğini öngördü; <b>nötronu 1932’de James Chadwick</b> deneyle kanıtladı. <span class="eksik"><b>Eksik kalan:</b> Elektronların nasıl bir düzende bulunduğu ve atomların neden belirli renklerde ışık yaydığı.</span></p>
+  </div>
+
+  <div class="iki-genis" style="gap:4mm">
+    <div class="model-kart" style="margin-bottom:0">
+      <h4>Bohr atom modeli <span>1913</span></h4>
+      <p style="margin-bottom:1mm">Niels Bohr, ısıtılan hidrojen gazının yalnızca <b>belirli renklerde</b> ışık yaydığını (çizgi spektrumu) açıklamak için şunları önerdi:</p>
+      <ul>
+        <li>Elektronlar çekirdek çevresinde belirli enerjili dairesel <b>yörüngelerde</b> (enerji düzeyi, katman) bulunur. Katmanlar içten dışa n = 1, 2, 3… ya da K, L, M… ile gösterilir.</li>
+        <li>Elektron yalnızca katmanlar arasındaki enerji farkı kadar enerji soğurup yayabilir; bu yüzden spektrum çizgilidir.</li>
+      </ul>
+      <div class="eksik"><b>Eksik kalan:</b> Yalnızca H, He<sup>+</sup>, Li<sup>2+</sup> gibi <b>tek elektronlu</b> taneciklerin spektrumunu açıklar.</div>
+    </div>
+    <svg viewBox="0 0 90 92" style="width:100%;height:auto">
+      <defs>
+        <marker id="bok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#0f8f84"/></marker>
+        <marker id="bok2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#e11d48"/></marker>
+      </defs>
+      <g font-family="Inter" font-size="3.6" fill="#1d2133">
+        <g fill="none" stroke="#7c5cc4" stroke-width=".4"><circle cx="30" cy="30" r="9"/><circle cx="30" cy="30" r="17"/><circle cx="30" cy="30" r="25"/></g>
+        <circle cx="30" cy="30" r="2.6" fill="#e11d48"/>
+        <text x="30" y="20.5" text-anchor="middle" font-size="3" fill="#5b21b6">n=1</text>
+        <text x="30" y="12.5" text-anchor="middle" font-size="3" fill="#5b21b6">n=2</text>
+        <text x="30" y="4.4" text-anchor="middle" font-size="3" fill="#5b21b6">n=3</text>
+        <path d="M37.8 34.5 L51 42" stroke="#0f8f84" stroke-width=".7" marker-end="url(#bok)"/>
+        <circle cx="37.8" cy="34.5" r="1.3" fill="#3b4cc0"/>
+        <text x="58" y="46" font-size="3.2" fill="#0f8f84" font-weight="700">soğurma ↑</text>
+        <path d="M8.4 42.5 L15.3 38.5" stroke="#e11d48" stroke-width=".7" marker-end="url(#bok2)"/>
+        <circle cx="8.4" cy="42.5" r="1.3" fill="#3b4cc0"/>
+        <path d="M15 41 q-1.5 2 -3 1 t-3 1 t-3 1 t-3 1" fill="none" stroke="#e11d48" stroke-width=".45" transform="translate(-1 5)"/>
+        <text x="1" y="57.5" font-size="3.2" fill="#e11d48" font-weight="700">yayma ↓ + ışık</text>
+        <!-- spektrum -->
+        <text x="2" y="63" font-size="3.4" font-weight="800" fill="#3b1677">Hidrojenin görünür emisyon çizgileri</text>
+        <rect x="2" y="66" width="86" height="12" rx="1" fill="#111827"/>
+        <g stroke-width="1.1">
+          <line x1="4.9" y1="66" x2="4.9" y2="78" stroke="#8b5cf6"/>
+          <line x1="11.7" y1="66" x2="11.7" y2="78" stroke="#6366f1"/>
+          <line x1="27.0" y1="66" x2="27.0" y2="78" stroke="#22d3ee"/>
+          <line x1="75.4" y1="66" x2="75.4" y2="78" stroke="#ef4444"/>
+        </g>
+        <g font-size="2.8" fill="#5d6478" text-anchor="middle">
+          <text x="4.9" y="82">410</text><text x="11.7" y="82">434</text><text x="27" y="82">486</text><text x="75.4" y="82">656 nm</text>
+        </g>
+        <text x="45" y="88" font-size="2.9" fill="#5d6478" text-anchor="middle">Her element kendine özgü çizgiler verir: atomun “parmak izi”.</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="iki" style="gap:4mm;margin-top:3mm">
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9pt">Havai fişek renkleri metal tuzlarından gelir: sodyum sarı, stronsiyum kırmızı, bakır yeşil-mavi renk verir. Her metalin uyarılan elektronları geri dönerken kendine özgü renkte ışık yayar.</p>
+    </div>
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Temel hâl ve uyarılmış hâl</div>
+      <p style="font-size:9pt">Elektronların en düşük enerjili katmanlarda olduğu hâl <b>temel hâldir</b>. Elektron enerji <b>soğurup</b> (absorpsiyon) üst katmana çıkarsa atom <b>uyarılmış</b> olur; geri dönerken farkı ışık olarak <b>yayar</b> (emisyon).</p>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Atom ve Yapısı</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · MODERN MODEL VE ATOMUN YAPISI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Atom ve Yapısı</span><span>Atomun yapısı</span></div>
+
+  <h2 class="konu"><span class="num">3</span>Atomun yapısı: p, n, e ve iyonlar</h2>
+  <div class="alt-baslik">Modern atom modeli; çekirdek, elektron bulutu ve onları sayan iki numara</div>
+
+  <div class="iki-genis" style="gap:4mm">
+    <div>
+      <p style="font-size:9.4pt">Bohr’dan sonra elektronun hem tanecik hem dalga gibi davrandığı anlaşıldı (de Broglie, 1924). <b>Heisenberg</b> 1927’de bir elektronun konumu ile hızının <b>aynı anda kesin olarak ölçülemeyeceğini</b> gösterdi (belirsizlik ilkesi). <b>Schrödinger</b>’in 1926’da kurduğu dalga denklemi ise elektronun bulunma <b>olasılığını</b> hesaplamayı sağladı. Böylece <b>modern (kuantum) atom modeli</b> doğdu.</p>
+      <div class="kutu kavram" style="margin-bottom:2.6mm">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Modern atom modeli</div>
+        <p style="font-size:9.2pt">Elektronun izlediği kesin bir yol çizilemez. Elektronun bulunma olasılığının yüksek olduğu üç boyutlu bölgelere <b>orbital</b> (elektron bulutu) denir. Çekirdekte <b>proton</b> ve <b>nötron</b>, çevresindeki bulutta <b>elektronlar</b> bulunur.</p>
+      </div>
+    </div>
+    <svg viewBox="0 0 96 74" style="width:100%;height:auto">
+      <defs><radialGradient id="eb" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#7c3aed" stop-opacity=".45"/><stop offset=".7" stop-color="#a78bfa" stop-opacity=".12"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></radialGradient></defs>
+      <g font-family="Inter" font-size="3.4" fill="#1d2133">
+        <circle cx="32" cy="34" r="30" fill="url(#eb)"/>
+        <g fill="#3b4cc0" opacity=".55">
+          <circle cx="20" cy="22" r=".7"/><circle cx="44" cy="20" r=".7"/><circle cx="47" cy="41" r=".7"/><circle cx="18" cy="46" r=".7"/><circle cx="33" cy="12" r=".7"/><circle cx="28" cy="53" r=".7"/><circle cx="12" cy="33" r=".7"/><circle cx="52" cy="31" r=".7"/><circle cx="38" cy="47" r=".7"/><circle cx="25" cy="27" r=".7"/><circle cx="40" cy="28" r=".7"/><circle cx="24" cy="40" r=".7"/>
+        </g>
+        <g><circle cx="30.6" cy="32.6" r="1.8" fill="#e11d48"/><circle cx="33.4" cy="32.6" r="1.8" fill="#cbd5e1"/><circle cx="32" cy="35.2" r="1.8" fill="#e11d48"/><circle cx="32" cy="30.2" r="1.8" fill="#cbd5e1"/></g>
+        <line x1="34" y1="33" x2="66" y2="16" stroke="#5d6478" stroke-width=".3"/>
+        <text x="67" y="14" font-weight="700">Çekirdek</text><text x="67" y="18.5" font-size="3" fill="#5d6478">proton ve nötron;</text><text x="67" y="22" font-size="3" fill="#5d6478">kütlenin ≈ tamamı</text>
+        <line x1="52" y1="44" x2="66" y2="46" stroke="#5d6478" stroke-width=".3"/>
+        <text x="67" y="45" font-weight="700">Elektron</text><text x="67" y="49.5" font-weight="700">bulutu</text><text x="67" y="53.5" font-size="3" fill="#5d6478">hacmin</text><text x="67" y="57" font-size="3" fill="#5d6478">≈ tamamı</text>
+        <text x="2" y="70" font-size="3" fill="#5d6478">Ölçekli değildir: çekirdeğin çapı, atomun çapından</text><text x="2" y="73.5" font-size="3" fill="#5d6478">on binlerce kat küçüktür.</text>
+      </g>
+    </svg>
+  </div>
+
+  <table class="tablo" style="margin-top:0">
+    <tr><th>Tanecik</th><th>Simge</th><th>Yük</th><th>Bağıl kütle (akb)</th><th>Yeri</th><th>Keşif</th></tr>
+    <tr><td><b>Proton</b></td><td>p, p<sup>+</sup></td><td>+1</td><td>1,0073 ≈ 1</td><td>Çekirdek</td><td>Rutherford, 1919</td></tr>
+    <tr><td><b>Nötron</b></td><td>n, n<sup>0</sup></td><td>0</td><td>1,0087 ≈ 1</td><td>Çekirdek</td><td>Chadwick, 1932</td></tr>
+    <tr><td><b>Elektron</b></td><td>e, e<sup>−</sup></td><td>−1</td><td>0,00055 ≈ 1/1836 (ihmal edilir)</td><td>Orbitaller</td><td>Thomson, 1897</td></tr>
+  </table>
+
+  <div class="iki-genis" style="gap:4mm;align-items:start">
+    <div class="formul-kart" style="grid-template-columns:1fr 1fr;margin-top:0">
+      <div><div class="denklem">Z = p</div><span>Atom numarası = proton sayısı. Elementin <b>kimliğidir</b>.</span></div>
+      <div><div class="denklem">A = p + n</div><span>Kütle numarası (nükleon sayısı)</span></div>
+      <div><div class="denklem">Nötr: e = p</div><span>Yükler birbirini dengeler.</span></div>
+      <div><div class="denklem">İyon: e = p − yük</div><span>X<sup>2+</sup>: e = p − 2 &nbsp;·&nbsp; Y<sup>3−</sup>: e = p + 3</span></div>
+    </div>
+    <svg viewBox="0 0 80 46" style="width:100%;height:auto">
+      <g font-family="Inter" fill="#1d2133">
+        <rect x="0.5" y="0.5" width="79" height="45" rx="3" fill="#f3efff"/>
+        <text x="31" y="31" font-size="20" font-weight="800" fill="#3b1677">Fe</text>
+        <text x="30" y="18" font-size="7" font-weight="700" text-anchor="end" fill="#c2410c">56</text>
+        <text x="30" y="31" font-size="7" font-weight="700" text-anchor="end" fill="#e11d48">26</text>
+        <text x="55.5" y="18" font-size="7" font-weight="700" fill="#0f8f84">3+</text>
+        <g font-size="3.6" fill="#5d6478">
+          <text x="4" y="7">Kütle no (A)</text><line x1="15" y1="8.5" x2="21" y2="12.5" stroke="#c2410c" stroke-width=".35"/>
+          <text x="4" y="42">Atom no (Z)</text><line x1="15" y1="38.5" x2="21" y2="32.5" stroke="#e11d48" stroke-width=".35"/>
+          <text x="54" y="7">İyon yükü</text><line x1="59" y1="8.5" x2="59" y2="12" stroke="#0f8f84" stroke-width=".35"/>
+        </g>
+        <text x="57" y="42" font-size="3.8" text-anchor="middle" font-weight="700" fill="#3b1677">p = 26 · n = 30 · e = 23</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="olcek">
+    <div><b>≈ 10<sup>-10</sup> m</b><span>Bir atomun çapı; 1 mm’ye yan yana yaklaşık 10 milyon atom sığar</span></div>
+    <div><b>≈ 10<sup>-15</sup> m</b><span>Çekirdeğin çapı (10<sup>-15</sup> – 10<sup>-14</sup> m arası)</span></div>
+    <div><b>% 99,9’dan fazla</b><span>Atom kütlesinin çekirdekte toplanan payı</span></div>
+    <div><b>≈ 1836 kat</b><span>Protonun kütlesi, elektronun kütlesinin bu kadar katıdır</span></div>
+  </div>
+
+  <div class="iki" style="gap:4mm">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 2</div>
+      <div class="soru" style="font-size:9.3pt"><span class="izotop"><span class="yz"><span>32</span><span>16</span></span>S</span><sup>2−</sup> iyonunun proton, nötron ve elektron sayılarını bulunuz.</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>p = Z = 16 &nbsp;·&nbsp; n = A − Z = 32 − 16 = 16</span></div>
+        <div class="adim"><span class="n">2</span><span>Yük 2− ise atom 2 elektron <b>almıştır</b>: e = 16 + 2 = 18</span></div>
+        <span class="sonuc">p = 16 · n = 16 · e = 18</span>
+      </div>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Na atomu Na<sup>+</sup> iyonuna dönüşürken bir proton kaybeder.”</div>
+        <div class="dogru"><b class="d">✓</b> Kimyasal olaylarda çekirdek <b>değişmez</b>; yalnızca elektron alınıp verilir. Na<sup>+</sup> iyonu bir <b>elektron</b> vermiştir; proton sayısı yine 11’dir.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Atom ve Yapısı</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · İYONLAR, İZO-, ENERJİ DÜZEYLERİ VE ORBİTALLER
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Atom ve Yapısı</span><span>Orbitaller</span></div>
+
+  <h3 style="margin-top:0">İyonlar ve “izo” kardeşler</h3>
+  <div class="iki-genis" style="gap:4mm">
+    <div>
+      <p style="font-size:9.3pt">Elektron veren tanecik <b>pozitif iyon (katyon)</b>, elektron alan tanecik <b>negatif iyon (anyon)</b> olur. Elektron sayısı değiştiği için iyonun <b>kimyasal özellikleri</b> atomundan farklıdır; elektron alan taneciğin çapı büyür, veren taneciğin çapı küçülür.</p>
+      <table class="tablo" style="font-size:8.6pt;margin-bottom:0">
+        <tr><th>Ad</th><th>Aynı olan</th><th>Örnek</th></tr>
+        <tr><td><b>İzotop</b></td><td>Proton sayısı (Z)</td><td><span class="izotop"><span class="yz"><span>12</span><span>6</span></span>C</span> – <span class="izotop"><span class="yz"><span>14</span><span>6</span></span>C</span></td></tr>
+        <tr><td><b>İzoton</b></td><td>Nötron sayısı</td><td><span class="izotop"><span class="yz"><span>14</span><span>6</span></span>C</span> – <span class="izotop"><span class="yz"><span>16</span><span>8</span></span>O</span> (n = 8)</td></tr>
+        <tr><td><b>İzobar</b></td><td>Kütle numarası (A)</td><td><span class="izotop"><span class="yz"><span>40</span><span>18</span></span>Ar</span> – <span class="izotop"><span class="yz"><span>40</span><span>20</span></span>Ca</span></td></tr>
+        <tr><td><b>İzoelektronik</b></td><td>Elektron sayısı ve dizilimi</td><td><span style="white-space:nowrap">₈O<sup>2−</sup>, ₁₁Na<sup>+</sup>, ₁₀Ne (10 e)</span></td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="kutu hayat" style="margin-bottom:2.6mm">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+        <p style="font-size:8.9pt">Canlılar, karbonun kararsız izotopu <span class="izotop"><span class="yz"><span>14</span><span>6</span></span>C</span>’ü de besinlerle alır. Canlı öldükten sonra <span class="izotop"><span class="yz"><span>14</span><span>6</span></span>C</span> yavaşça azalır; miktarı yaklaşık <b>5730 yılda yarıya</b> iner. Arkeologlar bu azalmadan kemik ve odun kalıntılarının yaşını hesaplar.</p>
+      </div>
+      <div class="kutu dikkat" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+        <p style="font-size:8.9pt;margin:0"><b class="y" style="color:var(--dikkat)">✗</b> “İzotopların her özelliği aynıdır.” <b style="color:var(--ornek)">✓</b> Nötr izotopların kimyasal özellikleri aynı, kütleye bağlı fiziksel özellikleri (yoğunluk, erime noktası) farklıdır.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="konu" style="margin-top:4mm"><span class="num">4</span>Enerji düzeyleri ve orbitaller</h2>
+  <div class="alt-baslik" style="margin-bottom:3mm">Her enerji düzeyi, şekli ve sayısı belli orbitallerden oluşan bir “apartman katı” gibidir.</div>
+
+  <div class="iki-genis" style="gap:4mm">
+    <div>
+      <div class="kutu kavram" style="margin-bottom:2.6mm">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Yörünge mi, orbital mi?</div>
+        <p style="font-size:9pt"><b>Yörünge</b> (Bohr): Elektronun izlediği düşünülen düzlemsel, dairesel yol. <b>Orbital</b> (modern model): Elektronun bulunma olasılığının yüksek olduğu üç boyutlu bölge. Orbitaller s, p, d, f türlerindedir; <b>her orbital zıt yönlü en fazla 2 elektron</b> alır.</p>
+      </div>
+      <ul style="font-size:9.1pt">
+        <li><b>s:</b> küreseldir; her enerji düzeyinde 1 tane bulunur. n büyüdükçe hacmi ve enerjisi artar.</li>
+        <li><b>p:</b> iki loplu; eksenler boyunca yönelmiş eş enerjili 3 orbital (p<sub>x</sub>, p<sub>y</sub>, p<sub>z</sub>), n = 2’den başlar.</li>
+        <li><b>d:</b> eş enerjili 5 orbital, n = 3’ten başlar. <b>f:</b> eş enerjili 7 orbital, n = 4’ten başlar.</li>
+      </ul>
+    </div>
+    <svg viewBox="0 0 92 64" style="width:100%;height:auto">
+      <defs>
+        <radialGradient id="sg" cx="40%" cy="40%" r="65%"><stop offset="0" stop-color="#ede9fe"/><stop offset="1" stop-color="#8b5cf6"/></radialGradient>
+        <radialGradient id="pg" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#fde68a"/><stop offset="1" stop-color="#f59e0b"/></radialGradient>
+        <radialGradient id="pg2" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#ccfbf1"/><stop offset="1" stop-color="#0f8f84"/></radialGradient>
+      </defs>
+      <g font-family="Inter" font-size="3.6" fill="#1d2133" text-anchor="middle">
+        <g stroke="#9aa3b8" stroke-width=".25"><line x1="4" y1="16" x2="28" y2="16"/><line x1="16" y1="4" x2="16" y2="28"/></g>
+        <circle cx="16" cy="16" r="8" fill="url(#sg)" opacity=".9"/>
+        <text x="16" y="33" font-weight="800">s</text>
+        <g transform="translate(46 16)">
+          <g stroke="#9aa3b8" stroke-width=".25"><line x1="-13" y1="0" x2="13" y2="0"/><line x1="0" y1="-12" x2="0" y2="12"/></g>
+          <ellipse cx="-6" cy="0" rx="6" ry="3.4" fill="url(#pg)"/><ellipse cx="6" cy="0" rx="6" ry="3.4" fill="url(#pg)"/>
+          <text y="17" font-weight="800">p<tspan font-size="2.6" dy=".8">x</tspan></text>
+        </g>
+        <g transform="translate(76 16)">
+          <g stroke="#9aa3b8" stroke-width=".25"><line x1="-12" y1="0" x2="12" y2="0"/><line x1="0" y1="-13" x2="0" y2="13"/></g>
+          <ellipse cx="0" cy="-6" rx="3.4" ry="6" fill="url(#pg)"/><ellipse cx="0" cy="6" rx="3.4" ry="6" fill="url(#pg)"/>
+          <text y="17" font-weight="800">p<tspan font-size="2.6" dy=".8">y</tspan></text>
+        </g>
+        <g transform="translate(30 47)">
+          <g stroke="#9aa3b8" stroke-width=".25"><line x1="-12" y1="0" x2="12" y2="0"/><line x1="0" y1="-12" x2="0" y2="12"/><line x1="-8" y1="6" x2="8" y2="-6"/></g>
+          <ellipse cx="-5" cy="3.8" rx="5.6" ry="3.2" transform="rotate(-37 -5 3.8)" fill="url(#pg)"/><ellipse cx="5" cy="-3.8" rx="5.6" ry="3.2" transform="rotate(-37 5 -3.8)" fill="url(#pg)"/>
+          <text y="15.5" font-weight="800">p<tspan font-size="2.6" dy=".8">z</tspan></text>
+        </g>
+        <g transform="translate(68 47)">
+          <g stroke="#9aa3b8" stroke-width=".25"><line x1="-12" y1="0" x2="12" y2="0"/><line x1="0" y1="-12" x2="0" y2="12"/></g>
+          <g fill="url(#pg2)">
+            <ellipse cx="-4.6" cy="-4.6" rx="5.4" ry="2.6" transform="rotate(45 -4.6 -4.6)"/><ellipse cx="4.6" cy="4.6" rx="5.4" ry="2.6" transform="rotate(45 4.6 4.6)"/>
+            <ellipse cx="4.6" cy="-4.6" rx="5.4" ry="2.6" transform="rotate(-45 4.6 -4.6)"/><ellipse cx="-4.6" cy="4.6" rx="5.4" ry="2.6" transform="rotate(-45 -4.6 4.6)"/>
+          </g>
+          <text y="15.5" font-weight="800">d<tspan font-size="2.6" dy=".8">xy</tspan></text>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <table class="tablo" style="margin-bottom:2mm">
+    <tr><th>Enerji düzeyi (n)</th><th>Katman</th><th>Orbital türleri</th><th>Orbital sayısı (n²)</th><th>En fazla elektron (2n²)</th></tr>
+    <tr><td>1</td><td>K</td><td>1s</td><td>1</td><td>2</td></tr>
+    <tr><td>2</td><td>L</td><td>2s, 2p</td><td>1 + 3 = 4</td><td>8</td></tr>
+    <tr><td>3</td><td>M</td><td>3s, 3p, 3d</td><td>1 + 3 + 5 = 9</td><td>18</td></tr>
+    <tr><td>4</td><td>N</td><td>4s, 4p, 4d, 4f</td><td>1 + 3 + 5 + 7 = 16</td><td>32</td></tr>
+  </table>
+  <p class="kucuk" style="margin:0">Aynı enerji düzeyinde orbital enerjileri s &lt; p &lt; d &lt; f sırasındadır. Aynı tür orbitalin enerjisi n büyüdükçe artar: 1s &lt; 2s &lt; 3s.</p>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Atom ve Yapısı</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · ELEKTRON DİZİLİMİ
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Atom ve Yapısı</span><span>Elektron dizilimi</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Elektron dizilimi kuralları</h2>
+  <div class="alt-baslik">Elektronlar orbitallere rastgele değil, üç kurala uyarak yerleşir.</div>
+
+  <div class="iki-genis" style="gap:4mm">
+    <div>
+      <div class="kutu kavram" style="margin-bottom:2.4mm">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> 1 · Aufbau (yapılanma) kuralı</div>
+        <p style="font-size:9.1pt">Temel hâldeki atomda elektronlar orbitallere <b>en düşük enerjiliden başlayarak</b> yerleşir. Enerji sırası yandaki köşegen okları izler; dikkat: <b>4s, 3d’den önce</b> dolar.</p>
+      </div>
+      <div class="kutu kavram" style="margin-bottom:2.4mm">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> 2 · Pauli dışlama ilkesi</div>
+        <p style="font-size:9.1pt">Bir orbitalde en fazla <b>iki</b> elektron bulunur ve bu iki elektronun dönme yönleri (spinleri) <b>zıttır</b>: <span class="orb"><i>↑↓</i></span> doğru, <span class="orb"><i>↑↑</i></span> yanlış.</p>
+      </div>
+      <div class="kutu kavram" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> 3 · Hund kuralı</div>
+        <p style="font-size:9.1pt">Eş enerjili orbitallere (p, d, f) elektronlar önce <b>teker teker ve aynı yönlü</b> yerleşir, sonra eşleşir. 2p<sup>3</sup> için <span class="orb"><i>↑</i><i>↑</i><i>↑</i></span> doğru, <span class="orb"><i>↑↓</i><i>↑</i><i></i></span> yanlış.</p>
+      </div>
+    </div>
+    <svg viewBox="0 0 92 90" style="width:100%;height:auto">
+      <defs><marker id="aufok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#e11d48"/></marker></defs>
+      <g font-family="Inter" font-size="4.4" font-weight="700" text-anchor="middle" fill="#3b1677">
+        <g fill="#f3efff" stroke="#c4b5fd" stroke-width=".3"><rect x="8" y="6" width="14" height="8" rx="1.5"/><rect x="8" y="17" width="14" height="8" rx="1.5"/><rect x="28" y="17" width="14" height="8" rx="1.5"/><rect x="8" y="28" width="14" height="8" rx="1.5"/><rect x="28" y="28" width="14" height="8" rx="1.5"/><rect x="48" y="28" width="14" height="8" rx="1.5"/><rect x="8" y="39" width="14" height="8" rx="1.5"/><rect x="28" y="39" width="14" height="8" rx="1.5"/><rect x="48" y="39" width="14" height="8" rx="1.5"/><rect x="68" y="39" width="14" height="8" rx="1.5"/><rect x="8" y="50" width="14" height="8" rx="1.5"/><rect x="28" y="50" width="14" height="8" rx="1.5"/><rect x="48" y="50" width="14" height="8" rx="1.5"/><rect x="68" y="50" width="14" height="8" rx="1.5"/><rect x="8" y="61" width="14" height="8" rx="1.5"/><rect x="28" y="61" width="14" height="8" rx="1.5"/><rect x="48" y="61" width="14" height="8" rx="1.5"/><rect x="8" y="72" width="14" height="8" rx="1.5"/><rect x="28" y="72" width="14" height="8" rx="1.5"/></g>
+        <text x="15" y="11.6">1s</text><text x="15" y="22.6">2s</text><text x="35" y="22.6">2p</text><text x="15" y="33.6">3s</text><text x="35" y="33.6">3p</text><text x="55" y="33.6">3d</text><text x="15" y="44.6">4s</text><text x="35" y="44.6">4p</text><text x="55" y="44.6">4d</text><text x="75" y="44.6">4f</text><text x="15" y="55.6">5s</text><text x="35" y="55.6">5p</text><text x="55" y="55.6">5d</text><text x="75" y="55.6">5f</text><text x="15" y="66.6">6s</text><text x="35" y="66.6">6p</text><text x="55" y="66.6">6d</text><text x="15" y="77.6">7s</text><text x="35" y="77.6">7p</text>
+        <g stroke="#e11d48" stroke-width=".5" fill="none" opacity=".7"><path d="M24 5 L4.5 15.8" marker-end="url(#aufok)"/><path d="M24 16 L4.5 26.8" marker-end="url(#aufok)"/><path d="M44 16 L4.5 37.8" marker-end="url(#aufok)"/><path d="M44 27 L4.5 48.8" marker-end="url(#aufok)"/><path d="M64 27 L4.5 59.8" marker-end="url(#aufok)"/><path d="M64 38 L4.5 70.8" marker-end="url(#aufok)"/><path d="M84 38 L4.5 81.8" marker-end="url(#aufok)"/><path d="M84 49 L24.5 81.8" marker-end="url(#aufok)"/></g>
+        <text x="46" y="88" font-size="3.4" font-weight="600" fill="#5d6478">Okları üstten başlayarak sırayla izle.</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="denklem" style="font-size:10pt;margin:1.6mm 0 2.4mm;background:var(--unite-acik);border-radius:2mm">1s · 2s · 2p · 3s · 3p · <span style="color:#e11d48">4s · 3d</span> · 4p · 5s · 4d · 5p · 6s · 4f · 5d · 6p · 7s …</div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 3</div>
+    <div class="soru">₈O ve ₁₉K atomlarının temel hâl elektron dizilimlerini ve son orbital türlerinin orbital şemasını yazınız.</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>₈O: 8 elektronu sırayla yerleştir → <span class="dizilim">1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>4</sup></span>. Hund’a göre 2p: <span class="orb"><i>↑↓</i><i>↑</i><i>↑</i></span> → 2 yarı dolu orbital.</span></div>
+      <div class="adim"><span class="n">2</span><span>₁₉K: 18 elektron 3p’ye kadar doldurur; 19. elektron 3d’ye değil, enerjisi daha düşük <b>4s</b>’ye girer → <span class="dizilim">1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>1</sup></span>. 4s: <span class="orb"><i>↑</i></span></span></div>
+      <div class="adim"><span class="n">3</span><span>Kontrol: üst simgelerin toplamı elektron sayısını vermeli. O: 2 + 2 + 4 = 8 ✓ · K: 2 + 2 + 6 + 2 + 6 + 1 = 19 ✓</span></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fafbff">
+    <p style="margin:0"><b class="k">Kendini yokla:</b> ₁₅P atomunun dizilimini yaz ve 3p orbitallerinin şemasını çiz. <span class="kucuk">(Cevap: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>3</sup> · 3p: ↑ ↑ ↑, üç yarı dolu orbital)</span></p>
+  </div>
+
+  <div class="iki" style="gap:4mm">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Soy gaz kısaltması</div>
+      <p style="font-size:9pt">Soy gazların tüm dolu orbitalleri tam doludur. Bir atomun dizilimi, kendinden önceki soy gazın simgesi köşeli parantez içinde yazılarak kısaltılabilir:</p>
+      <p style="font-size:9pt;margin:0">₁₀Ne: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> · ₁₈Ar: [Ne] 3s<sup>2</sup> 3p<sup>6</sup><br>₁₃Al: [Ne] 3s<sup>2</sup> 3p<sup>1</sup> · ₂₂Ti: [Ar] 4s<sup>2</sup> 3d<sup>2</sup></p>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Numarası küçük olan katman her zaman önce dolar; 3d, 4s’ten önce gelir.”</div>
+        <div class="dogru"><b class="d">✓</b> Dolma sırasını <b>enerji</b> belirler. 4s’nin enerjisi 3d’den düşüktür, önce 4s dolar.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Atom ve Yapısı</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · DEĞERLİK ELEKTRONU, KÜRESEL SİMETRİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Atom ve Yapısı</span><span>Değerlik ve küresel simetri</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Değerlik elektronu ve küresel simetri</h2>
+  <div class="alt-baslik">Dizilimi yazdıktan sonra okumayı da öğren: en dıştaki elektronlar, son orbitalin doluluğu, istisnalar</div>
+
+  <div class="iki" style="gap:4mm">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Değerlik (valans) elektronu</div>
+      <p style="font-size:9.1pt">Atomun <b>en yüksek enerji düzeyindeki</b> (en dış katmanındaki) elektronlardır. Kimyasal tepkimelere bu elektronlar katılır.</p>
+      <p style="font-size:9.1pt;margin:0">₁₆S: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> <b>3s<sup>2</sup> 3p<sup>4</sup></b> → n = 3’te 6 elektron, <b>6 değerlik elektronu</b>. d orbitali dolmaya başlamış atomlarda son s ve d elektronları birlikte değerlik elektronu sayılır (₂₂Ti: 4s<sup>2</sup> 3d<sup>2</sup> → 4).</p>
+    </div>
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Küresel simetri</div>
+      <p style="font-size:9.1pt">Elektron dizilimi <b>tam dolu</b> ya da <b>yarı dolu</b> orbital türüyle biten tanecikler küresel simetrik yük dağılımına sahiptir. Bu tanecikler daha kararlıdır.</p>
+      <p style="font-size:9.1pt;margin:0">Dizilim <b>s<sup>1</sup>, s<sup>2</sup>, p<sup>3</sup>, p<sup>6</sup>, d<sup>5</sup>, d<sup>10</sup></b> (ya da f<sup>7</sup>, f<sup>14</sup>) ile bitiyorsa küresel simetri <b>vardır</b>; p<sup>4</sup>, d<sup>6</sup> gibi bitişlerde <b>yoktur</b>.</p>
+    </div>
+  </div>
+
+  <table class="tablo" style="font-size:8.8pt">
+    <tr><th>Atom</th><th>Temel hâl elektron dizilimi</th><th>Son orbital şeması</th><th>Değerlik e</th><th>Yarı dolu orbital</th><th>Küresel simetri</th></tr>
+    <tr><td>₇N</td><td>1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>3</sup></td><td><span class="orb"><i>↑</i><i>↑</i><i>↑</i></span></td><td>5</td><td>3</td><td>Var</td></tr>
+    <tr><td>₉F</td><td>1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>5</sup></td><td><span class="orb"><i>↑↓</i><i>↑↓</i><i>↑</i></span></td><td>7</td><td>1</td><td>Yok</td></tr>
+    <tr><td>₁₂Mg</td><td>[Ne] 3s<sup>2</sup></td><td><span class="orb"><i>↑↓</i></span></td><td>2</td><td>0</td><td>Var</td></tr>
+    <tr><td>₂₅Mn</td><td>[Ar] 4s<sup>2</sup> 3d<sup>5</sup></td><td><span class="orb"><i>↑</i><i>↑</i><i>↑</i><i>↑</i><i>↑</i></span></td><td>7 (s + d)</td><td>5</td><td>Var</td></tr>
+    <tr><td>₂₆Fe</td><td>[Ar] 4s<sup>2</sup> 3d<sup>6</sup></td><td><span class="orb"><i>↑↓</i><i>↑</i><i>↑</i><i>↑</i><i>↑</i></span></td><td>8 (s + d)</td><td>4</td><td>Yok</td></tr>
+  </table>
+
+  <div class="iki-genis" style="gap:4mm">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> İki ünlü istisna</div>
+      <p style="font-size:9.1pt">Aufbau’ya göre beklenen dizilimler ₂₄Cr: [Ar] 4s<sup>2</sup> 3d<sup>4</sup> ve ₂₉Cu: [Ar] 4s<sup>2</sup> 3d<sup>9</sup>’dur. Ancak 4s’ten bir elektronun 3d’ye geçmesiyle oluşan <b>yarı dolu (d<sup>5</sup>)</b> ya da <b>tam dolu (d<sup>10</sup>)</b> yapı daha kararlıdır:</p>
+      <p style="font-size:9.6pt;margin:0;text-align:center"><b>₂₄Cr: [Ar] 4s<sup>1</sup> 3d<sup>5</sup> &nbsp;&nbsp;·&nbsp;&nbsp; ₂₉Cu: [Ar] 4s<sup>1</sup> 3d<sup>10</sup></b></p>
+      <p class="kucuk" style="margin:1mm 0 0">Gerçek (deneysel) temel hâl dizilimleri bunlardır; ikisi de küresel simetriktir. Cr’de 6 yarı dolu orbital vardır.</p>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 4</div>
+      <div class="soru" style="font-size:9.2pt">₂₀Ca atomu ve Ca<sup>2+</sup> iyonunun dizilimini yazınız.</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Ca: [Ar] 4s<sup>2</sup> (20 e)</span></div>
+        <div class="adim"><span class="n">2</span><span>Katyon olurken elektronlar <b>en dış katmandan</b> verilir: 4s’deki 2 elektron gider.</span></div>
+        <span class="sonuc">Ca<sup>2+</sup>: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup></span>
+        <p class="kucuk" style="margin:1mm 0 0">Ca<sup>2+</sup> ile ₁₈Ar izoelektroniktir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="iki" style="gap:4mm">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 5</div>
+      <div class="soru" style="font-size:9.2pt">₁₇Cl atomunun ve Cl<sup>−</sup> iyonunun küresel simetri durumunu karşılaştırınız.</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Cl: [Ne] 3s<sup>2</sup> 3p<sup>5</sup> → p<sup>5</sup> ile bitiyor: küresel simetri <b>yok</b>.</span></div>
+        <div class="adim"><span class="n">2</span><span>Cl<sup>−</sup>: 1 elektron alır → [Ne] 3s<sup>2</sup> 3p<sup>6</sup> → p<sup>6</sup>: küresel simetri <b>var</b>.</span></div>
+      </div>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Uyarılmış atom farklı bir elementtir.”</div>
+        <div class="dogru"><b class="d">✓</b> 1s<sup>2</sup> 2s<sup>1</sup> 2p<sup>1</sup> (uyarılmış) ile 1s<sup>2</sup> 2s<sup>2</sup> (temel hâl) aynı <b>Be</b> atomudur; proton sayısı değişmez, yalnızca bir elektron daha yüksek enerjili orbitaldedir.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Atom ve Yapısı</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · ÖZET
+     ========================================================= -->
+<section class="sayfa cift ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Atom ve Yapısı</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada atom</h2><p>Sınavdan önceki gece bu sayfaya bakman yeter. Her kutuyu kendi cümlelerinle bir arkadaşına anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Modeller zinciri</div>
+      <ul style="font-size:9pt">
+        <li><b>Dalton</b> (1803–08): içi dolu, bölünemez küre</li>
+        <li><b>Thomson</b> (1897 · 1904): elektron; üzümlü kek</li>
+        <li><b>Rutherford</b> (1911): küçük çekirdek, büyük boşluk</li>
+        <li><b>Bohr</b> (1913): belirli enerjili katmanlar, spektrum</li>
+        <li><b>Modern</b> (1926 →): orbital, olasılık bulutu</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Sayma kuralları</div>
+      <ul style="font-size:9pt">
+        <li>Z = p &nbsp;·&nbsp; A = p + n &nbsp;·&nbsp; n = A − Z</li>
+        <li>Nötr atom: e = p &nbsp;·&nbsp; İyon: e = p − yük</li>
+        <li>Kimyasal olayda yalnız <b>elektron</b> sayısı değişir.</li>
+        <li>İzotop: aynı p · İzoton: aynı n · İzobar: aynı A · İzoelektronik: aynı e ve dizilim</li>
+      </ul>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Orbitaller</div>
+      <ul style="font-size:9pt">
+        <li>s: 1 orbital (2 e) · p: 3 (6 e) · d: 5 (10 e) · f: 7 (14 e)</li>
+        <li>n. düzeyde n² orbital, en fazla 2n² elektron</li>
+        <li>Sıra: 1s 2s 2p 3s 3p <b>4s 3d</b> 4p 5s …</li>
+        <li>Aufbau · Pauli (↑↓, en fazla 2) · Hund (önce tek tek)</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> En sık 4 hata</div>
+      <ul style="font-size:9pt">
+        <li>Anyonda elektron sayısını <b>çıkarmak</b> (S<sup>2−</sup>: 18 e, 14 değil)</li>
+        <li>Nötron sayısını elektron sayısından hesaplamak</li>
+        <li>3d’yi 4s’ten önce doldurmak</li>
+        <li>Cr ve Cu istisnalarını unutmak</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Beş atom modelini sırasıyla, dayandıkları deneylerle anlatabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bir modelin hangi gözlemi açıklayamadığını söyleyebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Atom ve iyonlarda p, n, e sayılarını bulabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>İzotop, izoton, izobar ve izoelektronik tanecikleri ayırt edebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Z = 36’ya kadar atomların elektron dizilimini ve orbital şemasını yazabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Değerlik elektronu sayısını ve küresel simetriyi dizilimden okuyabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:5mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Atom ve Yapısı</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Atom ve Yapısı</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Aşağıdaki çözümleri dört farklı öğrenci yazdı. Her birinde bir hata var. Hatayı bul, hangi satırda olduğunu yaz, doğrusunu kutuya çöz.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> <span class="izotop"><span class="yz"><span>32</span><span>16</span></span>S</span><sup>2−</sup> iyonu kaç elektron içerir?</p>
+      <div class="defter">
+        <div class="ogrenci">Ecem’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>Atom numarası 16, yani p = 16.</div>
+        <div class="satir"><span class="sn">2</span>Yük 2−, o hâlde e = 16 − 2</div>
+        <div class="satir"><span class="sn">3</span>e = 14 elektron</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> <span class="izotop"><span class="yz"><span>56</span><span>26</span></span>Fe</span><sup>3+</sup> iyonunun nötron sayısı kaçtır?</p>
+      <div class="defter">
+        <div class="ogrenci">Kaan’ın çözümü</div>
+        <div class="satir"><span class="sn">1</span>İyon 3 elektron vermiş: e = 26 − 3 = 23</div>
+        <div class="satir"><span class="sn">2</span>Nötron = kütle no − elektron sayısı</div>
+        <div class="satir"><span class="sn">3</span>n = 56 − 23 = 33</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> ₁₉K atomunun temel hâl elektron dizilimini yazınız.</p>
+      <div class="defter">
+        <div class="ogrenci">Selin’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>İlk 18 elektron: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup></div>
+        <div class="satir"><span class="sn">2</span>3. katman bitmedi, sıradaki 3d.</div>
+        <div class="satir"><span class="sn">3</span>K: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 3d<sup>1</sup></div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Temel hâldeki ₇N atomunda kaç yarı dolu orbital vardır?</p>
+      <div class="defter">
+        <div class="ogrenci">Yusuf’un çözümü</div>
+        <div class="satir"><span class="sn">1</span>N: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>3</sup></div>
+        <div class="satir"><span class="sn">2</span>2p: <span class="orb" style="font-style:normal;font-family:Inter,sans-serif"><i>↑↓</i><i>↑</i><i></i></span></div>
+        <div class="satir"><span class="sn">3</span>Yarı dolu orbital sayısı: 1</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Sayma sorularında önce <b>çekirdeği</b> (p, n) sonra <b>bulutu</b> (e) düşün. İyon yükü yalnızca elektronu etkiler; nötron sayısını asla değiştirmez.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Atom ve Yapısı</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Atom ve Yapısı</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni ve görseli oku, sonra hangi bilginin işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Sağlık</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Hastanelerin nükleer tıp bölümlerinde bazı izotoplar tanı ve tedavide kullanılır.</p>
+          <table class="tablo" style="font-size:8.6pt">
+            <tr><th>İzotop</th><th>Kullanım alanı</th></tr>
+            <tr><td><span class="izotop"><span class="yz"><span>60</span><span>27</span></span>Co</span></td><td>Tümör ışın tedavisi</td></tr>
+            <tr><td><span class="izotop"><span class="yz"><span>99</span><span>43</span></span>Tc</span></td><td>Organ görüntüleme</td></tr>
+            <tr><td><span class="izotop"><span class="yz"><span>131</span><span>53</span></span>I</span></td><td>Tiroit tedavisi</td></tr>
+            <tr><td><span class="izotop"><span class="yz"><span>14</span><span>6</span></span>C</span></td><td>Yaş tayini (arkeoloji)</td></tr>
+          </table>
+          <div class="oncul"><div><b>I.</b><span>Co-60’ın nötron sayısı proton sayısından 4 fazladır.</span></div><div><b>II.</b><span>I-131 çekirdeğinde nötron sayısı, proton sayısından 25 fazladır.</span></div><div><b>III.</b><span><span class="izotop"><span class="yz"><span>14</span><span>6</span></span>C</span> ile <span class="izotop"><span class="yz"><span>14</span><span>7</span></span>N</span> birbirinin izobarıdır.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Alev testi</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Bir öğrenci, platin teli sodyum klorür çözeltisine batırıp bek alevine tutuyor ve alevin <b>sarı</b> renge boyandığını görüyor. Bakır(II) klorür ile alev yeşilimsi-mavi oluyor.</p>
+          <div class="oncul"><div><b>I.</b><span>Isınan atomlardaki elektronlar enerji soğurarak üst enerji düzeylerine geçer.</span></div><div><b>II.</b><span>Elektronlar alt düzeylere dönerken enerjiyi ışık olarak yayar.</span></div><div><b>III.</b><span>Bu gözlem Thomson atom modeliyle açıklanabilir.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Veri okuma</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>Grafikte K, L, M ve R taneciklerinin proton, nötron ve elektron sayıları verilmiştir.</p>
+          <svg viewBox="0 0 120 74" style="width:100%;margin:1mm 0 2mm">
+            <g font-family="Inter" font-size="4.2" fill="#5d6478">
+              <g stroke="#e5e7f0" stroke-width=".3">
+                <line x1="14" y1="12" x2="116" y2="12"/><line x1="14" y1="24" x2="116" y2="24"/><line x1="14" y1="36" x2="116" y2="36"/><line x1="14" y1="48" x2="116" y2="48"/>
+              </g>
+              <line x1="14" y1="60" x2="116" y2="60" stroke="#1d2133" stroke-width=".5"/>
+              <line x1="14" y1="60" x2="14" y2="6" stroke="#1d2133" stroke-width=".5"/>
+              <text x="11" y="61.5" text-anchor="end">0</text><text x="11" y="49.5" text-anchor="end">3</text><text x="11" y="37.5" text-anchor="end">6</text><text x="11" y="25.5" text-anchor="end">9</text><text x="11" y="13.5" text-anchor="end">12</text>
+              <text x="3" y="4" fill="#1d2133" font-weight="700">Sayı</text>
+              <!-- ölçek: 1 birim = 4 -->
+              <!-- K: 8,8,10 -->
+              <rect x="20" y="28" width="6" height="32" fill="#e11d48"/><rect x="26" y="28" width="6" height="32" fill="#9aa3b8"/><rect x="32" y="20" width="6" height="40" fill="#5b21b6"/>
+              <!-- L: 8,10,8 -->
+              <rect x="44" y="28" width="6" height="32" fill="#e11d48"/><rect x="50" y="20" width="6" height="40" fill="#9aa3b8"/><rect x="56" y="28" width="6" height="32" fill="#5b21b6"/>
+              <!-- M: 11,12,10 -->
+              <rect x="68" y="16" width="6" height="44" fill="#e11d48"/><rect x="74" y="12" width="6" height="48" fill="#9aa3b8"/><rect x="80" y="20" width="6" height="40" fill="#5b21b6"/>
+              <!-- R: 10,10,10 -->
+              <rect x="92" y="20" width="6" height="40" fill="#e11d48"/><rect x="98" y="20" width="6" height="40" fill="#9aa3b8"/><rect x="104" y="20" width="6" height="40" fill="#5b21b6"/>
+              <g fill="#1d2133" font-weight="800" font-size="4.8" text-anchor="middle">
+                <text x="29" y="66">K</text><text x="53" y="66">L</text><text x="77" y="66">M</text><text x="101" y="66">R</text>
+              </g>
+              <g font-size="3.6" text-anchor="middle" fill="#1d2133">
+                <text x="23" y="26.5">8</text><text x="29" y="26.5">8</text><text x="35" y="18.5">10</text>
+                <text x="47" y="26.5">8</text><text x="53" y="18.5">10</text><text x="59" y="26.5">8</text>
+                <text x="71" y="14.5">11</text><text x="77" y="10.5">12</text><text x="83" y="18.5">10</text>
+                <text x="95" y="18.5">10</text><text x="101" y="18.5">10</text><text x="107" y="18.5">10</text>
+              </g>
+              <g font-size="3.6"><rect x="30" y="69" width="3" height="3" fill="#e11d48"/><text x="34.5" y="71.8">proton</text><rect x="52" y="69" width="3" height="3" fill="#9aa3b8"/><text x="56.5" y="71.8">nötron</text><rect x="74" y="69" width="3" height="3" fill="#5b21b6"/><text x="78.5" y="71.8">elektron</text></g>
+            </g>
+          </svg>
+          <p>Buna göre aşağıdakilerden hangisi <b>yanlıştır</b>?</p>
+          <div class="secenek tek"><span><b>A)</b>K taneciği nötr bir atomdur.</span><span><b>B)</b>L’nin kütle numarası 18’dir.</span><span><b>C)</b>M bir katyondur.</span><span><b>D)</b>K, M ve R izoelektroniktir.</span><span><b>E)</b>L ile R izotondur.</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Çevre ve atmosfer</div>
+        <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+          <p>Atmosferde <span class="izotop"><span class="yz"><span>14</span><span>6</span></span>C</span> sürekli oluşur; canlı kalıntılarındaki <span class="izotop"><span class="yz"><span>14</span><span>6</span></span>C</span> ise zamanla çekirdeğindeki bir nötronun protona dönüşmesiyle <span class="izotop"><span class="yz"><span>14</span><span>7</span></span>N</span> atomuna dönüşür.</p>
+          <p>Bu dönüşümle ilgili aşağıdakilerden hangisi <b>yanlıştır</b>?</p>
+          <div class="secenek tek"><span><b>A)</b>Proton sayısı 1 artar.</span><span><b>B)</b>Nötron sayısı 1 azalır.</span><span><b>C)</b>Kütle numarası değişmez.</span><span><b>D)</b>Başlangıç ve son atom izobardır.</span><span><b>E)</b>Dönüşüm sonunda element değişmez.</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Atom ve Yapısı</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Atom ve Yapısı</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, sadece o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p>X<sup>2−</sup> iyonu 10 elektron içeriyor. X atomunun nötron sayısı, proton sayısından 2 fazladır. Buna göre X atomunun kütle numarası kaçtır?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">2− yüklü iyon, nötr atoma göre 2 elektron <b>fazla</b> içerir. Önce atomun elektron sayısını bul.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Nötr atomda e = p olduğundan proton sayısını yaz; nötron sayısı bundan 2 fazladır.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">A = p + n. Bulduğun atom, oksijenin hangi izotopudur?</div></div>
+      </div>
+      <div class="cevap-alani" style="height:21mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p>Temel hâldeki bir atomun elektronları 3 enerji düzeyine dağılmıştır ve atomda <b>3 tane yarı dolu orbital</b> vardır. Bu atomun atom numarasını, değerlik elektron sayısını bulunuz ve küresel simetri gösterip göstermediğini belirtiniz.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">n = 3’e kadar dolan orbitaller sırasıyla 1s, 2s, 2p, 3s, 3p’dir (3d, 4s’ten sonra dolar).</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Üç yarı dolu orbital, üç p orbitalinde birer elektron varken (Hund) oluşur: 3p<sup>3</sup>.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Diziliminin üst simgelerini topla; n = 3’teki elektronları say; son orbital p<sup>3</sup> mü?</div></div>
+      </div>
+      <div class="cevap-alani" style="height:21mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p>Y<sup>2+</sup> iyonunda proton, nötron ve elektron sayılarının toplamı 74’tür. İyonun nötron sayısı elektron sayısından 6 fazladır. Y’nin kütle numarasını ve Y atomunun temel hâl elektron dizilimini bulunuz.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Proton sayısına p de. Elektron sayısı p − 2, nötron sayısı (p − 2) + 6 olur.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Üçünü toplayıp 74’e eşitle: p + (p − 2) + (p + 4) = 74.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">A = p + n. Dizilimde dikkat: bu atom, Aufbau’ya uymayan iki ünlü istisnadan biri olabilir mi?</div></div>
+      </div>
+      <div class="cevap-alani" style="height:21mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Atom ve Yapısı</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa cift test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Atom ve Yapısı</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 25 dakika. Atom numaraları gerektiğinde element simgesinin sol altında verilmiştir.</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>Aşağıdaki bilgilerden hangisi ilk kez <b>Rutherford</b> atom modeli ile ortaya konmuştur?</p>
+        <div class="secenek tek"><span><b>A)</b>Atomlar bölünemeyen içi dolu kürelerdir.</span><span><b>B)</b>Atomda negatif yüklü tanecikler vardır.</span><span><b>C)</b>Pozitif yük ve kütlenin büyük kısmı çok küçük bir çekirdekte toplanmıştır.</span><span><b>D)</b>Elektronlar belirli enerji düzeylerinde bulunur.</span><span><b>E)</b>Elektronun konumu ve hızı aynı anda kesin olarak bilinemez.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>Bohr atom modeli ile ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>Elektronlar belirli enerjili katmanlarda bulunur.</span></div><div><b>II.</b><span>Elektron üst katmana geçerken ışık yayar.</span></div><div><b>III.</b><span>Yalnızca tek elektronlu taneciklerin spektrumunu başarıyla açıklar.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p><span class="izotop"><span class="yz"><span>23</span><span>11</span></span>Na</span><sup>+</sup> iyonunun proton, nötron ve elektron sayıları sırasıyla hangisidir?</p>
+        <div class="secenek"><span><b>A)</b>11, 12, 11</span><span><b>B)</b>11, 12, 10</span><span><b>C)</b>12, 11, 10</span><span><b>D)</b>11, 23, 10</span><span><b>E)</b>10, 12, 11</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p>Aşağıdaki tanecik çiftlerinden hangisi birbirinin <b>izotopudur</b>?</p>
+        <div class="secenek tek"><span><b>A)</b><span class="izotop"><span class="yz"><span>35</span><span>17</span></span>Cl</span> – <span class="izotop"><span class="yz"><span>37</span><span>17</span></span>Cl</span></span><span><b>B)</b><span class="izotop"><span class="yz"><span>40</span><span>18</span></span>Ar</span> – <span class="izotop"><span class="yz"><span>40</span><span>20</span></span>Ca</span></span><span><b>C)</b><span class="izotop"><span class="yz"><span>14</span><span>6</span></span>C</span> – <span class="izotop"><span class="yz"><span>16</span><span>8</span></span>O</span></span><span><b>D)</b><span class="izotop"><span class="yz"><span>24</span><span>12</span></span>Mg</span><sup>2+</sup> – <span class="izotop"><span class="yz"><span>20</span><span>10</span></span>Ne</span></span><span><b>E)</b><span class="izotop"><span class="yz"><span>39</span><span>19</span></span>K</span> – <span class="izotop"><span class="yz"><span>40</span><span>20</span></span>Ca</span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p>Temel hâl elektron dizilimi 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup> 3d<sup>6</sup> olan atom için;</p>
+        <div class="oncul"><div><b>I.</b><span>Atom numarası 26’dır.</span></div><div><b>II.</b><span>4 tane yarı dolu orbitali vardır.</span></div><div><b>III.</b><span>Elektronları 4 enerji düzeyine dağılmıştır.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p>Aşağıdaki orbital şemalarından hangisi <b>Hund kuralına</b> aykırıdır?</p>
+        <div class="secenek tek"><span><b>A)</b><span class="orb-et">2s</span><span class="orb"><i>↑↓</i></span></span><span><b>B)</b><span class="orb-et">2p</span><span class="orb"><i>↑</i><i>↑</i><i>↑</i></span></span><span><b>C)</b><span class="orb-et">2p</span><span class="orb"><i>↑↓</i><i>↑↓</i><i>↑</i></span></span><span><b>D)</b><span class="orb-et">2p</span><span class="orb"><i>↑↓</i><i>↑</i><i></i></span></span><span><b>E)</b><span class="orb-et">3d</span><span class="orb"><i>↑</i><i>↑</i><i>↑</i><i>↑</i><i>↑</i></span></span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Atom ve Yapısı</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · TEST (7–12)
+     ========================================================= -->
+<section class="sayfa test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Atom ve Yapısı</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>₂₄Cr atomunun temel hâl elektron dizilimi hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>[Ar] 4s<sup>1</sup> 3d<sup>5</sup></span><span><b>B)</b>[Ar] 4s<sup>2</sup> 3d<sup>4</sup></span><span><b>C)</b>[Ar] 3d<sup>6</sup></span><span><b>D)</b>[Ar] 4s<sup>2</sup> 4p<sup>4</sup></span><span><b>E)</b>[Ne] 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup> 3d<sup>2</sup></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p>Aşağıdaki taneciklerden hangisi ₁₈Ar atomu ile <b>izoelektroniktir</b>?</p>
+        <div class="secenek"><span><b>A)</b>₁₁Na<sup>+</sup></span><span><b>B)</b>₁₇Cl<sup>−</sup></span><span><b>C)</b>₈O<sup>2−</sup></span><span><b>D)</b>₁₂Mg<sup>2+</sup></span><span><b>E)</b>₉F<sup>−</sup></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>n = 3 enerji düzeyi ile ilgili aşağıdakilerden hangisi doğrudur?</p>
+        <div class="secenek tek"><span><b>A)</b>Yalnızca s ve p orbitalleri bulunur.</span><span><b>B)</b>f orbitalleri bulunur.</span><span><b>C)</b>9 orbital bulunur ve en fazla 18 elektron alır.</span><span><b>D)</b>En fazla 8 elektron alabilir.</span><span><b>E)</b>3d orbitalleri 4s orbitalinden önce dolar.</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p>Aşağıdaki ifadelerden hangisi <b>modern atom modeline</b> aittir?</p>
+        <div class="secenek tek"><span><b>A)</b>Atom içi dolu, bölünemez bir küredir.</span><span><b>B)</b>Elektronlar çekirdek çevresinde dairesel yollarda döner.</span><span><b>C)</b>Elektronun konumu ve hızı aynı anda kesin ölçülebilir.</span><span><b>D)</b>Elektronun bulunma olasılığının yüksek olduğu bölgelere orbital denir.</span><span><b>E)</b>Pozitif yük atomun her yerine düzgün dağılmıştır.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <p>X<sup>3+</sup> iyonunda 23 elektron ve 30 nötron bulunmaktadır. Buna göre X atomunun kütle numarası kaçtır?</p>
+        <div class="secenek"><span><b>A)</b>26</span><span><b>B)</b>30</span><span><b>C)</b>49</span><span><b>D)</b>53</span><span><b>E)</b>56</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p>Aşağıdaki atomlardan hangisi temel hâlde küresel simetri özelliği <b>göstermez</b>?</p>
+        <div class="secenek"><span><b>A)</b>₇N</span><span><b>B)</b>₁₆S</span><span><b>C)</b>₁₂Mg</span><span><b>D)</b>₂₉Cu</span><span><b>E)</b>₂₅Mn</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fafbff;margin-top:2mm">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 3., 5. ve 6. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Atom ve Yapısı</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Atom ve Yapısı</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>C</span></div><div><b>2</b><span>D</span></div><div><b>3</b><span>B</span></div><div><b>4</b><span>A</span></div>
+    <div><b>5</b><span>E</span></div><div><b>6</b><span>D</span></div><div><b>7</b><span>A</span></div><div><b>8</b><span>B</span></div>
+    <div><b>9</b><span>C</span></div><div><b>10</b><span>D</span></div><div><b>11</b><span>E</span></div><div><b>12</b><span>B</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · C</b> A Dalton’a, B Thomson’a, D Bohr’a, E Heisenberg’e (modern modele) aittir. Küçük ve yoğun çekirdek fikri altın levha deneyinden doğdu.</div>
+    <div class="c"><b>2 · D</b> Üst katmana geçen elektron enerji <b>soğurur</b>; ışık, alt katmana dönerken yayılır (II ✗). I ve III doğrudur.</div>
+    <div class="c"><b>3 · B</b> p = 11, n = 23 − 11 = 12, e = 11 − 1 = 10.</div>
+    <div class="c"><b>4 · A</b> Aynı Z (17), farklı A. B izobar, C ve E izoton (n = 8; n = 20), D izoelektronik (10 e).</div>
+    <div class="c"><b>5 · E</b> 2+2+6+2+6+2+6 = 26 (I ✓). 3d<sup>6</sup>: ↑↓ ↑ ↑ ↑ ↑ → 4 yarı dolu (II ✓). En yüksek düzey n = 4 (III ✓).</div>
+    <div class="c"><b>6 · D</b> 2p<sup>3</sup> için elektronlar önce tek tek yerleşmeliydi: ↑ ↑ ↑. Diğerleri kurallara uygundur.</div>
+    <div class="c"><b>7 · A</b> Beklenen [Ar] 4s<sup>2</sup> 3d<sup>4</sup> yerine yarı dolu d<sup>5</sup> daha kararlı: [Ar] 4s<sup>1</sup> 3d<sup>5</sup>.</div>
+    <div class="c"><b>8 · B</b> Cl<sup>−</sup>: 17 + 1 = 18 e. Diğerlerinin hepsi 10 elektronludur.</div>
+    <div class="c"><b>9 · C</b> n = 3’te 3s, 3p, 3d: 1 + 3 + 5 = 9 orbital, 2·3² = 18 e. 4s, 3d’den önce dolar.</div>
+    <div class="c"><b>10 · D</b> A Dalton, B Bohr, E Thomson; C, belirsizlik ilkesine aykırıdır.</div>
+    <div class="c"><b>11 · E</b> p = 23 + 3 = 26; A = 26 + 30 = 56. (53 = e + n hatasıdır.)</div>
+    <div class="c"><b>12 · B</b> S: [Ne] 3s<sup>2</sup> 3p<sup>4</sup> → p<sup>4</sup> ile biter. N (p<sup>3</sup>), Mg (s<sup>2</sup>), Cu (4s<sup>1</sup> 3d<sup>10</sup>), Mn (d<sup>5</sup>) küresel simetriktir.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · D</b> Co-60: n = 33, p = 27 → fark 6 (I ✗). I-131: n = 78, p = 53 → fark 25 (II ✓). C-14 ve N-14: A = 14 (III ✓).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · C</b> Alev rengi, uyarılan elektronların geri dönerken yaydığı ışıktır (I, II ✓). Thomson modelinde enerji düzeyi yoktur; bunu Bohr modeli açıklar (III ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · A</b> K: p = 8, e = 10 → O<sup>2−</sup> anyonu, nötr değil. L: 8 + 10 = 18. M: 11p, 10e → katyon. K, M, R: 10’ar e. L ve R: 10’ar nötron.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · E</b> Proton sayısı 6’dan 7’ye çıkar; atom numarası değişen tanecik <b>başka bir elementtir</b> (C → N).</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1 · A = 18</b> Atomun e = 10 − 2 = 8 → p = 8, n = 10, A = 18 (<span class="izotop"><span class="yz"><span>18</span><span>8</span></span>O</span>).</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2 · Z = 15</b> 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>3</sup> (fosfor). n = 3’te 2 + 3 = 5 değerlik elektronu. p<sup>3</sup> ile bittiği için küresel simetriktir.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3 · A = 52</b> 3p + 2 = 74 → p = 24, e = 22, n = 28; A = 24 + 28 = 52. ₂₄Cr: [Ar] 4s<sup>1</sup> 3d<sup>5</sup> (istisna).</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 2</b> Negatif yük, elektron <b>alındığını</b> gösterir: e = 16 + 2 = 18.</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 2</b> Nötron, kütle numarasından <b>proton</b> sayısı çıkarılarak bulunur: n = 56 − 26 = 30. İyon yükü nötron sayısını etkilemez.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 2</b> Dolma sırası katman numarasına değil enerjiye göredir; 4s, 3d’den önce dolar: K: [Ar] 4s<sup>1</sup>.</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 2</b> Hund kuralına aykırı. 2p: ↑ ↑ ↑ olmalı → 3 yarı dolu orbital.</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Atom ve Yapısı</span><span class="no">14</span></div>
+</section>
+
+</body>
+</html>
