@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Periyodik Özellikler · Kimya Rotası 9</title>
+<style>
+/*KITAP_CSS*/
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite: #9f1239; --unite-acik: #fdeef1; --unite-koyu: #650b23; }
+.kapak { padding: 0; background: #4c0519; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 30mm; font-size: 11pt; font-weight: 700; color: #fbbf24; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 58pt; font-weight: 900; letter-spacing: -.02em; line-height: .95; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 10mm; display: inline-flex; align-items: baseline; gap: 3mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 26pt; font-weight: 800; color: #fbbf24; white-space: nowrap; }
+.kapak .avo span { font-size: 9pt; opacity: .85; max-width: 62mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.4pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #e3c9d0; padding: .9mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.grafik { width: 100%; height: auto; display: block; }
+.grafik-kutu { border: .3mm solid var(--cizgi); border-radius: 3mm; padding: 2mm 2.4mm 1.4mm; background: #fff; margin-bottom: 3.5mm; }
+.grafik-kutu .gb { font-size: 8pt; font-weight: 700; color: var(--unite-koyu); letter-spacing: .04em; margin-bottom: .6mm; }
+.grafik-kutu .ga { font-size: 7.8pt; color: var(--soluk); line-height: 1.3; margin-top: .6mm; }
+.hatirlat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.4mm; margin: 1mm 0 3.5mm; }
+.hatirlat div { background: var(--unite-acik); border-radius: 2.4mm; padding: 2mm 2.4mm; font-size: 8.4pt; line-height: 1.35; }
+.hatirlat b { display: block; color: var(--unite-koyu); font-size: 9pt; }
+.denk { font-weight: 600; color: var(--unite-koyu); text-align: center; font-size: 10.4pt; padding: 1mm 0; }
+table.tablo.sik td, table.tablo.sik th { padding: .9mm 2mm; }
+table.tablo td.on, table.tablo th.on { text-align: center; }
+.sicra { color: var(--unite); font-weight: 800; }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; }
+.test.devam .iki { min-height: 212mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 44mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="80%" cy="18%" r="78%"><stop offset="0" stop-color="#e11d48"/><stop offset=".5" stop-color="#9f1239"/><stop offset="1" stop-color="#4c0519"/></radialGradient>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+    <!-- küçülen atomlar: periyot boyunca yarıçap azalır -->
+    <g fill="#ffffff">
+<circle cx="126" cy="38" r="12" fill-opacity="0.10"/>
+<circle cx="149" cy="38" r="9.5" fill-opacity="0.13"/>
+<circle cx="168.5" cy="38" r="7.5" fill-opacity="0.16"/>
+<circle cx="183.5" cy="38" r="6" fill-opacity="0.19"/>
+<circle cx="196" cy="38" r="4.8" fill-opacity="0.22"/>
+    </g>
+    <g fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width=".35"><circle cx="126" cy="38" r="12"/><circle cx="149" cy="38" r="9.5"/><circle cx="168.5" cy="38" r="7.5"/><circle cx="183.5" cy="38" r="6"/><circle cx="196" cy="38" r="4.8"/></g>
+    <g fill="#fbbf24"><circle cx="126" cy="38" r="1.3"/><circle cx="149" cy="38" r="1.3"/><circle cx="168.5" cy="38" r="1.3"/><circle cx="183.5" cy="38" r="1.3"/><circle cx="196" cy="38" r="1.3"/></g>
+    <path d="M120 54 H200" stroke="#fbbf24" stroke-opacity=".55" stroke-width=".5"/>
+    <path d="M197 52.4 L200 54 L197 55.6z" fill="#fbbf24" fill-opacity=".55"/>
+    <!-- silik periyodik tablo ızgarası -->
+    <g fill="none" stroke="#ffffff" stroke-opacity=".10" stroke-width=".3"><rect x="146" y="150" width="7" height="7"/><rect x="195" y="150" width="7" height="7"/><rect x="146" y="157" width="7" height="7"/><rect x="153" y="157" width="7" height="7"/><rect x="160" y="157" width="7" height="7"/><rect x="167" y="157" width="7" height="7"/><rect x="174" y="157" width="7" height="7"/><rect x="181" y="157" width="7" height="7"/><rect x="188" y="157" width="7" height="7"/><rect x="195" y="157" width="7" height="7"/><rect x="146" y="164" width="7" height="7"/><rect x="153" y="164" width="7" height="7"/><rect x="160" y="164" width="7" height="7"/><rect x="167" y="164" width="7" height="7"/><rect x="174" y="164" width="7" height="7"/><rect x="181" y="164" width="7" height="7"/><rect x="188" y="164" width="7" height="7"/><rect x="195" y="164" width="7" height="7"/></g>
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="13">
+      <text x="-6" y="170">İE₁ · r · EN · İE₁ · r · EN · İE₁</text>
+      <text x="-26" y="187">r · EN · İE₁ · r · EN · İE₁ · r · EN</text>
+      <text x="-12" y="204">EN · İE₁ · r · EN · İE₁ · r · EN</text>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 9. Sınıf</span><span>Tema 1 · Bölüm 5</span></div>
+    <div class="bolum">Bölüm 5 · Atomdan Periyodik Tabloya</div>
+    <h1>Periyodik<br>Özellikler</h1>
+    <div class="slogan">Tablodaki yerine bak, atomun huyunu söyle</div>
+    <div class="avo"><b>2372 kJ/mol</b><span>Helyumun 1. iyonlaşma enerjisi: periyodik tabloda elektronunu en zor veren atom.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Atom yarıçapı</span><span>2</span></li>
+          <li><span>2 · İyon yarıçapı</span><span>3</span></li>
+          <li><span>3 · İyonlaşma enerjisi</span><span>4</span></li>
+          <li><span>4 · Ardışık iyonlaşma enerjileri</span><span>5</span></li>
+          <li><span>5 · Elektronegatiflik</span><span>6</span></li>
+          <li><span>6 · Metalik ve ametalik karakter</span><span>7</span></li>
+          <li><span>Tek sayfada periyodik özellikler</span><span>8</span></li>
+          <li><span>Hata Avcısı</span><span>9</span></li>
+          <li><span>Bağlam temelli sorular</span><span>10</span></li>
+          <li><span>İpucu Merdiveni</span><span>11</span></li>
+          <li><span>Bölüm testi</span><span>12</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>14</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i>@ikon:kavram</i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i>@ikon:hayat</i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i>@ikon:dikkat</i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i>@ikon:ornek</i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i>@ikon:hata</i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i>@ikon:ipucu</i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Atom ve iyon yarıçaplarını gerekçesiyle sıralayacaksın.</li>
+          <li>İyonlaşma enerjisi grafik ve tablolarından grup bulacaksın.</li>
+          <li>Elektronegatiflik ve metalik karakteri tablodaki yerden tahmin edeceksin.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · ATOM YARIÇAPI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Özellikler</span><span>Atom yarıçapı</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Atom yarıçapı</h2>
+  <div class="alt-baslik">Katman sayısı atomu büyütür, çekirdeğin çekimi küçültür.</div>
+
+  <div class="kutu duz serit" style="--bg:#fffafb;padding:2.4mm 3.4mm">
+    <p style="margin:0 0 1.4mm"><b class="k">Hatırlatma (Bölüm 4):</b> Baş grup elementlerinde periyodik tablodaki yer, katman elektron dağılımından okunur.</p>
+    <div class="hatirlat" style="margin:0">
+      <div><b>Periyot</b>Elektron bulunan katman sayısı</div>
+      <div><b>Grup (A)</b>Değerlik (son katman) elektron sayısı</div>
+      <div><b>Örnek</b>{16}S: 2-8-6 → 3. periyot 6A</div>
+      <div><b>Özel adlar</b>1A alkali · 2A toprak alkali · 7A halojen · 8A soy gaz</div>
+    </div>
+  </div>
+
+  <div class="iki-genis" style="grid-template-columns:1.45fr 1fr;align-items:center">
+    <div class="kutu kavram" style="margin-bottom:0">
+      <div class="etiket">@ikon:kavram Kavram</div>
+      <p><b>Atom yarıçapı:</b> Çekirdek ile elektron bulunan en dış katman arasındaki uzaklıktır. Elektron bulutunun keskin bir sınırı olmadığı için birbirine bağlı iki özdeş atomun <b>çekirdekleri arası uzaklık</b> (d) ölçülür ve ikiye bölünür: r = d / 2. Birimi genellikle pikometredir (1 pm = 10^-12 m).</p>
+    </div>
+    <div class="grafik-kutu" style="margin-bottom:0"><!--SVG:rd--></div>
+  </div>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1.15fr;align-items:start">
+    <div>
+      <h3>İki yönlü kural</h3>
+      <p style="font-size:9.6pt"><b>Grupta yukarıdan aşağıya:</b> Her yeni periyotta bir katman eklenir. Dış elektronlar çekirdekten uzaklaşır, yarıçap <b>artar</b>. {3}Li &lt; {11}Na &lt; {19}K</p>
+      <p style="font-size:9.6pt"><b>Periyotta soldan sağa:</b> Katman sayısı aynı kalır ama proton sayısı artar. Çekirdek aynı katmandaki elektronları daha güçlü çeker, yarıçap genellikle <b>azalır</b>. {11}Na &gt; {12}Mg &gt; {13}Al</p>
+      <p class="kucuk" style="margin:0">Soy gazların yarıçapı farklı yöntemle belirlendiği için bu karşılaştırmaya katılmaz.</p>
+    </div>
+    <div class="grafik-kutu" style="margin:3mm 0 0"><div class="gb">Baş grup atomlarının yaklaşık yarıçapları (pm)</div><!--SVG:yaricap--></div>
+  </div>
+
+  <div class="kutu ornek" style="margin-top:3.5mm">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 1</div>
+    <div class="soru">{8}O, {9}F, {16}S ve {19}K atomlarının yarıçaplarını gerekçesiyle sıralayınız.</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>Yerler: O 2-6 (2. per. 6A) · F 2-7 (2. per. 7A) · S 2-8-6 (3. per. 6A) · K 2-8-8-1 (4. per. 1A)</span></div>
+      <div class="adim"><span class="n">2</span><span>Aynı periyot: O &gt; F. Aynı grup: S &gt; O. K hem bir alt periyotta hem daha soldaki grupta: K &gt; S.</span></div>
+      <span class="sonuc">K &gt; S &gt; O &gt; F</span>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Elektronu çok olan atom daha büyüktür: Mg &gt; Na.”</div>
+        <div class="dogru"><b class="d">✓</b> Katman sayısı aynıysa <b>çekirdek çekimi</b> belirler: Mg (160 pm) &lt; Na (186 pm).</div>
+      </div>
+    </div>
+    <div class="kutu dikkat serit" style="margin-bottom:0">
+      <div class="etiket">@ikon:dikkat Dikkat · Çapraz karşılaştırma</div>
+      <p style="font-size:9.1pt">Farklı periyot <b>ve</b> farklı gruptaki atomlarda kurallar çelişebilir. Li (2. periyot 1A) ile Cl (3. periyot 7A) için “alttaki büyüktür” demek yanlıştır: Li 152 pm, Cl 99 pm. Böyle durumlarda ölçülmüş değerlere bakılır.</p>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Özellikler</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · İYON YARIÇAPI
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Özellikler</span><span>İyon yarıçapı</span></div>
+
+  <h2 class="konu"><span class="num">2</span>İyon yarıçapı</h2>
+  <div class="alt-baslik">Elektron veren atom küçülür, elektron alan atom büyür.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:kavram Kavram · p/e oranı</div>
+    <p>Atom elektron verince <b>katyon</b>, alınca <b>anyon</b> oluşur; proton sayısı değişmez. <b>Elektron başına düşen çekim</b>, proton sayısının elektron sayısına oranıyla (<b>p/e</b>) yorumlanır. Katman sayısı aynı olan taneciklerde p/e büyüdükçe elektronlar çekirdeğe daha çok yaklaşır, <b>tanecik küçülür</b>. Aynı elementin tanecikleri için: <b>anyon &gt; nötr atom &gt; katyon</b>.</p>
+  </div>
+
+  <div class="grafik-kutu"><div class="gb">Atomdan iyona: katman sayısı ve yarıçap</div><!--SVG:iyon--><div class="ga">Na bir katman kaybeder: 186 → 102 pm. Cl’nin katman sayısı değişmez ama p/e azalır, bulut genişler: 99 → 181 pm (yaklaşık).</div></div>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1.5fr;align-items:center;margin-top:1mm">
+    <div><h3 style="margin-top:0">İzoelektronik tanecikler</h3><p style="font-size:9.4pt;margin:0">Elektron sayıları ve dizilimleri aynı olan taneciklerdir. Katman sayıları aynı, tek fark proton sayısıdır: <b>proton sayısı en büyük olan en küçüktür</b>.</p></div>
+    <div class="grafik-kutu" style="margin:0"><!--SVG:izoel--></div>
+  </div>
+
+  <div class="kutu ornek" style="margin-top:3.5mm">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 2</div>
+    <div class="iki" style="gap:4mm">
+      <div>
+        <div class="soru">a) {26}Fe, Fe<sup>2+</sup> ve Fe<sup>3+</sup> taneciklerinin yarıçaplarını sıralayınız.</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>Hepsinde 26 proton; elektron: 26, 24, 23.</span></div>
+          <div class="adim"><span class="n">2</span><span>p/e: 1 · ≈ 1,08 · ≈ 1,13. Oran büyüdükçe tanecik küçülür.</span></div>
+          <span class="sonuc">Fe &gt; Fe<sup>2+</sup> &gt; Fe<sup>3+</sup></span>
+        </div>
+      </div>
+      <div>
+        <div class="soru">b) {16}S<sup>2−</sup>, {17}Cl<sup>−</sup>, {19}K<sup>+</sup> ve {20}Ca<sup>2+</sup> iyonlarını sıralayınız.</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>Hepsinde 18 elektron (2-8-8): izoelektronik.</span></div>
+          <div class="adim"><span class="n">2</span><span>Proton arttıkça küçülür: 16 &lt; 17 &lt; 19 &lt; 20.</span></div>
+          <span class="sonuc">S<sup>2−</sup> &gt; Cl<sup>−</sup> &gt; K<sup>+</sup> &gt; Ca<sup>2+</sup></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket">@ikon:hayat Hayatın İçinden</div>
+      <p style="font-size:9pt">Sinir hücrelerinin zarındaki <b>potasyum kanalları</b> K<sup>+</sup> iyonlarını hızla geçirir, daha küçük Na<sup>+</sup> iyonlarını ise büyük ölçüde geçirmez. Seçicilik, iyon boyutuyla ilgilidir.</p>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Katyonlar her zaman anyonlardan küçüktür.”</div>
+        <div class="dogru"><b class="d">✓</b> Bu, aynı element ya da izoelektronik tanecikler için kesindir. Üç katmanlı K<sup>+</sup> (2-8-8), iki katmanlı F<sup>−</sup> (2-8) iyonundan büyüktür.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Özellikler</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · İYONLAŞMA ENERJİSİ
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Özellikler</span><span>İyonlaşma enerjisi</span></div>
+
+  <h2 class="konu"><span class="num">3</span>İyonlaşma enerjisi</h2>
+  <div class="alt-baslik">Bir elektronu atomdan koparmanın bedeli.</div>
+
+  <div class="iki-genis" style="grid-template-columns:1.15fr 1fr">
+    <div class="kutu kavram">
+      <div class="etiket">@ikon:kavram Kavram</div>
+      <p><b>İyonlaşma enerjisi (İE):</b> Gaz hâlindeki bir atom ya da iyondan bir elektron koparmak için gereken en az enerjidir. Nötr atomdan ilk elektronu koparmak için gereken enerjiye <b>1. iyonlaşma enerjisi</b> (İE<sub>1</sub>) denir.</p>
+      <div class="denk">X(g) + İE<sub>1</sub> → X<sup>+</sup>(g) + e<sup>−</sup></div>
+      <p style="font-size:9.2pt">Elektron koparmak için her zaman enerji verilir: iyonlaşma <b>endotermiktir</b>. İE büyükse atom elektronunu zor verir.</p>
+    </div>
+    <div>
+      <h3 style="margin-top:0">Neye bağlıdır?</h3>
+      <ul style="font-size:9.5pt">
+        <li><b>Uzaklık:</b> Dış elektron çekirdekten uzaksa (yarıçap büyükse) kolay kopar, İE küçüktür.</li>
+        <li><b>Çekirdek çekimi:</b> Aynı katmanda proton sayısı arttıkça elektron sıkı tutulur, İE büyür.</li>
+        <li><b>Kararlı dizilim:</b> Dolu ya da yarı dolu alt kabuklar (küresel simetri) elektronu bırakmaya karşı “dirençlidir”.</li>
+      </ul>
+      <p style="font-size:9.3pt;margin:0">Sonuç: <b>Grupta aşağı inildikçe İE<sub>1</sub> azalır</b>, <b>periyotta sağa gidildikçe genellikle artar</b>. Her periyotta en büyük İE<sub>1</sub> soy gaza, en küçüğü alkali metale aittir.</p>
+    </div>
+  </div>
+
+  <div class="grafik-kutu"><div class="gb">İlk 20 elementin 1. iyonlaşma enerjisi</div><!--SVG:ie--><div class="ga">Her periyot bir alkali metalle “dipten” başlar, soy gazla “zirvede” biter. Değerler yuvarlatılmış ölçüm değerleridir.</div></div>
+
+  <div class="iki" style="gap:4mm">
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket">@ikon:dikkat İki istisna</div>
+      <p style="font-size:9.1pt;margin-bottom:1.2mm"><b>2A &gt; 3A:</b> 2A atomunun ns^2 dizilimi dolu ve küresel simetriktir. 3A atomunda koparılan elektron tek başına np^1 orbitalindedir, daha kolay kopar. (Be 899 &gt; B 801; Mg 738 &gt; Al 578)</p>
+      <p style="font-size:9.1pt;margin:0"><b>5A &gt; 6A:</b> 5A’nın np^3 dizilimi yarı dolu ve küresel simetriktir. 6A’da (np^4) bir orbitaldeki iki elektron birbirini iter, biri kolay kopar. (N 1402 &gt; O 1314; P 1012 &gt; S 1000)</p>
+    </div>
+    <div class="kutu ornek" style="margin-bottom:0">
+      <div class="etiket">@ikon:ornek Çözümlü Örnek 3</div>
+      <div class="soru" style="font-size:9.4pt">{11}Na, {12}Mg, {13}Al ve {14}Si atomlarının İE<sub>1</sub> değerlerini sıralayınız.</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Hepsi 3. periyotta: 1A, 2A, 3A, 4A.</span></div>
+        <div class="adim"><span class="n">2</span><span>Genel artış Na &lt; Mg &lt; Al &lt; Si; ama 2A–3A istisnası: Mg &gt; Al.</span></div>
+        <span class="sonuc">Si &gt; Mg &gt; Al &gt; Na</span>
+      </div>
+      <p class="kucuk" style="margin:1.4mm 0 0">Periyot sırası ezber cümlesi: 1A &lt; 3A &lt; 2A &lt; 4A &lt; 6A &lt; 5A &lt; 7A &lt; 8A</p>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Özellikler</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · ARDIŞIK İYONLAŞMA ENERJİLERİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Özellikler</span><span>Ardışık iyonlaşma enerjileri</span></div>
+
+  <h2 class="konu"><span class="num">4</span>Ardışık iyonlaşma enerjileri</h2>
+  <div class="alt-baslik">Elektronları tek tek koparınca atom, grubunu ele verir.</div>
+
+  <div class="iki-genis" style="grid-template-columns:1.25fr 1fr">
+    <div>
+      <p>Bir atomdan elektronlar sırayla koparılabilir. Her adımda geriye kalan elektron sayısı azalır, p/e oranı büyür ve tanecik küçülür. Bu yüzden bir sonraki elektronu koparmak hep daha zordur:</p>
+      <div class="denk">İE<sub>1</sub> &lt; İE<sub>2</sub> &lt; İE<sub>3</sub> &lt; … &lt; İE<sub>n</sub></div>
+      <p style="font-size:9.5pt">Bir atomun <b>elektron sayısı kadar</b> iyonlaşma enerjisi vardır: {8}O için 8 değer. Değerlik elektronları bittikten sonra sıradaki elektron, çekirdeğe çok daha yakın ve dolu bir iç katmandan koparılır. Enerjide <b>büyük bir sıçrama</b> görülür.</p>
+    </div>
+    <div class="grafik-kutu" style="margin-bottom:0"><div class="gb">Karbonun ilk beş iyonlaşma enerjisi</div><!--SVG:karbon--></div>
+  </div>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:hedef Grup bulma yöntemi (baş grup elementleri)</div>
+    <div class="uc" style="gap:3mm">
+      <div><b class="k">1 · Oranları hesapla</b><br><span style="font-size:9pt">Her değeri bir öncekine böl: İE<sub>2</sub>/İE<sub>1</sub>, İE<sub>3</sub>/İE<sub>2</sub> …</span></div>
+      <div><b class="k">2 · Belirgin sıçramayı seç</b><br><span style="font-size:9pt">İç katmana geçiş, belirgin bir sıçramadır (yaklaşık 3 kat ve üzeri). Birden fazla aday varsa <b>en büyüğünü</b> seç.</span></div>
+      <div><b class="k">3 · Öncesini say</b><br><span style="font-size:9pt">Sıçramadan önce koparılan elektron sayısı = değerlik elektron sayısı = grup numarası (A).</span></div>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 4</div>
+    <div class="iki-genis" style="grid-template-columns:1.2fr 1fr;gap:4mm">
+      <div>
+        <div class="soru">X, Y, Z ve T baş grup elementlerinin ilk dört iyonlaşma enerjisi (kJ/mol) verilmiştir. Gruplarını bulunuz.</div>
+        <table class="tablo sik" style="margin:0">
+          <tr><th>Element</th><th class="on">İE<sub>1</sub></th><th class="on">İE<sub>2</sub></th><th class="on">İE<sub>3</sub></th><th class="on">İE<sub>4</sub></th></tr>
+          <tr><td>X</td><td class="on">403</td><td class="on sicra">2633</td><td class="on">3860</td><td class="on">5080</td></tr>
+          <tr><td>Y</td><td class="on">549</td><td class="on">1064</td><td class="on sicra">4138</td><td class="on">5500</td></tr>
+          <tr><td>Z</td><td class="on">578</td><td class="on">1817</td><td class="on">2745</td><td class="on sicra">11577</td></tr>
+          <tr><td>T</td><td class="on">786</td><td class="on">1577</td><td class="on">3232</td><td class="on">4356</td></tr>
+        </table>
+      </div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span><b>X:</b> 2633/403 ≈ 6,5 (İE<sub>1</sub>→İE<sub>2</sub>) → <b>1A</b></span></div>
+        <div class="adim"><span class="n">2</span><span><b>Y:</b> 1,9 · <b>3,9</b> · 1,3 → <b>2A</b></span></div>
+        <div class="adim"><span class="n">3</span><span><b>Z:</b> 3,1 · 1,5 · <b>4,2</b> → <b>3A</b> (ilk oran da 3’ü geçiyor ama en büyük sıçrama 3→4)</span></div>
+        <div class="adim"><span class="n">4</span><span><b>T:</b> 2,0 · 2,1 · 1,3 → hiçbiri belirgin değil; ilk dört değerde sıçrama yok. Değerlik elektronu <b>en az 4</b>; grup bu veriyle kesinleşmez.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket">@ikon:dikkat Denklemi doğru oku</div>
+      <ul style="font-size:8.9pt;margin:0">
+        <li>X(g) → X<sup>2+</sup>(g) + 2e<sup>−</sup> için gereken enerji <b>İE<sub>1</sub> + İE<sub>2</sub></b>’dir, İE<sub>2</sub> değildir.</li>
+        <li>X(k) → X<sup>+</sup>(g) + e<sup>−</sup> için gereken enerji İE<sub>1</sub>’den <b>büyüktür</b>: önce katı gaz hâline getirilir (hâl değişim enerjisi), sonra iyonlaştırılır.</li>
+        <li>X<sup>+</sup>(g) → X<sup>2+</sup>(g) + e<sup>−</sup> → <b>İE<sub>2</sub></b></li>
+      </ul>
+    </div>
+    <div class="kutu kavram" style="margin-bottom:0">
+      <div class="etiket">@ikon:kavram Atom mu iyon mu?</div>
+      <p style="font-size:9.2pt">Aynı elementin taneciklerinden bir elektron koparmak için gereken enerji p/e oranıyla artar:</p>
+      <div class="denk" style="font-size:10pt">katyon &gt; nötr atom &gt; anyon</div>
+      <p style="font-size:9.2pt;margin:0">Örneğin Mg<sup>+</sup> iyonundan elektron koparmak (İE<sub>2</sub> = 1451) Mg atomundan koparmaktan (İE<sub>1</sub> = 738) zordur.</p>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Özellikler</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · ELEKTRONEGATİFLİK
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Özellikler</span><span>Elektronegatiflik</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Elektronegatiflik</h2>
+  <div class="alt-baslik">Bağdaki elektronlar için bir “ip çekme” yarışı.</div>
+
+  <div class="iki-genis" style="grid-template-columns:1.2fr 1fr">
+    <div>
+      <div class="kutu kavram">
+        <div class="etiket">@ikon:kavram Kavram</div>
+        <p><b>Elektronegatiflik:</b> Bir atomun, kimyasal bağdaki ortaklaşa kullanılan elektronları kendine çekme yeteneğidir. Ölçülen bir enerji değil, <b>karşılaştırma ölçeğidir</b>; birimi yoktur.</p>
+      </div>
+      <p style="font-size:9.6pt">Linus Pauling bu ölçekte en yüksek değeri flora (yaklaşık <b>4,0</b>) vermiş, diğer elementleri buna göre sıralamıştır. Soy gazlar genellikle bağ yapmadığı için onlara değer verilmez. En düşük değerler 1A grubunun altındaki sezyum ve fransiyuma aittir (yaklaşık 0,7–0,8).</p>
+    </div>
+    <div class="grafik-kutu" style="margin-bottom:0"><div class="gb">H–Cl bağında kısmi yükler</div><!--SVG:hcl--><div class="ga">Elektronegatifliği büyük olan atom kısmi negatif (δ−), diğeri kısmi pozitif (δ+) yüklenir.</div></div>
+  </div>
+
+  <div class="iki-genis" style="grid-template-columns:1.25fr 1fr;align-items:start">
+    <div class="grafik-kutu" style="margin-bottom:0"><div class="gb">Elektronegatiflik değerleri (yaklaşık)</div><!--SVG:en--></div>
+    <div>
+      <h3 style="margin-top:0">Eğilim</h3>
+      <ul style="font-size:9.4pt">
+        <li><b>Periyotta soldan sağa</b> çekirdek çekimi arttığı ve yarıçap küçüldüğü için <b>artar</b>. Her periyotta en büyük değer 7A’dadır.</li>
+        <li><b>Grupta yukarıdan aşağıya</b> bağ elektronları çekirdekten uzaklaştığı için <b>azalır</b>.</li>
+        <li>Genel olarak İE<sub>1</sub> ile aynı yönde değişir; ama 2A–3A ve 5A–6A istisnaları elektronegatiflikte görülmez.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="kutu ornek" style="margin-top:3.5mm">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 5</div>
+    <div class="iki" style="gap:4mm">
+      <div>
+        <div class="soru">a) {8}O, {9}F, {11}Na ve {16}S atomlarının elektronegatifliklerini sıralayınız.</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>2. periyot: F (7A) &gt; O (6A). Aynı grup: O &gt; S.</span></div>
+          <div class="adim"><span class="n">2</span><span>3. periyot: S (6A) &gt; Na (1A).</span></div>
+          <span class="sonuc">F &gt; O &gt; S &gt; Na</span>
+        </div>
+      </div>
+      <div>
+        <div class="soru">b) O–H, N–H ve C–H bağlarını polarlığa göre sıralayınız.</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>Farklar: O–H 3,4 − 2,2 = 1,2 · N–H 0,8 · C–H 0,4</span></div>
+          <div class="adim"><span class="n">2</span><span>Fark büyüdükçe elektronlar bir uca daha çok kayar.</span></div>
+          <span class="sonuc">O–H &gt; N–H &gt; C–H</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket">@ikon:hayat Hayatın İçinden</div>
+      <p style="font-size:9.2pt">Yapışmaz tava kaplaması olan teflon, karbon zincirine bağlı flor atomlarından oluşur. Elektronegatifliği en yüksek element olan florun karbonla yaptığı bağlar çok güçlüdür; bu yüzden kaplama pek çok kimyasala karşı dayanıklıdır.</p>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Soy gazlar kararlı olduğu için elektronegatiflikleri en yüksektir.”</div>
+        <div class="dogru"><b class="d">✓</b> Elektronegatiflik <b>bağdaki</b> elektronlar için tanımlanır. Çoğu tabloda soy gazlara değer verilmez; en yüksek değer flordadır.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Özellikler</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · METALİK / AMETALİK KARAKTER
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Özellikler</span><span>Metalik ve ametalik karakter</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Metalik ve ametalik karakter</h2>
+  <div class="alt-baslik">Elektron vermeye mi yatkın, almaya mı? Bütün eğilimler tek haritada.</div>
+
+  <div class="iki-genis" style="grid-template-columns:1.15fr 1fr;align-items:start">
+    <div>
+      <div class="kutu kavram">
+        <div class="etiket">@ikon:kavram Kavram</div>
+        <p><b>Metalik karakter:</b> Atomun elektron verip katyon oluşturma eğilimidir. İE<sub>1</sub> ve elektronegatiflik küçüldükçe artar.</p>
+        <p><b>Ametalik karakter:</b> Atomun elektron alıp anyon oluşturma ya da bağ elektronlarını kendine çekme eğilimidir. Elektronegatiflikle birlikte artar.</p>
+      </div>
+      <p style="font-size:9.4pt;margin:0">Bir metalin <b>aktifliği</b>, ne kadar kolay elektron verdiğini gösterir. Aynı periyottaki alkali metal, toprak alkali metalden daha aktiftir; grupta aşağı inildikçe aktiflik artar. Ametallerde en aktif element flordur; halojenlerde aktiflik aşağı doğru azalır: F<sub>2</sub> &gt; Cl<sub>2</sub> &gt; Br<sub>2</sub> &gt; I<sub>2</sub>.</p>
+    </div>
+    <div class="grafik-kutu" style="margin-bottom:0"><div class="gb">Periyodik özellikler haritası (baş gruplar)</div><!--SVG:trend--><div class="ga">Sol alt köşe (Cs, Fr) en metalik, sağ üst köşe (F) en ametalik bölgedir. Soy gazlar bu karşılaştırmaya katılmaz.</div></div>
+  </div>
+
+  <table class="tablo sik" style="margin-top:3mm;font-size:8.8pt">
+    <tr><th>Özellik</th><th>Periyotta soldan sağa →</th><th>Grupta yukarıdan aşağıya ↓</th><th>Temel neden</th></tr>
+    <tr><td><b>Atom yarıçapı</b></td><td>genellikle azalır</td><td>artar</td><td>Proton sayısı / katman sayısı</td></tr>
+    <tr><td><b>1. iyonlaşma enerjisi</b></td><td>genellikle artar*</td><td>azalır</td><td>Dış elektronun çekirdeğe uzaklığı</td></tr>
+    <tr><td><b>Elektronegatiflik</b></td><td>artar (soy gazlar hariç)</td><td>azalır</td><td>Bağ elektronlarına uygulanan çekim</td></tr>
+    <tr><td><b>Metalik karakter</b></td><td>azalır</td><td>artar</td><td>Elektron verme kolaylığı</td></tr>
+    <tr><td><b>Ametalik karakter</b></td><td>artar</td><td>azalır</td><td>Elektron çekme gücü</td></tr>
+  </table>
+  <p class="kucuk" style="margin:-2mm 0 2.4mm">* İstisnalar: 2A &gt; 3A ve 5A &gt; 6A</p>
+
+  <div class="kutu ornek">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 6</div>
+    <div class="iki-genis" style="grid-template-columns:1fr 1fr;gap:4mm">
+      <div>
+        <div class="soru">{11}Na, {12}Mg, {13}Al ve {19}K elementlerini metalik karakterlerine göre sıralayınız.</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>Aynı periyot (1A, 2A, 3A): Na &gt; Mg &gt; Al.</span></div>
+          <div class="adim"><span class="n">2</span><span>Aynı grup, K bir alt periyotta: K &gt; Na.</span></div>
+          <span class="sonuc">K &gt; Na &gt; Mg &gt; Al</span>
+        </div>
+      </div>
+      <div class="cozum" style="align-self:center">
+        <p style="margin:0;font-size:9.1pt"><b style="color:var(--ornek)">Peki İE<sub>1</sub>?</b> K 419 · Na 496 · Mg 738 · Al 578 kJ/mol. Al’nin İE<sub>1</sub>’i Mg’ninkinden küçük olsa da Al daha az metaliktir: Al iyonlaşırken üç elektron verir ve gereken toplam enerji çok daha büyüktür. Metalik karakter yalnızca İE<sub>1</sub>’e bakılarak söylenmez.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket">@ikon:hayat Hayatın İçinden</div>
+      <p style="font-size:9pt">Sodyum ve potasyum, hava ve nemle hızla tepkimeye girdiği için gaz yağı ya da parafin yağı altında saklanır. Suya atılan potasyum, sodyumdan çok daha şiddetli tepkime verir; açığa çıkan hidrojen çoğu zaman alev alır.</p>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Hidrojen 1A grubunda olduğu için alkali metaldir.”</div>
+        <div class="dogru"><b class="d">✓</b> Hidrojen bir <b>ametaldir</b>; İE<sub>1</sub>’i (1312 kJ/mol) alkali metallerinkinden çok yüksektir.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Özellikler</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · ÖZET
+     ========================================================= -->
+<section class="sayfa cift ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Özellikler</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada periyodik özellikler</h2><p>Sınavdan önceki gece bu sayfaya bakman yeter. Her kutuyu kendi cümlelerinle bir arkadaşına anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket">@ikon:kavram Yarıçap</div>
+      <ul style="font-size:9.1pt">
+        <li>Grupta aşağı → artar (katman eklenir)</li>
+        <li>Periyotta sağa → genellikle azalır (çekim artar)</li>
+        <li>Aynı element: anyon &gt; atom &gt; katyon</li>
+        <li>İzoelektronik: proton çok → tanecik küçük</li>
+        <li>Önce katman sayısına, sonra p/e oranına bak</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket">@ikon:ornek İyonlaşma enerjisi</div>
+      <ul style="font-size:9.1pt">
+        <li>X(g) + İE<sub>1</sub> → X<sup>+</sup>(g) + e<sup>−</sup> · her zaman endotermik</li>
+        <li>Grupta aşağı azalır, periyotta sağa genellikle artar</li>
+        <li>Sıra: 1A &lt; 3A &lt; 2A &lt; 4A &lt; 6A &lt; 5A &lt; 7A &lt; 8A</li>
+        <li>İE<sub>1</sub> &lt; İE<sub>2</sub> &lt; …; elektron sayısı kadar İE vardır</li>
+        <li>En büyük sıçramadan önceki elektron sayısı = grup (A)</li>
+      </ul>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket">@ikon:kavram Elektronegatiflik ve karakter</div>
+      <ul style="font-size:9.1pt">
+        <li>Bağ elektronlarını çekme yeteneği; birimsiz (F ≈ 4,0)</li>
+        <li>Periyotta sağa artar, grupta aşağı azalır</li>
+        <li>Büyük olan atom δ−, küçük olan δ+ yüklenir</li>
+        <li>Metalik karakter: sol alt köşeye doğru artar</li>
+        <li>Ametalik karakter: sağ üst köşeye (F) doğru artar</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket">@ikon:dikkat En sık 4 hata</div>
+      <ul style="font-size:9.1pt">
+        <li>“Çok elektron = büyük atom” sanmak</li>
+        <li>2A–3A ve 5A–6A istisnalarını unutmak</li>
+        <li>Grup bulurken ilk büyük görünen orana aldanmak</li>
+        <li>X(g) → X<sup>2+</sup> enerjisini İE<sub>2</sub> sanmak (İE<sub>1</sub> + İE<sub>2</sub>’dir)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Atom yarıçapının grupta ve periyotta nasıl değiştiğini nedeniyle açıklayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bir atomu, katyonunu ve anyonunu; izoelektronik tanecikleri boyutça sıralayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>İlk 20 elementin İE<sub>1</sub> grafiğini yorumlayıp istisnaları gerekçelendirebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Ardışık iyonlaşma enerjilerinden baş grup elementinin grubunu bulabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Elektronegatiflik değerlerinden bağdaki kısmi yükleri belirleyebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Elementlerin metalik ve ametalik karakterini tablodaki yerlerinden karşılaştırabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:4mm;height:31mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Özellikler</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Özellikler</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Aşağıdaki çözümleri dört farklı öğrenci yazdı. Her birinde bir hata var. Hatayı bul, hangi satırda olduğunu yaz, doğrusunu kutuya çöz.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> {11}Na ve {12}Mg atomlarından hangisinin yarıçapı daha büyüktür?</p>
+      <div class="defter">
+        <div class="ogrenci">Selin’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>Na: 2-8-1, Mg: 2-8-2 → ikisi de 3. periyot.</div>
+        <div class="satir"><span class="sn">2</span>Mg’nin elektronu fazla, daha büyüktür.</div>
+        <div class="satir"><span class="sn">3</span>Yarıçap: Mg &gt; Na</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> {17}Cl atomu ile Cl<sup>−</sup> iyonundan hangisi daha büyüktür?</p>
+      <div class="defter">
+        <div class="ogrenci">Baran’ın çözümü</div>
+        <div class="satir"><span class="sn">1</span>Cl: 17p, 17e · Cl<sup>−</sup>: 17p, 18e</div>
+        <div class="satir"><span class="sn">2</span>p/e: Cl için 1, Cl<sup>−</sup> için 17/18 ≈ 0,94</div>
+        <div class="satir"><span class="sn">3</span>p/e küçükse sıkı çekilir → Cl<sup>−</sup> küçük</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> {7}N ve {8}O atomlarının 1. iyonlaşma enerjilerini karşılaştırınız.</p>
+      <div class="defter">
+        <div class="ogrenci">Ecrin’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>N: 2-5 (5A), O: 2-6 (6A); aynı periyot.</div>
+        <div class="satir"><span class="sn">2</span>Periyotta sağa İE her zaman artar.</div>
+        <div class="satir"><span class="sn">3</span>Sonuç: İE<sub>1</sub>(O) &gt; İE<sub>1</sub>(N)</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Baş grup elementi X’in İE değerleri 801, 2427, 3660, 25026 kJ/mol’dür. X kaçıncı gruptadır?</p>
+      <div class="defter">
+        <div class="ogrenci">Kaan’ın çözümü</div>
+        <div class="satir"><span class="sn">1</span>Oranlar: 3,0 · 1,5 · 6,8</div>
+        <div class="satir"><span class="sn">2</span>İlk büyük sıçrama İE<sub>1</sub> ile İE<sub>2</sub> arasında.</div>
+        <div class="satir"><span class="sn">3</span>Tek elektron kolay koptu → X, 1A grubunda.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Periyodik özelliklerde hatanın en sık kaynağı, “tek bir nedene” bakmaktır. Önce <b>katman sayısını</b>, sonra <b>çekirdek çekimini</b>, en son <b>dolu ya da yarı dolu orbital</b> etkisini sor.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Özellikler</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Özellikler</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni ve görseli oku, sonra hangi bilginin işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Sağlık</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Vücut sıvılarındaki dört önemli iyonun yaklaşık yarıçapları verilmiştir.</p>
+          <table class="tablo sik" style="font-size:8.6pt">
+            <tr><th>İyon</th><th class="on">{11}Na<sup>+</sup></th><th class="on">{12}Mg<sup>2+</sup></th><th class="on">{19}K<sup>+</sup></th><th class="on">{20}Ca<sup>2+</sup></th></tr>
+            <tr><td>Dizilim</td><td class="on">2-8</td><td class="on">2-8</td><td class="on">2-8-8</td><td class="on">2-8-8</td></tr>
+            <tr><td>r (pm)</td><td class="on">102</td><td class="on">72</td><td class="on">138</td><td class="on">100</td></tr>
+          </table>
+          <div class="oncul" style="font-size:9.4pt"><div><b>I.</b><span>K<sup>+</sup>, katman sayısı fazla olduğu için Na<sup>+</sup>’dan büyüktür.</span></div><div><b>II.</b><span>Na<sup>+</sup> ile Mg<sup>2+</sup> izoelektroniktir; proton sayısı büyük olan Mg<sup>2+</sup> daha küçüktür.</span></div><div><b>III.</b><span>Ca<sup>2+</sup>, katman sayısı K<sup>+</sup>’nınkinden az olduğu için daha küçüktür.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Teknoloji</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Yer kabuğunda lityumdan çok daha bol bulunan sodyumla çalışan <b>sodyum iyon piller</b> geliştirilmektedir. Bu pillerin elektrotlarında, Li<sup>+</sup> (≈ 76 pm) iyonundan büyük olan Na<sup>+</sup> (≈ 102 pm) iyonlarına uygun genişlikte boşluklar gerekir.</p>
+          <p>Na<sup>+</sup> iyonunun Li<sup>+</sup> iyonundan büyük olmasının temel nedeni hangisidir? <span class="veri">({3}Li, {11}Na)</span></p>
+          <div class="secenek tek"><span><b>A)</b>Na<sup>+</sup> iyonunun yükü daha büyüktür.</span><span><b>B)</b>Na<sup>+</sup> iyonunda elektron bulunan katman sayısı fazladır.</span><span><b>C)</b>Na<sup>+</sup> iyonu elektron alarak oluşur.</span><span><b>D)</b>Na<sup>+</sup> iyonunun proton sayısı daha küçüktür.</span><span><b>E)</b>Na<sup>+</sup> iyonunun p/e oranı daha büyüktür.</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:lab Laboratuvar</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>Öğretmen, güvenlik önlemleri altında küçük Li, Na ve K parçalarını suya atıyor; tepkimenin şiddeti Li’den K’ye doğru artıyor. 1A elementlerinin İE<sub>1</sub> değerleri grafikte verilmiştir.</p>
+          <div class="grafik-kutu" style="margin:1mm 0 2mm"><!--SVG:alkali--></div>
+          <p>Buna göre hangi çıkarım <b>yanlıştır</b>?</p>
+          <div class="secenek tek"><span><b>A)</b>Grupta aşağı inildikçe İE<sub>1</sub> azalır.</span><span><b>B)</b>Grafikte en kolay elektron veren Cs’dir.</span><span><b>C)</b>Rb’nin suyla tepkimesi K’ninkinden şiddetli olmalıdır.</span><span><b>D)</b>Dış elektron çekirdekten uzaklaştıkça kolay kopar.</span><span><b>E)</b>Li’nin metalik karakteri Cs’ninkinden fazladır.</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Endüstri</div>
+        <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+          <p>Hidrojen florürün sulu çözeltisi camı aşındırdığı için buzlu cam yapımında kullanılır. Bazı elektronegatiflik değerleri aşağıdadır.</p>
+          <table class="tablo sik">
+            <tr><th>Atom</th><th class="on">H</th><th class="on">F</th><th class="on">Cl</th><th class="on">Br</th><th class="on">I</th></tr>
+            <tr><td>Elektronegatiflik</td><td class="on">2,2</td><td class="on">4,0</td><td class="on">3,2</td><td class="on">3,0</td><td class="on">2,7</td></tr>
+          </table>
+          <p>Buna göre hangisi doğrudur?</p>
+          <div class="secenek tek"><span><b>A)</b>En polar bağ H–I bağıdır.</span><span><b>B)</b>Dört bağda da δ− yük H üzerindedir.</span><span><b>C)</b>Elektronegatiflik farkı: H–F &gt; H–Cl &gt; H–Br &gt; H–I</span><span><b>D)</b>H–Br bağında elektronlar H’ye doğru kayar.</span><span><b>E)</b>Halojenlerde elektronegatiflik aşağı doğru artar.</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Özellikler</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Özellikler</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, sadece o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p>2. periyotta bulunan baş grup elementi X’in ilk yedi iyonlaşma enerjisi (kJ/mol) sırasıyla 1314, 3388, 5301, 7469, 10990, 13327 ve 71330’dur. X’in grubunu, atom numarasını ve kaç tane iyonlaşma enerjisi olduğunu bulunuz.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Her değeri bir öncekine böl. Oranlardan hangisi diğerlerinden çok daha büyük?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">13327 → 71330 adımında oran ≈ 5,4. Sıçramadan önce kaç elektron koparıldı? Bu sayı grup numarasıdır.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">2. periyot ve 6 değerlik elektronu: dağılım 2-6. Toplam elektron sayısı hem atom numarasını hem İE sayısını verir.</div></div>
+      </div>
+      <div class="cevap-alani" style="height:17mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p>{9}F<sup>−</sup>, {11}Na<sup>+</sup>, {17}Cl<sup>−</sup> ve {19}K<sup>+</sup> iyonlarını yarıçaplarına göre büyükten küçüğe sıralayınız.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Her iyonun elektron sayısını ve katman dağılımını yaz. Hangileri 2, hangileri 3 katmanlı?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">F<sup>−</sup> ve Na<sup>+</sup> 2-8; Cl<sup>−</sup> ve K<sup>+</sup> 2-8-8. Önce katman sayısı: 3 katmanlılar daha büyüktür.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Katman sayısı aynı olan ikililer izoelektroniktir: her ikilide proton sayısı küçük olan büyüktür.</div></div>
+      </div>
+      <div class="cevap-alani" style="height:17mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p>Atom numaraları ardışık X, Y, Z, T, Q ve R baş grup elementlerinin İE<sub>1</sub> değerleri (kJ/mol) sırasıyla 1086, 1402, 1314, 1681, 2081 ve 496’dır. Hangisi soy gazdır, hangisi 5A grubundadır ve atom yarıçapı en büyük olan hangisidir?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Değerin en çok düştüğü yere bak: 2081’den 496’ya. Düşmeden hemen önceki element soy gaz, sonraki alkali metaldir.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Soy gazdan geriye doğru say: Q 8A ise T 7A, Z 6A, Y 5A, X 4A olur. Y → Z düşüşü hangi istisnadır?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">R yeni bir periyodun ilk elementidir: bir katmanı fazladır.</div></div>
+      </div>
+      <div class="cevap-alani" style="height:17mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Özellikler</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa cift test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Özellikler</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 25 dakika. Sorulardaki elementlerin hepsi baş grup elementidir (Fe hariç). Atom numaraları sembolün solunda verilmiştir.</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>{12}Mg, {16}S, {17}Cl ve {20}Ca atomlarının yarıçapları arasındaki ilişki hangisinde doğru verilmiştir?</p>
+        <div class="secenek tek"><span><b>A)</b>Cl &gt; S &gt; Mg &gt; Ca</span><span><b>B)</b>Ca &gt; Mg &gt; S &gt; Cl</span><span><b>C)</b>Mg &gt; Ca &gt; S &gt; Cl</span><span><b>D)</b>Ca &gt; Mg &gt; Cl &gt; S</span><span><b>E)</b>S &gt; Cl &gt; Mg &gt; Ca</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>{34}Se<sup>2−</sup>, {35}Br<sup>−</sup>, {37}Rb<sup>+</sup> ve {38}Sr<sup>2+</sup> iyonlarının her biri 36 elektron içerir. Bu iyonların yarıçapları arasındaki ilişki hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>Sr<sup>2+</sup> &gt; Rb<sup>+</sup> &gt; Br<sup>−</sup> &gt; Se<sup>2−</sup></span><span><b>B)</b>Rb<sup>+</sup> &gt; Sr<sup>2+</sup> &gt; Se<sup>2−</sup> &gt; Br<sup>−</sup></span><span><b>C)</b>Se<sup>2−</sup> &gt; Br<sup>−</sup> &gt; Sr<sup>2+</sup> &gt; Rb<sup>+</sup></span><span><b>D)</b>Se<sup>2−</sup> &gt; Br<sup>−</sup> &gt; Rb<sup>+</sup> &gt; Sr<sup>2+</sup></span><span><b>E)</b>Br<sup>−</sup> &gt; Se<sup>2−</sup> &gt; Rb<sup>+</sup> &gt; Sr<sup>2+</sup></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p>Aşağıdaki değişimlerden hangisi için gereken enerji, magnezyumun <b>1. iyonlaşma enerjisine</b> eşittir?</p>
+        <div class="secenek tek"><span><b>A)</b>Mg(g) → Mg<sup>+</sup>(g) + e<sup>−</sup></span><span><b>B)</b>Mg(k) → Mg<sup>+</sup>(g) + e<sup>−</sup></span><span><b>C)</b>Mg<sup>+</sup>(g) → Mg<sup>2+</sup>(g) + e<sup>−</sup></span><span><b>D)</b>Mg(g) → Mg<sup>2+</sup>(g) + 2e<sup>−</sup></span><span><b>E)</b>Mg(k) → Mg(g)</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p>{12}Mg, {13}Al, {15}P ve {16}S atomlarının 1. iyonlaşma enerjileri arasındaki ilişki hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>S &gt; P &gt; Al &gt; Mg</span><span><b>B)</b>Al &gt; Mg &gt; S &gt; P</span><span><b>C)</b>S &gt; P &gt; Mg &gt; Al</span><span><b>D)</b>P &gt; S &gt; Al &gt; Mg</span><span><b>E)</b>P &gt; S &gt; Mg &gt; Al</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p>Bir baş grup elementinin ilk altı iyonlaşma enerjisi (kJ/mol) aşağıda verilmiştir.</p>
+        <table class="tablo sik" style="font-size:8.6pt"><tr><th class="on">İE<sub>1</sub></th><th class="on">İE<sub>2</sub></th><th class="on">İE<sub>3</sub></th><th class="on">İE<sub>4</sub></th><th class="on">İE<sub>5</sub></th><th class="on">İE<sub>6</sub></th></tr><tr><td class="on">1012</td><td class="on">1907</td><td class="on">2914</td><td class="on">4964</td><td class="on">6274</td><td class="on">21267</td></tr></table>
+        <p>Bu element hangi gruptadır?</p>
+        <div class="secenek bes"><span><b>A)</b>3A</span><span><b>B)</b>5A</span><span><b>C)</b>4A</span><span><b>D)</b>6A</span><span><b>E)</b>2A</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p>{7}N, {8}O ve {15}P atomları için;</p>
+        <div class="oncul"><div><b>I.</b><span>Elektronegatiflik: O &gt; N &gt; P</span></div><div><b>II.</b><span>Atom yarıçapı: P &gt; N &gt; O</span></div><div><b>III.</b><span>1. iyonlaşma enerjisi: O &gt; N &gt; P</span></div></div>
+        <p>ilişkilerinden hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Özellikler</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · TEST (7–12)
+     ========================================================= -->
+<section class="sayfa test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Özellikler</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>{16}S<sup>2−</sup>, {16}S ve {16}S<sup>2+</sup> taneciklerinden birer elektron koparmak için gereken enerjiler arasındaki ilişki hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>S<sup>2+</sup> &gt; S &gt; S<sup>2−</sup></span><span><b>B)</b>S<sup>2−</sup> &gt; S &gt; S<sup>2+</sup></span><span><b>C)</b>S &gt; S<sup>2+</sup> &gt; S<sup>2−</sup></span><span><b>D)</b>S = S<sup>2+</sup> &gt; S<sup>2−</sup></span><span><b>E)</b>S<sup>2−</sup> &gt; S<sup>2+</sup> &gt; S</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p>Aşağıdaki element çiftlerinin hangisinde <b>ilk yazılan</b> elementin metalik karakteri daha fazladır?</p>
+        <div class="secenek tek"><span><b>A)</b>{12}Mg – {11}Na</span><span><b>B)</b>{13}Al – {12}Mg</span><span><b>C)</b>{11}Na – {19}K</span><span><b>D)</b>{19}K – {12}Mg</span><span><b>E)</b>{14}Si – {13}Al</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>Atom numaraları ardışık X, Y, Z, T ve Q elementlerinin İE<sub>1</sub> değişimi grafikteki gibidir. X, 3. periyotta yer almaktadır.</p>
+        <div class="grafik-kutu" style="margin:1mm 0 1.6mm;padding:1.4mm 2mm 1mm"><!--SVG:test5--></div>
+        <p>Buna göre aşağıdakilerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>T soy gazdır.</span><span><b>B)</b>Atom yarıçapı en büyük olan Q’dur.</span><span><b>C)</b>X’ten Y’ye düşüş, X’in yarı dolu p orbitalleriyle açıklanır.</span><span><b>D)</b>Elektronegatifliği en büyük olan Z’dir.</span><span><b>E)</b>Y’nin atom yarıçapı Z’ninkinden küçüktür.</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p>Bir X elementi ile ilgili değişimler şöyledir:</p>
+        <div class="oncul" style="font-size:9.3pt"><div><b>1)</b><span>X(k) + Q<sub>1</sub> → X<sup>+</sup>(g) + e<sup>−</sup></span></div><div><b>2)</b><span>X<sup>+</sup>(g) + Q<sub>2</sub> → X<sup>2+</sup>(g) + e<sup>−</sup></span></div><div><b>3)</b><span>X(g) + Q<sub>3</sub> → X<sup>2+</sup>(g) + 2e<sup>−</sup></span></div></div>
+        <p>Buna göre aşağıdakilerden hangisi doğrudur?</p>
+        <div class="secenek tek"><span><b>A)</b>Q<sub>1</sub>, X’in 1. iyonlaşma enerjisidir.</span><span><b>B)</b>Q<sub>3</sub>, X’in 2. iyonlaşma enerjisidir.</span><span><b>C)</b>Q<sub>2</sub>, X’in 2. iyonlaşma enerjisidir.</span><span><b>D)</b>Q<sub>3</sub> &lt; Q<sub>2</sub>’dir.</span><span><b>E)</b>Q<sub>1</sub>, X’in 1. iyonlaşma enerjisinden küçüktür.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <p>{11}Na atomu Na<sup>+</sup> iyonuna dönüştüğünde;</p>
+        <div class="oncul"><div><b>I.</b><span>Çekirdek yükü değişmez.</span></div><div><b>II.</b><span>Tanecik yarıçapı artar.</span></div><div><b>III.</b><span>Elektron başına düşen çekirdek çekimi artar.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p>Periyodik tablonun bir kesitinde X, Y, Z, T ve Q elementlerinin yerleri gösterilmiştir.</p>
+        <svg viewBox="0 0 96 26" style="width:100%;margin:.6mm 0 1.6mm">
+          <g font-family="Inter" text-anchor="middle" font-size="4.4" font-weight="800">
+            <g fill="#fdeef1" stroke="#e8b9c4" stroke-width=".3">
+              <rect x="6" y="5" width="11" height="9"/><rect x="17" y="5" width="11" height="9"/><rect x="28" y="5" width="11" height="9"/><rect x="39" y="5" width="11" height="9"/><rect x="50" y="5" width="11" height="9"/><rect x="61" y="5" width="11" height="9"/><rect x="72" y="5" width="11" height="9"/><rect x="83" y="5" width="11" height="9"/>
+              <rect x="6" y="14" width="11" height="9"/><rect x="17" y="14" width="11" height="9"/><rect x="28" y="14" width="11" height="9"/><rect x="39" y="14" width="11" height="9"/><rect x="50" y="14" width="11" height="9"/><rect x="61" y="14" width="11" height="9"/><rect x="72" y="14" width="11" height="9"/><rect x="83" y="14" width="11" height="9"/>
+            </g>
+            <g fill="#650b23" font-size="3.2" font-weight="700"><text x="11.5" y="3.4">1A</text><text x="22.5" y="3.4">2A</text><text x="33.5" y="3.4">3A</text><text x="44.5" y="3.4">4A</text><text x="55.5" y="3.4">5A</text><text x="66.5" y="3.4">6A</text><text x="77.5" y="3.4">7A</text><text x="88.5" y="3.4">8A</text><text x="3" y="11">2</text><text x="3" y="20">3</text></g>
+            <g fill="#1d2133"><text x="11.5" y="11">X</text><text x="55.5" y="11">Y</text><text x="77.5" y="11">Z</text><text x="11.5" y="20">T</text><text x="66.5" y="20">Q</text></g>
+          </g>
+        </svg>
+        <p>Bu elementlerle ilgili aşağıdakilerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Atom yarıçapı en büyük olan T’dir.</span><span><b>B)</b>Q’nun 1. iyonlaşma enerjisi Y’ninkinden büyüktür.</span><span><b>C)</b>Elektronegatifliği en büyük olan Z’dir.</span><span><b>D)</b>Metalik karakteri en fazla olan T’dir.</span><span><b>E)</b>X ve T’nin değerlik elektron sayıları eşittir.</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fffafb;margin-top:0">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 3. ve 4. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Özellikler</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Özellikler</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>B</span></div><div><b>2</b><span>D</span></div><div><b>3</b><span>A</span></div><div><b>4</b><span>E</span></div>
+    <div><b>5</b><span>B</span></div><div><b>6</b><span>C</span></div><div><b>7</b><span>A</span></div><div><b>8</b><span>D</span></div>
+    <div><b>9</b><span>E</span></div><div><b>10</b><span>C</span></div><div><b>11</b><span>D</span></div><div><b>12</b><span>B</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · B</b> Ca (4. periyot 2A) &gt; Mg (3. periyot 2A): aynı grup. Mg &gt; S &gt; Cl: 3. periyotta sağa doğru küçülme (≈ 197, 160, 103, 99 pm).</div>
+    <div class="c"><b>2 · D</b> İzoelektronik (36 e<sup>−</sup>): proton sayısı 34 &lt; 35 &lt; 37 &lt; 38 olduğundan Se<sup>2−</sup> en büyük, Sr<sup>2+</sup> en küçüktür.</div>
+    <div class="c"><b>3 · A</b> İE<sub>1</sub> gaz hâlindeki nötr atomdan bir elektron koparma enerjisidir. B’de hâl değişimi de var; C İE<sub>2</sub>; D İE<sub>1</sub> + İE<sub>2</sub>; E yalnızca hâl değişimi.</div>
+    <div class="c"><b>4 · E</b> 5A &gt; 6A istisnası: P (1012) &gt; S (1000). 2A &gt; 3A istisnası: Mg (738) &gt; Al (578).</div>
+    <div class="c"><b>5 · B</b> Oranlar ≈ 1,9 · 1,5 · 1,7 · 1,3 · 3,4. En büyük sıçrama 5. ile 6. arasında: 5 değerlik elektronu → 5A (fosfor).</div>
+    <div class="c"><b>6 · C</b> I: 3,4 &gt; 3,0 &gt; 2,2 ✓. II: P bir katman fazla; N &gt; O (aynı periyot) ✓. III: 5A–6A istisnası nedeniyle N &gt; O ✗.</div>
+    <div class="c"><b>7 · A</b> p/e: S<sup>2+</sup> 16/14 &gt; S 16/16 &gt; S<sup>2−</sup> 16/18. Elektron başına çekim büyüdükçe elektron koparmak zorlaşır.</div>
+    <div class="c"><b>8 · D</b> K, Na’nın altındadır ve Na da Mg’den daha metaliktir: K &gt; Mg. Diğer çiftlerde ilk element daha az metaliktir.</div>
+    <div class="c"><b>9 · E</b> En büyük değer T (soy gaz, Ar), hemen ardından en küçük Q (alkali, K). Geriye doğru: Z 7A (Cl), Y 6A (S), X 5A (P). Y (S) aynı periyotta Z’nin (Cl) solunda olduğu için daha büyüktür; E yanlış.</div>
+    <div class="c"><b>10 · C</b> Q<sub>1</sub> = hâl değişim enerjisi + İE<sub>1</sub> (A ve E yanlış). Q<sub>3</sub> = İE<sub>1</sub> + İE<sub>2</sub> &gt; Q<sub>2</sub> (B ve D yanlış). Q<sub>2</sub> = İE<sub>2</sub> ✓.</div>
+    <div class="c"><b>11 · D</b> Proton sayısı (11) değişmez ✓. Bir katman kaybedildiği için tanecik küçülür ✗. p/e 1’den 1,1’e çıkar ✓.</div>
+    <div class="c"><b>12 · B</b> X: Li, Y: N, Z: F, T: Na, Q: S. İE<sub>1</sub>: N (1402) &gt; S (1000); Y daha üstte ve 5A’dadır, B yanlış. Diğerleri doğrudur.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> I ✓ (K<sup>+</sup> 3, Na<sup>+</sup> 2 katman). II ✓ (10 e<sup>−</sup>; 12 &gt; 11 proton). III ✗: Ca<sup>2+</sup> ve K<sup>+</sup> ikisi de 2-8-8; Ca<sup>2+</sup> proton sayısı fazla olduğu için küçüktür.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · B</b> Li<sup>+</sup> tek katmanlı (2), Na<sup>+</sup> iki katmanlıdır (2-8). Yükler eşittir (A ✗); p/e Li<sup>+</sup> için 1,5, Na<sup>+</sup> için 1,1’dir (E ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · E</b> İE<sub>1</sub> Li’den Cs’ye azalır; elektron vermek kolaylaşır, metalik karakter Cs’de en fazladır. E yanlıştır.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · C</b> Farklar: 1,8 · 1,0 · 0,8 · 0,5. En polar bağ H–F; dört bağda da δ− halojendedir; elektronegatiflik grupta aşağı azalır.</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1 · 6A, Z = 8, 8 İE</b> Oranlar ≈ 2,6 · 1,6 · 1,4 · 1,5 · 1,2 · 5,4. 6 elektrondan sonra sıçrama: 6A. Dağılım 2-6 → oksijen; 8 elektron, 8 iyonlaşma enerjisi.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2 · Cl<sup>−</sup> &gt; K<sup>+</sup> &gt; F<sup>−</sup> &gt; Na<sup>+</sup></b> 3 katmanlılar (18 e<sup>−</sup>) önde; ikililerde proton az olan büyük (≈ 181, 138, 133, 102 pm).</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3 · Q soy gaz, Y 5A, R en büyük</b> Elementler C, N, O, F, Ne, Na’dır. Y (N) → Z (O) düşüşü, N’nin yarı dolu 2p^3 dizilimiyle açıklanır.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 2</b> Katman sayısı aynı; Mg’nin proton sayısı fazla, çekim güçlü. Doğrusu Na &gt; Mg.</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 3</b> Ters yorum: p/e küçükse elektron başına çekim azdır, tanecik büyür. Doğrusu Cl<sup>−</sup> &gt; Cl.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 2</b> Kural “genellikle” geçerlidir; 5A’nın yarı dolu 2p^3 dizilimi istisna yaratır. Doğrusu İE<sub>1</sub>(N) &gt; İE<sub>1</sub>(O).</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 2</b> İlk büyük görünen değil, en büyük oran (6,8; İE<sub>3</sub> → İE<sub>4</sub>) seçilmelidir. 3 değerlik elektronu → 3A (bor).</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Özellikler</span><span class="no">14</span></div>
+</section>
+
+</body>
+</html>
