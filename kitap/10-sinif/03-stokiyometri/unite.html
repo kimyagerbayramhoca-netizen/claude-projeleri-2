@@ -1,0 +1,1344 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Kimyasal Tepkimeler ve Stokiyometri · Kimya Rotası 10</title>
+<style>
+/* ==========================================================
+   KİMYA ROTASI — ortak sayfa ve kutu tasarımı (A4, baskı)
+   Her ünite kendi --unite rengini <body style> ile verir.
+   ========================================================== */
+
+@page { size: A4; margin: 0; }
+
+:root {
+  --unite: #4338ca;          /* ünite kimlik rengi (mol: indigo) */
+  --unite-acik: #eef0ff;
+  --unite-koyu: #2a2380;
+  --vurgu: #f59e0b;          /* ikincil vurgu (amber) */
+
+  --kavram: #4f46e5;   --kavram-bg: #eef2ff;
+  --hayat: #c26a06;    --hayat-bg: #fff6e5;
+  --dikkat: #e11d48;   --dikkat-bg: #fff1f3;
+  --ornek: #0f8f84;    --ornek-bg: #eafaf7;
+  --ipucu: #7c3aed;    --ipucu-bg: #f4f0ff;
+  --hata: #ea580c;     --hata-bg: #fff4ec;
+
+  --metin: #1d2133;
+  --soluk: #5d6478;
+  --cizgi: #dfe3ee;
+  --kagit: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Inter", "DejaVu Sans", sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.5;
+  color: var(--metin);
+  background: #8a8fa3;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* ---------- Sayfa ---------- */
+.sayfa {
+  width: 210mm; height: 297mm;
+  position: relative; overflow: hidden;
+  background: var(--kagit);
+  padding: 22mm 16mm 18mm 16mm;
+  page-break-after: always; break-after: page;
+  margin: 0 auto;
+}
+@media screen { .sayfa { margin: 8mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.25); } }
+
+.ust-serit {
+  position: absolute; top: 0; left: 0; right: 0; height: 13mm;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16mm; font-size: 8pt; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--unite-koyu); font-weight: 600;
+  border-bottom: 1.2mm solid var(--unite);
+  background: linear-gradient(90deg, var(--unite-acik), #fff 70%);
+}
+.ust-serit .baslik-k { display: flex; gap: 3mm; align-items: center; }
+.ust-serit .nokta { width: 2.4mm; height: 2.4mm; border-radius: 50%; background: var(--vurgu); }
+
+.alt-bilgi {
+  position: absolute; bottom: 7mm; left: 16mm; right: 16mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 7.5pt; color: var(--soluk);
+}
+.alt-bilgi .no {
+  min-width: 9mm; height: 9mm; border-radius: 50%;
+  background: var(--unite); color: #fff; font-weight: 700; font-size: 9pt;
+  display: grid; place-items: center;
+}
+.sayfa.cift .alt-bilgi { flex-direction: row-reverse; }
+
+/* ---------- Başlıklar ---------- */
+h1, h2, h3, h4 { font-family: "Inter Display", "Inter", sans-serif; margin: 0; line-height: 1.15; }
+h2.konu {
+  font-size: 21pt; font-weight: 800; color: var(--unite-koyu);
+  display: flex; align-items: baseline; gap: 3.5mm; margin-bottom: 1.5mm;
+}
+h2.konu .num {
+  font-size: 11pt; font-weight: 700; color: #fff; background: var(--unite);
+  padding: .6mm 2.6mm; border-radius: 2mm; transform: translateY(-1mm);
+}
+.alt-baslik { color: var(--soluk); font-size: 10pt; margin-bottom: 5mm; }
+h3 {
+  font-size: 13pt; font-weight: 750; color: var(--unite-koyu);
+  margin: 4.5mm 0 2mm; display: flex; align-items: center; gap: 2.2mm;
+}
+h3::before { content: ""; width: 1.4mm; height: 5mm; background: var(--vurgu); border-radius: 1mm; }
+p { margin: 0 0 2.4mm; }
+ul { margin: 0 0 2.4mm; padding-left: 5mm; }
+li { margin-bottom: 1mm; }
+b, strong { font-weight: 700; }
+.vurgu { background: linear-gradient(transparent 58%, #fde68a 58%); padding: 0 .5mm; }
+.k { color: var(--unite); font-weight: 700; }
+.kucuk { font-size: 8.6pt; color: var(--soluk); }
+.ortala { text-align: center; }
+
+/* Kimyasal formül ve üs */
+.f { white-space: nowrap; font-weight: 600; }
+sub, sup { font-size: 68%; line-height: 0; }
+.izotop { display: inline-flex; align-items: center; white-space: nowrap; font-weight: 600; }
+.izotop .yz { display: inline-flex; flex-direction: column; font-size: 62%; line-height: 1.05; text-align: right; margin-right: .3mm; font-weight: 600; }
+
+/* ---------- Izgara ---------- */
+.iki { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.iki-genis { display: grid; grid-template-columns: 1.25fr 1fr; gap: 5mm; }
+.uc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.dort { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+
+/* ---------- Kutular ---------- */
+.kutu {
+  border-radius: 3mm; padding: 3.2mm 4mm 3mm; margin: 0 0 3.5mm;
+  position: relative; break-inside: avoid;
+  background: var(--bg); border: .35mm solid color-mix(in srgb, var(--renk) 30%, #fff);
+}
+.kutu > .etiket {
+  display: inline-flex; align-items: center; gap: 1.6mm;
+  font-family: "Inter Display", sans-serif;
+  font-size: 7.6pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--renk);
+  padding: .7mm 2.4mm .7mm 1.6mm; border-radius: 1.4mm; margin-bottom: 2mm;
+}
+.kutu > .etiket svg { width: 3.4mm; height: 3.4mm; }
+.kutu p:last-child, .kutu ul:last-child { margin-bottom: 0; }
+.kavram { --renk: var(--kavram); --bg: var(--kavram-bg); }
+.hayat  { --renk: var(--hayat);  --bg: var(--hayat-bg); }
+.dikkat { --renk: var(--dikkat); --bg: var(--dikkat-bg); }
+.ornek  { --renk: var(--ornek);  --bg: var(--ornek-bg); }
+.ipucu  { --renk: var(--ipucu);  --bg: var(--ipucu-bg); }
+.hata   { --renk: var(--hata);   --bg: var(--hata-bg); }
+.duz    { --renk: var(--unite);  --bg: #fff; }
+
+.kutu.serit { border: none; border-left: 1.4mm solid var(--renk); border-radius: 0 3mm 3mm 0; }
+
+/* Yanılgı kartı: yanlış / doğru */
+.yanilgi { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-top: 1mm; }
+.yanilgi > div { border-radius: 2mm; padding: 2mm 2.6mm; font-size: 9.2pt; line-height: 1.4; }
+.yanilgi .yanlis { background: #fff; border: .3mm dashed var(--dikkat); }
+.yanilgi .dogru { background: #fff; border: .3mm solid var(--ornek); }
+.yanilgi b.y { color: var(--dikkat); }
+.yanilgi b.d { color: var(--ornek); }
+
+/* Çözümlü örnek */
+.ornek .soru { font-weight: 600; margin-bottom: 2mm; }
+.cozum { background: #fff; border-radius: 2mm; padding: 2.2mm 3mm; font-size: 9.4pt; }
+.cozum .adim { display: grid; grid-template-columns: 5mm 1fr; gap: 1.6mm; margin-bottom: 1.1mm; align-items: start; }
+.cozum .adim .n {
+  width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--ornek); color: #fff;
+  font-size: 7pt; font-weight: 700; display: grid; place-items: center; margin-top: .4mm;
+}
+.sonuc {
+  display: inline-block; margin-top: .8mm; font-weight: 700; color: var(--ornek);
+  border: .35mm solid var(--ornek); border-radius: 1.5mm; padding: .2mm 2mm;
+}
+.denklem {
+  font-family: "Inter", sans-serif; font-weight: 600; text-align: center;
+  font-size: 11pt; padding: 1.5mm 0; color: var(--unite-koyu);
+}
+.kesir { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 1mm; line-height: 1.2; }
+.kesir > span:first-child { border-bottom: .3mm solid currentColor; padding: 0 1mm; }
+.kesir > span:last-child { padding: 0 1mm; }
+
+/* Tablo */
+table.tablo { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9.2pt; margin: 1mm 0 3mm; }
+table.tablo th { background: var(--unite); color: #fff; font-weight: 700; padding: 1.6mm 2mm; text-align: left; }
+table.tablo th:first-child { border-top-left-radius: 2mm; }
+table.tablo th:last-child { border-top-right-radius: 2mm; }
+table.tablo td { padding: 1.6mm 2mm; border-bottom: .3mm solid var(--cizgi); }
+table.tablo tr:nth-child(even) td { background: #f7f8fc; }
+
+/* ---------- Soru düzeni ---------- */
+.soru-blok { break-inside: avoid; margin-bottom: 4.5mm; }
+.soru-ust { display: flex; gap: 2.4mm; align-items: flex-start; }
+.soru-no {
+  flex: none; width: 7.5mm; height: 7.5mm; border-radius: 2mm;
+  background: var(--unite); color: #fff; font-weight: 800; font-size: 10pt;
+  display: grid; place-items: center; font-family: "Inter Display", sans-serif;
+}
+.soru-metin { flex: 1; }
+.secenek { display: grid; grid-template-columns: 1fr 1fr; gap: .8mm 4mm; margin-top: 1.6mm; font-size: 9.6pt; }
+.secenek.tek { grid-template-columns: 1fr; }
+.secenek.bes { grid-template-columns: repeat(5, 1fr); }
+.secenek span b { color: var(--unite); margin-right: 1mm; }
+.oncul { margin: 1mm 0 1mm 1mm; }
+.oncul div { display: grid; grid-template-columns: 7mm 1fr; }
+.oncul div > b:first-child { color: var(--unite); }
+.veri { font-size: 8.4pt; color: var(--soluk); font-style: italic; }
+
+.etiket-soru svg { width: 3mm; height: 3mm; }
+.etiket-soru {
+  display: inline-flex; gap: 1.4mm; align-items: center;
+  font-size: 7pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  padding: .5mm 2mm; border-radius: 10mm; margin-bottom: 1.2mm;
+  color: var(--renk); background: var(--bg); border: .3mm solid var(--renk);
+}
+.zorluk { display: inline-flex; gap: .7mm; margin-left: 1.2mm; vertical-align: middle; }
+.zorluk i { width: 1.9mm; height: 1.9mm; border-radius: 50%; background: #d8dbe6; display: inline-block; }
+.zorluk i.d { background: var(--vurgu); }
+
+/* Bölüm kapağı tipi sayfa başı bandı */
+.bant {
+  margin: 0 -16mm 5mm; padding: 5mm 16mm 4mm; color: #fff;
+  background: linear-gradient(110deg, var(--renk, var(--unite)) 0%, color-mix(in srgb, var(--renk, var(--unite)) 70%, #000) 100%);
+  position: relative; overflow: hidden;
+}
+.bant h2 { font-size: 22pt; font-weight: 850; color: #fff; }
+.bant p { margin: 1mm 0 0; opacity: .92; font-size: 9.6pt; max-width: 135mm; }
+.bant .ikon-buyuk { position: absolute; right: 14mm; top: 50%; transform: translateY(-50%); opacity: .95; }
+
+/* Hata avcısı defter kartı */
+.defter {
+  background:
+    repeating-linear-gradient(transparent 0 6.1mm, #c9d6ee 6.1mm 6.4mm),
+    #fffef8;
+  border-radius: 2mm; padding: 1.2mm 4mm 1.6mm 14mm; position: relative;
+  font-family: "Caladea", "Bitstream Charter", serif; font-style: italic; font-size: 11pt;
+  line-height: 6.4mm; color: #24356b; border: .3mm solid #e6e1cc;
+}
+.defter::before { content: ""; position: absolute; left: 10mm; top: 0; bottom: 0; width: .35mm; background: #f2a7a7; }
+.defter .satir { position: relative; }
+.defter .satir .sn { position: absolute; left: -9.5mm; font-family: "Inter", sans-serif; font-style: normal; font-size: 7pt; color: #9aa3b8; font-weight: 700; }
+.defter .ogrenci { font-family: "Inter", sans-serif; font-style: normal; font-size: 7.2pt; color: var(--soluk); letter-spacing: .05em; text-transform: uppercase; }
+.duzelt {
+  border: .35mm dashed var(--hata); border-radius: 2mm; min-height: 26mm; margin-top: 2mm;
+  padding: 1.6mm 3mm; font-size: 8.4pt; color: var(--hata); font-weight: 600; background: #fff;
+}
+.sorgu { display: flex; gap: 2mm; flex-wrap: wrap; margin-top: 1.6mm; }
+.sorgu span { font-size: 8.2pt; background: #fff; border: .3mm solid var(--hata); color: var(--hata); border-radius: 10mm; padding: .2mm 2.2mm; font-weight: 600; }
+
+/* İpucu merdiveni */
+.merdiven { display: grid; gap: 1.8mm; margin-top: 2mm; }
+.basamak {
+  display: grid; grid-template-columns: 17mm 1fr; align-items: stretch;
+  border-radius: 2mm; overflow: hidden; background: #fff; border: .3mm solid #ddd3fb;
+}
+.basamak .bas {
+  background: var(--ipucu); color: #fff; font-size: 7pt; font-weight: 800; letter-spacing: .06em;
+  display: grid; place-items: center; text-align: center; line-height: 1.15; padding: 1mm;
+}
+.basamak:nth-child(2) .bas { background: #9061f0; }
+.basamak:nth-child(3) .bas { background: #a985f5; }
+.basamak .ic { padding: 1.6mm 3mm; font-size: 9.2pt; }
+.basamak:nth-child(2) { margin-left: 6mm; }
+.basamak:nth-child(3) { margin-left: 12mm; }
+.cevap-alani { border: .3mm dashed #b9a6f3; border-radius: 2mm; height: 24mm; margin-top: 2mm; background: #fff;
+  font-size: 7.6pt; color: #8b74d6; padding: 1mm 2.6mm; font-weight: 700; letter-spacing: .06em; }
+
+/* Öz değerlendirme */
+.kontrol { list-style: none; padding: 0; }
+.kontrol li { display: grid; grid-template-columns: 6mm 1fr auto; gap: 2mm; align-items: center; padding: 1.3mm 0; border-bottom: .3mm dotted var(--cizgi); font-size: 9.3pt; }
+.kontrol .kare { width: 4mm; height: 4mm; border: .4mm solid var(--unite); border-radius: 1mm; }
+.kontrol .yuz { display: flex; gap: 1.4mm; font-size: 7.4pt; color: var(--soluk); }
+.kontrol .yuz span { border: .3mm solid var(--cizgi); border-radius: 1mm; padding: 0 1.4mm; }
+
+/* Cevap anahtarı */
+.anahtar { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.4mm; margin-bottom: 4mm; }
+.anahtar div { border: .35mm solid var(--unite); border-radius: 1.6mm; text-align: center; overflow: hidden; font-size: 9pt; }
+.anahtar div b { display: block; background: var(--unite); color: #fff; font-size: 7.6pt; }
+.anahtar div span { display: block; font-weight: 800; color: var(--unite-koyu); padding: .6mm 0; }
+.coz-liste { columns: 2; column-gap: 6mm; font-size: 8.5pt; line-height: 1.42; }
+.coz-liste .c { break-inside: avoid; margin-bottom: 2.4mm; padding-left: 2.4mm; border-left: .6mm solid var(--renk, var(--unite)); }
+.coz-liste .c b:first-child { color: var(--renk, var(--unite)); }
+.coz-baslik { font-size: 9pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--renk, var(--unite)); margin: 2mm 0 1.4mm; column-span: all; }
+
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite: #0369a1; --unite-acik: #eaf5fc; --unite-koyu: #073b5e; }
+
+.kapak { padding: 0; background: #073b5e; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 26mm; font-size: 11pt; font-weight: 700; color: #fbbf24; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 50pt; font-weight: 900; letter-spacing: -.02em; line-height: .98; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 9mm; display: inline-flex; align-items: center; gap: 4mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 22pt; font-weight: 800; color: #fbbf24; white-space: nowrap; }
+.kapak .avo b sub { font-size: 55%; }
+.kapak .avo span { font-size: 9pt; opacity: .85; max-width: 58mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.2pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #c9d9e6; padding: .8mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.formul-kart { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin: 2mm 0 3.5mm; }
+.formul-kart > div { border: .4mm solid var(--unite); border-radius: 3mm; padding: 2.4mm; text-align: center; background: #fff; }
+.formul-kart > div .denklem { font-size: 12pt; padding: .5mm 0; }
+.formul-kart > div > span { font-size: 8pt; color: var(--soluk); display: block; }
+
+.tepkime { font-weight: 600; text-align: center; font-size: 11.5pt; color: var(--unite-koyu); padding: 1.6mm 0; letter-spacing: .01em; }
+.tepkime .hal { font-size: 75%; font-weight: 500; color: var(--soluk); }
+table.bds td, table.bds th { text-align: center; }
+table.bds td:first-child, table.bds th:first-child { text-align: left; font-weight: 700; }
+table.sayim td, table.sayim th { text-align: center; padding: 1.1mm 2mm; }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 210mm; }
+.test.devam .iki { min-height: 222mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 40mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="82%" cy="18%" r="75%"><stop offset="0" stop-color="#0ea5e9"/><stop offset=".55" stop-color="#0369a1"/><stop offset="1" stop-color="#073b5e"/></radialGradient>
+      <marker id="kok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#fbbf24"/></marker>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+    <!-- tepkime: 2 H2 + O2 -> 2 H2O, büyük ve soluk -->
+    <g transform="translate(118,38)">
+      <g fill="#ffffff" fill-opacity=".9">
+        <circle cx="0" cy="0" r="5"/><circle cx="8" cy="0" r="5"/>
+        <circle cx="0" cy="18" r="5"/><circle cx="8" cy="18" r="5"/>
+      </g>
+      <g fill="#fb7185"><circle cx="30" cy="5" r="7"/><circle cx="30" cy="18" r="7"/></g>
+      <path d="M44 10 H62" stroke="#fbbf24" stroke-width="1.4" marker-end="url(#kok)"/>
+      <g>
+        <circle cx="76" cy="2" r="7" fill="#fb7185"/><circle cx="69" cy="-5" r="4.4" fill="#fff"/><circle cx="83" cy="-5" r="4.4" fill="#fff"/>
+        <circle cx="76" cy="24" r="7" fill="#fb7185"/><circle cx="69" cy="17" r="4.4" fill="#fff"/><circle cx="83" cy="17" r="4.4" fill="#fff"/>
+      </g>
+    </g>
+    <g fill="none" stroke="#ffffff" stroke-opacity=".10" stroke-width=".35">
+      <circle cx="160" cy="48" r="48"/><circle cx="160" cy="48" r="66"/><circle cx="160" cy="48" r="84"/>
+    </g>
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="13">
+      <text x="-6" y="170">aA + bB → cC + dD   aA + bB → cC + dD</text>
+      <text x="-30" y="187">aA + bB → cC + dD   aA + bB → cC + dD</text>
+      <text x="-14" y="204">aA + bB → cC + dD   aA + bB → cC + dD</text>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 10. Sınıf</span><span>Tema 1 · Bölüm 3</span></div>
+    <div class="bolum">Bölüm 3</div>
+    <h1>Kimyasal<br>Tepkimeler ve<br>Stokiyometri</h1>
+    <div class="slogan">Atomlar kaybolmaz; sadece yeni ortaklıklar kurar.</div>
+    <div class="avo"><b>Σ m<sub>girenler</sub> = Σ m<sub>ürünler</sub></b><span>Kütlenin korunumu: bu bölümdeki her denkleştirmenin ve her hesabın dayandığı ilke.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Tepkime denklemi ve kütlenin korunumu</span><span>2</span></li>
+          <li><span>2 · Denklemleri denkleştirme</span><span>3</span></li>
+          <li><span>3 · Denklemden hesaba</span><span>4</span></li>
+          <li><span>4 · Grafik okuma, sınırlayıcı bileşen</span><span>5</span></li>
+          <li><span>5 · Yüzde verim ve saflık</span><span>6</span></li>
+          <li><span>6 · Karışımlar, ardışık tepkimeler</span><span>7</span></li>
+          <li><span>Tek sayfada stokiyometri (özet)</span><span>8</span></li>
+          <li><span>Hata Avcısı</span><span>9</span></li>
+          <li><span>Bağlam temelli sorular</span><span>10</span></li>
+          <li><span>İpucu Merdiveni</span><span>11</span></li>
+          <li><span>Bölüm testi</span><span>12</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>14</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg></i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg></i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M8 8l5 5M13 8l-5 5"/></svg></i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v18M17 3v18M7 8h10M7 13h10M7 18h10"/></svg></i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Tepkime denklemlerini en küçük tam sayılarla denkleştireceksin.</li>
+          <li>Denklemdeki katsayılardan mol, kütle ve tanecik hesabı yapacaksın.</li>
+          <li>Sınırlayıcı bileşeni, yüzde verimi ve saflığı hesaba katacaksın.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · TEPKİME DENKLEMİ VE KÜTLENİN KORUNUMU
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Tepkimeler</span><span>Kütlenin korunumu</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Tepkime denklemi ve kütlenin korunumu</h2>
+  <div class="alt-baslik">Bir tepkime denklemi, kimyacının yemek tarifidir: ne girer, ne çıkar, hangi oranda?</div>
+
+  <p>Kimyasal tepkimede bağlar kopar, atomlar yeniden düzenlenir ve yeni bağlar kurulur. Bu değişimin kısa yazımı <b class="k">tepkime denklemidir</b>: okun soluna tepkimeye girenler (<b>tepkenler</b>, reaktifler), sağına oluşanlar (<b>ürünler</b>) yazılır. Fiziksel hâller formülün yanına parantezle eklenir.</p>
+
+  <div class="iki-genis" style="align-items:center">
+    <div>
+      <div class="tepkime">2<span class="f">H<sub>2</sub></span><span class="hal">(g)</span> + <span class="f">O<sub>2</sub></span><span class="hal">(g)</span> → 2<span class="f">H<sub>2</sub>O</span><span class="hal">(s)</span></div>
+      <table class="tablo sayim" style="margin:0">
+        <tr><th>Simge</th><th>Anlamı</th><th>Örnek</th></tr>
+        <tr><td>(k)</td><td>katı</td><td><span class="f">Fe</span>(k), <span class="f">CaCO<sub>3</sub></span>(k)</td></tr>
+        <tr><td>(s)</td><td>sıvı</td><td><span class="f">H<sub>2</sub>O</span>(s), <span class="f">Br<sub>2</sub></span>(s)</td></tr>
+        <tr><td>(g)</td><td>gaz</td><td><span class="f">O<sub>2</sub></span>(g), <span class="f">CO<sub>2</sub></span>(g)</td></tr>
+        <tr><td>(suda)</td><td>suda çözünmüş</td><td><span class="f">NaCl</span>(suda)</td></tr>
+      </table>
+    </div>
+    <svg viewBox="0 0 120 78" style="width:100%;height:auto">
+      <defs><marker id="ok1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#0369a1"/></marker></defs>
+      <g font-family="Inter" text-anchor="middle">
+        <rect x="1" y="1" width="118" height="76" rx="4" fill="#f5fafd" stroke="#cfe3f0" stroke-width=".5"/>
+        <!-- 2 H2 -->
+        <g stroke="#7b8aa3" stroke-width=".4" fill="#ffffff">
+          <circle cx="12" cy="18" r="4"/><circle cx="18.5" cy="18" r="4"/>
+          <circle cx="12" cy="34" r="4"/><circle cx="18.5" cy="34" r="4"/>
+        </g>
+        <text x="27" y="28" font-size="7" fill="#1d2133">+</text>
+        <g fill="#e11d48"><circle cx="37" cy="21" r="5.4"/><circle cx="37" cy="31.5" r="5.4"/></g>
+        <path d="M50 26 H66" stroke="#0369a1" stroke-width=".9" marker-end="url(#ok1)"/>
+        <!-- 2 H2O -->
+        <g>
+          <circle cx="85" cy="18" r="5.4" fill="#e11d48"/>
+          <circle cx="79" cy="13.5" r="3.4" fill="#fff" stroke="#7b8aa3" stroke-width=".4"/><circle cx="91" cy="13.5" r="3.4" fill="#fff" stroke="#7b8aa3" stroke-width=".4"/>
+          <circle cx="104" cy="34" r="5.4" fill="#e11d48"/>
+          <circle cx="98" cy="29.5" r="3.4" fill="#fff" stroke="#7b8aa3" stroke-width=".4"/><circle cx="110" cy="29.5" r="3.4" fill="#fff" stroke="#7b8aa3" stroke-width=".4"/>
+        </g>
+        <g font-size="5" fill="#1d2133">
+          <text x="26" y="50" font-weight="700">Girenler</text>
+          <text x="94" y="50" font-weight="700">Ürünler</text>
+        </g>
+        <g font-size="4.4" fill="#5d6478">
+          <text x="26" y="57">4 H · 2 O atomu</text>
+          <text x="94" y="57">4 H · 2 O atomu</text>
+          <text x="26" y="63.5">3 molekül</text>
+          <text x="94" y="63.5">2 molekül</text>
+        </g>
+        <text x="60" y="72.5" font-size="4.3" fill="#0369a1" font-weight="700">Atomlar aynı, molekül sayısı farklı</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kütlenin Korunumu Kanunu</div>
+    <p>18. yüzyılın sonunda Antoine Lavoisier, kapalı kaplarda yaptığı dikkatli tartımlarla gösterdi: <b>Tepkimeye giren maddelerin kütleleri toplamı, oluşan maddelerin kütleleri toplamına eşittir.</b> Çünkü atomlar yok olmaz, yoktan var olmaz; <b>atomların türü ve sayısı korunur</b>.</p>
+  </div>
+
+  <table class="tablo sayim" style="margin-top:0">
+    <tr><th>Kimyasal tepkimede her zaman korunanlar</th><th>Korunmak zorunda olmayanlar</th></tr>
+    <tr><td>Toplam kütle</td><td>Toplam molekül (tanecik) sayısı</td></tr>
+    <tr><td>Atom türleri ve her türden atom sayısı</td><td>Toplam mol sayısı</td></tr>
+    <tr><td>Toplam proton ve elektron sayısı</td><td>Fiziksel hâl, renk, hacim</td></tr>
+  </table>
+
+  <div class="iki">
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9.1pt">Yanan odunun külü odundan çok hafiftir; oluşan karbon dioksit ve su buharı bacadan gitmiştir. Paslanan demir çivinin kütlesi ise <b>artar</b>, çünkü havadaki oksijen demire bağlanır. İki durumda da sistem açıktır.</p>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Tepkimede molekül sayısı da hep korunur.”</div>
+        <div class="dogru"><b class="d">✓</b> Yukarıdaki şemada 3 molekülden 2 molekül oluşur. Korunan, <b>atomlar ve kütledir</b>.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 1</div>
+    <div class="soru">Kapalı kapta 12 g magnezyum ile 8 g oksijen artansız tepkimeye giriyor: 2<span class="f">Mg</span>(k) + <span class="f">O<sub>2</sub></span>(g) → 2<span class="f">MgO</span>(k). Kaç gram <span class="f">MgO</span> oluşur? Kabın toplam kütlesi değişir mi?</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>Artansız tepkimede girenlerin tamamı ürüne dönüşür: m<sub>MgO</sub> = 12 + 8 = <b>20 g</b>.</span></div>
+      <div class="adim"><span class="n">2</span><span>Kap kapalı, hiçbir atom dışarı çıkmaz; kütle değişmez. <span class="kucuk">(Kontrol: 0,5 mol Mg → 0,5 mol MgO = 20 g ✓)</span></span></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Stokiyometri</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · DENKLEŞTİRME
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Tepkimeler</span><span>Denkleştirme</span></div>
+
+  <h2 class="konu"><span class="num">2</span>Denklemleri denkleştirme</h2>
+  <div class="alt-baslik">Okun iki yanında her atomdan aynı sayıda olana kadar formüllerin önündeki sayılarla oyna.</div>
+
+  <div class="iki-genis" style="align-items:center">
+    <div>
+      <p>Bir denklemin kütlenin korunumuna uyması için okun iki yanındaki her atom türünün sayısı eşit olmalıdır. Bunu formüllerin önüne yazılan <b class="k">stokiyometrik katsayılarla</b> sağlarız. Katsayı 1 ise yazılmaz. Denklem, katsayılar <b>en küçük tam sayılar</b> olacak biçimde denkleştirilir.</p>
+      <div class="kutu kavram" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> Denkleştirme sırası</div>
+        <p style="font-size:9.2pt;margin-bottom:1mm"><b>1.</b> En çok atom içeren formülün katsayısını <b>1</b> al.<br>
+        <b>2.</b> Atomları şu sırayla eşitle: <b>metal → ametal → H → O</b>.<br>
+        <b>3.</b> Kesirli katsayı çıkarsa bütün denklemi paydayla çarp.<br>
+        <b>4.</b> Son olarak her atomu iki tarafta tek tek say.</p>
+      </div>
+    </div>
+    <svg viewBox="0 0 120 80" style="width:100%;height:auto">
+      <g font-family="Inter" text-anchor="middle">
+        <polygon points="60,30 54,72 66,72" fill="#0369a1"/>
+        <rect x="40" y="71" width="40" height="3" rx="1.5" fill="#073b5e"/>
+        <line x1="8" y1="30" x2="112" y2="30" stroke="#073b5e" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="60" cy="30" r="2.4" fill="#fbbf24"/>
+        <line x1="22" y1="30" x2="6" y2="46" stroke="#5d6478" stroke-width=".4"/><line x1="22" y1="30" x2="38" y2="46" stroke="#5d6478" stroke-width=".4"/>
+        <line x1="98" y1="30" x2="82" y2="46" stroke="#5d6478" stroke-width=".4"/><line x1="98" y1="30" x2="114" y2="46" stroke="#5d6478" stroke-width=".4"/>
+        <path d="M1 46 H43 Q41 56 22 56 Q3 56 1 46Z" fill="#eaf5fc" stroke="#0369a1" stroke-width=".5"/>
+        <path d="M77 46 H119 Q117 56 98 56 Q79 56 77 46Z" fill="#eaf5fc" stroke="#0369a1" stroke-width=".5"/>
+        <text x="22" y="14" font-size="5" font-weight="700" fill="#073b5e">C<tspan font-size="3.4" dy="1.2">3</tspan><tspan dy="-1.2">H</tspan><tspan font-size="3.4" dy="1.2">8</tspan><tspan dy="-1.2"> + 5O</tspan><tspan font-size="3.4" dy="1.2">2</tspan></text>
+        <text x="98" y="14" font-size="5" font-weight="700" fill="#073b5e">3CO<tspan font-size="3.4" dy="1.2">2</tspan><tspan dy="-1.2"> + 4H</tspan><tspan font-size="3.4" dy="1.2">2</tspan><tspan dy="-1.2">O</tspan></text>
+        <text x="22" y="22" font-size="3.8" fill="#5d6478">girenler</text>
+        <text x="98" y="22" font-size="3.8" fill="#5d6478">ürünler</text>
+        <text x="22" y="52" font-size="3.7" font-weight="700" fill="#0369a1">3 C · 8 H · 10 O</text>
+        <text x="98" y="52" font-size="3.7" font-weight="700" fill="#0369a1">3 C · 8 H · 10 O</text>
+        <text x="60" y="79" font-size="4" fill="#0f8f84" font-weight="700">Denge sağlandı ✓</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="kutu ornek" style="margin-top:3.5mm">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 2 · Tam sayılı ve kesirli denkleştirme</div>
+    <div class="iki" style="gap:4mm">
+      <div>
+        <div class="soru"><span class="f">C<sub>3</sub>H<sub>8</sub></span> + <span class="f">O<sub>2</sub></span> → <span class="f">CO<sub>2</sub></span> + <span class="f">H<sub>2</sub>O</span></div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span><span class="f">C<sub>3</sub>H<sub>8</sub></span>’in katsayısı 1. Solda 3 C var → 3<span class="f">CO<sub>2</sub></span>.</span></div>
+          <div class="adim"><span class="n">2</span><span>Solda 8 H var → 4<span class="f">H<sub>2</sub>O</span>.</span></div>
+          <div class="adim"><span class="n">3</span><span>Sağda O: 3·2 + 4·1 = 10 → 5<span class="f">O<sub>2</sub></span>.</span></div>
+          <span class="sonuc"><span class="f">C<sub>3</sub>H<sub>8</sub></span> + 5<span class="f">O<sub>2</sub></span> → 3<span class="f">CO<sub>2</sub></span> + 4<span class="f">H<sub>2</sub>O</span></span>
+        </div>
+      </div>
+      <div>
+        <div class="soru"><span class="f">C<sub>6</sub>H<sub>14</sub></span> + <span class="f">O<sub>2</sub></span> → <span class="f">CO<sub>2</sub></span> + <span class="f">H<sub>2</sub>O</span></div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>6 C → 6<span class="f">CO<sub>2</sub></span>; 14 H → 7<span class="f">H<sub>2</sub>O</span>.</span></div>
+          <div class="adim"><span class="n">2</span><span>Sağda O: 12 + 7 = 19 → <span class="kesir"><span>19</span><span>2</span></span><span class="f">O<sub>2</sub></span> (kesirli!)</span></div>
+          <div class="adim"><span class="n">3</span><span>Tüm katsayıları 2 ile çarp.</span></div>
+          <span class="sonuc">2<span class="f">C<sub>6</sub>H<sub>14</sub></span> + 19<span class="f">O<sub>2</sub></span> → 12<span class="f">CO<sub>2</sub></span> + 14<span class="f">H<sub>2</sub>O</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Parantezli formüller</div>
+      <p style="font-size:9.2pt">Parantez dışındaki alt simge parantez içindeki <b>bütün</b> atomları çarpar: <span class="f">Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></span>’te 2 Al, 3 S ve 12 O vardır.</p>
+      <div class="tepkime" style="font-size:10pt;padding:.6mm 0">2<span class="f">Al(OH)<sub>3</sub></span> + 3<span class="f">H<sub>2</sub>SO<sub>4</sub></span> → <span class="f">Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></span> + 6<span class="f">H<sub>2</sub>O</span></div>
+      <p class="kucuk" style="margin:0">Sayım: Al 2 = 2 · S 3 = 3 · H 12 = 12 · O 18 = 18 ✓</p>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “O sayısını tutturmak için <span class="f">H<sub>2</sub>O</span> yerine <span class="f">H<sub>2</sub>O<sub>2</sub></span> yazabilirim.”</div>
+        <div class="dogru"><b class="d">✓</b> Alt simgeyi değiştirmek <b>maddeyi değiştirir</b> (<span class="f">H<sub>2</sub>O<sub>2</sub></span> hidrojen peroksittir). Yalnızca <b>katsayılar</b> değişir: 2<span class="f">H<sub>2</sub>O</span> doğru, <span class="f">H<sub>4</sub>O<sub>2</sub></span> yanlış.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 3 · Formülü bilinmeyen madde</div>
+    <div class="iki-genis" style="gap:4mm;align-items:center">
+      <div>
+        <div class="soru">Denkleştirilmiş 2X + 9<span class="f">O<sub>2</sub></span> → 6<span class="f">CO<sub>2</sub></span> + 8<span class="f">H<sub>2</sub>O</span> denkleminde X’in formülü nedir?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>Ürünlerde: 6 C, 16 H, 12 + 8 = 20 O.</span></div>
+          <div class="adim"><span class="n">2</span><span>Girenlerde <span class="f">O<sub>2</sub></span>’den 18 O gelir → 2X’te 6 C, 16 H, 2 O kalır.</span></div>
+          <div class="adim"><span class="n">3</span><span>Bir X için ikiye böl: 3 C, 8 H, 1 O.</span></div>
+          <span class="sonuc">X = <span class="f">C<sub>3</sub>H<sub>8</sub>O</span></span>
+        </div>
+      </div>
+      <table class="tablo sayim" style="margin:0">
+        <tr><th>Atom</th><th>Ürün</th><th>9<span class="f">O<sub>2</sub></span></th><th>2X</th></tr>
+        <tr><td>C</td><td>6</td><td>0</td><td>6</td></tr>
+        <tr><td>H</td><td>16</td><td>0</td><td>16</td></tr>
+        <tr><td>O</td><td>20</td><td>18</td><td>2</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Stokiyometri</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · DENKLEMDEN HESABA
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Tepkimeler</span><span>Stokiyometrik hesaplamalar</span></div>
+
+  <h2 class="konu"><span class="num">3</span>Denklemden hesaba</h2>
+  <div class="alt-baslik">Katsayılar bir mol oranıdır. Hesabın sırrı: önce mole git, oranla, sonra istenene dön.</div>
+
+  <p>Tepkimelerde harcanan ve oluşan madde miktarlarının denklem yardımıyla hesaplanmasına <b class="k">stokiyometri</b> denir. Denkleştirilmiş bir denklemi üç farklı “dil”de okuyabiliriz:</p>
+
+  <table class="tablo">
+    <tr><th></th><th style="text-align:center"><span class="f">N<sub>2</sub></span>(g)</th><th style="text-align:center">+ 3<span class="f">H<sub>2</sub></span>(g)</th><th style="text-align:center">→ 2<span class="f">NH<sub>3</sub></span>(g)</th><th>Bu oran…</th></tr>
+    <tr><td><b>Tanecik</b></td><td style="text-align:center">1 molekül</td><td style="text-align:center">3 molekül</td><td style="text-align:center">2 molekül</td><td>katsayılara eşit</td></tr>
+    <tr><td><b>Mol</b></td><td style="text-align:center">1 mol</td><td style="text-align:center">3 mol</td><td style="text-align:center">2 mol</td><td>katsayılara eşit</td></tr>
+    <tr><td><b>Kütle</b></td><td style="text-align:center">28 g</td><td style="text-align:center">6 g</td><td style="text-align:center">34 g</td><td><b>katsayılara eşit değil</b> (ama 28 + 6 = 34 ✓)</td></tr>
+  </table>
+
+  <svg viewBox="0 0 178 44" style="display:block;width:90%;height:auto;margin:0 auto 2mm">
+    <defs><marker id="ok3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#0369a1"/></marker></defs>
+    <g font-family="Inter" text-anchor="middle">
+      <rect x="1" y="9" width="34" height="20" rx="3" fill="#fff6e5" stroke="#c26a06" stroke-width=".5"/>
+      <text x="18" y="17" font-size="4.2" font-weight="800" fill="#8a4a03">VERİLEN</text>
+      <text x="18" y="23.5" font-size="3.2" fill="#5d6478">kütle ya da tanecik</text>
+      <rect x="49" y="9" width="30" height="20" rx="3" fill="#0369a1"/>
+      <text x="64" y="17.5" font-size="4.4" font-weight="800" fill="#fff">MOL</text>
+      <text x="64" y="23.5" font-size="3.6" fill="#d6ecf8">verilen madde</text>
+      <rect x="99" y="9" width="30" height="20" rx="3" fill="#0369a1"/>
+      <text x="114" y="17.5" font-size="4.4" font-weight="800" fill="#fff">MOL</text>
+      <text x="114" y="23.5" font-size="3.6" fill="#d6ecf8">istenen madde</text>
+      <rect x="143" y="9" width="34" height="20" rx="3" fill="#eafaf7" stroke="#0f8f84" stroke-width=".5"/>
+      <text x="160" y="17" font-size="4.2" font-weight="800" fill="#0b6b62">İSTENEN</text>
+      <text x="160" y="23.5" font-size="3.2" fill="#5d6478">kütle ya da tanecik</text>
+      <path d="M36 19 H47" stroke="#0369a1" stroke-width=".7" marker-end="url(#ok3)"/>
+      <path d="M80 19 H97" stroke="#0369a1" stroke-width=".7" marker-end="url(#ok3)"/>
+      <path d="M130 19 H141" stroke="#0369a1" stroke-width=".7" marker-end="url(#ok3)"/>
+      <text x="41.5" y="6" font-size="3.4" fill="#0369a1" font-weight="700">÷ M<tspan font-size="2.5" dy=".9">A</tspan><tspan dy="-.9"> ya da ÷ N</tspan><tspan font-size="2.5" dy=".9">A</tspan></text>
+      <text x="88.5" y="6" font-size="3.4" fill="#0369a1" font-weight="700">× katsayı oranı</text>
+      <text x="135.5" y="6" font-size="3.4" fill="#0369a1" font-weight="700">× M<tspan font-size="2.5" dy=".9">A</tspan><tspan dy="-.9"> ya da × N</tspan><tspan font-size="2.5" dy=".9">A</tspan></text>
+      <rect x="22" y="33" width="134" height="9" rx="2.5" fill="#eaf5fc" stroke="#0369a1" stroke-width=".4"/>
+      <text x="89" y="38.9" font-size="3.6" fill="#073b5e" font-weight="700">n(istenen) = n(verilen) × (istenen katsayı / verilen katsayı)</text>
+    </g>
+  </svg>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 4 · Kütleden kütleye</div>
+    <div class="soru">Mutfak tüpündeki propan yanarken <span class="f">C<sub>3</sub>H<sub>8</sub></span>(g) + 5<span class="f">O<sub>2</sub></span>(g) → 3<span class="f">CO<sub>2</sub></span>(g) + 4<span class="f">H<sub>2</sub>O</span>(g) tepkimesi gerçekleşir. 8,8 g propanın tamamen yanması için kaç gram <span class="f">O<sub>2</sub></span> gerekir? Kaç gram su buharı oluşur? <span class="veri">(H: 1, C: 12, O: 16 g/mol)</span></div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>Mole git: M<sub>A</sub>(<span class="f">C<sub>3</sub>H<sub>8</sub></span>) = 44 g/mol → n = 8,8 / 44 = 0,2 mol</span></div>
+      <div class="adim"><span class="n">2</span><span>Oranla: <span class="f">O<sub>2</sub></span> = 0,2·5 = 1,0 mol &nbsp;·&nbsp; <span class="f">H<sub>2</sub>O</span> = 0,2·4 = 0,8 mol &nbsp;·&nbsp; <span class="f">CO<sub>2</sub></span> = 0,2·3 = 0,6 mol</span></div>
+      <div class="adim"><span class="n">3</span><span>Kütleye dön: <span class="f">O<sub>2</sub></span> = 1,0·32 = 32 g &nbsp;·&nbsp; <span class="f">H<sub>2</sub>O</span> = 0,8·18 = 14,4 g &nbsp;<span class="kucuk">(Kontrol: 8,8 + 32 = 26,4 + 14,4 = 40,8 g ✓)</span></span></div>
+      <span class="sonuc">32 g O<sub>2</sub> harcanır, 14,4 g H<sub>2</sub>O oluşur</span>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 5 · Kütleden taneciğe</div>
+      <div class="soru" style="font-size:9.4pt">Yüksek fırında <span class="f">Fe<sub>2</sub>O<sub>3</sub></span>(k) + 3<span class="f">CO</span>(g) → 2<span class="f">Fe</span>(k) + 3<span class="f">CO<sub>2</sub></span>(g). 112 g demir elde etmek için kaç gram <span class="f">Fe<sub>2</sub>O<sub>3</sub></span> gerekir? Bu sırada kaç tane <span class="f">CO<sub>2</sub></span> molekülü oluşur? <span class="veri">(Fe: 56, O: 16 g/mol)</span></div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>n<sub>Fe</sub> = 112 / 56 = 2 mol</span></div>
+        <div class="adim"><span class="n">2</span><span><span class="f">Fe<sub>2</sub>O<sub>3</sub></span>: 2·(1/2) = 1 mol = 160 g</span></div>
+        <div class="adim"><span class="n">3</span><span><span class="f">CO<sub>2</sub></span>: 2·(3/2) = 3 mol = 3·6,02·10<sup>23</sup> = 1,806·10<sup>24</sup> tane</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="kutu hayat">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+        <p style="font-size:9pt">Bazı hava yastıklarında çarpışma anında sodyum azit ayrışır: 2<span class="f">NaN<sub>3</sub></span>(k) → 2<span class="f">Na</span>(k) + 3<span class="f">N<sub>2</sub></span>(g). 65 g <span class="f">NaN<sub>3</sub></span> (1 mol) 1,5 mol (42 g) azot gazı verir. Yastığın doğru şişmesi bu hesaba bağlıdır.</p>
+      </div>
+      <div class="kutu dikkat">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Katsayılar kütle oranını gösterir.”</div>
+          <div class="dogru"><b class="d">✓</b> Katsayılar <b>mol</b> ve <b>tanecik</b> oranıdır. Kütleye geçmek için mol kütlesi gerekir.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Stokiyometri</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · GRAFİK VE SINIRLAYICI BİLEŞEN
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Tepkimeler</span><span>Sınırlayıcı bileşen</span></div>
+
+  <h2 class="konu"><span class="num">4</span>Grafik okuma ve sınırlayıcı bileşen</h2>
+  <div class="alt-baslik">Tepkime, malzemelerden biri bittiği anda durur. Bitecek olanı önceden bulmak gerekir.</div>
+
+  <div class="iki-genis" style="align-items:center">
+    <div>
+      <p>Mol–zaman grafiğinde <b>azalan</b> eğriler tepkenleri, <b>artan</b> eğriler ürünleri gösterir. Her maddenin değişim miktarı denklemdeki katsayılarla <b>orantılıdır</b>.</p>
+      <p style="font-size:9.4pt">Yandaki grafikte X 4 mol, Y 2 mol azalmış; Z 4 mol oluşmuştur. 4 : 2 : 4 oranı sadeleşince <b>2X + Y → 2Z</b> denklemi bulunur. X tükendiği an tepkime durur, Y’den 1 mol <b>artar</b>.</p>
+      <div class="kutu kavram" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+        <p style="font-size:9.2pt"><b>Sınırlayıcı bileşen:</b> Tepkimede ilk tükenen ve oluşacak ürün miktarını belirleyen tepkendir. Tükenmeyen tepkene <b>artan madde</b> denir.<br>
+        <b>Tam verimli tepkime:</b> Tepkenlerden en az biri tamamen biter. <b>Artansız</b> tepkimede ise tepkenlerin hepsi biter.</p>
+      </div>
+    </div>
+    <svg viewBox="0 0 120 86" style="width:100%;height:auto">
+      <g font-family="Inter" font-size="4.4" fill="#5d6478">
+        <g stroke="#e5e9f0" stroke-width=".3">
+          <line x1="16" y1="12" x2="112" y2="12"/><line x1="16" y1="24" x2="112" y2="24"/><line x1="16" y1="36" x2="112" y2="36"/><line x1="16" y1="48" x2="112" y2="48"/>
+        </g>
+        <line x1="16" y1="60" x2="114" y2="60" stroke="#1d2133" stroke-width=".5"/>
+        <line x1="16" y1="60" x2="16" y2="6" stroke="#1d2133" stroke-width=".5"/>
+        <text x="13" y="61.5" text-anchor="end">0</text><text x="13" y="49.5" text-anchor="end">1</text><text x="13" y="37.5" text-anchor="end">2</text><text x="13" y="25.5" text-anchor="end">3</text><text x="13" y="13.5" text-anchor="end">4</text>
+        <text x="3" y="5" fill="#1d2133" font-weight="700">Mol</text>
+        <text x="104" y="66" fill="#1d2133" font-weight="700" text-anchor="middle">Zaman</text>
+        <line x1="66" y1="8" x2="66" y2="60" stroke="#9aa3b8" stroke-width=".35" stroke-dasharray="1.4 1"/>
+        <text x="66" y="66" text-anchor="middle" font-size="3.8">t (X biter)</text>
+        <!-- X: 4 -> 0 -->
+        <path d="M16 12 Q40 46 66 60 H112" fill="none" stroke="#e11d48" stroke-width="1.1"/>
+        <!-- Y: 3 -> 1 -->
+        <path d="M16 24 Q40 41 66 48 H112" fill="none" stroke="#c26a06" stroke-width="1.1"/>
+        <!-- Z: 0 -> 4 -->
+        <path d="M16 60 Q40 26 66 12 H112" fill="none" stroke="#0369a1" stroke-width="1.1"/>
+        <text x="114" y="13.5" fill="#0369a1" font-weight="800" font-size="5">Z</text>
+        <text x="114" y="49.5" fill="#c26a06" font-weight="800" font-size="5">Y</text>
+        <text x="114" y="58" fill="#e11d48" font-weight="800" font-size="5">X</text>
+        <rect x="16" y="71" width="98" height="13" rx="2.5" fill="#eaf5fc"/>
+        <text x="65" y="76.6" text-anchor="middle" fill="#073b5e" font-size="4">X: −4 mol · Y: −2 mol · Z: +4 mol</text>
+        <text x="65" y="81.8" text-anchor="middle" fill="#073b5e" font-size="4" font-weight="700">4 : 2 : 4 → 2X + Y → 2Z</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fafcff;margin-top:3.5mm">
+    <p style="margin:0;font-size:9.4pt"><b class="k">Sandviç benzetmesi:</b> 1 sandviç = 2 dilim ekmek + 1 dilim peynir. Elinde 10 dilim ekmek ve 7 dilim peynir varsa en fazla <b>5 sandviç</b> yaparsın; ekmek biter (<b>sınırlayıcı</b>), 2 dilim peynir <b>artar</b>. Sayıca fazla olan ekmek yine de önce biter!</p>
+  </div>
+
+  <h3>Sınırlayıcı bileşeni bulma: mol ÷ katsayı</h3>
+  <p style="font-size:9.6pt">Her tepkenin mol sayısını kendi katsayısına böl. <b>Sonucu en küçük olan</b> sınırlayıcı bileşendir. Ardından <b>Başlangıç – Değişim – Sonuç</b> tablosu kur; değişim satırı katsayılarla orantılı olmalıdır.</p>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 6</div>
+    <div class="soru">10 g <span class="f">H<sub>2</sub></span> ile 64 g <span class="f">O<sub>2</sub></span>, 2<span class="f">H<sub>2</sub></span>(g) + <span class="f">O<sub>2</sub></span>(g) → 2<span class="f">H<sub>2</sub>O</span>(s) denklemine göre tam verimle tepkimeye giriyor. Hangi maddeden kaç gram artar? Kaç gram su oluşur? <span class="veri">(H: 1, O: 16 g/mol)</span></div>
+    <div class="iki" style="gap:4mm">
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>n<sub>H2</sub> = 10/2 = 5 mol; n<sub>O2</sub> = 64/32 = 2 mol</span></div>
+        <div class="adim"><span class="n">2</span><span>Mol ÷ katsayı: <span class="f">H<sub>2</sub></span> → 5/2 = 2,5 · <span class="f">O<sub>2</sub></span> → 2/1 = 2 → <b><span class="f">O<sub>2</sub></span> sınırlayıcı</b></span></div>
+        <div class="adim"><span class="n">3</span><span>Artan <span class="f">H<sub>2</sub></span>: 1 mol = 2 g · Oluşan su: 4 mol = 72 g</span></div>
+        <div class="adim"><span class="n">4</span><span>Kontrol: 10 + 64 = 74 g; 72 + 2 = 74 g ✓</span></div>
+      </div>
+      <div>
+        <table class="tablo bds" style="margin:0 0 2mm">
+          <tr><th>mol</th><th>2<span class="f">H<sub>2</sub></span></th><th><span class="f">O<sub>2</sub></span></th><th>2<span class="f">H<sub>2</sub>O</span></th></tr>
+          <tr><td>Başlangıç</td><td>5</td><td>2</td><td>0</td></tr>
+          <tr><td>Değişim</td><td>−4</td><td>−2</td><td>+4</td></tr>
+          <tr><td>Sonuç</td><td><b>1</b> (artar)</td><td>0</td><td>4</td></tr>
+        </table>
+        <span class="sonuc">2 g H<sub>2</sub> artar; 72 g su oluşur</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu dikkat">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “Mol sayısı (ya da kütlesi) az olan tepken her zaman sınırlayıcıdır.”</div>
+      <div class="dogru"><b class="d">✓</b> 2 mol <span class="f">N<sub>2</sub></span> ile 3 mol <span class="f">H<sub>2</sub></span> alınırsa (<span class="f">N<sub>2</sub></span> + 3<span class="f">H<sub>2</sub></span> → 2<span class="f">NH<sub>3</sub></span>) <span class="f">H<sub>2</sub></span>: 3/3 = 1, <span class="f">N<sub>2</sub></span>: 2/1 = 2. Sayıca fazla olan <b><span class="f">H<sub>2</sub></span> biter</b>.</div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Stokiyometri</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · VERİM VE SAFLIK
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Tepkimeler</span><span>Verim ve saflık</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Yüzde verim ve saflık</h2>
+  <div class="alt-baslik">Kâğıt üstündeki hesap ile deney tüpündeki gerçek her zaman aynı değildir.</div>
+
+  <div class="iki-genis" style="align-items:center">
+    <div>
+      <p>Denklemden hesaplanan en yüksek ürün miktarı <b class="k">teorik verim</b>, deneyde gerçekten elde edilen miktar <b class="k">gerçek (deneysel) verimdir</b>. Tepkimenin tamamlanmaması, yan tepkimeler ve aktarma kayıpları yüzünden gerçek verim çoğu zaman daha azdır.</p>
+      <div class="formul-kart" style="grid-template-columns:1fr;margin-bottom:0">
+        <div><div class="denklem">% verim = <span class="kesir"><span>gerçek verim</span><span>teorik verim</span></span> · 100</div><span>Teorik verim, sınırlayıcı bileşene göre hesaplanır.</span></div>
+      </div>
+    </div>
+    <svg viewBox="0 0 120 74" style="width:100%;height:auto">
+      <g font-family="Inter" font-size="4.4" fill="#1d2133">
+        <text x="2" y="5" font-weight="700" font-size="4.6">KClO<tspan font-size="3.2" dy="1">3</tspan><tspan dy="-1"> ayrışmasında O</tspan><tspan font-size="3.2" dy="1">2</tspan><tspan dy="-1"> (gram)</tspan></text>
+        <line x1="10" y1="62" x2="116" y2="62" stroke="#1d2133" stroke-width=".5"/>
+        <rect x="22" y="18" width="26" height="44" rx="2" fill="#cfe7f6" stroke="#0369a1" stroke-width=".5" stroke-dasharray="1.6 1"/>
+        <text x="35" y="15.5" text-anchor="middle" font-weight="800" fill="#0369a1">9,6 g</text>
+        <text x="35" y="68" text-anchor="middle">Teorik</text>
+        <rect x="68" y="29" width="26" height="33" rx="2" fill="#0369a1"/>
+        <text x="81" y="36" text-anchor="middle" font-weight="800" fill="#fff">7,2 g</text>
+        <text x="81" y="68" text-anchor="middle">Gerçek</text>
+        <rect x="68" y="18" width="26" height="10" rx="2" fill="#fff1f3" stroke="#e11d48" stroke-width=".4" stroke-dasharray="1.2 .8"/>
+        <text x="81" y="24.3" text-anchor="middle" font-size="3.6" fill="#e11d48">kayıp 2,4 g</text>
+        <text x="81" y="50" text-anchor="middle" font-size="6" font-weight="800" fill="#fff">%75</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="iki" style="margin-top:3.5mm">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 7 · Verimi bulma</div>
+      <div class="soru" style="font-size:9.4pt">24,5 g <span class="f">KClO<sub>3</sub></span> ısıtılınca 2<span class="f">KClO<sub>3</sub></span> → 2<span class="f">KCl</span> + 3<span class="f">O<sub>2</sub></span> tepkimesiyle 7,2 g <span class="f">O<sub>2</sub></span> toplanıyor. Tepkime yüzde kaç verimlidir? <span class="veri">(O: 16, Cl: 35,5, K: 39 g/mol)</span></div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>M<sub>A</sub> = 122,5 g/mol → n = 0,2 mol</span></div>
+        <div class="adim"><span class="n">2</span><span>Teorik <span class="f">O<sub>2</sub></span>: 0,2·(3/2) = 0,3 mol = 9,6 g</span></div>
+        <div class="adim"><span class="n">3</span><span>% verim = 7,2 / 9,6 · 100</span></div>
+        <span class="sonuc">%75</span>
+      </div>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 8 · Geriye hesap</div>
+      <div class="soru" style="font-size:9.4pt"><span class="f">Zn</span> + 2<span class="f">HCl</span> → <span class="f">ZnCl<sub>2</sub></span> + <span class="f">H<sub>2</sub></span> tepkimesi %80 verimle yürüyor. 0,4 g <span class="f">H<sub>2</sub></span> elde etmek için kaç gram çinko gerekir? <span class="veri">(H: 1, Zn: 65 g/mol)</span></div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Gerçek <span class="f">H<sub>2</sub></span>: 0,4 / 2 = 0,2 mol</span></div>
+        <div class="adim"><span class="n">2</span><span>Teorik: 0,2 / 0,80 = 0,25 mol <span class="f">H<sub>2</sub></span></span></div>
+        <div class="adim"><span class="n">3</span><span>1 : 1 → 0,25 mol Zn = 0,25·65</span></div>
+        <span class="sonuc">16,25 g Zn</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:1mm">Saf olmayan maddeler</h3>
+  <div class="iki-genis" style="gap:4mm">
+    <div>
+      <p style="font-size:9.6pt">Doğadan alınan maddeler genellikle saf değildir; kireç taşında kil ve kum bulunabilir. Tepkimeye yalnızca örneğin <b>saf kısmı</b> girer, hesap bu kısım üzerinden yapılır.</p>
+      <div class="formul-kart" style="grid-template-columns:1fr;margin:0 0 3mm">
+        <div><div class="denklem" style="font-size:11pt">% saflık = <span class="kesir"><span>saf maddenin kütlesi</span><span>örneğin toplam kütlesi</span></span> · 100</div></div>
+      </div>
+      <div class="kutu hayat" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+        <p style="font-size:9pt">Kireç fabrikalarında kireç taşı fırınlarda ısıtılarak <span class="f">CaCO<sub>3</sub></span> → <span class="f">CaO</span> + <span class="f">CO<sub>2</sub></span> tepkimesiyle sönmemiş kirece dönüştürülür. Çimento üretimindeki karbon dioksit salımının önemli bir bölümü de bu ayrışmadan gelir.</p>
+      </div>
+    </div>
+    <div>
+      <div class="kutu ornek">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 9</div>
+        <div class="soru" style="font-size:9.3pt">Kütlece %80 saflıktaki 125 g kireç taşı ısıtılıyor. Safsızlıklar ayrışmıyor. Kaç gram <span class="f">CO<sub>2</sub></span> oluşur? <span class="veri">(C: 12, O: 16, Ca: 40 g/mol)</span></div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>Saf kısım: 125·0,80 = 100 g = 1 mol</span></div>
+          <div class="adim"><span class="n">2</span><span>1 : 1 oranı → 1 mol <span class="f">CO<sub>2</sub></span> = 44 g</span></div>
+          <span class="sonuc">44 g CO<sub>2</sub></span>
+        </div>
+      </div>
+      <div class="kutu dikkat" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+        <p style="font-size:9pt;margin:0"><b class="y" style="color:var(--dikkat)">✗</b> “Verimi artan madde üzerinden hesaplarım.” <br><b style="color:var(--ornek)">✓</b> Teorik verim daima <b>sınırlayıcı bileşenden</b> bulunur.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Stokiyometri</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · KARIŞIM VE ARDIŞIK TEPKİMELER
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Tepkimeler</span><span>Karışımlar ve ardışık tepkimeler</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Karışımlar ve ardışık tepkimeler</h2>
+  <div class="alt-baslik">Her maddeye kendi denklemi; zincirdeki her halkaya ortak madde köprüsü.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Karışımların tepkimeleri</div>
+    <p style="font-size:9.4pt">Karışımdaki her bileşen <b>kendi denklemine göre</b>, diğerinden bağımsız tepkimeye girer. Bileşenlerden birine x, diğerine (toplam − x) denir ve soruda verilen ortak nicelik (oluşan <span class="f">CO<sub>2</sub></span>, harcanan <span class="f">O<sub>2</sub></span>, çıkan gaz…) iki denklemden ayrı ayrı yazılıp toplanır. Bazen bileşenlerden biri <b>hiç tepkime vermez</b>: Mg–Cu karışımı <span class="f">HCl</span> çözeltisine atılırsa yalnızca Mg tepkimeye girer (<span class="f">Mg</span> + 2<span class="f">HCl</span> → <span class="f">MgCl<sub>2</sub></span> + <span class="f">H<sub>2</sub></span>); bakır hidrojen gazı oluşturmaz. Çıkan <span class="f">H<sub>2</sub></span>’nin tamamı magnezyumdan gelir.</p>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 10 · Gaz karışımı</div>
+    <div class="soru"><span class="f">CH<sub>4</sub></span> ve <span class="f">C<sub>3</sub>H<sub>8</sub></span> gazlarından oluşan 0,4 mollük karışım yeterli oksijenle tamamen yakıldığında 0,8 mol <span class="f">CO<sub>2</sub></span> oluşuyor. Karışımın molce yüzde kaçı <span class="f">CH<sub>4</sub></span>’tür? Kaç mol <span class="f">O<sub>2</sub></span> harcanmıştır?</div>
+    <div class="iki-genis" style="gap:4mm">
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span><span class="f">CH<sub>4</sub></span> + 2<span class="f">O<sub>2</sub></span> → <span class="f">CO<sub>2</sub></span> + 2<span class="f">H<sub>2</sub>O</span><br><span class="f">C<sub>3</sub>H<sub>8</sub></span> + 5<span class="f">O<sub>2</sub></span> → 3<span class="f">CO<sub>2</sub></span> + 4<span class="f">H<sub>2</sub>O</span></span></div>
+        <div class="adim"><span class="n">2</span><span><span class="f">CO<sub>2</sub></span>: x + 3(0,4 − x) = 0,8 → <b>x = 0,2</b></span></div>
+        <div class="adim"><span class="n">3</span><span>Molce % <span class="f">CH<sub>4</sub></span> = 0,2 / 0,4 · 100 = %50</span></div>
+        <div class="adim"><span class="n">4</span><span><span class="f">O<sub>2</sub></span>: 0,2·2 + 0,2·5 = 0,4 + 1,0 = 1,4 mol</span></div>
+        <span class="sonuc">%50 CH<sub>4</sub>; 1,4 mol O<sub>2</sub></span>
+      </div>
+      <table class="tablo" style="margin:0;font-size:8.8pt">
+        <tr><th></th><th><span class="f">CH<sub>4</sub></span></th><th><span class="f">C<sub>3</sub>H<sub>8</sub></span></th></tr>
+        <tr><td>Mol</td><td>x</td><td>0,4 − x</td></tr>
+        <tr><td><span class="f">CO<sub>2</sub></span> (mol)</td><td>x</td><td>3(0,4 − x)</td></tr>
+        <tr><td><span class="f">O<sub>2</sub></span> (mol)</td><td>2x</td><td>5(0,4 − x)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>Ardışık tepkimeler</h3>
+  <p style="font-size:9.6pt">Birinci tepkimenin ürünü ikinci tepkimenin tepkeni oluyorsa tepkimeler <b class="k">ardışıktır</b>. Hesapta iki denklemi bağlayan <b>ortak maddeyi</b> bul, katsayıları ona göre eşitle ve zincir boyunca mol oranlarını taşı.</p>
+
+  <svg viewBox="0 0 178 40" style="width:100%;height:auto;margin-bottom:2mm">
+    <defs><marker id="ok6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#0369a1"/></marker></defs>
+    <g font-family="Inter" text-anchor="middle">
+      <rect x="2" y="8" width="30" height="18" rx="3" fill="#fff6e5" stroke="#c26a06" stroke-width=".5"/>
+      <text x="17" y="16.5" font-size="5.4" font-weight="800" fill="#8a4a03">S</text>
+      <text x="17" y="22.5" font-size="3.6" fill="#5d6478">16 g · 0,5 mol</text>
+      <rect x="50" y="8" width="30" height="18" rx="3" fill="#eaf5fc" stroke="#0369a1" stroke-width=".5"/>
+      <text x="65" y="16.5" font-size="5.4" font-weight="800" fill="#073b5e">SO<tspan font-size="3.8" dy="1.2">2</tspan></text>
+      <text x="65" y="22.5" font-size="3.6" fill="#5d6478">0,5 mol</text>
+      <rect x="98" y="8" width="30" height="18" rx="3" fill="#eaf5fc" stroke="#0369a1" stroke-width=".5"/>
+      <text x="113" y="16.5" font-size="5.4" font-weight="800" fill="#073b5e">SO<tspan font-size="3.8" dy="1.2">3</tspan></text>
+      <text x="113" y="22.5" font-size="3.6" fill="#5d6478">0,5 mol</text>
+      <rect x="146" y="8" width="30" height="18" rx="3" fill="#eafaf7" stroke="#0f8f84" stroke-width=".5"/>
+      <text x="161" y="16.5" font-size="5.4" font-weight="800" fill="#0b6b62">H<tspan font-size="3.8" dy="1.2">2</tspan><tspan dy="-1.2">SO</tspan><tspan font-size="3.8" dy="1.2">4</tspan></text>
+      <text x="161" y="22.5" font-size="3.6" fill="#5d6478">0,5 mol · 49 g</text>
+      <path d="M33 17 H48" stroke="#0369a1" stroke-width=".7" marker-end="url(#ok6)"/>
+      <path d="M81 17 H96" stroke="#0369a1" stroke-width=".7" marker-end="url(#ok6)"/>
+      <path d="M129 17 H144" stroke="#0369a1" stroke-width=".7" marker-end="url(#ok6)"/>
+      <text x="40.5" y="6" font-size="3.4" fill="#0369a1" font-weight="700">+ O<tspan font-size="2.5" dy=".9">2</tspan></text>
+      <text x="88.5" y="6" font-size="3.4" fill="#0369a1" font-weight="700">+ ½ O<tspan font-size="2.5" dy=".9">2</tspan></text>
+      <text x="136.5" y="6" font-size="3.4" fill="#0369a1" font-weight="700">+ H<tspan font-size="2.5" dy=".9">2</tspan><tspan dy="-.9">O</tspan></text>
+      <text x="40.5" y="32" font-size="3.4" fill="#5d6478">1 : 1</text>
+      <text x="88.5" y="32" font-size="3.4" fill="#5d6478">2 : 2 = 1 : 1</text>
+      <text x="136.5" y="32" font-size="3.4" fill="#5d6478">1 : 1</text>
+      <text x="89" y="38.5" font-size="3.6" fill="#073b5e" font-weight="700">Ortak maddeler: SO₂ (1.–2. tepkime) ve SO₃ (2.–3. tepkime)</text>
+    </g>
+  </svg>
+
+  <div class="iki">
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9pt">Sülfürik asit, gübreden pil asidine kadar pek çok üründe kullanılır ve dünyada en çok üretilen kimyasallardan biridir. Endüstride kükürt önce <span class="f">SO<sub>2</sub></span>’ye yakılır, <span class="f">SO<sub>2</sub></span> katalizör üzerinde <span class="f">SO<sub>3</sub></span>’e yükseltgenir, <span class="f">SO<sub>3</sub></span> de suyla tepkimeye sokularak (dolaylı yoldan) <span class="f">H<sub>2</sub>SO<sub>4</sub></span>’e dönüştürülür.</p>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 11</div>
+      <div class="soru" style="font-size:9.2pt"><span class="f">S</span> + <span class="f">O<sub>2</sub></span> → <span class="f">SO<sub>2</sub></span>; 2<span class="f">SO<sub>2</sub></span> + <span class="f">O<sub>2</sub></span> → 2<span class="f">SO<sub>3</sub></span>; <span class="f">SO<sub>3</sub></span> + <span class="f">H<sub>2</sub>O</span> → <span class="f">H<sub>2</sub>SO<sub>4</sub></span>. 16 g kükürtten tam verimle kaç gram <span class="f">H<sub>2</sub>SO<sub>4</sub></span> elde edilir? <span class="veri">(H: 1, O: 16, S: 32 g/mol)</span></div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>0,5 mol S → 0,5 mol <span class="f">SO<sub>2</sub></span> → 0,5 mol <span class="f">SO<sub>3</sub></span> → 0,5 mol <span class="f">H<sub>2</sub>SO<sub>4</sub></span></span></div>
+        <div class="adim"><span class="n">2</span><span>0,5·98 = <b>49 g</b> <span class="kucuk">(S atomu korunur.)</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Stokiyometri</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · ÖZET
+     ========================================================= -->
+<section class="sayfa cift ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Tepkimeler</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada stokiyometri</h2><p>Sınavdan önceki gece bu sayfaya bakman yeter. Her kutuyu kendi cümlelerinle bir arkadaşına anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Denklem ve korunum</div>
+      <ul style="font-size:9.1pt">
+        <li>Tepkenler solda, ürünler sağda; hâller (k), (s), (g), (suda)</li>
+        <li>Her zaman korunur: <b>kütle, atom türü ve sayısı</b></li>
+        <li>Korunmayabilir: molekül sayısı, mol sayısı, hâl, hacim</li>
+        <li>Denkleştirme sırası: <b>metal → ametal → H → O</b></li>
+        <li>Alt simge asla değişmez; yalnızca katsayı değişir</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Hesap yol haritası</div>
+      <div class="denklem" style="font-size:11pt">verilen → <b>mol</b> → <b>mol</b> → istenen</div>
+      <div class="denklem" style="font-size:9.6pt;padding-top:0">orta adım: × <span class="kesir"><span>istenen katsayı</span><span>verilen katsayı</span></span></div>
+      <p style="font-size:9pt;margin:1mm 0 0">Katsayılar <b>mol ve tanecik</b> oranıdır, kütle oranı değildir. Sonucu her zaman “girenler = ürünler” kütle kontrolüyle doğrula.</p>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Sınırlayıcı, verim, saflık</div>
+      <ul style="font-size:9.1pt">
+        <li><b>mol ÷ katsayı</b> en küçük olan tepken sınırlayıcıdır</li>
+        <li>Başlangıç – Değişim – Sonuç tablosu kur</li>
+        <li>% verim = gerçek / teorik · 100 (teorik: sınırlayıcıdan)</li>
+        <li>% saflık = saf kütle / örnek kütlesi · 100; hesaba yalnızca saf kısım girer</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> En sık 4 hata</div>
+      <ul style="font-size:9.1pt">
+        <li>Denkleştirirken <b>alt simgeyi</b> değiştirmek</li>
+        <li>Katsayıları <b>kütle</b> oranı sanmak</li>
+        <li>Mol sayısı az olanı otomatik sınırlayıcı saymak</li>
+        <li>Verimle istenen miktarı <b>bölmek</b> yerine çarpmak (ya da tersi)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Kütlenin korunumu kanununu atomlar üzerinden açıklayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Tepkime denklemlerini en küçük tam sayılarla denkleştirebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Denkleşmiş denklemden formülü bilinmeyen maddeyi bulabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bir maddenin miktarından diğerinin kütlesini ya da tanecik sayısını hesaplayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Sınırlayıcı bileşeni ve artan madde miktarını bulabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Verim, saflık, karışım ve ardışık tepkime problemlerini çözebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:4mm;height:32mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Stokiyometri</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Tepkimeler</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Aşağıdaki çözümleri dört farklı öğrenci yazdı. Her birinde bir hata var. Hatayı bul, hangi satırda olduğunu yaz, doğrusunu kutuya çöz.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> <span class="f">H<sub>2</sub></span> + <span class="f">O<sub>2</sub></span> → <span class="f">H<sub>2</sub>O</span> denklemini denkleştiriniz.</p>
+      <div class="defter">
+        <div class="ogrenci">Elif’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>Solda 2 O, sağda 1 O var.</div>
+        <div class="satir"><span class="sn">2</span>Sağdaki suyu <span class="f">H<sub>2</sub>O<sub>2</sub></span> yaparsam O’lar eşitlenir.</div>
+        <div class="satir"><span class="sn">3</span><span class="f">H<sub>2</sub></span> + <span class="f">O<sub>2</sub></span> → <span class="f">H<sub>2</sub>O<sub>2</sub></span> (denk)</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> 2<span class="f">H<sub>2</sub></span> + <span class="f">O<sub>2</sub></span> → 2<span class="f">H<sub>2</sub>O</span> tepkimesinde 4 g <span class="f">H<sub>2</sub></span> kaç gram <span class="f">O<sub>2</sub></span> ile tepkimeye girer? <span class="veri">(H: 1, O: 16)</span></p>
+      <div class="defter">
+        <div class="ogrenci">Burak’ın çözümü</div>
+        <div class="satir"><span class="sn">1</span>Katsayılara göre 2 g <span class="f">H<sub>2</sub></span>, 1 g <span class="f">O<sub>2</sub></span> ile birleşir.</div>
+        <div class="satir"><span class="sn">2</span>4 g <span class="f">H<sub>2</sub></span> bunun 2 katıdır.</div>
+        <div class="satir"><span class="sn">3</span>Cevap: 2 g <span class="f">O<sub>2</sub></span></div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> 2 mol <span class="f">N<sub>2</sub></span> ile 4,5 mol <span class="f">H<sub>2</sub></span>, <span class="f">N<sub>2</sub></span> + 3<span class="f">H<sub>2</sub></span> → 2<span class="f">NH<sub>3</sub></span> denklemine göre tam verimle tepkimeye giriyor. Kaç mol <span class="f">NH<sub>3</sub></span> oluşur?</p>
+      <div class="defter">
+        <div class="ogrenci">Selin’in çözümü</div>
+        <div class="satir"><span class="sn">1</span><span class="f">N<sub>2</sub></span> 2 mol, <span class="f">H<sub>2</sub></span> 4,5 mol alınmış.</div>
+        <div class="satir"><span class="sn">2</span>Molü az olan <span class="f">N<sub>2</sub></span> biter, sınırlayıcı <span class="f">N<sub>2</sub></span>.</div>
+        <div class="satir"><span class="sn">3</span>2 mol <span class="f">N<sub>2</sub></span> → 2 × 2 = 4 mol <span class="f">NH<sub>3</sub></span></div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> 20 g <span class="f">CaCO<sub>3</sub></span>, <span class="f">CaCO<sub>3</sub></span> → <span class="f">CaO</span> + <span class="f">CO<sub>2</sub></span> tepkimesine göre %75 verimle ayrışıyor. Kaç gram <span class="f">CO<sub>2</sub></span> oluşur? <span class="veri">(C: 12, O: 16, Ca: 40)</span></p>
+      <div class="defter">
+        <div class="ogrenci">Arda’nın çözümü</div>
+        <div class="satir"><span class="sn">1</span>n = 20 / 100 = 0,2 mol <span class="f">CaCO<sub>3</sub></span></div>
+        <div class="satir"><span class="sn">2</span>Teorik <span class="f">CO<sub>2</sub></span>: 0,2 mol = 0,2·44 = 8,8 g</div>
+        <div class="satir"><span class="sn">3</span>Gerçek: 8,8 / 0,75 ≈ 11,7 g <span class="f">CO<sub>2</sub></span></div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Bulduğun sonucu iki soruyla sına: “Kütle korunuyor mu?” ve “Verim %100’ün altındaysa ürün teorikten <b>az</b> mı çıktı?” Cevaplardan biri “hayır” ise hata büyük ihtimalle oradadır.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Stokiyometri</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Tepkimeler</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni ve görseli oku, sonra hangi bilginin işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Sağlık</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Mide yanmasında kullanılan bazı ilaçlar magnezyum hidroksit içerir. Bu madde mide asidindeki <span class="f">HCl</span> ile tepkimeye girer:</p>
+          <div class="tepkime" style="font-size:9.4pt"><span class="f">Mg(OH)<sub>2</sub></span> + 2<span class="f">HCl</span> → <span class="f">MgCl<sub>2</sub></span> + 2<span class="f">H<sub>2</sub>O</span></div>
+          <p>Bir tablette 0,58 g <span class="f">Mg(OH)<sub>2</sub></span> bulunuyor ve tamamı tepkimeye giriyor. <span class="veri">(H: 1, O: 16, Mg: 24, Cl: 35,5 g/mol)</span></p>
+          <div class="oncul"><div><b>I.</b><span>Tablet 0,01 mol <span class="f">Mg(OH)<sub>2</sub></span> içerir.</span></div><div><b>II.</b><span>0,73 g <span class="f">HCl</span> etkisiz hâle getirilir.</span></div><div><b>III.</b><span>0,18 g su oluşur.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek" style="grid-template-columns:repeat(3,1fr)"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Çevre</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Otomobillerdeki katalitik dönüştürücüler, zehirli karbon monoksidi karbon dioksite çevirir. Kapalı bir test düzeneğinde ölçülen mol–zaman grafiği aşağıdadır.</p>
+          <svg viewBox="0 0 120 70" style="display:block;width:86%;margin:1mm auto 1.5mm">
+            <g font-family="Inter" font-size="4.2" fill="#5d6478">
+              <g stroke="#ebe6dc" stroke-width=".3">
+                <line x1="18" y1="10" x2="110" y2="10"/><line x1="18" y1="22.5" x2="110" y2="22.5"/><line x1="18" y1="35" x2="110" y2="35"/><line x1="18" y1="47.5" x2="110" y2="47.5"/>
+              </g>
+              <line x1="18" y1="60" x2="112" y2="60" stroke="#1d2133" stroke-width=".5"/>
+              <line x1="18" y1="60" x2="18" y2="6" stroke="#1d2133" stroke-width=".5"/>
+              <text x="15" y="61.5" text-anchor="end">0</text><text x="15" y="49" text-anchor="end">0,2</text><text x="15" y="36.5" text-anchor="end">0,4</text><text x="15" y="24" text-anchor="end">0,6</text><text x="15" y="11.5" text-anchor="end">0,8</text>
+              <text x="3" y="4.5" fill="#1d2133" font-weight="700">Mol</text>
+              <text x="104" y="66" fill="#1d2133" font-weight="700" text-anchor="middle">Zaman</text>
+              <!-- CO 0,8 -> 0 ; O2 0,6 -> 0,2 ; CO2 0 -> 0,8 -->
+              <path d="M18 10 Q40 44 64 60 H108" fill="none" stroke="#e11d48" stroke-width="1.1"/>
+              <path d="M18 22.5 Q40 40 64 47.5 H108" fill="none" stroke="#c26a06" stroke-width="1.1"/>
+              <path d="M18 60 Q40 26 64 10 H108" fill="none" stroke="#0369a1" stroke-width="1.1"/>
+              <text x="109" y="9" fill="#0369a1" font-weight="800" font-size="4.4" text-anchor="end">CO<tspan font-size="3" dy="1">2</tspan></text>
+              <text x="109" y="46" fill="#c26a06" font-weight="800" font-size="4.4" text-anchor="end">O<tspan font-size="3" dy="1">2</tspan></text>
+              <text x="109" y="58.5" fill="#e11d48" font-weight="800" font-size="4.4" text-anchor="end">CO</text>
+            </g>
+          </svg>
+          <div class="oncul"><div><b>I.</b><span>Tepkimenin denklemi 2<span class="f">CO</span> + <span class="f">O<sub>2</sub></span> → 2<span class="f">CO<sub>2</sub></span>’dir.</span></div><div><b>II.</b><span>Sınırlayıcı bileşen <span class="f">O<sub>2</sub></span>’dir.</span></div><div><b>III.</b><span>Kaptaki toplam gaz molü 1,4’ten 1,0’a düşmüştür.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek" style="grid-template-columns:repeat(3,1fr)"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Tarım ve endüstri</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>Gübre üretiminin temel maddesi amonyak, <span class="f">N<sub>2</sub></span> + 3<span class="f">H<sub>2</sub></span> → 2<span class="f">NH<sub>3</sub></span> tepkimesiyle elde edilir. Bir araştırma laboratuvarında yapılan üç denemenin sonuçları tabloda verilmiştir.</p>
+          <table class="tablo" style="font-size:8.8pt">
+            <tr><th>Deneme</th><th><span class="f">N<sub>2</sub></span> (mol)</th><th><span class="f">H<sub>2</sub></span> (mol)</th><th>Oluşan <span class="f">NH<sub>3</sub></span> (mol)</th></tr>
+            <tr><td>1</td><td>1</td><td>3</td><td>0,6</td></tr>
+            <tr><td>2</td><td>2</td><td>3</td><td>0,8</td></tr>
+            <tr><td>3</td><td>1</td><td>6</td><td>0,5</td></tr>
+          </table>
+          <p>Denemelerin yüzde verimlerinin büyükten küçüğe sıralanışı hangisidir?</p>
+          <div class="secenek"><span><b>A)</b>1 &gt; 2 &gt; 3</span><span><b>B)</b>2 &gt; 1 &gt; 3</span><span><b>C)</b>1 &gt; 3 &gt; 2</span><span><b>D)</b>3 &gt; 1 &gt; 2</span><span><b>E)</b>2 &gt; 3 &gt; 1</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Jeoloji laboratuvarı</div>
+        <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+          <p>Bir öğrenci, kireç taşı içerdiğini düşündüğü 25 g kayaç örneğini yeterli <span class="f">HCl</span> çözeltisine atıyor. Örnekteki safsızlıklar asitle gaz oluşturmuyor ve tepkime sonunda 8,8 g <span class="f">CO<sub>2</sub></span> çıkıyor:</p>
+          <div class="tepkime" style="font-size:10pt"><span class="f">CaCO<sub>3</sub></span>(k) + 2<span class="f">HCl</span>(suda) → <span class="f">CaCl<sub>2</sub></span>(suda) + <span class="f">H<sub>2</sub>O</span>(s) + <span class="f">CO<sub>2</sub></span>(g)</div>
+          <p>Buna göre örneğin kütlece yüzde kaçı <span class="f">CaCO<sub>3</sub></span>’tür? <span class="veri">(C: 12, O: 16, Ca: 40 g/mol)</span></p>
+          <div class="secenek bes"><span><b>A)</b>80</span><span><b>B)</b>64</span><span><b>C)</b>50</span><span><b>D)</b>35,2</span><span><b>E)</b>20</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Stokiyometri</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Tepkimeler</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, sadece o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p>a<span class="f">C<sub>5</sub>H<sub>10</sub></span> + b<span class="f">O<sub>2</sub></span> → c<span class="f">CO<sub>2</sub></span> + d<span class="f">H<sub>2</sub>O</span> denklemi en küçük tam sayılarla denkleştirildiğinde <b>a + b + c + d</b> toplamı kaç olur?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic"><span class="f">C<sub>5</sub>H<sub>10</sub></span>’un katsayısını 1 al. 5 C ve 10 H için <span class="f">CO<sub>2</sub></span> ve <span class="f">H<sub>2</sub>O</span>’nun katsayılarını yaz.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Sağdaki O atomlarını say: 5·2 + 5·1 = 15. Bunun için kaç <span class="f">O<sub>2</sub></span> gerekir? Kesirli çıktı mı?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Kesirden kurtulmak için tüm katsayıları 2 ile çarp, sonra dördünü topla.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p>5,4 g alüminyum ile 28,4 g klor gazı, 2<span class="f">Al</span>(k) + 3<span class="f">Cl<sub>2</sub></span>(g) → 2<span class="f">AlCl<sub>3</sub></span>(k) denklemine göre tam verimle tepkimeye giriyor. Hangi maddeden kaç gram artar ve kaç gram <span class="f">AlCl<sub>3</sub></span> oluşur? <span class="veri">(Al: 27, Cl: 35,5 g/mol)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Mollere çevir: n<sub>Al</sub> = 5,4/27, n<sub>Cl2</sub> = 28,4/71.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Her molü kendi katsayısına böl (Al için 2, <span class="f">Cl<sub>2</sub></span> için 3). Küçük çıkan sınırlayıcıdır.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Başlangıç – Değişim – Sonuç tablosu kur. Sonucu kütle korunumuyla kontrol et: 5,4 + 28,4 = ?</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p>3,2 g metan tamamen yakılıyor: <span class="f">CH<sub>4</sub></span> + 2<span class="f">O<sub>2</sub></span> → <span class="f">CO<sub>2</sub></span> + 2<span class="f">H<sub>2</sub>O</span>. Oluşan <span class="f">CO<sub>2</sub></span>’nin tamamı kireç suyundan geçiriliyor ve <span class="f">CO<sub>2</sub></span> + <span class="f">Ca(OH)<sub>2</sub></span> → <span class="f">CaCO<sub>3</sub></span> + <span class="f">H<sub>2</sub>O</span> tepkimesi <b>%75 verimle</b> gerçekleşiyor. Kaç gram <span class="f">CaCO<sub>3</sub></span> çöker? <span class="veri">(H: 1, C: 12, O: 16, Ca: 40 g/mol)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">İki tepkimeyi bağlayan ortak madde hangisi? Önce metanın molünü bul.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Birinci tepkimede <span class="f">CH<sub>4</sub></span> : <span class="f">CO<sub>2</sub></span> = 1 : 1, ikincide <span class="f">CO<sub>2</sub></span> : <span class="f">CaCO<sub>3</sub></span> = 1 : 1. Teorik <span class="f">CaCO<sub>3</sub></span> kaç mol?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Teorik kütleyi bul ve %75’ini al (verim ürünü azaltır, çarparak bulunur).</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Stokiyometri</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa cift test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Tepkimeler</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 30 dakika. Gerekli mol kütleleri (g/mol): H: 1 · C: 12 · N: 14 · O: 16 · Mg: 24 · S: 32 · Ca: 40 · Fe: 56</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>a<span class="f">Al</span>(k) + b<span class="f">O<sub>2</sub></span>(g) → c<span class="f">Al<sub>2</sub>O<sub>3</sub></span>(k)</p>
+        <p>tepkimesi en küçük tam sayılarla denkleştirildiğinde <b>b</b> kaç olur?</p>
+        <div class="secenek"><span><b>A)</b>1</span><span><b>B)</b>2</span><span><b>C)</b>3</span><span><b>D)</b>4</span><span><b>E)</b>6</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>Kapalı bir kapta gerçekleşen bir kimyasal tepkimede aşağıdakilerden hangisinin <b>değişmesi mümkündür</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Toplam kütle</span><span><b>B)</b>Atom türleri</span><span><b>C)</b>Toplam atom sayısı</span><span><b>D)</b>Toplam molekül sayısı</span><span><b>E)</b>Toplam proton sayısı</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p>2X + 3<span class="f">O<sub>2</sub></span> → 2<span class="f">CO<sub>2</sub></span> + 4<span class="f">H<sub>2</sub>O</span></p>
+        <p>Denkleştirilmiş denklemde X ile gösterilen maddenin formülü hangisidir?</p>
+        <div class="secenek"><span><b>A)</b><span class="f">CH<sub>4</sub></span></span><span><b>B)</b><span class="f">CH<sub>4</sub>O</span></span><span><b>C)</b><span class="f">C<sub>2</sub>H<sub>6</sub>O</span></span><span><b>D)</b><span class="f">CH<sub>2</sub>O</span></span><span><b>E)</b><span class="f">CH<sub>4</sub>O<sub>2</sub></span></span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p>2<span class="f">C<sub>2</sub>H<sub>6</sub></span>(g) + 7<span class="f">O<sub>2</sub></span>(g) → 4<span class="f">CO<sub>2</sub></span>(g) + 6<span class="f">H<sub>2</sub>O</span>(g)</p>
+        <p>0,4 mol etan gazı tamamen yakıldığında kaç mol <span class="f">O<sub>2</sub></span> harcanır?</p>
+        <div class="secenek"><span><b>A)</b>1,4</span><span><b>B)</b>1,6</span><span><b>C)</b>2,0</span><span><b>D)</b>2,8</span><span><b>E)</b>3,5</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p>11,2 g demir tozu yeterli kükürtle <span class="f">Fe</span>(k) + <span class="f">S</span>(k) → <span class="f">FeS</span>(k) denklemine göre tamamen tepkimeye giriyor. Kaç gram <span class="f">FeS</span> oluşur?</p>
+        <div class="secenek"><span><b>A)</b>8,8</span><span><b>B)</b>11,2</span><span><b>C)</b>16,0</span><span><b>D)</b>17,6</span><span><b>E)</b>35,2</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p>Kapalı bir kapta 6,4 g kükürdün tamamı, 2<span class="f">S</span>(k) + 3<span class="f">O<sub>2</sub></span>(g) → 2<span class="f">SO<sub>3</sub></span>(g) denklemine göre tepkimeye girerek 16 g <span class="f">SO<sub>3</sub></span> oluşturuyor. Harcanan <span class="f">O<sub>2</sub></span> kaç gramdır?</p>
+        <div class="secenek"><span><b>A)</b>3,2</span><span><b>B)</b>4,8</span><span><b>C)</b>6,4</span><span><b>D)</b>8,0</span><span><b>E)</b>9,6</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Stokiyometri</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · TEST (7–12)
+     ========================================================= -->
+<section class="sayfa test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Tepkimeler</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>0,5 mol <span class="f">CH<sub>4</sub></span> ile 0,8 mol <span class="f">O<sub>2</sub></span>, <span class="f">CH<sub>4</sub></span> + 2<span class="f">O<sub>2</sub></span> → <span class="f">CO<sub>2</sub></span> + 2<span class="f">H<sub>2</sub>O</span> denklemine göre tam verimle tepkimeye giriyor. Buna göre aşağıdakilerden hangisi doğrudur?</p>
+        <div class="secenek tek"><span><b>A)</b>Sınırlayıcı bileşen <span class="f">CH<sub>4</sub></span>’tür.</span><span><b>B)</b>0,1 mol <span class="f">CH<sub>4</sub></span> artar.</span><span><b>C)</b>0,5 mol <span class="f">CO<sub>2</sub></span> oluşur.</span><span><b>D)</b>0,3 mol <span class="f">O<sub>2</sub></span> artar.</span><span><b>E)</b>1,0 mol <span class="f">H<sub>2</sub>O</span> oluşur.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p>14 g <span class="f">N<sub>2</sub></span> ile 4 g <span class="f">H<sub>2</sub></span>, <span class="f">N<sub>2</sub></span> + 3<span class="f">H<sub>2</sub></span> → 2<span class="f">NH<sub>3</sub></span> denklemine göre tam verimle tepkimeye giriyor. Tepkime sonunda artan madde ve kütlesi hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b><span class="f">H<sub>2</sub></span> – 1 g</span><span><b>B)</b><span class="f">N<sub>2</sub></span> – 1 g</span><span><b>C)</b><span class="f">H<sub>2</sub></span> – 3 g</span><span><b>D)</b><span class="f">N<sub>2</sub></span> – 7 g</span><span><b>E)</b><span class="f">H<sub>2</sub></span> – 2 g</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>Endüstride etanol, etilenin su ile tepkimesinden elde edilebilir: <span class="f">C<sub>2</sub>H<sub>4</sub></span>(g) + <span class="f">H<sub>2</sub>O</span>(g) → <span class="f">C<sub>2</sub>H<sub>5</sub>OH</span>(g). 14 g <span class="f">C<sub>2</sub>H<sub>4</sub></span>’ün yeterli su buharıyla tepkimesinden 18,4 g etanol elde ediliyor. Tepkime yüzde kaç verimlidir?</p>
+        <div class="secenek"><span><b>A)</b>40</span><span><b>B)</b>60</span><span><b>C)</b>75</span><span><b>D)</b>80</span><span><b>E)</b>85</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p><span class="f">Mg</span>(k) + 2<span class="f">HCl</span>(suda) → <span class="f">MgCl<sub>2</sub></span>(suda) + <span class="f">H<sub>2</sub></span>(g)</p>
+        <p>Tepkime %60 verimle gerçekleştiğine göre 0,3 mol <span class="f">H<sub>2</sub></span> elde etmek için kaç gram magnezyum alınmalıdır?</p>
+        <div class="secenek"><span><b>A)</b>4,32</span><span><b>B)</b>7,2</span><span><b>C)</b>12,0</span><span><b>D)</b>14,4</span><span><b>E)</b>18,0</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <p>Kütlece %80 saflıktaki 50 g kireç taşı örneği ısıtılıyor. Safsızlıklar ayrışmıyor ve <span class="f">CaCO<sub>3</sub></span>(k) → <span class="f">CaO</span>(k) + <span class="f">CO<sub>2</sub></span>(g) tepkimesi tam verimle gerçekleşiyor. Kaç gram <span class="f">CO<sub>2</sub></span> oluşur?</p>
+        <div class="secenek"><span><b>A)</b>8,8</span><span><b>B)</b>14,1</span><span><b>C)</b>17,6</span><span><b>D)</b>22,0</span><span><b>E)</b>35,2</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p><span class="f">CH<sub>4</sub></span> ve <span class="f">CO</span> gazlarından oluşan 0,5 mollük karışımı tamamen yakmak için 0,7 mol <span class="f">O<sub>2</sub></span> harcanıyor.</p>
+        <p class="tepkime" style="font-size:9.6pt;padding:.4mm 0"><span class="f">CH<sub>4</sub></span> + 2<span class="f">O<sub>2</sub></span> → <span class="f">CO<sub>2</sub></span> + 2<span class="f">H<sub>2</sub>O</span><br>2<span class="f">CO</span> + <span class="f">O<sub>2</sub></span> → 2<span class="f">CO<sub>2</sub></span></p>
+        <p>Buna göre karışımın molce yüzde kaçı <span class="f">CH<sub>4</sub></span>’tür?</p>
+        <div class="secenek"><span><b>A)</b>20</span><span><b>B)</b>30</span><span><b>C)</b>40</span><span><b>D)</b>50</span><span><b>E)</b>60</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fafcff;margin-top:2mm">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 3. ve 4. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Stokiyometri</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Tepkimeler</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>C</span></div><div><b>2</b><span>D</span></div><div><b>3</b><span>B</span></div><div><b>4</b><span>A</span></div>
+    <div><b>5</b><span>D</span></div><div><b>6</b><span>E</span></div><div><b>7</b><span>B</span></div><div><b>8</b><span>A</span></div>
+    <div><b>9</b><span>D</span></div><div><b>10</b><span>C</span></div><div><b>11</b><span>C</span></div><div><b>12</b><span>E</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · C</b> 4<span class="f">Al</span> + 3<span class="f">O<sub>2</sub></span> → 2<span class="f">Al<sub>2</sub>O<sub>3</sub></span>. Al: 4 = 4, O: 6 = 6 → b = 3.</div>
+    <div class="c"><b>2 · D</b> Kütle, atom türü, atom sayısı ve proton sayısı korunur. Molekül sayısı değişebilir (2<span class="f">H<sub>2</sub></span> + <span class="f">O<sub>2</sub></span> → 2<span class="f">H<sub>2</sub>O</span>: 3 → 2).</div>
+    <div class="c"><b>3 · B</b> Ürünler: 2 C, 8 H, 4 + 4 = 8 O. <span class="f">O<sub>2</sub></span>’den 6 O → 2X’te 2 C, 8 H, 2 O → X = <span class="f">CH<sub>4</sub>O</span>.</div>
+    <div class="c"><b>4 · A</b> 0,4·(7/2) = 1,4 mol <span class="f">O<sub>2</sub></span>. (2,8: katsayı 7 doğrudan çarpılmış.)</div>
+    <div class="c"><b>5 · D</b> n<sub>Fe</sub> = 11,2/56 = 0,2 mol → 0,2 mol <span class="f">FeS</span>; M<sub>A</sub> = 88 → 17,6 g.</div>
+    <div class="c"><b>6 · E</b> Kütlenin korunumu: 16 − 6,4 = 9,6 g. (Kontrol: 0,2 mol S için 0,3 mol <span class="f">O<sub>2</sub></span> = 9,6 g.)</div>
+    <div class="c"><b>7 · B</b> <span class="f">CH<sub>4</sub></span>: 0,5/1 = 0,5; <span class="f">O<sub>2</sub></span>: 0,8/2 = 0,4 → <span class="f">O<sub>2</sub></span> sınırlayıcı. 0,4 mol <span class="f">CH<sub>4</sub></span> harcanır, 0,1 mol artar; 0,4 mol <span class="f">CO<sub>2</sub></span>, 0,8 mol <span class="f">H<sub>2</sub>O</span> oluşur.</div>
+    <div class="c"><b>8 · A</b> <span class="f">N<sub>2</sub></span>: 0,5 mol; <span class="f">H<sub>2</sub></span>: 2 mol (2/3 ≈ 0,67 &gt; 0,5) → <span class="f">N<sub>2</sub></span> biter. Harcanan <span class="f">H<sub>2</sub></span> 1,5 mol; artan 0,5 mol = 1 g.</div>
+    <div class="c"><b>9 · D</b> 14/28 = 0,5 mol <span class="f">C<sub>2</sub>H<sub>4</sub></span> → teorik 0,5 mol etanol = 23 g. 18,4/23·100 = %80.</div>
+    <div class="c"><b>10 · C</b> Teorik <span class="f">H<sub>2</sub></span>: 0,3/0,60 = 0,5 mol → 0,5 mol Mg = 12 g. (4,32: verimle çarpılmış.)</div>
+    <div class="c"><b>11 · C</b> Saf <span class="f">CaCO<sub>3</sub></span>: 50·0,80 = 40 g = 0,4 mol → 0,4 mol <span class="f">CO<sub>2</sub></span> = 17,6 g. (22,0: saflık unutulmuş.)</div>
+    <div class="c"><b>12 · E</b> x mol <span class="f">CH<sub>4</sub></span>: 2x + (0,5 − x)/2 = 0,7 → 1,5x = 0,45 → x = 0,3. 0,3/0,5 = %60.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> 0,58/58 = 0,01 mol (I ✓). <span class="f">HCl</span>: 0,02 mol·36,5 = 0,73 g (II ✓). Su: 0,02 mol = 0,36 g (III ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · D</b> Değişimler <span class="f">CO</span> −0,8, <span class="f">O<sub>2</sub></span> −0,4, <span class="f">CO<sub>2</sub></span> +0,8 → 2 : 1 : 2 (I ✓). <span class="f">CO</span> tükenmiştir; sınırlayıcı <span class="f">CO</span> (II ✗). Toplam: 0,8 + 0,6 = 1,4 → 0,2 + 0,8 = 1,0 (III ✓).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · B</b> Teorik <span class="f">NH<sub>3</sub></span>: 1. deneme 2 mol → %30; 2. denemede <span class="f">H<sub>2</sub></span> sınırlayıcı (3/3 = 1) → 2 mol → %40; 3. denemede <span class="f">N<sub>2</sub></span> sınırlayıcı → 2 mol → %25. Sıra 2 &gt; 1 &gt; 3. (C şıkkı: 2. denemede <span class="f">N<sub>2</sub></span> sınırlayıcı sanılmış.)</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · A</b> 8,8/44 = 0,2 mol <span class="f">CO<sub>2</sub></span> → 0,2 mol <span class="f">CaCO<sub>3</sub></span> = 20 g. 20/25·100 = %80. (D: <span class="f">CO<sub>2</sub></span> kütlesi örneğe bölünmüş.)</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1 · 37</b> <span class="f">C<sub>5</sub>H<sub>10</sub></span> + 15/2 <span class="f">O<sub>2</sub></span> → 5<span class="f">CO<sub>2</sub></span> + 5<span class="f">H<sub>2</sub>O</span>; ×2 → 2 + 15 + 10 + 10 = 37.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2 · 7,1 g Cl<sub>2</sub> artar; 26,7 g AlCl<sub>3</sub></b> Al 0,2 mol (0,2/2 = 0,1), <span class="f">Cl<sub>2</sub></span> 0,4 mol (0,4/3 ≈ 0,13) → Al sınırlayıcı. <span class="f">Cl<sub>2</sub></span> 0,3 mol harcanır, 0,1 mol = 7,1 g artar. <span class="f">AlCl<sub>3</sub></span>: 0,2·133,5 = 26,7 g. Kontrol: 33,8 = 26,7 + 7,1 ✓</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3 · 15 g</b> 3,2/16 = 0,2 mol <span class="f">CH<sub>4</sub></span> → 0,2 mol <span class="f">CO<sub>2</sub></span> → teorik 0,2 mol <span class="f">CaCO<sub>3</sub></span> = 20 g; %75’i 15 g.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 2</b> Alt simge değiştirilmiş; <span class="f">H<sub>2</sub>O<sub>2</sub></span> başka bir maddedir. Doğrusu: 2<span class="f">H<sub>2</sub></span> + <span class="f">O<sub>2</sub></span> → 2<span class="f">H<sub>2</sub>O</span>.</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 1</b> Katsayılar kütle değil mol oranıdır. 4 g <span class="f">H<sub>2</sub></span> = 2 mol → 1 mol <span class="f">O<sub>2</sub></span> = 32 g.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 2</b> Mol ÷ katsayı karşılaştırılmalı: <span class="f">N<sub>2</sub></span> 2/1 = 2, <span class="f">H<sub>2</sub></span> 4,5/3 = 1,5 → <span class="f">H<sub>2</sub></span> sınırlayıcı. <span class="f">NH<sub>3</sub></span> = 4,5·(2/3) = 3 mol; 0,5 mol <span class="f">N<sub>2</sub></span> artar.</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 3</b> Gerçek verim teorikten küçük olmalı; çarpılmalıydı: 8,8·0,75 = 6,6 g <span class="f">CO<sub>2</sub></span>.</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Stokiyometri</span><span class="no">14</span></div>
+</section>
+
+</body>
+</html>
