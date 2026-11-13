@@ -1,0 +1,15 @@
+# Önsöz
+
+Bir insanın hayatını okumak, çoğu zaman bir dönemi tanımak demektir. Fakat Rasûlullah'ın (s.a.v.) hayatını okumak bundan fazlasıdır: Bu hayat, Kur'ân'ın yeryüzünde yaşanmış tefsiri, ümmetin her çağda dönüp baktığı bir ölçü ve kalbin yeniden ayarlandığı bir aynadır. Elinizdeki kitap, bu hayatın en kurucu dönemini, Cahiliye karanlığından Uhud'un sınavına uzanan yılları bir bütün hâlinde anlatmak için kaleme alındı.
+
+Kitabın iki ana kaynağı vardır. Birincisi, çağdaş siyer çalışmalarının en kapsamlılarından biri olan Ali Muhammed Sallâbî'nin *Siyer-i Nebî* adlı eserinin birinci cildidir. Sallâbî, olayları anlatmakla yetinmez; her hâdisenin ardından "dersler, ibretler ve faydalar" başlığı altında, siyerin bugünkü davetçiye, eğitimciye ve devlet adamına ne söylediğini sorar. Sünnetullah, imtihan kanunu, tedâfü kanunu ve sebeplere sarılma gibi kavramlar, onun siyer okumasının omurgasını oluşturur.
+
+İkinci kaynak, Enver el-Evlakî'nin *Rasulullah'ın Hayatı* başlıklı serisidir. Ana kaynak olarak İbn Kesîr'in *el-Bidâye ve'n-Nihâye*'sini esas alan bu çalışma, siyeri sahneler hâlinde, canlı bir anlatımla sunar; olayların insanî yönüne, sahâbîlerin kişiliklerine ve kıssaların günümüze yansımalarına dikkat çeker. Evlakî'nin önceki kitaplardaki müjdeler, hakikat arayıcıları ve Uhud şehidleri üzerine ayrıntılı anlatımları, bu kitabın da en dokunaklı sayfalarına kaynaklık etmiştir.
+
+İki eser, aynı hayatı farklı pencerelerden seyreder. Biri daha çok "neden" ve "nasıl" sorularıyla ilgilenir, öbürü "ne oldu" ve "nasıl yaşandı" sorularıyla. Bu kitapta ikisini bir araya getirirken bir yöntem gözettik: Olaylar tek bir kronolojik çizgide anlatıldı; iki kaynağın birbirini tamamlayan ayrıntıları tek bir anlatıda birleştirildi; aralarında rivayet ya da yorum farkı bulunan yerlerde her iki görüş de sahibinin adıyla aktarıldı. Kaynaklarda bulunmayan bilgi eklenmedi; âyet ve hadis mealleri ile rivayet kaynakları, esas alınan eserlerde yer aldığı şekliyle verildi.
+
+Kitap dört kısımdan oluşur. *Nübüvvetin Arifesinde* başlıklı birinci kısım, bi'setten önceki dünyayı, Arap yarımadasını, Fil Yılı'nı ve Peygamber Efendimiz'in doğumundan Hira'ya uzanan kırk yılını anlatır. *Mekke'de Davet* başlıklı ikinci kısım, ilk vahiyden Tâif dönüşüne kadar geçen on üç yıllık mücadeleyi; *Hicret* başlıklı üçüncü kısım, kabilelere arzdan Kuba'ya varışa kadar uzanan büyük göçü konu edinir. *Medine'de Devlet* başlıklı dördüncü kısım ise Mescid-i Nebevî'nin inşasından Uhud'a kadar, yeni bir toplumun ve devletin kuruluşunu takip eder.
+
+Her bölümün sonunda yer alan "Bu Bölümün İbretleri" başlıklı kısımlar, anlatılan olayların bugüne bakan yüzünü göstermeyi amaçlar. Siyer, sadece geçmişte kalmış bir hikâye değildir; Sallâbî'nin ısrarla hatırlattığı gibi, onda değişmeyen ilâhî kanunların işleyişini görürüz. Bu kanunları tanıyan, kendi hayatını ve toplumunu da daha doğru okur.
+
+Rabbimizden, bu satırları okuyanların kalplerinde Rasûlullah'a (s.a.v.) duyulan sevgiyi artırmasını, bu sevgiyi de ona uymanın vesilesi kılmasını niyaz ederiz. Kitapta bulunan her doğru Allah'tandır; hata ve eksikler ise bizim acizliğimizdendir.
