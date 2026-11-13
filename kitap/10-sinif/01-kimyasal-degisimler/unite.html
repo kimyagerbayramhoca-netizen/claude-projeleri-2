@@ -1,0 +1,1400 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Kimyasal Değişimler ve Tepkime Türleri · Kimya Rotası 10</title>
+<style>
+/* ==========================================================
+   KİMYA ROTASI — ortak sayfa ve kutu tasarımı (A4, baskı)
+   Her ünite kendi --unite rengini <body style> ile verir.
+   ========================================================== */
+
+@page { size: A4; margin: 0; }
+
+:root {
+  --unite: #4338ca;          /* ünite kimlik rengi (mol: indigo) */
+  --unite-acik: #eef0ff;
+  --unite-koyu: #2a2380;
+  --vurgu: #f59e0b;          /* ikincil vurgu (amber) */
+
+  --kavram: #4f46e5;   --kavram-bg: #eef2ff;
+  --hayat: #c26a06;    --hayat-bg: #fff6e5;
+  --dikkat: #e11d48;   --dikkat-bg: #fff1f3;
+  --ornek: #0f8f84;    --ornek-bg: #eafaf7;
+  --ipucu: #7c3aed;    --ipucu-bg: #f4f0ff;
+  --hata: #ea580c;     --hata-bg: #fff4ec;
+
+  --metin: #1d2133;
+  --soluk: #5d6478;
+  --cizgi: #dfe3ee;
+  --kagit: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Inter", "DejaVu Sans", sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.5;
+  color: var(--metin);
+  background: #8a8fa3;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* ---------- Sayfa ---------- */
+.sayfa {
+  width: 210mm; height: 297mm;
+  position: relative; overflow: hidden;
+  background: var(--kagit);
+  padding: 22mm 16mm 18mm 16mm;
+  page-break-after: always; break-after: page;
+  margin: 0 auto;
+}
+@media screen { .sayfa { margin: 8mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.25); } }
+
+.ust-serit {
+  position: absolute; top: 0; left: 0; right: 0; height: 13mm;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16mm; font-size: 8pt; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--unite-koyu); font-weight: 600;
+  border-bottom: 1.2mm solid var(--unite);
+  background: linear-gradient(90deg, var(--unite-acik), #fff 70%);
+}
+.ust-serit .baslik-k { display: flex; gap: 3mm; align-items: center; }
+.ust-serit .nokta { width: 2.4mm; height: 2.4mm; border-radius: 50%; background: var(--vurgu); }
+
+.alt-bilgi {
+  position: absolute; bottom: 7mm; left: 16mm; right: 16mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 7.5pt; color: var(--soluk);
+}
+.alt-bilgi .no {
+  min-width: 9mm; height: 9mm; border-radius: 50%;
+  background: var(--unite); color: #fff; font-weight: 700; font-size: 9pt;
+  display: grid; place-items: center;
+}
+.sayfa.cift .alt-bilgi { flex-direction: row-reverse; }
+
+/* ---------- Başlıklar ---------- */
+h1, h2, h3, h4 { font-family: "Inter Display", "Inter", sans-serif; margin: 0; line-height: 1.15; }
+h2.konu {
+  font-size: 21pt; font-weight: 800; color: var(--unite-koyu);
+  display: flex; align-items: baseline; gap: 3.5mm; margin-bottom: 1.5mm;
+}
+h2.konu .num {
+  font-size: 11pt; font-weight: 700; color: #fff; background: var(--unite);
+  padding: .6mm 2.6mm; border-radius: 2mm; transform: translateY(-1mm);
+}
+.alt-baslik { color: var(--soluk); font-size: 10pt; margin-bottom: 5mm; }
+h3 {
+  font-size: 13pt; font-weight: 750; color: var(--unite-koyu);
+  margin: 4.5mm 0 2mm; display: flex; align-items: center; gap: 2.2mm;
+}
+h3::before { content: ""; width: 1.4mm; height: 5mm; background: var(--vurgu); border-radius: 1mm; }
+p { margin: 0 0 2.4mm; }
+ul { margin: 0 0 2.4mm; padding-left: 5mm; }
+li { margin-bottom: 1mm; }
+b, strong { font-weight: 700; }
+.vurgu { background: linear-gradient(transparent 58%, #fde68a 58%); padding: 0 .5mm; }
+.k { color: var(--unite); font-weight: 700; }
+.kucuk { font-size: 8.6pt; color: var(--soluk); }
+.ortala { text-align: center; }
+
+/* Kimyasal formül ve üs */
+.f { white-space: nowrap; font-weight: 600; }
+sub, sup { font-size: 68%; line-height: 0; }
+.izotop { display: inline-flex; align-items: center; white-space: nowrap; font-weight: 600; }
+.izotop .yz { display: inline-flex; flex-direction: column; font-size: 62%; line-height: 1.05; text-align: right; margin-right: .3mm; font-weight: 600; }
+
+/* ---------- Izgara ---------- */
+.iki { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.iki-genis { display: grid; grid-template-columns: 1.25fr 1fr; gap: 5mm; }
+.uc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.dort { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+
+/* ---------- Kutular ---------- */
+.kutu {
+  border-radius: 3mm; padding: 3.2mm 4mm 3mm; margin: 0 0 3.5mm;
+  position: relative; break-inside: avoid;
+  background: var(--bg); border: .35mm solid color-mix(in srgb, var(--renk) 30%, #fff);
+}
+.kutu > .etiket {
+  display: inline-flex; align-items: center; gap: 1.6mm;
+  font-family: "Inter Display", sans-serif;
+  font-size: 7.6pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--renk);
+  padding: .7mm 2.4mm .7mm 1.6mm; border-radius: 1.4mm; margin-bottom: 2mm;
+}
+.kutu > .etiket svg { width: 3.4mm; height: 3.4mm; }
+.kutu p:last-child, .kutu ul:last-child { margin-bottom: 0; }
+.kavram { --renk: var(--kavram); --bg: var(--kavram-bg); }
+.hayat  { --renk: var(--hayat);  --bg: var(--hayat-bg); }
+.dikkat { --renk: var(--dikkat); --bg: var(--dikkat-bg); }
+.ornek  { --renk: var(--ornek);  --bg: var(--ornek-bg); }
+.ipucu  { --renk: var(--ipucu);  --bg: var(--ipucu-bg); }
+.hata   { --renk: var(--hata);   --bg: var(--hata-bg); }
+.duz    { --renk: var(--unite);  --bg: #fff; }
+
+.kutu.serit { border: none; border-left: 1.4mm solid var(--renk); border-radius: 0 3mm 3mm 0; }
+
+/* Yanılgı kartı: yanlış / doğru */
+.yanilgi { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-top: 1mm; }
+.yanilgi > div { border-radius: 2mm; padding: 2mm 2.6mm; font-size: 9.2pt; line-height: 1.4; }
+.yanilgi .yanlis { background: #fff; border: .3mm dashed var(--dikkat); }
+.yanilgi .dogru { background: #fff; border: .3mm solid var(--ornek); }
+.yanilgi b.y { color: var(--dikkat); }
+.yanilgi b.d { color: var(--ornek); }
+
+/* Çözümlü örnek */
+.ornek .soru { font-weight: 600; margin-bottom: 2mm; }
+.cozum { background: #fff; border-radius: 2mm; padding: 2.2mm 3mm; font-size: 9.4pt; }
+.cozum .adim { display: grid; grid-template-columns: 5mm 1fr; gap: 1.6mm; margin-bottom: 1.1mm; align-items: start; }
+.cozum .adim .n {
+  width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--ornek); color: #fff;
+  font-size: 7pt; font-weight: 700; display: grid; place-items: center; margin-top: .4mm;
+}
+.sonuc {
+  display: inline-block; margin-top: .8mm; font-weight: 700; color: var(--ornek);
+  border: .35mm solid var(--ornek); border-radius: 1.5mm; padding: .2mm 2mm;
+}
+.denklem {
+  font-family: "Inter", sans-serif; font-weight: 600; text-align: center;
+  font-size: 11pt; padding: 1.5mm 0; color: var(--unite-koyu);
+}
+.kesir { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 1mm; line-height: 1.2; }
+.kesir > span:first-child { border-bottom: .3mm solid currentColor; padding: 0 1mm; }
+.kesir > span:last-child { padding: 0 1mm; }
+
+/* Tablo */
+table.tablo { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9.2pt; margin: 1mm 0 3mm; }
+table.tablo th { background: var(--unite); color: #fff; font-weight: 700; padding: 1.6mm 2mm; text-align: left; }
+table.tablo th:first-child { border-top-left-radius: 2mm; }
+table.tablo th:last-child { border-top-right-radius: 2mm; }
+table.tablo td { padding: 1.6mm 2mm; border-bottom: .3mm solid var(--cizgi); }
+table.tablo tr:nth-child(even) td { background: #f7f8fc; }
+
+/* ---------- Soru düzeni ---------- */
+.soru-blok { break-inside: avoid; margin-bottom: 4.5mm; }
+.soru-ust { display: flex; gap: 2.4mm; align-items: flex-start; }
+.soru-no {
+  flex: none; width: 7.5mm; height: 7.5mm; border-radius: 2mm;
+  background: var(--unite); color: #fff; font-weight: 800; font-size: 10pt;
+  display: grid; place-items: center; font-family: "Inter Display", sans-serif;
+}
+.soru-metin { flex: 1; }
+.secenek { display: grid; grid-template-columns: 1fr 1fr; gap: .8mm 4mm; margin-top: 1.6mm; font-size: 9.6pt; }
+.secenek.tek { grid-template-columns: 1fr; }
+.secenek.bes { grid-template-columns: repeat(5, 1fr); }
+.secenek span b { color: var(--unite); margin-right: 1mm; }
+.oncul { margin: 1mm 0 1mm 1mm; }
+.oncul div { display: grid; grid-template-columns: 7mm 1fr; }
+.oncul div > b:first-child { color: var(--unite); }
+.veri { font-size: 8.4pt; color: var(--soluk); font-style: italic; }
+
+.etiket-soru svg { width: 3mm; height: 3mm; }
+.etiket-soru {
+  display: inline-flex; gap: 1.4mm; align-items: center;
+  font-size: 7pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  padding: .5mm 2mm; border-radius: 10mm; margin-bottom: 1.2mm;
+  color: var(--renk); background: var(--bg); border: .3mm solid var(--renk);
+}
+.zorluk { display: inline-flex; gap: .7mm; margin-left: 1.2mm; vertical-align: middle; }
+.zorluk i { width: 1.9mm; height: 1.9mm; border-radius: 50%; background: #d8dbe6; display: inline-block; }
+.zorluk i.d { background: var(--vurgu); }
+
+/* Bölüm kapağı tipi sayfa başı bandı */
+.bant {
+  margin: 0 -16mm 5mm; padding: 5mm 16mm 4mm; color: #fff;
+  background: linear-gradient(110deg, var(--renk, var(--unite)) 0%, color-mix(in srgb, var(--renk, var(--unite)) 70%, #000) 100%);
+  position: relative; overflow: hidden;
+}
+.bant h2 { font-size: 22pt; font-weight: 850; color: #fff; }
+.bant p { margin: 1mm 0 0; opacity: .92; font-size: 9.6pt; max-width: 135mm; }
+.bant .ikon-buyuk { position: absolute; right: 14mm; top: 50%; transform: translateY(-50%); opacity: .95; }
+
+/* Hata avcısı defter kartı */
+.defter {
+  background:
+    repeating-linear-gradient(transparent 0 6.1mm, #c9d6ee 6.1mm 6.4mm),
+    #fffef8;
+  border-radius: 2mm; padding: 1.2mm 4mm 1.6mm 14mm; position: relative;
+  font-family: "Caladea", "Bitstream Charter", serif; font-style: italic; font-size: 11pt;
+  line-height: 6.4mm; color: #24356b; border: .3mm solid #e6e1cc;
+}
+.defter::before { content: ""; position: absolute; left: 10mm; top: 0; bottom: 0; width: .35mm; background: #f2a7a7; }
+.defter .satir { position: relative; }
+.defter .satir .sn { position: absolute; left: -9.5mm; font-family: "Inter", sans-serif; font-style: normal; font-size: 7pt; color: #9aa3b8; font-weight: 700; }
+.defter .ogrenci { font-family: "Inter", sans-serif; font-style: normal; font-size: 7.2pt; color: var(--soluk); letter-spacing: .05em; text-transform: uppercase; }
+.duzelt {
+  border: .35mm dashed var(--hata); border-radius: 2mm; min-height: 26mm; margin-top: 2mm;
+  padding: 1.6mm 3mm; font-size: 8.4pt; color: var(--hata); font-weight: 600; background: #fff;
+}
+.sorgu { display: flex; gap: 2mm; flex-wrap: wrap; margin-top: 1.6mm; }
+.sorgu span { font-size: 8.2pt; background: #fff; border: .3mm solid var(--hata); color: var(--hata); border-radius: 10mm; padding: .2mm 2.2mm; font-weight: 600; }
+
+/* İpucu merdiveni */
+.merdiven { display: grid; gap: 1.8mm; margin-top: 2mm; }
+.basamak {
+  display: grid; grid-template-columns: 17mm 1fr; align-items: stretch;
+  border-radius: 2mm; overflow: hidden; background: #fff; border: .3mm solid #ddd3fb;
+}
+.basamak .bas {
+  background: var(--ipucu); color: #fff; font-size: 7pt; font-weight: 800; letter-spacing: .06em;
+  display: grid; place-items: center; text-align: center; line-height: 1.15; padding: 1mm;
+}
+.basamak:nth-child(2) .bas { background: #9061f0; }
+.basamak:nth-child(3) .bas { background: #a985f5; }
+.basamak .ic { padding: 1.6mm 3mm; font-size: 9.2pt; }
+.basamak:nth-child(2) { margin-left: 6mm; }
+.basamak:nth-child(3) { margin-left: 12mm; }
+.cevap-alani { border: .3mm dashed #b9a6f3; border-radius: 2mm; height: 24mm; margin-top: 2mm; background: #fff;
+  font-size: 7.6pt; color: #8b74d6; padding: 1mm 2.6mm; font-weight: 700; letter-spacing: .06em; }
+
+/* Öz değerlendirme */
+.kontrol { list-style: none; padding: 0; }
+.kontrol li { display: grid; grid-template-columns: 6mm 1fr auto; gap: 2mm; align-items: center; padding: 1.3mm 0; border-bottom: .3mm dotted var(--cizgi); font-size: 9.3pt; }
+.kontrol .kare { width: 4mm; height: 4mm; border: .4mm solid var(--unite); border-radius: 1mm; }
+.kontrol .yuz { display: flex; gap: 1.4mm; font-size: 7.4pt; color: var(--soluk); }
+.kontrol .yuz span { border: .3mm solid var(--cizgi); border-radius: 1mm; padding: 0 1.4mm; }
+
+/* Cevap anahtarı */
+.anahtar { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.4mm; margin-bottom: 4mm; }
+.anahtar div { border: .35mm solid var(--unite); border-radius: 1.6mm; text-align: center; overflow: hidden; font-size: 9pt; }
+.anahtar div b { display: block; background: var(--unite); color: #fff; font-size: 7.6pt; }
+.anahtar div span { display: block; font-weight: 800; color: var(--unite-koyu); padding: .6mm 0; }
+.coz-liste { columns: 2; column-gap: 6mm; font-size: 8.5pt; line-height: 1.42; }
+.coz-liste .c { break-inside: avoid; margin-bottom: 2.4mm; padding-left: 2.4mm; border-left: .6mm solid var(--renk, var(--unite)); }
+.coz-liste .c b:first-child { color: var(--renk, var(--unite)); }
+.coz-baslik { font-size: 9pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--renk, var(--unite)); margin: 2mm 0 1.4mm; column-span: all; }
+
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite: #9d174d; --unite-acik: #fdf0f6; --unite-koyu: #6b0f34; }
+sub.h { font-size: 62%; font-weight: 500; color: #5d6478; margin-left: .2mm; }
+.kapak { padding: 0; background: #3b0a1f; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 30mm; font-size: 11pt; font-weight: 700; color: #fbbf24; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 50pt; font-weight: 900; letter-spacing: -.02em; line-height: .98; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 9mm; display: inline-flex; align-items: center; gap: 4mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 22pt; font-weight: 800; color: #fbbf24; white-space: nowrap; }
+.kapak .avo span { font-size: 9pt; opacity: .88; max-width: 70mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.2pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #e3cdd8; padding: .8mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.denk { font-weight: 600; text-align: center; font-size: 10.6pt; padding: 1.6mm 2mm; color: var(--unite-koyu); background: var(--unite-acik); border-radius: 2mm; margin: 1mm 0 3mm; }
+.denk.sol { text-align: left; }
+.ciz-tablo td, .ciz-tablo th { font-size: 9pt; }
+.mini { font-size: 9pt; }
+.etiketler { display: flex; flex-wrap: wrap; gap: 1.6mm; margin: 1mm 0 3mm; }
+.etiketler span { border: .3mm solid var(--unite); color: var(--unite-koyu); background: #fff; border-radius: 10mm; padding: .2mm 2.4mm; font-size: 8.6pt; font-weight: 600; }
+.etiketler.k span { border-color: var(--ornek); color: #0b6b62; }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; }
+.test.devam .iki { min-height: 222mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 40mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="80%" cy="20%" r="75%"><stop offset="0" stop-color="#c2185b"/><stop offset=".55" stop-color="#6b0f34"/><stop offset="1" stop-color="#3b0a1f"/></radialGradient>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+    <!-- Beher ve yükselen kabarcıklar -->
+    <g fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width=".5">
+      <path d="M140 22 V36 L124 96 Q122 104 130 104 H190 Q198 104 196 96 L180 36 V22"/>
+      <path d="M136 22 H184"/>
+      <path d="M131 76 H189" stroke-dasharray="2 2"/>
+    </g>
+    <path d="M131 76 H189 L196 96 Q198 104 190 104 H130 Q122 104 124 96 Z" fill="#ffffff" fill-opacity=".07"/>
+    <g fill="#fbbf24"><rect x="138" y="97" width="44" height="5" rx="2" fill-opacity=".9"/></g>
+    <g fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width=".5">
+      <circle cx="150" cy="66" r="2"/><circle cx="162" cy="58" r="1.4"/><circle cx="170" cy="70" r="2.4"/>
+      <circle cx="158" cy="44" r="1.6"/><circle cx="168" cy="30" r="1.1"/><circle cx="150" cy="22" r="1.4"/>
+    </g>
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="14">
+      <text x="-6" y="168">A + B → C + D   A + B → C + D</text>
+      <text x="-30" y="186">e⁻   H⁺ + OH⁻   e⁻   H⁺ + OH⁻   e⁻</text>
+      <text x="-12" y="204">AB + CD → AD + CB   AB + CD</text>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 10. Sınıf</span><span>Tema 1 · Bölüm 1</span></div>
+    <div class="bolum">Bölüm 1</div>
+    <h1>Kimyasal<br>Değişimler ve<br>Tepkime Türleri</h1>
+    <div class="slogan">Maddeler değişir, atomlar yerinde kalır</div>
+    <div class="avo"><b>↓ · e<sup>−</sup> · H<sup>+</sup></b><span>Üç tepkime türü, üç imza: dibe çöken katı, el değiştiren elektron, suyu oluşturan H<sup>+</sup> ve OH<sup>−</sup> iyonları.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Fiziksel mi, kimyasal mı?</span><span>2</span></li>
+          <li><span>2 · Tepkime denklemi ve modelleme</span><span>3</span></li>
+          <li><span>3 · Çökelme tepkimeleri</span><span>4</span></li>
+          <li><span>4 · İndirgenme-yükseltgenme (redoks)</span><span>5</span></li>
+          <li><span>5 · Yanma, sentez ve analiz</span><span>6</span></li>
+          <li><span>6 · Asit-baz tepkimeleri</span><span>7</span></li>
+          <li><span>Tek sayfada tepkimeler (özet)</span><span>8</span></li>
+          <li><span>Hata Avcısı</span><span>9</span></li>
+          <li><span>Bağlam temelli sorular</span><span>10</span></li>
+          <li><span>İpucu Merdiveni</span><span>11</span></li>
+          <li><span>Bölüm testi</span><span>12</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>14</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg></i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg></i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M8 8l5 5M13 8l-5 5"/></svg></i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v18M17 3v18M7 8h10M7 13h10M7 18h10"/></svg></i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Bir olayın kimyasal değişim olup olmadığını göstergelerle tartışacaksın.</li>
+          <li>Tepkimeleri denklem ve tanecik modelleriyle gösterip okuyacaksın.</li>
+          <li>Çökelme, redoks ve asit-baz tepkimelerini ayırt edip örneklendireceksin.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · FİZİKSEL Mİ, KİMYASAL MI?
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Değişimler</span><span>Fiziksel mi, kimyasal mı?</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Fiziksel mi, kimyasal mı?</h2>
+  <div class="alt-baslik">Asıl soru şu: Olaydan sonra elimizde <b>yeni bir madde</b> var mı?</div>
+
+  <p>Bir kâğıdı makasla kestiğinde parçalar küçülür ama hâlâ kâğıttır. Aynı kâğıdı yaktığında ise geriye kül, gaz ve su buharı kalır; kâğıt artık yoktur. İlk olayda yalnızca maddenin görünüşü değişmiştir, ikincisinde ise <b>tanecikler arasındaki bağlar kopmuş, atomlar yeniden düzenlenmiş</b> ve yeni maddeler oluşmuştur.</p>
+
+  <div class="iki">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Fiziksel değişim</div>
+      <p class="mini">Maddenin <b>kimlik (iç yapı)</b> değişmez; biçim, boyut ya da hâl değişir. Örnek: buzun erimesi, şekerin suda çözünmesi, camın kırılması, yağmur damlasında gökkuşağı oluşması.</p>
+    </div>
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kimyasal değişim</div>
+      <p class="mini">Bağlar kopar, yeni bağlar oluşur, <b>yeni madde</b> ortaya çıkar. Hem kimyasal hem de fiziksel özellikler değişir. Örnek: yanma, paslanma, sütün yoğurda dönüşmesi, sindirim, fotosentez.</p>
+    </div>
+  </div>
+
+  <h3>Kimyasal değişimin göstergeleri</h3>
+  <p style="margin-bottom:1.5mm">Tanecikleri göremeyiz ama bir tepkimenin “izlerini” gözlemleyebilir ya da ölçebiliriz:</p>
+  <svg viewBox="0 0 178 34" style="width:100%;height:auto;margin-bottom:2.5mm">
+    <g font-family="Inter" font-size="3.4" text-anchor="middle" fill="#1d2133" font-weight="600">
+      <g fill="#fdf0f6" stroke="#e7b6cb" stroke-width=".35">
+        <rect x="1" y="1" width="20.5" height="32" rx="2.5"/><rect x="23.2" y="1" width="20.5" height="32" rx="2.5"/>
+        <rect x="45.4" y="1" width="20.5" height="32" rx="2.5"/><rect x="67.6" y="1" width="20.5" height="32" rx="2.5"/>
+        <rect x="89.8" y="1" width="20.5" height="32" rx="2.5"/><rect x="112" y="1" width="20.5" height="32" rx="2.5"/>
+        <rect x="134.2" y="1" width="20.5" height="32" rx="2.5"/><rect x="156.4" y="1" width="20.5" height="32" rx="2.5"/>
+      </g>
+      <!-- ışık -->
+      <circle cx="11.25" cy="13" r="3.4" fill="#fbbf24"/>
+      <g stroke="#f59e0b" stroke-width=".7" stroke-linecap="round"><path d="M11.25 5.5v2M11.25 18.5v2M3.8 13h2M16.7 13h2M6 7.8l1.4 1.4M15.1 16.8l1.4 1.4M16.5 7.8l-1.4 1.4M7.4 16.8 6 18.2"/></g>
+      <text x="11.25" y="28">Işık</text>
+      <!-- gaz -->
+      <path d="M28.5 8v11.5a2 2 0 0 0 2 2h7.4a2 2 0 0 0 2-2V8" fill="#e0f2fe" stroke="#1d2133" stroke-width=".45"/>
+      <g fill="none" stroke="#0284c7" stroke-width=".45"><circle cx="32" cy="17" r="1"/><circle cx="35.5" cy="13.5" r="1.3"/><circle cx="33" cy="9.5" r=".9"/><circle cx="36" cy="6" r=".8"/></g>
+      <text x="33.45" y="28">Gaz çıkışı</text>
+      <!-- renk -->
+      <circle cx="51.5" cy="13" r="3.4" fill="#2563eb"/><path d="M56 13h3.4" stroke="#1d2133" stroke-width=".5"/><path d="M58.4 11.8l1.4 1.2-1.4 1.2" fill="none" stroke="#1d2133" stroke-width=".5"/><circle cx="63" cy="13" r="2.2" fill="#e5e7eb" stroke="#9aa3b8" stroke-width=".3"/>
+      <text x="55.65" y="28">Renk değişimi</text>
+      <!-- çökelti -->
+      <path d="M72.8 8v11.5a2 2 0 0 0 2 2h7.4a2 2 0 0 0 2-2V8" fill="#eef2ff" stroke="#1d2133" stroke-width=".45"/>
+      <path d="M72.9 18.3h11.2v1.2a2 2 0 0 1-2 2h-7.2a2 2 0 0 1-2-2z" fill="#f8fafc" stroke="#9aa3b8" stroke-width=".3"/>
+      <g fill="#94a3b8"><circle cx="75.5" cy="19.6" r=".5"/><circle cx="78" cy="20.2" r=".5"/><circle cx="81" cy="19.4" r=".5"/><circle cx="79.5" cy="15" r=".4"/></g>
+      <text x="77.85" y="28">Çökelti</text>
+      <!-- sıcaklık -->
+      <rect x="98.8" y="5" width="2.6" height="13" rx="1.3" fill="#fff" stroke="#1d2133" stroke-width=".45"/>
+      <circle cx="100.1" cy="19.5" r="2.4" fill="#e11d48"/><rect x="99.5" y="10" width="1.2" height="9" fill="#e11d48"/>
+      <text x="100.05" y="28">Sıcaklık</text>
+      <!-- pH -->
+      <rect x="115.5" y="6" width="3" height="15" rx=".6" fill="#fef3c7" stroke="#1d2133" stroke-width=".35"/>
+      <rect x="115.5" y="15" width="3" height="6" fill="#dc2626"/>
+      <rect x="120.5" y="6" width="3" height="15" rx=".6" fill="#fef3c7" stroke="#1d2133" stroke-width=".35"/>
+      <rect x="120.5" y="15" width="3" height="6" fill="#7c3aed"/>
+      <text x="122.25" y="28">pH değişimi</text>
+      <!-- koku -->
+      <g fill="none" stroke="#c26a06" stroke-width=".6" stroke-linecap="round"><path d="M139 19c1.5-2-1.5-4 0-6s-1.5-4 0-6"/><path d="M144.4 19c1.5-2-1.5-4 0-6s-1.5-4 0-6"/><path d="M149.8 19c1.5-2-1.5-4 0-6s-1.5-4 0-6"/></g>
+      <text x="144.45" y="28">Koku</text>
+      <!-- iletkenlik -->
+      <circle cx="166.65" cy="11.5" r="4.4" fill="#fef9c3" stroke="#1d2133" stroke-width=".45"/>
+      <rect x="164.6" y="15.8" width="4.1" height="3.6" rx=".6" fill="#9aa3b8"/>
+      <path d="M165 12.5l1-2 1.2 2 1.1-2" fill="none" stroke="#f59e0b" stroke-width=".45"/>
+      <text x="166.65" y="28">İletkenlik</text>
+    </g>
+  </svg>
+
+  <div class="kutu dikkat">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “Renk değişiyor ya da gaz çıkıyorsa olay kesinlikle kimyasaldır.”</div>
+      <div class="dogru"><b class="d">✓</b> Göstergeler tek başına <b>kesin kanıt değildir</b>. Gazoz kapağı açılınca çıkan gaz zaten çözünmüş olan <span class="f">CO<sub>2</sub></span>’dir (fiziksel). Gaz, iki maddenin etkileşmesiyle <b>yeni oluşuyorsa</b> kimyasaldır.</div>
+    </div>
+  </div>
+
+  <div class="iki-genis">
+    <div class="kutu ornek" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 1</div>
+      <div class="soru">Olayları sınıflandır: (a) Naftalinin süblimleşmesi (b) Yumurtanın haşlanması (c) Kireç taşının sirkede köpürmesi (d) Tuzlu suyun buharlaştırılması</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>(a) ve (d): yalnızca hâl değişir, madde aynı kalır → <b>fiziksel</b>.</span></div>
+        <div class="adim"><span class="n">2</span><span>(b): yumurta akındaki proteinlerin yapısı kalıcı olarak değişir → <b>kimyasal</b>.</span></div>
+        <div class="adim"><span class="n">3</span><span>(c): <span class="f">CaCO<sub>3</sub></span> ile sirkedeki asit etkileşir, <b>yeni</b> <span class="f">CO<sub>2</sub></span> gazı oluşur → <b>kimyasal</b>.</span></div>
+      </div>
+    </div>
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p class="mini">Efervesan tablet suya atılınca köpürür. Tablette kuru hâlde duran sitrik asit ile sodyum hidrojen karbonat, su ortamında karşılaşınca tepkimeye girer ve <b>yeni oluşan</b> <span class="f">CO<sub>2</sub></span> gazı kabarcıklar hâlinde çıkar. Tablet kuru kaldıkça bu tepkime başlamaz; bu yüzden ambalajı nemden korunur.</p>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Kimyasal Değişimler</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · DENKLEM VE MODELLEME
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Değişimler</span><span>Denklem ve modelleme</span></div>
+
+  <h2 class="konu"><span class="num">2</span>Tepkime denklemi ve modelleme</h2>
+  <div class="alt-baslik">Kimyacının kısa yazısı: semboller, formüller, oklar ve küçük harfler.</div>
+
+  <div class="denk">2<span class="f">Al</span><sub class="h">(k)</sub> + 6<span class="f">HCl</span><sub class="h">(suda)</sub> &nbsp;→&nbsp; 2<span class="f">AlCl<sub>3</sub></span><sub class="h">(suda)</sub> + 3<span class="f">H<sub>2</sub></span><sub class="h">(g)</sub></div>
+  <div class="iki" style="gap:4mm">
+    <div>
+      <ul class="mini" style="margin-bottom:1mm">
+        <li>Okun solundakiler <b>tepkenler</b> (girenler), sağındakiler <b>ürünler</b>dir.</li>
+        <li>Fiziksel hâl: <b>(k)</b> katı, <b>(s)</b> sıvı, <b>(g)</b> gaz, <b>(suda)</b> suda çözünmüş.</li>
+        <li>Tek yönlü ok “→”, tersinir tepkimelerde çift ok “⇌” kullanılır. Isı, ışık, katalizör gibi <b>koşullar</b> okun üstüne ya da altına yazılır.</li>
+      </ul>
+    </div>
+    <div>
+      <ul class="mini" style="margin-bottom:1mm">
+        <li>Tüm maddeler aynı hâldeyse <b>homojen</b>, farklı hâllerdeyse <b>heterojen</b> tepkime denir. Yukarıdaki tepkime heterojendir.</li>
+        <li>Isı alan tepkime <b>endotermik</b>, ısı veren tepkime <b>ekzotermik</b>tir.</li>
+        <li>Katsayılar, tanecik (mol) oranlarını gösterir.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Atomlar korunur, moleküller değişir</h3>
+  <div class="iki-genis" style="align-items:center">
+    <svg viewBox="0 0 120 48" style="width:100%;height:auto">
+      <g font-family="Inter" text-anchor="middle">
+        <!-- CH4 -->
+        <g transform="translate(13,20)">
+          <circle cx="0" cy="-5.6" r="2.6" fill="#fff" stroke="#5d6478" stroke-width=".35"/><circle cx="0" cy="5.6" r="2.6" fill="#fff" stroke="#5d6478" stroke-width=".35"/>
+          <circle cx="-5.6" cy="0" r="2.6" fill="#fff" stroke="#5d6478" stroke-width=".35"/><circle cx="5.6" cy="0" r="2.6" fill="#fff" stroke="#5d6478" stroke-width=".35"/>
+          <circle r="4" fill="#374151"/>
+        </g>
+        <text x="25" y="21.5" font-size="5">+</text>
+        <!-- 2 O2 -->
+        <g fill="#e11d48"><circle cx="33" cy="14" r="3.2"/><circle cx="38.2" cy="14" r="3.2"/><circle cx="33" cy="26" r="3.2"/><circle cx="38.2" cy="26" r="3.2"/></g>
+        <path d="M47 20h11" stroke="#9d174d" stroke-width=".8"/><path d="M56 17.8l3 2.2-3 2.2z" fill="#9d174d"/>
+        <!-- CO2 -->
+        <g transform="translate(73,20)"><circle cx="-6" r="3.2" fill="#e11d48"/><circle cx="6" r="3.2" fill="#e11d48"/><circle r="3.8" fill="#374151"/></g>
+        <text x="85" y="21.5" font-size="5">+</text>
+        <!-- 2 H2O -->
+        <g transform="translate(97,13)"><circle cx="-3.6" cy="3" r="2.4" fill="#fff" stroke="#5d6478" stroke-width=".35"/><circle cx="3.6" cy="3" r="2.4" fill="#fff" stroke="#5d6478" stroke-width=".35"/><circle r="3.2" fill="#e11d48"/></g>
+        <g transform="translate(97,26)"><circle cx="-3.6" cy="3" r="2.4" fill="#fff" stroke="#5d6478" stroke-width=".35"/><circle cx="3.6" cy="3" r="2.4" fill="#fff" stroke="#5d6478" stroke-width=".35"/><circle r="3.2" fill="#e11d48"/></g>
+        <text x="13" y="36" font-size="3.8" fill="#5d6478">CH₄</text><text x="35.6" y="36" font-size="3.8" fill="#5d6478">2 O₂</text>
+        <text x="73" y="36" font-size="3.8" fill="#5d6478">CO₂</text><text x="97" y="36" font-size="3.8" fill="#5d6478">2 H₂O</text>
+        <text x="60" y="45.5" font-size="3.6" font-weight="700" fill="#6b0f34">C: 1 → 1 · H: 4 → 4 · O: 4 → 4 · molekül: 3 → 3</text>
+      </g>
+    </svg>
+    <div class="kutu kavram" style="margin:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Korunanlar · Değişebilenler</div>
+      <p class="mini" style="margin-bottom:1mm"><b>Her zaman korunur:</b> atom türü ve sayısı, toplam kütle, toplam elektriksel yük, toplam proton, nötron ve elektron sayısı (çekirdekler değişmez).</p>
+      <p class="mini"><b>Değişebilir:</b> molekül (mol) sayısı, renk, koku, fiziksel hâl, hacim, basınç, iletkenlik.</p>
+    </div>
+  </div>
+
+  <div class="iki" style="margin-top:3mm">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 2</div>
+      <div class="soru">4,8 g magnezyum şeridi havada yakılınca 8,0 g beyaz <span class="f">MgO</span> tozu elde ediliyor. Kaç gram <span class="f">O<sub>2</sub></span> harcanmıştır?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>2<span class="f">Mg</span><sub class="h">(k)</sub> + <span class="f">O<sub>2</sub></span><sub class="h">(g)</sub> → 2<span class="f">MgO</span><sub class="h">(k)</sub> · toplam kütle korunur.</span></div>
+        <div class="adim"><span class="n">2</span><span>m(<span class="f">O<sub>2</sub></span>) = 8,0 − 4,8</span></div>
+        <span class="sonuc">3,2 g <span class="f">O<sub>2</sub></span></span>
+      </div>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Atomlar korunduğuna göre molekül sayısı da korunur.”</div>
+        <div class="dogru"><b class="d">✓</b> Yukarıdaki modelde 3 → 3 olsa da <span class="f">N<sub>2</sub></span> + 3<span class="f">H<sub>2</sub></span> → 2<span class="f">NH<sub>3</sub></span> tepkimesinde 4 molekül 2 moleküle iner.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Bir maddeyi dört farklı modelle görmek: etanol (<span class="f">C<sub>2</sub>H<sub>5</sub>OH</span>)</h3>
+  <svg viewBox="0 0 178 40" style="width:100%;height:auto">
+    <g font-family="Inter" text-anchor="middle">
+      <g fill="#fdf0f6" stroke="#e7b6cb" stroke-width=".35">
+        <rect x="1" y="1" width="42" height="38" rx="2.5"/><rect x="45.3" y="1" width="42" height="38" rx="2.5"/>
+        <rect x="89.6" y="1" width="42" height="38" rx="2.5"/><rect x="133.9" y="1" width="42" height="38" rx="2.5"/>
+      </g>
+      <!-- Lewis -->
+      <g font-size="4" font-weight="700" fill="#1d2133">
+        <text x="6" y="19.4">H</text><text x="14" y="19.4">C</text><text x="22" y="19.4">C</text><text x="30" y="19.4">O</text><text x="38" y="19.4">H</text>
+        <text x="14" y="11.4">H</text><text x="22" y="11.4">H</text><text x="14" y="27.4">H</text><text x="22" y="27.4">H</text>
+      </g>
+      <g stroke="#1d2133" stroke-width=".4"><path d="M7.8 18h4.4M15.8 18h4.4M23.8 18h4.4M31.9 18h4.2M14 12.4v3.4M22 12.4v3.4M14 19.6v3.6M22 19.6v3.6"/></g>
+      <g fill="#9d174d"><circle cx="29.2" cy="14.2" r=".45"/><circle cx="30.8" cy="14.2" r=".45"/><circle cx="29.2" cy="21.6" r=".45"/><circle cx="30.8" cy="21.6" r=".45"/></g>
+      <text x="22" y="35.5" font-size="3.4" font-weight="700" fill="#6b0f34">Lewis yapısı</text>
+      <!-- Çizgi-bağ -->
+      <path d="M53 22 L62 15 L71 22" fill="none" stroke="#1d2133" stroke-width=".7"/>
+      <text x="76.5" y="23.6" font-size="4.4" font-weight="700" fill="#1d2133">OH</text>
+      <text x="66.3" y="35.5" font-size="3.4" font-weight="700" fill="#6b0f34">Çizgi-bağ formülü</text>
+      <!-- Top-çubuk -->
+      <g stroke="#9aa3b8" stroke-width="1">
+        <path d="M100 19 L110 15 L120 19 L126 15"/><path d="M100 19 L96 12M100 19 L95 24M100 19 L101 27M110 15 L108 7.5M110 15 L113 8"/>
+      </g>
+      <g stroke="#5d6478" stroke-width=".3" fill="#fff">
+        <circle cx="96" cy="12" r="1.8"/><circle cx="95" cy="24" r="1.8"/><circle cx="101" cy="27" r="1.8"/><circle cx="108" cy="7.5" r="1.8"/><circle cx="113" cy="8" r="1.8"/><circle cx="126" cy="15" r="1.8"/>
+      </g>
+      <circle cx="100" cy="19" r="2.8" fill="#374151"/><circle cx="110" cy="15" r="2.8" fill="#374151"/><circle cx="120" cy="19" r="2.7" fill="#e11d48"/>
+      <text x="110.6" y="35.5" font-size="3.4" font-weight="700" fill="#6b0f34">Top-çubuk modeli</text>
+      <!-- Uzay-dolgu -->
+      <g stroke="#5d6478" stroke-width=".3" fill="#f8fafc">
+        <circle cx="141.5" cy="13" r="3.2"/><circle cx="140.5" cy="23.5" r="3.2"/><circle cx="147" cy="27" r="3.2"/>
+        <circle cx="152.5" cy="9" r="3.2"/><circle cx="158.5" cy="10" r="3.2"/><circle cx="170" cy="14" r="3.2"/>
+      </g>
+      <circle cx="146" cy="19" r="5" fill="#374151"/><circle cx="155" cy="15.5" r="5" fill="#4b5563"/><circle cx="164.5" cy="18" r="4.6" fill="#e11d48"/>
+      <text x="154.9" y="35.5" font-size="3.4" font-weight="700" fill="#6b0f34">Uzay-dolgu modeli</text>
+    </g>
+  </svg>
+  <p class="kucuk" style="margin-top:1.5mm">Bu gösterimler birbirini tamamlar: Lewis yapısı değerlik elektronlarını, çizgi-bağ formülü karbon iskeletini, top-çubuk modeli bağları ve açıları, uzay-dolgu modeli atomların göreli büyüklüğünü öne çıkarır. Bir tepkimeyi <b>makroskobik</b> (gözlem), <b>sembolik</b> (denklem) ve <b>tanecik</b> (alt mikroskobik model) düzeyinde birlikte düşünmek kimyayı anlamanın anahtarıdır.</p>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Kimyasal Değişimler</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · ÇÖKELME
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Değişimler</span><span>Çökelme tepkimeleri</span></div>
+
+  <h2 class="konu"><span class="num">3</span>Çökelme tepkimeleri</h2>
+  <div class="alt-baslik">İki berrak çözelti karışır, bir anda bulanıklık başlar: iyonlar yeni bir eş bulmuştur.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+    <p class="mini">Suda iyi çözünen iki iyonik bileşiğin çözeltileri karıştırıldığında, bir katyon ile bir anyon birleşip <b>suda az çözünen</b> bir katı oluşturabilir. Bu katıya <b>çökelek (çökelti)</b>, olaya <b>çökelme tepkimesi</b> denir. Katyon ve anyonlar “eş değiştirdiği” için çökelme tepkimeleri <b>ikili (çift) yer değiştirme</b> tepkimeleridir: AB + CD → AD + CB.</p>
+  </div>
+
+  <svg viewBox="0 0 178 50" style="width:100%;height:auto;margin-bottom:2mm">
+    <g font-family="Inter" text-anchor="middle" font-weight="700">
+      <g fill="#eef6ff" stroke="#1d2133" stroke-width=".45">
+        <path d="M6 10v28a3 3 0 0 0 3 3h26a3 3 0 0 0 3-3V10"/>
+        <path d="M52 10v28a3 3 0 0 0 3 3h26a3 3 0 0 0 3-3V10"/>
+        <path d="M118 6v32a3 3 0 0 0 3 3h44a3 3 0 0 0 3-3V6"/>
+      </g>
+      <text x="22" y="7" font-size="3.6" fill="#1d2133">CaCl₂(suda)</text>
+      <text x="68" y="7" font-size="3.6" fill="#1d2133">Na₂CO₃(suda)</text>
+      <text x="44.8" y="27" font-size="6" fill="#9d174d">+</text>
+      <path d="M90 24h20" stroke="#9d174d" stroke-width=".8"/><path d="M108 21.8l3 2.2-3 2.2z" fill="#9d174d"/>
+      <text x="100" y="20" font-size="3.2" fill="#9d174d">karıştır</text>
+      <g font-size="2.4">
+        <g fill="#fbbf24"><circle cx="13" cy="20" r="2.8"/><circle cx="28" cy="31" r="2.8"/></g>
+        <g fill="#c4b5fd"><circle cx="24" cy="16" r="2.8"/><circle cx="12" cy="33" r="2.8"/><circle cx="31" cy="22" r="2.8"/><circle cx="19" cy="26" r="2.8"/></g>
+        <text x="13" y="20.9">Ca²⁺</text><text x="28" y="31.9">Ca²⁺</text>
+        <text x="24" y="16.9">Cl⁻</text><text x="12" y="33.9">Cl⁻</text><text x="31" y="22.9">Cl⁻</text><text x="19" y="26.9">Cl⁻</text>
+        <g fill="#99f6e4"><circle cx="58" cy="17" r="2.8"/><circle cx="76" cy="18" r="2.8"/><circle cx="62" cy="33" r="2.8"/><circle cx="78" cy="31" r="2.8"/></g>
+        <g fill="#fda4af"><circle cx="68" cy="24" r="3.3"/><circle cx="70" cy="35" r="3.3"/></g>
+        <text x="58" y="17.9">Na⁺</text><text x="76" y="18.9">Na⁺</text><text x="62" y="33.9">Na⁺</text><text x="78" y="31.9">Na⁺</text>
+        <text x="68" y="24.9">CO₃²⁻</text><text x="70" y="35.9">CO₃²⁻</text>
+        <!-- sonuç -->
+        <g fill="#99f6e4"><circle cx="126" cy="13" r="2.8"/><circle cx="146" cy="12" r="2.8"/><circle cx="160" cy="20" r="2.8"/><circle cx="131" cy="25" r="2.8"/></g>
+        <g fill="#c4b5fd"><circle cx="136" cy="16" r="2.8"/><circle cx="154" cy="14" r="2.8"/><circle cx="145" cy="24" r="2.8"/><circle cx="124" cy="21" r="2.8"/></g>
+        <text x="126" y="13.9">Na⁺</text><text x="146" y="12.9">Na⁺</text><text x="160" y="20.9">Na⁺</text><text x="131" y="25.9">Na⁺</text>
+        <text x="136" y="16.9">Cl⁻</text><text x="154" y="14.9">Cl⁻</text><text x="145" y="24.9">Cl⁻</text><text x="124" y="21.9">Cl⁻</text>
+      </g>
+      <rect x="121" y="32" width="44" height="8" rx="2" fill="#f1f5f9" stroke="#9aa3b8" stroke-width=".3"/>
+      <text x="143" y="37.4" font-size="3.4" fill="#1d2133">CaCO₃(k) çökeleği</text>
+      <text x="22" y="47" font-size="3.2" fill="#5d6478" font-weight="600">berrak</text>
+      <text x="68" y="47" font-size="3.2" fill="#5d6478" font-weight="600">berrak</text>
+      <text x="143" y="47" font-size="3.2" fill="#5d6478" font-weight="600">Na⁺ ve Cl⁻ çözeltide kalır (seyirci)</text>
+    </g>
+  </svg>
+
+  <div class="denk"><span class="f">CaCl<sub>2</sub></span><sub class="h">(suda)</sub> + <span class="f">Na<sub>2</sub>CO<sub>3</sub></span><sub class="h">(suda)</sub> → <span class="f">CaCO<sub>3</sub></span><sub class="h">(k)</sub> + 2<span class="f">NaCl</span><sub class="h">(suda)</sub></div>
+  <div class="iki" style="gap:4mm">
+    <div class="kutu kavram" style="margin-bottom:2.5mm">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Net iyon denklemi</div>
+      <p class="mini">Yalnızca çökeleği oluşturan iyonlar yazılır:<br><b><span class="f">Ca<sup>2+</sup></span><sub class="h">(suda)</sub> + <span class="f">CO<sub>3</sub><sup>2−</sup></span><sub class="h">(suda)</sub> → <span class="f">CaCO<sub>3</sub></span><sub class="h">(k)</sub></b></p>
+    </div>
+    <div class="kutu kavram" style="margin-bottom:2.5mm">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Seyirci iyonlar</div>
+      <p class="mini">Tepkimeye katılmayıp çözeltide kalan iyonlardır: burada <span class="f">Na<sup>+</sup></span> ve <span class="f">Cl<sup>−</sup></span>. İyonların bir kısmı çöktüğü için çözeltinin <b>elektriksel iletkenliği azalır</b>.</p>
+    </div>
+  </div>
+
+  <div class="iki-genis" style="gap:4mm">
+    <div>
+      <table class="tablo ciz-tablo" style="margin-top:0">
+        <tr><th>Genellikle suda iyi çözünür</th><th>Genellikle suda az çözünür</th></tr>
+        <tr><td><span class="f">Li<sup>+</sup></span>, <span class="f">Na<sup>+</sup></span>, <span class="f">K<sup>+</sup></span> ve <span class="f">NH<sub>4</sub><sup>+</sup></span> tuzları</td><td><span class="f">CO<sub>3</sub><sup>2−</sup></span>, <span class="f">PO<sub>4</sub><sup>3−</sup></span> ve <span class="f">S<sup>2−</sup></span> bileşikleri (alkali ve <span class="f">NH<sub>4</sub><sup>+</sup></span> hariç)</td></tr>
+        <tr><td>Nitrat (<span class="f">NO<sub>3</sub><sup>−</sup></span>) ve asetat tuzları</td><td><span class="f">OH<sup>−</sup></span> bileşikleri (alkali metaller hariç; Ca, Ba kısmen)</td></tr>
+        <tr><td>Klorür, bromür, iyodürlerin çoğu</td><td><span class="f">Ag<sup>+</sup></span> ve <span class="f">Pb<sup>2+</sup></span> klorür, bromür, iyodürleri</td></tr>
+        <tr><td>Sülfatların çoğu</td><td><span class="f">BaSO<sub>4</sub></span>, <span class="f">PbSO<sub>4</sub></span> (<span class="f">CaSO<sub>4</sub></span> az çözünür)</td></tr>
+      </table>
+    </div>
+    <div class="kutu ornek" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 3</div>
+      <div class="soru" style="font-size:9.2pt"><span class="f">CuSO<sub>4</sub></span> ve <span class="f">NaOH</span> çözeltileri karıştırılıyor. Mavi bir katı oluşuyor. Net iyon denklemi ve seyirci iyonlar?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Eş değiştir: <span class="f">Cu(OH)<sub>2</sub></span> ve <span class="f">Na<sub>2</sub>SO<sub>4</sub></span>. Na tuzu çözünür, hidroksit çöker.</span></div>
+        <div class="adim"><span class="n">2</span><span><span class="f">Cu<sup>2+</sup></span> + 2<span class="f">OH<sup>−</sup></span> → <span class="f">Cu(OH)<sub>2</sub></span><sub class="h">(k)</sub></span></div>
+        <span class="sonuc">Seyirci: <span class="f">Na<sup>+</sup></span> ve <span class="f">SO<sub>4</sub><sup>2−</sup></span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="iki" style="margin-top:3mm">
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p class="mini">Mağaralardaki sarkıt ve dikitler, çaydanlıktaki kireç ve böbrek taşları birer çökelme ürünüdür. Böbrek taşlarının en yaygın türü <b>kalsiyum oksalattır</b>; idrardaki <span class="f">Ca<sup>2+</sup></span> ve oksalat iyonları birleşip az çözünen bir katı oluşturur. Bol su içmek bu iyonları seyreltir.</p>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Seyirci iyonlar tepkime bitince ortadan kalkar.”</div>
+        <div class="dogru"><b class="d">✓</b> Seyirci iyonlar <b>hiç değişmeden</b> çözeltide kalır; suyu buharlaştırırsan <span class="f">NaCl</span> katısı olarak geri elde edilir.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Kimyasal Değişimler</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · REDOKS
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Değişimler</span><span>Redoks tepkimeleri</span></div>
+
+  <h2 class="konu"><span class="num">4</span>İndirgenme-yükseltgenme</h2>
+  <div class="alt-baslik">Redoks tepkimelerinin kahramanı elektrondur: biri verir, öteki alır.</div>
+
+  <div class="iki">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Yükseltgenme</div>
+      <p class="mini">Bir taneciğin <b>elektron vermesidir</b>. Yükseltgenme basamağı (YB) <b>artar</b>.<br><span class="f">Zn</span> → <span class="f">Zn<sup>2+</sup></span> + 2e<sup>−</sup></p>
+    </div>
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> İndirgenme</div>
+      <p class="mini">Bir taneciğin <b>elektron almasıdır</b>. Yükseltgenme basamağı <b>azalır</b>.<br><span class="f">Cu<sup>2+</sup></span> + 2e<sup>−</sup> → <span class="f">Cu</span></p>
+    </div>
+  </div>
+  <p>Serbest elektron ortamda kendi başına dolaşmaz: bir tanecik elektron veriyorsa bir başkası onu alıyordur. Bu yüzden yükseltgenme ve indirgenme <b>aynı anda</b> gerçekleşir ve böyle tepkimelere <b class="k">indirgenme-yükseltgenme (redoks)</b> tepkimesi denir. Verilen ve alınan toplam elektron sayısı eşittir.</p>
+
+  <svg viewBox="0 0 178 44" style="width:100%;height:auto;margin-bottom:2mm">
+    <g font-family="Inter" text-anchor="middle" font-weight="700">
+      <!-- Zn plaka ve Cu2+ -->
+      <circle cx="18" cy="16" r="7" fill="#9ca3af"/><text x="18" y="17.4" font-size="4" fill="#fff">Zn</text>
+      <path d="M27 16h14" stroke="#5d6478" stroke-width=".6"/><path d="M39.5 14l2.5 2-2.5 2z" fill="#5d6478"/>
+      <circle cx="52" cy="16" r="6" fill="#e5e7eb" stroke="#9ca3af" stroke-width=".5"/><text x="52" y="17.4" font-size="3.6" fill="#374151">Zn²⁺</text>
+      <text x="34" y="30" font-size="3.4" fill="#0f8f84">yükseltgenme · YB: 0 → +2</text>
+      <!-- elektron okları -->
+      <path d="M58 9 Q89 -2 118 9" fill="none" stroke="#f59e0b" stroke-width=".8" stroke-dasharray="2 1.2"/>
+      <path d="M116 6.4l3 2.9-4 .9z" fill="#f59e0b"/>
+      <circle cx="80" cy="4.6" r="2.2" fill="#f59e0b"/><circle cx="96" cy="4.6" r="2.2" fill="#f59e0b"/>
+      <text x="80" y="5.7" font-size="2.6" fill="#fff">e⁻</text><text x="96" y="5.7" font-size="2.6" fill="#fff">e⁻</text>
+      <text x="88" y="16" font-size="3.4" fill="#c26a06">2 elektron aktarılır</text>
+      <!-- Cu2+ -> Cu -->
+      <circle cx="126" cy="16" r="6" fill="#bfdbfe" stroke="#2563eb" stroke-width=".5"/><text x="126" y="17.4" font-size="3.6" fill="#1e3a8a">Cu²⁺</text>
+      <path d="M134 16h14" stroke="#5d6478" stroke-width=".6"/><path d="M146.5 14l2.5 2-2.5 2z" fill="#5d6478"/>
+      <circle cx="160" cy="16" r="7" fill="#b45309"/><text x="160" y="17.4" font-size="4" fill="#fff">Cu</text>
+      <text x="143" y="30" font-size="3.4" fill="#e11d48">indirgenme · YB: +2 → 0</text>
+      <text x="89" y="41" font-size="3.6" fill="#6b0f34">Zn(k) + Cu²⁺(suda) → Zn²⁺(suda) + Cu(k) · mavi renk açılır, çinko üzerinde kızıl bakır birikir</text>
+    </g>
+  </svg>
+
+  <div class="iki-genis" style="gap:4mm">
+    <div class="kutu kavram" style="margin-bottom:2.5mm">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Yükseltgenme basamağı (YB) kuralları</div>
+      <ul class="mini" style="margin-bottom:0">
+        <li>Serbest element: <b>0</b> (<span class="f">Fe</span>, <span class="f">O<sub>2</sub></span>, <span class="f">Cl<sub>2</sub></span>, <span class="f">Na</span>).</li>
+        <li>Tek atomlu iyon: <b>yükü kadar</b> (<span class="f">Al<sup>3+</sup></span> → +3, <span class="f">S<sup>2−</sup></span> → −2).</li>
+        <li>Bileşiklerde genellikle H <b>+1</b>, O <b>−2</b>; 1A grubu <b>+1</b>, 2A grubu <b>+2</b>.</li>
+        <li>Nötr bileşikte YB toplamı <b>0</b>, çok atomlu iyonda <b>iyon yükü</b>.</li>
+      </ul>
+    </div>
+    <div class="kutu ornek" style="margin-bottom:2.5mm">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 4</div>
+      <div class="soru" style="font-size:9.2pt"><span class="f">KMnO<sub>4</sub></span> bileşiğinde Mn’nin YB’si kaçtır?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>K: +1, O: −2 → (+1) + x + 4(−2) = 0</span></div>
+        <div class="adim"><span class="n">2</span><span>x − 7 = 0</span></div>
+        <span class="sonuc">Mn: +7</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>Hangi tepkimeler redokstur?</h3>
+  <table class="tablo">
+    <tr><th>Tepkime tipi</th><th>Örnek denklem</th><th>Yükseltgenen → İndirgenen</th></tr>
+    <tr><td>Metal + asit</td><td><span class="f">Mg</span><sub class="h">(k)</sub> + 2<span class="f">HCl</span><sub class="h">(suda)</sub> → <span class="f">MgCl<sub>2</sub></span><sub class="h">(suda)</sub> + <span class="f">H<sub>2</sub></span><sub class="h">(g)</sub></td><td>Mg (0 → +2) · H (+1 → 0)</td></tr>
+    <tr><td>Aktif metal + su</td><td>2<span class="f">K</span><sub class="h">(k)</sub> + 2<span class="f">H<sub>2</sub>O</span><sub class="h">(s)</sub> → 2<span class="f">KOH</span><sub class="h">(suda)</sub> + <span class="f">H<sub>2</sub></span><sub class="h">(g)</sub></td><td>K (0 → +1) · H (+1 → 0)</td></tr>
+    <tr><td>Metal + tuz çözeltisi</td><td><span class="f">Fe</span><sub class="h">(k)</sub> + <span class="f">CuSO<sub>4</sub></span><sub class="h">(suda)</sub> → <span class="f">FeSO<sub>4</sub></span><sub class="h">(suda)</sub> + <span class="f">Cu</span><sub class="h">(k)</sub></td><td>Fe (0 → +2) · Cu (+2 → 0)</td></tr>
+    <tr><td>Yanma</td><td><span class="f">C</span><sub class="h">(k)</sub> + <span class="f">O<sub>2</sub></span><sub class="h">(g)</sub> → <span class="f">CO<sub>2</sub></span><sub class="h">(g)</sub></td><td>C (0 → +4) · O (0 → −2)</td></tr>
+  </table>
+  <p class="mini">İlk üç örnekte bir element, bileşikteki başka bir elementin yerini alır: bunlar <b>tekli yer değiştirme</b> tepkimeleridir. Bir metal, ancak kendisinden <b>daha az aktif</b> bir metalin iyonunu indirgeyebilir. Basit bir aktiflik sırası: <b>K &gt; Na &gt; Ca &gt; Mg &gt; Al &gt; Zn &gt; Fe &gt; Pb &gt; (H) &gt; Cu &gt; Ag &gt; Au</b>. H’nin sağındaki Cu, Ag, Au gibi <b>soy metaller</b> HCl çözeltisinden <span class="f">H<sub>2</sub></span> açığa çıkarmaz.</p>
+
+  <div class="iki">
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p class="mini">Gümüş takılar zamanla kararır: yüzeydeki Ag atomları havadaki kükürtlü gazlarla siyah gümüş sülfüre (<span class="f">Ag<sub>2</sub>S</span>) dönüşür. Takı, sıcak kabartma tozlu su içinde alüminyum folyoya değdirilirse <b>Al yükseltgenir</b>, <span class="f">Ag<sup>+</sup></span> iyonları yeniden Ag’ye <b>indirgenir</b> ve parlaklık geri gelir.</p>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Yükseltgenme, oksijenle birleşmek demektir.”</div>
+        <div class="dogru"><b class="d">✓</b> Yükseltgenme <b>elektron vermektir</b>. Zn + <span class="f">Cu<sup>2+</sup></span> tepkimesinde hiç oksijen yoktur ama Zn yükseltgenir.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Kimyasal Değişimler</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · YANMA, SENTEZ, ANALİZ
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Değişimler</span><span>Yanma, sentez, analiz</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Yanma, sentez ve analiz</h2>
+  <div class="alt-baslik">Tepkimeleri yalnızca “ne oldu?” sorusuyla değil, “nasıl bir düzen kuruldu?” sorusuyla da adlandırırız.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Yanma (oksitlenme)</div>
+    <p class="mini">Bir maddenin <b>oksijen (<span class="f">O<sub>2</sub></span>) ile tepkimesidir</b>. Ürün olarak elementlerin oksitleri oluşur. Oksijen elementel hâlden (YB = 0) bileşiğe (YB = −2) geçtiği için <b>her yanma bir redoks tepkimesidir</b>. C, H (ve O) içeren organik bileşikler tam yandığında yalnızca <span class="f">CO<sub>2</sub></span> ve <span class="f">H<sub>2</sub>O</span> oluşur: karbon sayısı kadar <span class="f">CO<sub>2</sub></span>, hidrojen sayısının yarısı kadar <span class="f">H<sub>2</sub>O</span>.</p>
+  </div>
+
+  <div class="iki">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 5</div>
+      <div class="soru">Çakmak gazındaki bütanın (<span class="f">C<sub>4</sub>H<sub>10</sub></span>) tam yanma denklemini yazınız.</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>4 C → 4<span class="f">CO<sub>2</sub></span>; 10 H → 5<span class="f">H<sub>2</sub>O</span></span></div>
+        <div class="adim"><span class="n">2</span><span>O sayısı: 4·2 + 5 = 13 → 13/2 <span class="f">O<sub>2</sub></span></span></div>
+        <div class="adim"><span class="n">3</span><span>Kesirden kurtul (×2):</span></div>
+        <span class="sonuc">2<span class="f">C<sub>4</sub>H<sub>10</sub></span> + 13<span class="f">O<sub>2</sub></span> → 8<span class="f">CO<sub>2</sub></span> + 10<span class="f">H<sub>2</sub>O</span></span>
+      </div>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Yanma her zaman alevle ve ısı vererek olur.”</div>
+        <div class="dogru"><b class="d">✓</b> Demirin paslanması alevsiz, yavaş bir oksitlenmedir. Azotun yanması (<span class="f">N<sub>2</sub></span> + <span class="f">O<sub>2</sub></span> → 2<span class="f">NO</span>) ise ısı <b>alarak</b> gerçekleşir; şimşek ve motor içi gibi çok yüksek sıcaklıklarda olur.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Birleşme ve ayrışma</h3>
+  <div class="iki">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Sentez (oluşum)</div>
+      <p class="mini">İki veya daha fazla maddeden <b>tek bir ürün</b> oluşur: A + B → AB</p>
+      <p class="mini" style="margin-bottom:0">2<span class="f">Na</span><sub class="h">(k)</sub> + <span class="f">Cl<sub>2</sub></span><sub class="h">(g)</sub> → 2<span class="f">NaCl</span><sub class="h">(k)</sub> &nbsp;<i>(redoks)</i><br><span class="f">CaO</span><sub class="h">(k)</sub> + <span class="f">H<sub>2</sub>O</span><sub class="h">(s)</sub> → <span class="f">Ca(OH)<sub>2</sub></span><sub class="h">(k)</sub> &nbsp;<i>(redoks değil)</i></p>
+    </div>
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Analiz (ayrışma)</div>
+      <p class="mini">Bir madde ısı, ışık veya elektrik enerjisiyle <b>daha basit maddelere</b> ayrışır: AB → A + B</p>
+      <p class="mini" style="margin-bottom:0">2<span class="f">H<sub>2</sub>O</span><sub class="h">(s)</sub> → 2<span class="f">H<sub>2</sub></span><sub class="h">(g)</sub> + <span class="f">O<sub>2</sub></span><sub class="h">(g)</sub> &nbsp;<i>(elektroliz, redoks)</i><br><span class="f">CaCO<sub>3</sub></span><sub class="h">(k)</sub> → <span class="f">CaO</span><sub class="h">(k)</sub> + <span class="f">CO<sub>2</sub></span><sub class="h">(g)</sub> &nbsp;<i>(ısı, redoks değil)</i></p>
+    </div>
+  </div>
+
+  <svg viewBox="0 0 178 42" style="width:100%;height:auto;margin:0 0 2.5mm">
+    <g font-family="Inter" text-anchor="middle">
+      <rect x="1" y="1" width="86" height="40" rx="3" fill="#eafaf7" stroke="#0f8f84" stroke-width=".4"/>
+      <rect x="91" y="1" width="86" height="40" rx="3" fill="#fff6e5" stroke="#c26a06" stroke-width=".4"/>
+      <text x="44" y="8" font-size="4" font-weight="800" fill="#0b6b62">İYON DEĞİŞİMİ · e⁻ aktarımı YOK</text>
+      <text x="134" y="8" font-size="4" font-weight="800" fill="#8a4a03">ELEKTRON AKTARIMI · REDOKS</text>
+      <g font-size="3.4" font-weight="700" fill="#1d2133">
+        <rect x="6" y="12" width="36" height="11" rx="2" fill="#fff" stroke="#0f8f84" stroke-width=".35"/><text x="24" y="19">Çökelme</text>
+        <rect x="46" y="12" width="36" height="11" rx="2" fill="#fff" stroke="#0f8f84" stroke-width=".35"/><text x="64" y="19">Asit-baz</text>
+        <rect x="95" y="12" width="24" height="11" rx="2" fill="#fff" stroke="#c26a06" stroke-width=".35"/><text x="107" y="19">Yanma</text>
+        <rect x="122" y="12" width="24" height="11" rx="2" fill="#fff" stroke="#c26a06" stroke-width=".35"/><text x="134" y="17.2">Metal +</text><text x="134" y="21.2">asit / su</text>
+        <rect x="149" y="12" width="24" height="11" rx="2" fill="#fff" stroke="#c26a06" stroke-width=".35"/><text x="161" y="17.2">Metal +</text><text x="161" y="21.2">tuz</text>
+      </g>
+      <text x="44" y="30" font-size="3.3" fill="#1d2133">İkili (çift) yer değiştirme: AB + CD → AD + CB</text>
+      <text x="44" y="35.5" font-size="3.1" fill="#5d6478">Tüm YB’ler aynı kalır.</text>
+      <text x="134" y="30" font-size="3.3" fill="#1d2133">Metal tepkimeleri tekli yer değiştirme: A + BC → AC + B</text>
+      <text x="134" y="35.5" font-size="3.1" fill="#5d6478">Elementel hâlde madde varsa redoks olma olasılığı yüksektir.</text>
+    </g>
+  </svg>
+
+  <div class="iki">
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p class="mini">Eski tip hava yastıklarında çarpışma algılanınca sodyum azit (<span class="f">NaN<sub>3</sub></span>) bir kıvılcımla ısıtılır ve 2<span class="f">NaN<sub>3</sub></span> → 2<span class="f">Na</span> + 3<span class="f">N<sub>2</sub></span> <b>analiz tepkimesi</b> gerçekleşir. Oluşan azot gazı yastığı saniyenin yirmide biri kadar kısa bir sürede doldurur.</p>
+    </div>
+    <div class="kutu ornek" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 6</div>
+      <div class="soru" style="font-size:9.2pt">2<span class="f">H<sub>2</sub>O<sub>2</sub></span><sub class="h">(suda)</sub> → 2<span class="f">H<sub>2</sub>O</span><sub class="h">(s)</sub> + <span class="f">O<sub>2</sub></span><sub class="h">(g)</sub> hangi türdedir?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Tek madde iki maddeye ayrışıyor → <b>analiz</b>.</span></div>
+        <div class="adim"><span class="n">2</span><span>O: −1 → −2 (indirgenir) ve −1 → 0 (yükseltgenir) → <b>redoks</b>.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Kimyasal Değişimler</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · ASİT-BAZ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Değişimler</span><span>Asit-baz tepkimeleri</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Asit-baz tepkimeleri</h2>
+  <div class="alt-baslik"><span class="f">H<sup>+</sup></span> ile <span class="f">OH<sup>−</sup></span> buluşur, su oluşur; geride bir tuz kalır.</div>
+
+  <div class="iki">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Arrhenius asidi</div>
+      <p class="mini">Suda çözündüğünde ortama <b><span class="f">H<sup>+</sup></span></b> (sulu ortamda <span class="f">H<sub>3</sub>O<sup>+</sup></span>) iyonu veren maddedir.<br><span class="f">HNO<sub>3</sub></span><sub class="h">(suda)</sub> → <span class="f">H<sup>+</sup></span><sub class="h">(suda)</sub> + <span class="f">NO<sub>3</sub><sup>−</sup></span><sub class="h">(suda)</sub><br><b>Kuvvetli:</b> <span class="f">HCl</span>, <span class="f">HBr</span>, <span class="f">HNO<sub>3</sub></span>, <span class="f">H<sub>2</sub>SO<sub>4</sub></span> · <b>Zayıf:</b> <span class="f">HF</span>, <span class="f">CH<sub>3</sub>COOH</span></p>
+    </div>
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Arrhenius bazı</div>
+      <p class="mini">Suda çözündüğünde ortama <b><span class="f">OH<sup>−</sup></span></b> iyonu veren ya da suyla tepkimesinden <span class="f">OH<sup>−</sup></span> oluşturan maddedir.<br><span class="f">NH<sub>3</sub></span><sub class="h">(suda)</sub> + <span class="f">H<sub>2</sub>O</span><sub class="h">(s)</sub> ⇌ <span class="f">NH<sub>4</sub><sup>+</sup></span><sub class="h">(suda)</sub> + <span class="f">OH<sup>−</sup></span><sub class="h">(suda)</sub><br><b>Kuvvetli:</b> <span class="f">NaOH</span>, <span class="f">KOH</span> · <b>Zayıf:</b> <span class="f">NH<sub>3</sub></span></p>
+    </div>
+  </div>
+
+  <div class="iki-genis" style="align-items:center;gap:4mm">
+    <div>
+      <div class="denk" style="margin-top:0"><span class="f">HCl</span><sub class="h">(suda)</sub> + <span class="f">NaOH</span><sub class="h">(suda)</sub> → <span class="f">NaCl</span><sub class="h">(suda)</sub> + <span class="f">H<sub>2</sub>O</span><sub class="h">(s)</sub></div>
+      <p class="mini">Asit ile baz tepkimeye girdiğinde <b>tuz ve genellikle su</b> oluşur. Tuzun <b>katyonu bazdan</b>, <b>anyonu asitten</b> gelir. Asit-baz tepkimeleri <b>ekzotermiktir</b>. Sulu ortamda gerçekleşen asit-baz tepkimelerine <b class="k">nötralleşme</b> denir. Kuvvetli asit ve kuvvetli baz arasındaki nötralleşmenin net iyon denklemi her zaman aynıdır:</p>
+      <div class="denk" style="margin-bottom:0"><span class="f">H<sup>+</sup></span><sub class="h">(suda)</sub> + <span class="f">OH<sup>−</sup></span><sub class="h">(suda)</sub> → <span class="f">H<sub>2</sub>O</span><sub class="h">(s)</sub></div>
+    </div>
+    <svg viewBox="0 0 80 62" style="width:100%;height:auto">
+      <g font-family="Inter" text-anchor="middle" font-weight="700">
+        <text x="40" y="5" font-size="3.6" fill="#6b0f34">pH ölçeği (25 °C, yaklaşık)</text>
+        <defs><linearGradient id="phg" x1="0" x2="1"><stop offset="0" stop-color="#dc2626"/><stop offset=".3" stop-color="#f59e0b"/><stop offset=".5" stop-color="#22c55e"/><stop offset=".72" stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs>
+        <rect x="4" y="24" width="72" height="6" rx="1.5" fill="url(#phg)"/>
+        <g font-size="2.8" fill="#1d2133" font-weight="600"><text x="4" y="34.5">0</text><text x="40" y="34.5">7</text><text x="76" y="34.5">14</text></g>
+        <g font-size="2.8" fill="#1d2133" font-weight="600">
+          <path d="M14.3 23v-7M19.4 23v-12" stroke="#5d6478" stroke-width=".3"/>
+          <text x="11" y="14.6">Mide özsuyu ~2</text><text x="22" y="9.4">Sirke ~3</text>
+          <path d="M40 23v-5" stroke="#5d6478" stroke-width=".3"/><text x="40" y="16.6">Saf su 7</text>
+          <path d="M45.1 31v8M60.6 31v13M68.3 31v18" stroke="#5d6478" stroke-width=".3"/>
+          <text x="45.1" y="42">Kabartma tozu ~8</text><text x="60.6" y="47">Amonyaklı temizleyici ~11</text><text x="66" y="52">Çamaşır suyu ~12,5</text>
+        </g>
+        <text x="16" y="59.5" font-size="3" fill="#dc2626">ASİDİK</text><text x="40" y="59.5" font-size="3" fill="#16a34a">NÖTR</text><text x="66" y="59.5" font-size="3" fill="#7c3aed">BAZİK</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="iki" style="margin-top:3mm">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 7</div>
+      <div class="soru" style="font-size:9.2pt"><span class="f">K<sub>2</sub>SO<sub>4</sub></span> ve <span class="f">Ca(NO<sub>3</sub>)<sub>2</sub></span> tuzları hangi asit-baz çiftlerinden elde edilebilir?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Katyon bazdan: <span class="f">K<sup>+</sup></span> → <span class="f">KOH</span>, <span class="f">Ca<sup>2+</sup></span> → <span class="f">Ca(OH)<sub>2</sub></span></span></div>
+        <div class="adim"><span class="n">2</span><span>Anyon asitten: <span class="f">SO<sub>4</sub><sup>2−</sup></span> → <span class="f">H<sub>2</sub>SO<sub>4</sub></span>, <span class="f">NO<sub>3</sub><sup>−</sup></span> → <span class="f">HNO<sub>3</sub></span></span></div>
+        <div class="adim"><span class="n">3</span><span><span class="f">H<sub>2</sub>SO<sub>4</sub></span> + 2<span class="f">KOH</span> → <span class="f">K<sub>2</sub>SO<sub>4</sub></span> + 2<span class="f">H<sub>2</sub>O</span><br>2<span class="f">HNO<sub>3</sub></span> + <span class="f">Ca(OH)<sub>2</sub></span> → <span class="f">Ca(NO<sub>3</sub>)<sub>2</sub></span> + 2<span class="f">H<sub>2</sub>O</span></span></div>
+      </div>
+    </div>
+    <div>
+      <div class="kutu kavram" style="margin-bottom:2.5mm">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Oksitler ve diğerleri</div>
+        <ul class="mini" style="margin-bottom:0">
+          <li>Ametal oksitleri (<span class="f">CO<sub>2</sub></span>, <span class="f">SO<sub>2</sub></span>, <span class="f">NO<sub>2</sub></span>) suda <b>asidik</b> çözelti oluşturur.</li>
+          <li>Aktif metal oksitleri (<span class="f">Na<sub>2</sub>O</span>, <span class="f">CaO</span>) suda <b>bazik</b> çözelti oluşturur.</li>
+          <li>Karbonat ve hidrojen karbonatlar (<span class="f">Na<sub>2</sub>CO<sub>3</sub></span>, <span class="f">NaHCO<sub>3</sub></span>) bazik özellik gösterir.</li>
+          <li><span class="f">CH<sub>3</sub>OH</span>, <span class="f">C<sub>2</sub>H<sub>5</sub>OH</span> gibi alkoller OH grubu içerse de <span class="f">OH<sup>−</sup></span> vermez; <b>baz değildir</b>.</li>
+        </ul>
+      </div>
+      <div class="kutu dikkat" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Her asit-baz tepkimesi nötralleşmedir ve su oluşturur.”</div>
+          <div class="dogru"><b class="d">✓</b> <span class="f">NH<sub>3</sub></span><sub class="h">(g)</sub> + <span class="f">HCl</span><sub class="h">(g)</sub> → <span class="f">NH<sub>4</sub>Cl</span><sub class="h">(k)</sub> bir asit-baz tepkimesidir ama sulu ortamda olmadığı için nötralleşme sayılmaz; su da oluşmaz.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu hayat" style="margin-bottom:0">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+    <p class="mini">Asidik topraklarda bazı bitkiler iyi gelişmez. Çiftçiler bu topraklara öğütülmüş kireç taşı (<span class="f">CaCO<sub>3</sub></span>) ya da sönmemiş kireç (<span class="f">CaO</span>) serperek toprağın asitliğini azaltır; buna <b>kireçleme</b> denir. Evde ise tersini yaparız: su ısıtıcısında biriken bazik kireç tabakasını sirke ya da limon tuzu gibi asitlerle çözeriz.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Kimyasal Değişimler</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · ÖZET
+     ========================================================= -->
+<section class="sayfa cift ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Değişimler</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada tepkimeler</h2><p>Sınavdan önceki gece bu sayfaya bakman yeter. Her kutuyu kendi cümlelerinle bir arkadaşına anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Değişim ve göstergeler</div>
+      <ul style="font-size:9.1pt">
+        <li><b>Kimyasal:</b> bağlar kopar, yeni madde oluşur.</li>
+        <li>Göstergeler: ışık, gaz, renk, çökelti, sıcaklık, pH, koku, iletkenlik. Tek başına <b>kesin kanıt değildir</b>.</li>
+        <li><b>Korunur:</b> atom türü ve sayısı, kütle, yük, p/n/e sayısı.</li>
+        <li><b>Değişebilir:</b> molekül sayısı, hâl, renk, hacim.</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Denklemi okumak</div>
+      <ul style="font-size:9.1pt">
+        <li>Tepkenler → ürünler; (k), (s), (g), (suda)</li>
+        <li>Aynı hâl: <b>homojen</b> · farklı hâl: <b>heterojen</b></li>
+        <li>Isı alan <b>endotermik</b>, ısı veren <b>ekzotermik</b></li>
+        <li>Sentez A + B → AB · Analiz AB → A + B</li>
+        <li>Organik madde tam yanınca: <span class="f">CO<sub>2</sub></span> + <span class="f">H<sub>2</sub>O</span></li>
+      </ul>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Üç tür, üç imza</div>
+      <ul style="font-size:9.1pt">
+        <li><b>Çökelme:</b> az çözünen katı; net iyon denklemi + seyirci iyonlar; iletkenlik azalır.</li>
+        <li><b>Redoks:</b> e<sup>−</sup> veren yükseltgenir (YB ↑), e<sup>−</sup> alan indirgenir (YB ↓). Yanma ve metal tepkimeleri.</li>
+        <li><b>Asit-baz:</b> <span class="f">H<sup>+</sup></span> + <span class="f">OH<sup>−</sup></span> → <span class="f">H<sub>2</sub>O</span>; tuzun katyonu bazdan, anyonu asitten.</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> En sık 4 hata</div>
+      <ul style="font-size:9.1pt">
+        <li>Çökelmeye katılan iyonları seyirci sanmak</li>
+        <li>YB’si artan türü “indirgendi” demek</li>
+        <li>OH içeren her maddeyi baz saymak</li>
+        <li>Molekül sayısının da korunduğunu düşünmek</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Fiziksel ve kimyasal değişimi örneklerle ayırt edebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Tepkime denklemini, hâlleri ve tanecik modellerini yorumlayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Çökelme tepkimesinin net iyon denklemini yazıp seyirci iyonları bulabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bir redoks tepkimesinde yükseltgenen ve indirgenen türleri bulabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Yanma, sentez ve analiz tepkimelerine örnek verebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Asit-baz tepkimesinin ürünlerini ve tuzun kaynağını söyleyebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:5mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Kimyasal Değişimler</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Değişimler</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Aşağıdaki çözümleri dört farklı öğrenci yazdı. Her birinde bir hata var. Hatayı bul, hangi satırda olduğunu yaz, doğrusunu kutuya çöz.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> <span class="f">Mg(NO<sub>3</sub>)<sub>2</sub></span> ve <span class="f">KOH</span> çözeltileri karıştırılıyor. Seyirci iyonlar hangileridir?</p>
+      <div class="defter">
+        <div class="ogrenci">Elif’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>Ürünler <span class="f">Mg(OH)<sub>2</sub></span> ve <span class="f">KNO<sub>3</sub></span> olur.</div>
+        <div class="satir"><span class="sn">2</span><span class="f">Mg(OH)<sub>2</sub></span> suda az çözünür, çöker.</div>
+        <div class="satir"><span class="sn">3</span>Seyirci iyonlar: <span class="f">Mg<sup>2+</sup></span> ve <span class="f">OH<sup>−</sup></span></div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> <span class="f">Zn</span> + <span class="f">CuSO<sub>4</sub></span> → <span class="f">ZnSO<sub>4</sub></span> + <span class="f">Cu</span> tepkimesinde hangi tür yükseltgenir?</p>
+      <div class="defter">
+        <div class="ogrenci">Burak’ın çözümü</div>
+        <div class="satir"><span class="sn">1</span>Zn: 0 → +2 olmuş.</div>
+        <div class="satir"><span class="sn">2</span>Cu: +2 → 0 olmuş.</div>
+        <div class="satir"><span class="sn">3</span>YB’si artan indirgenir: Zn indirgenmiştir.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Metil alkol (<span class="f">CH<sub>3</sub>OH</span>) suda çözündüğünde çözelti bazik olur mu?</p>
+      <div class="defter">
+        <div class="ogrenci">Selin’in çözümü</div>
+        <div class="satir"><span class="sn">1</span><span class="f">CH<sub>3</sub>OH</span> formülünde OH grubu var.</div>
+        <div class="satir"><span class="sn">2</span>OH grubu olan maddeler suya <span class="f">OH<sup>−</sup></span> verir.</div>
+        <div class="satir"><span class="sn">3</span>Öyleyse çözelti baziktir.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> 0,1 mol <span class="f">C<sub>3</sub>H<sub>8</sub></span> tamamen yanınca toplam kaç mol ürün molekülü oluşur?</p>
+      <div class="defter">
+        <div class="ogrenci">Onur’un çözümü</div>
+        <div class="satir"><span class="sn">1</span><span class="f">C<sub>3</sub>H<sub>8</sub></span> + 5<span class="f">O<sub>2</sub></span> → 3<span class="f">CO<sub>2</sub></span> + 4<span class="f">H<sub>2</sub>O</span></div>
+        <div class="satir"><span class="sn">2</span>Molekül sayısı korunur: 0,1 + 0,5 = 0,6</div>
+        <div class="satir"><span class="sn">3</span>Cevap: 0,6 mol ürün</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Redoks sorularında önce her türün YB’sini <b>okun iki yanına</b> yaz. Artış varsa elektron verilmiş, yani yükseltgenme olmuştur. Kelimeler karışınca sayılara güven.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Kimyasal Değişimler</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Değişimler</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni ve görseli oku, sonra hangi bilginin işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Sağlık</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Mide özsuyunda <span class="f">HCl</span> bulunur. Mide ekşimesinde kullanılan bir antasit tablet magnezyum hidroksit içerir:</p>
+          <p class="ortala" style="font-size:9.2pt"><span class="f">Mg(OH)<sub>2</sub></span><sub class="h">(k)</sub> + 2<span class="f">HCl</span><sub class="h">(suda)</sub> → <span class="f">MgCl<sub>2</sub></span><sub class="h">(suda)</sub> + 2<span class="f">H<sub>2</sub>O</span><sub class="h">(s)</sub></p>
+          <p>Buna göre; <span class="veri">(H: 1, O: 16, Mg: 24 g/mol)</span></p>
+          <div class="oncul"><div><b>I.</b><span>Nötralleşme tepkimesidir.</span></div><div><b>II.</b><span>0,58 g <span class="f">Mg(OH)<sub>2</sub></span> tamamen tepkimeye girdiğinde 0,02 mol <span class="f">HCl</span> harcanır.</span></div><div><b>III.</b><span>Magnezyum yükseltgenmiştir.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Endüstri</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Demir yolu raylarının ek yerleri <b>termit</b> tepkimesiyle kaynatılır. Alüminyum tozu ile demir(III) oksit karışımı tutuşturulunca açığa çıkan ısı demiri eritecek kadar yüksektir:</p>
+          <p class="ortala" style="font-size:9.2pt">2<span class="f">Al</span><sub class="h">(k)</sub> + <span class="f">Fe<sub>2</sub>O<sub>3</sub></span><sub class="h">(k)</sub> → <span class="f">Al<sub>2</sub>O<sub>3</sub></span><sub class="h">(k)</sub> + 2<span class="f">Fe</span><sub class="h">(s)</sub></p>
+          <p>5,4 g Al tamamen tepkimeye girdiğinde aktarılan elektron miktarı ve oluşan demirin kütlesi hangisidir? <span class="veri">(Al: 27, Fe: 56 g/mol)</span></p>
+          <div class="secenek"><span><b>A)</b>0,2 mol e<sup>−</sup> · 5,6 g</span><span><b>B)</b>0,3 mol e<sup>−</sup> · 11,2 g</span><span><b>C)</b>0,6 mol e<sup>−</sup> · 5,6 g</span><span><b>D)</b>0,6 mol e<sup>−</sup> · 11,2 g</span><span><b>E)</b>1,2 mol e<sup>−</sup> · 22,4 g</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Laboratuvar</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>Bir beherdeki <span class="f">Ba(OH)<sub>2</sub></span> çözeltisine damla damla <span class="f">H<sub>2</sub>SO<sub>4</sub></span> çözeltisi ekleniyor ve elektriksel iletkenlik ölçülüyor.</p>
+          <svg viewBox="0 0 120 74" style="width:100%;margin:1mm 0 2mm">
+            <g font-family="Inter" font-size="4.4" fill="#5d6478">
+              <g stroke="#e5e7f0" stroke-width=".3">
+                <line x1="18" y1="10" x2="112" y2="10"/><line x1="18" y1="28" x2="112" y2="28"/><line x1="18" y1="46" x2="112" y2="46"/>
+                <line x1="41.5" y1="8" x2="41.5" y2="62"/><line x1="65" y1="8" x2="65" y2="62"/><line x1="88.5" y1="8" x2="88.5" y2="62"/><line x1="112" y1="8" x2="112" y2="62"/>
+              </g>
+              <line x1="18" y1="62" x2="114" y2="62" stroke="#1d2133" stroke-width=".5"/>
+              <line x1="18" y1="62" x2="18" y2="5" stroke="#1d2133" stroke-width=".5"/>
+              <text x="18" y="67.5" text-anchor="middle">0</text><text x="41.5" y="67.5" text-anchor="middle">10</text><text x="65" y="67.5" text-anchor="middle">20</text><text x="88.5" y="67.5" text-anchor="middle">30</text><text x="112" y="67.5" text-anchor="middle">40</text>
+              <text x="66" y="73.5" text-anchor="middle" fill="#1d2133" font-weight="700">Eklenen H₂SO₄ çözeltisi (mL)</text>
+              <text x="20" y="4" fill="#1d2133" font-weight="700">İletkenlik</text>
+              <polyline points="18,12 65,60.5 112,24" fill="none" stroke="#c26a06" stroke-width="1.2" stroke-linejoin="round"/>
+              <circle cx="65" cy="60.5" r="1.3" fill="#9d174d"/>
+              <text x="68" y="57" fill="#9d174d" font-weight="700">K</text>
+            </g>
+          </svg>
+          <p>K noktasında bulanıklık en fazladır. Buna göre;</p>
+          <div class="oncul"><div><b>I.</b><span>Hem nötralleşme hem çökelme tepkimesi gerçekleşir.</span></div><div><b>II.</b><span>K noktasında iletkenliğin sıfıra yakın olması, çözeltide serbest iyonun neredeyse kalmamasındandır.</span></div><div><b>III.</b><span>K’den sonraki artış, fazla eklenen <span class="f">H<sub>2</sub>SO<sub>4</sub></span>’ün iyonlarından kaynaklanır.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Çevre · Geri kazanım</div>
+    <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+      <p>Bir maden işletmesinin atık suyunda çözünmüş <span class="f">CuSO<sub>4</sub></span> bulunuyor. Bakırı geri kazanmak isteyen bir ekip, eşit büyüklükteki metal plakaları önce atık suya, sonra ayrı bir kapta <span class="f">HCl</span> çözeltisine daldırıp gözlemlerini tabloya yazıyor.</p>
+      <table class="tablo" style="margin-bottom:1.5mm">
+        <tr><th>Metal</th><th>Atık su (<span class="f">Cu<sup>2+</sup></span> içeren)</th><th><span class="f">HCl</span> çözeltisi</th></tr>
+        <tr><td>Fe</td><td>Yüzeyde kızıl katı birikir, mavi renk açılır</td><td>Gaz çıkışı olur</td></tr>
+        <tr><td>Zn</td><td>Yüzeyde kızıl katı birikir, mavi renk açılır</td><td>Gaz çıkışı olur</td></tr>
+        <tr><td>Ag</td><td>Değişim gözlenmez</td><td>Değişim gözlenmez</td></tr>
+      </table>
+      <p>Buna göre; &nbsp;<b>I.</b> Fe ve Zn, Cu’dan daha aktiftir. &nbsp;<b>II.</b> Ag metali <span class="f">HCl</span> çözeltisinden <span class="f">H<sub>2</sub></span> gazı açığa çıkarır. &nbsp;<b>III.</b> Fe plaka kullanıldığında atık sudaki <span class="f">Cu<sup>2+</sup></span> iyonları indirgenir. &nbsp;yargılarından hangileri doğrudur?</p>
+      <div class="secenek bes"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Kimyasal Değişimler</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Değişimler</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, sadece o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p>Ağzı açık bir kapta 25 g <span class="f">CaCO<sub>3</sub></span> katısı, tamamı ayrışana kadar ısıtılıyor. Kapta kaç gram katı kalır ve kaç mol gaz kaptan çıkar? <span class="veri">(C: 12, O: 16, Ca: 40 g/mol)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Analiz tepkimesini yaz: <span class="f">CaCO<sub>3</sub></span><sub class="h">(k)</sub> → <span class="f">CaO</span><sub class="h">(k)</sub> + <span class="f">CO<sub>2</sub></span><sub class="h">(g)</sub>. Gaz olan ürün kaptan çıkar.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic"><span class="f">CaCO<sub>3</sub></span>’ün mol kütlesi 100 g/mol → 25 g kaç mol? Katsayılar 1 : 1 : 1.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Kalan katı <span class="f">CaO</span> (56 g/mol). Kontrol: m(<span class="f">CaO</span>) + m(<span class="f">CO<sub>2</sub></span>) = 25 g olmalı.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p>3,6 g magnezyum şerit, yeterince <span class="f">AgNO<sub>3</sub></span> çözeltisine atılıyor. Tepkimede kaç mol elektron aktarılır ve kaç gram gümüş birikir? <span class="veri">(Mg: 24, Ag: 108 g/mol)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Denklem: <span class="f">Mg</span><sub class="h">(k)</sub> + 2<span class="f">AgNO<sub>3</sub></span><sub class="h">(suda)</sub> → <span class="f">Mg(NO<sub>3</sub>)<sub>2</sub></span><sub class="h">(suda)</sub> + 2<span class="f">Ag</span><sub class="h">(k)</sub>. Mg’nin molünü bul.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Her Mg atomu 0 → +2 olur, yani 2 elektron verir. Verilen elektron = alınan elektron.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Her <span class="f">Ag<sup>+</sup></span> bir elektron alır: aktarılan elektron molü kadar Ag oluşur. Kütleye çevir.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p>0,2 mol <span class="f">AgNO<sub>3</sub></span> içeren çözelti ile 0,15 mol <span class="f">CaCl<sub>2</sub></span> içeren çözelti karıştırılıyor. Kaç gram çökelek oluşur? Tepkimeden sonra çözeltide hangi iyonlardan kaçar mol kalır? <span class="veri">(Cl: 35,5, Ag: 108 g/mol)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">İyonları say: 0,2 mol <span class="f">Ag<sup>+</sup></span>, 0,2 mol <span class="f">NO<sub>3</sub><sup>−</sup></span>, 0,15 mol <span class="f">Ca<sup>2+</sup></span> ve 0,15·2 = 0,3 mol <span class="f">Cl<sup>−</sup></span>.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Net iyon denklemi: <span class="f">Ag<sup>+</sup></span> + <span class="f">Cl<sup>−</sup></span> → <span class="f">AgCl</span><sub class="h">(k)</sub> (1 : 1). Hangisi önce biter?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic"><span class="f">AgCl</span> = 143,5 g/mol. Seyirci iyonlar hiç azalmaz; artan <span class="f">Cl<sup>−</sup></span> de çözeltide kalır.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Kimyasal Değişimler</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa cift test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Değişimler</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 25 dakika. Gerekli mol kütleleri ve bilgiler soruların içinde verilmiştir.</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>Aşağıdaki olaylardan hangisinde kimyasal değişim gerçekleşir?</p>
+        <div class="secenek tek"><span><b>A)</b>Kışın pencere camlarının buğulanması</span><span><b>B)</b>Bakır çatının zamanla yeşile dönmesi</span><span><b>C)</b>Çikolatanın avuçta erimesi</span><span><b>D)</b>Kolonya kokusunun odaya yayılması</span><span><b>E)</b>Çamurlu suyun süzgeçten geçirilmesi</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>Kimyasal tepkimelerde;</p>
+        <div class="oncul"><div><b>I.</b><span>Toplam kütle</span></div><div><b>II.</b><span>Toplam molekül sayısı</span></div><div><b>III.</b><span>Atom türü ve sayısı</span></div><div><b>IV.</b><span>Maddelerin fiziksel hâli</span></div></div>
+        <p>niceliklerinden hangileri her zaman korunur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>I ve II</span><span><b>C)</b>II ve IV</span><span><b>D)</b>I ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p>Kapalı bir kapta gerçekleşen bir tepkimenin öncesi ve sonrası tanecik modeliyle gösterilmiştir.</p>
+        <svg viewBox="0 0 100 34" style="width:100%;height:auto;margin:.5mm 0 1.5mm">
+          <g font-family="Inter" font-size="3.6" text-anchor="middle" fill="#5d6478" font-weight="700">
+            <rect x="1" y="1" width="40" height="26" rx="2" fill="#fff" stroke="#9aa3b8" stroke-width=".4"/>
+            <rect x="59" y="1" width="40" height="26" rx="2" fill="#fff" stroke="#9aa3b8" stroke-width=".4"/>
+            <path d="M44 14h11" stroke="#9d174d" stroke-width=".7"/><path d="M53.5 12l2.5 2-2.5 2z" fill="#9d174d"/>
+            <!-- önce: 4 CO, 3 O2 -->
+            <g><circle cx="7" cy="7" r="2.3" fill="#374151"/><circle cx="11" cy="7" r="2.3" fill="#e11d48"/></g>
+            <g><circle cx="22" cy="6" r="2.3" fill="#374151"/><circle cx="26" cy="6" r="2.3" fill="#e11d48"/></g>
+            <g><circle cx="8" cy="20" r="2.3" fill="#374151"/><circle cx="12" cy="20" r="2.3" fill="#e11d48"/></g>
+            <g><circle cx="30" cy="20" r="2.3" fill="#374151"/><circle cx="34" cy="20" r="2.3" fill="#e11d48"/></g>
+            <g fill="#e11d48"><circle cx="33" cy="9" r="2.3"/><circle cx="37" cy="9" r="2.3"/><circle cx="17" cy="14" r="2.3"/><circle cx="21" cy="14" r="2.3"/><circle cx="20" cy="22.5" r="2.3"/><circle cx="24" cy="22.5" r="2.3"/></g>
+            <!-- sonra: 4 CO2, 1 O2 -->
+            <g><circle cx="63" cy="7" r="2.1" fill="#e11d48"/><circle cx="67" cy="7" r="2.3" fill="#374151"/><circle cx="71" cy="7" r="2.1" fill="#e11d48"/></g>
+            <g><circle cx="80" cy="8" r="2.1" fill="#e11d48"/><circle cx="84" cy="8" r="2.3" fill="#374151"/><circle cx="88" cy="8" r="2.1" fill="#e11d48"/></g>
+            <g><circle cx="64" cy="20" r="2.1" fill="#e11d48"/><circle cx="68" cy="20" r="2.3" fill="#374151"/><circle cx="72" cy="20" r="2.1" fill="#e11d48"/></g>
+            <g><circle cx="86" cy="21" r="2.1" fill="#e11d48"/><circle cx="90" cy="21" r="2.3" fill="#374151"/><circle cx="94" cy="21" r="2.1" fill="#e11d48"/></g>
+            <g fill="#e11d48"><circle cx="76" cy="14" r="2.3"/><circle cx="80" cy="14" r="2.3"/></g>
+            <text x="21" y="32">Önce</text><text x="79" y="32">Sonra</text>
+            <circle cx="49" cy="25" r="1.6" fill="#374151"/><text x="53.5" y="26.2" font-size="3" text-anchor="start">C</text>
+            <circle cx="49" cy="31" r="1.6" fill="#e11d48"/><text x="53.5" y="32.2" font-size="3" text-anchor="start">O</text>
+          </g>
+        </svg>
+        <p>Bu değişimi en sade şekilde gösteren denklem hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>2<span class="f">CO</span> + <span class="f">O<sub>2</sub></span> → 2<span class="f">CO<sub>2</sub></span></span><span><b>B)</b>4<span class="f">CO</span> + 3<span class="f">O<sub>2</sub></span> → 4<span class="f">CO<sub>2</sub></span> + <span class="f">O<sub>2</sub></span></span><span><b>C)</b><span class="f">CO</span> + <span class="f">O<sub>2</sub></span> → <span class="f">CO<sub>2</sub></span> + O</span><span><b>D)</b>4<span class="f">CO</span> + 3<span class="f">O<sub>2</sub></span> → 4<span class="f">CO<sub>2</sub></span></span><span><b>E)</b>2C + 2<span class="f">O<sub>2</sub></span> → 2<span class="f">CO<sub>2</sub></span></span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p><span class="f">CaCO<sub>3</sub></span><sub class="h">(k)</sub> <span style="white-space:nowrap">—ısı→</span> <span class="f">CaO</span><sub class="h">(k)</sub> + <span class="f">CO<sub>2</sub></span><sub class="h">(g)</sub></p>
+        <p>tepkimesi ile ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>Analiz (ayrışma) tepkimesidir.</span></div><div><b>II.</b><span>Heterojen tepkimedir.</span></div><div><b>III.</b><span>Redoks tepkimesidir.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p>Aşağıdaki sulu çözelti çiftleri aynı sıcaklıkta karıştırılıyor. Hangisinde çökelek oluşur?</p>
+        <div class="secenek tek"><span><b>A)</b><span class="f">NaNO<sub>3</sub></span> – <span class="f">KCl</span></span><span><b>B)</b><span class="f">K<sub>2</sub>SO<sub>4</sub></span> – <span class="f">NH<sub>4</sub>NO<sub>3</sub></span></span><span><b>C)</b><span class="f">LiBr</span> – <span class="f">NaNO<sub>3</sub></span></span><span><b>D)</b><span class="f">NaOH</span> – <span class="f">KNO<sub>3</sub></span></span><span><b>E)</b><span class="f">AgNO<sub>3</sub></span> – <span class="f">KBr</span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p><span class="f">Fe(NO<sub>3</sub>)<sub>3</sub></span><sub class="h">(suda)</sub> + 3<span class="f">NaOH</span><sub class="h">(suda)</sub> → <span class="f">Fe(OH)<sub>3</sub></span><sub class="h">(k)</sub> + 3<span class="f">NaNO<sub>3</sub></span><sub class="h">(suda)</sub></p>
+        <p>tepkimesi ile ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>Net iyon denklemi <span class="f">Fe<sup>3+</sup></span> + 3<span class="f">OH<sup>−</sup></span> → <span class="f">Fe(OH)<sub>3</sub></span><sub class="h">(k)</sub> şeklindedir.</span></div><div><b>II.</b><span><span class="f">Na<sup>+</sup></span> ve <span class="f">NO<sub>3</sub><sup>−</sup></span> seyirci iyonlardır.</span></div><div><b>III.</b><span>Tepkime boyunca çözeltinin elektriksel iletkenliği artar.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>I ve II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Kimyasal Değişimler</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · TEST (7–12)
+     ========================================================= -->
+<section class="sayfa test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Değişimler</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>Aşağıdaki maddelerin hangisinde azot (N) atomunun yükseltgenme basamağı en büyüktür? <span class="veri">(H: +1, O: −2)</span></p>
+        <div class="secenek"><span><b>A)</b><span class="f">NH<sub>3</sub></span></span><span><b>B)</b><span class="f">N<sub>2</sub></span></span><span><b>C)</b><span class="f">N<sub>2</sub>O</span></span><span><b>D)</b><span class="f">HNO<sub>3</sub></span></span><span><b>E)</b><span class="f">NO<sub>2</sub></span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p>Aşağıdaki tepkimelerden hangisi bir redoks tepkimesidir?</p>
+        <div class="secenek tek"><span><b>A)</b>2<span class="f">K</span> + 2<span class="f">H<sub>2</sub>O</span> → 2<span class="f">KOH</span> + <span class="f">H<sub>2</sub></span></span><span><b>B)</b><span class="f">HCl</span> + <span class="f">NaOH</span> → <span class="f">NaCl</span> + <span class="f">H<sub>2</sub>O</span></span><span><b>C)</b><span class="f">CaO</span> + <span class="f">H<sub>2</sub>O</span> → <span class="f">Ca(OH)<sub>2</sub></span></span><span><b>D)</b><span class="f">AgNO<sub>3</sub></span> + <span class="f">NaBr</span> → <span class="f">AgBr</span> + <span class="f">NaNO<sub>3</sub></span></span><span><b>E)</b><span class="f">MgCO<sub>3</sub></span> → <span class="f">MgO</span> + <span class="f">CO<sub>2</sub></span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p><span class="f">Zn</span><sub class="h">(k)</sub> + <span class="f">CuSO<sub>4</sub></span><sub class="h">(suda)</sub> → <span class="f">ZnSO<sub>4</sub></span><sub class="h">(suda)</sub> + <span class="f">Cu</span><sub class="h">(k)</sub></p>
+        <p>tepkimesi ile ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>Zn atomları elektron vererek yükseltgenir.</span></div><div><b>II.</b><span>Her <span class="f">Cu<sup>2+</sup></span> iyonu 2 elektron alarak indirgenir.</span></div><div><b>III.</b><span>Tekli yer değiştirme tepkimesidir.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p>0,2 mol etan (<span class="f">C<sub>2</sub>H<sub>6</sub></span>) gazının tamamen yanması için kaç mol <span class="f">O<sub>2</sub></span> gerekir?</p>
+        <div class="secenek"><span><b>A)</b>0,35</span><span><b>B)</b>0,4</span><span><b>C)</b>0,7</span><span><b>D)</b>0,6</span><span><b>E)</b>1,4</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <p>Aşağıdaki maddelerden hangisi suda çözündüğünde <b>bazik</b> bir çözelti oluşturmaz?</p>
+        <div class="secenek"><span><b>A)</b><span class="f">CH<sub>3</sub>OH</span></span><span><b>B)</b><span class="f">KOH</span></span><span><b>C)</b><span class="f">NH<sub>3</sub></span></span><span><b>D)</b><span class="f">Na<sub>2</sub>O</span></span><span><b>E)</b><span class="f">NaHCO<sub>3</sub></span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p><span class="f">HNO<sub>3</sub></span><sub class="h">(suda)</sub> + <span class="f">KOH</span><sub class="h">(suda)</sub> → <span class="f">KNO<sub>3</sub></span><sub class="h">(suda)</sub> + <span class="f">H<sub>2</sub>O</span><sub class="h">(s)</sub></p>
+        <p>tepkimesi ile ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>Net iyon denklemi <span class="f">H<sup>+</sup></span> + <span class="f">OH<sup>−</sup></span> → <span class="f">H<sub>2</sub>O</span> şeklindedir.</span></div><div><b>II.</b><span>Tuzun katyonu bazdan, anyonu asitten gelir.</span></div><div><b>III.</b><span>Isı alarak gerçekleşir.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fdf7fa;margin-top:2mm">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 3., 4. ve 6. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Kimyasal Değişimler</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Değişimler</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>B</span></div><div><b>2</b><span>D</span></div><div><b>3</b><span>A</span></div><div><b>4</b><span>C</span></div>
+    <div><b>5</b><span>E</span></div><div><b>6</b><span>B</span></div><div><b>7</b><span>D</span></div><div><b>8</b><span>A</span></div>
+    <div><b>9</b><span>E</span></div><div><b>10</b><span>C</span></div><div><b>11</b><span>A</span></div><div><b>12</b><span>C</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · B</b> Bakırın yüzeyi havadaki su, <span class="f">O<sub>2</sub></span> ve <span class="f">CO<sub>2</sub></span> ile tepkimeye girip yeşil bir bakır bileşiği oluşturur. Diğerleri hâl değişimi, yayılma veya ayırma işlemidir.</div>
+    <div class="c"><b>2 · D</b> Kütle ve atomlar korunur. Molekül sayısı (ör. <span class="f">N<sub>2</sub></span> + 3<span class="f">H<sub>2</sub></span> → 2<span class="f">NH<sub>3</sub></span>) ve hâl değişebilir.</div>
+    <div class="c"><b>3 · A</b> 4 <span class="f">CO</span> ve 3 <span class="f">O<sub>2</sub></span>’den 4 <span class="f">CO<sub>2</sub></span> oluşmuş, 1 <span class="f">O<sub>2</sub></span> artmış. Harcanan: 4<span class="f">CO</span> + 2<span class="f">O<sub>2</sub></span> → 4<span class="f">CO<sub>2</sub></span>; sadeleştir: 2 : 1 : 2.</div>
+    <div class="c"><b>4 · C</b> Tek madde ayrışır (I ✓); katı ve gaz bir arada (II ✓). Ca +2, C +4, O −2 her iki tarafta aynı (III ✗).</div>
+    <div class="c"><b>5 · E</b> <span class="f">AgBr</span> suda az çözünür. Diğer çiftlerde oluşabilecek tüm tuzlar alkali, <span class="f">NH<sub>4</sub><sup>+</sup></span> ya da nitrat tuzudur; çözünür.</div>
+    <div class="c"><b>6 · B</b> Çöken <span class="f">Fe<sup>3+</sup></span> ve <span class="f">OH<sup>−</sup></span> net denklemde (I ✓); <span class="f">Na<sup>+</sup></span>, <span class="f">NO<sub>3</sub><sup>−</sup></span> çözeltide kalır (II ✓). İyonlar çöktüğü için iletkenlik azalır (III ✗).</div>
+    <div class="c"><b>7 · D</b> <span class="f">NH<sub>3</sub></span>: −3 · <span class="f">N<sub>2</sub></span>: 0 · <span class="f">N<sub>2</sub>O</span>: +1 · <span class="f">HNO<sub>3</sub></span>: +1 + x − 6 = 0 → +5 · <span class="f">NO<sub>2</sub></span>: +4.</div>
+    <div class="c"><b>8 · A</b> K: 0 → +1, H: +1 → 0. B asit-baz, C sentez, D çökelme, E analiz; bunlarda YB değişmez.</div>
+    <div class="c"><b>9 · E</b> Zn: 0 → +2 (2 e<sup>−</sup> verir), Cu: +2 → 0 (2 e<sup>−</sup> alır). Zn, bileşikteki Cu’nun yerini alır.</div>
+    <div class="c"><b>10 · C</b> 2<span class="f">C<sub>2</sub>H<sub>6</sub></span> + 7<span class="f">O<sub>2</sub></span> → 4<span class="f">CO<sub>2</sub></span> + 6<span class="f">H<sub>2</sub>O</span>. 0,2 mol <span class="f">C<sub>2</sub>H<sub>6</sub></span> için 0,2·7/2 = 0,7 mol <span class="f">O<sub>2</sub></span>.</div>
+    <div class="c"><b>11 · A</b> Metanol <span class="f">OH<sup>−</sup></span> vermez, nötrdür. <span class="f">KOH</span> kuvvetli baz; <span class="f">NH<sub>3</sub></span> suyla <span class="f">OH<sup>−</sup></span> oluşturur; <span class="f">Na<sub>2</sub>O</span> bazik oksit; <span class="f">NaHCO<sub>3</sub></span> bazik tuz.</div>
+    <div class="c"><b>12 · C</b> Kuvvetli asit-kuvvetli baz nötralleşmesi (I ✓); <span class="f">K<sup>+</sup></span> bazdan, <span class="f">NO<sub>3</sub><sup>−</sup></span> asitten (II ✓). Nötralleşme ekzotermiktir (III ✗).</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> Sulu ortamda asit-baz (I ✓). n = 0,58/58 = 0,01 mol → 0,02 mol <span class="f">HCl</span> (II ✓). Mg tepkimeden önce de sonra da +2 (III ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · D</b> 5,4/27 = 0,2 mol Al; her Al 3 e<sup>−</sup> verir → 0,6 mol e<sup>−</sup>. Al : Fe = 1 : 1 → 0,2·56 = 11,2 g Fe.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · E</b> <span class="f">Ba<sup>2+</sup></span> + <span class="f">SO<sub>4</sub><sup>2−</sup></span> → <span class="f">BaSO<sub>4</sub></span><sub class="h">(k)</sub> ve <span class="f">H<sup>+</sup></span> + <span class="f">OH<sup>−</sup></span> → <span class="f">H<sub>2</sub>O</span> birlikte olur (I ✓). K’de iyonların neredeyse tamamı çökelek ve suya dönüşmüştür (II ✓). Sonra eklenen asidin iyonları iletkenliği artırır (III ✓).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · C</b> Fe ve Zn, <span class="f">Cu<sup>2+</sup></span>’yi Cu’ya indirger → Cu’dan aktif (I ✓, III ✓). Ag, HCl’de gaz vermez; soy metaldir (II ✗).</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1 · 14 g <span class="f">CaO</span>, 0,25 mol <span class="f">CO<sub>2</sub></span></b> 25/100 = 0,25 mol; <span class="f">CaO</span>: 0,25·56 = 14 g; <span class="f">CO<sub>2</sub></span>: 0,25 mol = 11 g. 14 + 11 = 25 ✓</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2 · 0,3 mol e<sup>−</sup>, 32,4 g Ag</b> 3,6/24 = 0,15 mol Mg × 2 = 0,3 mol e<sup>−</sup> → 0,3 mol Ag × 108 = 32,4 g.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3 · 28,7 g <span class="f">AgCl</span></b> <span class="f">Ag<sup>+</sup></span> (0,2) önce biter: 0,2·143,5 = 28,7 g. Kalan: 0,15 mol <span class="f">Ca<sup>2+</sup></span>, 0,2 mol <span class="f">NO<sub>3</sub><sup>−</sup></span>, 0,1 mol <span class="f">Cl<sup>−</sup></span>.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 3</b> <span class="f">Mg<sup>2+</sup></span> ve <span class="f">OH<sup>−</sup></span> çökeleği oluşturur. Seyirci iyonlar <span class="f">K<sup>+</sup></span> ve <span class="f">NO<sub>3</sub><sup>−</sup></span>’tür.</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 3</b> YB’si artan tür elektron vermiştir, <b>yükseltgenir</b>. Zn yükseltgenmiş, <span class="f">Cu<sup>2+</sup></span> indirgenmiştir.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 2</b> Alkollerdeki OH grubu karbona kovalent bağlıdır, suya <span class="f">OH<sup>−</sup></span> vermez. Çözelti nötrdür.</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 2</b> Molekül sayısı korunmaz; atomlar korunur. 0,1 mol <span class="f">C<sub>3</sub>H<sub>8</sub></span> → 0,3 mol <span class="f">CO<sub>2</sub></span> + 0,4 mol <span class="f">H<sub>2</sub>O</span> = 0,7 mol ürün.</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Kimyasal Değişimler</span><span class="no">14</span></div>
+</section>
+
+</body>
+</html>

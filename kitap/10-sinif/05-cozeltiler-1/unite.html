@@ -1,0 +1,1161 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Çözeltiler 1 · Kimya Rotası 10</title>
+<style>
+/* ==========================================================
+   KİMYA ROTASI — ortak sayfa ve kutu tasarımı (A4, baskı)
+   Her ünite kendi --unite rengini <body style> ile verir.
+   ========================================================== */
+
+@page { size: A4; margin: 0; }
+
+:root {
+  --unite: #4338ca;          /* ünite kimlik rengi (mol: indigo) */
+  --unite-acik: #eef0ff;
+  --unite-koyu: #2a2380;
+  --vurgu: #f59e0b;          /* ikincil vurgu (amber) */
+
+  --kavram: #4f46e5;   --kavram-bg: #eef2ff;
+  --hayat: #c26a06;    --hayat-bg: #fff6e5;
+  --dikkat: #e11d48;   --dikkat-bg: #fff1f3;
+  --ornek: #0f8f84;    --ornek-bg: #eafaf7;
+  --ipucu: #7c3aed;    --ipucu-bg: #f4f0ff;
+  --hata: #ea580c;     --hata-bg: #fff4ec;
+
+  --metin: #1d2133;
+  --soluk: #5d6478;
+  --cizgi: #dfe3ee;
+  --kagit: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Inter", "DejaVu Sans", sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.5;
+  color: var(--metin);
+  background: #8a8fa3;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* ---------- Sayfa ---------- */
+.sayfa {
+  width: 210mm; height: 297mm;
+  position: relative; overflow: hidden;
+  background: var(--kagit);
+  padding: 22mm 16mm 18mm 16mm;
+  page-break-after: always; break-after: page;
+  margin: 0 auto;
+}
+@media screen { .sayfa { margin: 8mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.25); } }
+
+.ust-serit {
+  position: absolute; top: 0; left: 0; right: 0; height: 13mm;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16mm; font-size: 8pt; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--unite-koyu); font-weight: 600;
+  border-bottom: 1.2mm solid var(--unite);
+  background: linear-gradient(90deg, var(--unite-acik), #fff 70%);
+}
+.ust-serit .baslik-k { display: flex; gap: 3mm; align-items: center; }
+.ust-serit .nokta { width: 2.4mm; height: 2.4mm; border-radius: 50%; background: var(--vurgu); }
+
+.alt-bilgi {
+  position: absolute; bottom: 7mm; left: 16mm; right: 16mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 7.5pt; color: var(--soluk);
+}
+.alt-bilgi .no {
+  min-width: 9mm; height: 9mm; border-radius: 50%;
+  background: var(--unite); color: #fff; font-weight: 700; font-size: 9pt;
+  display: grid; place-items: center;
+}
+.sayfa.cift .alt-bilgi { flex-direction: row-reverse; }
+
+/* ---------- Başlıklar ---------- */
+h1, h2, h3, h4 { font-family: "Inter Display", "Inter", sans-serif; margin: 0; line-height: 1.15; }
+h2.konu {
+  font-size: 21pt; font-weight: 800; color: var(--unite-koyu);
+  display: flex; align-items: baseline; gap: 3.5mm; margin-bottom: 1.5mm;
+}
+h2.konu .num {
+  font-size: 11pt; font-weight: 700; color: #fff; background: var(--unite);
+  padding: .6mm 2.6mm; border-radius: 2mm; transform: translateY(-1mm);
+}
+.alt-baslik { color: var(--soluk); font-size: 10pt; margin-bottom: 5mm; }
+h3 {
+  font-size: 13pt; font-weight: 750; color: var(--unite-koyu);
+  margin: 4.5mm 0 2mm; display: flex; align-items: center; gap: 2.2mm;
+}
+h3::before { content: ""; width: 1.4mm; height: 5mm; background: var(--vurgu); border-radius: 1mm; }
+p { margin: 0 0 2.4mm; }
+ul { margin: 0 0 2.4mm; padding-left: 5mm; }
+li { margin-bottom: 1mm; }
+b, strong { font-weight: 700; }
+.vurgu { background: linear-gradient(transparent 58%, #fde68a 58%); padding: 0 .5mm; }
+.k { color: var(--unite); font-weight: 700; }
+.kucuk { font-size: 8.6pt; color: var(--soluk); }
+.ortala { text-align: center; }
+
+/* Kimyasal formül ve üs */
+.f { white-space: nowrap; font-weight: 600; }
+sub, sup { font-size: 68%; line-height: 0; }
+.izotop { display: inline-flex; align-items: center; white-space: nowrap; font-weight: 600; }
+.izotop .yz { display: inline-flex; flex-direction: column; font-size: 62%; line-height: 1.05; text-align: right; margin-right: .3mm; font-weight: 600; }
+
+/* ---------- Izgara ---------- */
+.iki { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.iki-genis { display: grid; grid-template-columns: 1.25fr 1fr; gap: 5mm; }
+.uc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.dort { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+
+/* ---------- Kutular ---------- */
+.kutu {
+  border-radius: 3mm; padding: 3.2mm 4mm 3mm; margin: 0 0 3.5mm;
+  position: relative; break-inside: avoid;
+  background: var(--bg); border: .35mm solid color-mix(in srgb, var(--renk) 30%, #fff);
+}
+.kutu > .etiket {
+  display: inline-flex; align-items: center; gap: 1.6mm;
+  font-family: "Inter Display", sans-serif;
+  font-size: 7.6pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--renk);
+  padding: .7mm 2.4mm .7mm 1.6mm; border-radius: 1.4mm; margin-bottom: 2mm;
+}
+.kutu > .etiket svg { width: 3.4mm; height: 3.4mm; }
+.kutu p:last-child, .kutu ul:last-child { margin-bottom: 0; }
+.kavram { --renk: var(--kavram); --bg: var(--kavram-bg); }
+.hayat  { --renk: var(--hayat);  --bg: var(--hayat-bg); }
+.dikkat { --renk: var(--dikkat); --bg: var(--dikkat-bg); }
+.ornek  { --renk: var(--ornek);  --bg: var(--ornek-bg); }
+.ipucu  { --renk: var(--ipucu);  --bg: var(--ipucu-bg); }
+.hata   { --renk: var(--hata);   --bg: var(--hata-bg); }
+.duz    { --renk: var(--unite);  --bg: #fff; }
+
+.kutu.serit { border: none; border-left: 1.4mm solid var(--renk); border-radius: 0 3mm 3mm 0; }
+
+/* Yanılgı kartı: yanlış / doğru */
+.yanilgi { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-top: 1mm; }
+.yanilgi > div { border-radius: 2mm; padding: 2mm 2.6mm; font-size: 9.2pt; line-height: 1.4; }
+.yanilgi .yanlis { background: #fff; border: .3mm dashed var(--dikkat); }
+.yanilgi .dogru { background: #fff; border: .3mm solid var(--ornek); }
+.yanilgi b.y { color: var(--dikkat); }
+.yanilgi b.d { color: var(--ornek); }
+
+/* Çözümlü örnek */
+.ornek .soru { font-weight: 600; margin-bottom: 2mm; }
+.cozum { background: #fff; border-radius: 2mm; padding: 2.2mm 3mm; font-size: 9.4pt; }
+.cozum .adim { display: grid; grid-template-columns: 5mm 1fr; gap: 1.6mm; margin-bottom: 1.1mm; align-items: start; }
+.cozum .adim .n {
+  width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--ornek); color: #fff;
+  font-size: 7pt; font-weight: 700; display: grid; place-items: center; margin-top: .4mm;
+}
+.sonuc {
+  display: inline-block; margin-top: .8mm; font-weight: 700; color: var(--ornek);
+  border: .35mm solid var(--ornek); border-radius: 1.5mm; padding: .2mm 2mm;
+}
+.denklem {
+  font-family: "Inter", sans-serif; font-weight: 600; text-align: center;
+  font-size: 11pt; padding: 1.5mm 0; color: var(--unite-koyu);
+}
+.kesir { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 1mm; line-height: 1.2; }
+.kesir > span:first-child { border-bottom: .3mm solid currentColor; padding: 0 1mm; }
+.kesir > span:last-child { padding: 0 1mm; }
+
+/* Tablo */
+table.tablo { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9.2pt; margin: 1mm 0 3mm; }
+table.tablo th { background: var(--unite); color: #fff; font-weight: 700; padding: 1.6mm 2mm; text-align: left; }
+table.tablo th:first-child { border-top-left-radius: 2mm; }
+table.tablo th:last-child { border-top-right-radius: 2mm; }
+table.tablo td { padding: 1.6mm 2mm; border-bottom: .3mm solid var(--cizgi); }
+table.tablo tr:nth-child(even) td { background: #f7f8fc; }
+
+/* ---------- Soru düzeni ---------- */
+.soru-blok { break-inside: avoid; margin-bottom: 4.5mm; }
+.soru-ust { display: flex; gap: 2.4mm; align-items: flex-start; }
+.soru-no {
+  flex: none; width: 7.5mm; height: 7.5mm; border-radius: 2mm;
+  background: var(--unite); color: #fff; font-weight: 800; font-size: 10pt;
+  display: grid; place-items: center; font-family: "Inter Display", sans-serif;
+}
+.soru-metin { flex: 1; }
+.secenek { display: grid; grid-template-columns: 1fr 1fr; gap: .8mm 4mm; margin-top: 1.6mm; font-size: 9.6pt; }
+.secenek.tek { grid-template-columns: 1fr; }
+.secenek.bes { grid-template-columns: repeat(5, 1fr); }
+.secenek span b { color: var(--unite); margin-right: 1mm; }
+.oncul { margin: 1mm 0 1mm 1mm; }
+.oncul div { display: grid; grid-template-columns: 7mm 1fr; }
+.oncul div > b:first-child { color: var(--unite); }
+.veri { font-size: 8.4pt; color: var(--soluk); font-style: italic; }
+
+.etiket-soru svg { width: 3mm; height: 3mm; }
+.etiket-soru {
+  display: inline-flex; gap: 1.4mm; align-items: center;
+  font-size: 7pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  padding: .5mm 2mm; border-radius: 10mm; margin-bottom: 1.2mm;
+  color: var(--renk); background: var(--bg); border: .3mm solid var(--renk);
+}
+.zorluk { display: inline-flex; gap: .7mm; margin-left: 1.2mm; vertical-align: middle; }
+.zorluk i { width: 1.9mm; height: 1.9mm; border-radius: 50%; background: #d8dbe6; display: inline-block; }
+.zorluk i.d { background: var(--vurgu); }
+
+/* Bölüm kapağı tipi sayfa başı bandı */
+.bant {
+  margin: 0 -16mm 5mm; padding: 5mm 16mm 4mm; color: #fff;
+  background: linear-gradient(110deg, var(--renk, var(--unite)) 0%, color-mix(in srgb, var(--renk, var(--unite)) 70%, #000) 100%);
+  position: relative; overflow: hidden;
+}
+.bant h2 { font-size: 22pt; font-weight: 850; color: #fff; }
+.bant p { margin: 1mm 0 0; opacity: .92; font-size: 9.6pt; max-width: 135mm; }
+.bant .ikon-buyuk { position: absolute; right: 14mm; top: 50%; transform: translateY(-50%); opacity: .95; }
+
+/* Hata avcısı defter kartı */
+.defter {
+  background:
+    repeating-linear-gradient(transparent 0 6.1mm, #c9d6ee 6.1mm 6.4mm),
+    #fffef8;
+  border-radius: 2mm; padding: 1.2mm 4mm 1.6mm 14mm; position: relative;
+  font-family: "Caladea", "Bitstream Charter", serif; font-style: italic; font-size: 11pt;
+  line-height: 6.4mm; color: #24356b; border: .3mm solid #e6e1cc;
+}
+.defter::before { content: ""; position: absolute; left: 10mm; top: 0; bottom: 0; width: .35mm; background: #f2a7a7; }
+.defter .satir { position: relative; }
+.defter .satir .sn { position: absolute; left: -9.5mm; font-family: "Inter", sans-serif; font-style: normal; font-size: 7pt; color: #9aa3b8; font-weight: 700; }
+.defter .ogrenci { font-family: "Inter", sans-serif; font-style: normal; font-size: 7.2pt; color: var(--soluk); letter-spacing: .05em; text-transform: uppercase; }
+.duzelt {
+  border: .35mm dashed var(--hata); border-radius: 2mm; min-height: 26mm; margin-top: 2mm;
+  padding: 1.6mm 3mm; font-size: 8.4pt; color: var(--hata); font-weight: 600; background: #fff;
+}
+.sorgu { display: flex; gap: 2mm; flex-wrap: wrap; margin-top: 1.6mm; }
+.sorgu span { font-size: 8.2pt; background: #fff; border: .3mm solid var(--hata); color: var(--hata); border-radius: 10mm; padding: .2mm 2.2mm; font-weight: 600; }
+
+/* İpucu merdiveni */
+.merdiven { display: grid; gap: 1.8mm; margin-top: 2mm; }
+.basamak {
+  display: grid; grid-template-columns: 17mm 1fr; align-items: stretch;
+  border-radius: 2mm; overflow: hidden; background: #fff; border: .3mm solid #ddd3fb;
+}
+.basamak .bas {
+  background: var(--ipucu); color: #fff; font-size: 7pt; font-weight: 800; letter-spacing: .06em;
+  display: grid; place-items: center; text-align: center; line-height: 1.15; padding: 1mm;
+}
+.basamak:nth-child(2) .bas { background: #9061f0; }
+.basamak:nth-child(3) .bas { background: #a985f5; }
+.basamak .ic { padding: 1.6mm 3mm; font-size: 9.2pt; }
+.basamak:nth-child(2) { margin-left: 6mm; }
+.basamak:nth-child(3) { margin-left: 12mm; }
+.cevap-alani { border: .3mm dashed #b9a6f3; border-radius: 2mm; height: 24mm; margin-top: 2mm; background: #fff;
+  font-size: 7.6pt; color: #8b74d6; padding: 1mm 2.6mm; font-weight: 700; letter-spacing: .06em; }
+
+/* Öz değerlendirme */
+.kontrol { list-style: none; padding: 0; }
+.kontrol li { display: grid; grid-template-columns: 6mm 1fr auto; gap: 2mm; align-items: center; padding: 1.3mm 0; border-bottom: .3mm dotted var(--cizgi); font-size: 9.3pt; }
+.kontrol .kare { width: 4mm; height: 4mm; border: .4mm solid var(--unite); border-radius: 1mm; }
+.kontrol .yuz { display: flex; gap: 1.4mm; font-size: 7.4pt; color: var(--soluk); }
+.kontrol .yuz span { border: .3mm solid var(--cizgi); border-radius: 1mm; padding: 0 1.4mm; }
+
+/* Cevap anahtarı */
+.anahtar { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.4mm; margin-bottom: 4mm; }
+.anahtar div { border: .35mm solid var(--unite); border-radius: 1.6mm; text-align: center; overflow: hidden; font-size: 9pt; }
+.anahtar div b { display: block; background: var(--unite); color: #fff; font-size: 7.6pt; }
+.anahtar div span { display: block; font-weight: 800; color: var(--unite-koyu); padding: .6mm 0; }
+.coz-liste { columns: 2; column-gap: 6mm; font-size: 8.5pt; line-height: 1.42; }
+.coz-liste .c { break-inside: avoid; margin-bottom: 2.4mm; padding-left: 2.4mm; border-left: .6mm solid var(--renk, var(--unite)); }
+.coz-liste .c b:first-child { color: var(--renk, var(--unite)); }
+.coz-baslik { font-size: 9pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--renk, var(--unite)); margin: 2mm 0 1.4mm; column-span: all; }
+
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite:#a16207; --unite-acik:#fdf8e8; --unite-koyu:#5c3a04; }
+.kapak { padding: 0; background: #2e1c02; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 30mm; font-size: 11pt; font-weight: 700; color: #fde68a; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 62pt; font-weight: 900; letter-spacing: -.02em; line-height: .95; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 10mm; display: inline-flex; align-items: baseline; gap: 3mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 26pt; font-weight: 800; color: #fde68a; white-space: nowrap; }
+.kapak .avo span { font-size: 9pt; opacity: .88; max-width: 62mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.4pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #e2d6b8; padding: .9mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.formul-kart { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin: 2mm 0 4mm; }
+.formul-kart > div { border: .4mm solid var(--unite); border-radius: 3mm; padding: 2.6mm; text-align: center; background: #fff; }
+.formul-kart > div .denklem { font-size: 12pt; padding: .5mm 0; }
+.formul-kart > div > span { font-size: 8pt; color: var(--soluk); display: block; }
+
+.hal { font-size: 72%; font-weight: 500; color: var(--soluk); }
+.okust { position: relative; display: inline-block; margin: 0 1.6mm; font-size: 1.15em; }
+.okust small { position: absolute; left: 50%; top: -.95em; transform: translateX(-50%); font-size: 5.6pt; color: var(--soluk); font-weight: 600; white-space: nowrap; }
+.denk { font-size: 9.2pt; line-height: 2.05; }
+.denk div { white-space: nowrap; }
+.mini-tablo td, .mini-tablo th { padding: 1.1mm 1.8mm !important; }
+.ok-tik { color: var(--ornek); font-weight: 800; }
+.ok-x { color: var(--dikkat); font-weight: 800; }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; }
+.test.devam .iki { min-height: 222mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 44mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="kg1" cx="80%" cy="22%" r="75%"><stop offset="0" stop-color="#c98a12"/><stop offset=".55" stop-color="#7a4c06"/><stop offset="1" stop-color="#2e1c02"/></radialGradient></defs><rect width="210" height="297" fill="url(#kg1)"/><g fill="none" stroke="#ffffff" stroke-opacity=".10" stroke-width=".35"><circle cx="168" cy="50" r="26"/><circle cx="168" cy="50" r="42"/><circle cx="168" cy="50" r="58"/><circle cx="168" cy="50" r="74"/></g><g opacity=".9"><circle cx="186.70" cy="53.91" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="183.98" cy="60.46" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="182.78" cy="56.12" r="3.88" fill="#fde68a"/></g><g opacity=".9"><circle cx="178.46" cy="65.98" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="171.91" cy="68.70" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="174.12" cy="64.78" r="3.88" fill="#fde68a"/></g><g opacity=".9"><circle cx="164.09" cy="68.70" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="157.54" cy="65.98" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="161.88" cy="64.78" r="3.88" fill="#fde68a"/></g><g opacity=".9"><circle cx="152.02" cy="60.46" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="149.30" cy="53.91" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="153.22" cy="56.12" r="3.88" fill="#fde68a"/></g><g opacity=".9"><circle cx="149.30" cy="46.09" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="152.02" cy="39.54" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="153.22" cy="43.88" r="3.88" fill="#fde68a"/></g><g opacity=".9"><circle cx="157.54" cy="34.02" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="164.09" cy="31.30" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="161.88" cy="35.22" r="3.88" fill="#fde68a"/></g><g opacity=".9"><circle cx="171.91" cy="31.30" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="178.46" cy="34.02" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="174.12" cy="35.22" r="3.88" fill="#fde68a"/></g><g opacity=".9"><circle cx="183.98" cy="39.54" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="186.70" cy="46.09" r="2.38" fill="#ffffff" stroke="#fde68a" stroke-width=".35"/><circle cx="182.78" cy="43.88" r="3.88" fill="#fde68a"/></g><circle cx="168" cy="50" r="7.5" fill="#fbbf24"/><text x="168" y="53.4" font-family="Inter Display" font-size="9" font-weight="900" fill="#5c3a04" text-anchor="middle">+</text><g opacity=".14"><circle cx="96.33" cy="183.47" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="99.73" cy="190.02" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="95.48" cy="188.08" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="93.75" cy="188.79" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="97.59" cy="182.49" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="98.13" cy="187.14" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="37.27" cy="187.65" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="42.64" cy="182.59" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="41.93" cy="187.21" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="166.13" cy="183.63" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="159.17" cy="181.20" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="163.60" cy="179.69" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="18.67" cy="191.17" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="25.58" cy="188.58" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="23.13" cy="192.57" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="15.36" cy="191.44" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="17.01" cy="198.63" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="13.38" cy="195.68" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="140.45" cy="189.46" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="134.29" cy="193.51" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="135.78" cy="189.08" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="12.03" cy="185.13" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="9.34" cy="192.00" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="8.00" cy="187.51" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="46.56" cy="179.27" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="45.18" cy="186.52" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="43.04" cy="182.35" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="96.27" cy="181.50" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="102.45" cy="185.53" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="97.79" cy="185.93" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="105.95" cy="193.22" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="105.93" cy="185.85" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="108.82" cy="189.53" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="140.62" cy="189.71" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="133.35" cy="188.42" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="137.49" cy="186.23" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="202.96" cy="191.52" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="209.19" cy="195.46" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="204.53" cy="195.92" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="150.59" cy="186.06" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="143.27" cy="187.01" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="146.56" cy="183.67" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="59.43" cy="176.03" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="66.76" cy="176.76" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="62.81" cy="179.26" r="4.03" fill="#ffffff"/></g><g opacity=".14"><circle cx="85.32" cy="197.91" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="80.49" cy="192.34" r="2.47" fill="none" stroke="#ffffff" stroke-width=".35"/><circle cx="85.08" cy="193.24" r="4.03" fill="#ffffff"/></g></svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 10. Sınıf</span><span>Tema 2 · Bölüm 1</span></div>
+    <div class="bolum">Çözeltiler · Bölüm 1</div>
+    <h1>Çözünme ve<br>Çözünürlük</h1>
+    <div class="slogan">Bir bardak suyun içinde kaybolan maddelerin hikâyesi</div>
+    <div class="avo"><b>36 g / 100 g su</b><span>20 °C’ta 100 gram su en fazla yaklaşık 36 gram yemek tuzu çözebilir. Fazlası dibe çöker.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Çözünme nasıl gerçekleşir?</span><span>2</span></li>
+          <li><span>2 · Benzer benzeri çözer</span><span>3</span></li>
+          <li><span>3 · Çözünme türleri ve iletkenlik</span><span>4</span></li>
+          <li><span>4 · Çözünürlük ve etkileyen faktörler</span><span>5</span></li>
+          <li><span>5 · Doygunluk ve çözünme hızı</span><span>6</span></li>
+          <li><span>6 · Çözünürlük hesaplamaları</span><span>7</span></li>
+          <li><span>Tek sayfada çözeltiler (özet)</span><span>8</span></li>
+          <li><span>Hata Avcısı</span><span>9</span></li>
+          <li><span>Bağlam temelli sorular</span><span>10</span></li>
+          <li><span>İpucu Merdiveni</span><span>11</span></li>
+          <li><span>Bölüm testi</span><span>12</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>14</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg></i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg></i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M8 8l5 5M13 8l-5 5"/></svg></i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v18M17 3v18M7 8h10M7 13h10M7 18h10"/></svg></i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Maddelerin birbiri içinde çözünüp çözünmeyeceğini tanecikler arası etkileşimlerle açıklayacaksın.</li>
+          <li>Çözünürlüğü etkileyen faktörleri ve çözeltilerin türlerini ayırt edeceksin.</li>
+          <li>Çözünürlük grafiklerini okuyup çökme, buharlaştırma ve doygunluk hesapları yapacaksın.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · ÇÖZÜNME SÜRECİ
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Çözeltiler 1</span><span>Çözünme süreci</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Çözünme nasıl gerçekleşir?</h2>
+  <div class="alt-baslik">Çay şekeri “yok olmaz”; tanecikleri suyun her yerine dağılır.</div>
+
+  <div class="iki-genis">
+    <div>
+      <p>Bir maddenin tanecikleri başka bir maddenin tanecikleri arasına <b>tek tek</b> dağılıyorsa bu olaya <b class="k">çözünme</b>, oluşan homojen karışıma <b class="k">çözelti</b> denir. Çözelti her noktasında aynı bileşime ve özelliğe sahiptir; mikroskopla bile tek bir görüntü verir.</p>
+      <div class="kutu kavram">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+        <p><b>Bileşen:</b> Çözeltiyi oluşturan her bir madde. <b>Çözücü:</b> Genellikle miktarı fazla olan, diğerini dağıtan bileşen. <b>Çözünen:</b> Çözücü içinde dağılan bileşen. Sulu çözeltilerde miktarı ne olursa olsun çözücü olarak <b>su</b> kabul edilir.</p>
+      </div>
+    </div>
+    <div>
+      <table class="tablo mini-tablo" style="margin-top:0">
+        <tr><th>Çözünen – çözücü</th><th>Günlük örnek</th></tr>
+        <tr><td>Gaz – gaz</td><td>Hava</td></tr>
+        <tr><td>Gaz – sıvı</td><td>Gazlı içecek</td></tr>
+        <tr><td>Sıvı – sıvı</td><td>Kolonya (etanol–su)</td></tr>
+        <tr><td>Katı – sıvı</td><td>Tuzlu su, şekerli çay</td></tr>
+        <tr><td>Katı – katı</td><td>Tunç (bakır–kalay)</td></tr>
+      </table>
+      <p class="kucuk" style="margin:0">Çözeltinin fiziksel hâli, çözücünün hâliyle aynıdır. Çözelti kütlesi bileşenlerin kütleleri toplamıdır; hacmi ise toplam olmayabilir (50 mL etanol + 50 mL su ≈ 96–97 mL).</p>
+    </div>
+  </div>
+
+  <h3>Üç basamak, bir enerji dengesi</h3>
+  <svg viewBox="0 0 200 50" style="width:100%;height:auto"><defs><marker id="okb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#5c3a04"/></marker></defs><g font-family="Inter" text-anchor="middle"><rect x="2" y="1" width="60" height="48" rx="4" fill="#fff" stroke="#a16207" stroke-width=".5"/><text x="32" y="8" font-size="4.4" font-weight="800" fill="#5c3a04">1 · Çözünen tanecikleri</text><text x="32" y="13.5" font-size="4.3" fill="#5d6478">birbirinden ayrılır</text><rect x="14" y="41.5" width="36" height="6" rx="3" fill="#e11d48"/><text x="32" y="45.9" font-size="3.9" font-weight="800" fill="#fff">ENERJİ ALIR</text><rect x="70" y="1" width="60" height="48" rx="4" fill="#fff" stroke="#a16207" stroke-width=".5"/><text x="100" y="8" font-size="4.4" font-weight="800" fill="#5c3a04">2 · Çözücü tanecikleri</text><text x="100" y="13.5" font-size="4.3" fill="#5d6478">arasında boşluk açılır</text><rect x="82" y="41.5" width="36" height="6" rx="3" fill="#e11d48"/><text x="100" y="45.9" font-size="3.9" font-weight="800" fill="#fff">ENERJİ ALIR</text><rect x="138" y="1" width="60" height="48" rx="4" fill="#fff" stroke="#a16207" stroke-width=".5"/><text x="168" y="8" font-size="4.4" font-weight="800" fill="#5c3a04">3 · Çözücü–çözünen</text><text x="168" y="13.5" font-size="4.3" fill="#5d6478">etkileşimi oluşur</text><rect x="150" y="41.5" width="36" height="6" rx="3" fill="#0f8f84"/><text x="168" y="45.9" font-size="3.9" font-weight="800" fill="#fff">ENERJİ VERİR</text><circle cx="10.0" cy="22.0" r="2" fill="#7c3aed"/><circle cx="10.0" cy="26.4" r="2" fill="#7c3aed"/><circle cx="10.0" cy="30.8" r="2" fill="#7c3aed"/><circle cx="14.4" cy="22.0" r="2" fill="#7c3aed"/><circle cx="14.4" cy="26.4" r="2" fill="#7c3aed"/><circle cx="14.4" cy="30.8" r="2" fill="#7c3aed"/><circle cx="18.8" cy="22.0" r="2" fill="#7c3aed"/><circle cx="18.8" cy="26.4" r="2" fill="#7c3aed"/><circle cx="18.8" cy="30.8" r="2" fill="#7c3aed"/><path d="M25 26.4 H33" stroke="#5c3a04" stroke-width=".6" marker-end="url(#okb)"/><circle cx="39" cy="19" r="2" fill="#7c3aed"/><circle cx="50" cy="19" r="2" fill="#7c3aed"/><circle cx="45" cy="25" r="2" fill="#7c3aed"/><circle cx="56" cy="26" r="2" fill="#7c3aed"/><circle cx="38" cy="31" r="2" fill="#7c3aed"/><circle cx="51" cy="32" r="2" fill="#7c3aed"/><circle cx="42" cy="37" r="2" fill="#7c3aed"/><circle cx="55" cy="37" r="2" fill="#7c3aed"/><circle cx="78.0" cy="20.0" r="1.8" fill="#38bdf8"/><circle cx="78.0" cy="24.2" r="1.8" fill="#38bdf8"/><circle cx="78.0" cy="28.4" r="1.8" fill="#38bdf8"/><circle cx="78.0" cy="32.6" r="1.8" fill="#38bdf8"/><circle cx="82.2" cy="20.0" r="1.8" fill="#38bdf8"/><circle cx="82.2" cy="24.2" r="1.8" fill="#38bdf8"/><circle cx="82.2" cy="28.4" r="1.8" fill="#38bdf8"/><circle cx="82.2" cy="32.6" r="1.8" fill="#38bdf8"/><circle cx="86.4" cy="20.0" r="1.8" fill="#38bdf8"/><circle cx="86.4" cy="24.2" r="1.8" fill="#38bdf8"/><circle cx="86.4" cy="28.4" r="1.8" fill="#38bdf8"/><circle cx="86.4" cy="32.6" r="1.8" fill="#38bdf8"/><circle cx="90.6" cy="20.0" r="1.8" fill="#38bdf8"/><circle cx="90.6" cy="24.2" r="1.8" fill="#38bdf8"/><circle cx="90.6" cy="28.4" r="1.8" fill="#38bdf8"/><circle cx="90.6" cy="32.6" r="1.8" fill="#38bdf8"/><path d="M96 26.3 H103" stroke="#5c3a04" stroke-width=".6" marker-end="url(#okb)"/><circle cx="107" cy="18" r="1.8" fill="#38bdf8"/><circle cx="113" cy="17.5" r="1.8" fill="#38bdf8"/><circle cx="119" cy="18" r="1.8" fill="#38bdf8"/><circle cx="125" cy="18" r="1.8" fill="#38bdf8"/><circle cx="107" cy="37" r="1.8" fill="#38bdf8"/><circle cx="113" cy="37.5" r="1.8" fill="#38bdf8"/><circle cx="119" cy="37" r="1.8" fill="#38bdf8"/><circle cx="125" cy="37" r="1.8" fill="#38bdf8"/><circle cx="105" cy="24.5" r="1.8" fill="#38bdf8"/><circle cx="105" cy="31" r="1.8" fill="#38bdf8"/><circle cx="127" cy="24.5" r="1.8" fill="#38bdf8"/><circle cx="127" cy="31" r="1.8" fill="#38bdf8"/><rect x="111" y="22" width="10" height="11" rx="2" fill="none" stroke="#9aa3b8" stroke-width=".4" stroke-dasharray="1 .8"/><circle cx="151" cy="22" r="1.9" fill="#7c3aed"/><circle cx="155.1" cy="22.7" r="1.4" fill="#38bdf8"/><circle cx="151.6" cy="26.2" r="1.4" fill="#38bdf8"/><circle cx="147.2" cy="23.8" r="1.4" fill="#38bdf8"/><circle cx="148.1" cy="19.0" r="1.4" fill="#38bdf8"/><circle cx="153.0" cy="18.3" r="1.4" fill="#38bdf8"/><circle cx="165" cy="27" r="1.9" fill="#7c3aed"/><circle cx="169.1" cy="27.7" r="1.4" fill="#38bdf8"/><circle cx="165.6" cy="31.2" r="1.4" fill="#38bdf8"/><circle cx="161.2" cy="28.8" r="1.4" fill="#38bdf8"/><circle cx="162.1" cy="24.0" r="1.4" fill="#38bdf8"/><circle cx="167.0" cy="23.3" r="1.4" fill="#38bdf8"/><circle cx="180" cy="21" r="1.9" fill="#7c3aed"/><circle cx="184.1" cy="21.7" r="1.4" fill="#38bdf8"/><circle cx="180.6" cy="25.2" r="1.4" fill="#38bdf8"/><circle cx="176.2" cy="22.8" r="1.4" fill="#38bdf8"/><circle cx="177.1" cy="18.0" r="1.4" fill="#38bdf8"/><circle cx="182.0" cy="17.3" r="1.4" fill="#38bdf8"/><circle cx="156" cy="34" r="1.9" fill="#7c3aed"/><circle cx="160.1" cy="34.7" r="1.4" fill="#38bdf8"/><circle cx="156.6" cy="38.2" r="1.4" fill="#38bdf8"/><circle cx="152.2" cy="35.8" r="1.4" fill="#38bdf8"/><circle cx="153.1" cy="31.0" r="1.4" fill="#38bdf8"/><circle cx="158.0" cy="30.3" r="1.4" fill="#38bdf8"/><circle cx="186" cy="33" r="1.9" fill="#7c3aed"/><circle cx="190.1" cy="33.7" r="1.4" fill="#38bdf8"/><circle cx="186.6" cy="37.2" r="1.4" fill="#38bdf8"/><circle cx="182.2" cy="34.8" r="1.4" fill="#38bdf8"/><circle cx="183.1" cy="30.0" r="1.4" fill="#38bdf8"/><circle cx="188.0" cy="29.3" r="1.4" fill="#38bdf8"/><circle cx="171" cy="35" r="1.9" fill="#7c3aed"/><circle cx="175.1" cy="35.7" r="1.4" fill="#38bdf8"/><circle cx="171.6" cy="39.2" r="1.4" fill="#38bdf8"/><circle cx="167.2" cy="36.8" r="1.4" fill="#38bdf8"/><circle cx="168.1" cy="32.0" r="1.4" fill="#38bdf8"/><circle cx="173.0" cy="31.3" r="1.4" fill="#38bdf8"/></g></svg>
+  <p style="margin-top:2mm">Çözünen taneciklerini birbirinden koparmak ve çözücü tanecikleri arasında yer açmak <b>enerji ister</b>. Çözücü ile çözünen arasında yeni etkileşim oluşurken ise <b>enerji açığa çıkar</b>. Açığa çıkan enerji harcanandan fazlaysa çözünme <b>ısı veren (ekzotermik)</b>, azsa <b>ısı alan (endotermik)</b> olur.</p>
+
+  <div class="iki-genis" style="align-items:center">
+    <div>
+      <svg viewBox="0 0 200 84" style="width:100%;height:auto"><g font-family="Inter" text-anchor="middle"><circle cx="50" cy="36" r="17" fill="#fdf8e8"/><circle cx="66.76" cy="42.40" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="63.92" cy="47.31" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="63.42" cy="43.75" r="3.10" fill="#dc2626"/><circle cx="52.84" cy="53.72" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="47.16" cy="53.72" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="50.00" cy="51.50" r="3.10" fill="#dc2626"/><circle cx="36.08" cy="47.31" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="33.24" cy="42.40" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="36.58" cy="43.75" r="3.10" fill="#dc2626"/><circle cx="33.24" cy="29.60" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="36.08" cy="24.69" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="36.58" cy="28.25" r="3.10" fill="#dc2626"/><circle cx="47.16" cy="18.28" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="52.84" cy="18.28" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="50.00" cy="20.50" r="3.10" fill="#dc2626"/><circle cx="63.92" cy="24.69" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="66.76" cy="29.60" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="63.42" cy="28.25" r="3.10" fill="#dc2626"/><circle cx="50" cy="36" r="6.5" fill="#7c3aed"/><text x="50" y="38.6" font-size="7" font-weight="800" fill="#fff">Na⁺</text><text x="50" y="66" font-size="6" font-weight="800" fill="#1d2133">Katyon</text><text x="50" y="73" font-size="5.2" fill="#5d6478">suyun O ucu (δ−) iyona döner</text><circle cx="150" cy="36" r="20" fill="#fdf8e8"/><circle cx="168.78" cy="38.84" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="168.78" cy="33.16" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="171.00" cy="36.00" r="3.10" fill="#dc2626"/><circle cx="156.94" cy="53.69" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="161.85" cy="50.85" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="160.50" cy="54.19" r="3.10" fill="#dc2626"/><circle cx="138.15" cy="50.85" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="143.06" cy="53.69" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="139.50" cy="54.19" r="3.10" fill="#dc2626"/><circle cx="131.22" cy="33.16" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="131.22" cy="38.84" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="129.00" cy="36.00" r="3.10" fill="#dc2626"/><circle cx="143.06" cy="18.31" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="138.15" cy="21.15" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="139.50" cy="17.81" r="3.10" fill="#dc2626"/><circle cx="161.85" cy="21.15" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="156.94" cy="18.31" r="1.90" fill="#ffffff" stroke="#8b93a7" stroke-width=".35"/><circle cx="160.50" cy="17.81" r="3.10" fill="#dc2626"/><circle cx="150" cy="36" r="10" fill="#16a34a"/><text x="150" y="38.6" font-size="7" font-weight="800" fill="#fff">Cl⁻</text><text x="150" y="66" font-size="6" font-weight="800" fill="#1d2133">Anyon</text><text x="150" y="73" font-size="5.2" fill="#5d6478">suyun H uçları (δ+) iyona döner</text><text x="100" y="82" font-size="5" fill="#5d6478"><tspan fill="#dc2626">●</tspan> O   <tspan fill="#8b93a7">○</tspan> H   · Hidratasyon: iyonların su molekülleriyle sarılması</text></g></svg>
+    </div>
+    <div class="kutu kavram" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Hidratasyon · Solvatasyon</div>
+      <p style="font-size:9.1pt">Çözünen taneciklerinin çözücü tanecikleri tarafından sarılmasına <b>solvatasyon</b> denir. Çözücü <b>su</b> ise bu olaya özel olarak <b>hidratasyon</b> adı verilir. İyotun hekzanda çözünmesi solvatasyon, şekerin suda çözünmesi hidratasyondur.</p>
+    </div>
+  </div>
+
+  <div class="iki" style="margin-top:3mm">
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9pt">Spor yaralanmalarında kullanılan <b>anlık soğuk paketlerde</b> genellikle amonyum nitrat ile su bulunur. Paket sıkılınca tuz suda çözünür; bu çözünme <b>ısı aldığı</b> için paket birkaç dakikada soğur.</p>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Şeker çayın içinde eridi.”</div>
+        <div class="dogru"><b class="d">✓</b> Erime, tek bir maddenin katıdan sıvıya geçmesidir; şeker suda <b>çözünür</b>.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 1</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · BENZER BENZERİ ÇÖZER
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Çözeltiler 1</span><span>Çözücü–çözünen etkileşimleri</span></div>
+
+  <h2 class="konu"><span class="num">2</span>Benzer benzeri çözer</h2>
+  <div class="alt-baslik">Bir maddenin çözünüp çözünmeyeceğini tanecikleri arasındaki çekim kuvvetleri belirler.</div>
+
+  <p>Çözücü–çözünen arasında oluşan etkileşim, maddelerin kendi tanecikleri arasındaki etkileşimlerle <b>benzer güçteyse</b> çözünme gerçekleşir. Bu yüzden <b>polar</b> maddeler polar çözücülerde, <b>apolar</b> maddeler apolar çözücülerde iyi çözünür. İyonik bileşikler polar olan suda genellikle iyi çözünür.</p>
+
+  <svg viewBox="0 0 200 54" style="width:92%;height:auto;display:block;margin:0 auto"><g font-family="Inter" text-anchor="middle"><path d="M17 14 V27 a8 8 0 0 0 16 0 V14 Z" fill="#dbeafe"/><path d="M16 7 V27 a9 9 0 0 0 18 0 V7" fill="none" stroke="#5d6478" stroke-width=".7"/><line x1="14" y1="7" x2="36" y2="7" stroke="#5d6478" stroke-width=".7"/><text x="25" y="4.4" font-size="4.4" font-weight="800" fill="#0f8f84">Çözünür</text><text x="25" y="45" font-size="4.6" font-weight="700" fill="#1d2133">Su + yemek tuzu</text><text x="25" y="51" font-size="4" fill="#5d6478">homojen · iyon–dipol</text><rect x="67" y="14" width="16" height="8" fill="#fde68a"/><path d="M67 22 V27 a8 8 0 0 0 16 0 V22 Z" fill="#dbeafe"/><path d="M66 7 V27 a9 9 0 0 0 18 0 V7" fill="none" stroke="#5d6478" stroke-width=".7"/><line x1="64" y1="7" x2="86" y2="7" stroke="#5d6478" stroke-width=".7"/><text x="75" y="4.4" font-size="4.4" font-weight="800" fill="#e11d48">Çözünmez</text><text x="75" y="45" font-size="4.6" font-weight="700" fill="#1d2133">Su + zeytinyağı</text><text x="75" y="51" font-size="4" fill="#5d6478">iki faz · heterojen</text><path d="M117 14 V27 a8 8 0 0 0 16 0 V14 Z" fill="#fef3c7"/><rect x="120.3" y="31.4" width="2.4" height="2.4" fill="#4c1d95" transform="rotate(20 121.5 32.6)"/><rect x="123.8" y="31.4" width="2.4" height="2.4" fill="#4c1d95" transform="rotate(20 125.0 32.6)"/><rect x="127.3" y="31.4" width="2.4" height="2.4" fill="#4c1d95" transform="rotate(20 128.5 32.6)"/><rect x="122.0" y="28.8" width="2.4" height="2.4" fill="#4c1d95" transform="rotate(20 123.2 30.0)"/><rect x="125.6" y="28.8" width="2.4" height="2.4" fill="#4c1d95" transform="rotate(20 126.8 30.0)"/><path d="M116 7 V27 a9 9 0 0 0 18 0 V7" fill="none" stroke="#5d6478" stroke-width=".7"/><line x1="114" y1="7" x2="136" y2="7" stroke="#5d6478" stroke-width=".7"/><text x="125" y="4.4" font-size="4.4" font-weight="800" fill="#c26a06">Çok az çözünür</text><text x="125" y="45" font-size="4.6" font-weight="700" fill="#1d2133">Su + iyot</text><text x="125" y="51" font-size="4" fill="#5d6478">soluk renk · dipte katı</text><path d="M167 14 V27 a8 8 0 0 0 16 0 V14 Z" fill="#c4b5fd"/><path d="M166 7 V27 a9 9 0 0 0 18 0 V7" fill="none" stroke="#5d6478" stroke-width=".7"/><line x1="164" y1="7" x2="186" y2="7" stroke="#5d6478" stroke-width=".7"/><text x="175" y="4.4" font-size="4.4" font-weight="800" fill="#0f8f84">Çözünür</text><text x="175" y="45" font-size="4.6" font-weight="700" fill="#1d2133">Hekzan + iyot</text><text x="175" y="51" font-size="4" fill="#5d6478">mor, homojen · London</text></g></svg>
+
+  <div class="iki" style="margin-top:3mm">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Polar mı, apolar mı? (pratik)</div>
+      <ul style="font-size:8.9pt;margin:0">
+        <li>Aynı tür iki atomlu moleküller apolar: <span class="f">H<sub>2</sub></span>, <span class="f">O<sub>2</sub></span>, <span class="f">N<sub>2</sub></span>, <span class="f">Cl<sub>2</sub></span>, <span class="f">I<sub>2</sub></span></li>
+        <li>Farklı iki atomlu moleküller polar: <span class="f">HCl</span>, <span class="f">HF</span>, <span class="f">CO</span></li>
+        <li>Merkez atomu 2A–4A grubunda, çevresi tek tür atom: apolar (<span class="f">CO<sub>2</sub></span>, <span class="f">CH<sub>4</sub></span>, <span class="f">CCl<sub>4</sub></span>, <span class="f">BF<sub>3</sub></span>)</li>
+        <li>Merkez atomu 5A–6A grubunda: polar (<span class="f">H<sub>2</sub>O</span>, <span class="f">NH<sub>3</sub></span>, <span class="f">H<sub>2</sub>S</span>, <span class="f">PCl<sub>3</sub></span>)</li>
+        <li>Yalnızca C ve H içerenler apolar (<span class="f">C<sub>6</sub>H<sub>14</sub></span>, <span class="f">C<sub>6</sub>H<sub>6</sub></span>)</li>
+      </ul>
+    </div>
+    <table class="tablo mini-tablo" style="margin-top:0;font-size:8.5pt">
+      <tr><th>Tanecik çifti</th><th>Etkin etkileşim</th><th>Örnek</th></tr>
+      <tr><td>İyon – polar</td><td>İyon–dipol</td><td><span class="f">KBr</span> – <span class="f">H<sub>2</sub>O</span></td></tr>
+      <tr><td>Polar – polar</td><td>Dipol–dipol</td><td><span class="f">HCl</span> – <span class="f">H<sub>2</sub>S</span></td></tr>
+      <tr><td>H, F/O/N’ye bağlı</td><td>Hidrojen bağı</td><td><span class="f">NH<sub>3</sub></span> – <span class="f">H<sub>2</sub>O</span></td></tr>
+      <tr><td>Polar – apolar</td><td>Dipol–indüklenmiş dipol</td><td><span class="f">O<sub>2</sub></span> – <span class="f">H<sub>2</sub>O</span></td></tr>
+      <tr><td>İyon – apolar</td><td>İyon–indüklenmiş dipol</td><td><span class="f">NaCl</span> – <span class="f">CCl<sub>4</sub></span></td></tr>
+      <tr><td>Apolar – apolar</td><td>London</td><td><span class="f">I<sub>2</sub></span> – <span class="f">CCl<sub>4</sub></span></td></tr>
+    </table>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 1</div>
+    <div class="soru">I. <span class="f">CH<sub>3</sub>OH</span> – <span class="f">H<sub>2</sub>O</span> &nbsp; II. <span class="f">Br<sub>2</sub></span> – <span class="f">CCl<sub>4</sub></span> &nbsp; III. <span class="f">NaCl</span> – <span class="f">C<sub>6</sub>H<sub>14</sub></span> &nbsp; IV. <span class="f">CS<sub>2</sub></span> – <span class="f">H<sub>2</sub>O</span> &nbsp; çiftlerinden hangileri birbiri içinde iyi çözünür?</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>I: İkisinde de H, O’ya bağlı → <b>hidrojen bağı</b>. Polar–polar, çözünür. II: İkisi de apolar → <b>London</b>, çözünür.</span></div>
+      <div class="adim"><span class="n">2</span><span>III: İyonik madde apolar hekzanda → iyon–indüklenmiş dipol çok zayıf, çözünmez. IV: <span class="f">CS<sub>2</sub></span> apolar (<span class="f">CO<sub>2</sub></span> gibi doğrusal), su polar → dipol–indüklenmiş dipol zayıf, iyi çözünmez.</span></div>
+      <span class="sonuc">I ve II</span>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9.2pt">Sabun molekülünün bir ucu <b>iyonik/polar</b> (suyu sever), uzun hidrokarbon kuyruğu ise <b>apolar</b>dır (yağı sever). Kuyruklar yağ lekesinin içine gömülür, baş kısımlar suya bakar; yağ küçük damlacıklar hâlinde suyla birlikte uzaklaşır.</p>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “<span class="f">CCl<sub>4</sub></span>’teki bağlar polar, o hâlde molekül polardır.”</div>
+        <div class="dogru"><b class="d">✓</b> Bağlar polar olsa da molekül <b>simetrik</b> olduğu için polarlık birbirini götürür; <span class="f">CCl<sub>4</sub></span> apolardır.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 1</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · ÇÖZÜNME TÜRLERİ VE İLETKENLİK
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Çözeltiler 1</span><span>Çözünme türleri</span></div>
+
+  <h2 class="konu"><span class="num">3</span>Çözünme türleri ve iletkenlik</h2>
+  <div class="alt-baslik">Çözünen, çözeltide iyonlar hâlinde mi yoksa molekül hâlinde mi bulunuyor?</div>
+
+  <div class="iki">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> İyonik çözünme</div>
+      <p style="font-size:9.2pt">Çözünen, çözeltide <b>iyonlar</b> hâlinde dağılır. Tuzlar, kuvvetli asitler ve kuvvetli bazlar suda bu şekilde çözünür.</p>
+      <div class="denk">
+        <div><span class="f">NaCl</span><span class="hal">(k)</span><span class="okust">→<small>su</small></span><span class="f">Na<sup>+</sup></span><span class="hal">(suda)</span> + <span class="f">Cl<sup>−</sup></span><span class="hal">(suda)</span></div>
+        <div><span class="f">CaCl<sub>2</sub></span><span class="hal">(k)</span><span class="okust">→<small>su</small></span><span class="f">Ca<sup>2+</sup></span><span class="hal">(suda)</span> + 2<span class="f">Cl<sup>−</sup></span><span class="hal">(suda)</span></div>
+        <div><span class="f">KNO<sub>3</sub></span><span class="hal">(k)</span><span class="okust">→<small>su</small></span><span class="f">K<sup>+</sup></span><span class="hal">(suda)</span> + <span class="f">NO<sub>3</sub><sup>−</sup></span><span class="hal">(suda)</span></div>
+      </div>
+    </div>
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Moleküler çözünme</div>
+      <p style="font-size:9.2pt">Çözünen, çözeltide <b>molekül</b> hâlinde dağılır; iyon oluşmaz. Şeker, alkol, üre ve apolar çözücüdeki iyot buna örnektir.</p>
+      <div class="denk">
+        <div><span class="f">C<sub>12</sub>H<sub>22</sub>O<sub>11</sub></span><span class="hal">(k)</span><span class="okust">→<small>su</small></span><span class="f">C<sub>12</sub>H<sub>22</sub>O<sub>11</sub></span><span class="hal">(suda)</span></div>
+        <div><span class="f">C<sub>2</sub>H<sub>5</sub>OH</span><span class="hal">(s)</span><span class="okust">→<small>su</small></span><span class="f">C<sub>2</sub>H<sub>5</sub>OH</span><span class="hal">(suda)</span></div>
+        <div><span class="f">I<sub>2</sub></span><span class="hal">(k)</span><span class="okust">→<small>hekzan</small></span><span class="f">I<sub>2</sub></span><span class="hal">(hekzanda)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Fiziksel mi, kimyasal mı?</h3>
+  <table class="tablo">
+    <tr><th style="width:24%"></th><th>Fiziksel çözünme</th><th>Kimyasal çözünme</th></tr>
+    <tr><td><b>Ne olur?</b></td><td>Çözünen kimliğini korur; çözücü uzaklaştırılınca aynı madde geri elde edilir.</td><td>Çözünen çözücüyle etkileşip <b>yeni tanecik türleri</b> (yeni iyonlar) oluşturur.</td></tr>
+    <tr><td><b>Örnekler</b></td><td><span class="f">NaCl</span>, <span class="f">KNO<sub>3</sub></span> gibi tuzlar; şeker, etil alkol, glikoz</td><td><span class="f">HCl</span>, <span class="f">HNO<sub>3</sub></span> gibi asitler; <span class="f">CO<sub>2</sub></span>, <span class="f">SO<sub>3</sub></span> gibi ametal oksitler; <span class="f">CaO</span>, <span class="f">Na<sub>2</sub>O</span> gibi metal oksitler</td></tr>
+  </table>
+  <div class="denk" style="text-align:center;margin:-1mm 0 2.5mm;font-size:9.4pt">
+    <span class="f">HCl</span><span class="hal">(g)</span> + <span class="f">H<sub>2</sub>O</span><span class="hal">(s)</span> → <span class="f">H<sub>3</sub>O<sup>+</sup></span><span class="hal">(suda)</span> + <span class="f">Cl<sup>−</sup></span><span class="hal">(suda)</span>
+    &nbsp;&nbsp;·&nbsp;&nbsp;
+    <span class="f">CaO</span><span class="hal">(k)</span> + <span class="f">H<sub>2</sub>O</span><span class="hal">(s)</span> → <span class="f">Ca<sup>2+</sup></span><span class="hal">(suda)</span> + 2<span class="f">OH<sup>−</sup></span><span class="hal">(suda)</span>
+  </div>
+  <p style="font-size:9.3pt">Tuz kristalinde iyonlar zaten vardır; su yalnızca onları birbirinden ayırır. Bu yüzden tuzların çözünmesi <b>fiziksel</b> kabul edilir. <span class="f">HCl</span> ise molekül yapılıdır; suyla etkileşince ilk kez iyonlar oluşur. Sirkedeki asetik asit ve suda çözünen <span class="f">NH<sub>3</sub></span> gibi zayıf asit ve bazların ise <b>çok küçük bir kısmı iyonlaşır</b>, büyük kısmı molekül hâlinde kalır.</p>
+
+  <div class="iki-genis">
+    <div>
+      <svg viewBox="0 0 200 81" style="width:100%;height:auto"><g font-family="Inter" text-anchor="middle"><path d="M15 36 V64 a3 3 0 0 0 3 3 H52 a3 3 0 0 0 3 -3 V36" fill="#e0f2fe" stroke="#5d6478" stroke-width=".6"/><rect x="15" y="36" width="40" height="3" fill="#ffffff" opacity=".6"/><rect x="24.7" y="30" width="2.6" height="30" fill="#64748b"/><rect x="42.7" y="30" width="2.6" height="30" fill="#64748b"/><path d="M26 30 V14 H31" fill="none" stroke="#334155" stroke-width=".6"/><path d="M44 30 V14 H39" fill="none" stroke="#334155" stroke-width=".6"/><line x1="28.5" y1="10.0" x2="24.5" y2="10.0" stroke="#f59e0b" stroke-width=".6"/><line x1="29.4" y1="6.8" x2="25.9" y2="4.8" stroke="#f59e0b" stroke-width=".6"/><line x1="31.8" y1="4.4" x2="29.8" y2="0.9" stroke="#f59e0b" stroke-width=".6"/><line x1="35.0" y1="3.5" x2="35.0" y2="-0.5" stroke="#f59e0b" stroke-width=".6"/><line x1="38.2" y1="4.4" x2="40.2" y2="0.9" stroke="#f59e0b" stroke-width=".6"/><line x1="40.6" y1="6.8" x2="44.1" y2="4.8" stroke="#f59e0b" stroke-width=".6"/><line x1="41.5" y1="10.0" x2="45.5" y2="10.0" stroke="#f59e0b" stroke-width=".6"/><circle cx="35" cy="10" r="5" fill="#fde047" stroke="#a16207" stroke-width=".5"/><rect x="32" y="14" width="6" height="3" fill="#94a3b8"/><circle cx="21" cy="44" r="2.5" fill="#7c3aed"/><text x="21" y="45.6" font-size="4.2" font-weight="800" fill="#fff">+</text><circle cx="32" cy="47" r="2.5" fill="#16a34a"/><text x="32" y="48.6" font-size="4.2" font-weight="800" fill="#fff">−</text><circle cx="38" cy="56" r="2.5" fill="#7c3aed"/><text x="38" y="57.6" font-size="4.2" font-weight="800" fill="#fff">+</text><circle cx="49" cy="45" r="2.5" fill="#16a34a"/><text x="49" y="46.6" font-size="4.2" font-weight="800" fill="#fff">−</text><circle cx="21" cy="58" r="2.5" fill="#16a34a"/><text x="21" y="59.6" font-size="4.2" font-weight="800" fill="#fff">−</text><circle cx="49" cy="59" r="2.5" fill="#7c3aed"/><text x="49" y="60.6" font-size="4.2" font-weight="800" fill="#fff">+</text><circle cx="31" cy="61" r="2.5" fill="#7c3aed"/><text x="31" y="62.6" font-size="4.2" font-weight="800" fill="#fff">+</text><circle cx="39" cy="41" r="2.5" fill="#16a34a"/><text x="39" y="42.6" font-size="4.2" font-weight="800" fill="#fff">−</text><text x="35" y="72.5" font-size="6" font-weight="800" fill="#1d2133">Tuzlu su</text><text x="35" y="78.5" font-size="5" fill="#5d6478">çok iyon → parlak</text><path d="M80 36 V64 a3 3 0 0 0 3 3 H117 a3 3 0 0 0 3 -3 V36" fill="#e0f2fe" stroke="#5d6478" stroke-width=".6"/><rect x="80" y="36" width="40" height="3" fill="#ffffff" opacity=".6"/><rect x="89.7" y="30" width="2.6" height="30" fill="#64748b"/><rect x="107.7" y="30" width="2.6" height="30" fill="#64748b"/><path d="M91 30 V14 H96" fill="none" stroke="#334155" stroke-width=".6"/><path d="M109 30 V14 H104" fill="none" stroke="#334155" stroke-width=".6"/><line x1="93.5" y1="10.0" x2="91.7" y2="10.0" stroke="#f59e0b" stroke-width=".6"/><line x1="94.4" y1="6.8" x2="92.8" y2="5.9" stroke="#f59e0b" stroke-width=".6"/><line x1="96.8" y1="4.4" x2="95.8" y2="2.8" stroke="#f59e0b" stroke-width=".6"/><line x1="100.0" y1="3.5" x2="100.0" y2="1.7" stroke="#f59e0b" stroke-width=".6"/><line x1="103.2" y1="4.4" x2="104.2" y2="2.8" stroke="#f59e0b" stroke-width=".6"/><line x1="105.6" y1="6.8" x2="107.2" y2="5.9" stroke="#f59e0b" stroke-width=".6"/><line x1="106.5" y1="10.0" x2="108.3" y2="10.0" stroke="#f59e0b" stroke-width=".6"/><circle cx="100" cy="10" r="5" fill="#fef3c7" stroke="#a16207" stroke-width=".5"/><rect x="97" y="14" width="6" height="3" fill="#94a3b8"/><circle cx="86" cy="46" r="2.5" fill="#7c3aed"/><text x="86" y="47.6" font-size="4.2" font-weight="800" fill="#fff">+</text><circle cx="114" cy="56" r="2.5" fill="#16a34a"/><text x="114" y="57.6" font-size="4.2" font-weight="800" fill="#fff">−</text><ellipse cx="97" cy="44" rx="3.2" ry="2" fill="#f59e0b" stroke="#a16207" stroke-width=".3"/><ellipse cx="104" cy="52" rx="3.2" ry="2" fill="#f59e0b" stroke="#a16207" stroke-width=".3"/><ellipse cx="87" cy="58" rx="3.2" ry="2" fill="#f59e0b" stroke="#a16207" stroke-width=".3"/><ellipse cx="103" cy="61" rx="3.2" ry="2" fill="#f59e0b" stroke="#a16207" stroke-width=".3"/><text x="100" y="72.5" font-size="6" font-weight="800" fill="#1d2133">Sirke</text><text x="100" y="78.5" font-size="5" fill="#5d6478">az iyon → sönük</text><path d="M145 36 V64 a3 3 0 0 0 3 3 H182 a3 3 0 0 0 3 -3 V36" fill="#e0f2fe" stroke="#5d6478" stroke-width=".6"/><rect x="145" y="36" width="40" height="3" fill="#ffffff" opacity=".6"/><rect x="154.7" y="30" width="2.6" height="30" fill="#64748b"/><rect x="172.7" y="30" width="2.6" height="30" fill="#64748b"/><path d="M156 30 V14 H161" fill="none" stroke="#334155" stroke-width=".6"/><path d="M174 30 V14 H169" fill="none" stroke="#334155" stroke-width=".6"/><circle cx="165" cy="10" r="5" fill="#f1f5f9" stroke="#a16207" stroke-width=".5"/><rect x="162" y="14" width="6" height="3" fill="#94a3b8"/><ellipse cx="161" cy="44" rx="3.2" ry="2" fill="#f59e0b" stroke="#a16207" stroke-width=".3"/><ellipse cx="168" cy="50" rx="3.2" ry="2" fill="#f59e0b" stroke="#a16207" stroke-width=".3"/><ellipse cx="151" cy="53" rx="3.2" ry="2" fill="#f59e0b" stroke="#a16207" stroke-width=".3"/><ellipse cx="179" cy="43" rx="3.2" ry="2" fill="#f59e0b" stroke="#a16207" stroke-width=".3"/><ellipse cx="162" cy="60" rx="3.2" ry="2" fill="#f59e0b" stroke="#a16207" stroke-width=".3"/><ellipse cx="170" cy="61" rx="3.2" ry="2" fill="#f59e0b" stroke="#a16207" stroke-width=".3"/><text x="165" y="72.5" font-size="6" font-weight="800" fill="#1d2133">Şekerli su</text><text x="165" y="78.5" font-size="5" fill="#5d6478">iyon yok → yanmaz</text></g></svg>
+    </div>
+    <div class="kutu kavram" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Elektrolit</div>
+      <p style="font-size:9.1pt"><b>Elektrolit çözelti:</b> Serbest iyon içerir, elektrik akımını iletir (tuzlu su, asit ve baz çözeltileri). Aynı sıcaklıkta iyon derişimi arttıkça iletkenlik artar.</p>
+      <p style="font-size:9.1pt"><b>Elektrolit olmayan çözelti:</b> İyon içermez, akımı iletmez (şekerli su, alkollü su, glikoz çözeltisi).</p>
+    </div>
+  </div>
+
+  <div class="kutu dikkat" style="margin-top:3mm">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “Şeker suda çok iyi çözünür, bu yüzden şekerli su elektriği iyi iletir.”</div>
+      <div class="dogru"><b class="d">✓</b> İletkenliği <b>çözünme miktarı</b> değil, çözeltideki <b>serbest iyonlar</b> sağlar. Şeker moleküler çözündüğü için çözeltisi iletken değildir.</div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 1</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · ÇÖZÜNÜRLÜK VE FAKTÖRLER
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Çözeltiler 1</span><span>Çözünürlük</span></div>
+
+  <h2 class="konu"><span class="num">4</span>Çözünürlük ve etkileyen faktörler</h2>
+  <div class="alt-baslik">Su her maddeyi sınırsız çözmez. Sınırı sıcaklık, basınç ve maddenin türü belirler.</div>
+
+  <div class="iki-genis">
+    <div>
+      <div class="kutu kavram">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Çözünürlük</div>
+        <p>Belirli sıcaklık ve basınçta <b>100 gram çözücüde</b> çözünebilen <b>en fazla</b> madde kütlesidir. Birimi genellikle <b>g / 100 g su</b>’dur.</p>
+        <p style="font-size:9pt">Aynı koşullarda her saf madde için sabit bir değerdir; bu yüzden <b>ayırt edici</b> bir özelliktir.</p>
+      </div>
+      <p style="font-size:9.3pt">“20 °C’ta <span class="f">KNO<sub>3</sub></span>’ün çözünürlüğü 32 g / 100 g su” ifadesi şunu anlatır: 20 °C’ta 100 g su en fazla 32 g <span class="f">KNO<sub>3</sub></span> çözer ve <b>132 g doymuş çözelti</b> oluşur.</p>
+    </div>
+    <div>
+      <svg viewBox="0 0 120 92" style="width:100%;height:auto"><g font-family="Inter"><g stroke="#ece4cf" stroke-width=".3"><line x1="16" y1="78.00" x2="114" y2="78.00"/><line x1="16" y1="62.89" x2="114" y2="62.89"/><line x1="16" y1="47.78" x2="114" y2="47.78"/><line x1="16" y1="32.67" x2="114" y2="32.67"/><line x1="16" y1="17.56" x2="114" y2="17.56"/><line x1="16.00" y1="78" x2="16.00" y2="10"/><line x1="40.50" y1="78" x2="40.50" y2="10"/><line x1="65.00" y1="78" x2="65.00" y2="10"/><line x1="89.50" y1="78" x2="89.50" y2="10"/><line x1="114.00" y1="78" x2="114.00" y2="10"/></g><line x1="16" y1="78" x2="116" y2="78" stroke="#1d2133" stroke-width=".5"/><line x1="16" y1="78" x2="16" y2="7" stroke="#1d2133" stroke-width=".5"/><g font-size="4.2" fill="#5d6478"><text x="14.4" y="79.40" text-anchor="end">0</text><text x="14.4" y="64.29" text-anchor="end">40</text><text x="14.4" y="49.18" text-anchor="end">80</text><text x="14.4" y="34.07" text-anchor="end">120</text><text x="14.4" y="18.96" text-anchor="end">160</text><text x="16.00" y="83" text-anchor="middle">0</text><text x="40.50" y="83" text-anchor="middle">20</text><text x="65.00" y="83" text-anchor="middle">40</text><text x="89.50" y="83" text-anchor="middle">60</text><text x="114.00" y="83" text-anchor="middle">80</text></g><text x="65.0" y="88.5" text-anchor="middle" font-size="4.5" font-weight="700" fill="#1d2133">Sıcaklık (°C)</text><text x="15" y="5" text-anchor="start" font-size="4.5" font-weight="700" fill="#1d2133">Çözünürlük (g / 100 g su)</text><path d="M16.00 73.09 L28.25 70.07 L40.50 65.91 L52.75 60.62 L65.00 53.82 L77.25 45.89 L89.50 36.44 L101.75 25.87 L114.00 14.16" fill="none" stroke="#a16207" stroke-width="1.2" stroke-linejoin="round"/><path d="M16.00 64.51 L40.50 64.40 L65.00 64.17 L89.50 63.91 L114.00 63.49" fill="none" stroke="#2563eb" stroke-width="1.2" stroke-linejoin="round"/><text x="50.3" y="40.2" font-size="5" font-weight="800" fill="#a16207">KNO<tspan font-size="3.6" dy="1">3</tspan></text><text x="89.5" y="60.6" font-size="5" font-weight="800" fill="#2563eb">NaCl</text><circle cx="40.50" cy="65.91" r="1.1" fill="#a16207"/><text x="41.7" y="72.0" font-size="3.8" fill="#a16207">20 °C: 32</text><circle cx="114.00" cy="14.16" r="1.1" fill="#a16207"/><text x="111.5" y="13.0" font-size="3.8" fill="#a16207" text-anchor="end">80 °C: 169</text></g></svg>
+      <p class="kucuk ortala" style="margin:0">Yaklaşık deneysel değerler. <span class="f">KNO<sub>3</sub></span>’ün çözünürlüğü sıcaklıkla hızla artar, <span class="f">NaCl</span>’ünki çok az değişir.</p>
+    </div>
+  </div>
+
+  <h3>1 · Sıcaklık</h3>
+  <div class="uc" style="gap:3mm">
+    <div class="kutu duz serit" style="--bg:#fffaf0;margin:0;padding:2.4mm 3mm">
+      <p style="font-size:8.9pt;margin:0"><b class="k">Endotermik çözünme</b><br>X<span class="hal">(k)</span> + ısı → X<span class="hal">(suda)</span><br>Sıcaklık artınca çözünürlük <b>artar</b>. Örnek: <span class="f">KNO<sub>3</sub></span>, <span class="f">NH<sub>4</sub>NO<sub>3</sub></span>.</p>
+    </div>
+    <div class="kutu duz serit" style="--bg:#fffaf0;margin:0;padding:2.4mm 3mm">
+      <p style="font-size:8.9pt;margin:0"><b class="k">Ekzotermik çözünme</b><br>Y<span class="hal">(k)</span> → Y<span class="hal">(suda)</span> + ısı<br>Sıcaklık artınca çözünürlük <b>azalır</b>.</p>
+    </div>
+    <div class="kutu duz serit" style="--bg:#fffaf0;margin:0;padding:2.4mm 3mm;display:grid;grid-template-columns:1fr 23mm;gap:2mm;align-items:center">
+      <p style="font-size:8.9pt;margin:0"><b class="k">Gazlar</b><br>Suda çözünmeleri hep ekzotermiktir; ısınan suda gaz çözünürlüğü <b>azalır</b>.</p>
+      <svg viewBox="0 0 46 38" style="width:100%;height:auto"><g font-family="Inter"><line x1="5" y1="31" x2="45" y2="31" stroke="#1d2133" stroke-width=".5"/><line x1="5" y1="31" x2="5" y2="6" stroke="#1d2133" stroke-width=".5"/><path d="M6 9 C 15 19, 27 24, 44 27" fill="none" stroke="#0f8f84" stroke-width="1.3"/><text x="25" y="37" font-size="4.6" text-anchor="middle" fill="#5d6478">Sıcaklık →</text><text x="5" y="4.4" font-size="4.6" fill="#5d6478">Çözünürlük</text><text x="30" y="19" font-size="5.4" font-weight="800" fill="#0f8f84">Gaz</text></g></svg>
+    </div>
+  </div>
+
+  <div class="iki" style="margin-top:3.5mm">
+    <div>
+      <h3 style="margin-top:0">2 · Basınç</h3>
+      <p style="font-size:9.3pt">Katı ve sıvıların çözünürlüğü basınçtan etkilenmez. Bir <b>gazın</b> çözünürlüğü ise sıvı üzerindeki <b>o gazın basıncıyla doğru orantılı</b> artar. Gazlı içecek şişesi açılınca basınç düşer, çözünmüş <span class="f">CO<sub>2</sub></span> kabarcık hâlinde ayrılır.</p>
+      <h3>3 · Maddenin türü</h3>
+      <p style="font-size:9.3pt">Çözücü ve çözünenin tanecikleri arasındaki etkileşimler benzer olmalıdır (2. konu). Aynı sıcaklıkta iyotun hekzandaki çözünürlüğü sudakinden çok büyüktür.</p>
+      <div class="kutu ornek" style="margin:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 2</div>
+        <div class="soru" style="font-size:9.2pt">Grafiğe göre 60 °C’ta 110 g / 100 g su olan <span class="f">KNO<sub>3</sub></span> ile 50 g su kullanılarak en çok kaç gram doymuş çözelti hazırlanır?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>50 g su, 100 g’ın yarısı → 110 / 2 = 55 g <span class="f">KNO<sub>3</sub></span> çözer.</span></div>
+          <span class="sonuc">50 + 55 = 105 g çözelti</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="kutu hayat">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+        <p style="font-size:9.1pt">Derine dalan bir dalgıcın soluduğu hava yüksek basınçtadır; kanında çözünen azot miktarı artar. Dalgıç çok hızlı yüzeye çıkarsa basınç birden düşer ve azot kanda kabarcık oluşturur. Bu tehlikeli duruma <b>vurgun</b> denir. Bu yüzden dalgıçlar yavaş ve duraklayarak yükselir.</p>
+      </div>
+      <div class="kutu dikkat" style="margin:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Kaba su ekleyince tuzun çözünürlüğü artar.”</div>
+          <div class="dogru"><b class="d">✓</b> Çözünen toplam tuz <b>miktarı</b> artar; ama 100 g sudaki sınır, yani <b>çözünürlük değişmez</b>. Çözücü veya çözünen miktarı çözünürlüğü etkilemez.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 1</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · DOYGUNLUK VE ÇÖZÜNME HIZI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Çözeltiler 1</span><span>Doygunluk ve çözünme hızı</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Doygunluk ve çözünme hızı</h2>
+  <div class="alt-baslik">Çözelti sınıra ne kadar yakın? Sınıra ne kadar çabuk ulaşılıyor?</div>
+
+  <div class="iki-genis">
+    <div>
+      <p style="font-size:9.4pt"><b class="k">Doymamış çözelti:</b> Aynı koşullarda çözebileceğinden <b>daha az</b> çözünen içerir. Eklenen bir miktar çözünen daha çözünür (A noktası).</p>
+      <p style="font-size:9.4pt"><b class="k">Doymuş çözelti:</b> Çözebileceği <b>en fazla</b> çözüneni içerir (B noktası, eğrinin üzeri). Dipte katı varsa çözünme ve çökme <b>aynı hızla</b> sürer; katı miktarı değişmez. Buna <b>katısıyla dengedeki</b> doymuş çözelti denir.</p>
+      <p style="font-size:9.4pt;margin:0"><b class="k">Aşırı doymuş çözelti:</b> Çözebileceğinden <b>daha fazla</b> çözünen içerir (C noktası). <b>Kararsızdır</b>; sarsılınca veya içine küçük bir kristal atılınca fazla çözünen hızla çöker. Genellikle yüksek sıcaklıkta hazırlanan doymuş çözeltinin sarsılmadan yavaşça soğutulmasıyla elde edilir.</p>
+    </div>
+    <div>
+      <svg viewBox="0 0 120 88" style="width:100%;height:auto"><g font-family="Inter"><line x1="14" y1="74" x2="114" y2="74" stroke="#1d2133" stroke-width=".5"/><line x1="14" y1="74" x2="14" y2="6" stroke="#1d2133" stroke-width=".5"/><path d="M14.0 66.0 L19.0 65.7 L24.0 65.0 L29.0 63.9 L34.0 62.6 L39.0 61.1 L44.0 59.3 L49.0 57.3 L54.0 55.0 L59.0 52.6 L64.0 50.0 L69.0 47.2 L74.0 44.2 L79.0 41.0 L84.0 37.6 L89.0 34.1 L94.0 30.4 L99.0 26.6 L104.0 22.5 L109.0 18.3 L114.0 14.0 L114 6 L14 6 Z" fill="#fff1f3"/><path d="M14.0 66.0 L19.0 65.7 L24.0 65.0 L29.0 63.9 L34.0 62.6 L39.0 61.1 L44.0 59.3 L49.0 57.3 L54.0 55.0 L59.0 52.6 L64.0 50.0 L69.0 47.2 L74.0 44.2 L79.0 41.0 L84.0 37.6 L89.0 34.1 L94.0 30.4 L99.0 26.6 L104.0 22.5 L109.0 18.3 L114.0 14.0 L114 74 L14 74 Z" fill="#eafaf7"/><path d="M14.0 66.0 L19.0 65.7 L24.0 65.0 L29.0 63.9 L34.0 62.6 L39.0 61.1 L44.0 59.3 L49.0 57.3 L54.0 55.0 L59.0 52.6 L64.0 50.0 L69.0 47.2 L74.0 44.2 L79.0 41.0 L84.0 37.6 L89.0 34.1 L94.0 30.4 L99.0 26.6 L104.0 22.5 L109.0 18.3 L114.0 14.0" fill="none" stroke="#a16207" stroke-width="1.3"/><line x1="74" y1="74" x2="74" y2="8" stroke="#9aa3b8" stroke-width=".35" stroke-dasharray="1.2 1"/><circle cx="74" cy="58.2" r="1.9" fill="#0f8f84"/><text x="77" y="59.8" font-size="5" font-weight="800" fill="#0f8f84">A</text><circle cx="74" cy="44.2" r="1.9" fill="#a16207"/><text x="77" y="45.8" font-size="5" font-weight="800" fill="#a16207">B</text><circle cx="74" cy="30.2" r="1.9" fill="#e11d48"/><text x="77" y="31.8" font-size="5" font-weight="800" fill="#e11d48">C</text><text x="74" y="79.5" font-size="4.2" text-anchor="middle" fill="#5d6478">t</text><text x="22" y="14" font-size="4.2" font-weight="700" fill="#e11d48">Aşırı doymuş bölge</text><text x="70" y="70" font-size="4.2" font-weight="700" fill="#0f8f84">Doymamış bölge</text><text x="103" y="19.5" font-size="4" font-weight="700" fill="#a16207" text-anchor="end">Doymuş (eğri)</text><text x="64" y="86" font-size="4.4" text-anchor="middle" font-weight="700" fill="#1d2133">Sıcaklık (°C)</text><text x="15" y="4.4" font-size="4.4" font-weight="700" fill="#1d2133">Çözünürlük</text></g></svg>
+    </div>
+  </div>
+
+  <div class="iki" style="margin-top:2mm">
+    <div class="kutu kavram" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> Doymamışı doymuş yapmak</div>
+      <ul style="font-size:9pt;margin:0">
+        <li>Aynı sıcaklıkta <b>çözünen eklemek</b></li>
+        <li>Aynı sıcaklıkta <b>çözücü buharlaştırmak</b></li>
+        <li>Sıcaklığı değiştirmek: endotermikse <b>soğutmak</b>, ekzotermikse <b>ısıtmak</b></li>
+      </ul>
+    </div>
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9pt">Bal, suda çözünmüş şeker oranı çok yüksek olan <b>aşırı doymuş</b> bir çözeltidir. Kararsız olduğu için zamanla kendiliğinden kristallenir; buna halk arasında balın “şekerlenmesi” denir. Hafifçe ısıtılınca kristaller yeniden çözünür.</p>
+    </div>
+  </div>
+
+  <h3>Çözünme hızı ≠ çözünürlük</h3>
+  <p style="font-size:9.3pt">Birim zamanda çözünen madde miktarına <b class="k">çözünme hızı</b> denir. Küp şeker, toz şeker ve pudra şekeri aynı sıcaklıkta aynı sınıra kadar çözünür; ama pudra şekeri o sınıra <b>çok daha çabuk</b> ulaşır.</p>
+  <table class="tablo">
+    <tr><th>İşlem (katı – sıvı)</th><th>Çözünme hızı</th><th>Çözünürlük</th></tr>
+    <tr><td>Karıştırmak, çalkalamak</td><td>Artar</td><td>Değişmez</td></tr>
+    <tr><td>Katıyı toz hâline getirmek (temas yüzeyini artırmak)</td><td>Artar</td><td>Değişmez</td></tr>
+    <tr><td>Sıcaklığı artırmak</td><td>Artar (her çözünmede)</td><td>Endotermikse artar, ekzotermikse azalır</td></tr>
+  </table>
+
+  <div class="kutu kavram" style="margin-bottom:0">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kristallendirme</div>
+    <p style="font-size:9.2pt">Çözücüyü buharlaştırarak veya sıcaklığı değiştirip çözünürlüğü düşürerek çözüneni kristaller hâlinde ayırma yöntemidir. Tuzlalarda deniz ya da göl suyu güneşte buharlaştırılarak tuz elde edilir. Çözünürlükleri sıcaklıkla farklı değişen iki katı da bu yolla birbirinden ayrılabilir.</p>
+  </div>
+
+  <div class="kutu dikkat" style="margin:3.5mm 0 0">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “Kabın dibinde katı varsa çözelti aşırı doymuştur.”</div>
+      <div class="dogru"><b class="d">✓</b> Dipte katı varsa çözelti, katısıyla dengede olan <b>doymuş</b> çözeltidir. Aşırı doymuş çözeltide fazla çözünen çözelti içindedir ve dipte katı yoktur.</div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 1</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · ÇÖZÜNÜRLÜK HESAPLAMALARI
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Çözeltiler 1</span><span>Çözünürlük hesaplamaları</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Çözünürlük hesaplamaları</h2>
+  <div class="alt-baslik">Hepsi tek bir orantıya dayanır: “100 g su + S g çözünen = (100 + S) g doymuş çözelti”.</div>
+
+  <div class="iki-genis">
+    <div>
+      <div class="kutu kavram">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> 3 Adımlık Strateji</div>
+        <p style="font-size:9.1pt"><b class="k">1 · Sıcaklığı seç.</b> Grafikten o sıcaklıktaki çözünürlüğü (S) oku.<br>
+        <b class="k">2 · Orantı satırını yaz.</b> 100 g su ↔ S g çözünen ↔ (100 + S) g çözelti.<br>
+        <b class="k">3 · Verilen niceliği eşle.</b> Verilen su mu, çözünen mi, çözelti mi? Doğru sütunla orantı kur.</p>
+      </div>
+      <div class="kutu dikkat serit" style="margin-bottom:0">
+        <p style="font-size:9pt;margin:0"><b style="color:var(--dikkat)">Dikkat:</b> “Doymuş çözelti kütlesi” verildiyse onu <b>su kütlesi</b> gibi kullanma. Önce su ve çözünene ayır. Sıcaklık değişimi sırasında su kütlesi değişmez (buharlaşma yoksa).</p>
+      </div>
+    </div>
+    <div>
+      <svg viewBox="0 0 120 90" style="width:100%;height:auto"><g font-family="Inter"><g stroke="#ece4cf" stroke-width=".3"><line x1="16" y1="76.00" x2="112" y2="76.00"/><line x1="16" y1="65.00" x2="112" y2="65.00"/><line x1="16" y1="57.67" x2="112" y2="57.67"/><line x1="16" y1="46.67" x2="112" y2="46.67"/><line x1="16" y1="32.00" x2="112" y2="32.00"/><line x1="16" y1="17.33" x2="112" y2="17.33"/><line x1="16.00" y1="76" x2="16.00" y2="10"/><line x1="40.00" y1="76" x2="40.00" y2="10"/><line x1="64.00" y1="76" x2="64.00" y2="10"/><line x1="88.00" y1="76" x2="88.00" y2="10"/><line x1="112.00" y1="76" x2="112.00" y2="10"/></g><line x1="16" y1="76" x2="114" y2="76" stroke="#1d2133" stroke-width=".5"/><line x1="16" y1="76" x2="16" y2="7" stroke="#1d2133" stroke-width=".5"/><g font-size="4.2" fill="#5d6478"><text x="14.4" y="77.40" text-anchor="end">0</text><text x="14.4" y="66.40" text-anchor="end">15</text><text x="14.4" y="59.07" text-anchor="end">25</text><text x="14.4" y="48.07" text-anchor="end">40</text><text x="14.4" y="33.40" text-anchor="end">60</text><text x="14.4" y="18.73" text-anchor="end">80</text><text x="16.00" y="81" text-anchor="middle">0</text><text x="40.00" y="81" text-anchor="middle">20</text><text x="64.00" y="81" text-anchor="middle">40</text><text x="88.00" y="81" text-anchor="middle">60</text><text x="112.00" y="81" text-anchor="middle">80</text></g><text x="64.0" y="86.5" text-anchor="middle" font-size="4.5" font-weight="700" fill="#1d2133">Sıcaklık (°C)</text><text x="15" y="5" text-anchor="start" font-size="4.5" font-weight="700" fill="#1d2133">Çözünürlük (g Z / 100 g su)</text><path d="M16.00 65.00 L40.00 57.67 L64.00 46.67 L88.00 32.00 L112.00 17.33" fill="none" stroke="#a16207" stroke-width="1.3" stroke-linejoin="round"/><circle cx="16.00" cy="65.00" r="1.3" fill="#a16207"/><circle cx="40.00" cy="57.67" r="1.3" fill="#a16207"/><circle cx="64.00" cy="46.67" r="1.3" fill="#a16207"/><circle cx="88.00" cy="32.00" r="1.3" fill="#a16207"/><circle cx="112.00" cy="17.33" r="1.3" fill="#a16207"/><text x="95.2" y="17.3" font-size="6" font-weight="800" fill="#a16207">Z</text></g></svg>
+      <p class="kucuk ortala" style="margin:0">Bu sayfadaki örneklerde Z katısının bu grafiği kullanılacaktır.</p>
+    </div>
+  </div>
+
+  <div class="iki" style="margin-top:3mm">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 3</div>
+      <div class="soru">40 °C’ta 70 g Z ile en fazla kaç gram doymuş çözelti hazırlanabilir?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>40 °C: 100 g su + 40 g Z = 140 g çözelti</span></div>
+        <div class="adim"><span class="n">2</span><span>70 g Z, 40 g’ın 1,75 katı → su: 175 g</span></div>
+        <span class="sonuc">175 + 70 = 245 g çözelti</span>
+      </div>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 4</div>
+      <div class="soru">80 °C’taki 360 g doymuş Z çözeltisi 20 °C’a soğutulursa kaç gram Z çöker?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>80 °C: 100 + 80 = 180 g çözelti. 360 g, bunun 2 katı → 200 g su, 160 g Z</span></div>
+        <div class="adim"><span class="n">2</span><span>20 °C’ta 200 g su 2·25 = 50 g Z çözer</span></div>
+        <span class="sonuc">160 − 50 = 110 g Z çöker</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu ornek" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 5</div>
+      <div class="soru">20 °C’taki 375 g doymuş Z çözeltisi 60 °C’a ısıtılıyor. Çözeltinin yeniden doymuş olması için en az kaç gram Z eklenmelidir?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>20 °C: 125 g çözeltide 100 g su, 25 g Z. 375 g → 3 katı: 300 g su, 75 g Z</span></div>
+        <div class="adim"><span class="n">2</span><span>60 °C’ta 300 g su 3·60 = 180 g Z çözer</span></div>
+        <span class="sonuc">180 − 75 = 105 g Z eklenmeli</span>
+      </div>
+    </div>
+    <div class="kutu ornek" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 6</div>
+      <div class="soru">80 °C’ta 300 g suda 120 g Z çözülüyor. Çözelti yavaşça soğutulursa kristallenme hangi sıcaklıkta başlar?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>100 g suya düşen Z: 120 / 3 = 40 g → çözelti 40 g / 100 g su oranındadır (80 °C’ta doymamış).</span></div>
+        <div class="adim"><span class="n">2</span><span>Grafikte çözünürlüğün 40 olduğu sıcaklık: 40 °C. Bu sıcaklığın altında çökme olur.</span></div>
+        <span class="sonuc">40 °C</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fffaf0;margin-top:3.5mm">
+    <p style="margin:0"><b class="k">Kendini yokla:</b> 60 °C’ta 150 g su ile hazırlanmış doymuş Z çözeltisinden aynı sıcaklıkta 50 g su buharlaşırsa kaç gram Z çöker? <span class="kucuk">(Cevap: 30 g. Buharlaşan 50 g su, 60 °C’ta 30 g Z’yi çözüyordu.)</span></p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 1</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · ÖZET
+     ========================================================= -->
+<section class="sayfa cift ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Çözeltiler 1</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada çözeltiler</h2><p>Sınavdan önceki gece bu sayfaya bakman yeter. Her kutuyu kendi cümlelerinle bir arkadaşına anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Çözünme</div>
+      <ul style="font-size:9pt">
+        <li>Çözelti: tanecik düzeyinde homojen karışım</li>
+        <li>Çözünen ve çözücü ayrılır (enerji alır), etkileşim oluşur (enerji verir)</li>
+        <li>Su çözücüyse hidratasyon, diğer çözücülerde solvatasyon</li>
+        <li>Kütle korunur, hacim toplam olmayabilir</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Benzer benzeri çözer</div>
+      <ul style="font-size:9pt">
+        <li>Polar ↔ polar, apolar ↔ apolar, iyonik ↔ su</li>
+        <li>İyon–dipol · dipol–dipol · hidrojen bağı · London</li>
+        <li>Polar–apolar ve iyon–apolar etkileşimleri zayıftır: iyi çözünmez</li>
+        <li>İyon varsa elektrolit; moleküler çözünme iletmez</li>
+      </ul>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Çözünürlük</div>
+      <ul style="font-size:9pt">
+        <li>100 g çözücüde çözünebilen en fazla madde (g / 100 g su)</li>
+        <li>Endotermik: T↑ çözünürlük ↑ · ekzotermik ve gazlar: T↑ çözünürlük ↓</li>
+        <li>Basınç yalnızca gazları etkiler: P↑ çözünürlük ↑</li>
+        <li>Karıştırma, toz etme, miktar: çözünürlüğü değiştirmez</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> En sık 4 hata</div>
+      <ul style="font-size:9pt">
+        <li>Çözünme hızı ile çözünürlüğü karıştırmak</li>
+        <li>Doymuş çözelti kütlesini su kütlesi sanmak</li>
+        <li>Dibinde katı olan çözeltiyi aşırı doymuş sanmak</li>
+        <li>Polar bağ içeren her molekülü polar sanmak</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Çözünme sürecini basamaklarıyla ve enerji değişimiyle açıklayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>İki madde arasındaki etkin etkileşimi belirleyip çözünürlüğü tahmin edebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Çözünmeyi iyonik/moleküler ve fiziksel/kimyasal olarak sınıflandırabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Sıcaklık ve basıncın çözünürlüğe etkisini örneklerle anlatabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bir çözeltiyi doymuş, doymamış veya aşırı doymuş olarak sınıflandırabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Çözünürlük grafiğinden çökme, ekleme ve buharlaştırma hesabı yapabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:5mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 1</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Çözeltiler 1</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Aşağıdaki çözümleri dört farklı öğrenci yazdı. Her birinde bir hata var. Hatayı bul, hangi satırda olduğunu yaz, doğrusunu kutuya çöz.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> <span class="f">I<sub>2</sub></span> ile <span class="f">CCl<sub>4</sub></span> arasındaki etkin etkileşim nedir?</p>
+      <div class="defter">
+        <div class="ogrenci">Elif’in çözümü</div>
+        <div class="satir"><span class="sn">1</span><span class="f">I<sub>2</sub></span> aynı tür iki atomdan oluşur, apolardır.</div>
+        <div class="satir"><span class="sn">2</span>C–Cl bağları polar, yani <span class="f">CCl<sub>4</sub></span> polardır.</div>
+        <div class="satir"><span class="sn">3</span>Cevap: dipol–indüklenmiş dipol</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Aynı sıcaklıkta eşit kütle suya eşit kütle küp şeker ve toz şeker atılıyor. Toz şeker daha önce bitiyor. Ne söylenebilir?</p>
+      <div class="defter">
+        <div class="ogrenci">Burak’ın çözümü</div>
+        <div class="satir"><span class="sn">1</span>Toz şekerin temas yüzeyi daha büyük.</div>
+        <div class="satir"><span class="sn">2</span>Toz şeker daha hızlı çözünür.</div>
+        <div class="satir"><span class="sn">3</span>Toz şekerin çözünürlüğü de daha büyüktür.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Çözünürlüğü 40 g / 100 g su olan Z’nin 280 g doymuş çözeltisinde kaç gram Z vardır?</p>
+      <div class="defter">
+        <div class="ogrenci">Selin’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>100 g suda 40 g Z çözünür.</div>
+        <div class="satir"><span class="sn">2</span>280 g’da: 280 · 40 / 100</div>
+        <div class="satir"><span class="sn">3</span>Cevap: 112 g Z</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> 20 °C’ta çözünürlüğü 25 g / 100 g su olan Z’nin 250 g su ve 50 g Z içeren çözeltisinden aynı sıcaklıkta kaç g su buharlaşınca çözelti doymuş olur?</p>
+      <div class="defter">
+        <div class="ogrenci">Mert’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>Gereken su: 50 · 25 / 100 = 12,5 g</div>
+        <div class="satir"><span class="sn">2</span>Buharlaşacak su: 250 − 12,5</div>
+        <div class="satir"><span class="sn">3</span>Cevap: 237,5 g</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Hesaplarda sonucu <b>geri koyarak</b> kontrol et: bulduğun su ve çözünen kütlesinin oranı, o sıcaklıktaki çözünürlüğe eşit mi? Eşit değilse orantı yanlış kurulmuştur.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 1</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Çözeltiler 1</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni ve görseli oku, sonra hangi bilginin işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Çevre</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Grafikte, havayla dengedeki tatlı suda çözünmüş oksijen miktarının sıcaklıkla değişimi verilmiştir. Bir termik santral, soğutmada kullandığı suyu ısıtıp nehre geri bırakmaktadır.</p>
+          <svg viewBox="0 0 120 80" style="width:86%;height:auto;display:block;margin:0 auto"><g font-family="Inter"><g stroke="#ece4cf" stroke-width=".3"><line x1="16" y1="66.00" x2="112" y2="66.00"/><line x1="16" y1="51.50" x2="112" y2="51.50"/><line x1="16" y1="37.00" x2="112" y2="37.00"/><line x1="16" y1="22.50" x2="112" y2="22.50"/><line x1="16" y1="8.00" x2="112" y2="8.00"/><line x1="16.00" y1="66" x2="16.00" y2="8"/><line x1="40.00" y1="66" x2="40.00" y2="8"/><line x1="64.00" y1="66" x2="64.00" y2="8"/><line x1="88.00" y1="66" x2="88.00" y2="8"/><line x1="112.00" y1="66" x2="112.00" y2="8"/></g><line x1="16" y1="66" x2="114" y2="66" stroke="#1d2133" stroke-width=".5"/><line x1="16" y1="66" x2="16" y2="5" stroke="#1d2133" stroke-width=".5"/><g font-size="4.2" fill="#5d6478"><text x="14.4" y="67.40" text-anchor="end">0</text><text x="14.4" y="52.90" text-anchor="end">4</text><text x="14.4" y="38.40" text-anchor="end">8</text><text x="14.4" y="23.90" text-anchor="end">12</text><text x="14.4" y="9.40" text-anchor="end">16</text><text x="16.00" y="71" text-anchor="middle">0</text><text x="40.00" y="71" text-anchor="middle">10</text><text x="64.00" y="71" text-anchor="middle">20</text><text x="88.00" y="71" text-anchor="middle">30</text><text x="112.00" y="71" text-anchor="middle">40</text></g><text x="64.0" y="76.5" text-anchor="middle" font-size="4.5" font-weight="700" fill="#1d2133">Su sıcaklığı (°C)</text><text x="15" y="3" text-anchor="start" font-size="4.5" font-weight="700" fill="#1d2133">Çözünmüş O<tspan font-size="3.4" dy="1">2</tspan><tspan dy="-1"> (mg/L)</tspan></text><path d="M16.00 13.08 L40.00 25.04 L64.00 33.01 L88.00 38.45 L112.00 42.80" fill="none" stroke="#0f8f84" stroke-width="1.2" stroke-linejoin="round"/><circle cx="16.00" cy="13.08" r="1.2" fill="#0f8f84"/><text x="17.60" y="11.28" font-size="3.8" font-weight="700" fill="#0b6b62">14,6</text><circle cx="40.00" cy="25.04" r="1.2" fill="#0f8f84"/><text x="41.60" y="23.24" font-size="3.8" font-weight="700" fill="#0b6b62">11,3</text><circle cx="64.00" cy="33.01" r="1.2" fill="#0f8f84"/><text x="65.60" y="31.21" font-size="3.8" font-weight="700" fill="#0b6b62">9,1</text><circle cx="88.00" cy="38.45" r="1.2" fill="#0f8f84"/><text x="89.60" y="36.65" font-size="3.8" font-weight="700" fill="#0b6b62">7,6</text><circle cx="112.00" cy="42.80" r="1.2" fill="#0f8f84"/><text x="113.60" y="41.00" font-size="3.8" font-weight="700" fill="#0b6b62">6,4</text></g></svg>
+          <p>Buna göre;</p>
+          <div class="oncul"><div><b>I.</b><span>Oksijenin suda çözünmesi ısı verendir.</span></div><div><b>II.</b><span>Nehir suyu 10 °C’tan 30 °C’a ısınırsa 1 L sudaki çözünmüş oksijen 3,7 mg azalır.</span></div><div><b>III.</b><span>Sıcak suda oksijenin çözünme hızı azaldığı için oksijen miktarı düşer.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek bes" style="grid-template-columns:repeat(5,auto)"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Sağlık</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Bazı cep ısıtıcılarında aşırı doymuş sodyum asetat çözeltisi bulunur. Paketteki metal disk bükülünce kristallenme başlar, paket ısınır ve bir süre sonra kristaller ile sıvı birlikte bulunur.</p>
+          <p>Buna göre;</p>
+          <div class="oncul"><div><b>I.</b><span>Paketteki başlangıç çözeltisi kararsızdır.</span></div><div><b>II.</b><span>Kristallenme ısı veren bir olaydır.</span></div><div><b>III.</b><span>Kristallenme tamamlandığında kristallerle birlikte bulunan sıvı, o sıcaklıkta doymuş çözeltidir.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek bes" style="grid-template-columns:repeat(5,auto)"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Endüstri</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>Bir gübre tesisinde 80 °C’taki 100 g su içinde 150 g <span class="f">KNO<sub>3</sub></span> ve 30 g <span class="f">NaCl</span> çözünmüş hâldedir. Çözelti 20 °C’a soğutulup kristaller süzülecektir. Tuzların birbirinin çözünürlüğünü etkilemediği kabul edilecektir.</p>
+          <table class="tablo mini-tablo">
+            <tr><th>Tuz</th><th>20 °C</th><th>80 °C</th></tr>
+            <tr><td><span class="f">KNO<sub>3</sub></span></td><td>32</td><td>169</td></tr>
+            <tr><td><span class="f">NaCl</span></td><td>36</td><td>38</td></tr>
+          </table>
+          <p class="veri" style="margin-top:-2mm">Çözünürlükler g / 100 g su cinsindendir.</p>
+          <p>Buna göre süzgeç kâğıdında hangi tuzdan kaç gram kristal toplanır?</p>
+          <div class="secenek tek"><span><b>A)</b>Yalnız <span class="f">KNO<sub>3</sub></span>, 137 g</span><span><b>B)</b>Yalnız <span class="f">KNO<sub>3</sub></span>, 118 g</span><span><b>C)</b>Yalnız <span class="f">NaCl</span>, 6 g</span><span><b>D)</b>118 g <span class="f">KNO<sub>3</sub></span> ve 6 g <span class="f">NaCl</span></span><span><b>E)</b>Kristallenme olmaz.</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Laboratuvar</div>
+        <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+          <p>Bir öğrenci eşit derişimli dört sulu çözeltiye aynı iletkenlik düzeneğini bağlayıp ampulün durumunu kaydediyor.</p>
+          <table class="tablo mini-tablo">
+            <tr><th>Kap</th><th>K</th><th>L</th><th>M</th><th>N</th></tr>
+            <tr><td>Ampul</td><td>Parlak</td><td>Yanmıyor</td><td>Sönük</td><td>Parlak</td></tr>
+          </table>
+          <p>Çözünenler <span class="f">KCl</span>, glikoz, sirke asidi ve <span class="f">HNO<sub>3</sub></span> olduğuna göre <b>L</b> ve <b>M</b> kaplarındaki çözünenler sırasıyla hangileridir?</p>
+          <div class="secenek tek"><span><b>A)</b>Sirke asidi – glikoz</span><span><b>B)</b><span class="f">KCl</span> – glikoz</span><span><b>C)</b>Glikoz – <span class="f">HNO<sub>3</sub></span></span><span><b>D)</b>Glikoz – sirke asidi</span><span><b>E)</b><span class="f">HNO<sub>3</sub></span> – sirke asidi</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 1</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Çözeltiler 1</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, sadece o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p>T tuzunun çözünürlüğü 30 °C’ta 45 g / 100 g su, 10 °C’ta 20 g / 100 g sudur. 30 °C’taki 290 g doymuş T çözeltisi 10 °C’a soğutulursa kaç gram T çöker?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">30 °C’ta orantı satırı: 100 g su + 45 g T = 145 g doymuş çözelti. 290 g bunun kaç katı?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">290 g çözeltideki su ve T kütlelerini ayrı ayrı bul. Soğutmada su kütlesi değişmez.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Bu su 10 °C’ta kaç gram T çözebilir? Çözeltideki T’den çıkar.</div></div>
+      </div>
+      <div class="cevap-alani" style="height:20mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p>40 °C’ta çözünürlüğü 40 g / 100 g su olan bir tuzun 150 g su ve 30 g tuz içeren çözeltisi var. Aynı sıcaklıkta önce çözelti doymuş hâle gelene kadar su buharlaştırılıyor, ardından 25 g su daha buharlaştırılıyor. Toplam kaç gram su buharlaşmıştır ve kaç gram tuz çöker?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">30 g tuzu doymuş hâlde tutmak için kaç gram su yeter? 40 g tuz ↔ 100 g su orantısını kullan.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">150 g sudan bu değeri çıkar: doymuş hâle gelene kadar buharlaşan su. Sonra 25 g daha ekle.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Kalan su kaç gram tuz çözebilir? 30 g’dan farkı çöken tuzdur.</div></div>
+      </div>
+      <div class="cevap-alani" style="height:20mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p>Q tuzunun çözünürlüğü (g / 100 g su): 0 °C’ta 10 · 20 °C’ta 20 · 40 °C’ta 35 · 60 °C’ta 55. 60 °C’ta 250 g suda 50 g Q çözülüp çözelti soğutuluyor. Kristallenme hangi sıcaklıkta başlar ve 0 °C’a gelindiğinde toplam kaç gram Q çökmüş olur?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Çözeltiyi “100 g suya düşen Q” cinsinden yaz: 50 g Q / 250 g su = ? g / 100 g su</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Tabloda bu değere eşit çözünürlük hangi sıcaklıkta? Kristallenme orada başlar.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">0 °C’ta 250 g su kaç gram Q çözer? 50 g’dan farkını bul.</div></div>
+      </div>
+      <div class="cevap-alani" style="height:20mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 1</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa cift test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Çözeltiler 1</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 25 dakika. Çözünürlükler g / 100 g su cinsindendir. Buharlaşma belirtilmedikçe su kütlesi değişmez.</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>Çözünme ve çözeltilerle ilgili aşağıdaki ifadelerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Çözünen tanecikleri birbirinden ayrılırken enerji harcanır.</span><span><b>B)</b>Çözücü ile çözünen tanecikleri arasında yeni etkileşimler oluşur.</span><span><b>C)</b>Çözelti kütlesi, çözücü ve çözünen kütleleri toplamına eşittir.</span><span><b>D)</b>Çözelti hacmi her zaman çözücü ve çözünen hacimleri toplamına eşittir.</span><span><b>E)</b>Çözücü su olduğunda çözünen taneciklerinin sarılmasına hidratasyon denir.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>Aşağıdaki madde çiftlerinden hangisinde karıştırılan maddeler arasındaki etkin etkileşim türü <b>yanlış</b> verilmiştir?</p>
+        <div class="secenek tek"><span><b>A)</b><span class="f">HCl</span> – <span class="f">H<sub>2</sub>S</span>: Hidrojen bağı</span><span><b>B)</b><span class="f">I<sub>2</sub></span> – <span class="f">C<sub>6</sub>H<sub>6</sub></span>: London kuvvetleri</span><span><b>C)</b><span class="f">KBr</span> – <span class="f">H<sub>2</sub>O</span>: İyon–dipol</span><span><b>D)</b><span class="f">NH<sub>3</sub></span> – <span class="f">H<sub>2</sub>O</span>: Hidrojen bağı</span><span><b>E)</b><span class="f">O<sub>2</sub></span> – <span class="f">H<sub>2</sub>O</span>: Dipol–indüklenmiş dipol</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p>Aşağıdaki maddelerden hangisinin hekzanda (<span class="f">C<sub>6</sub>H<sub>14</sub></span>) iyi çözünmesi beklenir?</p>
+        <div class="secenek"><span><b>A)</b><span class="f">NaCl</span></span><span><b>B)</b><span class="f">H<sub>2</sub>O</span></span><span><b>C)</b><span class="f">CCl<sub>4</sub></span></span><span><b>D)</b><span class="f">KNO<sub>3</sub></span></span><span><b>E)</b><span class="f">NH<sub>3</sub></span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p>Aşağıdaki maddelerin sulu çözeltilerinden hangileri elektrik akımını iletir?</p>
+        <div class="oncul"><div><b>I.</b><span>Glikoz (<span class="f">C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></span>)</span></div><div><b>II.</b><span>Potasyum klorür (<span class="f">KCl</span>)</span></div><div><b>III.</b><span>Hidrojen klorür (<span class="f">HCl</span>)</span></div><div><b>IV.</b><span>Etil alkol (<span class="f">C<sub>2</sub>H<sub>5</sub>OH</span>)</span></div></div>
+        <div class="secenek"><span><b>A)</b>I ve II</span><span><b>B)</b>II ve III</span><span><b>C)</b>III ve IV</span><span><b>D)</b>I, II ve III</span><span><b>E)</b>II, III ve IV</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p>Aşağıdaki maddelerden hangisinin suda çözünmesi <b>kimyasal</b> çözünmedir?</p>
+        <div class="secenek"><span><b>A)</b>Sakkaroz</span><span><b>B)</b><span class="f">NaNO<sub>3</sub></span></span><span><b>C)</b>Etil alkol</span><span><b>D)</b><span class="f">KBr</span></span><span><b>E)</b><span class="f">HCl</span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p>Saf A ve B katılarının sudaki çözünürlüklerinin sıcaklıkla değişimi grafikteki gibidir.</p>
+        <svg viewBox="0 0 120 70" style="width:84%;height:auto;display:block;margin:0 auto"><g font-family="Inter"><line x1="14" y1="58" x2="112" y2="58" stroke="#1d2133" stroke-width=".5"/><line x1="14" y1="58" x2="14" y2="5" stroke="#1d2133" stroke-width=".5"/><path d="M14 48 C 45 42, 75 25, 108 10" fill="none" stroke="#a16207" stroke-width="1.2"/><path d="M14 18 C 45 26, 75 36, 108 44" fill="none" stroke="#2563eb" stroke-width="1.2"/><line x1="59.6" y1="58" x2="59.6" y2="31.5" stroke="#9aa3b8" stroke-width=".35" stroke-dasharray="1.2 1"/><text x="59.6" y="63.5" font-size="4.4" text-anchor="middle" fill="#5d6478">t</text><text x="104" y="9" font-size="5" font-weight="800" fill="#a16207">A</text><text x="104" y="50.5" font-size="5" font-weight="800" fill="#2563eb">B</text><text x="64" y="69" font-size="4.2" text-anchor="middle" font-weight="700" fill="#1d2133">Sıcaklık (°C)</text><text x="15" y="3.8" font-size="4.2" font-weight="700" fill="#1d2133">Çözünürlük (g/100 g su)</text></g></svg>
+        <div class="oncul"><div><b>I.</b><span>A’nın suda çözünmesi endotermiktir.</span></div><div><b>II.</b><span>B’nin dibinde katısı olmayan doymuş çözeltisi ısıtılırsa çökme olur.</span></div><div><b>III.</b><span>Sıcaklık artırılınca B’nin çözünme hızı azalır.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>I ve II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 1</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · TEST (7–12)
+     ========================================================= -->
+<section class="sayfa test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Çözeltiler 1</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>Bir kapta su ile <span class="f">CO<sub>2</sub></span> gazı dengededir. Aşağıdaki işlemlerden hangileri sudaki çözünmüş <span class="f">CO<sub>2</sub></span> miktarını <b>artırır</b>?</p>
+        <div class="oncul"><div><b>I.</b><span>Sıcaklığı düşürmek</span></div><div><b>II.</b><span>Sabit sıcaklıkta <span class="f">CO<sub>2</sub></span> basıncını artırmak</span></div><div><b>III.</b><span>Kabı çalkalamak</span></div></div>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p>Suda endotermik çözünen bir katı için aşağıdaki işlemlerden hangisi hem çözünme hızını hem de çözünürlüğü artırır?</p>
+        <div class="secenek tek"><span><b>A)</b>Sıcaklığı artırmak</span><span><b>B)</b>Çözeltiyi karıştırmak</span><span><b>C)</b>Katıyı toz hâline getirmek</span><span><b>D)</b>Kaba su eklemek</span><span><b>E)</b>Kaba daha fazla katı eklemek</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>25 °C’ta çözünürlüğü 36 olan bir tuzdan 34 g, 25 °C’taki 75 g suya ekleniyor ve iyice karıştırılıyor. Kabın dibinde çözünmeden kaç gram tuz kalır?</p>
+        <div class="secenek bes"><span><b>A)</b>0</span><span><b>B)</b>7</span><span><b>C)</b>9</span><span><b>D)</b>25</span><span><b>E)</b>27</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p>X katısının çözünürlüğü 50 °C’ta 80, 10 °C’ta 20’dir. 50 °C’taki 360 g doymuş X çözeltisi 10 °C’a soğutulursa kaç gram X çöker?</p>
+        <div class="secenek bes"><span><b>A)</b>60</span><span><b>B)</b>80</span><span><b>C)</b>100</span><span><b>D)</b>120</span><span><b>E)</b>140</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <p>30 °C’ta çözünürlüğü 40 olan Y tuzunun 300 g su ve 90 g Y içeren çözeltisinden aynı sıcaklıkta en az kaç gram su buharlaştırılırsa çözelti doymuş olur?</p>
+        <div class="secenek bes"><span><b>A)</b>25</span><span><b>B)</b>50</span><span><b>C)</b>75</span><span><b>D)</b>100</span><span><b>E)</b>125</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p>20 °C’ta çözünürlüğü 30 olan bir tuzla aynı sıcaklıkta üç çözelti hazırlanıyor; hiçbir kapta katı yoktur.</p>
+        <div class="oncul"><div><b>I.</b><span>50 g suda 15 g tuz çözünmüş</span></div><div><b>II.</b><span>200 g suda 50 g tuz çözünmüş</span></div><div><b>III.</b><span>80 g suda 30 g tuz çözünmüş</span></div></div>
+        <p>Bu çözeltilerin sınıflandırılması hangisinde doğru verilmiştir?</p>
+        <div class="secenek tek"><span><b>A)</b>Doymamış – doymuş – aşırı doymuş</span><span><b>B)</b>Doymuş – aşırı doymuş – doymamış</span><span><b>C)</b>Doymuş – doymuş – aşırı doymuş</span><span><b>D)</b>Aşırı doymuş – doymamış – doymuş</span><span><b>E)</b>Doymuş – doymamış – aşırı doymuş</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fffaf0;margin-top:2mm">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 4. ve 6. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 1</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Çözeltiler 1</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>D</span></div><div><b>2</b><span>A</span></div><div><b>3</b><span>C</span></div><div><b>4</b><span>B</span></div>
+    <div><b>5</b><span>E</span></div><div><b>6</b><span>B</span></div><div><b>7</b><span>C</span></div><div><b>8</b><span>A</span></div>
+    <div><b>9</b><span>B</span></div><div><b>10</b><span>D</span></div><div><b>11</b><span>C</span></div><div><b>12</b><span>E</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · D</b> Tanecikler birbirinin arasına yerleşebildiği için çözelti hacmi toplamdan farklı olabilir (alkol + su). Kütle ise her zaman korunur.</div>
+    <div class="c"><b>2 · A</b> <span class="f">HCl</span> ve <span class="f">H<sub>2</sub>S</span>’de H, F/O/N’ye bağlı değildir: etkin etkileşim dipol–dipol. Diğerleri doğru.</div>
+    <div class="c"><b>3 · C</b> Hekzan apolardır. Seçeneklerde apolar olan yalnızca simetrik <span class="f">CCl<sub>4</sub></span>’tür; ikisi arasında London kuvvetleri oluşur.</div>
+    <div class="c"><b>4 · B</b> <span class="f">KCl</span> (tuz) ve <span class="f">HCl</span> (asit) suda iyon oluşturur. Glikoz ve etil alkol moleküler çözünür, iletmez.</div>
+    <div class="c"><b>5 · E</b> <span class="f">HCl</span> molekülleri suyla etkileşip <span class="f">H<sub>3</sub>O<sup>+</sup></span> ve <span class="f">Cl<sup>−</sup></span> gibi yeni tanecikler oluşturur. Tuzlar, şeker ve alkol fiziksel çözünür.</div>
+    <div class="c"><b>6 · B</b> A’nın eğrisi yükseliyor: endotermik (I ✓). B’nin çözünürlüğü T↑ ile azalıyor; ısıtılınca fazlası çöker (II ✓). Sıcaklık artışı her çözünmede hızı artırır (III ✗).</div>
+    <div class="c"><b>7 · C</b> Gazların çözünürlüğü soğukta ve yüksek basınçta artar (I, II ✓). Çalkalama yalnızca hızı etkiler, miktarı değiştirmez (III ✗).</div>
+    <div class="c"><b>8 · A</b> Karıştırma ve toz etme yalnızca hızı artırır; su veya katı eklemek çözünürlüğü değiştirmez. Endotermik çözünmede ısıtma ikisini de artırır.</div>
+    <div class="c"><b>9 · B</b> 75 g su en fazla 75·36/100 = 27 g tuz çözer. 34 − 27 = 7 g dipte kalır.</div>
+    <div class="c"><b>10 · D</b> 50 °C: 180 g çözeltide 100 g su + 80 g X. 360 g → 200 g su + 160 g X. 10 °C’ta 200 g su 40 g çözer; 160 − 40 = 120 g çöker.</div>
+    <div class="c"><b>11 · C</b> 90 g Y için gereken su: 90·100/40 = 225 g. 300 − 225 = 75 g su buharlaştırılmalı.</div>
+    <div class="c"><b>12 · E</b> I: 15/50 → 30 g/100 g su: doymuş. II: 50/200 → 25: doymamış. III: 30/80 → 37,5 &gt; 30 ve katı yok: aşırı doymuş.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> T↑ iken çözünürlük azalıyor: çözünme ekzotermik (I ✓). 11,3 − 7,6 = 3,7 mg/L (II ✓). Düşüş hızdan değil çözünürlüğün azalmasından kaynaklanır; sıcaklık hızı artırır (III ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · E</b> Aşırı doymuş çözelti kararsızdır (I ✓); paket ısındığına göre kristallenme ısı verir (II ✓); kristallerle dengedeki sıvı doymuştur (III ✓).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · B</b> 80 °C’ta iki tuz da sınırın altında (150 &lt; 169, 30 &lt; 38). 20 °C’ta 100 g su 32 g <span class="f">KNO<sub>3</sub></span> çözer: 150 − 32 = 118 g çöker. 30 g <span class="f">NaCl</span> &lt; 36 g, çözeltide kalır.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · D</b> Yanmayan L: iyon yok → glikoz. Sönük M: az iyonlaşan zayıf asit → sirke asidi. K ve N: <span class="f">KCl</span> ve <span class="f">HNO<sub>3</sub></span>.</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1 · 50 g</b> 290/145 = 2 → 200 g su, 90 g T. 10 °C’ta 200 g su 40 g çözer; 90 − 40 = 50 g çöker.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2 · 100 g su, 10 g tuz</b> 30 g tuz için 75 g su yeter → önce 75 g, sonra 25 g: toplam 100 g su buharlaşır. Kalan 50 g su 20 g çözer; 30 − 20 = 10 g çöker.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3 · 20 °C; 25 g</b> 50/250 = 20 g / 100 g su → çözünürlüğün 20 olduğu 20 °C’ta kristallenme başlar. 0 °C’ta 250 g su 25 g çözer; 50 − 25 = 25 g çöker.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 2</b> Bağlar polar olsa da <span class="f">CCl<sub>4</sub></span> simetrik olduğundan apolardır. İki apolar molekül arasında <b>London</b> kuvvetleri etkindir.</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 3</b> Temas yüzeyi yalnızca çözünme hızını artırır. Aynı sıcaklıkta iki şekerin çözünürlüğü <b>eşittir</b> (aynı madde).</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 2</b> 280 g su değil, çözeltidir. 140 g çözeltide 40 g Z → 280 g’da 80 g Z (ve 200 g su).</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 1</b> Orantı ters kurulmuş. 25 g Z ↔ 100 g su → 50 g Z için 200 g su gerekir. Buharlaşacak su: 250 − 200 = 50 g.</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 1</span><span class="no">14</span></div>
+</section>
+
+</body>
+</html>

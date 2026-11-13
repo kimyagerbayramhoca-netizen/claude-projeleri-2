@@ -1,0 +1,1522 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Derişim Birimleri · Kimya Rotası 10</title>
+<style>
+/* ==========================================================
+   KİMYA ROTASI — ortak sayfa ve kutu tasarımı (A4, baskı)
+   Her ünite kendi --unite rengini <body style> ile verir.
+   ========================================================== */
+
+@page { size: A4; margin: 0; }
+
+:root {
+  --unite: #4338ca;          /* ünite kimlik rengi (mol: indigo) */
+  --unite-acik: #eef0ff;
+  --unite-koyu: #2a2380;
+  --vurgu: #f59e0b;          /* ikincil vurgu (amber) */
+
+  --kavram: #4f46e5;   --kavram-bg: #eef2ff;
+  --hayat: #c26a06;    --hayat-bg: #fff6e5;
+  --dikkat: #e11d48;   --dikkat-bg: #fff1f3;
+  --ornek: #0f8f84;    --ornek-bg: #eafaf7;
+  --ipucu: #7c3aed;    --ipucu-bg: #f4f0ff;
+  --hata: #ea580c;     --hata-bg: #fff4ec;
+
+  --metin: #1d2133;
+  --soluk: #5d6478;
+  --cizgi: #dfe3ee;
+  --kagit: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Inter", "DejaVu Sans", sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.5;
+  color: var(--metin);
+  background: #8a8fa3;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* ---------- Sayfa ---------- */
+.sayfa {
+  width: 210mm; height: 297mm;
+  position: relative; overflow: hidden;
+  background: var(--kagit);
+  padding: 22mm 16mm 18mm 16mm;
+  page-break-after: always; break-after: page;
+  margin: 0 auto;
+}
+@media screen { .sayfa { margin: 8mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.25); } }
+
+.ust-serit {
+  position: absolute; top: 0; left: 0; right: 0; height: 13mm;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16mm; font-size: 8pt; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--unite-koyu); font-weight: 600;
+  border-bottom: 1.2mm solid var(--unite);
+  background: linear-gradient(90deg, var(--unite-acik), #fff 70%);
+}
+.ust-serit .baslik-k { display: flex; gap: 3mm; align-items: center; }
+.ust-serit .nokta { width: 2.4mm; height: 2.4mm; border-radius: 50%; background: var(--vurgu); }
+
+.alt-bilgi {
+  position: absolute; bottom: 7mm; left: 16mm; right: 16mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 7.5pt; color: var(--soluk);
+}
+.alt-bilgi .no {
+  min-width: 9mm; height: 9mm; border-radius: 50%;
+  background: var(--unite); color: #fff; font-weight: 700; font-size: 9pt;
+  display: grid; place-items: center;
+}
+.sayfa.cift .alt-bilgi { flex-direction: row-reverse; }
+
+/* ---------- Başlıklar ---------- */
+h1, h2, h3, h4 { font-family: "Inter Display", "Inter", sans-serif; margin: 0; line-height: 1.15; }
+h2.konu {
+  font-size: 21pt; font-weight: 800; color: var(--unite-koyu);
+  display: flex; align-items: baseline; gap: 3.5mm; margin-bottom: 1.5mm;
+}
+h2.konu .num {
+  font-size: 11pt; font-weight: 700; color: #fff; background: var(--unite);
+  padding: .6mm 2.6mm; border-radius: 2mm; transform: translateY(-1mm);
+}
+.alt-baslik { color: var(--soluk); font-size: 10pt; margin-bottom: 5mm; }
+h3 {
+  font-size: 13pt; font-weight: 750; color: var(--unite-koyu);
+  margin: 4.5mm 0 2mm; display: flex; align-items: center; gap: 2.2mm;
+}
+h3::before { content: ""; width: 1.4mm; height: 5mm; background: var(--vurgu); border-radius: 1mm; }
+p { margin: 0 0 2.4mm; }
+ul { margin: 0 0 2.4mm; padding-left: 5mm; }
+li { margin-bottom: 1mm; }
+b, strong { font-weight: 700; }
+.vurgu { background: linear-gradient(transparent 58%, #fde68a 58%); padding: 0 .5mm; }
+.k { color: var(--unite); font-weight: 700; }
+.kucuk { font-size: 8.6pt; color: var(--soluk); }
+.ortala { text-align: center; }
+
+/* Kimyasal formül ve üs */
+.f { white-space: nowrap; font-weight: 600; }
+sub, sup { font-size: 68%; line-height: 0; }
+.izotop { display: inline-flex; align-items: center; white-space: nowrap; font-weight: 600; }
+.izotop .yz { display: inline-flex; flex-direction: column; font-size: 62%; line-height: 1.05; text-align: right; margin-right: .3mm; font-weight: 600; }
+
+/* ---------- Izgara ---------- */
+.iki { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.iki-genis { display: grid; grid-template-columns: 1.25fr 1fr; gap: 5mm; }
+.uc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.dort { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+
+/* ---------- Kutular ---------- */
+.kutu {
+  border-radius: 3mm; padding: 3.2mm 4mm 3mm; margin: 0 0 3.5mm;
+  position: relative; break-inside: avoid;
+  background: var(--bg); border: .35mm solid color-mix(in srgb, var(--renk) 30%, #fff);
+}
+.kutu > .etiket {
+  display: inline-flex; align-items: center; gap: 1.6mm;
+  font-family: "Inter Display", sans-serif;
+  font-size: 7.6pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--renk);
+  padding: .7mm 2.4mm .7mm 1.6mm; border-radius: 1.4mm; margin-bottom: 2mm;
+}
+.kutu > .etiket svg { width: 3.4mm; height: 3.4mm; }
+.kutu p:last-child, .kutu ul:last-child { margin-bottom: 0; }
+.kavram { --renk: var(--kavram); --bg: var(--kavram-bg); }
+.hayat  { --renk: var(--hayat);  --bg: var(--hayat-bg); }
+.dikkat { --renk: var(--dikkat); --bg: var(--dikkat-bg); }
+.ornek  { --renk: var(--ornek);  --bg: var(--ornek-bg); }
+.ipucu  { --renk: var(--ipucu);  --bg: var(--ipucu-bg); }
+.hata   { --renk: var(--hata);   --bg: var(--hata-bg); }
+.duz    { --renk: var(--unite);  --bg: #fff; }
+
+.kutu.serit { border: none; border-left: 1.4mm solid var(--renk); border-radius: 0 3mm 3mm 0; }
+
+/* Yanılgı kartı: yanlış / doğru */
+.yanilgi { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-top: 1mm; }
+.yanilgi > div { border-radius: 2mm; padding: 2mm 2.6mm; font-size: 9.2pt; line-height: 1.4; }
+.yanilgi .yanlis { background: #fff; border: .3mm dashed var(--dikkat); }
+.yanilgi .dogru { background: #fff; border: .3mm solid var(--ornek); }
+.yanilgi b.y { color: var(--dikkat); }
+.yanilgi b.d { color: var(--ornek); }
+
+/* Çözümlü örnek */
+.ornek .soru { font-weight: 600; margin-bottom: 2mm; }
+.cozum { background: #fff; border-radius: 2mm; padding: 2.2mm 3mm; font-size: 9.4pt; }
+.cozum .adim { display: grid; grid-template-columns: 5mm 1fr; gap: 1.6mm; margin-bottom: 1.1mm; align-items: start; }
+.cozum .adim .n {
+  width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--ornek); color: #fff;
+  font-size: 7pt; font-weight: 700; display: grid; place-items: center; margin-top: .4mm;
+}
+.sonuc {
+  display: inline-block; margin-top: .8mm; font-weight: 700; color: var(--ornek);
+  border: .35mm solid var(--ornek); border-radius: 1.5mm; padding: .2mm 2mm;
+}
+.denklem {
+  font-family: "Inter", sans-serif; font-weight: 600; text-align: center;
+  font-size: 11pt; padding: 1.5mm 0; color: var(--unite-koyu);
+}
+.kesir { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 1mm; line-height: 1.2; }
+.kesir > span:first-child { border-bottom: .3mm solid currentColor; padding: 0 1mm; }
+.kesir > span:last-child { padding: 0 1mm; }
+
+/* Tablo */
+table.tablo { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9.2pt; margin: 1mm 0 3mm; }
+table.tablo th { background: var(--unite); color: #fff; font-weight: 700; padding: 1.6mm 2mm; text-align: left; }
+table.tablo th:first-child { border-top-left-radius: 2mm; }
+table.tablo th:last-child { border-top-right-radius: 2mm; }
+table.tablo td { padding: 1.6mm 2mm; border-bottom: .3mm solid var(--cizgi); }
+table.tablo tr:nth-child(even) td { background: #f7f8fc; }
+
+/* ---------- Soru düzeni ---------- */
+.soru-blok { break-inside: avoid; margin-bottom: 4.5mm; }
+.soru-ust { display: flex; gap: 2.4mm; align-items: flex-start; }
+.soru-no {
+  flex: none; width: 7.5mm; height: 7.5mm; border-radius: 2mm;
+  background: var(--unite); color: #fff; font-weight: 800; font-size: 10pt;
+  display: grid; place-items: center; font-family: "Inter Display", sans-serif;
+}
+.soru-metin { flex: 1; }
+.secenek { display: grid; grid-template-columns: 1fr 1fr; gap: .8mm 4mm; margin-top: 1.6mm; font-size: 9.6pt; }
+.secenek.tek { grid-template-columns: 1fr; }
+.secenek.bes { grid-template-columns: repeat(5, 1fr); }
+.secenek span b { color: var(--unite); margin-right: 1mm; }
+.oncul { margin: 1mm 0 1mm 1mm; }
+.oncul div { display: grid; grid-template-columns: 7mm 1fr; }
+.oncul div > b:first-child { color: var(--unite); }
+.veri { font-size: 8.4pt; color: var(--soluk); font-style: italic; }
+
+.etiket-soru svg { width: 3mm; height: 3mm; }
+.etiket-soru {
+  display: inline-flex; gap: 1.4mm; align-items: center;
+  font-size: 7pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  padding: .5mm 2mm; border-radius: 10mm; margin-bottom: 1.2mm;
+  color: var(--renk); background: var(--bg); border: .3mm solid var(--renk);
+}
+.zorluk { display: inline-flex; gap: .7mm; margin-left: 1.2mm; vertical-align: middle; }
+.zorluk i { width: 1.9mm; height: 1.9mm; border-radius: 50%; background: #d8dbe6; display: inline-block; }
+.zorluk i.d { background: var(--vurgu); }
+
+/* Bölüm kapağı tipi sayfa başı bandı */
+.bant {
+  margin: 0 -16mm 5mm; padding: 5mm 16mm 4mm; color: #fff;
+  background: linear-gradient(110deg, var(--renk, var(--unite)) 0%, color-mix(in srgb, var(--renk, var(--unite)) 70%, #000) 100%);
+  position: relative; overflow: hidden;
+}
+.bant h2 { font-size: 22pt; font-weight: 850; color: #fff; }
+.bant p { margin: 1mm 0 0; opacity: .92; font-size: 9.6pt; max-width: 135mm; }
+.bant .ikon-buyuk { position: absolute; right: 14mm; top: 50%; transform: translateY(-50%); opacity: .95; }
+
+/* Hata avcısı defter kartı */
+.defter {
+  background:
+    repeating-linear-gradient(transparent 0 6.1mm, #c9d6ee 6.1mm 6.4mm),
+    #fffef8;
+  border-radius: 2mm; padding: 1.2mm 4mm 1.6mm 14mm; position: relative;
+  font-family: "Caladea", "Bitstream Charter", serif; font-style: italic; font-size: 11pt;
+  line-height: 6.4mm; color: #24356b; border: .3mm solid #e6e1cc;
+}
+.defter::before { content: ""; position: absolute; left: 10mm; top: 0; bottom: 0; width: .35mm; background: #f2a7a7; }
+.defter .satir { position: relative; }
+.defter .satir .sn { position: absolute; left: -9.5mm; font-family: "Inter", sans-serif; font-style: normal; font-size: 7pt; color: #9aa3b8; font-weight: 700; }
+.defter .ogrenci { font-family: "Inter", sans-serif; font-style: normal; font-size: 7.2pt; color: var(--soluk); letter-spacing: .05em; text-transform: uppercase; }
+.duzelt {
+  border: .35mm dashed var(--hata); border-radius: 2mm; min-height: 26mm; margin-top: 2mm;
+  padding: 1.6mm 3mm; font-size: 8.4pt; color: var(--hata); font-weight: 600; background: #fff;
+}
+.sorgu { display: flex; gap: 2mm; flex-wrap: wrap; margin-top: 1.6mm; }
+.sorgu span { font-size: 8.2pt; background: #fff; border: .3mm solid var(--hata); color: var(--hata); border-radius: 10mm; padding: .2mm 2.2mm; font-weight: 600; }
+
+/* İpucu merdiveni */
+.merdiven { display: grid; gap: 1.8mm; margin-top: 2mm; }
+.basamak {
+  display: grid; grid-template-columns: 17mm 1fr; align-items: stretch;
+  border-radius: 2mm; overflow: hidden; background: #fff; border: .3mm solid #ddd3fb;
+}
+.basamak .bas {
+  background: var(--ipucu); color: #fff; font-size: 7pt; font-weight: 800; letter-spacing: .06em;
+  display: grid; place-items: center; text-align: center; line-height: 1.15; padding: 1mm;
+}
+.basamak:nth-child(2) .bas { background: #9061f0; }
+.basamak:nth-child(3) .bas { background: #a985f5; }
+.basamak .ic { padding: 1.6mm 3mm; font-size: 9.2pt; }
+.basamak:nth-child(2) { margin-left: 6mm; }
+.basamak:nth-child(3) { margin-left: 12mm; }
+.cevap-alani { border: .3mm dashed #b9a6f3; border-radius: 2mm; height: 24mm; margin-top: 2mm; background: #fff;
+  font-size: 7.6pt; color: #8b74d6; padding: 1mm 2.6mm; font-weight: 700; letter-spacing: .06em; }
+
+/* Öz değerlendirme */
+.kontrol { list-style: none; padding: 0; }
+.kontrol li { display: grid; grid-template-columns: 6mm 1fr auto; gap: 2mm; align-items: center; padding: 1.3mm 0; border-bottom: .3mm dotted var(--cizgi); font-size: 9.3pt; }
+.kontrol .kare { width: 4mm; height: 4mm; border: .4mm solid var(--unite); border-radius: 1mm; }
+.kontrol .yuz { display: flex; gap: 1.4mm; font-size: 7.4pt; color: var(--soluk); }
+.kontrol .yuz span { border: .3mm solid var(--cizgi); border-radius: 1mm; padding: 0 1.4mm; }
+
+/* Cevap anahtarı */
+.anahtar { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.4mm; margin-bottom: 4mm; }
+.anahtar div { border: .35mm solid var(--unite); border-radius: 1.6mm; text-align: center; overflow: hidden; font-size: 9pt; }
+.anahtar div b { display: block; background: var(--unite); color: #fff; font-size: 7.6pt; }
+.anahtar div span { display: block; font-weight: 800; color: var(--unite-koyu); padding: .6mm 0; }
+.coz-liste { columns: 2; column-gap: 6mm; font-size: 8.5pt; line-height: 1.42; }
+.coz-liste .c { break-inside: avoid; margin-bottom: 2.4mm; padding-left: 2.4mm; border-left: .6mm solid var(--renk, var(--unite)); }
+.coz-liste .c b:first-child { color: var(--renk, var(--unite)); }
+.coz-baslik { font-size: 9pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--renk, var(--unite)); margin: 2mm 0 1.4mm; column-span: all; }
+
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite: #334155; --unite-acik: #f1f4f8; --unite-koyu: #1e293b; }
+
+.kapak { padding: 0; background: #1e293b; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 30mm; font-size: 11pt; font-weight: 700; color: #fbbf24; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 62pt; font-weight: 900; letter-spacing: -.02em; line-height: .95; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 10mm; display: inline-flex; align-items: center; gap: 4mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 26pt; font-weight: 800; color: #fbbf24; display: inline-flex; align-items: center; }
+.kapak .avo b .kesir > span:first-child { border-color: #fbbf24; }
+.kapak .avo > span { font-size: 9pt; opacity: .85; max-width: 60mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.4pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #cbd2dc; padding: .8mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.olcek { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 2mm 0 4mm; }
+.olcek div { border-radius: 3mm; padding: 3mm; background: var(--unite-acik); text-align: center; }
+.olcek b { display: block; font-size: 12.5pt; color: var(--unite-koyu); font-family: "Inter Display"; font-weight: 800; }
+.olcek span { font-size: 8.2pt; color: var(--soluk); line-height: 1.3; display: block; }
+
+.formul-kart { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin: 2mm 0 4mm; }
+.formul-kart > div { border: .4mm solid var(--unite); border-radius: 3mm; padding: 2.6mm; text-align: center; background: #fff; }
+.formul-kart > div .denklem { font-size: 13pt; padding: .5mm 0; }
+.formul-kart > div > span { font-size: 8pt; color: var(--soluk); display: block; }
+
+.hatirla { display: grid; grid-template-columns: 22mm 1fr; gap: 3mm; align-items: center; background: var(--unite-acik); border-radius: 3mm; padding: 2.6mm 4mm; margin-bottom: 4mm; font-size: 9.2pt; }
+.hatirla b.bas { font-family: "Inter Display"; font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); }
+table.tablo.ortali td, table.tablo.ortali th { text-align: center; }
+table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.6mm; }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; }
+.test.devam .iki { min-height: 222mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 44mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="80%" cy="20%" r="75%"><stop offset="0" stop-color="#64748b"/><stop offset=".55" stop-color="#334155"/><stop offset="1" stop-color="#1e293b"/></radialGradient>
+      <linearGradient id="sivi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity=".55"/><stop offset="1" stop-color="#fbbf24" stop-opacity=".15"/></linearGradient>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+    <!-- ölçülü balon -->
+    <g transform="translate(160,22)" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width=".6">
+      <path d="M-5 0 H5 M-4 0 V46 A26 26 0 1 0 4 46 V0"/>
+      <path d="M-7 14 H7" stroke="#fbbf24" stroke-opacity=".9" stroke-width=".8"/>
+      <path d="M-22.5 62 A26 26 0 0 0 22.5 62 Z" fill="url(#sivi)" stroke="none"/>
+      <path d="M-4 14 V46 A26 26 0 0 0 -25.6 62 H25.6 A26 26 0 0 0 4 46 V14 Z" fill="url(#sivi)" stroke="none" opacity=".55"/>
+    </g>
+    <g fill="#ffffff" fill-opacity=".8">
+      <circle cx="150" cy="78" r="1.3"/><circle cx="166" cy="84" r="1.1"/><circle cx="158" cy="70" r="1"/>
+      <circle cx="172" cy="74" r="1.2"/><circle cx="146" cy="88" r="1"/><circle cx="162" cy="92" r="1.3"/>
+    </g>
+    <g fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width=".35">
+      <circle cx="160" cy="74" r="40"/><circle cx="160" cy="74" r="56"/><circle cx="160" cy="74" r="72"/>
+    </g>
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="14">
+      <text x="-6" y="170">mol/L · ppm · % · mol/L · ppm</text>
+      <text x="-30" y="188">% · mol/L · ppm · % · mol/L · ppm</text>
+      <text x="-14" y="206">ppm · % · mol/L · ppm · % · mol/L</text>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 10. Sınıf</span><span>Tema 2 · Bölüm 2</span></div>
+    <div class="bolum">Çözeltiler · Bölüm 2</div>
+    <h1>Derişim<br>Birimleri</h1>
+    <div class="slogan">“Ne kadar çözünmüş?” sorusunun sayısal cevabı</div>
+    <div class="avo"><b>M = <span class="kesir"><span>n</span><span>V</span></span></b><span>Bir litre çözeltide kaç mol çözünen var? Serumdan kolonyaya, musluk suyundan laboratuvar şişesine hep aynı soru.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Derişim: derişik, seyreltik, izotonik</span><span>2</span></li>
+          <li><span>2 · Kütlece ve hacimce yüzde</span><span>3</span></li>
+          <li><span>3 · ppm: milyonda bir kısım</span><span>4</span></li>
+          <li><span>4 · Molarite ve iyon derişimi</span><span>5</span></li>
+          <li><span>5 · Seyreltme ve deriştirme</span><span>6</span></li>
+          <li><span>6 · Çözeltileri karıştırma</span><span>7</span></li>
+          <li><span>7 · Koligatif özellikler</span><span>8</span></li>
+          <li><span>Tek sayfada derişim (özet)</span><span>9</span></li>
+          <li><span>Hata Avcısı</span><span>10</span></li>
+          <li><span>Bağlam temelli sorular</span><span>11</span></li>
+          <li><span>İpucu Merdiveni</span><span>12</span></li>
+          <li><span>Bölüm testi</span><span>13</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>15</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg></i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg></i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M8 8l5 5M13 8l-5 5"/></svg></i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v18M17 3v18M7 8h10M7 13h10M7 18h10"/></svg></i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Derişimi yüzde, ppm ve molarite ile hesaplayıp birbirine çevireceksin.</li>
+          <li>Seyreltme, deriştirme ve karıştırma sonrası yeni derişimi bulacaksın.</li>
+          <li>Tanecik derişiminin kaynama ve donma sıcaklığını nasıl değiştirdiğini açıklayacaksın.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · DERİŞİM KAVRAMI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>Derişim kavramı</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Derişim: ne kadar çözünmüş?</h2>
+  <div class="alt-baslik">Aynı tuzu içeren iki bardak sudan hangisi daha tuzlu? Cevap, miktarı miktara oranlamakta.</div>
+
+  <div class="hatirla"><b class="bas">Hatırla</b><span>Çözelti, <b>çözücü</b> ile <b>çözünenin</b> homojen karışımıdır. Çözebileceği en fazla çözüneni içeren çözelti <b>doymuş</b>, daha azını içeren <b>doymamış</b> çözeltidir.</span></div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+    <p><b>Derişim (konsantrasyon):</b> Belirli miktardaki çözeltide (ya da çözücüde) çözünmüş madde miktarıdır. Genel olarak <b>C</b> ile gösterilir. Derişim bir <b>orandır</b>; çözünen miktarı kadar çözelti miktarına da bağlıdır.</p>
+  </div>
+
+  <div class="iki-genis">
+    <div>
+      <h3 style="margin-top:0">Kıyaslayarak anlatmak</h3>
+      <p>Aynı tür çözünen ve çözücüden oluşan çözeltileri karşılaştırırken <b>eşit miktar çözücüdeki</b> çözünen miktarına bakarız.</p>
+      <ul>
+        <li><b class="k">Derişik:</b> Birim miktarda daha <b>çok</b> çözünen içerir.</li>
+        <li><b class="k">Seyreltik:</b> Birim miktarda daha <b>az</b> çözünen içerir.</li>
+      </ul>
+      <p class="kucuk" style="margin:0">Bu kavramlar <b>görelidir</b>: bir çözelti birine göre derişik, diğerine göre seyreltik olabilir.</p>
+    </div>
+    <svg viewBox="0 0 150 86" style="width:100%;height:auto">
+      <g font-family="Inter" text-anchor="middle" fill="#1d2133">
+        <g transform="translate(6,8)">
+          <path d="M0 6 V50 Q0 54 4 54 H36 Q40 54 40 50 V6" fill="none" stroke="#334155" stroke-width=".8"/>
+          <rect x=".6" y="22" width="38.8" height="31.4" rx="3" fill="#dbeafe"/>
+          <g fill="#c26a06"><circle cx="10" cy="32" r="1.6"/><circle cx="28" cy="44" r="1.6"/></g>
+          <text x="20" y="64" font-size="5.2" font-weight="700">A</text>
+          <text x="20" y="71" font-size="4.2" fill="#5d6478">2 g / 100 g su</text>
+        </g>
+        <g transform="translate(55,8)">
+          <path d="M0 6 V50 Q0 54 4 54 H36 Q40 54 40 50 V6" fill="none" stroke="#334155" stroke-width=".8"/>
+          <rect x=".6" y="22" width="38.8" height="31.4" rx="3" fill="#dbeafe"/>
+          <g fill="#c26a06"><circle cx="9" cy="30" r="1.6"/><circle cx="21" cy="36" r="1.6"/><circle cx="31" cy="28" r="1.6"/><circle cx="14" cy="46" r="1.6"/><circle cx="30" cy="46" r="1.6"/></g>
+          <text x="20" y="64" font-size="5.2" font-weight="700">B</text>
+          <text x="20" y="71" font-size="4.2" fill="#5d6478">5 g / 100 g su</text>
+        </g>
+        <g transform="translate(104,8)">
+          <path d="M0 6 V50 Q0 54 4 54 H36 Q40 54 40 50 V6" fill="none" stroke="#334155" stroke-width=".8"/>
+          <rect x=".6" y="22" width="38.8" height="31.4" rx="3" fill="#dbeafe"/>
+          <g fill="#c26a06"><circle cx="8" cy="28" r="1.6"/><circle cx="17" cy="33" r="1.6"/><circle cx="27" cy="27" r="1.6"/><circle cx="34" cy="35" r="1.6"/><circle cx="9" cy="42" r="1.6"/><circle cx="20" cy="46" r="1.6"/><circle cx="31" cy="47" r="1.6"/><circle cx="24" cy="39" r="1.6"/></g>
+          <text x="20" y="64" font-size="5.2" font-weight="700">C</text>
+          <text x="20" y="71" font-size="4.2" fill="#5d6478">8 g / 100 g su</text>
+        </g>
+        <text x="75" y="84" font-size="4.3" fill="#334155" font-weight="700">B, A’ya göre derişik; C’ye göre seyreltiktir.</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 1</div>
+    <div class="iki-genis" style="gap:4mm">
+      <div>
+        <div class="soru">Üç şekerli su: I. 125 g suda 25 g · II. 60 g suda 18 g · III. 200 g suda 40 g şeker. Derişimleri karşılaştırınız.</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>Her birinde 100 g suya düşen şekeri bul:</span></div>
+          <div class="adim"><span class="n">2</span><span>I: 25·(100/125) = 20 g · II: 18·(100/60) = 30 g · III: 40·(100/200) = 20 g</span></div>
+          <span class="sonuc">II en derişik; I ve III eşit derişimli</span>
+        </div>
+      </div>
+      <div class="kutu dikkat" style="margin:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Derişik çözelti, doymuş çözelti demektir.”</div>
+          <div class="dogru"><b class="d">✓</b> Doymuşluk, çözünürlük sınırıdır. Az çözünen bir maddenin doymuş çözeltisi <b>seyreltik</b> olabilir.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Hücre zarının iki yanı: izotonik, hipertonik, hipotonik</h3>
+  <div class="iki-genis">
+    <div>
+      <ul style="font-size:9.6pt">
+        <li><b class="k">İzotonik:</b> Derişimi karşılaştırılan çözeltiyle <b>eşit</b>.</li>
+        <li><b class="k">Hipertonik:</b> Derişimi karşılaştırılan çözeltiden <b>yüksek</b>.</li>
+        <li><b class="k">Hipotonik:</b> Derişimi karşılaştırılan çözeltiden <b>düşük</b>.</li>
+      </ul>
+      <div class="kutu hayat" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+        <p style="font-size:9.2pt">Damar yoluyla verilen <b>serum fizyolojik</b> kan ile izotoniktir. Kırmızı kan hücresi saf suda (hipotonik) su alıp şişer, patlayabilir; çok tuzlu suda (hipertonik) su kaybedip büzüşür.</p>
+      </div>
+    </div>
+    <svg viewBox="0 0 120 92" style="width:100%;height:auto">
+      <defs><marker id="okh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#0284c7"/></marker></defs>
+      <g font-family="Inter" text-anchor="middle">
+        <rect x="2" y="2" width="36" height="66" rx="4" fill="#eff6ff"/>
+        <rect x="42" y="2" width="36" height="66" rx="4" fill="#f1f4f8"/>
+        <rect x="82" y="2" width="36" height="66" rx="4" fill="#fdf2e9"/>
+        <!-- hipotonik: şişmiş -->
+        <circle cx="20" cy="32" r="13.5" fill="#f87171" stroke="#b91c1c" stroke-width=".6"/>
+        <path d="M20 8 V15" stroke="#0284c7" stroke-width=".8" marker-end="url(#okh)"/>
+        <path d="M20 56 V49" stroke="#0284c7" stroke-width=".8" marker-end="url(#okh)"/>
+        <path d="M2.5 32 H6" stroke="#0284c7" stroke-width=".8" marker-end="url(#okh)"/>
+        <path d="M37.5 32 H34" stroke="#0284c7" stroke-width=".8" marker-end="url(#okh)"/>
+        <!-- izotonik: normal -->
+        <ellipse cx="60" cy="32" rx="12" ry="11" fill="#f87171" stroke="#b91c1c" stroke-width=".6"/>
+        <ellipse cx="60" cy="32" rx="5.5" ry="5" fill="#fca5a5"/>
+        <path d="M51 52 H57" stroke="#0284c7" stroke-width=".7" marker-end="url(#okh)"/>
+        <path d="M69 55 H63" stroke="#0284c7" stroke-width=".7" marker-end="url(#okh)"/>
+        <!-- hipertonik: büzüşmüş -->
+        <path transform="translate(100,32) scale(.85)" d="M12.3 0.0 L11.4 1.0 L9.9 1.7 L9.5 2.6 L10.5 3.8 L11.1 5.2 L10.1 5.8 L8.3 5.8 L7.5 6.3 L7.8 7.8 L7.9 9.4 L6.8 9.7 L5.2 9.0 L4.1 8.8 L3.7 10.1 L3.1 11.7 L2.1 11.8 L0.9 10.5 L0.0 9.7 L-0.9 10.5 L-2.1 11.8 L-3.1 11.7 L-3.7 10.1 L-4.1 8.8 L-5.2 9.0 L-6.8 9.7 L-7.9 9.4 L-7.8 7.8 L-7.5 6.3 L-8.3 5.8 L-10.1 5.8 L-11.1 5.2 L-10.5 3.8 L-9.5 2.6 L-9.9 1.7 L-11.4 1.0 L-12.3 0.0 L-11.4 -1.0 L-9.9 -1.7 L-9.5 -2.6 L-10.5 -3.8 L-11.1 -5.2 L-10.1 -5.8 L-8.3 -5.8 L-7.5 -6.3 L-7.8 -7.8 L-7.9 -9.4 L-6.8 -9.7 L-5.2 -9.0 L-4.1 -8.8 L-3.7 -10.1 L-3.1 -11.7 L-2.1 -11.8 L-0.9 -10.5 L-0.0 -9.7 L0.9 -10.5 L2.1 -11.8 L3.1 -11.7 L3.7 -10.1 L4.1 -8.8 L5.2 -9.0 L6.8 -9.7 L7.9 -9.4 L7.8 -7.8 L7.5 -6.3 L8.3 -5.8 L10.1 -5.8 L11.1 -5.2 L10.5 -3.8 L9.5 -2.6 L9.9 -1.7 L11.4 -1.0 L12.3 -0.0Z" fill="#f87171" stroke="#b91c1c" stroke-width=".7"/>
+        <path d="M100 19 V9" stroke="#0284c7" stroke-width=".8" marker-end="url(#okh)"/>
+        <path d="M100 45 V55" stroke="#0284c7" stroke-width=".8" marker-end="url(#okh)"/>
+        <text x="20" y="64" font-size="4" fill="#5d6478">su girer</text>
+        <text x="100" y="64" font-size="4" fill="#5d6478">su çıkar</text>
+        <text x="20" y="76" font-size="4.6" font-weight="800" fill="#1e293b">Hipotonik</text>
+        <text x="60" y="76" font-size="4.6" font-weight="800" fill="#1e293b">İzotonik</text>
+        <text x="100" y="76" font-size="4.6" font-weight="800" fill="#1e293b">Hipertonik</text>
+        <text x="20" y="82" font-size="3.6" fill="#5d6478">saf su</text>
+        <text x="60" y="82" font-size="3.6" fill="#5d6478">serum fizyolojik</text>
+        <text x="100" y="82" font-size="3.6" fill="#5d6478">çok tuzlu su</text>
+        <text x="60" y="90" font-size="3.6" fill="#5d6478">Kırmızı kan hücresi üç farklı ortamda (şematik)</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · YÜZDE DERİŞİMLER
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>Kütlece ve hacimce yüzde</span></div>
+
+  <h2 class="konu"><span class="num">2</span>Kütlece ve hacimce yüzde</h2>
+  <div class="alt-baslik">Ambalajın üzerindeki “%” işareti, 100 birim çözeltide ne kadar çözünen olduğunu söyler.</div>
+
+  <div class="formul-kart" style="grid-template-columns:1fr 1fr">
+    <div><div class="denklem">Kütlece % = <span class="kesir"><span>m<sub>çözünen</sub></span><span>m<sub>çözelti</sub></span></span> · 100</div><span>m<sub>çözelti</sub> = m<sub>çözücü</sub> + m<sub>çözünen</sub> &nbsp;(gram)</span></div>
+    <div><div class="denklem">Hacimce % = <span class="kesir"><span>V<sub>çözünen</sub></span><span>V<sub>çözelti</sub></span></span> · 100</div><span>Genellikle sıvı–sıvı çözeltilerde kullanılır (mL)</span></div>
+  </div>
+
+  <div class="iki-genis">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+      <p><b>Kütlece yüzde:</b> 100 g çözeltideki çözünenin gram cinsinden kütlesidir. %20’lik şekerli suyun 100 g’ında 20 g şeker vardır.</p>
+      <p><b>Hacimce yüzde:</b> 100 mL çözeltideki çözünenin mL cinsinden hacmidir. <b>Kolonya derecesi</b> hacimce yüzdedir: 80 derece = 100 mL’de 80 mL etil alkol.</p>
+    </div>
+    <svg viewBox="0 0 110 79" style="width:100%;height:auto">
+      <g font-family="Inter" font-size="4.4" fill="#1d2133">
+        <text x="0" y="6" font-weight="800" fill="#1e293b">100 g çözelti (kütlece %20)</text>
+        <rect x="0" y="10" width="20" height="12" rx="2" fill="#fbbf24"/>
+        <rect x="21" y="10" width="88" height="12" rx="2" fill="#bfdbfe"/>
+        <text x="10" y="17.6" text-anchor="middle" font-weight="700" font-size="3.8">20 g</text>
+        <text x="65" y="17.6" text-anchor="middle" font-weight="700" font-size="3.8">80 g su</text>
+        <text x="10" y="27.5" text-anchor="middle" font-size="3.4" fill="#5d6478">şeker</text>
+        <text x="0" y="42" font-weight="800" fill="#1e293b">100 mL kolonya (80 derece)</text>
+        <rect x="0" y="46" width="87" height="12" rx="2" fill="#c4b5fd"/>
+        <rect x="88" y="46" width="21" height="12" rx="2" fill="#bfdbfe"/>
+        <text x="44" y="53.6" text-anchor="middle" font-weight="700" font-size="3.8">80 mL etil alkol</text>
+        <text x="98.5" y="53.6" text-anchor="middle" font-weight="700" font-size="3.6">su</text>
+        <text x="0" y="67" font-size="3.6" fill="#5d6478">Alkol + su hacimleri tam toplanmaz (50 + 50 mL</text>
+        <text x="0" y="72" font-size="3.6" fill="#5d6478">biraz daha az eder). Aksi söylenmedikçe</text>
+        <text x="0" y="77" font-size="3.6" fill="#5d6478">hacimlerin toplandığını kabul edeceğiz.</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 2</div>
+    <div class="iki" style="gap:4mm">
+      <div>
+        <div class="soru">36 g yemek tuzu 164 g suda çözülüyor. Çözelti kütlece yüzde kaçlıktır?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>m<sub>çözelti</sub> = 36 + 164 = 200 g</span></div>
+          <div class="adim"><span class="n">2</span><span>% = (36 / 200)·100</span></div>
+          <span class="sonuc">Kütlece %18</span>
+        </div>
+      </div>
+      <div>
+        <div class="soru">Kütlece %15’lik 400 g şekerli su hazırlamak için kaç g şeker ve kaç g su gerekir?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>Şeker: 400 · 15/100 = 60 g</span></div>
+          <div class="adim"><span class="n">2</span><span>Su: 400 − 60 = 340 g</span></div>
+          <span class="sonuc">60 g şeker + 340 g su</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 3</div>
+      <div class="soru">Kütlece %20’lik 250 g şekerli suya 50 g su ekleniyor. Yeni çözelti yüzde kaçlıktır?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Şeker değişmez: 250 · 0,20 = 50 g</span></div>
+        <div class="adim"><span class="n">2</span><span>Yeni çözelti: 250 + 50 = 300 g → (50/300)·100 ≈ 16,7</span></div>
+        <span class="sonuc">≈ %16,7 (seyrelti)</span>
+      </div>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 4</div>
+      <div class="soru">300 mL’lik 70 derecelik kolonyada kaç mL etil alkol vardır?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Her 100 mL’de 70 mL alkol</span></div>
+        <div class="adim"><span class="n">2</span><span>300 · 70/100 = 210</span></div>
+        <span class="sonuc">210 mL etil alkol</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “25 g tuz + 100 g su → %25’lik çözelti.”</div>
+        <div class="dogru"><b class="d">✓</b> Payda <b>çözelti</b> kütlesidir: 25/125 → <b>%20</b>.</div>
+      </div>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9.2pt">Serum fizyolojiğin etiketindeki <b>%0,9 NaCl</b>, her 100 mL’de 0,9 g NaCl demektir. Yoğunluğu suya çok yakın olduğundan bu değer kütlece yüzdeyle hemen hemen aynıdır.</p>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · PPM
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>ppm</span></div>
+
+  <h2 class="konu"><span class="num">3</span>ppm: milyonda bir kısım</h2>
+  <div class="alt-baslik">Çok az ama önemli: içme suyundaki eser maddeler yüzdeyle değil, ppm ile anlatılır.</div>
+
+  <div class="iki-genis">
+    <div>
+      <p>Bir çözeltide çözünen miktarı çok azsa yüzde ile yazmak zorlaşır (%0,00005 gibi). Bu durumda <b class="k">ppm</b> (İngilizce <i>parts per million</i>, milyonda bir kısım) kullanılır.</p>
+      <div class="formul-kart" style="grid-template-columns:1fr;margin:2mm 0 3mm">
+        <div><div class="denklem" style="font-size:14pt">ppm = <span class="kesir"><span>m<sub>çözünen</sub></span><span>m<sub>çözelti</sub></span></span> · 10<sup>6</sup></div><span>Kütleler aynı birimde olmalıdır</span></div>
+      </div>
+      <div class="kutu kavram" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Sulu çözeltide pratik kural</div>
+        <p style="font-size:9.4pt">Çok seyreltik sulu çözeltilerde çözünen ihmal edilir; 1 L çözeltinin kütlesi ≈ 1 kg kabul edilir. Bu yüzden:<br><b>1 ppm = 1 mg / 1 kg çözelti ≈ 1 mg / 1 L çözelti</b></p>
+      </div>
+    </div>
+    <svg viewBox="0 0 100 106" style="width:100%;height:auto">
+      <g font-family="Inter" fill="#1d2133">
+        <text x="50" y="6" text-anchor="middle" font-size="5" font-weight="800" fill="#1e293b">Aynı oran, farklı birim</text>
+        <g font-size="4.2">
+          <rect x="4" y="12" width="92" height="20" rx="3" fill="#f1f4f8"/>
+          <text x="9" y="20" font-weight="800" font-size="6" fill="#334155">%1</text>
+          <text x="9" y="27.5" fill="#5d6478">100 g’da 1 g</text>
+          <text x="91" y="24" text-anchor="end" font-weight="700">= 10 000 ppm</text>
+          <rect x="4" y="36" width="92" height="20" rx="3" fill="#f1f4f8"/>
+          <text x="9" y="44" font-weight="800" font-size="6" fill="#334155">1 ppm</text>
+          <text x="9" y="51.5" fill="#5d6478">1 kg’da 1 mg</text>
+          <text x="91" y="48" text-anchor="end" font-weight="700">≈ 1 mg/L</text>
+          <rect x="4" y="60" width="92" height="20" rx="3" fill="#f1f4f8"/>
+          <text x="9" y="68" font-weight="800" font-size="6" fill="#334155">1 ppb</text>
+          <text x="9" y="75.5" fill="#5d6478">1 kg’da 1 µg</text>
+          <text x="91" y="72" text-anchor="end" font-weight="700">= 0,001 ppm</text>
+        </g>
+        <text x="50" y="91" text-anchor="middle" font-size="3.8" fill="#5d6478">1 kg = 10³ g · 1 g = 10³ mg · 1 mg = 10³ µg</text>
+        <text x="50" y="99" text-anchor="middle" font-size="3.8" fill="#5d6478">Benzetme: 1 ppm, yaklaşık 11,6 günün</text>
+        <text x="50" y="104.5" text-anchor="middle" font-size="3.8" fill="#5d6478">(1 milyon saniye) içinde 1 saniyedir.</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="kutu hayat" style="margin-top:0">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden · İçme suyu</div>
+    <div class="iki-genis" style="gap:4mm;align-items:center">
+      <p style="font-size:9.3pt;margin:0">Dünya Sağlık Örgütü (DSÖ), içme suyu için bazı maddelerin üst sınırlarını kılavuz değer olarak verir. Bu değerler mg/L, yani seyreltik sulu çözeltide yaklaşık ppm cinsindendir. Arsenik gibi zehirli maddelerde sınır 1 ppm’in çok altındadır.</p>
+      <table class="tablo sik" style="margin:0;background:#fff">
+        <tr><th>Madde</th><th>DSÖ kılavuz değeri</th></tr>
+        <tr><td>Nitrat</td><td>50 mg/L (≈ 50 ppm)</td></tr>
+        <tr><td>Florür</td><td>1,5 mg/L (≈ 1,5 ppm)</td></tr>
+        <tr><td>Arsenik</td><td>0,01 mg/L (≈ 0,01 ppm)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 5</div>
+    <div class="soru">Bir köy kuyusundan alınan 2,5 L su örneğinde 0,05 mg arsenik bulunuyor. Bu su, arsenik bakımından DSÖ kılavuz değerine uygun mudur?</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>1 L’ye düşen miktar: 0,05 mg / 2,5 L = 0,02 mg/L</span></div>
+      <div class="adim"><span class="n">2</span><span>Seyreltik sulu çözeltide 0,02 mg/L ≈ 0,02 ppm. Sınır 0,01 ppm; bulunan değer sınırın 2 katı.</span></div>
+      <span class="sonuc">Uygun değildir</span>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 6</div>
+      <div class="soru">400 g’lık bir çözeltide 0,8 mg X çözünmüştür. Derişim kaç ppm’dir?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Birimleri eşitle: 0,8 mg = 8·10<sup>-4</sup> g</span></div>
+        <div class="adim"><span class="n">2</span><span>ppm = (8·10<sup>-4</sup> / 400)·10<sup>6</sup></span></div>
+        <span class="sonuc">2 ppm</span>
+      </div>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “ppm değeri küçükse madde zararsızdır.”</div>
+        <div class="dogru"><b class="d">✓</b> Zarar, maddenin <b>türüne</b> bağlıdır. Nitrat için 50 ppm kabul edilebilirken arsenik için sınır 0,01 ppm’dir.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · MOLARİTE
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>Molarite</span></div>
+
+  <h2 class="konu"><span class="num">4</span>Molarite ve iyon derişimi</h2>
+  <div class="alt-baslik">Kimyacı tanecik sayar: bu yüzden laboratuvarda en çok kullanılan birim “mol bölü litre”dir.</div>
+
+  <div class="iki-genis">
+    <div>
+      <div class="kutu kavram">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+        <p><b>Molarite (molar derişim):</b> 1 litre <b>çözeltide</b> çözünmüş maddenin mol sayısıdır. Birimi mol/L’dir; kısaca <b>M</b> (molar) yazılır.</p>
+        <div class="denklem" style="font-size:14pt">M = <span class="kesir"><span>n</span><span>V</span></span> &nbsp; <span style="font-size:9pt;font-weight:500;color:var(--soluk)">n: mol · V: çözelti hacmi (L)</span></div>
+        <p style="font-size:9pt;margin-top:1mm">Mol kütlesi verilirse önce n = m / M<sub>A</sub> ile mole geç. Hacim mL ise 1000’e bölerek litreye çevir.</p>
+      </div>
+    </div>
+    <svg viewBox="0 0 120 80" style="width:100%;height:auto">
+      <g font-family="Inter" text-anchor="middle" fill="#1d2133">
+        <!-- 1 tart -->
+        <g transform="translate(20,0)">
+          <rect x="-15" y="44" width="30" height="7" rx="1.5" fill="#cbd5e1"/>
+          <rect x="-9" y="38" width="18" height="6" rx="1" fill="#e2e8f0" stroke="#94a3b8" stroke-width=".4"/>
+          <path d="M-5 38 L-3 33 H3 L5 38Z" fill="#fbbf24"/>
+          <text y="49" font-size="3.6" font-weight="700" fill="#1e293b">0,00 g</text>
+        </g>
+        <!-- 2 çöz -->
+        <g transform="translate(60,0)" fill="none" stroke="#334155" stroke-width=".7">
+          <path d="M-3 6 V30 A13 13 0 1 0 3 30 V6"/>
+          <path d="M-9.8 41 A13 13 0 0 0 9.8 41 Z" fill="#dbeafe" stroke="none"/>
+          <path d="M-5 16 H5" stroke="#e11d48" stroke-width=".6"/>
+          <g fill="#c26a06" stroke="none"><circle cx="-3" cy="46" r="1.2"/><circle cx="3" cy="44" r="1.2"/><circle cx="0" cy="48" r="1.2"/></g>
+        </g>
+        <!-- 3 tamamla -->
+        <g transform="translate(100,0)" fill="none" stroke="#334155" stroke-width=".7">
+          <path d="M-3 16 V30 A13 13 0 0 0 -13 42 A13 13 0 0 0 13 42 A13 13 0 0 0 3 30 V16 Z" fill="#bfdbfe" stroke="none"/>
+          <path d="M-3 6 V30 A13 13 0 1 0 3 30 V6"/>
+          <path d="M-5 16 H5" stroke="#e11d48" stroke-width=".6"/>
+        </g>
+        <text x="20" y="62" font-size="4.4" font-weight="800" fill="#1e293b">1 · Tart</text>
+        <text x="60" y="62" font-size="4.4" font-weight="800" fill="#1e293b">2 · Çöz</text>
+        <text x="100" y="62" font-size="4.4" font-weight="800" fill="#1e293b">3 · Tamamla</text>
+        <text x="20" y="68" font-size="3.4" fill="#5d6478">n = m / M<tspan font-size="2.4" dy=".8">A</tspan></text>
+        <text x="60" y="68" font-size="3.4" fill="#5d6478">az suda, balonda</text>
+        <text x="100" y="68" font-size="3.4" fill="#5d6478">işarete kadar su</text>
+        <text x="60" y="77" font-size="3.7" fill="#e11d48" font-weight="700">Kırmızı çizgi: balonun hacim işareti (ör. 250 mL)</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 7 · Üç yönde molarite</div>
+    <div class="uc" style="gap:3mm">
+      <div>
+        <div class="soru" style="font-size:9.4pt">6 g NaOH ile 250 mL çözelti hazırlanıyor. M = ?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>n = 6/40 = 0,15 mol</span></div>
+          <div class="adim"><span class="n">2</span><span>M = 0,15/0,25</span></div>
+          <span class="sonuc">0,6 M</span>
+        </div>
+      </div>
+      <div>
+        <div class="soru" style="font-size:9.4pt">0,4 M, 750 mL <span class="f">KNO<sub>3</sub></span> için kaç g katı gerekir?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>n = 0,4·0,75 = 0,3 mol</span></div>
+          <div class="adim"><span class="n">2</span><span>M<sub>A</sub> = 39+14+48 = 101</span></div>
+          <span class="sonuc">30,3 g</span>
+        </div>
+      </div>
+      <div>
+        <div class="soru" style="font-size:9.4pt">0,2 M, 500 mL <span class="f">XCl<sub>2</sub></span> çözeltisinde 9,5 g tuz var. X = ?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>n = 0,1 mol → M<sub>A</sub> = 95</span></div>
+          <div class="adim"><span class="n">2</span><span>X + 71 = 95 → X = 24</span></div>
+          <span class="sonuc">24 g/mol (Mg)</span>
+        </div>
+      </div>
+    </div>
+    <p class="kucuk" style="margin:1.6mm 0 0">Kullanılan mol kütleleri (g/mol): H: 1 · N: 14 · O: 16 · Na: 23 · Cl: 35,5 · K: 39</p>
+  </div>
+
+  <div class="iki">
+    <div>
+      <h3 style="margin-top:0">İyon derişimi</h3>
+      <p style="font-size:9.5pt">İyonik bileşikler suda iyonlarına ayrışır. <span class="f">A<sub>x</sub>B<sub>y</sub></span> bileşiğinin c M çözeltisinde:</p>
+      <div class="kutu duz serit" style="--bg:#f8fafc;padding:2.4mm 3.4mm">
+        <p style="margin:0;font-size:9.4pt">[A] = x·c &nbsp;·&nbsp; [B] = y·c &nbsp;·&nbsp; toplam iyon = (x + y)·c<br><span class="kucuk">Köşeli parantez [ ], molar derişim demektir.</span></p>
+      </div>
+      <p style="font-size:9.3pt;margin:0"><b>Örnek:</b> 0,2 M <span class="f">Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></span> → <span class="f">2Al<sup>3+</sup> + 3SO<sub>4</sub><sup>2−</sup></span><br>[<span class="f">Al<sup>3+</sup></span>] = 0,4 M · [<span class="f">SO<sub>4</sub><sup>2−</sup></span>] = 0,6 M · toplam 1,0 M iyon</p>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “1 mol NaCl’yi 1 L suya atarsam 1 M çözelti olur.”</div>
+        <div class="dogru"><b class="d">✓</b> Molarite <b>çözelti</b> hacmine göre tanımlıdır. Tuz eklenince hacim 1 L’den farklı olur. Doğrusu: 1 mol NaCl’yi az suda çözüp hacmi <b>1 L’ye tamamlamak</b>.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu kavram" style="margin-top:3.5mm">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Yoğunluk köprüsü: % ⇄ M</div>
+    <div class="iki-genis" style="gap:4mm;align-items:center">
+      <div>
+        <p style="font-size:9.3pt">Kütlece yüzdesi (%) ve yoğunluğu (d, g/mL) bilinen bir çözeltinin <b>1 L’sini</b> düşün: kütlesi 1000·d gram, içindeki çözünen 1000·d·%/100 gramdır. Bunu M<sub>A</sub>’ya bölünce:</p>
+        <div class="denklem" style="font-size:13pt;padding:0">M = <span class="kesir"><span>10 · d · %</span><span>M<sub>A</sub></span></span></div>
+      </div>
+      <div class="cozum">
+        <b style="font-size:9.2pt">Örnek:</b> <span style="font-size:9.2pt">Kütlece %36,5’lik HCl çözeltisinin yoğunluğu 1,2 g/mL’dir. (HCl: 36,5 g/mol)</span>
+        <div class="adim" style="margin-top:1.4mm"><span class="n">1</span><span>1 L → 1200 g çözelti → 1200·0,365 = 438 g HCl</span></div>
+        <div class="adim"><span class="n">2</span><span>438 / 36,5 = 12 mol → <b>12 M</b> (formülle: 10·1,2·36,5/36,5 = 12)</span></div>
+        <span class="kucuk">Ticari derişik hidroklorik asit de yaklaşık bu derişimdedir.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · SEYRELTME VE DERİŞTİRME
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>Seyreltme ve deriştirme</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Seyreltme ve deriştirme</h2>
+  <div class="alt-baslik">Su ekle ya da buharlaştır: çözünenin molü aynı kaldıkça hesap tek satırdır.</div>
+
+  <div class="iki-genis">
+    <div>
+      <p>Derişimi bilinen hazır çözeltiye <b class="k">stok çözelti</b> denir. Stoka <b>çözücü eklenirse</b> seyreltilir; çökme olmadan <b>çözücü buharlaştırılırsa</b> deriştirilir.</p>
+      <div class="kutu kavram">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Seyreltme denklemi</div>
+        <p style="font-size:9.4pt">Yalnızca su eklenir ya da uzaklaştırılırsa çözünenin mol sayısı değişmez: n<sub>1</sub> = n<sub>2</sub></p>
+        <div class="denklem" style="font-size:14pt">M<sub>1</sub> · V<sub>1</sub> = M<sub>2</sub> · V<sub>2</sub></div>
+        <p style="font-size:8.8pt" class="kucuk">V<sub>1</sub> ve V<sub>2</sub> aynı birimde olduğu sürece mL de kullanılabilir.</p>
+      </div>
+    </div>
+    <svg viewBox="0 0 160 88" style="width:100%;height:auto">
+      <defs>
+        <marker id="oks" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#0f8f84"/></marker>
+        <marker id="okb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#c26a06"/></marker>
+      </defs>
+      <g font-family="Inter" font-size="4" fill="#5d6478">
+        <g stroke="#e5e7f0" stroke-width=".3">
+          <line x1="25" y1="65.9" x2="155" y2="65.9"/><line x1="25" y1="56.8" x2="155" y2="56.8"/><line x1="25" y1="47.6" x2="155" y2="47.6"/><line x1="25" y1="38.5" x2="155" y2="38.5"/><line x1="25" y1="29.4" x2="155" y2="29.4"/><line x1="25" y1="20.3" x2="155" y2="20.3"/>
+        </g>
+        <line x1="25" y1="75" x2="157" y2="75" stroke="#1d2133" stroke-width=".5"/>
+        <line x1="25" y1="75" x2="25" y2="12" stroke="#1d2133" stroke-width=".5"/>
+        <text x="22" y="67.3" text-anchor="end">0,5</text><text x="22" y="58.2" text-anchor="end">1,0</text><text x="22" y="49" text-anchor="end">1,5</text><text x="22" y="39.9" text-anchor="end">2,0</text><text x="22" y="30.8" text-anchor="end">2,5</text><text x="22" y="21.7" text-anchor="end">3,0</text>
+        <text x="51" y="80.5" text-anchor="middle">200</text><text x="77" y="80.5" text-anchor="middle">400</text><text x="103" y="80.5" text-anchor="middle">600</text><text x="129" y="80.5" text-anchor="middle">800</text><text x="155" y="80.5" text-anchor="middle">1000</text>
+        <text x="90" y="87" text-anchor="middle" fill="#1d2133" font-weight="700">Çözelti hacmi (mL)</text>
+        <text x="4" y="8" fill="#1d2133" font-weight="700">M (mol/L)</text>
+        <path d="M39.3 25.3 L43.2 35.9 L47.1 42.8 L51.0 47.6 L54.9 51.2 L58.8 54.0 L62.7 56.1 L66.6 57.9 L70.5 59.4 L74.4 60.6 L78.3 61.7 L82.2 62.6 L86.1 63.4 L90.0 64.1 L93.9 64.7 L97.8 65.2 L101.7 65.7 L105.6 66.2 L109.5 66.6 L113.4 67.0 L117.3 67.3 L121.2 67.6 L125.1 67.9 L129.0 68.2 L132.9 68.4 L136.8 68.6 L140.7 68.9 L144.6 69.1 L148.5 69.2 L152.4 69.4" fill="none" stroke="#334155" stroke-width="1"/>
+        <circle cx="51" cy="47.6" r="1.6" fill="#334155"/><circle cx="103" cy="65.9" r="1.6" fill="#334155"/>
+        <text x="55" y="45" fill="#1e293b" font-weight="800" font-size="4.6">A</text>
+        <text x="104" y="62" fill="#1e293b" font-weight="800" font-size="4.6">B</text>
+        <path d="M60 38 Q80 36 96 52" fill="none" stroke="#0f8f84" stroke-width=".8" marker-end="url(#oks)"/>
+        <text x="86" y="35" fill="#0f8f84" font-weight="700">su ekle → seyrelir</text>
+        <path d="M100 71.5 Q72 72 54 55" fill="none" stroke="#c26a06" stroke-width=".7" stroke-dasharray="1.6 1" marker-end="url(#okb)"/>
+        <text x="110" y="55" fill="#c26a06" font-weight="700">← buharlaştır</text>
+        <text x="110" y="60" fill="#c26a06">(çökme olmadan)</text>
+        <text x="90" y="18" text-anchor="middle" fill="#1e293b" font-weight="700">0,3 mol çözünen: M · V hep 0,3</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="iki">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 8 · Su ekleme</div>
+      <div class="soru">1,5 M 200 mL HCl çözeltisine su eklenerek hacim 600 mL’ye tamamlanıyor. Yeni derişim kaç M’dir? Kaç mL su eklenmiştir?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>1,5·200 = M<sub>2</sub>·600 → M<sub>2</sub> = 0,5 M</span></div>
+        <div class="adim"><span class="n">2</span><span>Eklenen su: 600 − 200 = 400 mL</span></div>
+        <span class="sonuc">0,5 M · 400 mL su</span>
+      </div>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 9 · Buharlaştırma</div>
+      <div class="soru">0,25 M 800 mL glikoz çözeltisinin derişimini 0,4 M yapmak için çökme olmadan kaç mL su buharlaştırılmalıdır?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>0,25·800 = 0,4·V<sub>2</sub> → V<sub>2</sub> = 500 mL</span></div>
+        <div class="adim"><span class="n">2</span><span>Buharlaşan su: 800 − 500</span></div>
+        <span class="sonuc">300 mL</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 10 · Katı ekleme</div>
+    <div class="soru">0,1 M 400 mL NaOH çözeltisine 2,4 g NaOH katısı eklenip tamamen çözülüyor. Hacmin değişmediği kabul edilirse son derişim kaç M olur? <span class="veri">(NaOH: 40 g/mol)</span></div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>Başta 0,1·0,4 = 0,04 mol; eklenen 2,4/40 = 0,06 mol. n değiştiği için M<sub>1</sub>V<sub>1</sub> = M<sub>2</sub>V<sub>2</sub> <b>kullanılmaz</b>.</span></div>
+      <div class="adim"><span class="n">2</span><span>M = (0,04 + 0,06) / 0,4</span></div>
+      <span class="sonuc">0,25 M</span>
+    </div>
+  </div>
+
+  <h3>Sabit sıcaklıkta işlemler ne değiştirir?</h3>
+  <table class="tablo sik ortali" style="font-size:8.8pt">
+    <tr><th style="text-align:left">İşlem</th><th>Çözünen molü</th><th>Hacim</th><th>Derişim</th><th>Özkütle</th><th>Çözelti kütlesi</th></tr>
+    <tr><td style="text-align:left">Doymamış çözeltiye su ekleme</td><td>Değişmez</td><td>Artar</td><td>Azalır</td><td>Azalır</td><td>Artar</td></tr>
+    <tr><td style="text-align:left">Doymamış çözeltiden su buharlaştırma (çökme yok)</td><td>Değişmez</td><td>Azalır</td><td>Artar</td><td>Artar</td><td>Azalır</td></tr>
+    <tr><td style="text-align:left">Dibinde katısı olan doymuş çözeltiye su ekleme (katı bitmez)</td><td>Artar</td><td>Artar</td><td><b>Değişmez</b></td><td>Değişmez</td><td>Artar</td></tr>
+    <tr><td style="text-align:left">Doymuş çözeltiden su buharlaştırma (katı çöker)</td><td>Azalır</td><td>Azalır</td><td><b>Değişmez</b></td><td>Değişmez</td><td>Azalır</td></tr>
+  </table>
+  <p class="kucuk" style="margin:0">Doymuş çözeltinin derişimi o sıcaklıktaki çözünürlüğe eşittir; sıcaklık değişmedikçe derişim de değişmez.</p>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · KARIŞTIRMA
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>Çözeltileri karıştırma</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Çözeltileri karıştırma</h2>
+  <div class="alt-baslik">İki şişeyi tek kapta birleştirince mol sayıları toplanır, hacimler toplanır; derişim ise ikisinin arasında bir yere düşer.</div>
+
+  <div class="iki-genis">
+    <div>
+      <h3 style="margin-top:0">Aynı çözünen, farklı derişim</h3>
+      <p>Aynı maddenin iki çözeltisi tepkime olmadan karıştırılırsa toplam mol, toplam hacme bölünür (hacimlerin toplandığı kabul edilir):</p>
+      <div class="formul-kart" style="grid-template-columns:1fr;margin:1mm 0 3mm">
+        <div><div class="denklem" style="font-size:14pt">M<sub>son</sub> = <span class="kesir"><span>M<sub>1</sub>V<sub>1</sub> + M<sub>2</sub>V<sub>2</sub></span><span>V<sub>1</sub> + V<sub>2</sub></span></span></div><span>Sonuç her zaman M<sub>1</sub> ile M<sub>2</sub> arasındadır ve hacmi büyük olana yakındır.</span></div>
+      </div>
+    </div>
+    <svg viewBox="0 0 120 80" style="width:100%;height:auto">
+      <defs><marker id="okk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#334155"/></marker></defs>
+      <g font-family="Inter" text-anchor="middle" fill="#1d2133">
+        <g transform="translate(4,8)">
+          <path d="M0 4 V36 Q0 39 3 39 H25 Q28 39 28 36 V4" fill="none" stroke="#334155" stroke-width=".7"/>
+          <rect x=".5" y="14" width="27" height="24.5" rx="2.5" fill="#60a5fa"/>
+          <text x="14" y="47" font-size="4.4" font-weight="800">0,6 M</text><text x="14" y="53" font-size="3.8" fill="#5d6478">300 mL</text>
+        </g>
+        <text x="39" y="30" font-size="8" font-weight="800" fill="#334155">+</text>
+        <g transform="translate(46,16)">
+          <path d="M0 4 V28 Q0 31 3 31 H21 Q24 31 24 28 V4" fill="none" stroke="#334155" stroke-width=".7"/>
+          <rect x=".5" y="12" width="23" height="18.5" rx="2.5" fill="#dbeafe"/>
+          <text x="12" y="39" font-size="4.4" font-weight="800">0,2 M</text><text x="12" y="45" font-size="3.8" fill="#5d6478">200 mL</text>
+        </g>
+        <path d="M73 30 H82" stroke="#334155" stroke-width=".8" marker-end="url(#okk)"/>
+        <g transform="translate(85,2)">
+          <path d="M0 4 V42 Q0 45 3 45 H29 Q32 45 32 42 V4" fill="none" stroke="#334155" stroke-width=".7"/>
+          <rect x=".5" y="10" width="31" height="34.5" rx="2.5" fill="#93c5fd"/>
+          <text x="16" y="53" font-size="4.4" font-weight="800">0,44 M</text><text x="16" y="59" font-size="3.8" fill="#5d6478">500 mL</text>
+        </g>
+        <!-- sayı doğrusu -->
+        <line x1="10" y1="72" x2="110" y2="72" stroke="#94a3b8" stroke-width=".6"/>
+        <circle cx="10" cy="72" r="1.4" fill="#dbeafe" stroke="#334155" stroke-width=".4"/><circle cx="110" cy="72" r="1.4" fill="#60a5fa"/><circle cx="70" cy="72" r="1.8" fill="#334155"/>
+        <text x="10" y="78.5" font-size="3.6">0,2</text><text x="110" y="78.5" font-size="3.6">0,6</text><text x="70" y="78.5" font-size="3.8" font-weight="800">0,44</text>
+        <text x="40" y="69" font-size="3.4" fill="#5d6478">ortalama 0,4 değil: 300 mL olan baskın</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="iki">
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 11</div>
+      <div class="soru">0,6 M 300 mL ve 0,2 M 200 mL NaCl çözeltileri karıştırılıyor. Son derişim kaç M’dir?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Toplam mol: 0,6·0,3 + 0,2·0,2 = 0,18 + 0,04 = 0,22 mol</span></div>
+        <div class="adim"><span class="n">2</span><span>Toplam hacim: 0,5 L → M = 0,22/0,5</span></div>
+        <span class="sonuc">0,44 M</span>
+      </div>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 12 · Kütlece %</div>
+      <div class="soru">Kütlece %10’luk 200 g ve %30’luk 300 g şekerli su karıştırılıyor. Karışım yüzde kaçlıktır?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Şeker: 20 + 90 = 110 g; çözelti: 500 g</span></div>
+        <div class="adim"><span class="n">2</span><span>% = (110/500)·100</span></div>
+        <span class="sonuc">Kütlece %22</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 13 · Farklı çözünenler, ortak iyon</div>
+    <div class="soru">0,4 M 100 mL KCl ile 0,2 M 300 mL <span class="f">CaCl<sub>2</sub></span> çözeltileri karıştırılıyor (tepkime yok). Karışımdaki iyon derişimlerini bulunuz.</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>İyon mollerini ayrı ayrı yaz: <span class="f">K<sup>+</sup></span>: 0,4·0,1 = 0,04 mol · <span class="f">Ca<sup>2+</sup></span>: 0,2·0,3 = 0,06 mol · <span class="f">Cl<sup>−</sup></span>: 0,04 + 2·0,06 = 0,16 mol</span></div>
+      <div class="adim"><span class="n">2</span><span>Hepsini toplam hacme (0,4 L) böl: [<span class="f">K<sup>+</sup></span>] = 0,1 M · [<span class="f">Ca<sup>2+</sup></span>] = 0,15 M · [<span class="f">Cl<sup>−</sup></span>] = 0,4 M</span></div>
+      <span class="sonuc">Ortak iyonun (Cl<sup>−</sup>) molleri toplanır</span>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div>
+      <div class="kutu dikkat" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “0,6 M ile 0,2 M karışırsa her zaman 0,4 M olur.”</div>
+          <div class="dogru"><b class="d">✓</b> Bu yalnızca <b>hacimler eşitse</b> doğrudur. Derişimler değil, <b>mol sayıları</b> toplanır.</div>
+        </div>
+      </div>
+    </div>
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Laboratuvar güvenliği</div>
+      <p style="font-size:9.2pt">Derişik asit (özellikle sülfürik asit) seyreltilirken çok ısı açığa çıkar. Bu yüzden <b>asit suya</b>, yavaş yavaş ve karıştırılarak eklenir; asidin üzerine su dökülmez. Koruyucu gözlük ve eldiven kullanılır.</p>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · KOLİGATİF ÖZELLİKLER
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>Koligatif özellikler</span></div>
+
+  <h2 class="konu"><span class="num">7</span>Koligatif özellikler</h2>
+  <div class="alt-baslik">Derişim neyi değiştirir? Kim olduğun değil, kaç tane olduğun önemli.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+    <p>Çözünenin <b>cinsine</b> değil, yalnızca çözünen <b>taneciklerin derişimine</b> bağlı olan çözelti özelliklerine <b class="k">koligatif özellikler</b> denir. Saf bir sıvıda <b>uçucu olmayan</b> bir katı çözündüğünde aynı dış basınçta:</p>
+    <div class="uc" style="gap:3mm;margin-top:1mm">
+      <div style="background:#fff;border-radius:2mm;padding:2mm 2.6mm;font-size:9pt"><b class="k">Buhar basıncı düşer</b><br>Aynı sıcaklıkta yüzeyden kaçabilen sıvı molekülü azalır.</div>
+      <div style="background:#fff;border-radius:2mm;padding:2mm 2.6mm;font-size:9pt"><b class="k">Kaynama noktası yükselir</b><br>Buhar basıncının dış basınca ulaşması için daha yüksek sıcaklık gerekir (ΔT<sub>k</sub>).</div>
+      <div style="background:#fff;border-radius:2mm;padding:2mm 2.6mm;font-size:9pt"><b class="k">Donma noktası alçalır</b><br>Çözünen tanecikler, çözücünün düzenli kristal oluşturmasını zorlaştırır (ΔT<sub>d</sub>).</div>
+    </div>
+  </div>
+
+  <svg viewBox="0 0 178 45" style="width:100%;height:auto;margin-bottom:1mm">
+    <g font-family="Inter" font-size="3" fill="#5d6478">
+      <!-- Panel 1: ısıtma -->
+      <text x="2" y="3.5" font-size="3.6" font-weight="800" fill="#1e293b">Isıtma (1 atm)</text>
+      <line x1="17" y1="40" x2="86" y2="40" stroke="#1d2133" stroke-width=".4"/>
+      <line x1="17" y1="40" x2="17" y2="6" stroke="#1d2133" stroke-width=".4"/>
+      <text x="15" y="33" text-anchor="end">100</text>
+      <text x="15" y="23" text-anchor="end">100+a</text>
+      <text x="15" y="12" text-anchor="end">100+b</text>
+      <line x1="17" y1="32" x2="86" y2="32" stroke="#e5e7f0" stroke-width=".3"/>
+      <line x1="17" y1="22" x2="36" y2="22" stroke="#e5e7f0" stroke-width=".3"/>
+      <path d="M17 39 L30 32 H85" fill="none" stroke="#0284c7" stroke-width=".8"/>
+      <path d="M17 38 L36 22 L58 11 H85" fill="none" stroke="#334155" stroke-width="1"/>
+      <line x1="36" y1="7" x2="36" y2="40" stroke="#cbd5e1" stroke-width=".3" stroke-dasharray="1 1"/>
+      <line x1="58" y1="7" x2="58" y2="40" stroke="#cbd5e1" stroke-width=".3" stroke-dasharray="1 1"/>
+      <text x="85" y="30.5" text-anchor="end" fill="#0284c7" font-weight="700">saf su</text>
+      <text x="85" y="9" text-anchor="end" fill="#334155" font-weight="700">tuzlu su</text>
+      <text x="26.5" y="44" text-anchor="middle" font-weight="700" fill="#1e293b">I</text>
+      <text x="47" y="44" text-anchor="middle" font-weight="700" fill="#1e293b">II</text>
+      <text x="71.5" y="44" text-anchor="middle" font-weight="700" fill="#1e293b">III</text>
+      <!-- Panel 2: soğutma -->
+      <text x="96" y="3.5" font-size="3.6" font-weight="800" fill="#1e293b">Soğutma (1 atm)</text>
+      <line x1="110" y1="40" x2="176" y2="40" stroke="#1d2133" stroke-width=".4"/>
+      <line x1="110" y1="40" x2="110" y2="6" stroke="#1d2133" stroke-width=".4"/>
+      <text x="108" y="13" text-anchor="end">0</text>
+      <text x="108" y="23" text-anchor="end">−a</text>
+      <text x="108" y="34" text-anchor="end">−c</text>
+      <line x1="110" y1="12" x2="176" y2="12" stroke="#e5e7f0" stroke-width=".3"/>
+      <path d="M110 6 L120 12 H175" fill="none" stroke="#0284c7" stroke-width=".8"/>
+      <path d="M110 7.5 L130 22 L150 33 H175" fill="none" stroke="#334155" stroke-width="1"/>
+      <text x="175" y="10.5" text-anchor="end" fill="#0284c7" font-weight="700">saf su</text>
+      <text x="175" y="31" text-anchor="end" fill="#334155" font-weight="700">tuzlu su</text>
+      <text x="143" y="44" text-anchor="middle">zaman →</text>
+    </g>
+  </svg>
+  <p class="kucuk" style="margin:0 0 2mm">Isıtma: <b>I</b> ısınır · <b>II</b> kaynar; su buharlaştıkça derişim ve sıcaklık artar · <b>III</b> doygun; sıcaklık sabit. Soğutma: −a’da donma başlar, buz ayrıldıkça derişim artar; doyunca (−c) sıcaklık sabitlenir.</p>
+
+  <div class="iki">
+    <div>
+      <h3 style="margin-top:0">Tanecikleri say</h3>
+      <p style="font-size:9.3pt">Moleküler maddeler molekül olarak, iyonik maddeler iyonlarına ayrışarak çözünür. Etki <b>toplam tanecik molüyle</b> orantılıdır. 1 kg sudaki 1 mol tanecik kaynama noktasını ≈ <b>0,52 °C</b> yükseltir, donma noktasını ≈ <b>1,86 °C</b> düşürür.</p>
+      <table class="tablo sik ortali" style="font-size:8.8pt">
+        <tr><th style="text-align:left">1 kg suda 1 mol</th><th>Tanecik</th><th>Kaynamaya başlama</th><th>Donmaya başlama</th></tr>
+        <tr><td style="text-align:left"><span class="f">C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></span> (glikoz)</td><td>1 mol</td><td>100 + a</td><td>−b</td></tr>
+        <tr><td style="text-align:left">NaCl</td><td>2 mol</td><td>100 + 2a</td><td>−2b</td></tr>
+        <tr><td style="text-align:left"><span class="f">CaCl<sub>2</sub></span></td><td>3 mol</td><td>100 + 3a</td><td>−3b</td></tr>
+        <tr><td style="text-align:left"><span class="f">AlCl<sub>3</sub></span></td><td>4 mol</td><td>100 + 4a</td><td>−4b</td></tr>
+      </table>
+      <div class="kutu hayat serit" style="margin:0">
+        <p style="margin:0;font-size:9pt"><b style="color:var(--hayat)">Hayatın İçinden:</b> Kışın yollara tuz serpilmesi ve radyatöre antifriz (etilen glikol) eklenmesi donma noktası alçalmasının uygulamalarıdır. <b>Not:</b> Etil alkol gibi <b>uçucu</b> bir çözünen buhar basıncını artırır.</p>
+      </div>
+    </div>
+    <div>
+      <div class="kutu ornek">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 14</div>
+        <div class="soru" style="font-size:9.4pt">1 kg suda 0,5 mol <span class="f">CaCl<sub>2</sub></span> çözülüyor. Çözelti 1 atm’de yaklaşık kaç °C’ta kaynamaya, kaç °C’ta donmaya başlar?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span><span class="f">CaCl<sub>2</sub></span> → <span class="f">Ca<sup>2+</sup> + 2Cl<sup>−</sup></span>: 0,5·3 = 1,5 mol tanecik</span></div>
+          <div class="adim"><span class="n">2</span><span>ΔT<sub>k</sub> = 1,5·0,52 = 0,78 °C · ΔT<sub>d</sub> = 1,5·1,86 = 2,79 °C</span></div>
+          <span class="sonuc">≈ 100,78 °C ve ≈ −2,79 °C</span>
+        </div>
+      </div>
+      <div class="kutu dikkat" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Tencereye tuz atınca su daha düşük sıcaklıkta kaynar.”</div>
+          <div class="dogru"><b class="d">✓</b> Uçucu olmayan tuz kaynama noktasını <b>yükseltir</b>; yemekteki tuz miktarında bu artış çok küçüktür.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · ÖZET
+     ========================================================= -->
+<section class="sayfa ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada derişim</h2><p>Sınavdan önceki gece bu sayfaya bakman yeter. Her kutuyu kendi cümlelerinle bir arkadaşına anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Dört birim, dört soru</div>
+      <ul style="font-size:9.1pt">
+        <li><b>Kütlece %</b> = m<sub>çözünen</sub>/m<sub>çözelti</sub> · 100</li>
+        <li><b>Hacimce %</b> = V<sub>çözünen</sub>/V<sub>çözelti</sub> · 100 (kolonya derecesi)</li>
+        <li><b>ppm</b> = m<sub>çözünen</sub>/m<sub>çözelti</sub> · 10<sup>6</sup> ≈ mg/L</li>
+        <li><b>Molarite</b> M = n/V (mol/L, V çözelti hacmi)</li>
+        <li>%1 = 10 000 ppm · M = 10·d·% / M<sub>A</sub></li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Seyrelt, deriştir, karıştır</div>
+      <ul style="font-size:9.1pt">
+        <li>Yalnız su değişirse: <b>M<sub>1</sub>V<sub>1</sub> = M<sub>2</sub>V<sub>2</sub></b></li>
+        <li>Katı eklenirse: yeni n’yi bul, M = n/V</li>
+        <li>Karıştırma: M<sub>son</sub> = (M<sub>1</sub>V<sub>1</sub> + M<sub>2</sub>V<sub>2</sub>)/(V<sub>1</sub> + V<sub>2</sub>)</li>
+        <li>Doymuş çözelti (sabit sıcaklık): derişim <b>değişmez</b></li>
+      </ul>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Tanecik ve koligatif etki</div>
+      <ul style="font-size:9.1pt">
+        <li><span class="f">A<sub>x</sub>B<sub>y</sub></span> c M → toplam iyon (x + y)·c M</li>
+        <li>Tanecik derişimi ↑ → buhar basıncı ↓</li>
+        <li>Kaynamaya başlama sıcaklığı ↑, donmaya başlama sıcaklığı ↓</li>
+        <li>Kıyasta çözücü miktarını eşitle, tanecik molünü say</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> En sık 4 hata</div>
+      <ul style="font-size:9.1pt">
+        <li>Yüzdede paydaya <b>çözücü</b> kütlesini yazmak</li>
+        <li>Molaritede mL’yi litreye çevirmemek</li>
+        <li>Seyreltmede V<sub>2</sub> yerine eklenen suyu yazmak</li>
+        <li>Koligatif kıyasta iyonların sayısını unutmak</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Derişik, seyreltik, izotonik, hipertonik ve hipotonik kavramlarını ayırt edebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Kütlece ve hacimce yüzde derişimi hesaplayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Eser miktardaki maddelerin derişimini ppm ile yorumlayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Molarite ve iyon derişimi hesaplayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Seyreltme, deriştirme ve karıştırma sonrası derişimi bulabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Çözeltilerin kaynama ve donma sıcaklıklarını tanecik sayısıyla kıyaslayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:5mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Aşağıdaki çözümleri dört farklı öğrenci yazdı. Her birinde bir hata var. Hatayı bul, hangi satırda olduğunu yaz, doğrusunu kutuya çöz.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> 30 g tuz 120 g suda çözülüyor. Çözelti kütlece yüzde kaçlıktır?</p>
+      <div class="defter">
+        <div class="ogrenci">Elif’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>Çözünen 30 g, çözücü 120 g.</div>
+        <div class="satir"><span class="sn">2</span>% = (30 / 120) · 100</div>
+        <div class="satir"><span class="sn">3</span>Çözelti %25’liktir.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> 7,3 g HCl ile 400 mL sulu çözelti hazırlanıyor. Derişim kaç M’dir? <span class="veri">(HCl: 36,5 g/mol)</span></p>
+      <div class="defter">
+        <div class="ogrenci">Burak’ın çözümü</div>
+        <div class="satir"><span class="sn">1</span>n = 7,3 / 36,5 = 0,2 mol</div>
+        <div class="satir"><span class="sn">2</span>M = n / V = 0,2 / 400</div>
+        <div class="satir"><span class="sn">3</span>M = 5·10<sup>-4</sup> mol/L</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> 2 M 300 mL KOH çözeltisine 200 mL su ekleniyor. Yeni derişim kaç M’dir?</p>
+      <div class="defter">
+        <div class="ogrenci">Selin’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>Seyreltmede M₁·V₁ = M₂·V₂ kullanılır.</div>
+        <div class="satir"><span class="sn">2</span>2 · 300 = M₂ · 200</div>
+        <div class="satir"><span class="sn">3</span>M₂ = 3 M</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Birer kg suda ayrı ayrı 1’er mol NaCl ve glikoz çözülüyor. Hangisi daha yüksek sıcaklıkta kaynamaya başlar?</p>
+      <div class="defter">
+        <div class="ogrenci">Onur’un çözümü</div>
+        <div class="satir"><span class="sn">1</span>İki çözeltide de çözücü 1 kg su.</div>
+        <div class="satir"><span class="sn">2</span>İkisinde de 1 mol tanecik çözünmüş.</div>
+        <div class="satir"><span class="sn">3</span>Aynı sıcaklıkta kaynamaya başlarlar.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Sonucu mantıkla sına: su eklenen çözeltinin derişimi <b>artamaz</b>; bir molarite değeri 10<sup>-4</sup> gibi tuhaf çıktıysa birimlere bak; iyonik madde gördüğünde tanecikleri <b>say</b>.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni ve görseli oku, sonra hangi bilginin işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Sağlık</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Hastanelerde kullanılan serum fizyolojik, her 100 mL’sinde 0,9 g NaCl içeren sulu çözeltidir. <span class="veri">(NaCl: 58,5 g/mol)</span></p>
+          <p>Bu çözelti ile ilgili;</p>
+          <div class="oncul"><div><b>I.</b><span>1 L’sinde 9 g NaCl bulunur.</span></div><div><b>II.</b><span>NaCl derişimi yaklaşık 0,15 M’dir.</span></div><div><b>III.</b><span>Kırmızı kan hücresi bu çözeltiden saf suya alınırsa su kaybederek büzüşür.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Çevre · İçme suyu</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Tarım arazilerinin yakınındaki dört kuyudan alınan su örneklerinde nitrat miktarı ölçülmüştür. İçme suyu için nitrat sınırı <b>50 mg/L</b>’dir.</p>
+          <table class="tablo sik ortali">
+            <tr><th>Kuyu</th><th>K</th><th>L</th><th>M</th><th>N</th></tr>
+            <tr><td>Hacim (mL)</td><td>500</td><td>2000</td><td>250</td><td>1500</td></tr>
+            <tr><td>Nitrat (mg)</td><td>20</td><td>120</td><td>15</td><td>60</td></tr>
+          </table>
+          <p>Buna göre hangi kuyuların suyu nitrat sınırını <b>aşmaktadır</b>?</p>
+          <div class="secenek"><span><b>A)</b>K ve L</span><span><b>B)</b>L ve M</span><span><b>C)</b>M ve N</span><span><b>D)</b>K ve N</span><span><b>E)</b>Yalnız L</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Laboratuvar</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>Bir öğrenci X, Y ve Z katılarının 1 kg sudaki çözeltilerini hazırlayıp donma noktası alçalmasını (ΔT<sub>d</sub>) ölçüyor. Maddelerin tamamen çözündüğü ve iyonik olanların tamamen iyonlaştığı biliniyor.</p>
+          <svg viewBox="0 0 120 80" style="width:100%;margin:1mm 0 2mm">
+            <g font-family="Inter" font-size="4.4" fill="#5d6478">
+              <g stroke="#e5e7f0" stroke-width=".3">
+                <line x1="18" y1="55" x2="112" y2="55"/><line x1="18" y1="46" x2="112" y2="46"/><line x1="18" y1="37" x2="112" y2="37"/><line x1="18" y1="28" x2="112" y2="28"/><line x1="18" y1="19" x2="112" y2="19"/><line x1="18" y1="10" x2="112" y2="10"/>
+                <line x1="65" y1="10" x2="65" y2="64"/><line x1="112" y1="10" x2="112" y2="64"/>
+              </g>
+              <line x1="18" y1="64" x2="114" y2="64" stroke="#1d2133" stroke-width=".5"/>
+              <line x1="18" y1="64" x2="18" y2="6" stroke="#1d2133" stroke-width=".5"/>
+              <text x="15" y="65.5" text-anchor="end">0</text>
+              <text x="15" y="47.5" text-anchor="end">2b</text><text x="15" y="29.5" text-anchor="end">4b</text><text x="15" y="11.5" text-anchor="end">6b</text>
+              <text x="65" y="69.5" text-anchor="middle">1</text><text x="112" y="69.5" text-anchor="middle">2</text>
+              <text x="66" y="77" text-anchor="middle" fill="#1d2133" font-weight="700">Çözünen madde (mol)</text>
+              <text x="3" y="4.5" fill="#1d2133" font-weight="700">ΔT<tspan font-size="3" dy="1">d</tspan></text>
+              <line x1="18" y1="64" x2="112" y2="10" stroke="#334155" stroke-width="1.1"/>
+              <line x1="18" y1="64" x2="112" y2="28" stroke="#c26a06" stroke-width="1.1"/>
+              <line x1="18" y1="64" x2="112" y2="46" stroke="#0f8f84" stroke-width="1.1"/>
+              <text x="104" y="12" fill="#334155" font-weight="800" font-size="5.4">X</text>
+              <text x="104" y="27" fill="#c26a06" font-weight="800" font-size="5.4">Y</text>
+              <text x="104" y="45" fill="#0f8f84" font-weight="800" font-size="5.4">Z</text>
+            </g>
+          </svg>
+          <p style="font-size:9.2pt">1 kg suda çözünen 1 mol taneciğin donma noktasını b °C düşürdüğü bilindiğine göre X, Y ve Z sırasıyla aşağıdakilerden hangisi olabilir?</p>
+          <div class="secenek tek"><span><b>A)</b>Glikoz – NaCl – <span class="f">CaCl<sub>2</sub></span></span><span><b>B)</b>NaCl – <span class="f">CaCl<sub>2</sub></span> – Glikoz</span><span><b>C)</b><span class="f">AlCl<sub>3</sub></span> – <span class="f">CaCl<sub>2</sub></span> – NaCl</span><span><b>D)</b><span class="f">CaCl<sub>2</sub></span> – NaCl – Glikoz</span><span><b>E)</b><span class="f">CaCl<sub>2</sub></span> – Glikoz – NaCl</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Tarım · Akıllı sera</div>
+    <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+      <p>Bir serada damla sulama için <span class="f">KNO<sub>3</sub></span> çözeltisi kullanılmaktadır. Bitkiler için önerilen derişim aralığı <b>0,20 M – 0,25 M</b>’dir. Teknisyen, 0,5 M’lik 300 L stok çözeltiyi 0,1 M’lik 700 L çözeltiyle büyük bir tankta karıştırıyor (tepkime yok, hacimler toplanıyor).</p>
+      <p>Tanktaki çözeltinin derişimi ve önerilen aralığa uygunluğu için aşağıdakilerden hangisi doğrudur?</p>
+      <div class="secenek" style="grid-template-columns:1fr 1fr 1fr"><span><b>A)</b>0,22 M; aralıktadır.</span><span><b>B)</b>0,30 M; aralığın üstündedir.</span><span><b>C)</b>0,26 M; aralığın üstündedir.</span><span><b>D)</b>0,18 M; aralığın altındadır.</span><span><b>E)</b>0,60 M; aralığın üstündedir.</span></div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, sadece o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p>Kütlece %20’lik NaOH çözeltisinin yoğunluğu 1,2 g/mL’dir. Bu çözeltinin molar derişimi kaçtır? <span class="veri">(NaOH: 40 g/mol)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Hesabı kolaylaştırmak için 1 L (1000 mL) çözelti al. Yoğunlukla kütlesini bul: m = d · V.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">1200 g çözeltinin %20’si NaOH’tur. Bu kütleyi mole çevir.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Bulduğun mol, 1 L çözeltideki moldür; yani doğrudan molaritedir. Sonucu M = 10·d·%/M<sub>A</sub> ile kontrol et.</div></div>
+      </div>
+      <div class="cevap-alani" style="height:20mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p>0,3 M 200 mL <span class="f">CaCl<sub>2</sub></span> çözeltisi ile 0,1 M 300 mL NaCl çözeltisi karıştırılıyor. Karışımdaki <span class="f">Cl<sup>−</sup></span> iyonu derişimi kaç M’dir? (Tepkime yok, hacimler toplanır.)</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Her çözeltideki çözünen molünü bul: n = M · V (litre).</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Ayrışma denklemlerine bak: 1 mol <span class="f">CaCl<sub>2</sub></span> 2 mol, 1 mol NaCl 1 mol <span class="f">Cl<sup>−</sup></span> verir. Klorür mollerini topla.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Toplam <span class="f">Cl<sup>−</sup></span> molünü toplam hacme (200 + 300 mL) böl.</div></div>
+      </div>
+      <div class="cevap-alani" style="height:20mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p>500 g suda 0,2 mol <span class="f">Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></span> çözülerek bir çözelti hazırlanıyor. Aynı ortamda, aynı sıcaklıkta donmaya başlayan bir çözelti elde etmek için 1 kg suda kaç gram NaCl çözülmelidir? <span class="veri">(NaCl: 58,5 g/mol; iyonlaşma tam kabul edilecek)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic"><span class="f">Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></span> kaç iyona ayrışır? <span class="f">2Al<sup>3+</sup> + 3SO<sub>4</sub><sup>2−</sup></span> → 1 mol bileşik 5 mol tanecik verir.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Çözücü miktarlarını eşitle: 500 g sudaki tanecik molünü 1 kg suya göre yaz (2 ile çarp).</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">NaCl 2 tanecik verir: 2x = (1 kg sudaki tanecik molü). x’i bul ve kütleye çevir.</div></div>
+      </div>
+      <div class="cevap-alani" style="height:20mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 30 dakika. Gerekli mol kütleleri (g/mol): H: 1 · O: 16 · Na: 23 · Mg: 24 · S: 32 · Cl: 35,5 · K: 39</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>0,3 mol KOH katısı suda çözülerek hacmi 600 mL olan bir çözelti hazırlanıyor. Çözeltinin derişimi kaç M’dir?</p>
+        <div class="secenek"><span><b>A)</b>0,05</span><span><b>B)</b>0,18</span><span><b>C)</b>0,2</span><span><b>D)</b>0,5</span><span><b>E)</b>2</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>Kütlece %25’lik 240 g şekerli su çözeltisinde kaç gram su vardır?</p>
+        <div class="secenek"><span><b>A)</b>60</span><span><b>B)</b>180</span><span><b>C)</b>192</span><span><b>D)</b>215</span><span><b>E)</b>240</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p>Bir göl suyunun 2 kg’lık örneğinde 6 mg kurşun bulunmuştur. Bu örnekteki kurşun derişimi kaç ppm’dir?</p>
+        <div class="secenek"><span><b>A)</b>0,003</span><span><b>B)</b>0,3</span><span><b>C)</b>1,5</span><span><b>D)</b>2</span><span><b>E)</b>3</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p>0,25 M 400 mL <span class="f">MgCl<sub>2</sub></span> çözeltisinde kaç gram <span class="f">MgCl<sub>2</sub></span> çözünmüştür?</p>
+        <div class="secenek"><span><b>A)</b>9,5</span><span><b>B)</b>23,75</span><span><b>C)</b>38</span><span><b>D)</b>95</span><span><b>E)</b>237,5</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p>0,2 M <span class="f">Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></span> sulu çözeltisi ile ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>[<span class="f">Fe<sup>3+</sup></span>] = 0,4 M’dir.</span></div><div><b>II.</b><span>[<span class="f">SO<sub>4</sub><sup>2−</sup></span>] = 0,6 M’dir.</span></div><div><b>III.</b><span>Toplam iyon derişimi 0,5 M’dir.</span></div></div>
+        <p>yargılarından hangileri doğrudur? <span class="veri">(Tam iyonlaşma kabul ediniz.)</span></p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p>0,6 M 250 mL glikoz çözeltisinin derişimini 0,15 M’ye düşürmek için aynı sıcaklıkta kaç mL su eklenmelidir?</p>
+        <div class="secenek"><span><b>A)</b>500</span><span><b>B)</b>750</span><span><b>C)</b>1000</span><span><b>D)</b>1250</span><span><b>E)</b>1500</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · TEST (7–12)
+     ========================================================= -->
+<section class="sayfa cift test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>Dibinde katısı bulunan doymuş NaCl çözeltisine, aynı sıcaklıkta katının tamamını çözmeyecek kadar su ekleniyor.</p>
+        <p>Buna göre;</p>
+        <div class="oncul"><div><b>I.</b><span>Çözeltinin derişimi değişmez.</span></div><div><b>II.</b><span>Çözünmüş NaCl kütlesi artar.</span></div><div><b>III.</b><span>Çözelti kütlesi artar.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p>0,5 M 100 mL ve 0,2 M 400 mL <span class="f">HNO<sub>3</sub></span> çözeltileri karıştırılıyor. Karışımın derişimi kaç M olur? (Hacimler toplanır.)</p>
+        <div class="secenek"><span><b>A)</b>0,26</span><span><b>B)</b>0,30</span><span><b>C)</b>0,35</span><span><b>D)</b>0,52</span><span><b>E)</b>0,70</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>Birer kilogram suda ayrı ayrı I. 0,3 mol glikoz, II. 0,2 mol NaCl, III. 0,1 mol <span class="f">CaCl<sub>2</sub></span> çözülüyor. Çözeltilerin aynı ortamda kaynamaya başlama sıcaklıkları arasındaki ilişki hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>I &gt; II &gt; III</span><span><b>B)</b>I = II = III</span><span><b>C)</b>III &gt; II &gt; I</span><span><b>D)</b>II &gt; I = III</span><span><b>E)</b>I &gt; III &gt; II</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p>Uçucu olmayan katılarla hazırlanan sulu çözeltilerle ilgili aşağıdaki ifadelerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Koligatif özellikler tanecik sayısına bağlıdır.</span><span><b>B)</b>Suya şeker eklemek aynı sıcaklıkta buhar basıncını düşürür.</span><span><b>C)</b>Çözünen arttıkça donmaya başlama sıcaklığı yükselir.</span><span><b>D)</b>Eşit derişimde NaCl çözeltisi glikozunkinden yüksek sıcaklıkta kaynamaya başlar.</span><span><b>E)</b>Kaynayan çözeltinin buhar basıncı dış basınca eşittir.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <p>80 derecelik 250 mL kolonyaya 150 mL saf su ekleniyor. Hacimlerin toplandığı kabul edilirse yeni kolonya kaç derecelik olur?</p>
+        <div class="secenek"><span><b>A)</b>40</span><span><b>B)</b>50</span><span><b>C)</b>60</span><span><b>D)</b>70</span><span><b>E)</b>80</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p>Kütlece %49’luk <span class="f">H<sub>2</sub>SO<sub>4</sub></span> çözeltisinin yoğunluğu 1,4 g/mL’dir. Bu çözeltinin molar derişimi kaçtır?</p>
+        <div class="secenek"><span><b>A)</b>7</span><span><b>B)</b>9,8</span><span><b>C)</b>14</span><span><b>D)</b>49</span><span><b>E)</b>70</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#f8fafc;margin-top:2mm">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 4. ve 5. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">14</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 15 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Derişim Birimleri</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>D</span></div><div><b>2</b><span>B</span></div><div><b>3</b><span>E</span></div><div><b>4</b><span>A</span></div>
+    <div><b>5</b><span>C</span></div><div><b>6</b><span>B</span></div><div><b>7</b><span>E</span></div><div><b>8</b><span>A</span></div>
+    <div><b>9</b><span>D</span></div><div><b>10</b><span>C</span></div><div><b>11</b><span>B</span></div><div><b>12</b><span>A</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · D</b> V = 0,6 L; M = 0,3/0,6 = 0,5 M.</div>
+    <div class="c"><b>2 · B</b> Şeker: 240·0,25 = 60 g; su: 240 − 60 = 180 g.</div>
+    <div class="c"><b>3 · E</b> 6 mg = 6·10<sup>-3</sup> g; (6·10<sup>-3</sup> / 2000)·10<sup>6</sup> = 3 ppm (ya da 6 mg / 2 kg = 3 mg/kg).</div>
+    <div class="c"><b>4 · A</b> n = 0,25·0,4 = 0,1 mol; M<sub>A</sub> = 24 + 71 = 95 g/mol → 9,5 g.</div>
+    <div class="c"><b>5 · C</b> <span class="f">2Fe<sup>3+</sup> + 3SO<sub>4</sub><sup>2−</sup></span>: 0,4 M (I ✓), 0,6 M (II ✓), toplam 1,0 M (III ✗).</div>
+    <div class="c"><b>6 · B</b> 0,6·250 = 0,15·V<sub>2</sub> → V<sub>2</sub> = 1000 mL; eklenen su 1000 − 250 = 750 mL.</div>
+    <div class="c"><b>7 · E</b> Doymuşluk sürer, derişim sabit (I ✓); eklenen suda katı çözünür (II ✓); su + çözünen eklendiği için kütle artar (III ✓).</div>
+    <div class="c"><b>8 · A</b> (0,05 + 0,08) mol / 0,5 L = 0,26 M.</div>
+    <div class="c"><b>9 · D</b> Tanecik molleri: I 0,3 · II 0,2·2 = 0,4 · III 0,1·3 = 0,3 → II &gt; I = III.</div>
+    <div class="c"><b>10 · C</b> Çözünen arttıkça donmaya başlama sıcaklığı <b>düşer</b>.</div>
+    <div class="c"><b>11 · B</b> Alkol: 250·0,80 = 200 mL; yeni hacim 400 mL → (200/400)·100 = 50 derece.</div>
+    <div class="c"><b>12 · A</b> M = 10·1,4·49 / 98 = 7 M (1 L: 1400 g çözelti, 686 g <span class="f">H<sub>2</sub>SO<sub>4</sub></span> = 7 mol).</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> 0,9 g/100 mL → 9 g/L (I ✓). 9/58,5 ≈ 0,154 mol → ≈ 0,15 M (II ✓). Saf su hipotoniktir; hücre su alıp şişer (III ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · B</b> K: 20/0,5 = 40 · L: 120/2 = 60 · M: 15/0,25 = 60 · N: 60/1,5 = 40 mg/L. Sınırı aşanlar L ve M.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · D</b> 1 mol madde için ΔT<sub>d</sub>: X = 3b, Y = 2b, Z = b → X 3, Y 2, Z 1 tanecik verir: <span class="f">CaCl<sub>2</sub></span>, NaCl, glikoz.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · A</b> (0,5·300 + 0,1·700) / 1000 = 220/1000 = 0,22 M; 0,20–0,25 aralığındadır.</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1 · 6 M</b> 1 L = 1200 g çözelti; NaOH 240 g = 6 mol → 6 M. Kontrol: 10·1,2·20/40 = 6.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2 · 0,3 M</b> <span class="f">CaCl<sub>2</sub></span>: 0,06 mol → 0,12 mol <span class="f">Cl<sup>−</sup></span>; NaCl: 0,03 mol <span class="f">Cl<sup>−</sup></span>. 0,15 mol / 0,5 L = 0,3 M.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3 · 58,5 g</b> 0,2·5 = 1 mol tanecik / 500 g su → 1 kg suda 2 mol tanecik. 2x = 2 → x = 1 mol NaCl = 58,5 g.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 2</b> Payda çözelti kütlesi olmalı: 30/(30 + 120)·100 = %20.</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 2</b> Hacim litre olmalı: 400 mL = 0,4 L → M = 0,2/0,4 = 0,5 M.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 2</b> V<sub>2</sub> son hacimdir: 300 + 200 = 500 mL → 2·300 = M<sub>2</sub>·500 → M<sub>2</sub> = 1,2 M.</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 2</b> NaCl iyonlarına ayrışır: 1 mol NaCl → 2 mol tanecik. NaCl çözeltisi daha yüksek sıcaklıkta kaynamaya başlar.</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 10 · Çözeltiler 2</span><span class="no">15</span></div>
+</section>
+
+</body>
+</html>
