@@ -1,0 +1,1304 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Günlük Hayatta Kimya · Kimya Rotası 9</title>
+<style>
+/* ==========================================================
+   KİMYA ROTASI — ortak sayfa ve kutu tasarımı (A4, baskı)
+   Her ünite kendi --unite rengini <body style> ile verir.
+   ========================================================== */
+
+@page { size: A4; margin: 0; }
+
+:root {
+  --unite: #4338ca;          /* ünite kimlik rengi (mol: indigo) */
+  --unite-acik: #eef0ff;
+  --unite-koyu: #2a2380;
+  --vurgu: #f59e0b;          /* ikincil vurgu (amber) */
+
+  --kavram: #4f46e5;   --kavram-bg: #eef2ff;
+  --hayat: #c26a06;    --hayat-bg: #fff6e5;
+  --dikkat: #e11d48;   --dikkat-bg: #fff1f3;
+  --ornek: #0f8f84;    --ornek-bg: #eafaf7;
+  --ipucu: #7c3aed;    --ipucu-bg: #f4f0ff;
+  --hata: #ea580c;     --hata-bg: #fff4ec;
+
+  --metin: #1d2133;
+  --soluk: #5d6478;
+  --cizgi: #dfe3ee;
+  --kagit: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Inter", "DejaVu Sans", sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.5;
+  color: var(--metin);
+  background: #8a8fa3;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* ---------- Sayfa ---------- */
+.sayfa {
+  width: 210mm; height: 297mm;
+  position: relative; overflow: hidden;
+  background: var(--kagit);
+  padding: 22mm 16mm 18mm 16mm;
+  page-break-after: always; break-after: page;
+  margin: 0 auto;
+}
+@media screen { .sayfa { margin: 8mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.25); } }
+
+.ust-serit {
+  position: absolute; top: 0; left: 0; right: 0; height: 13mm;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16mm; font-size: 8pt; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--unite-koyu); font-weight: 600;
+  border-bottom: 1.2mm solid var(--unite);
+  background: linear-gradient(90deg, var(--unite-acik), #fff 70%);
+}
+.ust-serit .baslik-k { display: flex; gap: 3mm; align-items: center; }
+.ust-serit .nokta { width: 2.4mm; height: 2.4mm; border-radius: 50%; background: var(--vurgu); }
+
+.alt-bilgi {
+  position: absolute; bottom: 5mm; left: 16mm; right: 16mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 7.5pt; color: var(--soluk);
+}
+.alt-bilgi .no {
+  min-width: 7.5mm; height: 7.5mm; border-radius: 50%;
+  background: var(--unite); color: #fff; font-weight: 700; font-size: 8.4pt;
+  display: grid; place-items: center;
+}
+.sayfa.cift .alt-bilgi { flex-direction: row-reverse; }
+
+/* ---------- Başlıklar ---------- */
+h1, h2, h3, h4 { font-family: "Inter Display", "Inter", sans-serif; margin: 0; line-height: 1.15; }
+h2.konu {
+  font-size: 21pt; font-weight: 800; color: var(--unite-koyu);
+  display: flex; align-items: baseline; gap: 3.5mm; margin-bottom: 1.5mm;
+}
+h2.konu .num {
+  font-size: 11pt; font-weight: 700; color: #fff; background: var(--unite);
+  padding: .6mm 2.6mm; border-radius: 2mm; transform: translateY(-1mm);
+}
+.alt-baslik { color: var(--soluk); font-size: 10pt; margin-bottom: 5mm; }
+h3 {
+  font-size: 13pt; font-weight: 750; color: var(--unite-koyu);
+  margin: 4.5mm 0 2mm; display: flex; align-items: center; gap: 2.2mm;
+}
+h3::before { content: ""; width: 1.4mm; height: 5mm; background: var(--vurgu); border-radius: 1mm; }
+p { margin: 0 0 2.4mm; }
+ul { margin: 0 0 2.4mm; padding-left: 5mm; }
+li { margin-bottom: 1mm; }
+b, strong { font-weight: 700; }
+.vurgu { background: linear-gradient(transparent 58%, #fde68a 58%); padding: 0 .5mm; }
+.k { color: var(--unite); font-weight: 700; }
+.kucuk { font-size: 8.6pt; color: var(--soluk); }
+.ortala { text-align: center; }
+
+/* Kimyasal formül ve üs */
+.f { white-space: nowrap; font-weight: 600; }
+sub, sup { font-size: 68%; line-height: 0; }
+.izotop { display: inline-flex; align-items: center; white-space: nowrap; font-weight: 600; }
+.izotop .yz { display: inline-flex; flex-direction: column; font-size: 62%; line-height: 1.05; text-align: right; margin-right: .3mm; font-weight: 600; }
+
+/* ---------- Izgara ---------- */
+.iki { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.iki-genis { display: grid; grid-template-columns: 1.25fr 1fr; gap: 5mm; }
+.uc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.dort { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+
+/* ---------- Kutular ---------- */
+.kutu {
+  border-radius: 3mm; padding: 3.2mm 4mm 3mm; margin: 0 0 3.5mm;
+  position: relative; break-inside: avoid;
+  background: var(--bg); border: .35mm solid color-mix(in srgb, var(--renk) 30%, #fff);
+}
+.kutu > .etiket {
+  display: inline-flex; align-items: center; gap: 1.6mm;
+  font-family: "Inter Display", sans-serif;
+  font-size: 7.6pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--renk);
+  padding: .7mm 2.4mm .7mm 1.6mm; border-radius: 1.4mm; margin-bottom: 2mm;
+}
+.kutu > .etiket svg { width: 3.4mm; height: 3.4mm; }
+.kutu p:last-child, .kutu ul:last-child { margin-bottom: 0; }
+.kavram { --renk: var(--kavram); --bg: var(--kavram-bg); }
+.hayat  { --renk: var(--hayat);  --bg: var(--hayat-bg); }
+.dikkat { --renk: var(--dikkat); --bg: var(--dikkat-bg); }
+.ornek  { --renk: var(--ornek);  --bg: var(--ornek-bg); }
+.ipucu  { --renk: var(--ipucu);  --bg: var(--ipucu-bg); }
+.hata   { --renk: var(--hata);   --bg: var(--hata-bg); }
+.duz    { --renk: var(--unite);  --bg: #fff; }
+
+.kutu.serit { border: none; border-left: 1.4mm solid var(--renk); border-radius: 0 3mm 3mm 0; }
+
+/* Yanılgı kartı: yanlış / doğru */
+.yanilgi { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-top: 1mm; }
+.yanilgi > div { border-radius: 2mm; padding: 2mm 2.6mm; font-size: 9.2pt; line-height: 1.4; }
+.yanilgi .yanlis { background: #fff; border: .3mm dashed var(--dikkat); }
+.yanilgi .dogru { background: #fff; border: .3mm solid var(--ornek); }
+.yanilgi b.y { color: var(--dikkat); }
+.yanilgi b.d { color: var(--ornek); }
+
+/* Çözümlü örnek */
+.ornek .soru { font-weight: 600; margin-bottom: 2mm; }
+.cozum { background: #fff; border-radius: 2mm; padding: 2.2mm 3mm; font-size: 9.4pt; }
+.cozum .adim { display: grid; grid-template-columns: 5mm 1fr; gap: 1.6mm; margin-bottom: 1.1mm; align-items: start; }
+.cozum .adim .n {
+  width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--ornek); color: #fff;
+  font-size: 7pt; font-weight: 700; display: grid; place-items: center; margin-top: .4mm;
+}
+.sonuc {
+  display: inline-block; margin-top: .8mm; font-weight: 700; color: var(--ornek);
+  border: .35mm solid var(--ornek); border-radius: 1.5mm; padding: .2mm 2mm;
+}
+.denklem {
+  font-family: "Inter", sans-serif; font-weight: 600; text-align: center;
+  font-size: 11pt; padding: 1.5mm 0; color: var(--unite-koyu);
+}
+.kesir { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 1mm; line-height: 1.2; }
+.kesir > span:first-child { border-bottom: .3mm solid currentColor; padding: 0 1mm; }
+.kesir > span:last-child { padding: 0 1mm; }
+
+/* Tablo */
+table.tablo { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9.2pt; margin: 1mm 0 3mm; }
+table.tablo th { background: var(--unite); color: #fff; font-weight: 700; padding: 1.6mm 2mm; text-align: left; }
+table.tablo th:first-child { border-top-left-radius: 2mm; }
+table.tablo th:last-child { border-top-right-radius: 2mm; }
+table.tablo td { padding: 1.6mm 2mm; border-bottom: .3mm solid var(--cizgi); }
+table.tablo tr:nth-child(even) td { background: #f7f8fc; }
+
+/* ---------- Soru düzeni ---------- */
+.soru-blok { break-inside: avoid; margin-bottom: 4.5mm; }
+.soru-ust { display: flex; gap: 2.4mm; align-items: flex-start; }
+.soru-no {
+  flex: none; width: 7.5mm; height: 7.5mm; border-radius: 2mm;
+  background: var(--unite); color: #fff; font-weight: 800; font-size: 10pt;
+  display: grid; place-items: center; font-family: "Inter Display", sans-serif;
+}
+.soru-metin { flex: 1; }
+.secenek { display: grid; grid-template-columns: 1fr 1fr; gap: .8mm 4mm; margin-top: 1.6mm; font-size: 9.6pt; }
+.secenek.tek { grid-template-columns: 1fr; }
+.secenek.bes { grid-template-columns: repeat(5, 1fr); }
+.secenek span b { color: var(--unite); margin-right: 1mm; }
+.oncul { margin: 1mm 0 1mm 1mm; }
+.oncul div { display: grid; grid-template-columns: 7mm 1fr; }
+.oncul div > b:first-child { color: var(--unite); }
+.veri { font-size: 8.4pt; color: var(--soluk); font-style: italic; }
+
+.etiket-soru svg { width: 3mm; height: 3mm; }
+.etiket-soru {
+  display: inline-flex; gap: 1.4mm; align-items: center;
+  font-size: 7pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  padding: .5mm 2mm; border-radius: 10mm; margin-bottom: 1.2mm;
+  color: var(--renk); background: var(--bg); border: .3mm solid var(--renk);
+}
+.zorluk { display: inline-flex; gap: .7mm; margin-left: 1.2mm; vertical-align: middle; }
+.zorluk i { width: 1.9mm; height: 1.9mm; border-radius: 50%; background: #d8dbe6; display: inline-block; }
+.zorluk i.d { background: var(--vurgu); }
+
+/* Bölüm kapağı tipi sayfa başı bandı */
+.bant {
+  margin: 0 -16mm 5mm; padding: 5mm 16mm 4mm; color: #fff;
+  background: linear-gradient(110deg, var(--renk, var(--unite)) 0%, color-mix(in srgb, var(--renk, var(--unite)) 70%, #000) 100%);
+  position: relative; overflow: hidden;
+}
+.bant h2 { font-size: 22pt; font-weight: 850; color: #fff; }
+.bant p { margin: 1mm 0 0; opacity: .92; font-size: 9.6pt; max-width: 135mm; }
+.bant .ikon-buyuk { position: absolute; right: 14mm; top: 50%; transform: translateY(-50%); opacity: .95; }
+
+/* Hata avcısı defter kartı */
+.defter {
+  background:
+    repeating-linear-gradient(transparent 0 6.1mm, #c9d6ee 6.1mm 6.4mm),
+    #fffef8;
+  border-radius: 2mm; padding: 1.2mm 4mm 1.6mm 14mm; position: relative;
+  font-family: "Caladea", "Bitstream Charter", serif; font-style: italic; font-size: 11pt;
+  line-height: 6.4mm; color: #24356b; border: .3mm solid #e6e1cc;
+}
+.defter::before { content: ""; position: absolute; left: 10mm; top: 0; bottom: 0; width: .35mm; background: #f2a7a7; }
+.defter .satir { position: relative; }
+.defter .satir .sn { position: absolute; left: -9.5mm; font-family: "Inter", sans-serif; font-style: normal; font-size: 7pt; color: #9aa3b8; font-weight: 700; }
+.defter .ogrenci { font-family: "Inter", sans-serif; font-style: normal; font-size: 7.2pt; color: var(--soluk); letter-spacing: .05em; text-transform: uppercase; }
+.duzelt {
+  border: .35mm dashed var(--hata); border-radius: 2mm; min-height: 26mm; margin-top: 2mm;
+  padding: 1.6mm 3mm; font-size: 8.4pt; color: var(--hata); font-weight: 600; background: #fff;
+}
+.sorgu { display: flex; gap: 2mm; flex-wrap: wrap; margin-top: 1.6mm; }
+.sorgu span { font-size: 8.2pt; background: #fff; border: .3mm solid var(--hata); color: var(--hata); border-radius: 10mm; padding: .2mm 2.2mm; font-weight: 600; }
+
+/* İpucu merdiveni */
+.merdiven { display: grid; gap: 1.8mm; margin-top: 2mm; }
+.basamak {
+  display: grid; grid-template-columns: 17mm 1fr; align-items: stretch;
+  border-radius: 2mm; overflow: hidden; background: #fff; border: .3mm solid #ddd3fb;
+}
+.basamak .bas {
+  background: var(--ipucu); color: #fff; font-size: 7pt; font-weight: 800; letter-spacing: .06em;
+  display: grid; place-items: center; text-align: center; line-height: 1.15; padding: 1mm;
+}
+.basamak:nth-child(2) .bas { background: #9061f0; }
+.basamak:nth-child(3) .bas { background: #a985f5; }
+.basamak .ic { padding: 1.6mm 3mm; font-size: 9.2pt; }
+.basamak:nth-child(2) { margin-left: 6mm; }
+.basamak:nth-child(3) { margin-left: 12mm; }
+.cevap-alani { border: .3mm dashed #b9a6f3; border-radius: 2mm; height: 24mm; margin-top: 2mm; background: #fff;
+  font-size: 7.6pt; color: #8b74d6; padding: 1mm 2.6mm; font-weight: 700; letter-spacing: .06em; }
+
+/* Öz değerlendirme */
+.kontrol { list-style: none; padding: 0; }
+.kontrol li { display: grid; grid-template-columns: 6mm 1fr auto; gap: 2mm; align-items: center; padding: 1.3mm 0; border-bottom: .3mm dotted var(--cizgi); font-size: 9.3pt; }
+.kontrol .kare { width: 4mm; height: 4mm; border: .4mm solid var(--unite); border-radius: 1mm; }
+.kontrol .yuz { display: flex; gap: 1.4mm; font-size: 7.4pt; color: var(--soluk); }
+.kontrol .yuz span { border: .3mm solid var(--cizgi); border-radius: 1mm; padding: 0 1.4mm; }
+
+/* Cevap anahtarı */
+.anahtar { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.4mm; margin-bottom: 4mm; }
+.anahtar div { border: .35mm solid var(--unite); border-radius: 1.6mm; text-align: center; overflow: hidden; font-size: 9pt; }
+.anahtar div b { display: block; background: var(--unite); color: #fff; font-size: 7.6pt; }
+.anahtar div span { display: block; font-weight: 800; color: var(--unite-koyu); padding: .6mm 0; }
+.coz-liste { columns: 2; column-gap: 6mm; font-size: 8.5pt; line-height: 1.42; }
+.coz-liste .c { break-inside: avoid; margin-bottom: 2.4mm; padding-left: 2.4mm; border-left: .6mm solid var(--renk, var(--unite)); }
+.coz-liste .c b:first-child { color: var(--renk, var(--unite)); }
+.coz-baslik { font-size: 9pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--renk, var(--unite)); margin: 2mm 0 1.4mm; column-span: all; }
+
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite: #1d4ed8; --unite-acik: #eef3ff; --unite-koyu: #172f7a; }
+.kapak { padding: 0; background: #0f1f55; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 30mm; font-size: 11pt; font-weight: 700; color: #fbbf24; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 56pt; font-weight: 900; letter-spacing: -.02em; line-height: .96; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 10mm; display: inline-flex; align-items: center; gap: 4mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 26pt; font-weight: 800; color: #fbbf24; white-space: nowrap; }
+.kapak .avo span { font-size: 9pt; opacity: .88; max-width: 66mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.2pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #cfd6ea; padding: .8mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.mini { font-size: 9pt; }
+table.tablo.sik td, table.tablo.sik th { padding: 1mm 1.8mm; font-size: 8.5pt; line-height: 1.3; }
+.rozet { display: inline-block; font-size: 7.2pt; font-weight: 800; letter-spacing: .04em; border-radius: 10mm; padding: .1mm 1.8mm; color: #fff; white-space: nowrap; }
+.rozet.a { background: #e11d48; } .rozet.b { background: #1d4ed8; } .rozet.n { background: #0f8f84; } .rozet.d { background: #8a91a6; }
+.disiplin { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin: 1mm 0 3.5mm; }
+.disiplin > div { border: .35mm solid color-mix(in srgb, var(--unite) 35%, #fff); border-top: 1.4mm solid var(--unite); border-radius: 2.4mm; padding: 2.2mm 2.8mm; background: #fff; font-size: 8.8pt; line-height: 1.38; }
+.disiplin > div h4 { font-size: 10.4pt; color: var(--unite-koyu); margin-bottom: 1mm; }
+.disiplin > div p { margin: 0 0 1mm; }
+.disiplin > div .ornekler { color: var(--soluk); font-size: 8.3pt; }
+.sektor { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.6mm; margin: 1mm 0 3.5mm; }
+.sektor > div { background: var(--unite-acik); border-radius: 2.4mm; padding: 2mm 2.6mm; font-size: 8.6pt; line-height: 1.35; }
+.sektor > div b { display: block; color: var(--unite-koyu); font-size: 9.2pt; margin-bottom: .6mm; }
+.degisken { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.6mm; }
+.degisken > div { background: #fff; border-radius: 2mm; padding: 2mm 2.6mm; font-size: 8.9pt; line-height: 1.38; border: .3mm solid #c7d2fe; }
+.degisken > div b { color: var(--kavram); }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; }
+.test.devam .iki { min-height: 222mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 40mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.cevap-alani { height: 14mm; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="80%" cy="18%" r="72%"><stop offset="0" stop-color="#3b6cf0"/><stop offset="1" stop-color="#0f1f55"/></radialGradient>
+      <linearGradient id="kph" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0" stop-color="#e11d48"/><stop offset=".25" stop-color="#f59e0b"/><stop offset=".5" stop-color="#22c55e"/><stop offset=".75" stop-color="#3b82f6"/><stop offset="1" stop-color="#7c3aed"/>
+      </linearGradient>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+    <!-- deney tüpleri -->
+    <g transform="translate(150,28) scale(.6)" stroke="#ffffff" stroke-opacity=".55" stroke-width=".7" fill="none">
+      <path d="M8 0 V62 a8 8 0 0 0 16 0 V0"/>
+      <path d="M36 10 V72 a8 8 0 0 0 16 0 V10"/>
+      <path d="M64 0 V62 a8 8 0 0 0 16 0 V0"/>
+    </g>
+    <g transform="translate(150,28) scale(.6)" fill-opacity=".85">
+      <path d="M8.6 34 V62 a7.4 7.4 0 0 0 14.8 0 V34z" fill="#e11d48"/>
+      <path d="M36.6 46 V72 a7.4 7.4 0 0 0 14.8 0 V46z" fill="#22c55e"/>
+      <path d="M64.6 28 V62 a7.4 7.4 0 0 0 14.8 0 V28z" fill="#3b82f6"/>
+    </g>
+    <g fill="#ffffff" fill-opacity=".7">
+      <circle cx="160" cy="67" r="1"/><circle cx="158" cy="71" r=".7"/><circle cx="177" cy="72" r=".8"/><circle cx="193" cy="64" r=".9"/><circle cx="191" cy="69" r=".6"/>
+    </g>
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" font-size="4.6" text-anchor="middle" fill-opacity=".8">
+      <text x="159.6" y="83">pH 2</text><text x="176.4" y="83">pH 7</text><text x="193.2" y="83">pH 12</text>
+    </g>
+    <rect x="18" y="153" width="174" height="2.4" rx="1.2" fill="url(#kph)" opacity=".55"/>
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="13">
+      <text x="-6" y="168">sabun · sirke · ilaç · boya · plastik · gübre</text>
+      <text x="-30" y="186">deterjan · karbonat · yakıt · pil · kumaş · cam</text>
+      <text x="-12" y="204">çamaşır suyu · limon tuzu · diş macunu · naylon</text>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 9. Sınıf</span><span>Tema 1 · Bölüm 1</span></div>
+    <div class="bolum">Kimya Hayattır · Bölüm 1</div>
+    <h1>Günlük<br>Hayatta Kimya</h1>
+    <div class="slogan">Banyodan mutfağa, laboratuvardan meslek seçimine</div>
+    <div class="avo"><b>pH 7</b><span>Asidik ile bazik arasındaki çizgi. Saf su 25&nbsp;°C’de tam bu noktadadır; evindeki her temizlik maddesi bu çizginin bir yanındadır.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Kimya hayatın neresinde?</span><span>2</span></li>
+          <li><span>2 · Asidik, bazik, nötr: pH cetveli</span><span>3</span></li>
+          <li><span>3 · Evdeki kimyasallar</span><span>4</span></li>
+          <li><span>4 · Mutfakta kimya ve deney tasarımı</span><span>5</span></li>
+          <li><span>5 · Kimyanın alt disiplinleri</span><span>6</span></li>
+          <li><span>6 · Disiplinler iş başında ve kariyer</span><span>7</span></li>
+          <li><span>Tek sayfada günlük hayatta kimya (özet)</span><span>8</span></li>
+          <li><span>Hata Avcısı</span><span>9</span></li>
+          <li><span>Bağlam temelli sorular</span><span>10</span></li>
+          <li><span>İpucu Merdiveni</span><span>11</span></li>
+          <li><span>Bölüm testi</span><span>12</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>14</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg></i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg></i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M8 8l5 5M13 8l-5 5"/></svg></i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v18M17 3v18M7 8h10M7 13h10M7 18h10"/></svg></i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Evdeki kimyasalları kullanım amacına ve asidik/bazik özelliğine göre sınıflandıracaksın.</li>
+          <li>pH değerini yorumlayıp seyreltmenin etkisini açıklayacaksın.</li>
+          <li>Bir çalışmanın hangi kimya disiplinine ve hangi meslek alanına girdiğini belirleyeceksin.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · KİMYA HAYATIN NERESİNDE?
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Günlük Hayatta Kimya</span><span>Kimya hayatın neresinde?</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Kimya hayatın neresinde?</h2>
+  <div class="alt-baslik">Bir günün ilk on dakikasında bile onlarca kimyasal maddeye dokunuruz.</div>
+
+  <p>Alarm çalar, kalkarsın. Diş macununu fırçaya sıkarsın, yüzünü sabunla yıkarsın, kahvaltıda peynir ve domates yersin, plastik bir şişeden su içersin. Bunların her biri <b>madde</b>dir ve her birinin nasıl üretileceği, nasıl saklanacağı, birbirleriyle nasıl etkileşeceği kimyanın konusudur. Kimya yalnızca laboratuvarda değil, <b>banyoda, mutfakta, tarlada ve hastanede</b> de çalışır.</p>
+
+  <div class="iki">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+      <p><b>Madde:</b> Kütlesi ve hacmi olan, taneciklerden oluşan her şeydir. Katı, sıvı, gaz ya da plazma hâlinde bulunabilir.</p>
+      <p><b>Kimya:</b> Maddenin yapısını, özelliklerini, birbirleriyle etkileşimini ve dönüşümlerini inceleyen; bu bilgiyi üretimde ve günlük hayatta uygulayan temel bilimdir.</p>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Kimyasal madde, fabrikada yapılmış zararlı maddedir. Doğal olan kimyasal değildir.”</div>
+        <div class="dogru"><b class="d">✓</b> Su, oksijen, şeker ve limondaki sitrik asit de kimyasal maddedir. Bir maddenin zararlı olup olmaması <b>miktarına ve nasıl kullanıldığına</b> bağlıdır.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Temel ihtiyaçlarımız ve kimya</h3>
+  <svg viewBox="0 0 178 70" style="width:92%;height:auto;margin:0 4% 1.5mm">
+    <g font-family="Inter" text-anchor="middle">
+      <g stroke="#1d4ed8" stroke-width=".5" stroke-dasharray="1.4 1" fill="none">
+        <path d="M89 37 L26 14"/><path d="M89 37 L26 37"/><path d="M89 37 L26 60"/>
+        <path d="M89 37 L152 14"/><path d="M89 37 L152 37"/><path d="M89 37 L152 60"/>
+      </g>
+      <circle cx="89" cy="37" r="15" fill="#1d4ed8"/>
+      <text x="89" y="38.6" font-size="6.6" font-weight="900" fill="#fff">KİMYA</text>
+      <g font-size="4.6" font-weight="800" fill="#172f7a">
+        <rect x="2" y="6" width="54" height="16" rx="3" fill="#eef3ff" stroke="#1d4ed8" stroke-width=".4"/>
+        <text x="29" y="12.6">Beslenme</text>
+        <rect x="2" y="29" width="54" height="16" rx="3" fill="#eef3ff" stroke="#1d4ed8" stroke-width=".4"/>
+        <text x="29" y="35.6">Giyinme</text>
+        <rect x="2" y="52" width="54" height="16" rx="3" fill="#eef3ff" stroke="#1d4ed8" stroke-width=".4"/>
+        <text x="29" y="58.6">Barınma</text>
+        <rect x="122" y="6" width="54" height="16" rx="3" fill="#eef3ff" stroke="#1d4ed8" stroke-width=".4"/>
+        <text x="149" y="12.6">Temizlik</text>
+        <rect x="122" y="29" width="54" height="16" rx="3" fill="#eef3ff" stroke="#1d4ed8" stroke-width=".4"/>
+        <text x="149" y="35.6">Sağlık</text>
+        <rect x="122" y="52" width="54" height="16" rx="3" fill="#eef3ff" stroke="#1d4ed8" stroke-width=".4"/>
+        <text x="149" y="58.6">Enerji</text>
+      </g>
+      <g font-size="3.6" fill="#5d6478">
+        <text x="29" y="18.4">gübre, gıda koruma, ambalaj</text>
+        <text x="29" y="41.4">sentetik lif, boya, ağartma</text>
+        <text x="29" y="64.4">çimento, cam, yalıtım, boya</text>
+        <text x="149" y="18.4">sabun, deterjan, dezenfektan</text>
+        <text x="149" y="41.4">ilaç, serum, tahlil</text>
+        <text x="149" y="64.4">yakıt, pil, güneş paneli</text>
+      </g>
+    </g>
+  </svg>
+
+  <p>Boya, plastik, ilaç, kozmetik ve temizlik ürünleri kimya bilgisiyle tasarlanır, üretilir ve kalite kontrolünden geçer. Kullanılan ürünlerin geri dönüştürülmesi de kimyanın işidir. Temel kimya bilgisine sahip biri, etiketi okuyup <b>doğru ürünü doğru amaçla</b> seçebilir; bu da hem bütçeyi hem sağlığı korur.</p>
+
+  <div class="kutu hayat">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+    <p>Bitkiler büyümek için azota ihtiyaç duyar. Havanın yaklaşık %78’i azot gazıdır ama bitkiler bu gazı doğrudan kullanamaz. 20. yüzyılın başında Alman kimyacı <b>Fritz Haber</b>, havadaki azottan <b>amonyak</b> elde etmenin yolunu buldu; <b>Carl Bosch</b> bu yöntemi fabrika ölçeğine taşıdı. Bu amonyaktan üretilen gübreler tarımda verimi büyük ölçüde artırdı; Haber 1918 Nobel Kimya Ödülü’nü aldı. Bugün sofraya gelen besinlerin önemli bir kısmı bu sürece borçludur.</p>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fafbff">
+    <p style="margin:0"><b class="k">Kendini yokla:</b> Kahvaltı sofrasında kimyanın katkısı olan üç ürün say ve her birini bir temel ihtiyaçla eşleştir. <span class="kucuk">(Örnek: peynir ambalajı → beslenme.)</span></p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Günlük Hayatta Kimya</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · ASİDİK, BAZİK, NÖTR
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Günlük Hayatta Kimya</span><span>pH cetveli</span></div>
+
+  <h2 class="konu"><span class="num">2</span>Asidik, bazik, nötr</h2>
+  <div class="alt-baslik">Evdeki maddelerin çoğu ya asidik ya da baziktir. pH cetveli bunu tek sayıyla söyler.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+    <p><b>Asit:</b> Suda çözündüğünde ortamdaki H<sup>+</sup> (H<sub>3</sub>O<sup>+</sup>) iyonu derişimini artıran maddedir. &nbsp;<b>Baz:</b> Suda çözündüğünde OH<sup>−</sup> iyonu derişimini artıran maddedir.</p>
+    <p><b>pH:</b> Bir çözeltinin ne kadar asidik ya da bazik olduğunu gösteren sayıdır. 25 °C’de <span class="rozet a">pH &lt; 7 asidik</span> &nbsp;<span class="rozet n">pH = 7 nötr</span> &nbsp;<span class="rozet b">pH &gt; 7 bazik</span></p>
+    <p class="kucuk" style="margin:0"><b>Derişim</b>, bu düzeyde “birim hacimdeki iyon sayısı” gibi düşünülebilir. pH değeri <b>küçüldükçe asitlik</b>, <b>büyüdükçe bazlık</b> artar.</p>
+  </div>
+
+  <svg viewBox="0 0 178 50" style="width:100%;height:auto;margin:1mm 0 3mm">
+    <defs>
+      <linearGradient id="ph" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0" stop-color="#e11d48"/><stop offset=".22" stop-color="#f97316"/><stop offset=".4" stop-color="#facc15"/>
+        <stop offset=".5" stop-color="#22c55e"/><stop offset=".65" stop-color="#14b8a6"/><stop offset=".82" stop-color="#3b82f6"/><stop offset="1" stop-color="#6d28d9"/>
+      </linearGradient>
+    </defs>
+    <g font-family="Inter" text-anchor="middle">
+      <rect x="5" y="20" width="168" height="8" rx="2" fill="url(#ph)"/>
+      <g font-size="3.6" font-weight="700" fill="#fff">
+        <text x="11" y="25.3">0</text><text x="23" y="25.3">1</text><text x="35" y="25.3">2</text><text x="47" y="25.3">3</text><text x="59" y="25.3">4</text><text x="71" y="25.3">5</text><text x="83" y="25.3">6</text>
+        <text x="95" y="25.3">7</text><text x="107" y="25.3">8</text><text x="119" y="25.3">9</text><text x="131" y="25.3">10</text><text x="143" y="25.3">11</text><text x="155" y="25.3">12</text><text x="167" y="25.3">13–14</text>
+      </g>
+      <!-- üst etiketler -->
+      <g font-size="3.5" fill="#1d2133">
+        <path d="M29 19 V13" stroke="#5d6478" stroke-width=".3"/><text x="29" y="7">mide özsuyu</text><text x="29" y="11.4" fill="#5d6478">≈ 1,5–3,5</text>
+        <path d="M59 19 V13" stroke="#5d6478" stroke-width=".3"/><text x="59" y="7">sirke</text><text x="59" y="11.4" fill="#5d6478">≈ 2,5–3</text>
+        <path d="M95 19 V13" stroke="#5d6478" stroke-width=".3"/><text x="95" y="7" font-weight="800">saf su</text><text x="95" y="11.4" fill="#5d6478">7</text>
+        <path d="M120 19 V13" stroke="#5d6478" stroke-width=".3"/><text x="120" y="7">sabunlu su</text><text x="120" y="11.4" fill="#5d6478">≈ 9–10</text>
+        <path d="M155 19 V13" stroke="#5d6478" stroke-width=".3"/><text x="155" y="7">çamaşır suyu</text><text x="155" y="11.4" fill="#5d6478">≈ 11–13</text>
+      </g>
+      <!-- alt etiketler -->
+      <g font-size="3.5" fill="#1d2133">
+        <path d="M38 29 V34" stroke="#5d6478" stroke-width=".3"/><text x="38" y="38">limon suyu</text><text x="38" y="42.4" fill="#5d6478">≈ 2–2,5</text>
+        <path d="M100 29 V34" stroke="#5d6478" stroke-width=".3"/><text x="100" y="38">kan</text><text x="100" y="42.4" fill="#5d6478">7,35–7,45</text>
+        <path d="M110 29 V34" stroke="#5d6478" stroke-width=".3"/><text x="117" y="38">karbonat çöz.</text><text x="117" y="42.4" fill="#5d6478">≈ 8,3</text>
+        <path d="M167 29 V34" stroke="#5d6478" stroke-width=".3"/><text x="163" y="38">lavabo açıcı</text><text x="163" y="42.4" fill="#5d6478">≈ 13–14</text>
+      </g>
+      <g font-size="3.8" font-weight="800">
+        <text x="35" y="48.6" fill="#e11d48">◀ ASİTLİK ARTAR</text>
+        <text x="95" y="48.6" fill="#0f8f84">NÖTR</text>
+        <text x="150" y="48.6" fill="#1d4ed8">BAZLIK ARTAR ▶</text>
+      </g>
+    </g>
+  </svg>
+  <p class="veri" style="margin-top:-2mm">Değerler yaklaşıktır; ürünün markasına ve derişimine göre değişebilir.</p>
+
+  <h3>Su eklersek pH ne olur?</h3>
+  <div class="iki-genis">
+    <div>
+      <p>Bir asit çözeltisine aynı sıcaklıkta saf su eklendiğinde birim hacimdeki H<sup>+</sup> iyonu sayısı azalır; çözelti <b>daha az asidik</b> olur, pH <b>artar</b>. Bir baz çözeltisine su eklendiğinde ise birim hacimdeki OH<sup>−</sup> iyonu azalır; pH <b>azalır</b>.</p>
+      <p>Her iki durumda da pH <b>7’ye yaklaşır ama 7’yi geçmez</b>. Saf su nötr olduğundan, asidik bir çözeltiyi su ekleyerek bazik yapamayız.</p>
+    </div>
+    <svg viewBox="0 0 92 62" style="width:100%;height:auto">
+      <g font-family="Inter" font-size="3.6" fill="#5d6478">
+        <line x1="14" y1="54" x2="88" y2="54" stroke="#1d2133" stroke-width=".4"/>
+        <line x1="14" y1="54" x2="14" y2="4" stroke="#1d2133" stroke-width=".4"/>
+        <line x1="14" y1="29" x2="88" y2="29" stroke="#0f8f84" stroke-width=".4" stroke-dasharray="1.4 1"/>
+        <text x="12" y="30.2" text-anchor="end" fill="#0f8f84" font-weight="700">7</text>
+        <text x="12" y="55.2" text-anchor="end">0</text><text x="12" y="5.2" text-anchor="end">14</text>
+        <text x="12" y="45.2" text-anchor="end">2</text><text x="12" y="15.2" text-anchor="end">12</text>
+        <path d="M14 44 C30 36, 46 31.6, 86 29.6" stroke="#e11d48" stroke-width="1" fill="none"/>
+        <path d="M14 14 C30 22, 46 26.4, 86 28.4" stroke="#1d4ed8" stroke-width="1" fill="none"/>
+        <text x="50" y="40" fill="#e11d48" font-weight="700">asit çözeltisi: pH artar</text>
+        <text x="50" y="21" fill="#1d4ed8" font-weight="700">baz çözeltisi: pH azalır</text>
+        <text x="51" y="60" text-anchor="middle" fill="#1d2133" font-weight="700">Eklenen saf su →</text>
+        <text x="2" y="2.6" fill="#1d2133" font-weight="700">pH</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="iki">
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Sirkeye yeterince su eklersem sonunda bazik olur.”</div>
+        <div class="dogru"><b class="d">✓</b> Su eklendikçe pH 7’ye yaklaşır, ama çözelti <b>asidik kalır</b>. Bazik yapmak için baz eklemek gerekir.</div>
+      </div>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 1</div>
+      <div class="soru" style="font-size:9.4pt">pH’ı 3 olan K ve pH’ı 11 olan L çözeltilerine ayrı ayrı saf su ekleniyor. pH nasıl değişir?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>K asidik (3 &lt; 7): su ekleyince pH <b>artar</b>, 7’ye yaklaşır.</span></div>
+        <div class="adim"><span class="n">2</span><span>L bazik (11 &gt; 7): su ekleyince pH <b>azalır</b>, 7’ye yaklaşır.</span></div>
+        <span class="sonuc">İkisi de 7’ye yaklaşır, 7’yi geçmez.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Günlük Hayatta Kimya</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · EVDEKİ KİMYASALLAR
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Günlük Hayatta Kimya</span><span>Evdeki kimyasallar</span></div>
+
+  <h2 class="konu"><span class="num">3</span>Evdeki kimyasallar</h2>
+  <div class="alt-baslik">Dolabı aç, etiketleri oku: her ürünün bir etken maddesi, bir özelliği ve bir görevi var.</div>
+
+  <table class="tablo sik">
+    <tr><th>Madde</th><th>Etken madde (örnek)</th><th>Özellik</th><th>Ne işe yarar?</th><th>Grup</th></tr>
+    <tr><td><b>Sabun</b></td><td>Yağ asidi tuzları</td><td><span class="rozet b">bazik</span></td><td>El ve vücut temizliği; doğada kolay parçalanır</td><td>Öz bakım</td></tr>
+    <tr><td><b>Şampuan</b></td><td>Yüzey aktif maddeler</td><td><span class="rozet d">ürüne göre</span></td><td>Saç ve saç derisi temizliği</td><td>Öz bakım</td></tr>
+    <tr><td><b>Diş macunu</b></td><td>Florür, aşındırıcılar</td><td><span class="rozet b">hafif bazik</span></td><td>Besin artıklarının ağızda oluşturduğu asitliği azaltır, çürüğe karşı korur</td><td>Öz bakım</td></tr>
+    <tr><td><b>Deterjan</b></td><td>Sentetik yüzey aktif maddeler</td><td><span class="rozet b">bazik</span></td><td>Bulaşık, çamaşır, yüzey; çoğu doğada sabundan zor parçalanır</td><td>Genel temizlik</td></tr>
+    <tr><td><b>Lavabo açıcı, yağ çözücü</b></td><td>Sodyum hidroksit, <span class="f">NaOH</span></td><td><span class="rozet b">kuvvetli bazik</span></td><td>Giderdeki yağ ve saç tıkanıklığını, fırın yağını çözer</td><td>Genel temizlik</td></tr>
+    <tr><td><b>Çamaşır suyu</b></td><td>Sodyum hipoklorit, <span class="f">NaClO</span></td><td><span class="rozet b">bazik</span></td><td>Ağartır, mikropları öldürür (dezenfektan)</td><td>Genel temizlik</td></tr>
+    <tr><td><b>Kireç kaymağı</b></td><td>Kalsiyum hipoklorit, <span class="f">Ca(ClO)<sub>2</sub></span></td><td><span class="rozet b">bazik</span></td><td>Havuz ve içme suyu dezenfeksiyonu, sebze-meyve yıkama</td><td>Genel temizlik</td></tr>
+    <tr><td><b>Limon tuzu</b></td><td>Sitrik asit</td><td><span class="rozet a">asidik</span></td><td>Çaydanlık ve ısıtıcılardaki kireci çözer; yemeklere ekşilik verir</td><td>Temizlik, gıda</td></tr>
+    <tr><td><b>Sirke</b></td><td>Asetik asit, <span class="f">CH<sub>3</sub>COOH</span></td><td><span class="rozet a">asidik</span></td><td>Salata ve turşuda tat ve koruyucu; kireç çözücü</td><td>Gıda, temizlik</td></tr>
+    <tr><td><b>Karbonat (yemek sodası)</b></td><td>Sodyum bikarbonat, <span class="f">NaHCO<sub>3</sub></span></td><td><span class="rozet b">hafif bazik</span></td><td>Hamur kabartma, koku giderme, mide ekşimesine karşı</td><td>Gıda, temizlik, ilaç</td></tr>
+    <tr><td><b>Gazlı içecek</b></td><td>Karbonik asit, fosforik asit</td><td><span class="rozet a">asidik</span></td><td>İçecek; besin değeri düşüktür. Asitliği sayesinde kireç ve pası çözebilir</td><td>Gıda</td></tr>
+    <tr><td><b>Antiasit tablet</b></td><td>Magnezyum hidroksit, kalsiyum karbonat</td><td><span class="rozet b">bazik</span></td><td>Midedeki fazla asidi nötrleştirerek yanma ve ekşimeyi giderir</td><td>İlaç</td></tr>
+  </table>
+
+  <div class="iki">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Temizliğin kimyası</div>
+      <p style="font-size:9.3pt">Kiri, <b>onunla etkileşebilen</b> bir maddeyle temizleriz. Kireç (kalsiyum karbonat) ve pas (demir oksitleri) <b>asitlerle</b> tepkimeye girip çözünür. Yağ ve saç gibi kirleri ise <b>kuvvetli bazlar</b> parçalar. Asit ile baz etkileştiğinde <b>kimyasal değişim</b> olur.</p>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9.3pt">Mermer de kalsiyum karbonattan oluşur. Mermer tezgâha limon suyu ya da sirke dökülürse asit yüzeyle tepkimeye girer; parlak yüzeyde <b>mat lekeler</b> kalır. Bu yüzden mermer yüzeyler asidik temizleyicilerle silinmez. Fayans arasını dolduran çimento esaslı <b>derz</b> de bazik yapıdadır ve asitlerden zarar görebilir.</p>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 2 · Gruplara ayır</div>
+    <div class="soru">Sirke, şampuan, antiasit tablet ve karbonatı kullanım amacına göre gruplandırınız. Hangi madde birden fazla gruba girer?</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>Şampuan kişisel temizlikte kullanılır → <b>öz bakım</b>. Antiasit tablet mide rahatsızlığını tedavi eder → <b>ilaç</b>.</span></div>
+      <div class="adim"><span class="n">2</span><span>Sirke hem yemekte hem kireç çözmede kullanılır → <b>gıda + genel temizlik</b>. Karbonat hamurda, koku gidermede ve mide ekşimesinde kullanılır → <b>gıda + temizlik + ilaç</b>.</span></div>
+      <span class="sonuc">Sirke ve karbonat birden fazla gruba girer.</span>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Günlük Hayatta Kimya</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · MUTFAKTA KİMYA VE DENEY TASARIMI
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Günlük Hayatta Kimya</span><span>Mutfakta kimya</span></div>
+
+  <h2 class="konu"><span class="num">4</span>Mutfakta kimya ve deney tasarımı</h2>
+  <div class="alt-baslik">Hangi kapta, hangi sıcaklıkta, hangi yiyecekle? Kimya bu soruları deneyle yanıtlar.</div>
+
+  <div class="iki-genis">
+    <div>
+      <h3 style="margin-top:0">Alüminyum folyo ve kap seçimi</h3>
+      <p>Alüminyum folyo ince, esnek ve dayanıklıdır; ısıyı iyi iletir ve yüksek sıcaklığa dayanır. Bu yüzden pişirme, saklama ve paketlemede yaygın kullanılır.</p>
+      <p>Ancak folyo; domates, limon, sirke gibi <b>asidik</b> ya da <b>tuzlu</b> yiyeceklerle <b>yüksek sıcaklıkta</b> uzun süre temas ederse yiyeceğe geçen alüminyum miktarı artar. Alüminyumun vücuda fazla alınması istenmez; uluslararası gıda güvenliği kuruluşları haftalık alım için bir üst sınır önerir.</p>
+    </div>
+    <div class="kutu hayat" style="margin-top:1mm">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9.2pt">Domates sosu, limonlu soslar ve turşu gibi asidik yiyecekleri pişirmek ve saklamak için <b>cam, porselen, emaye</b> ya da <b>paslanmaz çelik</b> kaplar tercih edilir. Bu malzemeler asitlerle kolay etkileşmez. Folyo kullanılacaksa asidik yiyecekle doğrudan temas etmemesine dikkat edilir.</p>
+    </div>
+  </div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Deney tasarımında değişkenler</div>
+    <div class="degisken">
+      <div><b>Bağımsız değişken</b><br>Araştırmacının bilerek değiştirdiği tek etken. <i>Örnek: pişirme sıcaklığı.</i></div>
+      <div><b>Bağımlı değişken</b><br>Değişime bağlı olarak ölçülen sonuç. <i>Örnek: yiyeceğe geçen alüminyum miktarı.</i></div>
+      <div><b>Kontrol (sabit) değişkenler</b><br>Bütün denemelerde aynı tutulan etkenler. <i>Örnek: yiyeceğin türü ve kütlesi, pH, süre.</i></div>
+    </div>
+    <p style="margin:2mm 0 0;font-size:9.2pt">Bir etkenin sonucu nasıl değiştirdiğini anlamak için iki deneme arasında <b>yalnızca o etken farklı</b> olmalıdır. İki şey birden değişirse farkın nedenini söyleyemeyiz.</p>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 3 · Hangi karşılaştırma adil?</div>
+    <div class="iki-genis" style="gap:4mm">
+      <div>
+        <div class="soru" style="font-size:9.4pt">Bir öğrenci aynı kütlede tavuk parçalarını folyoya sararak dört deneme yapıyor ve yiyeceğe geçen alüminyumu ölçüyor (veriler kurgusaldır). Sıcaklığın etkisini hangi iki deneme gösterir? pH’ın etkisini hangileri gösterir?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>Sıcaklık için pH ve süre aynı, sıcaklık farklı olmalı: <b>1 ve 2</b> (ikisi de pH 4, 30 dk).</span></div>
+          <div class="adim"><span class="n">2</span><span>pH için sıcaklık ve süre aynı, pH farklı olmalı: <b>2 ve 3</b> (ikisi de 200 °C, 30 dk).</span></div>
+          <div class="adim"><span class="n">3</span><span>3 ve 4’te hem pH hem süre farklıdır; bu çift tek bir etkeni göstermez.</span></div>
+          <span class="sonuc">Sıcaklık: 1–2 · pH: 2–3</span>
+        </div>
+      </div>
+      <svg viewBox="0 0 90 78" style="width:100%;height:auto">
+        <g font-family="Inter" font-size="3.6" fill="#5d6478" text-anchor="middle">
+          <line x1="12" y1="56" x2="88" y2="56" stroke="#1d2133" stroke-width=".4"/>
+          <line x1="12" y1="56" x2="12" y2="6" stroke="#1d2133" stroke-width=".4"/>
+          <g stroke="#e5e7f0" stroke-width=".3"><line x1="12" y1="43.5" x2="88" y2="43.5"/><line x1="12" y1="31" x2="88" y2="31"/><line x1="12" y1="18.5" x2="88" y2="18.5"/><line x1="12" y1="6" x2="88" y2="6"/></g>
+          <text x="9" y="57" text-anchor="end">0</text><text x="9" y="44.5" text-anchor="end">1</text><text x="9" y="32" text-anchor="end">2</text><text x="9" y="19.5" text-anchor="end">3</text><text x="9" y="7" text-anchor="end">4</text>
+          <!-- 1: pH4 150C 30dk -> 1,6 ; 2: pH4 200C 30dk -> 3,2 ; 3: pH6 200C 30dk -> 1,8 ; 4: pH6 150C 60dk -> 1,2 -->
+          <rect x="18" y="36" width="12" height="20" fill="#93c5fd"/>
+          <rect x="36" y="16" width="12" height="40" fill="#1d4ed8"/>
+          <rect x="54" y="33.5" width="12" height="22.5" fill="#60a5fa"/>
+          <rect x="72" y="41" width="12" height="15" fill="#bfdbfe"/>
+          <g fill="#1d2133" font-weight="700"><text x="24" y="34.4">1,6</text><text x="42" y="14.4">3,2</text><text x="60" y="31.9">1,8</text><text x="78" y="39.4">1,2</text></g>
+          <g fill="#1d2133" font-weight="800"><text x="24" y="60.6">1</text><text x="42" y="60.6">2</text><text x="60" y="60.6">3</text><text x="78" y="60.6">4</text></g>
+          <g font-size="3"><text x="24" y="64.6">pH 4</text><text x="42" y="64.6">pH 4</text><text x="60" y="64.6">pH 6</text><text x="78" y="64.6">pH 6</text>
+          <text x="24" y="68.4">150 °C</text><text x="42" y="68.4">200 °C</text><text x="60" y="68.4">200 °C</text><text x="78" y="68.4">150 °C</text>
+          <text x="24" y="72.2">30 dk</text><text x="42" y="72.2">30 dk</text><text x="60" y="72.2">30 dk</text><text x="78" y="72.2">60 dk</text></g>
+          <text x="2" y="3" text-anchor="start" fill="#1d2133" font-weight="700">Al (mg/kg)</text>
+          <text x="51" y="77" fill="#1d2133" font-weight="700">Deneme</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="kutu dikkat">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “Deneme 2’de en çok alüminyum geçtiğine göre bunun tek nedeni yüksek sıcaklıktır.”</div>
+      <div class="dogru"><b class="d">✓</b> Deneme 2’de hem sıcaklık yüksek hem pH düşüktür. 1–2 ve 2–3 karşılaştırmaları, <b>iki etkenin de</b> alüminyum geçişini artırdığını gösterir.</div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Günlük Hayatta Kimya</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · KİMYANIN ALT DİSİPLİNLERİ
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Günlük Hayatta Kimya</span><span>Kimyanın alt disiplinleri</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Kimyanın alt disiplinleri</h2>
+  <div class="alt-baslik">Kimya o kadar geniştir ki tek bir kimyacı hepsiyle uğraşamaz. Bu yüzden alt dallara ayrılır.</div>
+
+  <div class="disiplin">
+    <div>
+      <h4>Analitik kimya</h4>
+      <p>Bir maddenin <b>hangi bileşenlerden</b> oluştuğunu ve bunların <b>ne miktarda</b> bulunduğunu belirler.</p>
+      <p class="ornekler">Kan ve idrar tahlili, suyun sertlik tayini, gıdalarda içerik ve kalite kontrolü, pH ölçümü, doping testi</p>
+    </div>
+    <div>
+      <h4>Organik kimya</h4>
+      <p>Temel elementi <b>karbon</b> olan bileşiklerin yapısını, özelliklerini ve tepkimelerini inceler. “Karbon kimyası” da denir.</p>
+      <p class="ornekler">Sabun, deterjan, kozmetik, boya, birçok ilaç, plastik, petrol ve doğal gaz ürünleri</p>
+    </div>
+    <div>
+      <h4>Anorganik kimya</h4>
+      <p>Organik olmayan bileşiklerin ve elementlerin yapısını, özelliklerini ve tepkimelerini inceler. “İnorganik kimya” da denir.</p>
+      <p class="ornekler">Metaller ve ametaller, su ve mineraller, mineral asitler, bazlar, tuzlar, oksitler</p>
+    </div>
+    <div>
+      <h4>Biyokimya</h4>
+      <p>Canlılarda bulunan maddeleri ve canlıda gerçekleşen <b>kimyasal süreçleri</b> inceler. “Canlı kimyası” da denir.</p>
+      <p class="ornekler">Protein, karbonhidrat, yağ, vitamin, hormon, DNA; sindirim, solunum, fotosentez; ilacın vücuttaki etkisi</p>
+    </div>
+    <div>
+      <h4>Fizikokimya</h4>
+      <p>Tepkimelerdeki <b>enerji</b> dönüşümlerini, tepkime <b>hızını</b> ve sıcaklık, basınç, derişim gibi etkenlerin etkisini inceler.</p>
+      <p class="ornekler">Hâl değişimleri, gazların davranışı, pil ve elektroliz, yakıtın motorda yanması</p>
+    </div>
+    <div>
+      <h4>Polimer kimyası</h4>
+      <p>Küçük moleküllerin (<b>monomer</b>) zincir hâlinde birleşmesiyle oluşan dev moleküllerin (<b>polimer</b>) üretimini, özelliklerini ve geri dönüşümünü inceler.</p>
+      <p class="ornekler">Plastik, kauçuk, PET şişe, teflon kaplama, naylon, yapıştırıcı</p>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Nitel ve nicel analiz</div>
+      <p style="font-size:9.3pt"><b>Nitel (kalitatif) analiz:</b> “İçinde <b>ne var?</b>” sorusunu yanıtlar. <i>Suda kurşun var mı?</i></p>
+      <p style="font-size:9.3pt"><b>Nicel (kantitatif) analiz:</b> “<b>Ne kadar</b> var?” sorusunu yanıtlar. <i>Bir litre suda kaç miligram kurşun var?</i></p>
+    </div>
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Doğal ve sentetik polimer</div>
+      <p style="font-size:9.3pt"><b>Doğal:</b> nişasta, selüloz, protein, DNA, ipek, yün, pamuk, doğal kauçuk</p>
+      <p style="font-size:9.3pt"><b>Sentetik:</b> PET, naylon, teflon, polietilen (poşet), PVC</p>
+    </div>
+  </div>
+
+  <div class="kutu dikkat">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “İçinde karbon olan her bileşik organiktir.”</div>
+      <div class="dogru"><b class="d">✓</b> <span class="f">CO</span>, <span class="f">CO<sub>2</sub></span>, <span class="f">H<sub>2</sub>CO<sub>3</sub></span>, <span class="f">CaCO<sub>3</sub></span>, <span class="f">NaHCO<sub>3</sub></span> ve <span class="f">HCN</span> karbon içerir ama <b>organik sayılmaz</b>; anorganik kimyanın konusudur.</div>
+    </div>
+  </div>
+
+  <div class="iki-genis">
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9.3pt">1935’te Amerikalı kimyacı <b>Wallace Carothers</b> ve ekibi ilk <b>naylon</b> örneğini sentezledi; kısa süre içinde naylon çorap ipeğin yerini aldı. 1938’de <b>Roy Plunkett</b>, soğutucu gaz üzerinde çalışırken tüpün içinde kaygan beyaz bir katı buldu: bugün tava kaplamalarında kullanılan <b>teflon</b>. İki buluş da polimer kimyasının günlük hayatı nasıl değiştirdiğini gösterir.</p>
+    </div>
+    <div class="kutu duz" style="--bg:#fafbff">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Monomerden polimere</div>
+      <svg viewBox="0 0 80 40" style="width:100%;height:auto">
+        <g font-family="Inter" font-size="3.6" text-anchor="middle" fill="#5d6478">
+          <g fill="#60a5fa"><circle cx="8" cy="9" r="3.2"/><circle cx="18" cy="9" r="3.2"/><circle cx="28" cy="9" r="3.2"/><circle cx="38" cy="9" r="3.2"/></g>
+          <text x="23" y="18">ayrı monomerler</text>
+          <path d="M48 9 H58" stroke="#1d4ed8" stroke-width=".6"/><path d="M56 7 L59 9 L56 11" fill="none" stroke="#1d4ed8" stroke-width=".6"/>
+          <text x="69" y="10.2" fill="#1d4ed8" font-weight="700">birleşme</text>
+          <path d="M4 30 H76" stroke="#172f7a" stroke-width="1"/>
+          <g fill="#1d4ed8"><circle cx="6" cy="30" r="3.2"/><circle cx="15" cy="30" r="3.2"/><circle cx="24" cy="30" r="3.2"/><circle cx="33" cy="30" r="3.2"/><circle cx="42" cy="30" r="3.2"/><circle cx="51" cy="30" r="3.2"/><circle cx="60" cy="30" r="3.2"/><circle cx="69" cy="30" r="3.2"/></g>
+          <text x="40" y="39" fill="#172f7a" font-weight="700">polimer zinciri (binlerce birim)</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Günlük Hayatta Kimya</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · DİSİPLİNLER İŞ BAŞINDA VE KARİYER
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Günlük Hayatta Kimya</span><span>Disiplinler ve kariyer</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Disiplinler iş başında ve kariyer</h2>
+  <div class="alt-baslik">Gerçek bir problem genellikle birkaç disiplinin birlikte çalışmasını gerektirir.</div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 4 · Bir somun ekmek, altı disiplin</div>
+    <div class="soru">Bir ekmek fabrikasındaki aşağıdaki çalışmalar hangi kimya disipliniyle en yakından ilişkilidir?</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>Mayanın hamurdaki şekeri kullanarak gaz üretmesinin incelenmesi → canlıdaki kimyasal süreç → <b>biyokimya</b></span></div>
+      <div class="adim"><span class="n">2</span><span>Ekmekteki tuz miktarının ölçülmesi → “ne kadar?” sorusu → <b>analitik kimya</b></span></div>
+      <div class="adim"><span class="n">3</span><span>Fırın sıcaklığının kabuk oluşma hızına etkisi → sıcaklık ve tepkime hızı → <b>fizikokimya</b></span></div>
+      <div class="adim"><span class="n">4</span><span>Undaki nişastanın yapısı → doğal polimer → <b>polimer kimyası</b>; ambalaj poşeti de bu alana girer.</span></div>
+      <div class="adim"><span class="n">5</span><span>Aroma veren karbon temelli moleküllerin incelenmesi → <b>organik kimya</b>; içme suyundaki minerallerin incelenmesi → <b>anorganik kimya</b></span></div>
+    </div>
+  </div>
+
+  <h3>Kimya alanında kariyer</h3>
+  <svg viewBox="0 0 178 46" style="width:100%;height:auto;margin-bottom:2mm">
+    <defs><marker id="okk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#1d4ed8"/></marker></defs>
+    <g font-family="Inter" text-anchor="middle">
+      <rect x="2" y="16" width="30" height="14" rx="3" fill="#1d4ed8"/>
+      <text x="17" y="22" font-size="4.4" font-weight="800" fill="#fff">LİSE</text>
+      <text x="17" y="26.8" font-size="3.2" fill="#dbe4ff">kimya dersleri</text>
+      <path d="M32 21 L48 9" stroke="#1d4ed8" stroke-width=".6" fill="none" marker-end="url(#okk)"/>
+      <path d="M32 25 L48 37" stroke="#1d4ed8" stroke-width=".6" fill="none" marker-end="url(#okk)"/>
+      <rect x="50" y="2" width="42" height="14" rx="3" fill="#eef3ff" stroke="#1d4ed8" stroke-width=".4"/>
+      <text x="71" y="8" font-size="4" font-weight="800" fill="#172f7a">Ön lisans</text>
+      <text x="71" y="12.6" font-size="3.1" fill="#5d6478">kimya teknolojisi programı</text>
+      <rect x="50" y="30" width="42" height="14" rx="3" fill="#eef3ff" stroke="#1d4ed8" stroke-width=".4"/>
+      <text x="71" y="36" font-size="4" font-weight="800" fill="#172f7a">Lisans</text>
+      <text x="71" y="40.6" font-size="3.1" fill="#5d6478">kimya, kimya müh. vb.</text>
+      <path d="M92 9 H104" stroke="#1d4ed8" stroke-width=".6" marker-end="url(#okk)"/>
+      <path d="M92 37 H104" stroke="#1d4ed8" stroke-width=".6" marker-end="url(#okk)"/>
+      <rect x="106" y="2" width="70" height="14" rx="3" fill="#fff6e5" stroke="#c26a06" stroke-width=".4"/>
+      <text x="141" y="8" font-size="4" font-weight="800" fill="#8a4a03">Kimya teknikeri</text>
+      <text x="141" y="12.6" font-size="3.1" fill="#5d6478">laboratuvar teknikeri, kalite kontrol analisti</text>
+      <rect x="106" y="30" width="70" height="14" rx="3" fill="#fff6e5" stroke="#c26a06" stroke-width=".4"/>
+      <text x="141" y="35.4" font-size="3.6" font-weight="800" fill="#8a4a03">Kimyager · Kimya mühendisi</text>
+      <text x="141" y="40.6" font-size="3.1" fill="#5d6478">kimya öğretmeni · polimer malzeme mühendisi</text>
+      <text x="141" y="24.4" font-size="3.2" fill="#5d6478">Lisansüstü eğitimle: araştırmacı, akademisyen</text>
+    </g>
+  </svg>
+
+  <div class="sektor">
+    <div><b>Sağlık ve biyoteknoloji</b>İlaç geliştirme, tıbbi tahlil, adli kimya, biyomedikal araştırmalar</div>
+    <div><b>Kimya endüstrisi</b>Boya, ilaç, plastik, gübre, sabun, deterjan, tekstil, kozmetik, petrokimya</div>
+    <div><b>Gıda ve içecek</b>Üretim, analiz, kalite kontrol, aroma geliştirme, gıda teknolojisi</div>
+    <div><b>Malzeme ve nanoteknoloji</b>Yeni malzemeler, kompozitler, elektronik, nanomalzemeler</div>
+    <div><b>Tarım</b>Gübre ve tarım ilaçları, toprak analizi, verim artırma çalışmaları</div>
+    <div><b>Çevre ve enerji</b>Su arıtma, atık yönetimi, geri dönüşüm, pil ve yakıt teknolojileri</div>
+  </div>
+
+  <div class="kutu hayat">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+    <p>Mardin Savur’da doğan <b>Aziz Sancar</b>, hücrelerin hasar gören DNA’yı nasıl onardığını aydınlatan çalışmalarıyla 2015 Nobel Kimya Ödülü’nü Tomas Lindahl ve Paul Modrich ile paylaştı. Tıp eğitimi alan Sancar, araştırmalarını biyokimya alanında sürdürmüştü. Bu ödül, bir canlı süreci kimyanın diliyle açıklamanın ne kadar değerli olduğunu gösterir.</p>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fafbff">
+    <p style="margin:0"><b class="k">Kariyer planlaması:</b> Kişinin ilgi ve yeteneklerine göre hedef belirlemesi ve bu hedefe ulaşmak için yol haritası çizmesidir. Kimya; sağlıktan tarıma, enerjiden eğitime kadar pek çok sektöre nitelikli çalışan yetiştiren bir alandır.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Günlük Hayatta Kimya</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · ÖZET
+     ========================================================= -->
+<section class="sayfa cift ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Günlük Hayatta Kimya</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada günlük hayatta kimya</h2><p>Sınavdan önce bu sayfaya bak. Her kutuyu kendi cümlelerinle bir arkadaşına anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Asit, baz, pH</div>
+      <ul style="font-size:9.2pt">
+        <li>Asit H<sup>+</sup> iyonu, baz OH<sup>−</sup> iyonu derişimini artırır.</li>
+        <li>25 °C’de pH &lt; 7 asidik, = 7 nötr, &gt; 7 bazik.</li>
+        <li>pH küçüldükçe asitlik, büyüdükçe bazlık artar.</li>
+        <li>Su eklenince pH 7’ye yaklaşır, 7’yi geçmez.</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Evdeki kimyasallar</div>
+      <ul style="font-size:9.2pt">
+        <li><b>Asidik:</b> sirke, limon tuzu, gazlı içecek → kireç ve pas çözer</li>
+        <li><b>Bazik:</b> sabun, deterjan, <span class="f">NaOH</span>, çamaşır suyu, kireç kaymağı, karbonat, antiasit</li>
+        <li>Gruplar: öz bakım · genel temizlik · gıda · ilaç</li>
+        <li>Mermer ve derz asitten zarar görür.</li>
+      </ul>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Altı alt disiplin</div>
+      <ul style="font-size:9.2pt">
+        <li><b>Analitik:</b> ne var, ne kadar var (nitel / nicel)</li>
+        <li><b>Organik:</b> karbon temelli bileşikler · <b>Anorganik:</b> diğerleri</li>
+        <li><b>Biyokimya:</b> canlıdaki maddeler ve süreçler</li>
+        <li><b>Fizikokimya:</b> enerji, hız, sıcaklık, basınç</li>
+        <li><b>Polimer:</b> monomerden dev moleküle</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> En sık 4 hata</div>
+      <ul style="font-size:9.2pt">
+        <li>Asidik çözeltiyi su ekleyerek bazik yapmaya çalışmak</li>
+        <li>Kireci bazla çözmeye çalışmak</li>
+        <li><span class="f">CO<sub>2</sub></span> ve <span class="f">CaCO<sub>3</sub></span> gibi karbonlu her bileşiği organik sanmak</li>
+        <li>“Var mı?” (nitel) ile “ne kadar?” (nicel) sorusunu karıştırmak</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Kimyanın temel ihtiyaçlarımızla ilişkisini örneklerle açıklayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>pH değerine bakarak bir maddenin asidik, bazik ya da nötr olduğunu söyleyebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Su eklenen asit ve baz çözeltilerinde pH’ın nasıl değiştiğini açıklayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Evdeki kimyasalları kullanım amacına göre gruplandırabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bir deneyde bağımsız, bağımlı ve kontrol değişkenlerini ayırt edebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bir çalışmayı ilgili kimya disiplini ve meslek alanıyla eşleştirebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:5mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Günlük Hayatta Kimya</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Günlük Hayatta Kimya</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Aşağıdaki akıl yürütmeleri dört farklı öğrenci yazdı. Her birinde bir hata var. Hatayı bul, hangi satırda olduğunu yaz, doğrusunu kutuya yaz.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> pH’ı 2 olan limon suyuna çok miktarda saf su eklenirse ne olur?</p>
+      <div class="defter">
+        <div class="ogrenci">Ela’nın çözümü</div>
+        <div class="satir"><span class="sn">1</span>Limon suyu pH 2 olduğu için asidiktir.</div>
+        <div class="satir"><span class="sn">2</span>Su eklenince birim hacimdeki H<sup>+</sup> azalır, pH artar.</div>
+        <div class="satir"><span class="sn">3</span>Yeterince su eklersem pH 9 olur, bazikleşir.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru düşünce:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> <span class="f">CO<sub>2</sub></span> gazının özellikleri hangi disiplinin konusudur?</p>
+      <div class="defter">
+        <div class="ogrenci">Yusuf’un çözümü</div>
+        <div class="satir"><span class="sn">1</span>Organik bileşiklerin temeli karbondur.</div>
+        <div class="satir"><span class="sn">2</span><span class="f">CO<sub>2</sub></span> molekülünde karbon atomu vardır.</div>
+        <div class="satir"><span class="sn">3</span>O hâlde <span class="f">CO<sub>2</sub></span> organiktir: organik kimya.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru düşünce:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Çaydanlıktaki kireci hangi maddeyle temizlemek uygundur?</p>
+      <div class="defter">
+        <div class="ogrenci">Nehir’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>Kireç, kalsiyum karbonattır; bazik karakterlidir.</div>
+        <div class="satir"><span class="sn">2</span>Onu çözmek için yine bazik bir madde gerekir.</div>
+        <div class="satir"><span class="sn">3</span>Bu yüzden karbonatlı su ile kaynatırım.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru düşünce:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Bir meyve suyunda C vitamini olup olmadığının test şeridiyle araştırılması hangi tür analizdir?</p>
+      <div class="defter">
+        <div class="ogrenci">Baran’ın çözümü</div>
+        <div class="satir"><span class="sn">1</span>Bu çalışma analitik kimyanın konusudur.</div>
+        <div class="satir"><span class="sn">2</span>Şerit, vitamin var mı yok mu onu gösterir.</div>
+        <div class="satir"><span class="sn">3</span>Laboratuvarda test yapıldığı için nicel analizdir.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru düşünce:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Bir akıl yürütmeyi kontrol etmenin en hızlı yolu her satırı <b>tanımla karşılaştırmaktır</b>. “Asit nedir?”, “Organik ne demek?”, “Nitel neyi sorar?” sorularını sor; tanıma uymayan satır hatalıdır.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Günlük Hayatta Kimya</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Günlük Hayatta Kimya</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni, grafiği ve tabloyu oku; sonra hangi bilginin işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Sağlık</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Mide ekşimesi yaşayan bir kişi antiasit tablet çiğniyor. Mide ortamının pH değerinin zamanla değişimi grafikteki gibidir (temsilî değerler).</p>
+          <svg viewBox="0 0 120 70" style="width:92%;margin:0 0 1mm">
+            <g font-family="Inter" font-size="4.4" fill="#5d6478">
+              <g stroke="#e5e7f0" stroke-width=".3">
+                <line x1="18" y1="44" x2="114" y2="44"/><line x1="18" y1="34" x2="114" y2="34"/><line x1="18" y1="24" x2="114" y2="24"/><line x1="18" y1="14" x2="114" y2="14"/>
+              </g>
+              <line x1="18" y1="54" x2="116" y2="54" stroke="#1d2133" stroke-width=".5"/>
+              <line x1="18" y1="54" x2="18" y2="6" stroke="#1d2133" stroke-width=".5"/>
+              <text x="15" y="55.5" text-anchor="end">0</text><text x="15" y="45.5" text-anchor="end">1</text><text x="15" y="35.5" text-anchor="end">2</text><text x="15" y="25.5" text-anchor="end">3</text><text x="15" y="15.5" text-anchor="end">4</text>
+              <text x="18" y="59.5" text-anchor="middle">0</text><text x="42" y="59.5" text-anchor="middle">30</text><text x="66" y="59.5" text-anchor="middle">60</text><text x="90" y="59.5" text-anchor="middle">90</text><text x="114" y="59.5" text-anchor="middle">120</text>
+              <text x="66" y="66" text-anchor="middle" fill="#1d2133" font-weight="700">Süre (dakika)</text>
+              <text x="3" y="4.5" fill="#1d2133" font-weight="700">pH</text>
+              <!-- 0:1,5 (y=39) ; 10dk: 4 (y=14) ; 30: 3,6 (y=18); 60: 2,8 (y=26) ; 90: 2,2 (y=32) ; 120: 1,8 (y=36) -->
+              <path d="M18 39 L22 39 C24 30, 25 16, 26 14 C32 13, 36 16, 42 18 C52 21, 58 24, 66 26 C76 28, 82 30, 90 32 C100 34, 106 35, 114 36" stroke="#c26a06" stroke-width="1.1" fill="none"/>
+              <path d="M22 50 V41" stroke="#1d2133" stroke-width=".4"/>
+              <text x="24" y="50" fill="#1d2133" font-size="3.8">tablet</text>
+            </g>
+          </svg>
+          <p>Buna göre;</p>
+          <div class="oncul"><div><b>I.</b><span>Tablet bazik özellikte bir madde içerir.</span></div><div><b>II.</b><span>Tablet alındıktan sonra mide ortamı bazik hâle gelmiştir.</span></div><div><b>III.</b><span>Tabletin pH üzerindeki etkisi zamanla azalmıştır.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Endüstri</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Bir çikolata fabrikasındaki çalışmalar ile kimya disiplinlerinin eşleştirmelerinden hangisi <b>yanlıştır</b>?</p>
+          <div class="secenek tek" style="font-size:9.2pt">
+            <span><b>A)</b>Kakao yağının farklı sıcaklıklarda erimesi – Fizikokimya</span>
+            <span><b>B)</b>Geri dönüştürülebilir ambalaj filmi geliştirme – Polimer kimyası</span>
+            <span><b>C)</b>Bir partideki şeker oranının ölçülmesi – Analitik kimya</span>
+            <span><b>D)</b>Vanilya kokulu karbon temelli molekülün sentezi – Anorganik kimya</span>
+            <span><b>E)</b>Kakaodaki bir maddenin metabolizmaya etkisi – Biyokimya</span>
+          </div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Ev ve temizlik</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>Bir markette satılan dört temizlik ürününün etiketlerindeki pH değerleri tabloda verilmiştir.</p>
+          <table class="tablo">
+            <tr><th>Ürün</th><th>P</th><th>R</th><th>S</th><th>T</th></tr>
+            <tr><td>pH</td><td>1,5</td><td>13</td><td>7</td><td>9,5</td></tr>
+          </table>
+          <p>Bu bilgilere göre aşağıdaki yorumlardan hangisi <b>yanlıştır</b>? <span class="veri">(Ölçümler 25 °C’dedir.)</span></p>
+          <div class="secenek tek" style="font-size:9.2pt">
+            <span><b>A)</b>P, banyodaki kireç lekelerini çözmek için kullanılabilir.</span>
+            <span><b>B)</b>R, fırındaki yağlı kirleri çözmek için uygundur.</span>
+            <span><b>C)</b>T’nin çözeltisine saf su eklenirse pH değeri azalır.</span>
+            <span><b>D)</b>S’nin çözeltisi nötrdür.</span>
+            <span><b>E)</b>R’ye yeterince su eklenirse çözelti asidik olur.</span>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Laboratuvar</div>
+        <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+          <p>Bir gıda laboratuvarında, folyoya sarılı yiyeceğe geçen alüminyum miktarını etkileyen koşullar araştırılıyor. Yapılan denemeler tabloda verilmiştir (veriler kurgusaldır).</p>
+          <table class="tablo sik">
+            <tr><th>Deneme</th><th>pH</th><th>Sıcaklık</th><th>Süre</th><th>Al (mg/kg)</th></tr>
+            <tr><td>1</td><td>4</td><td>200 °C</td><td>30 dk</td><td>4,1</td></tr>
+            <tr><td>2</td><td>6</td><td>200 °C</td><td>30 dk</td><td>1,9</td></tr>
+            <tr><td>3</td><td>4</td><td>150 °C</td><td>30 dk</td><td>2,6</td></tr>
+            <tr><td>4</td><td>6</td><td>150 °C</td><td>45 dk</td><td>1,5</td></tr>
+            <tr><td>5</td><td>4</td><td>200 °C</td><td>45 dk</td><td>5,0</td></tr>
+          </table>
+          <p>Sıcaklığın alüminyum geçişine etkisini incelemek için hangi iki deneme karşılaştırılmalıdır?</p>
+          <div class="secenek"><span><b>A)</b>1 ve 2</span><span><b>B)</b>1 ve 3</span><span><b>C)</b>2 ve 4</span><span><b>D)</b>1 ve 5</span><span><b>E)</b>3 ve 4</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Günlük Hayatta Kimya</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Günlük Hayatta Kimya</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, sadece o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p><b>Etiketsiz üç şişe.</b> X, Y ve Z’den biri limon tuzu çözeltisi, biri lavabo açıcı çözeltisi, biri saf sudur. <b>(1)</b> X’in pH değeri Y’ninkinden büyüktür. <b>(2)</b> Z’ye mermer tozu eklenince gaz kabarcıkları çıkar. <b>(3)</b> Y’ye saf su eklenince pH değeri değişmez. Şişelerde hangi madde vardır? Hangisine su eklenince pH azalır?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Mermer kalsiyum karbonattır. Mermerle gaz çıkaran madde asit midir, baz mıdır?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Su eklenince pH’ı değişmeyen tek çözelti hangisi olabilir? Nötr olanı düşün.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Kalan şişe X’tir ve pH’ı 7’den büyüktür. Bazik çözeltiye su eklenince pH hangi yöne gider?</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p><b>Deneyini sen tasarla.</b> Defne, “Sıcak sirke kireci soğuk sirkeden daha hızlı çözer mi?” sorusunu araştırıyor. Elinde kireç parçaları, sirke, beherler, terazi ve kronometre var. Bağımsız, bağımlı ve kontrol değişkenlerini belirleyip deneyin adımlarını yaz.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Defne’nin bilerek değiştireceği tek şey ne? Soru cümlesinde ara.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">“Daha hızlı çözdü” sonucunu nasıl ölçebilir? Kireç parçasının belli sürede kaybettiği kütleyi ya da gaz çıkışının bitme süresini düşün.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Adil bir karşılaştırma için hangi şeyler her beherde aynı olmalı? Sirkenin miktarı ve türü, kireç parçasının kütlesi ve büyüklüğü…</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p><b>Sınıflandırma.</b> Naylon, sofra tuzu (<span class="f">NaCl</span>), glikoz (<span class="f">C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></span>), karbon dioksit, nişasta, PET, amonyak (<span class="f">NH<sub>3</sub></span>) ve protein maddelerini “organik bileşik” ve “polimer” kümelerine yerleştir. Hangileri iki kümede, hangileri yalnızca organik, hangileri hiçbir kümede değildir?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Önce karbon temelli olanları ayır. Dikkat: karbon dioksit karbon içerir ama organik değildir.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Organik olanlar içinde, çok sayıda küçük birimin zincir hâlinde birleşmesiyle oluşanları bul. Nişasta, glikoz birimlerinden oluşur.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Glikoz tek başına küçük bir moleküldür. Kalan üç madde anorganiktir.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Günlük Hayatta Kimya</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa cift test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Günlük Hayatta Kimya</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 25 dakika. Bütün pH değerleri 25 °C içindir.</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>Aşağıdaki maddelerden hangisinin sulu çözeltisi <b>bazik</b> özellik gösterir?</p>
+        <div class="secenek tek"><span><b>A)</b>Sirke</span><span><b>B)</b>Çamaşır suyu</span><span><b>C)</b>Limon tuzu çözeltisi</span><span><b>D)</b>Gazlı içecek</span><span><b>E)</b>Limon suyu</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>pH değerleri verilen K, L, M ve N çözeltileri için;</p>
+        <table class="tablo sik" style="margin-bottom:1.6mm"><tr><th>Çözelti</th><th>K</th><th>L</th><th>M</th><th>N</th></tr><tr><td>pH</td><td>3</td><td>12</td><td>7</td><td>5</td></tr></table>
+        <div class="oncul"><div><b>I.</b><span>K, N’den daha asidiktir.</span></div><div><b>II.</b><span>M nötrdür.</span></div><div><b>III.</b><span>L’ye saf su eklenirse pH değeri artar.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p>pH değeri 12 olan bir çözeltiye aynı sıcaklıkta azar azar saf su eklenmeye devam ediliyor. Çözeltinin pH değeri için ne söylenebilir?</p>
+        <div class="secenek tek"><span><b>A)</b>Artar ve 14’e yaklaşır.</span><span><b>B)</b>Değişmez.</span><span><b>C)</b>Azalır ve bir süre sonra 7’nin altına iner.</span><span><b>D)</b>Azalır ve 7’ye yaklaşır, 7’nin altına inmez.</span><span><b>E)</b>Önce artar, sonra azalır.</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p>Aşağıdaki madde – kullanım amacı eşleştirmelerinden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Sitrik asit – çaydanlıktaki kireci çözmek</span><span><b>B)</b>Asetik asit – giderdeki saç ve yağ tıkanıklığını açmak</span><span><b>C)</b>Sodyum hipoklorit – çamaşırı ağartmak</span><span><b>D)</b>Sodyum bikarbonat – mide ekşimesini gidermek</span><span><b>E)</b>Kalsiyum hipoklorit – havuz suyunu dezenfekte etmek</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p>Aşağıdaki bileşiklerden hangisi karbon içerdiği hâlde <b>organik bileşik sayılmaz</b>?</p>
+        <div class="secenek"><span><b>A)</b><span class="f">CaCO<sub>3</sub></span></span><span><b>B)</b><span class="f">CH<sub>4</sub></span></span><span><b>C)</b><span class="f">C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></span></span><span><b>D)</b><span class="f">C<sub>2</sub>H<sub>5</sub>OH</span></span><span><b>E)</b><span class="f">C<sub>12</sub>H<sub>22</sub>O<sub>11</sub></span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p>Bir otomobil aküsünün soğuk havada neden daha az enerji verdiğini, sıcaklığın akü içindeki tepkimenin hızına etkisini ölçerek araştıran bir bilim insanı hangi kimya disiplininde çalışmaktadır?</p>
+        <div class="secenek"><span><b>A)</b>Analitik kimya</span><span><b>B)</b>Biyokimya</span><span><b>C)</b>Polimer kimyası</span><span><b>D)</b>Organik kimya</span><span><b>E)</b>Fizikokimya</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fafbff;margin-top:2mm">
+    <p style="margin:0"><b class="k">Soru çözme ipucu:</b> Öncüllü sorularda her yargıyı ayrı ayrı tanımla karşılaştır ve yanına ✓ ya da ✗ koy. “Disiplin” sorularında soruyu tek kelimeye indir: <i>ne var / ne kadar</i> → analitik, <i>canlıda</i> → biyokimya, <i>hız, enerji, sıcaklık</i> → fizikokimya, <i>zincir, plastik</i> → polimer.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Günlük Hayatta Kimya</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · TEST (7–12)
+     ========================================================= -->
+<section class="sayfa test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Günlük Hayatta Kimya</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>Bir laboratuvarda yapılan;</p>
+        <div class="oncul"><div><b>I.</b><span>İçme suyunda kurşun olup olmadığının belirlenmesi</span></div><div><b>II.</b><span>Süt örneğindeki yağ yüzdesinin ölçülmesi</span></div><div><b>III.</b><span>Sporcunun idrarında yasaklı madde aranması</span></div></div>
+        <p>çalışmalarından hangileri <b>nitel</b> analizdir?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p>Aşağıdakilerden hangisi <b>doğal polimer değildir</b>?</p>
+        <div class="secenek"><span><b>A)</b>Nişasta</span><span><b>B)</b>Selüloz</span><span><b>C)</b>Naylon</span><span><b>D)</b>İpek</span><span><b>E)</b>Protein</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>Yeni bir güneş kremi geliştiren firmadaki görevlerden hangisi doğrudan <b>analitik kimyanın</b> uğraş alanına girer?</p>
+        <div class="secenek tek"><span><b>A)</b>Yeni bir koruyucu molekülün sentezlenmesi</span><span><b>B)</b>Etken maddenin kremdeki yüzdesinin ölçülmesi</span><span><b>C)</b>Tüp plastiğinin esnekliğinin artırılması</span><span><b>D)</b>Etken maddenin deri hücrelerine etkisi</span><span><b>E)</b>Kremin sıcakta bozunma hızının incelenmesi</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p>Sıcaklığın sirkenin kireç çözme hızına etkisini araştıran öğrenci, denemelerde hangisini <b>farklı</b> tutmalıdır?</p>
+        <div class="secenek tek"><span><b>A)</b>Sirkenin sıcaklığını</span><span><b>B)</b>Kireç parçasının kütlesini</span><span><b>C)</b>Sirkenin hacmini</span><span><b>D)</b>Kullanılan kabın türünü</span><span><b>E)</b>Sirkenin markasını</span></div>
+      </div></div></div>
+    </div>
+    <div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <p>Bir çözeltiye aynı sıcaklıkta saf su eklendikçe pH değerinin değişimi grafikteki gibidir.</p>
+        <svg viewBox="0 0 110 56" style="width:88%;margin:0 0 1mm">
+          <g font-family="Inter" font-size="4.2" fill="#5d6478">
+            <line x1="16" y1="46" x2="106" y2="46" stroke="#1d2133" stroke-width=".5"/>
+            <line x1="16" y1="46" x2="16" y2="4" stroke="#1d2133" stroke-width=".5"/>
+            <line x1="16" y1="11" x2="104" y2="11" stroke="#0f8f84" stroke-width=".4" stroke-dasharray="1.4 1"/>
+            <text x="13" y="12.4" text-anchor="end" fill="#0f8f84" font-weight="700">7</text>
+            <text x="13" y="47.4" text-anchor="end">0</text>
+            <text x="13" y="32.4" text-anchor="end">3</text>
+            <line x1="15" y1="31" x2="17" y2="31" stroke="#1d2133" stroke-width=".4"/>
+            <!-- pH 3 -> y=31 ; pH 6,5 -> y=13.5 ; scale 5 per pH -->
+            <path d="M16 31 C34 22, 52 16.5, 104 13.5" stroke="#c26a06" stroke-width="1.1" fill="none"/>
+            <text x="61" y="53" text-anchor="middle" fill="#1d2133" font-weight="700">Eklenen saf su →</text>
+            <text x="2" y="4" fill="#1d2133" font-weight="700">pH</text>
+          </g>
+        </svg>
+        <p>Buna göre;</p>
+        <div class="oncul"><div><b>I.</b><span>Çözelti başlangıçta asidiktir.</span></div><div><b>II.</b><span>Yeterince su eklenirse çözelti bazik olur.</span></div><div><b>III.</b><span>Su eklendikçe birim hacimdeki H<sup>+</sup> iyonu sayısı azalmıştır.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p>Mermer tezgâha dökülen limon suyu, parlak yüzeyde mat bir leke bırakıyor. Bu durumun doğru açıklaması hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>Mermer asidik olduğu için limon suyuyla etkileşmiştir.</span><span><b>B)</b>Limon suyu mermeri bazik hâle getirmiştir.</span><span><b>C)</b>Yalnızca su buharlaşmıştır; kimyasal değişim yoktur.</span><span><b>D)</b>Lekeyi gidermek için yüzeye sirke sürmek uygundur.</span><span><b>E)</b>Limon suyundaki asit, mermerdeki kalsiyum karbonatla tepkimeye girerek yüzeyi aşındırmıştır.</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fafbff;margin-top:2mm">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 2. ve 5. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Günlük Hayatta Kimya</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Günlük Hayatta Kimya</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>B</span></div><div><b>2</b><span>C</span></div><div><b>3</b><span>D</span></div><div><b>4</b><span>B</span></div>
+    <div><b>5</b><span>A</span></div><div><b>6</b><span>E</span></div><div><b>7</b><span>D</span></div><div><b>8</b><span>C</span></div>
+    <div><b>9</b><span>B</span></div><div><b>10</b><span>A</span></div><div><b>11</b><span>D</span></div><div><b>12</b><span>E</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · B</b> Çamaşır suyu (etken madde <span class="f">NaClO</span>) baziktir. Sirke, limon tuzu, gazlı içecek ve limon suyu asidiktir.</div>
+    <div class="c"><b>2 · C</b> 3 &lt; 5 olduğundan K daha asidik (I ✓). pH 7 nötr (II ✓). L bazik; su eklenince pH azalır (III ✗).</div>
+    <div class="c"><b>3 · D</b> Bazik çözeltiye su eklenince OH<sup>−</sup> derişimi azalır, pH azalarak 7’ye yaklaşır; saf su nötr olduğundan 7’nin altına inmez.</div>
+    <div class="c"><b>4 · B</b> Giderdeki yağ ve saç tıkanıklığını kuvvetli bir baz olan <span class="f">NaOH</span> açar. Asetik asit (sirke) bu iş için uygun değildir.</div>
+    <div class="c"><b>5 · A</b> Kalsiyum karbonat karbon içerir ama karbonatlar anorganik bileşiklerdir. Diğerleri organiktir.</div>
+    <div class="c"><b>6 · E</b> Sıcaklığın tepkime hızına ve enerji dönüşümüne (akü) etkisi fizikokimyanın konusudur.</div>
+    <div class="c"><b>7 · D</b> I ve III “var mı?” sorusudur → nitel. II “ne kadar?” sorusudur → nicel.</div>
+    <div class="c"><b>8 · C</b> Naylon laboratuvarda üretilen sentetik bir polimerdir. Nişasta, selüloz, ipek ve protein doğal polimerdir.</div>
+    <div class="c"><b>9 · B</b> Miktar tayini analitik kimyadır. A organik, C polimer, D biyokimya, E fizikokimya.</div>
+    <div class="c"><b>10 · A</b> Araştırılan etken (bağımsız değişken) sıcaklıktır; geri kalan her şey sabit tutulmalıdır.</div>
+    <div class="c"><b>11 · D</b> Başlangıç pH’ı 3 → asidik (I ✓). pH 7’ye yaklaşır ama geçmez (II ✗). H<sup>+</sup> seyreldiği için pH artmıştır (III ✓).</div>
+    <div class="c"><b>12 · E</b> Mermer (kalsiyum karbonat) asitlerle tepkimeye girer. Sirke de asidik olduğu için lekeyi büyütür (D ✗).</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> pH yükseldiğine göre tablet bazik madde içerir (I ✓). pH en fazla 4’e çıkmış, ortam asidik kalmıştır (II ✗). pH zamanla yeniden düşmüştür (III ✓).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · D</b> Vanilya kokusunu veren molekül karbon temelli olduğu için sentezi organik kimyanın konusudur.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · E</b> R baziktir; su eklendikçe pH 7’ye yaklaşır ama çözelti asidik olmaz. A: asit kireci çözer ✓. B: kuvvetli baz yağı çözer ✓. C: bazik çözeltide pH azalır ✓.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · B</b> 1 ve 3’te pH (4) ve süre (30 dk) aynı, yalnızca sıcaklık farklı. 2–4 çiftinde süre de değişmiştir; 1–2 pH’ı, 1–5 süreyi gösterir.</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1</b> Z: limon tuzu (asit, karbonatla <span class="f">CO<sub>2</sub></span> gazı çıkarır). Y: saf su (nötr, su eklenince pH değişmez). X: lavabo açıcı (pH &gt; 7). Su eklenince pH’ı azalan X’tir.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2</b> Bağımsız: sirkenin sıcaklığı (ör. 20 °C ve 50 °C). Bağımlı: kireç parçasının 10 dakikada kaybettiği kütle ya da gaz çıkışının bitme süresi. Kontrol: sirke hacmi ve türü, kireç parçasının kütlesi ve büyüklüğü, beher türü, süre. Ölçümü birkaç kez tekrarlamak sonucu güvenilir kılar.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3</b> Organik ve polimer: naylon, nişasta, PET, protein. Yalnızca organik: glikoz. Hiçbiri (anorganik): <span class="f">NaCl</span>, <span class="f">CO<sub>2</sub></span>, <span class="f">NH<sub>3</sub></span>.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 3</b> Saf su nötrdür; su eklendikçe pH 7’ye yaklaşır ama 7’yi geçmez. Limon suyu asidik kalır.</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 3</b> Karbon içermek tek başına yetmez. <span class="f">CO<sub>2</sub></span> organik sayılmaz; anorganik kimyanın konusudur.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 2</b> Kireç asitlerle tepkimeye girerek çözünür. Sirke ya da limon tuzu kullanılmalıdır.</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 3</b> “Var mı, yok mu?” sorusu nitel analizdir. Nicel analiz miktarı ölçer; laboratuvarda yapılması türü belirlemez.</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Günlük Hayatta Kimya</span><span class="no">14</span></div>
+</section>
+
+</body>
+</html>
