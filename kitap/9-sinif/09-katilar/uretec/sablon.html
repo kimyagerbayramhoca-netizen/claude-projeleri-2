@@ -180,7 +180,7 @@ table.tablo.kars td:first-child { font-weight: 700; color: var(--unite-koyu); ba
     <div class="kutu dikkat" style="margin-bottom:0">
       <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
       <div class="yanilgi" style="grid-template-columns:1fr">
-        <div class="yanlis"><b class="y">✗</b> “Cam çok yavaş akan bir sıvıdır; eski pencerelerin altı bu yüzden kalındır.”</div>
+        <div class="yanlis"><b class="y">✗</b> “Cam çok yavaş akan bir sıvıdır.”</div>
         <div class="dogru"><b class="d">✓</b> Cam amorf bir <b>katıdır</b>; oda sıcaklığındaki akışı ölçülemeyecek kadar azdır. Kalınlık farkı eski üretim yöntemlerinden gelir.</div>
       </div>
     </div>
@@ -290,9 +290,9 @@ table.tablo.kars td:first-child { font-weight: 700; color: var(--unite-koyu); ba
     <div>
       <div class="kutu ornek">
         <div class="etiket">@ikon:ornek Çözümlü Örnek 2</div>
-        <div class="soru">{H2O} ve {H2S} molekülleri benzer biçimlidir. Buz 0 °C’de, katı {H2S} yaklaşık −85 °C’de erir. Farkı açıklayınız.</div>
+        <div class="soru">Buz 0 °C’de, benzer biçimli {H2S}’nin katısı ≈ −85 °C’de erir. Nedeni nedir?</div>
         <div class="cozum">
-          <div class="adim"><span class="n">1</span><span>İkisi de moleküler katıdır; erirken yalnızca moleküller arası etkileşimler yenilir.</span></div>
+          <div class="adim"><span class="n">1</span><span>İkisi de moleküler katı: erirken moleküller arası etkileşim yenilir.</span></div>
           <div class="adim"><span class="n">2</span><span>{H2O}’da H, çok elektronegatif O’ya bağlıdır: moleküller arasında <b>hidrojen bağı</b> oluşur. {H2S}’de bu etkileşim çok zayıftır.</span></div>
           <span class="sonuc">Güçlü etkileşim → yüksek erime noktası</span>
         </div>
@@ -337,10 +337,14 @@ table.tablo.kars td:first-child { font-weight: 700; color: var(--unite-koyu); ba
         <tr><td><b>Kullanım</b></td><td>Kesici uç, mücevher</td><td>Kalem ucu, pil elektrodu</td></tr>
       </table>
       <ul class="ozellik">
-        <li><b>Erime noktaları çok yüksektir</b> (kuvars ≈ 1713 °C, silisyum 1414 °C).</li>
+        <li><b>Erime noktaları çok yüksektir</b> (kuvars ≈ 1713 °C).</li>
         <li>Genellikle <b>çok serttirler</b> ve <b>yalıtkandırlar</b>.</li>
-        <li><b>Grafit istisnadır:</b> her C atomunun dördüncü değerlik elektronu katman boyunca serbestçe hareket eder, bu yüzden elektriği iletir.</li>
+        <li><b>Grafit istisnadır:</b> her C’nin dördüncü değerlik elektronu katman boyunca hareket eder; grafit elektriği iletir.</li>
       </ul>
+      <div class="kutu hayat" style="margin-bottom:0">
+        <div class="etiket">@ikon:hayat Hayatın İçinden</div>
+        <p style="font-size:8.8pt">Tek atom kalınlığındaki grafen çalışmaları 2010 Nobel Fizik Ödülü’nü getirdi. Top biçimli {C60} ise <b>moleküler</b> katı oluşturur.</p>
+      </div>
     </div>
     <div>
       <div class="kutu kavram">
@@ -352,16 +356,12 @@ table.tablo.kars td:first-child { font-weight: 700; color: var(--unite-koyu); ba
           <li><b>Fosfor:</b> beyaz ve kırmızı fosfor</li>
         </ul>
       </div>
-      <div class="kutu dikkat">
+      <div class="kutu dikkat" style="margin-bottom:0">
         <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
         <div class="yanilgi" style="grid-template-columns:1fr">
           <div class="yanlis"><b class="y">✗</b> “Elmas ve grafit, karbonun izotoplarıdır.”</div>
-          <div class="dogru"><b class="d">✓</b> İzotoplar atom düzeyinde (nötron sayısı) farklıdır. Elmas ve grafit aynı atomların <b>farklı dizilişidir</b>: allotroptur.</div>
+          <div class="dogru"><b class="d">✓</b> İzotopların nötron sayısı farklıdır. Elmas ve grafit aynı atomların <b>farklı dizilişidir</b>: allotroptur.</div>
         </div>
-      </div>
-      <div class="kutu hayat" style="margin-bottom:0">
-        <div class="etiket">@ikon:hayat Hayatın İçinden</div>
-        <p style="font-size:8.8pt">Tek atom kalınlığındaki grafen çalışmaları 2010 Nobel Fizik Ödülü’nü getirdi. Top biçimli {C60} ise <b>moleküler</b> katı oluşturur.</p>
       </div>
     </div>
   </div>
@@ -624,17 +624,17 @@ table.tablo.kars td:first-child { font-weight: 700; color: var(--unite-koyu); ba
           <div class="grafik-kutu" style="margin:1mm 0 2mm"><!--SVG:firin--></div>
           <div class="oncul"><div><b>I.</b><span>{MgO} ve <span class="f">Al<sub>2</sub>O<sub>3</sub></span> iki koşulu da sağlar.</span></div><div><b>II.</b><span>Tungsten yalnızca erime noktası koşulunu sağlar.</span></div><div><b>III.</b><span>Grafikteki iyonik katıların tamamı uygundur.</span></div></div>
           <p>yargılarından hangileri doğrudur?</p>
-          <div class="secenek bes" style="font-size:9pt"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
         </div></div>
       </div>
 
       <div class="soru-blok">
-        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Teknoloji</div>
-        <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
-          <p>Taş kesme uçlarında elmas tozu, lityum iyon pillerin elektrotlarında grafit kullanılır. Bir öğrenci şunları yazıyor:</p>
-          <div class="oncul"><div><b>I.</b><span>Grafit, katmanları boyunca hareket eden elektronları sayesinde elektrot olabilir.</span></div><div><b>II.</b><span>Kurşun kalem ucu kurşun (Pb) metalinden yapılır.</span></div><div><b>III.</b><span>Elmasın sertliği, her C atomunun dört C atomuna kovalent bağlı olmasından kaynaklanır.</span></div></div>
-          <p>Hangileri doğrudur?</p>
-          <div class="secenek bes" style="font-size:9pt"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>II ve III</span></div>
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Sağlık</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Çok düşük sıcaklıkta saklanması gereken bazı aşılar, −78,5 °C’de sıvılaşmadan gaza dönüşen kuru buz ({CO2}) ile taşınır.</p>
+          <div class="oncul"><div><b>I.</b><span>Kuru buz moleküler bir katıdır.</span></div><div><b>II.</b><span>{CO2} moleküllerini London kuvvetleri bir arada tutar.</span></div><div><b>III.</b><span>Kuru buz katı hâlde elektriği iletmez.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
         </div></div>
       </div>
     </div>
@@ -642,7 +642,7 @@ table.tablo.kars td:first-child { font-weight: 700; color: var(--unite-koyu); ba
     <div>
       <div class="soru-blok">
         <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:lab Laboratuvar</div>
-        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
           <p>Etiketi silinmiş dört katı üzerinde yapılan testlerin sonuçları tabloda verilmiştir.</p>
           <table class="tablo sik" style="font-size:8.4pt">
             <tr><th></th><th>Erime n. (°C)</th><th>Katı iletken mi?</th><th>Çekiçle vurulunca</th></tr>
@@ -664,12 +664,12 @@ table.tablo.kars td:first-child { font-weight: 700; color: var(--unite-koyu); ba
       </div>
 
       <div class="soru-blok">
-        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Sağlık</div>
-        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
-          <p>Çok düşük sıcaklıkta saklanması gereken bazı aşılar, −78,5 °C’de sıvılaşmadan gaza dönüşen kuru buz ({CO2}) ile taşınır.</p>
-          <div class="oncul"><div><b>I.</b><span>Kuru buz moleküler bir katıdır.</span></div><div><b>II.</b><span>{CO2} moleküllerini London kuvvetleri bir arada tutar.</span></div><div><b>III.</b><span>Kuru buz katı hâlde elektriği iletmez.</span></div></div>
-          <p>yargılarından hangileri doğrudur?</p>
-          <div class="secenek bes" style="font-size:9pt"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Teknoloji</div>
+        <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+          <p>Taş kesme uçlarında elmas tozu, lityum iyon pillerin elektrotlarında grafit kullanılır. Bir öğrenci şunları yazıyor:</p>
+          <div class="oncul"><div><b>I.</b><span>Grafit, katmanları boyunca hareket eden elektronları sayesinde elektrot olabilir.</span></div><div><b>II.</b><span>Kurşun kalem ucu kurşun (Pb) metalinden yapılır.</span></div><div><b>III.</b><span>Elmasın sertliği, her C atomunun dört C atomuna kovalent bağlı olmasından kaynaklanır.</span></div></div>
+          <p>Hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>II ve III</span></div>
         </div></div>
       </div>
     </div>
@@ -862,8 +862,8 @@ table.tablo.kars td:first-child { font-weight: 700; color: var(--unite-koyu); ba
 
     <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
     <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> 1800 °C’nin üstünde eriyenler: {Al2O3} (2072), {MgO} (2852), W (3422). W metal olduğu için iletir (I ✓, II ✓). NaCl ve CaF₂ bu sıcaklıkta erir (III ✗).</div>
-    <div class="c" style="--renk:var(--hayat)"><b>2 · B</b> P katıda iletken ve dövülebilir: metalik. R katıda yalıtkan, çözeltisi iletken, kırılgan: iyonik. S düşük erime, çözeltisi yalıtkan: moleküler (şeker). T çok sert, yüksek erime, yalıtkan: kovalent ağ (kuvars).</div>
-    <div class="c" style="--renk:var(--hayat)"><b>3 · E</b> {CO2} apolar moleküllerden oluşan moleküler katıdır; aradaki tek etkileşim London kuvvetleridir; serbest iyon/elektron yoktur.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · E</b> {CO2} apolar moleküllerden oluşan moleküler katıdır; aradaki tek etkileşim London kuvvetleridir; serbest iyon/elektron yoktur.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · B</b> P katıda iletken ve dövülebilir: metalik. R katıda yalıtkan, çözeltisi iletken, kırılgan: iyonik. S düşük erime, çözeltisi yalıtkan: moleküler (şeker). T çok sert, yüksek erime, yalıtkan: kovalent ağ (kuvars).</div>
     <div class="c" style="--renk:var(--hayat)"><b>4 · D</b> Kalem ucu grafit ve kil karışımıdır, kurşun içermez (II ✗). I ve III doğrudur.</div>
 
     <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>

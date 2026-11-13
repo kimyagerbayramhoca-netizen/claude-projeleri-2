@@ -160,7 +160,7 @@ def iyon(x, y, art):
             f'<text x="{x:.1f}" y="{y + 1.6:.1f}" font-size="5" font-weight="800" fill="#fff">−</text>')
 
 
-o = ['<svg viewBox="0 0 180 50" class="grafik"><g font-family="Inter" text-anchor="middle">', '<defs>' + ok_marker('kk', M) + ok_marker('kr', ROSE) + '</defs>']
+o = ['<svg viewBox="0 0 180 52" class="grafik"><g font-family="Inter" text-anchor="middle">', '<defs>' + ok_marker('kk', M) + ok_marker('kr', ROSE) + '</defs>']
 for pan, kay in [(0, 0), (1, 1)]:
     ox = 6 + pan * 98
     for r in range(3):
@@ -170,11 +170,11 @@ for pan, kay in [(0, 0), (1, 1)]:
     if kay:
         o.append(f'<path d="M{ox + 2} 2.5 H{ox + 14}" stroke="{M}" stroke-width=".6" marker-end="url(#kk)"/>')
         o.append(f'<line x1="{ox - 2}" y1="14" x2="{ox + 66}" y2="14" stroke="{ROSE}" stroke-width=".5" stroke-dasharray="1.6 1"/>')
-o.append(f'<text x="38" y="44" font-size="3.8" fill="{M}" font-weight="700">Düzenli dizilim: zıt yükler komşu</text>')
-o.append(f'<text x="38" y="48.5" font-size="3.3" fill="{S}">her iyonu zıt yüklüler çevreler</text>')
-o.append(f'<path d="M76 20 H96" stroke="{M}" stroke-width=".7" marker-end="url(#kk)"/><text x="86" y="17.5" font-size="3.3" fill="{S}">darbe</text>')
-o.append(f'<text x="136" y="44" font-size="3.8" fill="{ROSE}" font-weight="700">Katman kayar: aynı yükler karşı karşıya</text>')
-o.append(f'<text x="136" y="48.5" font-size="3.3" fill="{S}">itme kuvveti kristali bu düzlemden ayırır</text>')
+o.append(f'<text x="30" y="44" font-size="5" fill="{M}" font-weight="700">Zıt yükler komşu</text>')
+o.append(f'<text x="30" y="50" font-size="4.2" fill="{S}">düzenli, kararlı dizilim</text>')
+o.append(f'<path d="M73 20 H98" stroke="{M}" stroke-width=".7" marker-end="url(#kk)"/><text x="85.5" y="17" font-size="4.2" fill="{S}">darbe</text>')
+o.append(f'<text x="138" y="44" font-size="5" fill="{ROSE}" font-weight="700">Aynı yükler karşı karşıya</text>')
+o.append(f'<text x="138" y="50" font-size="4.2" fill="{S}">itme, kristali ikiye ayırır</text>')
 o.append('</g></svg>')
 w('kayma_iyon', ''.join(o))
 
@@ -302,21 +302,18 @@ def elmas(ox, oy, sc):
     return ''.join(o)
 
 
-def grafit(ox, oy, a, katman=3, ara=17):
+def grafit(ox, oy, a, katman=3, ara=12):
     o = []
-    h = a * math.sqrt(3) / 2
     pts, ed = petek(6, 3, a)
-    sx, sy = 1.0, 0.36  # yatay düzlem, basık
-    sh = 0.35 * a
     for L in range(katman - 1, -1, -1):
         dx = (a if L % 2 else 0)
-        P = {k: (ox + (x + dx) * sx + y * 0.55, oy - L * ara + y * sy) for k, (x, y) in pts.items()}
-        sol = 1.0 if L == 0 else 0.85
+        P = {k: (ox + x + dx + 0.3 * y, oy - L * ara + y * 0.3) for k, (x, y) in pts.items()}
+        sol = 1.0 if L == 0 else (0.8 if L == 1 else 0.6)
         for (p, q) in ed:
             A, B = P[p], P[q]
-            o.append(f'<line x1="{A[0]:.1f}" y1="{A[1]:.1f}" x2="{B[0]:.1f}" y2="{B[1]:.1f}" stroke="#64748b" stroke-width=".9" opacity="{sol}"/>')
+            o.append(f'<line x1="{A[0]:.1f}" y1="{A[1]:.1f}" x2="{B[0]:.1f}" y2="{B[1]:.1f}" stroke="#64748b" stroke-width=".8" opacity="{sol}"/>')
         for k, (x, y) in P.items():
-            o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.45" fill="{CK}" opacity="{sol}"/>')
+            o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.35" fill="{CK}" opacity="{sol}"/>')
     return ''.join(o)
 
 
@@ -324,11 +321,9 @@ o = ['<svg viewBox="0 0 180 64" class="grafik"><g font-family="Inter" text-ancho
 o.append(f'<rect x="1" y="1" width="72" height="51" rx="3" fill="{UA}"/>')
 o.append(elmas(37, 26.5, 6.6))
 o.append(f'<rect x="78" y="1" width="101" height="51" rx="3" fill="{UA}"/>')
-o.append(grafit(86, 35, 7.0, 3, 12))
-o.append(f'<line x1="172" y1="12" x2="172" y2="40" stroke="{AMB}" stroke-width=".5" stroke-dasharray="1 .8"/>')
-o.append(f'<text x="170" y="22" font-size="3.2" fill="#b45309" text-anchor="end" font-weight="700">zayıf</text>')
-o.append(f'<text x="170" y="26" font-size="3.2" fill="#b45309" text-anchor="end">katmanlar</text>')
-o.append(f'<text x="170" y="30" font-size="3.2" fill="#b45309" text-anchor="end">arası</text>')
+o.append(grafit(83, 38, 6.6, 3, 14))
+o.append(f'<line x1="171" y1="12" x2="171" y2="38" stroke="{AMB}" stroke-width=".5" stroke-dasharray="1 .8"/>')
+o.append(f'<text transform="translate(175.5,25) rotate(-90)" font-size="3.1" fill="#b45309" font-weight="700">zayıf etkileşim</text>')
 o.append(f'<text x="37" y="57" font-size="4.2" font-weight="800" fill="{UK}">Elmas</text>')
 o.append(f'<text x="37" y="62" font-size="3.3" fill="{S}">her C, 4 C ile bağlı (düzgün dörtyüzlü)</text>')
 o.append(f'<text x="128.5" y="57" font-size="4.2" font-weight="800" fill="{UK}">Grafit</text>')
