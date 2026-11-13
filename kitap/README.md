@@ -1,19 +1,26 @@
 # Âlemlere Rahmet — Cahiliyeden Uhud'a Siyer-i Nebî (Geniş Özet)
 
-Ali Muhammed Sallâbî'nin *Siyer-i Nebî* (1. cilt) ve Enver el-Evlakî'nin *Rasulullah'ın Hayatı* eserlerinin Geniş Özetleri esas alınarak hazırlanmış birleşik siyer kitabı. İki kaynak önce kronolojik bir anlatıda birleştirildi. Ardından metin, kayıtlı **Geniş Özet** formatına göre maddeleştirildi ve tablolaştırıldı.
+Ali Muhammed Sallâbî'nin *Siyer-i Nebî* (1. cilt) ve Enver el-Evlakî'nin *Rasûlullah'ın Hayatı* eserlerinin Geniş Özetleri esas alınarak hazırlanmış birleşik siyer kitabı. Hazırlık dört adımda yapıldı:
+
+1. İki kaynak kronolojik bir anlatıda birleştirildi.
+2. Metin, kayıtlı **Geniş Özet** formatına göre maddeleştirildi ve tablolaştırıldı.
+3. Bütün bölümler iki kaynakla satır satır karşılaştırılarak denetlendi.
+4. İsim yazımları kitap boyunca tekleştirildi.
 
 ## Dosyalar
 
 | Dosya | Açıklama |
 |---|---|
-| `Alemlere_Rahmet_Siyer-i_Nebi.docx` | Word sürümü (A4, 451 sayfa). İlk açılışta içindekiler tablosunu güncellemek için "Evet" deyin. |
+| `Alemlere_Rahmet_Siyer-i_Nebi.docx` | Word sürümü (A4, 448 sayfa). İlk açılışta içindekiler tablosunu güncellemek için "Evet" deyin. |
 | `Alemlere_Rahmet_Siyer-i_Nebi.pdf` | PDF sürümü. |
+| `DENETIM_RAPORU.md` | Kaynağa sadakat denetiminin ve yazım birliğinin sonuçları; karar bekleyen 14 madde. |
+| `kaynak/denetim/` | Bölüm bölüm denetim raporları (`ch01.md` … `ch25.md`) ve denetim kılavuzu. |
 | `kaynak/ozet/` | Kitabın Geniş Özet satırları: `onsoz.txt`, `ch01.txt` … `ch25.txt`, `sonsoz.txt`. |
 | `kaynak/bolumler/`, `kaynak/on-arka/` | Maddeleştirmenin dayandığı düzyazı metin (25 bölüm, Önsöz, Sonsöz, Kronoloji). |
 | `kaynak/arapca/` | Âyet ve hadis kutularının Arapça metinleri, kutu etiketleri ve KAYNAKLAR listesi. |
 | `kaynak/OZET_KILAVUZ.md` | Geniş Özet içerik kuralları ve satır biçimi. |
 | `kaynak/PLAN.md` | Bölüm planı ve her bölümün hangi kaynaktan beslendiği. |
-| `kaynak/dizgi/` | Derleme hattı (kayıtlı `build.js` ve kitap modu). |
+| `kaynak/dizgi/` | Derleme hattı (kayıtlı `build.js` ve kitap modu) ve yazım birliği betiği `yazim_birligi.py`. |
 
 ## İçerik formatı (kayıtlı Geniş Özet)
 
@@ -36,10 +43,18 @@ Ali Muhammed Sallâbî'nin *Siyer-i Nebî* (1. cilt) ve Enver el-Evlakî'nin *Ra
   - 4'ü Mektebetü'ş-Şâmile'den.
   - Arapça lafzın kaynağı tercümeninkinden farklıysa kutunun kaynak satırında "Arapça lafız: …" yazar.
 
+## Doğruluk denetimi
+
+- 25 bölümün bütün madde, tablo ve kutu satırları iki kaynağın metniyle tek tek karşılaştırıldı: 832 tablo satırı ve 1.726 atıflı madde.
+- Toplam 39 düzeltme yapıldı ve hepsi düzyazı kaynağa da işlendi. Bunlar arasında anlamı tersine dönmüş cümleler, yanlış kişiye bağlanmış görüşler ve yanlış maddeye bağlanmış künyeler var.
+- Kaynakta karşılığı bulunamayan 14 küçük somut ayrıntı karar için listelendi.
+- Ayrıntılar `DENETIM_RAPORU.md` ve `kaynak/denetim/` içindedir.
+
 ## Yeniden üretmek
 
 ```bash
 cd kitap/kaynak
+python3 -I dizgi/yazim_birligi.py .     # isim yazımlarını tekleştirir (metinler zaten uygulanmış hâlde)
 python3 -I dizgi/ozet_check.py          # Geniş Özet satırlarının denetimi
 bash dizgi/derle.sh . ..                # kitap/ içine .docx ve .pdf yazar (ara dosyalar kitap/icerik/)
 BICIM=duzyazi bash dizgi/derle.sh . ..  # aynı tasarımla düzyazı sürümü

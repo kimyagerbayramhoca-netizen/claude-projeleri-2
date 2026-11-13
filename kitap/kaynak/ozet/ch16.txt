@@ -5,7 +5,7 @@ B1|Hac mevsiminde Arabistan'ın dört bir yanından gelen kabileler Minâ'da ça
 B1|Bu kalabalıkta bir adam, nesep bilgini dostuyla çadır çadır dolaşıp Allah'ın birliğini anlatıyor, kendisini koruyup Rabbinin sözünü tebliğe imkân tanıyacak bir kavim arıyordu.
 B1|Arkasından gelen Ebû Leheb ise onun yalancı olduğunu söyleyip insanları dinlememeye çağırıyordu.
 B1|Hüzün Yılı'nda Ebû Tâlib ile Hz. Hatice'nin (r.anhâ) vefatından sonra Mekke'de İslâm'a girenler tek tük kalmış, sokaklar müşriklere geçmiş, davet âdeta durmuştu.
-B1|Tâif'in kapısı da kapanmış, Rasûlullah (s.a.v.) Mekke'ye ancak Mut'im b. Adî'nin himayesiyle girebilmişti; yine de mesajı özgürce yayabileceği yeni bir üs bulma ümidini yitirmedi.
+B1|Tâif'in kapısı da kapanmış, Rasûlullah (s.a.v.) Mekke'ye ancak Mut'im b. Adiy'nin himayesiyle girebilmişti; yine de mesajı özgürce yayabileceği yeni bir üs bulma ümidini yitirmedi.
 H2|Kapı Kapı Değil, Plan Plan: Kabilelere Arz
 INTRO|Rasûlullah (s.a.v.) panayırlarda kabile kabile, planlı biçimde himaye aradı.
 B1|Rasûlullah Tâif dönüşünden sonra panayırlarda kendini Arap kabilelerine tanıtıyor, İslâm'ı anlatıp Allah'ın kelâmını tebliğ için himaye ve yardım istiyordu.
@@ -23,7 +23,7 @@ QUOTE|ch16-117
 B1|Tirmizî'ye göre Rasûlullah bu daveti hacda Arafat'ta da sürdürüyordu.
 B1|Makrîzî, onun panayırlarda kendini tanıttığı kabile ve şahısları tek tek sayar (*İmtâu'l-Esmâ*, 1/30-31).
 TABLE|Makrîzî'nin saydığı muhataplar|Adları
-ROW|Kabileler|Âmiroğulları, Gassân, Fezâreoğulları, Mürreoğulları, Hanîfeoğulları, Süleymoğulları, Absoğulları, Nasroğulları, Sa'lebe b. Ukābe, Kinde, Kelb, Hâris b. Kâ'b oğulları, Uzreoğulları
+ROW|Kabileler|Âmiroğulları, Gassân, Fezâreoğulları, Mürreoğulları, Hanîfeoğulları, Süleymoğulları, Absoğulları, Nasroğulları, Sa'lebe b. Ukâbe, Kinde, Kelb, Hâris b. Ka'b oğulları, Uzreoğulları
 ROW|Şahıslar|Kays b. Hatîm ve Ebü'l-Yüsr Enes b. Ebî Râfi'
 ENDTABLE
 B1|Sallâbî, Kureyş'in hile ve propagandasına karşı uygulanan dört yöntemi sayar.
@@ -44,9 +44,9 @@ B1|Rasûlullah Abdullahoğulları'na isimleri üzerinden, "Allah'ın sizin için
 B1|Hanîfeoğulları'nın reddi hepsinden kabaydı; Zührî, Araplardan hiçbirinin onu bu kadar kötü reddetmediğini söyler.
 B2|Evlakî, bu kabilenin yıllar sonra Müseylimetü'l-Kezzâb önderliğinde İslâm'a karşı en ağır isyanlardan birini başlatacağını, bunun ancak Ebû Bekir'in halifeliğinde bastırılabildiğini hatırlatır.
 B1|Sallâbî'ye göre Âmiroğulları görüşmesi araştırma ve planlamaya dayanıyordu; Rasûlullah ve Ebû Bekir kabilenin savaşçı, kalabalık ve zengin olduğunu biliyordu.
-B1|Âmiroğulları, savaşlarda kadınları hiç esir düşmemiş, hiçbir krala tâbi olmamış ve kimseye haraç vermemiş beş kabileden biriydi; durumları Kureyş ve Huzâa'nınkine benziyordu ve Sakīf ile aralarında çekişme vardı.
+B1|Âmiroğulları, savaşlarda kadınları hiç esir düşmemiş, hiçbir krala tâbi olmamış ve kimseye haraç vermemiş beş kabileden biriydi; durumları Kureyş ve Huzâa'nınkine benziyordu ve Sakîf ile aralarında çekişme vardı.
 B1|Benî Âmir b. Sa'saa'nın konaklama yerinde Rasûlullah onları Allah'a davet edip kendini tanıttı.
-B1|Oradaki Beyhare b. Firâs (Evlakî'de Bahîra b. Firâs) dinledikçe etkilendi; ama Evlakî'ye göre onu etkileyen hakikat değil, gördüğü siyasî imkândı.
+B1|Oradaki Beyhare b. Firâs (Evlakî'de Bahîra b. Faras) dinledikçe etkilendi; ama Evlakî'ye göre onu etkileyen hakikat değil, gördüğü siyasî imkândı.
 SOZ|💬 BEYHARE B. FİRÂS|"Allah'a yemin olsun, Kureyş'ten bu adamı alsam onunla bütün Arapları yenerim!"|
 B1|Beyhare ardından, "Senin işine tâbi olsak, sonra Allah seni muhaliflerine galip getirse, bu işte bize de bir şey düşecek mi?" diye şartını ortaya koydu.
 B1|Rasûlullah kısaca, "Bu iş Allah'ındır; dilediğine verir" buyurdu (İbn Hişâm, *es-Sîretü'n-Nebeviyye*, 2/66; Ebû Nuaym, *Delâilü'n-Nübüvve*, 215).
@@ -54,8 +54,8 @@ B1|Evlakî bu cevabı, "Arz Allah'ındır, ona kimi dilerse vâris kılar ve gü
 B1|Bu, Peygamber'in pazarlık konusu değil Allah'ın elindeki bir emirdi; mesele makam ve güç kavgası değil, din meselesiydi.
 B1|Beyhare de açıkça, "Senin uğruna boğazlarımızı Araplara hedef yapalım, sonra Allah seni galip getirince iş başkalarının olsun, öyle mi? Bizim senin işine ihtiyacımız yok" dedi.
 B1|Yurtlarına dönen Benî Âmir, yaşlılığı yüzünden hacca gidemeyen ve her dönüşte haber soran bilge bir ihtiyara, peygamber olduğunu söyleyen Abdülmuttalib torunu genci reddettiklerini anlatınca ihtiyar elini alnına koyup hayıflandı.
-SOZ|💬 BENÎ ÂMİR'İN YAŞLI BİLGESİ|"Bu hatanızı telafi edebilir misiniz? Allah'a yemin ederim ki İsmail soyundan hiç kimse bu iddiada yalan yere bulunmadı; hepsi doğruydu! Aklınız neredeydi?"|
-B1|Evlakî'ye göre ümmî bir topluluk olan Arapların nübüvvet geleneği yoktu; bildikleri son peygamber iki bin yıl kadar önce yaşamış İsmail (a.s.) idi.
+SOZ|💬 BENÎ ÂMİR'İN YAŞLI BİLGESİ|"Bu hatanızı telafi edebilir misiniz? Allah'a yemin ederim ki İsmâil soyundan hiç kimse bu iddiada yalan yere bulunmadı; hepsi doğruydu! Aklınız neredeydi?"|
+B1|Evlakî'ye göre ümmî bir topluluk olan Arapların nübüvvet geleneği yoktu; bildikleri son peygamber iki bin yıl kadar önce yaşamış İsmâil (a.s.) idi.
 B2|Peygamberlik iddiası aralarında daha önce görülmemiş olduğundan, ihtiyarın gözünde doğru olmalıydı.
 H2|Nesep Bilgini Ebû Bekir ve Genç Dağfal
 INTRO|Ebû Bekir'in nesep bilgisi, genç Dağfal'la karşılaşmada beklenmedik bir karşılık buldu.
@@ -143,7 +143,7 @@ B1|Davet bitince birbirlerine, "Ey cemaat! Allah adına yemin olsun, bilirsiniz 
 SOZ|💬 ALTI HAZRECLİ|"Arkamızda, aralarındaki düşmanlık hiçbir kavimde görülmeyen bir topluluk bıraktık. Belki Allah onları senin sayende bir araya getirir... Eğer Allah onları senin etrafında birleştirirse, senden daha aziz kimse olmaz."|
 B1|Sallâbî'ye göre bu altı kişi Ebû Ümâme Es'ad b. Zürâre, Neccâroğulları'ndan Avf b. Hâris, Râfi' b. Mâlik, Kutbe b. Âmir, Ukbe b. Âmir ve Câbir b. Abdullah b. Riâb idi.
 TABLE|Konu|Sallâbî|Evlakî
-ROW|Altı kişinin kabilesi|Altısı da Hazrecliydi.|Bir rivayete göre beşi Hazrec'ten, biri Evs'tendi.
+ROW|Altı kişinin kabilesi|Altısı da Hazrecliydi.|Altısı da Hazrecliydi; bir rivayete göre ise beşi Hazrec'ten, biri Evs'tendi.
 ENDTABLE
 B1|Sallâbî'ye göre biat yapılmadı; grup küçüktü ve kavimlerinin görüşünü almadan anlaşma yapma hakkını kendilerinde görmüyorlardı.
 B1|Ertesi hac mevsiminde buluşmak üzere ayrıldılar; Medine'de Allah'ın elçisini anlatıp insanları İslâm'a çağırınca Ensâr'ın evlerinde Rasûlullah'tan konuşulmayan ev kalmadı.
@@ -151,8 +151,8 @@ B1|Sallâbî'ye göre bu karşılaşma önceden sözleşilmeden, Allah'ın hazı
 H2|Hazırlanmış Gönüller: Yesrib Niçin Kabul Etti?
 INTRO|İki müellif, Yesrib'in çağrıya niçin çabuk koştuğunu birbirini tamamlayan sebeplerle açıklar.
 KAVRAM|💡 KAVRAM · ENSÂR|Müslüman olan Evs ve Hazrec'e verilen, "yardımcılar ve koruyucular" anlamındaki addır.
-B1|Evlakî'ye göre Araplar Adnânî ve Kahtânî diye ikiye ayrılır; Adnânîler İsmail'in (a.s.) soyundan, Kahtânîler Yemen Araplarındandır ve Evs ile Hazrec Kahtânî idi.
-B1|Evs ve Hazrec Medine'de Benî Kurayza, Benî Kaynukā ve Benî Nadîr Yahudi kabileleriyle komşuydu.
+B1|Evlakî'ye göre Araplar Adnânî ve Kahtânî diye ikiye ayrılır; Adnânîler İsmâil'in (a.s.) soyundan, Kahtânîler Yemen Araplarındandır ve Evs ile Hazrec Kahtânî idi.
+B1|Evs ve Hazrec Medine'de Benî Kurayza, Benî Kaynukâ ve Benî Nadîr Yahudi kabileleriyle komşuydu.
 B1|Evlakî'ye göre şehrin doğusu ve batısı orduların aşamayacağı kayalıklarla, güneyi tarlalarla çevriliydi; saldırıya açık tek yön kuzeydi.
 B1|Sallâbî önce, Allah'ın Hazrec'e verdiği yumuşaklık, yufka yüreklilik, hakkı inkâr etmeme ve kibirde aşırı gitmeme gibi fıtrî ahlâka dikkat çeker.
 B2|Bu huyları Yemen'e dayanan köklerine bağlar ve Peygamber Efendimizin (s.a.v.) "Yemen ehli size geldi; onlar yufka yürekli ve yumuşak kalplidirler" hadisini hatırlatır (Buhârî, 4388; Müslim, 52).
@@ -211,7 +211,7 @@ B1|Üseyd, Sa'd'ı harekete geçirmek için Hârisoğulları'nın, Sa'd'ın akra
 B1|Mızrağını kapıp öfkeyle koşan Sa'd, ikisini sakin otururken görünce Üseyd'in maksadının kendisine bir şey dinletmek olduğunu anladı.
 B1|Başlarına dikilip Es'ad'a, "Aramızda akrabalık olmasaydı bunu bana yapamazdın!" diye sitem etti.
 B1|Mus'ab aynı teklifi aynı sükûnetle tekrarlayınca Sa'd da "İnsaf ettin" deyip mızrağını yere saplayarak oturdu.
-B1|Mûsâ b. Ukbe'nin rivayetine göre Mus'ab ona Zuhruf sûresinin başından okudu (Mûsâ b. Ukbe, *el-Megāzî*).
+B1|Mûsâ b. Ukbe'nin rivayetine göre Mus'ab ona Zuhruf sûresinin başından okudu (Mûsâ b. Ukbe, *el-Megâzî*).
 B1|Evlakî'ye göre Medineliler, Mekke'dekiler gibi önyargılı bir düşmanlıkla değil, dinlemeyi tercih eden bir açıklıkla hareket ediyordu.
 B1|Sa'd'ın yüzünde de İslâm hemen belirdi; o da aynı adımlarla Müslüman oldu.
 B1|Kavmi, meclise Üseyd ile dönen Sa'd'ın başka bir yüzle geldiğini fark etti.

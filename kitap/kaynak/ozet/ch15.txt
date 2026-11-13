@@ -158,10 +158,10 @@ B1|Ancak Kureyş'e karşı çıkıp başka kabilelerden yardım istediği için 
 B1|Bu yüzden himaye aradı; Evlakî'ye göre Mekke dışında konaklayıp Uraykat adlı bir adamla Ahnes b. Şerîk'e haber gönderdi.
 TABLE|Himaye istenen|Cevabı
 ROW|Ahnes b. Şerîk|"Ben Kureyş'in müttefikiyken Kureyş'ten olan birine himaye veremem" diyerek reddetti.
-ROW|Süheyl b. Amr|"Amr b. Lüeyoğulları, Kâ'b b. Lüeyoğulları'ndan birini himaye etmez" diyerek reddetti.
+ROW|Süheyl b. Amr|"Amr b. Lüeyoğulları, Ka'b b. Lüeyoğulları'ndan birini himaye etmez" diyerek reddetti.
 ROW|Mut'im b. Adiy|Üçüncü talebi kabul etti.
 ENDTABLE
-B1|Sallâbî'nin naklettiğine göre Zerkânî bu cevaplara itiraz eder; Lüey'in oğulları Amr ile Kâ'b aynı derecede olduğundan biri ötekini himaye edebilir.
+B1|Sallâbî'nin naklettiğine göre Zerkânî bu cevaplara itiraz eder; Lüey'in oğulları Amr ile Ka'b aynı derecede olduğundan biri ötekini himaye edebilir.
 B2|Zerkânî'ye göre himaye vermeyecek insanlar olsalardı, kavminin örf ve âdetlerini bilen Rasûlullah onlara teklif götürmezdi (Zerkânî).
 TABLE|Konu|Sallâbî|Evlakî
 ROW|Himayenin ilanı|Mut'im çocuklarını ve kavmini silahlandırıp Kâbe'nin rükünleri önünde topladı, bineği üzerinde ayağa kalkarak Muhammed'i himayesine aldığını ilan etti.|Rasûlullah geceyi Mut'im'in evinde geçirdi; sabah Mut'im altı yedi oğluna kılıç kuşanıp onu Kâbe'ye kadar korumalarını emretti.
@@ -174,7 +174,7 @@ B1|Mut'im'in kabilesinin büyük atası Nevfel, cahiliyede Abdülmuttalib'in baz
 B1|Bunu gören Huzâa eşrafı da Abdülmuttalib'le, Nevfeloğulları ve Abdüşemsoğulları'ndan kimsenin bulunmadığı bir anlaşma yapmıştı (Belâzürî, *Ensâbü'l-Eşrâf*, thk. Muhammed Hamîdullah, 1/71).
 B1|Kusay onları Beytullah'tan çıkardığından beri Kureyş'e buğzeden Huzâa'nın elçisi, Sallâbî'ye göre Mut'im'e bu eski ittifakı hatırlatıyordu.
 B2|Mesaj, Rasûlullah'ın dedesi gibi Huzâa ile anlaşabileceği ya da Hazrec'den yardım isteyebileceğiydi.
-B1|Kureyş'in suskunluğu da yalnız Nevfeloğulları'nın silahlarından değil, Huzâa silahlarından ve Hazrec oklarından korkmasındandı.
+B1|Kureyş'in suskunluğu da Nevfeloğulları'nın silahlarından değil, Huzâa silahlarından ve Hazrec oklarından korkmasındandı.
 B1|Zalim sahîfeyi bozmak için de kolları sıvayan Mut'im, Evlakî'ye göre Müslüman olmadığı hâlde iki kritik anda davetin önündeki engelleri kaldırmıştı.
 B1|Rasûlullah bu iyiliği unutmadı; yıllar sonra Bedir esirleri için "Eğer Mut'im b. Adiy yaşıyor olsaydı ve şu kokuşmuşlar hakkında benimle konuşsaydı, onları onun için serbest bırakırdım" buyurdu (Buhârî, 3139, 4024).
 B1|Hassân b. Sâbit (r.a.) Mut'im'i bu tutumu için şiirle övmüş, Rasûlullah buna karşı çıkmamıştır.
@@ -191,7 +191,7 @@ B1|Kur'ân İsrâ'yı İsrâ, Mi'râc'ı Necm sûresinde anlatır; ikisinde de h
 QUOTE|ch15-113
 KAVRAM|💡 KAVRAM · İSRÂ VE Mİ'RÂC|Evlakî'ye göre İsrâ Mekke'den Kudüs'e gece yolculuğu, Mi'râc ise Kudüs'ten yedi kat semaya ve Sidretü'l-Müntehâ'ya yükseliştir; hepsi tek bir gecede gerçekleşmiştir.
 B1|Sahih rivayetlere göre Rasûlullah Kâbe yanındaki Hatîm'deyken melek göğsünü yarıp kalbini çıkardı, imanla dolu bir tasta yıkayıp yerine koydu (Buhârî, 3206, 3430, 3887; Müslim, 166; Tirmizî, 3346; Nesâî, 448; Ahmed b. Hanbel, *Müsned*, 17378-17380; İbn Huzeyme, 303; İbn Hibbân, 48).
-B2|Sallâbî'nin Mâlik b. Sa'saa hadisinden aktardığı anlatımda yer, Harîm'de Rükün ile Makām arası olarak geçer.
+B2|Sallâbî'nin Mâlik b. Sa'saa hadisinden aktardığı anlatımda yer, Harîm'de Rükün ile Makâm arası olarak geçer.
 KAVRAM|💡 KAVRAM · BURAK|Rasûlullah'a getirilen; katırdan küçük, merkepten büyük, adımını gözün gördüğü son noktaya atan beyaz binektir.
 B1|Rasûlullah Burak'la Beytü'l-Makdis'e varıp onu peygamberlerin binek bağladığı halkaya bağladı ve mescitte iki rekât kıldı.
 B1|Cebrâil'in getirdiği içki ile sütten sütü seçince Cebrâil "Fıtratı seçtin" dedi (Müslim, 162; Enes b. Mâlik rivayeti).

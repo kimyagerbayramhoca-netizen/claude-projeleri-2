@@ -28,7 +28,7 @@ B1|Büyûtü's-Sükyâ'daki teftişte gücü yetmeyecekler geri çevrildi; büy�
 B1|Harretü'l-Vebre'de ganimet için katılmak isteyen cesur bir müşrik, "Allah'a ve Rasûlüne inanıyor musun?" sorusuna "Hayır" deyince "O hâlde geri dön! Ben müşrikten yardım almam" cevabını aldı.
 B2|Şecere'de aynı şey tekrarlandı; üçüncü defa Beydâ'da iman ettiğini söyleyince orduya alındı (Müslim, 1817; Ebû Dâvûd, 2732; Tirmizî, 1558; Ahmed b. Hanbel, 3/148-149).
 B1|Gizlilik titizlikle korundu; Hz. Âişe'nin (r.anhâ) rivayetine göre develerin zilleri söküldü.
-B2|Ka'b b. Mâlik (r.a.), Rasûlullah'ın gazveye çıkarken asıl hedefini başka bir hedefle örttüğünü anlatır; Nevevî bunu savaşta tevriyenin müstehap olduğuna delil sayar.
+B2|Ka'b b. Mâlik (r.a.), Rasûlullah'ın gazveye çıkarken asıl hedefini başka bir hedefle örttüğünü anlatır; Nevevî de Rasûlullah'ın yön vermeden yola çıktığı rivayetin (Müslim, 1901) şerhinde savaşta tevriyenin müstehap olduğunu söyler.
 H2|Bir Kervan, İki Şehir: Mekke'nin Seferberliği
 INTRO|Mekke, görünüşte azametli ama içten korkulu bir orduyla yola çıktı.
 B1|Müslümanların çıktığını duyan uyanık kervan reisi Ebû Süfyân, Bedir'de iki kişinin gelip gittiğini öğrenip develerini çöktürdükleri yere gitti.
@@ -77,7 +77,7 @@ TABLE|Konu|Sallâbî|Evlakî
 ROW|Deniz misali|İbn Hişâm'dan naklettiği metinde misal, Peygamber'in onlara bir deniz gösterip ona dalması şeklinde geçer.|Sa'd "Atlarımızı denize sürmemizi istesen bunu yaparız; Arabistan'ın en uç noktası Bark el-Ğamâd'a sürmemizi istesen onu da yaparız" der.
 ROW|Konuşmanın sahnesi|Sa'd, Mikdâd'ın ardından konuşur.|Taahhüt ayrı bir istişare sahnesinde anlatılır.
 ENDTABLE
-B1|Sa'd'ın sözleri Rasûlullah'ı sevindirip sahâbenin azmini tutuşturdu; Allah Rasûlü "Yürüyünüz, size müjdeler olsun! Çünkü Allah bana iki taifeden birini vaat etti. Vallahi, ben şu anda düşmanların düşüp ölecekleri yerleri görür gibiyim" buyurdu (Beyhakī, *Delâilü'n-Nübüvve*, 3/34; İbn Hişâm, *es-Sîre*, 2/267).
+B1|Sa'd'ın sözleri Rasûlullah'ı sevindirip sahâbenin azmini tutuşturdu; Allah Rasûlü "Yürüyünüz, size müjdeler olsun! Çünkü Allah bana iki taifeden birini vaat etti. Vallahi, ben şu anda düşmanların düşüp ölecekleri yerleri görür gibiyim" buyurdu (Beyhakî, *Delâilü'n-Nübüvve*, 3/34; İbn Hişâm, *es-Sîre*, 2/267).
 B1|Sallâbî'ye göre gazvelerdeki istişare şûrânın hayatî değerini gösterir; çünkü savaşlar ümmetleri ya yükseklere ya da toprağın altına götürür.
 B2|Ona göre Sa'd'ın taahhüdüyle Akabe Biatı'nın kapsamı fiilen aşılmıştı.
 H2|Su Başında Bir Gece
@@ -87,18 +87,18 @@ B1|Ebû Bekir'le dolaşırken rastladığı yaşlı bir Arap'a Kureyş'i ve Muha
 B2|Adam iki ordunun o anki yerlerini tarif edip kim olduklarını sordu; "Biz sudanız" cevabını alıp yalnız kalınca "Hangi sudan? Irak suyundan mı?" diye söylenip durdu (İbn Hişâm, *es-Sîre*, 3/172).
 KAVRAM|💡 KAVRAM · TEVRİYE|Yalan söylemeden gerçeği örten sözdür; Evlakî "Biz sudanız" cevabını insanın sudan yaratıldığını bildiren âyete (Furkân 25/54) bağlar.
 B1|Sallâbî'ye göre Mekke'deki gizli davette başlayan emniyet terbiyesi devlet kurulunca bitmemiş, gazvelerde daha da artmıştı.
-B1|Aynı akşam Ali, Zübeyr ve Sa'd b. Ebî Vakkās (r.a.) bir grupla Bedir suyuna gönderildi; Sallâbî'de müşrik ordusundan iki kişi yakalanır, Evlakî'de ise sorgulanan Kureyş ordusuna ait bir köledir.
+B1|Aynı akşam Ali, Zübeyr ve Sa'd b. Ebî Vakkâs (r.a.) bir grupla Bedir suyuna gönderildi; Sallâbî'de müşrik ordusundan iki kişi yakalanır, Evlakî'de ise sorgulanan Kureyş ordusuna ait bir köledir.
 B2|Rasûlullah namazdayken sahâbîler esiri sorgulamış, Kureyş ordusunu doğru anlatınca dövmüş, Ebû Süfyân hakkında uydurduğu cevaplar üzerine bırakmışlardı.
 B2|Namazı bitiren Allah Rasûlü "Size doğruyu söyleyince onu dövüyorsunuz, yalan söyleyince bırakıyorsunuz" buyurdu (Müslim, 1781; Ahmed b. Hanbel, 11611, 12542).
 B1|Sorguyu kendisi yapıp Kureyş'in kum tepesinin arkasında olduğunu, bir gün dokuz, bir gün on deve kestiklerini öğrenince "Sayıları dokuz yüz ile bin arasındadır" dedi.
 B2|İçlerinde Utbe, Şeybe, Ebû Cehil ve Ümeyye'nin bulunduğunu duyunca "İşte Mekke bugün ciğerparelerini önünüze atmıştır" dedi (İbn Hişâm, *es-Sîre*, 2/269).
 B2|Evlakî müşrik ordusunun tam dokuz yüz elli kişi olduğunu, iki yüzünün süvari, altı yüzünün zırhlı olduğunu kaydeder.
 B1|Bedir suyuna müşriklerden önce ulaşan Rasûlullah suya yakın bir yerde konaklamak isteyince Hubâb b. Münzir (r.a.), buranın Allah'ın emrettiği ve ileri geri gidilemeyecek bir yer mi, yoksa bir görüş, harp ve tedbir mi olduğunu sordu.
-B2|"Bu bir görüştür, harp ve tedbirdir" cevabı üzerine düşmana en yakın suyun başına geçilmesini, gerideki kuyuların kapatılmasını ve bir havuz doldurulmasını önerdi; böylece Müslümanlar su bulacak, düşman bulamayacaktı (İbn Hişâm, *es-Sîre*, 2/272; Beyhakī, *Delâilü'n-Nübüvve*, 3/35).
+B2|"Bu bir görüştür, harp ve tedbirdir" cevabı üzerine düşmana en yakın suyun başına geçilmesini, gerideki kuyuların kapatılmasını ve bir havuz doldurulmasını önerdi; böylece Müslümanlar su bulacak, düşman bulamayacaktı (İbn Hişâm, *es-Sîre*, 2/272; Beyhakî, *Delâilü'n-Nübüvve*, 3/35).
 B2|Allah Rasûlü planı hemen uyguladı.
 B1|Sallâbî burada bir hürriyet toplumu görür; her fert en tehlikeli meselelerde bile komutanın öfkesinden ya da mevkiinin düşmesinden korkmadan görüşünü söyleyebiliyordu.
 B1|Evlakî'ye göre bu, akıllı bir askerle peygamber arasındaki ideal ilişkidir; önce vahiy olup olmadığını sor, değilse görüşünü açıkla.
-B1|Karargâh kurulunca Sa'd b. Muâz, içinde emniyetle oturacağı ve yanında bineğinin hazır duracağı bir çardak önerdi; zafer gelirse istenen buydu, gelmezse Rasûlullah onu kendilerinden az sevmeyen ve savaş olacağını bilse geri kalmayacak Medinelilere kavuşacaktı (İbn Hişâm, *es-Sîre*, 2/272-273; Beyhakī, *Delâilü'n-Nübüvve*, 3/43).
+B1|Karargâh kurulunca Sa'd b. Muâz, içinde emniyetle oturacağı ve yanında bineğinin hazır duracağı bir çardak önerdi; zafer gelirse istenen buydu, gelmezse Rasûlullah onu kendilerinden az sevmeyen ve savaş olacağını bilse geri kalmayacak Medinelilere kavuşacaktı (İbn Hişâm, *es-Sîre*, 2/272-273; Beyhakî, *Delâilü'n-Nübüvve*, 3/43).
 B1|Savaş alanına bakan tepedeki çardakta Ebû Bekir onunla kalacak, Sa'd'ın başındaki Ensâr gençleri nöbet tutacaktı; Sallâbî buradan konum, koruma, komutanın güvenliği ve ihtiyat kuvvetiyle ilgili dört askerî ilke çıkarır.
 B1|O gece Allah'ın lütfu birkaç şekilde tecelli etti; Rasûlullah rüyasında müşrikleri az gördü, bunu duyan ashâbı sevindi.
 B2|Mücâhid'e göre onları çok görselerdi dağılacak, savaşıp savaşmamakta çekişeceklerdi (Enfâl 8/43).
@@ -125,7 +125,7 @@ B2|Utbe "Bu işi yaparsanız her biriniz kardeşinin ve babasının katiline bak
 B2|Ebû Cehil onu korkaklıkla suçlayınca Utbe'nin cevabı ordunun gizli korkusunu ele verdi.
 SOZ|💬 UTBE B. REBÎA|"Başlarınıza darbeler indirecek, ölümden korkmayan bir kavim görüyorum; başları yılan, yüzleri kılıç gibi."|Bezzâr, 1762; Heysemî, Mecmau'z-Zevâid, 6/76
 B1|Henüz Müslüman olmamış Hakîm b. Hizâm, Utbe'ye Muhammed'in İbn Hadramî'nin kanından başka talebi olmadığını, maktul Utbe'nin müttefiki olduğu için diyetini üstlenip insanları döndürebileceğini söyledi.
-B2|Utbe onu Ebû Cehil'e gönderdi; Ebû Cehil'in tek sözü "Senden başka bir elçi bulamadı mı?" oldu (İbn Hişâm, *es-Sîre*, 2/274-275; Beyhakī, *Delâilü'n-Nübüvve*, 3/65-66).
+B2|Utbe onu Ebû Cehil'e gönderdi; Ebû Cehil'in tek sözü "Senden başka bir elçi bulamadı mı?" oldu (İbn Hişâm, *es-Sîre*, 2/274-275; Beyhakî, *Delâilü'n-Nübüvve*, 3/65-66).
 B1|Sallâbî'ye göre Utbe'nin mantığı açıktı; Muhammed haklıysa izzeti Kureyş'in izzeti olacak, yalancıysa Araplar arasında eriyip gidecekti.
 B2|Ama cahiliyenin kibri hakkı serbest bırakamaz; çünkü hakkın galip gelmesinin kendi sonu olduğunu bilir.
 B1|Müslümanların sayısını tahmin etmeye gönderilen Umeyr b. Vehb el-Cumahî ordunun çevresini ve vadinin arkasını dolaşıp döndü.
@@ -165,7 +165,7 @@ QUOTE|ch21-158
 B1|Ellerini öyle uzun süre kaldırdı ki ridâsı omzundan düştü; Ebû Bekir ridâyı omzuna koyup arkasından sarıldı.
 SOZ|💬 HZ. EBÛ BEKİR|"Ey Allah'ın Rasûlü, Rabbine bu kadar yalvarman yeter; O sana verdiği sözü mutlaka yerine getirecektir."|Müslim, 1763; Ebû Dâvûd, 2690; Tirmizî, 3081; Ahmed b. Hanbel, 1/30; Evlakî'nin kaydı: Buhârî, 2915, 3953, 4875
 B1|Evlakî'nin aktardığı İbn Kesîr'e göre Ebû Bekir "Kendini neden bu kadar yoruyorsun?" demek istiyordu; o, Rasûlullah'a karşı çok şefkatli ve ince kalpliydi.
-B1|İbn İshâk'ın rivayetinde Allah Rasûlü, kibir ve gururla Allah'a düşmanlık edip peygamberini yalanlayan Kureyş'i o sabah helâk etmesini de ister (İbn Hişâm, *es-Sîre*, 2/273; Beyhakī, *Delâilü'n-Nübüvve*, 3/110).
+B1|İbn İshâk'ın rivayetinde Allah Rasûlü, kibir ve gururla Allah'a düşmanlık edip peygamberini yalanlayan Kureyş'i o sabah helâk etmesini de ister (İbn Hişâm, *es-Sîre*, 2/273; Beyhakî, *Delâilü'n-Nübüvve*, 3/110).
 B1|Bunun üzerine "Hatırlayın ki siz Rabbinizden yardım istiyordunuz; O da: Peş peşe gelen bin melek ile size yardım edeceğim, diyerek duanızı kabul buyurdu" âyeti indi (Enfâl 8/9).
 B1|Zırhı içinde çardaktan çıkarken "O topluluk yakında bozguna uğrayacak ve arkalarını dönüp kaçacaklar" (Kamer 54/45) âyetini okuyordu.
 B1|Sonra bir avuç toprak alıp "Yüzleri çirkinleşsin!" diyerek müşriklere savurdu; düşman gözlerine dolan tozla uğraşırken hücum emri verildi.
@@ -244,7 +244,7 @@ B2|Afrâ'nın oğlu Avf, "Allah'ı kulundan güldüren nedir?" sorusuna "Zırh g
 B1|Sa'd b. Hayseme (r.a.) ile babası, biri evde kalmak zorunda olduğu için savaşa kimin çıkacağını kurayla belirledi.
 B2|Kura Sa'd'a çıkınca babası "Oğlum, bugün beni kendine tercih et" dedi; Sa'd "Babacığım, cennetten başka bir şey olsaydı yapardım" cevabını verdi (İbn Hacer, *el-İsâbe*, 2/23-24, no. 3118).
 B2|Sa'd Bedir'de, babası Hayseme (r.a.) Uhud'da şehit oldu.
-B1|Sa'd b. Ebî Vakkās'ın kardeşi Umeyr (r.a.) küçük bulunup geri çevrilmemek için teftişte saklanmış, geri çevrilince ağlayarak izin almış ve şehadete ermişti (Hâkim, *el-Müstedrek*, 3/188; İbn Hacer, *el-İsâbe*, 3/35).
+B1|Sa'd b. Ebî Vakkâs'ın kardeşi Umeyr (r.a.) küçük bulunup geri çevrilmemek için teftişte saklanmış, geri çevrilince ağlayarak izin almış ve şehadete ermişti (Hâkim, *el-Müstedrek*, 3/188; İbn Hacer, *el-İsâbe*, 3/35).
 H2|Kuyunun Başında
 INTRO|Zaferden sonra Kureyş ölüleri kuyuya atıldı ve müjde Medine'ye ulaştı.
 B1|Bedir'in bilançosu açıktı; ölen müşriklerin çoğu Kureyş'in komutan ve liderleriydi.
@@ -279,7 +279,7 @@ INTRO|Bedir'in dersleri tevekkülden hidayete kadar uzanır.
 B1|Bedir'in ilk dersi tevekkülün ne olduğu ve ne olmadığıdır.
 KAVRAM|💡 KAVRAM · TEVEKKÜL|Evlakî'ye göre dünyevî sebepler bakımından en iyisini yaptıktan, bütün imkânları son sınırına kadar kullandıktan sonra işi Allah'a havale etmektir.
 B1|Rasûlullah (s.a.v.) sayımdan gözcülere, sorgudan suyun başını tutmaya, saflardan güneşe ve okların hesabına kadar bütün sebeplere sarıldı; sonra çardakta ridâsı düşene kadar ellerini kaldırdı.
-B1|Sallâbî'nin aktardığı Saîd Havvâ'ya göre Allah'ın yardımı niyeti hâlis olan, istikamet üzere bulunan ve sebeplere sarılan bir topluluğa iner; bugün de hazırlıksız dua, duasız hazırlık kadar eksiktir.
+B1|Sallâbî'nin aktardığı Saîd Havvâ'ya göre Allah'ın yardımı niyeti hâlis olan, istikamet üzere bulunan ve sebeplere sarılan bir topluluğa iner; Evlakî'ye göre de hazırlıksız dua, duasız hazırlık kadar eksiktir.
 B1|İkinci ders şûrâ ve hürriyetin bir topluluğa kazandırdığı güçtür; Mikdâd'ın sadakati, Sa'd'ın taahhüdü ve Hubâb'ın edepli itirazı fikrini söylemekten korkmayan insanların yetiştiği bir toplumun meyveleridir.
 B2|Peygamber Efendimiz vahiy olmayan bir konuda görüşünden döndü, askerinin planını benimsedi, devesini paylaştı ve Sevvâd'a kısas hakkını tanıdı.
 B2|Sallâbî'nin ifadesiyle duadaki sahne her komutan ve fert için rabbânî bir derstir; sorumluluğun en ağır olduğu saatte nefsin hazzından soyutlanıp ihlâsla Allah'ın huzurunda diz çökmek gerekir.

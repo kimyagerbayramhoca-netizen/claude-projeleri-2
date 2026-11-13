@@ -4,7 +4,7 @@ INTRO|Bedir'den Uhud'a uzanan yaklaşık bir yıl, genç devletin hem dışarıd
 B1|Sallâbî'ye göre Bedir'den sonra Müslümanların askerî caydırıcılığı yarımadanın geniş bir alanında büyük bir seviyeye ulaştı; zayıf müşrikler kendini tehlikede görüyor, güçlüler İslâm'ın üstünlüğünü hissediyordu.
 B1|İslâm'a yönelenlerin bir kısmı onun içine nifakla sızmaya çalıştı; devlet daha önce tanımadığı komplolar ve ittifaklarla karşılaştı.
 B1|Evlakî dönemin iki büyük problemini nifak ve Yahudilerin açığa çıkan düşmanlığı olarak özetler.
-B1|Bölüm; iç cephedeki kırılmaları, Kaynukā sürgününü, fitnecilerin ve Ka'b b. Eşref'in sonunu, caydırıcı seferleri ve iki mütevazı yuvayı ele alır.
+B1|Bölüm; iç cephedeki kırılmaları, Kaynukâ sürgününü, fitnecilerin ve Ka'b b. Eşref'in sonunu, caydırıcı seferleri ve iki mütevazı yuvayı ele alır.
 H2|Zaferin Gölgesinde Doğan Nifak
 INTRO|Bedir zaferi açık düşmanlığın bedelini ağırlaştırınca Medine'de nifak doğdu.
 B1|Sallâbî'ye göre İslâm'a şüpheyle bakanlar ve müşrikler Bedir'den sonra küfürlerini ve düşmanlıklarını açıkça ilan edemeyince hile ve aldatma yoluna başvurdular.
@@ -31,7 +31,7 @@ B1|Onları her zamanki gibi karşılamaya koşan en sevdikleri çocuk Safiye'nin
 B1|Safiye, Ebû Yâsir'in "O, bu mu?" sorusuna Huyay'ın yeminle evet dediğini ve onu sıfatından, eşkâlinden kesinlikle tanıdığını duydu; ne yapacağı sorulunca Huyay şu cevabı verdi.
 SOZ|💬 HUYAY B. AHTAB|"Vallahi, yaşadığım sürece onun düşmanı olacağım."|
 B1|Evlakî'ye göre bu, küfrün en kötü çeşididir; yalan sanarak değil, hak olduğunu kesin bildiği hâlde peygamberin Arap olmasını kıskandığı için inkâr etmektir.
-B1|İbn İshâk'a göre küfürde ileri giden, Müslümanlara kini şiddetli yaşlı Yahudi Eşas b. Kays, Evs ile Hazrec'i bir arada görünce "Bunlar bir oldukça bize bu diyarda yer yok" dedi.
+B1|İbn İshâk'a göre küfürde ileri giden, Müslümanlara kini şiddetli yaşlı Yahudi Şâs b. Kays, Evs ile Hazrec'i bir arada görünce "Bunlar bir oldukça bize bu diyarda yer yok" dedi.
 B1|Yahudi bir genci onların meclisinde cahiliyedeki Buâs savaşlarını hatırlatmak ve iki kabilenin birbirine karşı söylediği kahramanlık şiirlerini okumakla görevlendirdi.
 B1|Şiirler okundukça bağırışmalar başladı; iki taraf "Haydi silahlanalım, falanca yerde karşılaşalım" diyerek savaşın eşiğine geldi.
 B1|Haber ulaşınca Rasûlullah koşup "Ey Müslümanlar, Allah'tan korkun! Ben aranızdayken, Allah sizi İslâm'a iletip kendisine boyun eğdirdikten sonra cahiliye husumetini mi sürdüreceksiniz?" dedi ve Allah'ın onları cahiliyeden ve küfürden kurtarıp kalplerine düşmanlık yerine dostluk yerleştirdiğini hatırlattı.
@@ -39,8 +39,8 @@ B1|Az önce silaha davrananlar birbirine sarılıp birbirleri için mağfiret di
 B1|Evlakî olayı, Ehl-i Kitâb'ın müminleri Allah yolundan çevirme çabasını kınayan ve onlara uyanların imandan sonra küfre döndürüleceğini bildiren âyetlerle (Âl-i İmrân 3/98-100) birlikte okur ve şu emre bağlar.
 QUOTE|ch23-171
 B1|Evlakî'ye göre bir savaş bir kelimeyle başlayabilir; bu yüzden Allah sözün en güzelini söylemeyi emreder, çünkü şeytan kelimelerin arasından girip ayırır (İsrâ 17/53).
-B1|Yahudiler Allah, Rasûlü ve İslâm hakkında ileri geri konuşmaktan da çekinmiyordu; haham Fenhas, onu İslâm'a çağıran Ebû Bekir'e (r.a.) "Sizin ilâhınız fakir, biz ise zenginiz. Zengin olsaydı sizden zekât istemezdi; bu, onun bize muhtaç olduğunu gösterir" dedi.
-B1|Kendini tutamayan Ebû Bekir onun yüzüne vurdu; Fenhas Rasûlullah'a şikâyete koştu, Ebû Bekir olanı anlatınca da söylediğini inkâr etti.
+B1|Yahudiler Allah, Rasûlü ve İslâm hakkında ileri geri konuşmaktan da çekinmiyordu; haham Finhâs, onu İslâm'a çağıran Ebû Bekir'e (r.a.) "Sizin ilâhınız fakir, biz ise zenginiz. Zengin olsaydı sizden zekât istemezdi; bu, onun bize muhtaç olduğunu gösterir" dedi.
+B1|Kendini tutamayan Ebû Bekir onun yüzüne vurdu; Finhâs Rasûlullah'a şikâyete koştu, Ebû Bekir olanı anlatınca da söylediğini inkâr etti.
 B1|Bunun üzerine "Şüphesiz Allah, Allah fakirdir biz ise zenginiz diyenlerin sözlerini duymuştur" âyetleri indi (Âl-i İmrân 3/181-182).
 B1|Aynı sûre Ehl-i Kitâb'dan ve müşriklerden çok eziyet verici sözler işitileceğini, sabır ve takvânın azim isteyen işlerden olduğunu bildirir (Âl-i İmrân 3/186).
 B2|Evlakî'ye göre bugün de Müslümanlar hakkında çok şey söylenecek, ama sabır ve takvâ korundukça bu propaganda İslâm'a zarar veremeyecektir.
@@ -49,24 +49,24 @@ KAVRAM|💡 KAVRAM · ES-SÂMU ALEYKE|"Es-Selâmu aleyke"ye çok benzeyen ve "ö
 B1|Bunu fark edip ağır bir bedduayla karşılık veren Hz. Âişe'yi (r.anhâ) Rasûlullah "Böyle deme ey Âişe; çünkü Allah kötü sözü sevmez" diye uyardı (Evlakî'nin kaydı: Buhârî, Dualar, 96; Selâm, 13).
 B1|Evlakî'ye göre başlarına bir şey gelmeyince bunu onun peygamber olmadığına delil sayıyorlardı; Kur'ân ise Allah'ın selamlamadığı şekilde selam verenlere cehennemin yeteceğini bildirdi (Mücâdele 58/8).
 B1|İnsanları İslâm'dan alıkoymak için Abdullah b. Selâm'ı Müslüman olur olmaz yalancılık ve kavmine vefasızlıkla suçladılar; Müslüman Araplara da "Sizin eski dininiz onlarınkinden daha hayırlıdır" demeye başladılar.
-H2|Benî Kaynukā: Pazar Yerindeki Hakaret
-INTRO|Yahudilerle ilk açık kırılma, antlaşmayı bozan Benî Kaynukā'nın kuşatılıp Medine'den sürülmesiyle sonuçlandı.
-B1|Evlakî'ye göre Medine'nin içinde oturan Benî Kaynukā, Müslümanlara en yakın Yahudi kabilesiydi; Benî Kurayza ile Benî Nadîr şehrin dış mahallelerindeydi.
+H2|Benî Kaynukâ: Pazar Yerindeki Hakaret
+INTRO|Yahudilerle ilk açık kırılma, antlaşmayı bozan Benî Kaynukâ'nın kuşatılıp Medine'den sürülmesiyle sonuçlandı.
+B1|Evlakî'ye göre Medine'nin içinde oturan Benî Kaynukâ, Müslümanlara en yakın Yahudi kabilesiydi; Benî Kurayza ile Benî Nadîr şehrin dış mahallelerindeydi.
 B1|Sallâbî olayın tarihine dair şu kayıtları aktarır.
 TABLE|Kaynak|Olayın tarihi
 ROW|Zührî|Hicretin ikinci yılı
 ROW|Vâkıdî ve İbn Sa'd|Aynı yılın Şevval ayının ortasında bir cumartesi
 ROW|Siyer yazarlarının büyük çoğunluğu|Bedir'den sonra
 ENDTABLE
-B1|Kaynukāoğulları antlaşmaya sadık kalmamış, Bedir'den sonra kinlerini ve kıskançlıklarını açığa vurmuşlardı.
+B1|Kaynukâoğulları antlaşmaya sadık kalmamış, Bedir'den sonra kinlerini ve kıskançlıklarını açığa vurmuşlardı.
 B1|Rasûlullah (s.a.v.) onları pazar yerlerinde toplayıp öğüt verdi, İslâm'a davet etti ve Kureyş'in akıbetine uğramamaları için uyardı.
 B2|Evlakî'nin aktardığı lafızda, Allah'ın Kureyş'i sarstığı gibi onları da sarsmasından sakınmalarını istedi; peygamberliğini kendi kitaplarında ve Allah'ın onlarla yaptığı ahitte bulduklarını hatırlattı.
-SOZ|💬 BENÎ KAYNUKĀ|"Ey Muhammed! Kureyş'ten savaş bilmeyen, acemi birkaç kişiyi öldürdün diye gururlanma! Bizimle savaşırsan nasıl adamlar olduğumuzu ve bizim gibileriyle daha önce hiç karşılaşmadığını göreceksin."|El-Yehûd fi's-Sünneti'l-Mutahhara, 1/276
+SOZ|💬 BENÎ KAYNUKÂ|"Ey Muhammed! Kureyş'ten savaş bilmeyen, acemi birkaç kişiyi öldürdün diye gururlanma! Bizimle savaşırsan nasıl adamlar olduğumuzu ve bizim gibileriyle daha önce hiç karşılaşmadığını göreceksin."|El-Yehûd fi's-Sünneti'l-Mutahhara, 1/276
 B1|Sallâbî'ye göre antlaşma gereği Rasûlullah'a itaat etmeleri gerekirken bu cevapta düşmanlık, büyüklenme ve savaş hazırlığı açıkça görülüyordu; Evlakî'ye göre öylesine inatçıydılar ki öğüdü kabulden yüz çevirdiler.
 B1|Kur'ân bu küstahlığa şu âyetlerle cevap verdi.
 QUOTE|ch23-172
 B1|Kıvılcımı pazar yerindeki bir hakaret çaktı; Evlakî'ye göre Medine'de kuyumculuk Yahudilerin elindeydi.
-B1|Malını satmak için Kaynukā pazarına gelen Müslüman bir Arap kadın bir kuyumcunun yanına oturdu ve yüzünü açma isteklerini reddetti.
+B1|Malını satmak için Kaynukâ pazarına gelen Müslüman bir Arap kadın bir kuyumcunun yanına oturdu ve yüzünü açma isteklerini reddetti.
 B1|Kuyumcu fark ettirmeden elbisesinin ucunu arkasına bağladı; kadın kalkınca vücudu açıldı ve Yahudiler alay ederek güldüler.
 B1|Kadının çığlığı üzerine oradaki bir Müslüman kuyumcuyu öldürdü, Yahudiler de toplanıp o Müslümanı öldürdü (İbn Hişâm, *es-Sîre*, 3/54).
 B1|Müslümanların yardım çağrısıyla savaş başlamış oldu; Evlakî'ye göre bir Müslüman kadının mahremi çiğnenmişti ve bu bir savaş ilanıydı.
@@ -87,11 +87,11 @@ B1|Sallâbî "Onlar senindir" cevabında derin bir siyaset fıkhı görür; Ens�
 B2|Rasûlullah bu yüzden ıslah ve ikna yolunu seçip kötülüklerine sabretti; fitneleri önlemek ve gerçek yüzünün kendi davranışlarıyla ortaya çıkmasını sağlamak istedi.
 B2|Sallâbî'ye göre bu metot başarılı oldu; zamanla herkes İbn Selûl'ü tanıdı, oğlu Abdullah dahil en yakınları o konuşunca onu susturur oldu.
 B1|Aynı ittifakın ortağı Avfoğulları'ndan Ubâde b. Sâmit (r.a.) ise Rasûlullah'a gelip Allah'ı, Rasûlünü ve müminleri dost edindiğini, bu kâfirlerin dostluğundan ve antlaşmasından beri olduğunu bildirdi; tahliye işiyle de o görevlendirildi.
-B1|Kaynukāoğulları "Ey Ebü'l-Velîd, bütün Evs ve Hazrec'in arasından bunu bize sen mi yapacaksın?", İbn Übey de "Müttefiklerinle antlaşmanı nasıl bozarsın?" diye çıkıştı.
+B1|Kaynukâoğulları "Ey Ebü'l-Velîd, bütün Evs ve Hazrec'in arasından bunu bize sen mi yapacaksın?", İbn Übey de "Müttefiklerinle antlaşmanı nasıl bozarsın?" diye çıkıştı.
 SOZ|💬 UBÂDE B. SÂMİT|"Ey Ebü'l-Hubâb, kalpler değişti ve İslâm antlaşmaları sildi. Vallahi sen öyle bir işe sarıldın ki yanlışlığını yarın göreceksin."|
 B1|Ubâde süre isteyenlere "Rasûlullah'ın emri böyledir" diyerek üç saat verdi (*El-Yehûd fi's-Sünneti'l-Mutahhara*, 1/282-283).
 B1|Sonra onları Şam yönüne çıkardı; yol boyunca "Sizin için en şerefli olan en uzak yerdir; en uzak, en uzak" diyordu, Zübâb'a varınca döndü, onlar da Ezriât'a yerleştiler.
-B1|Yahudilerin en cesur, en kalabalık ve en çok silaha sahip kabilesi olan Kaynukāoğulları silahlarını ve mallarını bırakıp Medine'den ayrıldı; Evlakî'ye göre malları Müslümanlar arasında paylaştırıldı.
+B1|Yahudilerin en cesur, en kalabalık ve en çok silaha sahip kabilesi olan Kaynukâoğulları silahlarını ve mallarını bırakıp Medine'den ayrıldı; Evlakî'ye göre malları Müslümanlar arasında paylaştırıldı.
 B1|Sallâbî'ye göre bu caydırıcı cezadan sonra diğer Yahudi kabileleri uzun süre sindi.
 B1|İki müttefikin iki duruşu hakkında Mâide sûresinin âyetleri indi; müminlere Yahudileri ve Hıristiyanları dost edinmemeleri emredildi, kalplerinde hastalık olanların "Başımıza bir felaket gelmesinden korkuyoruz" diyerek onların arasında koşuşturdukları bildirildi (Mâide 5/51-52).
 B1|İbn Atıyye'nin naklettiğine göre İbn Übey "Ben Yahudilerin müttefikliğini bozamam; onlara ihtiyacım var, ben komplolardan korkan bir adamım" diyordu (İbn Atıyye, *el-Muharrerü'l-Vecîz*, 1/477-478).
@@ -106,7 +106,7 @@ ROW|4|Kâfirlere karşı izzetlidirler.
 ROW|5|Allah yolunda cihad ederler.
 ROW|6|Kınayanların kınamasından korkmazlar; Allah razı olduktan sonra medyanın, falancanın ya da kâfirlerin hakkında ne dediği onları ilgilendirmez.
 ENDTABLE
-B1|Evlakî'ye göre Kaynukā olayının asıl dersi bir Müslüman kadının hakkının büyüklüğüdür; Rasûlullah mahremi çiğnenen bir kadın uğruna bir kabileye savaş açmıştı.
+B1|Evlakî'ye göre Kaynukâ olayının asıl dersi bir Müslüman kadının hakkının büyüklüğüdür; Rasûlullah mahremi çiğnenen bir kadın uğruna bir kabileye savaş açmıştı.
 B1|Evlakî bu refleksi, esir alınan bir kadının "Yetiş ey Mu'tasım!" çığlığına asrının süper gücü Roma'ya ordu göndererek cevap veren Abbâsî halifesi Mu'tasım'ın tavrıyla birlikte anar; bugün benzer çağrıların cevapsız kalmasını ise sert bir dille eleştirir.
 H2|Fitne Kışkırtıcılarına Karşı
 INTRO|Rasûlullah (s.a.v.) Bedir'den sonra fitne ateşini söndürmek için bazı kışkırtıcıların öldürülmesine izin verdi.
@@ -126,7 +126,7 @@ B1|Ka'b, Tayy kabilesinin Nebhânoğulları koluna mensuptu; Sallâbî'ye göre 
 B2|Evlakî'nin ifadesiyle Ka'b, Arap olduğu hâlde annesinin dinine uyarak Yahudi olmuştu.
 B1|Varlıklı, belagatli, usta bir şair olarak Araplar arasında saygı görürdü.
 B1|Bedir zaferi onu çileden çıkardı; Mekke'ye gidip Kureyş'e taziyede bulundu, Rasûlullah'ı (s.a.v.) hicvedip onları intikama kışkırttı ve Evlakî'ye göre savaşılacağına dair söz almadan dönmedi.
-B1|Bedir ölüleri için yazdığı mersiyede "Bedir'in kurbanlarını değirmen öğütmeye başladı; Bedir gibisi için ağlanır, ağıt yakılır" diyor, yeryüzünün yarılıp üstündekileri yutmasını diliyordu (Zehebî, *Târîhu'l-İslâm, Megāzî*, 158; İbn Hişâm, *es-Sîre*, 3/57).
+B1|Bedir ölüleri için yazdığı mersiyede "Bedir'in kurbanlarını değirmen öğütmeye başladı; Bedir gibisi için ağlanır, ağıt yakılır" diyor, yeryüzünün yarılıp üstündekileri yutmasını diliyordu (Zehebî, *Târîhu'l-İslâm, Megâzî*, 158; İbn Hişâm, *es-Sîre*, 3/57).
 B1|Ebû Süfyân, Allah'ın kendi dinlerini mi Muhammed'in ve arkadaşlarının dinini mi daha çok sevdiğini sorunca Ka'b "Sizin yolunuz onlarınkinden daha doğrudur" dedi.
 B1|Medine'ye dönünce küstahlığı Müslüman kadınlara dil uzatacak dereceye vardı.
 TABLE|Konu|Sallâbî|Evlakî
@@ -187,7 +187,7 @@ B1|Sa'lebe ve Muhârib kabileleri Du'sûr b. Hâris el-Muhâribî önderliğinde
 B2|Evlakî, Zû Emr'in Gatafân diyarında bir yer olduğunu belirtir.
 B1|Zü'l-Kassa'da yakalanan Cübâr adında biri kavminin sırlarını anlatıp Müslüman oldu; düşman dağlara kaçtı.
 B1|Şiddetli bir yağmurda ıslanan elbiselerini kurutmak için bir ağaca serip altına uzanan Rasûlullah'ı, Gavres diye de bilinen Du'sûr yalnız yakaladı ve kılıcını çekip "Ey Muhammed, şimdi seni benden kim kurtaracak?" dedi; cevap tek kelimeydi, "Allah."
-B1|Sallâbî'nin aktardığına göre Cebrâil onu göğsünden itti ve kılıç elinden düştü; Rasûlullah kılıcı alıp "Şimdi seni benim elimden kim kurtaracak?" diye sorunca Du'sûr "Hiç kimse!" dedi ve şehadet getirdi (Sallâbî'nin kaydı: Beyhakī, *Delâilü'n-Nübüvve*, 3/168-169; Evlakî'nin kaydı: Buhârî, 2913; Müslim, 843).
+B1|Sallâbî'nin aktardığına göre Cebrâil onu göğsünden itti ve kılıç elinden düştü; Rasûlullah kılıcı alıp "Şimdi seni benim elimden kim kurtaracak?" diye sorunca Du'sûr "Hiç kimse!" dedi ve şehadet getirdi (Sallâbî'nin kaydı: Beyhakî, *Delâilü'n-Nübüvve*, 3/168-169; Evlakî'nin kaydı: Buhârî, 2913; Müslim, 843).
 B1|Kılıcı kendisine geri verilen Du'sûr kavmine "Uzun boylu bir adam beni göğsümden itti; onun melek olduğunu biliyorum" diyerek onları İslâm'a çağırdı; Evlakî'ye göre birçoğu Müslüman oldu.
 B1|Sallâbî bu olay üzerine şu âyetin indiğini kaydeder.
 QUOTE|ch23-174
@@ -212,10 +212,10 @@ INTRO|Bu yoğun günlerin ortasında Medine'de, sır saklamanın ve sadeliğin �
 B1|Hz. Ömer'in anlattığına göre Huneys b. Huzâfe es-Sehmî'den (r.a.) dul kalan kızı Hafsa'yı (r.anhâ) önce Osman'a teklif etti; Osman birkaç gün düşünüp şimdilik evlenmeyi düşünmediğini söyledi.
 B1|Sonra Ebû Bekir'e teklif etti; ondan hiç cevap alamayınca ona Osman'dan daha çok kırıldı.
 B1|Birkaç gün sonra Rasûlullah (s.a.v.) Hafsa'yı istedi ve Ömer kızını ona nikâhladı; Ebû Bekir de susmasının sebebini sonra açıkladı.
-SOZ|💬 EBÛ BEKİR|"Sana cevap vermeme engel olan tek şey, Rasûlullah'ın Hafsa'dan söz ettiğini bilmemdi; ben Rasûlullah'ın sırrını açığa vuramazdım. O vazgeçseydi ben alırdım."|Buhârî, 5122; Beyhakī, Delâilü'n-Nübüvve, 3/158
+SOZ|💬 EBÛ BEKİR|"Sana cevap vermeme engel olan tek şey, Rasûlullah'ın Hafsa'dan söz ettiğini bilmemdi; ben Rasûlullah'ın sırrını açığa vuramazdım. O vazgeçseydi ben alırdım."|Buhârî, 5122; Beyhakî, Delâilü'n-Nübüvve, 3/158
 B1|Hz. Ali'nin (r.a.) anlattığına göre bir hizmetçi kadın ona Fâtıma'yı (r.anhâ) istemesini söyleyince "Evlenecek neyim var ki?" demişti.
 B1|Sonunda Rasûlullah'ın huzuruna çıktı, ama heyecandan dili tutuldu; "Fâtıma'yı istemeye mi geldin?" sorusuna "Evet" dedi.
-B1|Onu kendisine helâl kılacak bir şeyi olmadığını söyleyince Rasûlullah ona verdiği zırhı hatırlattı; değeri dört dirhem bile etmeyen o zırh mehir oldu ve "Onu seninle evlendirdim; o zırhı ona gönder" buyurdu (Beyhakī, *Delâilü'n-Nübüvve*, 2/160).
+B1|Onu kendisine helâl kılacak bir şeyi olmadığını söyleyince Rasûlullah ona verdiği zırhı hatırlattı; değeri dört dirhem bile etmeyen o zırh mehir oldu ve "Onu seninle evlendirdim; o zırhı ona gönder" buyurdu (Beyhakî, *Delâilü'n-Nübüvve*, 2/160).
 B1|Rasûlullah kızını kadife bir elbise, bir su tulumu ve içi kokulu bir otla doldurulmuş deri bir yastıkla gelin etti; Sallâbî'nin ifadesiyle hayatları refah ve konfordan çok sıkıntı ve zorluğa yakındı.
 B1|Ali kuyudan su çekmekten sırtının, Fâtıma un öğütmekten ellerinin nasır bağladığını söyleyerek babalarından bir hizmetçi istemeye karar verdiler.
 B1|Fâtıma önce gidip utancından isteyemeden döndü; sonra ikisi birlikte gittiler ve şu cevabı aldılar.
@@ -232,7 +232,7 @@ B2|Sallâbî'nin anlatımına göre Bedir'den sonra Medine bu iki cümle arasın
 B1|Rasûlullah'ın (s.a.v.) İbn Übey'e gösterdiği sabır da bir derstir; fitneyi büyütmeden, sahibinin gerçek yüzünü zamanla kendi davranışlarıyla göstermesine fırsat vermek bir siyaset hikmetidir.
 B1|İkinci ders, düşmanlığın ölçüsünün ırk değil zihniyet ve davranış olduğudur; Evlakî'nin vurguladığı gibi Medine Yahudilerine önce vatandaş muamelesi yapıldı, kopuşu ise haset, tefrika çabası, sövgü, antlaşma ihlali ve bir kadının namusuna uzanan el getirdi.
 B2|Ka'b b. Eşref etnik olarak Araptı, Abdullah b. Selâm ise Yahudi asıllı bir sahâbîydi; Müslümanın karşı durduğu şey bir soy değil, Allah'ı ve peygamberini inkâr eden, müminlere tuzak kuran bir tavırdır.
-B1|Üçüncü ders, gücün ve ilmin yerli yerinde kullanılmasıdır; Kaynukā'nın cezası da Ka'b'ın infazı da caydırıcılığı ve otoritesi olan bir devletin kararlarıydı.
+B1|Üçüncü ders, gücün ve ilmin yerli yerinde kullanılmasıdır; Kaynukâ'nın cezası da Ka'b'ın infazı da caydırıcılığı ve otoritesi olan bir devletin kararlarıydı.
 B2|Sallâbî'nin uyarısıyla bu olaylar güçten, devletten ve ehil âlimlerin fetvasından yoksun bireysel girişimlere delil yapılamaz; Rasûlullah güç sahibi olmadığı Mekke yıllarında kimseyi tasfiye etmeye kalkışmamıştı.
 B1|Dönem bir kelimenin, bir şiirin ve bir propagandanın gücünü de gösterir; bir mısra iki kabileyi savaşın eşiğine getirebilir, bir hiciv bir adamı kapı kapı kovdurabilir.
 B2|Bu yüzden sözün en güzelini söylemek ve eziyet karşısında sabır ve takvâyla durmak da bir cihaddır.

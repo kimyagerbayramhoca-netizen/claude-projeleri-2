@@ -103,7 +103,7 @@ def quote_line(qid):
         ref = src if src and src != "Hadîs-i şerîf" else ""
         if extra:
             ref = (ref + " · " if ref else "") + extra
-        if lafiz:
+        if lafiz and lafiz not in ref:
             ns, nl = set(re.findall(r"\d{2,5}", ref)), set(re.findall(r"\d{2,5}", lafiz))
             if not (nl and nl <= ns):
                 ref = (ref + " · " if ref else "") + "Arapça lafız: " + lafiz
@@ -117,7 +117,7 @@ lines = [
     "OUT|Alemlere_Rahmet_Siyer-i_Nebi.docx",
     "HEADER|GENİŞ ÖZET · Âlemlere Rahmet — Sallâbî ve Evlakî",
     "COVER|GENİŞ ÖZET|ÂLEMLERE RAHMET|Cahiliyeden Uhud'a Siyer-i Nebî|Ali Muhammed Sallâbî · Enver el-Evlakî"
-    "|Siyer-i Nebî ve Rasulullah'ın Hayatı · Birleştirilmiş Geniş Özet",
+    "|Siyer-i Nebî ve Rasûlullah'ın Hayatı · Birleştirilmiş Geniş Özet",
     "LEGEND",
     "TOC|İÇİNDEKİLER",
 ]

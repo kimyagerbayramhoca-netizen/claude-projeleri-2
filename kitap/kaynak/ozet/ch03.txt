@@ -24,7 +24,8 @@ ROW|Rebîa'dan Abdülkays, Benî Hanîfe, Bekir b. Vâil, Tağlib ve Temîm|Doğ
 ROW|Mudar'dan Süleym|Medine yakınları
 ROW|Mudar'dan Sakîf|Tâif
 ROW|Mudar'dan Hevâzin|Mekke'nin doğusu
-ROW|Mudar'dan Esed, Zübyân ve Abs|Teymâ'nın doğusundan Kûfe'ye ve Havran'a uzanan topraklar
+ROW|Mudar'dan Esed|Teymâ'nın doğusundan Kûfe'nin batısına kadarki bölge
+ROW|Mudar'dan Zübyân ve Abs|Teymâ'dan Havran'a uzanan bölge
 ENDTABLE
 B1|Nesep âlimlerinin ezici çoğunluğu Arapları Adnânî ve Kahtânî diye ikiye ayırır; Sallâbî, bazı âlimlerin bütün Arapları Hz. İsmâil'e nispet ettiğini de kaydeder.
 B1|Buhârî *Sahîh*'inde Yemen'in Hz. İsmâil'e nispetine ayrı bir bab açıp Seleme'den (r.a.) bir rivayet nakleder.
@@ -70,9 +71,9 @@ B1|Putperestlik zamanla ticarete de dönüştü; Hübel'e gelemeyecek kabileler 
 B2|Sonunda Kâbe'nin etrafı yaklaşık üç yüz altmış putla kuşatıldı.
 B1|Sallâbî de her kabilenin kendine özgü putunu kaydeder.
 TABLE|Put|Sahibi ve yeri
-ROW|Süvâ'|Huzeyl
+ROW|Süvâ'|Hüzeyl
 ROW|Vedd|Kelb
-ROW|Yegūs|Mezhic
+ROW|Yegûs|Mezhic
 ROW|Yeûk|Heyvân
 ROW|Nesr|Himyer
 ROW|İsâf ve Nâile|Huzâa ve Kureyş
@@ -105,7 +106,7 @@ B2|Dikilen putlara kurban kesmez, ölü hayvan etini ve kanı yemez, kız çocuk
 B2|Şiirlerinde bin ilâha tâbi olmaktansa tek Rabbe inandığını, Lât'ı ve Uzzâ'yı terk ettiğini, aklı yürüyünce yalnız Rahmân'a ibadet ettiğini söylerdi.
 B1|Kuss b. Sâide el-İyâdî, Hz. İbrâhim ile Hz. İsmâil'in şeriatıyla amel eden, hikmet ve fazilet sahibi bir hatipti; ölümden sonra dirilişe inanır, insanları tevhide ve putları bırakmaya çağırırdı.
 B1|Ebû Nuaym'ın İbn Abbas'tan (r.a.) naklettiğine göre Kuss, Ukâz panayırında kavmine hitap ederken eliyle Mekke'yi işaret edip oradan bir hakkın bilineceğini söyledi.
-B2|Hakkın ne olduğu sorulunca, Gālib oğlu Lüey'in evlâdından bir adamın çıkıp insanları ihlâs kelimesine, ebedî hayata ve tükenmeyen nimetlere çağıracağını haber verdi; ona yetişeceğini bilse ona ilk koşanın kendisi olacağını ekledi.
+B2|Hakkın ne olduğu sorulunca, Gâlib oğlu Lüey'in evlâdından bir adamın çıkıp insanları ihlâs kelimesine, ebedî hayata ve tükenmeyen nimetlere çağıracağını haber verdi; ona yetişeceğini bilse ona ilk koşanın kendisi olacağını ekledi.
 B2|Kuss, Rasûlullah'ın (s.a.v.) zamanına yetişti ama bi'setten önce vefat etti (Ebû Nuaym, *Delâilü'n-Nübüvve*, 1/104-105).
 B1|Kuss'un ölümün kaçınılmazlığını anlatan meşhur bir şiiri vardır.
 QUOTE|ch03-15
@@ -127,15 +128,15 @@ B1|Buna karşılık barışta çok cömert olmak, savaşta en ön safta durmak v
 B1|Açık ve serbest bir çevrede yetişen Arap hürriyete âşıktı, zulmü ve zilleti kabul etmezdi; ama bu hürriyet kabile asabiyetiyle sınırlıydı.
 B2|Her fert kabilesinin menfaati için çalışır, önemli günlerini ve övünç kaynaklarını korur, haklı da haksız da olsa ondan yana durur, kardeşi çağırınca delil istemezdi.
 B2|Ferdin şahsiyeti kabileninkinde eriyip gitmişti.
-B1|Şair Düreyd b. es-Simme, yalnızca Gaziyye kabilesinden biri olduğunu, kabilesi saparsa sapacağını, doğru yolda olursa doğru yolda olacağını söyler.
-B1|Her kabilenin, diğerleriyle anlaşma yaptığı ya da savaş açtığı siyasî bir kişiliği vardı; anlaşmaların meşhurlarından biri Hilfü'l-Fudûl, savaşların en meşhuru Ficâr Savaşı'dır.
+B1|Şair Düreyd b. es-Sımme, yalnızca Gaziyye kabilesinden biri olduğunu, kabilesi saparsa sapacağını, doğru yolda olursa doğru yolda olacağını söyler.
+B1|Her kabilenin, diğerleriyle anlaşma yaptığı ya da savaş açtığı siyasî bir kişiliği vardı; anlaşmaların meşhurlarından biri Hilfu'l-Fudûl, savaşların en meşhuru Ficâr Savaşı'dır.
 B1|Sallâbî'ye göre en basit sebeplerden savaş çıkar, "değer" adını hak etmeyen ama örf hâline gelmiş ölçüler uğruna insanların ölümüne aldırılmazdı.
 TABLE|Savaş|Sebep ve seyir
 ROW|Besûs Savaşı (Bekiroğulları ile Tağlib)|Tağlib lideri Küleyb koruma altına aldığı otlakta otlayan bir deveyi öldürünce Cessâs fırsat bulup onu öldürdü; savaş tam kırk yıl sürdü.
 ROW|Abs ile Zübyân savaşları|Dâhis ve Gabrâ adlı iki atın yarışında yapılan hile, öldürmeler ve intikamlarla dolu savaşlara yol açtı.
 ROW|Evs ile Hazrec savaşları|Amca oğulları arasındaki uzun savaşlar Buâs Günü'nde Evs'in lehine sona erdi.
 ENDTABLE
-B1|Sallâbî'ye göre Evs ile Hazrec savaşlarının fitilini sürekli Yahudiler çekiyordu; amaçları iki kabileyi de zayıf düşürüp liderliği ebediyen ellerinde tutmaktı.
+B1|Sallâbî'ye göre Evs ile Hazrec savaşlarının fitilini sürekli Yahudiler çekiyordu; amaçları iki kabileyi de zayıf düşürüp liderliği ebediyen ellerine geçirmekti.
 B1|Ferdî saldırılar da eksik olmazdı; bazı kabilelerin rızkı çoğu zaman kılıca bağlıydı ve hiçbir kabile gece gündüz bir baskına uğramayacağından emin değildi.
 B2|Baskınlar hayvanları talan edip yurtları sanki dün kimse oturmamış gibi harabeye çevirmek, mal gasp etmek ya da hür insanları köleleştirip satmak için yapılırdı.
 B2|Arap ve hür Zeyd b. Hârise (r.a.) ile Farslı ve hür Selmân (r.a.) bunun açık örnekleridir.
@@ -228,14 +229,14 @@ B1|Öldürülmekle övünür, eceliyle ölmeyi ayıp sayarlardı; şair Antere, 
 B1|Güçlünün zayıfı, kadını ya da yaşlıyı ezmesine izin vermez, sığınandan yüz çevirmeyi alçaklık sayar, hürriyet için yaşayıp hürriyet için ölürlerdi.
 B1|Hîre Kralı Amr b. Hind, annesi kendi annesine hizmetten kaçınacak bir Arap var mı diye merak edip bir ziyafette annesinin, şair Amr b. Külsûm'ün annesi Leylâ'dan bir tabağı uzatmasını istemesini kararlaştırdı.
 B2|Leylâ ihtiyacı olanın kalkıp kendisinin alması gerektiğini söyledi; ısrar edilince bu zilleti haykırarak Tağlib kabilesine seslendi.
-B2|Annesinin sesini duyan Amr b. Külsûm, çadırın direğinde asılı kralın kılıcını alıp onun başını uçurdu (*Şerhu'l-Muallakāt*, 196).
+B2|Annesinin sesini duyan Amr b. Külsûm, çadırın direğinde asılı kralın kılıcını alıp onun başını uçurdu (*Şerhu'l-Muallakât*, 196).
 B1|Vefa ve doğruluk da kökleşmişti; yalanı ayıp sayan bu millette İslâm'a girmek için dille getirilen şehâdet yeterli görülürdü.
 B2|Henüz Müslüman olmayan Ebû Süfyân'ın savaşlar sürerken Bizans Kralı Herakleios'un Rasûlullah hakkındaki sorularını doğru cevaplaması ve kendisinden yalan rivayet edilmesinden utanmasa yalan söyleyeceğini itiraf etmesi bunun apaçık delilidir (Buhârî, 7; Müslim, 1773).
 B1|Hîre Kralı Nu'mân b. Münzir Kisrâ'ya Arapları anlatırken, birinin küçük bir işaretinin emir yerine geçtiğini, verdiği sözü canından başka bir şeyin çözemeyeceğini, tanımadıkları bir suçlu sığınsa bile canlarını ve mallarını ona siper ettiklerini söylemişti (*Bulûğu'l-Ereb*, 1/150).
 B1|İslâm bu vefayı sağlam ve temiz bir yöne çevirdi; ama konumu ne olursa olsun suçluyu barındırana karşı sert konuştu.
 B2|"Suçluyu barındıran kimseye Allah lânet etmiştir" hadisi bu tavrı dile getirir (Müslim, 1978; Nesâî, 7/232).
 B1|Bekir kabilesinin komutanı Hâris'in, oğlunun katili Mühelhil'i tanımadan esir alıp ona, Mühelhil'i gösterirse serbest bırakacağına söz vermesi ve aradığının bizzat esiri olduğunu öğrenince de sözünü tutması vefanın eşsiz bir örneğidir.
-B1|Hâni' b. Mes'ûd eş-Şeybânî, Kisrâ'nın öldürdüğü Nu'mân'ın emanetlerini teslim etmeyip kavmini savaşa çağırdı; Bekiroğulları bu sayede Zîkār'da Fars ordusunu bozguna uğrattı.
+B1|Hâni' b. Mes'ûd eş-Şeybânî, Kisrâ'nın öldürdüğü Nu'mân'ın emanetlerini teslim etmeyip kavmini savaşa çağırdı; Bekiroğulları bu sayede Zîkâr'da Fars ordusunu bozguna uğrattı.
 SOZ|💬 HÂNİ' B. MES'ÛD EŞ-ŞEYBÂNÎ|"Ölüme evet, zillete hayır."|Taberî, Târîh, 2/207
 B1|Sahranın kazandırdığı sabır, tahammül ve aza rıza da bu hasletlerdendir.
 B2|Tıka basa doymanın zekâyı öldürdüğünü söyler, gün ortası sıcağında sarp dağlarda yürümeye, açlığa ve susuzluğa alışkındılar; günlerce yol alan biri birkaç hurma ve birkaç damla suyla yetinirdi.

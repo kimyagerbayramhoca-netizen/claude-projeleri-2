@@ -29,7 +29,7 @@ Aşağıdaki tablo, kitapta anlatılan başlıca olayları sırasıyla gösterir
 | Hicretten on altı ay sonra | Kıblenin Beytü'l-Makdis'ten Kâbe'ye çevrilmesi. Sallâbî on altı (bir yerde on altı veya on yedi) ay der; Evlakî yaklaşık on dört ay olarak verir. |
 | Hicretin 2. yılı | İlk seriyye ve gazveler: Rebîülevvel'de Buvât Gazvesi; Recep ayının son gününde Abdullah b. Cahş seriyyesi. Şâban ayında Ramazan orucunun farz kılınması. |
 | Hicretin 2. yılı, Ramazan | Bedir Savaşı. Üç yüz on küsur Müslüman ile sayısı dokuz yüz ile bin arasında verilen Kureyş ordusu karşılaşır. |
-| Hicretin 2. yılı, Şevval | Vâkıdî ve İbn Sa'd'a göre Benî Kaynukā'nın kuşatılması (on beş gün) ve sürgünü. |
+| Hicretin 2. yılı, Şevval | Vâkıdî ve İbn Sa'd'a göre Benî Kaynukâ'nın kuşatılması (on beş gün) ve sürgünü. |
 | Bedir ile Uhud arası | Ka'b b. Eşref'in öldürülmesi. Hicretin 3. yılı Cemâziyelûlâ'da Bahrân Gazvesi ve diğer seriyyeler. |
 | Hicretin 3. yılı, Şevval | Uhud Savaşı (milâdî 625). İki kaynak da savaşı Şevval ayının ortasında bir cumartesi gününe yerleştirir. |
 | Uhud'un hemen ardından | Hamrâü'l-Esed: Müslüman ordusu üç gün kalıp beş yüz ateş yakarak düşmana meydan okur. |

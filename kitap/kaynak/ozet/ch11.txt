@@ -17,7 +17,7 @@ B1|Sallâbî'ye göre davete yakın akrabadan başlamanın derin bir hikmeti var
 B2|Kabilecilik ruhunun derinden işlediği Mekke'de akrabalarla başlamak, davaya yardım edecek, onu güçlendirip koruyacak bir zemin hazırlıyordu.
 B2|Arabistan'ın en büyük dinî merkezi olan Mekke'deki davetin ve şehrin kazanılmasının diğer kabileler üzerinde büyük tesiri olacaktı.
 B1|Kureyş arasında başlayan davet, mesajın yerel değil evrensel olduğunu duyuran ilk adımdı.
-B2|Kur'ân daha baştan Furkān'ın "âlemlere uyarıcı olsun diye" indirildiğini (Furkān 25/1), Peygamber'in "âlemlere rahmet" (Enbiyâ 21/107) ve "bütün insanlara müjdeleyici ve uyarıcı" olarak gönderildiğini bildiriyordu (Sebe 34/28).
+B2|Kur'ân daha baştan Furkân'ın "âlemlere uyarıcı olsun diye" indirildiğini (Furkân 25/1), Peygamber'in "âlemlere rahmet" (Enbiyâ 21/107) ve "bütün insanlara müjdeleyici ve uyarıcı" olarak gönderildiğini bildiriyordu (Sebe 34/28).
 H2|Safâ Tepesinde Bir Çığlık: "Yâ Sabâhâh!"
 INTRO|Rasûlullah (s.a.v.) Safâ'da önce dinleyicilerin şahitliğini aldı, sonra uyardı.
 B1|İbn Abbas'ın (r.a.) rivayetine göre âyet inince Rasûlullah Safâ tepesine çıkıp "Yâ Sabâhâh!" diye seslendi.
@@ -78,15 +78,15 @@ B2|Onlara göre hayat bu dünyadan ibaretti; yaşıyor, ölüyor ve zamanın eli
 B1|Rivayete göre içlerinden biri çürümüş bir kemiği parmaklarıyla ufalayıp havaya savurarak Allah'ın bunu dirilteceğini mi söylediğini sordu.
 B2|Cevap kesindi; Allah ona ölümü tattıracak, sonra diriltip haşredecek ve ateşe gönderecekti; bunun üzerine şu âyetler indi.
 QUOTE|ch11-76
-B1|Müşriklerin gözden kaçırdığı, ilk defa yaratanın yeniden yaratmaya da kādir olduğuydu.
+B1|Müşriklerin gözden kaçırdığı, ilk defa yaratanın yeniden yaratmaya da kâdir olduğuydu.
 B1|Sallâbî'ye göre Kur'ân'ın ikna üslubu akla hitap etmeye, fıtratla kaynaşmaya ve kalplerle cevaplaşmaya dayanır.
 B1|İlâhî hikmet kulların ceza ve mükâfat için diriltilmesini gerektirir; çünkü bir kısmı haddi aşıp zulmetmektedir ve iyiyi ödüllendirip kötüyü cezalandırmak adaletin gereğidir.
 B2|Kur'ân bu yüzden "Teslimiyet gösterenleri günahkârlar gibi tutar mıyız hiç?" diye sorar (Kalem 68/35) ve göğün, yerin ve aralarındakilerin boşuna yaratılmadığını hatırlatır (Sâd 38/27).
 B2|Ölümünden sonra yeryüzünü dirilten rahmet eserlerine bakmaya çağırır (Rûm 30/50) ve mağarada üç yüz dokuz yıl kalıp uyandırılan Ashâb-ı Kehf'i dünyada gerçekleşmiş bir diriliş örneği olarak anlatır (Kehf 18/25).
 B1|Üçüncü cephe Peygamber'in şahsıydı; müşriklere göre peygamber beşer olamazdı, ya melek olmalı ya da yanında bir melek bulunmalıydı.
-B2|"Bu ne biçim peygamber; yemek yiyor ve çarşılarda dolaşıyor!" diyorlardı (Furkān 25/7).
+B2|"Bu ne biçim peygamber; yemek yiyor ve çarşılarda dolaşıyor!" diyorlardı (Furkân 25/7).
 B1|Kur'ân, melek indirilseydi işin bitirilip kendilerine göz açtırılmayacağını, melek peygamber gönderilseydi de istifade edilebilsin diye insan suretinde geleceğini ve yine aynı kuşkuya düşeceklerini bildirir (En'âm 6/8-9).
-B2|Önceki bütün peygamberlerin de yemek yiyip çarşılarda dolaştığını hatırlatarak meseleyi kökünden çözer (Furkān 25/20).
+B2|Önceki bütün peygamberlerin de yemek yiyip çarşılarda dolaştığını hatırlatarak meseleyi kökünden çözer (Furkân 25/20).
 B1|Kureyşliler "Bu Kur'ân iki şehirden bir büyük adama indirilse olmaz mıydı?" diye de itiraz ettiler (Zuhruf 43/31).
 TABLE|Konu|Sallâbî|Evlakî
 ROW|"İki şehirden bir büyük adam" itirazı|Bununla Mekke'de Velîd b. Muğîre'yi veya Tâif'te Urve b. Mes'ûd es-Sakafî'yi kastediyorlardı.|Velîd'in bu kıskançlığı bizzat dile getirdiğini nakleder.
@@ -102,7 +102,7 @@ B1|Kur'ân onun bir şair ya da kâhin sözü olmadığını, âlemlerin Rabbi t
 B1|İnatları arttıkça Peygamber'in Kur'ân'ı Arap olmayan bir adamdan öğrendiğini ileri sürdüler.
 B2|Bu adam Kureyş obalarından birinin hizmetçisiydi ve Safâ'nın yanında alışveriş yapardı; Peygamber Efendimiz çoğu kez yanında oturup onunla biraz konuşurdu, ama adamın dili yabancıydı ve Arapçayı ancak gerektiğinde cevap verecek kadar biliyordu.
 B1|Kur'ân bu iddiayı tek cümleyle çürüttü; "Kendisine nispet ettikleri kişinin dili yabancıdır; bu ise apaçık bir Arapçadır" (Nahl 16/103).
-B1|Kur'ân'ın bir defada inmesini de istediler; oysa parça parça inişi kalplerin sebatı, kolay anlaşılması, ezberlenmesi ve emirlerinin hayata geçirilmesi için en büyük etkendi (Furkān 25/32).
+B1|Kur'ân'ın bir defada inmesini de istediler; oysa parça parça inişi kalplerin sebatı, kolay anlaşılması, ezberlenmesi ve emirlerinin hayata geçirilmesi için en büyük etkendi (Furkân 25/32).
 B1|Bütün bu itirazlara karşı Allah onlara meydan okudu.
 QUOTE|ch11-77
 B1|Sallâbî bu meydan okumanın üç derecesine dikkat çeker.
@@ -136,7 +136,7 @@ TABLE|Konu|Sallâbî|Evlakî
 ROW|Ebû Cehil'in Rasûlullah'a cevabı|Söylediğinin hak olduğunu bilse bile ona uymayacağına yemin eder.|"Senin hakkı söylediğini bilseydim zaten sana tâbi olurdum" der.
 ENDTABLE
 B1|Peygamber Efendimiz uzaklaşınca Ebû Cehil Muğîre'ye içini döktü.
-SOZ|💬 EBÛ CEHİL|"Allah'a yemin olsun, onun söylediklerinin hak olduğunu biliyorum. Ancak Kusayoğulları 'hicâbe bizde olsun' dediler, evet dedik; 'Nedve bizde olsun' dediler, evet dedik; 'sancak bizde olsun' dediler, evet dedik; 'sikāye bizde olsun' dediler, evet dedik. Onlar yedirdi, biz de yedirdik. Şerefte eşitlendiğimizde 'Peygamber bizden' dediler. Hayır, Allah'a yemin olsun, ben bunu yapmam."|Beyhakî, Delâilü'n-Nübüvve, 2/207
+SOZ|💬 EBÛ CEHİL|"Allah'a yemin olsun, onun söylediklerinin hak olduğunu biliyorum. Ancak Kusayoğulları 'hicâbe bizde olsun' dediler, evet dedik; 'Nedve bizde olsun' dediler, evet dedik; 'sancak bizde olsun' dediler, evet dedik; 'sikâye bizde olsun' dediler, evet dedik. Onlar yedirdi, biz de yedirdik. Şerefte eşitlendiğimizde 'Peygamber bizden' dediler. Hayır, Allah'a yemin olsun, ben bunu yapmam."|Beyhakî, Delâilü'n-Nübüvve, 2/207
 B1|Beşinci sebep çıkar ve konumu koruma hırsıydı.
 B2|İslâm'ı kabul ederlerse ayrıcalıklarını kaybedeceklerini, putları kutsayan Arapların Mekke'ye yığılıp kendilerini çıkaracağını ve hac mevsimlerinde pazarlarına gelen rızkın kesileceğini sanıyorlardı.
 B1|Kur'ân bu korkuyu nakledip cevaplar; "Seninle beraber doğru yola uyarsak yurdumuzdan atılırız" diyenleri, her ürünün toplanıp getirildiği güvenli ve dokunulmaz bir yere yerleştiren Allah değil miydi? (Kasas 28/57).
@@ -151,7 +151,7 @@ B1|Bu kanunun davetle ilgili en önemli neticesi imtihan ile temkin arasındaki 
 KAVRAM|💡 KAVRAM · TEMKİN|İzzet ve iktidar sahibi olmak, davanın yeryüzünde yerleşip kök salmasıdır.
 B1|Allah'ın sünnetine göre hiçbir ümmet deneme aşamalarından geçip madenini olayların potasında eritmeden izzet ve iktidar sahibi kılınmaz; çünkü çirkinin güzelden ayrılması gerekir.
 B1|Kişi için önce iktidarın mı imtihanın mı hayırlı olduğu sorulan İmam Şâfiî şöyle cevap verdi.
-SOZ|💬 İMAM ŞÂFİÎ|"İmtihana çekilmeden izzet ve iktidar sahibi olunmaz. Allah Teâlâ Nûh'u, İbrâhim'i, Mûsâ'yı, Îsâ'yı ve Muhammed'i de imtihana çekti; onlar sabredince onları izzet ve iktidar sahibi kıldı. Hiç kimse elem ve eziyetten kurtulacağını sanmasın."|İbn Kayyım, el-Fevâid, 283
+SOZ|💬 İMAM ŞÂFİÎ|"İmtihana çekilmeden izzet ve iktidar sahibi olunmaz. Allah Teâlâ Nûh'u, İbrâhim'i, Mûsâ'yı, Îsâ'yı ve Muhammed'i de imtihana çekti; onlar sabredince onları izzet ve iktidar sahibi kıldı. Hiç kimse elem ve eziyetten kurtulacağını sanmasın."|İbn Kayyim, el-Fevâid, 283
 B1|Müminler için bu imtihan gazap değil rahmet, sırf bir deneme değil seçim imtihanıdır.
 B2|Belâlar, iktidardan önce müminlerin saflarını ayıklamak ve binalarını sağlam, derin temeller üzerine kurmak içindir.
 B1|Sallâbî'ye göre imtihan yolu bütün ümmetler için geçerli ilâhî kanun olduğu gibi cennetin de yoludur.
@@ -184,10 +184,10 @@ ROW|İkra (oku)|"Yaratan Rabbinin adıyla oku" (Alak 96/1)|İlim
 ROW|Kum (kalk)|"Ey örtüsüne bürünen, az bir kısmı hariç olmak üzere, geceleyin kalk" (Müzzemmil 73/1-2)|İbadet
 ROW|Kum (kalk)|"Ey bürünüp örtünen, kalk ve uyar" (Müddessir 74/1-2)|Davet
 ENDTABLE
-B1|Sıra önce öğrenmek, sonra nefsi gece ibadetiyle terbiye etmek, ardından öğrendiğini başkalarına ulaştırmaktır; İbn Kayyım'a göre kişi öğrenme, öğretme ve yayma aşamalarından geçmeden kâmil imana ulaşamaz.
+B1|Sıra önce öğrenmek, sonra nefsi gece ibadetiyle terbiye etmek, ardından öğrendiğini başkalarına ulaştırmaktır; İbn Kayyim'a göre kişi öğrenme, öğretme ve yayma aşamalarından geçmeden kâmil imana ulaşamaz.
 B1|Evlakî gece namazının bu üçlüdeki yerine özellikle dikkat çeker; dini yaymak ve öğretmek kalbe ağır gelebilir, gece ibadeti olmadan kalp katılaşabilir.
 B2|Gece namazı kalbi yumuşatır, insanı günün geri kalanına hazırlar ve ruhu davetin yüküne dayanıklı kılar.
-B1|İbn Kayyım, hocası İbn Teymiyye'nin her gün sabah namazından sonra Şam civarındaki arazilere çıkıp güneş doğana kadar yalnız Allah'ı zikrettiğini anlatır; bu virdin sebebi sorulunca şöyle demişti.
+B1|İbn Kayyim, hocası İbn Teymiyye'nin her gün sabah namazından sonra Şam civarındaki arazilere çıkıp güneş doğana kadar yalnız Allah'ı zikrettiğini anlatır; bu virdin sebebi sorulunca şöyle demişti.
 SOZ|💬 İBN TEYMİYYE|"Bu benim kahvaltım; eğer bunu yapmazsam bedenim beni yarı yolda bırakır."|
 B1|Allah gece namazını ilk Müslümanlara birkaç yıl vâcip kılıp sonra neshetti; Rasûlullah'a (s.a.v.) ise vefatına kadar farz kaldı.
 B2|Hz. Âişe'nin (r.anhâ) rivayet ettiği hadiste o, "Size nâfile olan üç şey bana farzdır: Vitir, misvak ve gece namazı" buyurmuştur (Taberânî, 3/315; Beyhakî, 7/39).

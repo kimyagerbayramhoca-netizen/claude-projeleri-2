@@ -37,7 +37,7 @@ QUOTE|ch10-62
 B1|İslâm ilk gün inançlar, düşünceler, değerler, ölçüler, kanunlar, nizamlar, çıkarlar ve ırkçılıklardan oluşan büyük engellerle karşılaştı.
 B1|Yeni din akîde ve ahlâkla birlikte nizam ve kanunları da değiştirmek, insanlığın önderliğini tâğutlardan alıp Allah'a ve İslâm'a iade etmek istiyordu.
 B1|Allah Rasûlü'nün değişimi nefislerin eğitimiyle başladı; arkadaşlarının inanç, fikir, şuur ve ahlâkını değiştirip içlerinden çok büyük insanlar yetiştirdi.
-B1|Önce iç dünyalar, sonra Medine ve Mekke, ardından Arap yarımadası, nihayet Fars ve Rum imparatorlukları değişti.
+B1|Önce iç dünyalar, sonra Medine ve Mekke, ardından Arap yarımadası, nihayet Fars ve Rûm imparatorlukları değişti.
 B1|Bölüm başındaki âyetin ölüm ile hayatı, karanlık ile aydınlığı karşılaştırması bu değişimin büyüklüğünü anlatır.
 SOZ|💬 SALLÂBÎ|"Mesafe korkunç, nakil büyüktü."|
 H2|Akîdenin Tashihi: Tevhid, Risalet ve Gayb
@@ -76,7 +76,7 @@ B1|Bu mükâfatın sebebi, Allah'ın kullarını gece kıyamı ve infak gibi bü
 QUOTE|ch10-64
 B1|Cennet ehli amellerine ve Allah'ın verdiği başarıya göre derece derecedir (Tâhâ 20/75; İsrâ 17/21); müminlere, imanda onlara uyan nesilleri de katılır (Tûr 52/21).
 B1|Orada bozulmayan su, tadı değişmeyen süt, içenlere lezzet veren şarap ve süzme bal ırmakları akar (Muhammed 47/15).
-B1|İyilerin kadehine Kâfûr pınarından, Allah'a yakın olanlarınkine Tesnîm'den katılır (İnsân 76/5-6; Mutaffifîn 83/22-28).
+B1|İyilerin kadehine Kâfûr pınarından ve Tesnîm'den katılır; bu pınarlardan Allah'ın has kulları ve Allah'a yakın olanlar içer (İnsân 76/5-6; Mutaffifîn 83/22-28).
 B1|Cennet içkisi dünya içkilerinin ayıplarından temizdir; ne baş ağrıtır ne akıl giderir (Vâkıa 56/17-19).
 B1|Ebû Saîd el-Hudrî'nin (r.a.) rivayetine göre cennet ehlinin elbiseleri Tûbâ ağacının çiçek kapakçıklarından çıkar; Allah Rasûlü (s.a.v.) de cennette, gölgesinde binicinin yüz yıl yürüdüğü bir ağaç bulunduğunu bildirir (Buhârî, 3252; Müslim, 2826; Ahmed, 3/71).
 B1|Cennete ilk giren zümre dolunay gecesindeki ay, sonrakiler en parlak yıldız gibidir; orada abdest bozma, tükürme ve sümkürme yoktur, yenilen misk kokulu tere dönüşür (Buhârî, 3327; Müslim, 2834; ayrıca Müslim, 2835; Ebû Dâvûd, 4741).
@@ -220,7 +220,7 @@ ROW|Mahiyet|Ahlâk kendisine bağlanılan bir dindir; sırf ferdî fazilet, sosy
 ROW|Sebat|Hayatın köklü değerleridir; tâğutların onlarla oynamasına ve onları hevâlarına göre şekillendirmesine izin verilmez.
 ENDTABLE
 B1|Ona göre akıl ve örf tek başına ölçü olamaz; akıl çevreden, şartlardan ve hevâdan etkilenir, örf ise nesilden nesile ve memleketten memlekete değişir.
-B1|Sallâbî'ye göre Allah Rasûlü'nün davet hedeflerinden biri insanları şeriatın maksatlarına döndürmekti; bunların merkezinde dinin koruduğu beş zarurî esas vardır (Şâtıbî, el-Muvâfakāt, 2/8).
+B1|Sallâbî'ye göre Allah Rasûlü'nün davet hedeflerinden biri insanları şeriatın maksatlarına döndürmekti; bunların merkezinde dinin koruduğu beş zarurî esas vardır (Şâtıbî, el-Muvâfakât, 2/8).
 TABLE|Zarurî esas|Korunması
 ROW|Din|Allah'a ortak koşmamak, dosdoğru yola uymak, şeytanın yollarından sakınmak; Allah Rasûlü dini amel, davet, cihad ve hükümle korudu.
 ROW|Can|Haksız yere cana kıymak ve fakirlik korkusuyla çocuk öldürmek haram kılındı; kısas ve şahitlik şartı gibi tedbirler konuldu.

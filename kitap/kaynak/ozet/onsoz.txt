@@ -4,7 +4,7 @@ B1|Bir insanın hayatını okumak çoğu zaman bir dönemi tanımaktır; Rasûlu
 B2|Bu hayat, Kur'ân'ın yeryüzünde yaşanmış tefsiri, ümmetin her çağda dönüp baktığı ölçü ve kalbin yeniden ayarlandığı aynadır.
 B1|Kitap, bu hayatın en kurucu dönemini, Cahiliye karanlığından Uhud'un sınavına uzanan yılları bir bütün hâlinde anlatır.
 B1|Birinci ana kaynak, çağdaş siyer çalışmalarının en kapsamlılarından olan Ali Muhammed Sallâbî'nin *Siyer-i Nebî*'sinin birinci cildidir.
-B1|İkinci ana kaynak, İbn Kesîr'in *el-Bidâye ve'n-Nihâye*'sini esas alan Enver el-Evlakî'nin *Rasulullah'ın Hayatı* serisidir.
+B1|İkinci ana kaynak, İbn Kesîr'in *el-Bidâye ve'n-Nihâye*'sini esas alan Enver el-Evlakî'nin *Rasûlullah'ın Hayatı* serisidir.
 B2|Evlakî'nin önceki kitaplardaki müjdeler, hakikat arayıcıları ve Uhud şehidleri anlatımları, bu kitabın en dokunaklı sayfalarına kaynaklık etmiştir.
 B1|İki eser aynı hayatı farklı pencerelerden seyreder.
 TABLE|Konu|Sallâbî|Evlakî

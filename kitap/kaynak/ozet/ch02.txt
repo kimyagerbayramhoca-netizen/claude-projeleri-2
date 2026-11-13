@@ -42,16 +42,16 @@ B1|Fars sultanları saltanatı babadan oğula devreder, kendilerini ilâhlar nes
 B1|Ülkenin bütün gelirini mülkleri sayar, onda tasavvuru güç bir kibir ve övünmeyle tasarruf ederlerdi; Sallâbî'nin ifadesiyle hayvanca bir hayat sürüyorlardı.
 B1|Ağır yük halkın sırtındaydı; pek çok çiftçi vergiden ve askerlikten kaçmak için işini bırakıp kiliselere ve mabetlere sığındı.
 B1|Farslarla Rumlar arasında tarihin çeşitli dönemlerinde uzun yıllar süren yıkıcı savaşlarda halklar değersiz bir yakıttı ve kralların arzularından başka hiçbir çıkarları yoktu.
-B1|Hâkim din Mecusîlikti; Mecusîler çok eski zamanlardan beri en büyüğü ateş olan tabiat unsurlarına taparlardı.
+B1|Hâkim din Mecûsîlikti; Mecûsîler çok eski zamanlardan beri en büyüğü ateş olan tabiat unsurlarına taparlardı.
 B1|Her yere yayılan ateş tapınaklarında ibadete özgü son derece ince kurallar vardı; tapınak dışında ise herkes serbestti ve hevâsına göre yaşardı.
 B2|Sallâbî'ye göre bu yönüyle onlarla dinsizler arasında bir fark kalmamıştı.
-B1|Danimarkalı bir tarihçinin *Sâsânîler Devrinde İran* adlı eserine göre Mecusî din görevlilerine günde dört kez güneşe, ayrıca aya, ateşe ve suya ibadet etmek vacipti (*Sâsânîler Devrinde İran*, 55; Nedvî, *es-Sîretü'n-Nebeviyye*, 27).
+B1|Danimarkalı bir tarihçinin *Sâsânîler Devrinde İran* adlı eserine göre Mecûsî din görevlilerine günde dört kez güneşe, ayrıca aya, ateşe ve suya ibadet etmek vacipti (*Sâsânîler Devrinde İran*, 55; Nedvî, *es-Sîretü'n-Nebeviyye*, 27).
 B2|Uyku, uyanma, yıkanma, zünnâr kuşanma, yeme, içme, hapşırma, tıraş olma, tırnak kesme, helâya gitme ve lamba yakma anlarının her biri için özel duaları vardı.
 B2|Ateşin sönmemesi, ateşle suyun birbirine değmemesi ve değerli maddelerin paslanmaması da görevleriydi, çünkü ateş de su da mukaddesti.
 B1|İran halkı ibadet ederken ateşe yönelirdi; Sâsânîlerin son kralı Yezdicerd bir defasında güneş üzerine yemin ederek onu "en büyük ilâh" diye nitelemişti.
-B1|Mecusîler her asırda *Seneviyye* inancını din edindiler.
+B1|Mecûsîler her asırda *Seneviyye* inancını din edindiler.
 KAVRAM|💡 KAVRAM · SENEVİYYE|Biri nur ve hayır, diğeri karanlık ve şer ilâhı olan iki ayrı ilâha imandır.
-B1|Sallâbî bu inancı Mecusîliğin geçici bir sapması değil, her asırda tekrarlanan ayırt edici vasfı sayar.
+B1|Sallâbî bu inancı Mecûsîliğin geçici bir sapması değil, her asırda tekrarlanan ayırt edici vasfı sayar.
 B1|Kâinatı iki gücün savaş alanı sayan bu anlayış, tevhidin tam karşı kutbundaydı.
 H2|Kendi İçine Kapanmış Bir Diyar: Hindistan
 INTRO|Sallâbî'ye göre altıncı yüzyıl Hindistan'ı, eşitsizliği dinî kanuna bağlayan sınıf düzeni ve putperestlikle en çöküntülü devrini yaşıyordu.
@@ -219,7 +219,7 @@ QUOTE|ch02-11
 B1|Sallâbî'ye göre hadis, insanlığın Allah'a şirk koşma noktasına düştüğüne, Allah'ın şeriatının bir kenara atıldığına ve semavî dinleri omuzlarında taşıması gereken ıslahçıların bile milletin sapmasına yardımcı olduğuna işaret eder.
 B2|Sapma tek bir alanda değil, birçok alanda birden gerçekleşmiştir.
 B1|Hadisin en ümit verici yanı, fıtratın aslının temiz olduğunu hatırlatmasıdır; bozulma sonradan, şeytanların müdahalesiyle gelmiştir.
-B1|Bizans'ın vergi tahsildarından Kisrâ'nın ilâhlık iddiasına, Hint kanun koyucusundan tahrif edilmiş kitapların şarihlerine kadar bölümde görülen her şey, o temiz fıtratın üzerine çekilmiş perdelerdir.
+B1|Bizans'ın vergi tahsildarından Kisrâ'nın ilâhlar soyundan gelme iddiasına, Hint kanun koyucusundan tahrif edilmiş kitapların şarihlerine kadar bölümde görülen her şey, o temiz fıtratın üzerine çekilmiş perdelerdir.
 B1|Sallâbî tabloyu bir ümitle bağlar; doğusundan batısına aynı karanlığı paylaşan bir dünyada vahyin inişi, o karanlığın tam ortasında yakılan ilk ışık olacaktı.
 H2|Bu Bölümün İbretleri
 INTRO|Bi'set öncesi dünya, ihtişam ile mutluluğun, bilgi ile kurtuluşun, dünyevî sonuç ile gerçek başarının aynı şey olmadığını öğretir.

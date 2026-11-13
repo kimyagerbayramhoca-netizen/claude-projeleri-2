@@ -22,7 +22,7 @@ ROW|Aranın düzeltilmesi|Birlik olmadan cihad olmaz.|Allah yolundaki savaşçı
 ROW|İtaat|Disiplinin esası ve imanın alâmetidir.|Disiplinsiz savaşçılar başarıya ulaşamaz.
 ENDTABLE
 B1|Âyetlerin devamı gerçek müminleri; Allah anılınca kalpleri ürperen, âyetlerle imanı artan, Rabbine tevekkül eden, namazı dosdoğru kılan ve infak edenler olarak tanıtır (Enfâl 8/2-4).
-B1|Muhammed Emîn el-Mısrî'ye göre âyetler Bedir kahramanlıklarından hiç söz etmez, müminleri incelikli bir kınamayla hayâya çağırır; hitabın özü, bu soruyu hiç sormamaları gerektiğidir (*Min Hedyi Sûreti'l-Enfâl*, 95-96).
+B1|Muhammed Emîn el-Mısrî'ye göre âyetler Bedir kahramanlıklarından hiç söz etmez, müminleri acı verici bir kınamayla hayâya çağırır; hitabın özü, bu soruyu hiç sormamaları gerektiğidir (*Min Hedyi Sûreti'l-Enfâl*, 95-96).
 B1|Seyyid Kutub'a göre aradaki bozukluğu düzeltmek, nefsin saldırılarına ve kalplerin sızıntılarına karşı bir zaferdir ve Allah'ın mizanında müşriklere karşı zaferden daha yücedir; çekişmeyle biten zaferin anlamı yoktur.
 B1|Sallâbî, Kur'ân'ın kıssaları gerçekleşme sırasıyla dizmediğini hatırlatır; sûre ganimet tartışmasıyla başlar, oysa o tartışma Bedir'e çıkıp çıkmama tartışmasından sonra olmuştu.
 B1|Taksim hükmü ancak kalpler hazırlandıktan sonra geldi.
@@ -101,7 +101,7 @@ INTRO|Dört esirin hikâyesi, esirlere muamelede adaletin, şefkatin ve kararlı
 B1|Rasûlullah'ın (s.a.v.) amcası Abbas (r.a.) Müslüman olduğunu söyleyince "Senin Müslüman olup olmadığını Allah bilir; dediğin gibiyse Allah mükâfatını verir. Ama görünüşün bizim aleyhimizeydi" cevabını aldı.
 B2|Ondan kendisi, yeğenleri Nevfel b. Hâris ile Akîl b. Ebî Tâlib ve dostu Utbe b. Amr için fidye ödemesi istendi.
 B1|Malı olmadığını söyleyince Allah Rasûlü, Mekke'den çıkarken Ümmü'l-Fadl (r.anhâ) ile gömdüğü malı ve "Başıma bir şey gelirse bu mal Fadl'a, Abdullah'a ve Kusem'e" diye yaptığı vasiyeti haber verdi.
-SOZ|💬 ABBAS|"Vallahi senin Allah'ın Rasûlü olduğunu biliyorum; bunu benden ve Ümmü'l-Fadl'dan başka kimse bilmiyordu."|Beyhakī, Delâilü'n-Nübüvve, 3/142-143; Ahmed b. Hanbel, 1/353
+SOZ|💬 ABBAS|"Vallahi senin Allah'ın Rasûlü olduğunu biliyorum; bunu benden ve Ümmü'l-Fadl'dan başka kimse bilmiyordu."|Beyhakî, Delâilü'n-Nübüvve, 3/142-143; Ahmed b. Hanbel, 1/353
 B1|Onun hakkında, Allah esirlerin kalbinde hayır bilirse alınan fidyeden hayırlısını vereceğini ve onları bağışlayacağını bildiren âyet indi (Enfâl 8/70).
 B2|Abbas yıllar sonra, yirmi ukiyye yerine Allah'ın kendisine her biri mal işleten yirmi köle verdiğini söylerdi.
 B1|Ensâr'dan bazıları, Abdülmuttalib'in annesi Neccâroğulları'ndan olduğu için Abbas'ı "kız kardeşimizin oğlu" diye anıp fidyesini vermek istedi.
@@ -116,16 +116,16 @@ B2|Ebü'l-Âs'ın savaşta İslâm'a karşı bir ses ya da hareketi görülmemi�
 B1|Üçüncü hikâyede, kızlarına bakmakla yükümlü yoksul Ebû İzzet el-Cumahî "Malım yok, ailem var; beni bırak" diye yalvardı.
 B1|Rasûlullah, aleyhine kimseye yardım etmeyeceğine dair söz alıp onu karşılıksız bıraktı; Ebû İzzet de ona methiyeler okudu.
 B1|İbn Kesîr'in kaydına göre Ebû İzzet sözünü bozup müşriklere döndü, Uhud'da yeniden esir düştü ve tekrar af diledi.
-B1|Bu defa "Mekke'de iki yanağını ovalayarak Muhammed'i iki defa aldattım demene müsaade edemem" cevabıyla boynu vuruldu (Beyhakī, *Delâilü'n-Nübüvve*, 3/280-281; İbn Hişâm, *es-Sîre*, 3/110).
+B1|Bu defa "Mekke'de iki yanağını ovalayarak Muhammed'i iki defa aldattım demene müsaade edemem" cevabıyla boynu vuruldu (Beyhakî, *Delâilü'n-Nübüvve*, 3/280-281; İbn Hişâm, *es-Sîre*, 3/110).
 B2|Fakirliği ve kızları sebebiyle şefkat görmüş, sözünü tutmadığı için ikinci kez affedilmemişti.
 B1|Dördüncü hikâye Kureyş hatibi Süheyl b. Amr'ındır; Hz. Sevde (r.anhâ), Afrâ'nın oğulları Avf ve Muavviz'in taziyesinden dönünce onu elleri boynuna bağlı hâlde odanın köşesinde gördü.
 B1|Kendini tutamayıp "Ey Ebû Yezîd! Kendi ellerinizle mi teslim oldunuz? Şerefli bir şekilde ölemediniz mi?" dedi.
-B1|Rasûlullah'ın "Ey Sevde! Allah'a ve Rasûlüne karşı mı kışkırtıyorsun?" sesiyle kendine geldi ve onu böyle görünce dayanamadığını söyledi (Beyhakī, *es-Sünenü'l-Kübrâ*, 9/89; Hâkim, *el-Müstedrek*, 3/22; Taberî, *Târîh*, 2/460).
+B1|Rasûlullah'ın "Ey Sevde! Allah'a ve Rasûlüne karşı mı kışkırtıyorsun?" sesiyle kendine geldi ve onu böyle görünce dayanamadığını söyledi (Beyhakî, *es-Sünenü'l-Kübrâ*, 9/89; Hâkim, *el-Müstedrek*, 3/22; Taberî, *Târîh*, 2/460).
 B1|Hz. Ömer, Süheyl bir daha aleyhte konuşamasın diye ön dişlerinin sökülmesini teklif edince Allah Rasûlü "Ona müsle yapamam; sonra peygamber de olsam Allah beni de öyle yapar" buyurdu (İbn Ebî Şeybe, *el-Musannef*, 14/387; İbn Kesîr, *el-Bidâye ve'n-Nihâye*, 3/311).
 B2|Ömer'e de Süheyl'in bir gün kınamayacağı bir yerde duracağını haber verdi.
 B1|İbn Kesîr'in mürsel, hatta mu'dal saydığı bu rivayetteki işaret vefattan sonra anlaşıldı; Araplar irtidad ederken Süheyl Mekke'de hutbe okuyup halkı İslâm üzere tuttu.
 SOZ|💬 SÜHEYL B. AMR|"Ey Kureyş, herkesten sonra Müslüman olup herkesten önce mürted olmayın."|
-B1|İbn Abbas'a göre Rasûlullah, fidye ödeyemeyen ve okuma yazma bilen esirlerin Medineli on Müslüman çocuğa okuma yazma öğretmesini fidye saydı (Evlakî'nin kaydı: Beyhakī, *es-Sünenü'l-Kübrâ*, 6/321).
+B1|İbn Abbas'a göre Rasûlullah, fidye ödeyemeyen ve okuma yazma bilen esirlerin Medineli on Müslüman çocuğa okuma yazma öğretmesini fidye saydı (Evlakî'nin kaydı: Beyhakî, *es-Sünenü'l-Kübrâ*, 6/321).
 B1|Sallâbî'ye göre mala şiddetle muhtaç olunan bir dönemde bunun kabulü, ilk vahyi "Oku!" emriyle başlayan dinin cehaletle mücadelesinin ilk temel taşıydı.
 B2|Evlakî de düşmanın bilgisini bile Müslümanların hayrına kullanan bu hükmün eşsizliğine dikkat çeker.
 B1|Sallâbî'ye göre esirler hakkındaki hüküm, genel maslahatı gözetmek şartıyla İmam'ın tercihine bırakılmıştır; Bedir sonrası uygulamada dört seçenek görülür.
@@ -141,7 +141,7 @@ INTRO|Zafer haberi dönüş yolunda tebrikle, Mekke'de ise yas, öfke ve intikam
 B1|Rasûlullah (s.a.v.) Revhâ'ya geldiğinde Müslümanların ileri gelenleri onu karşılayıp zaferi tebrik etti.
 B1|Evlakî'nin naklettiğine göre Ensâr'dan biri, boğazlanmayı bekleyen develer gibi yaşlı, saçı dökülmüş adamları boğazladıklarını söyleyip tebriği küçümsedi.
 B2|Allah Rasûlü "Ey amcaoğlu, böyle söyleme; onlar liderlerdi" diyerek onu düzeltti; düşman güçlüydü, onu yenen Allah'ın yardımıydı.
-B1|Üseyd b. Hudayr (r.a.), kervanla karşılaşılacağını sandığı için geride kaldığını, düşmanı bilse asla kalmayacağını söyledi; Rasûlullah "Doğru söyledin" buyurdu (Beyhakī, *Delâilü'n-Nübüvve*, 3/133).
+B1|Üseyd b. Hudayr (r.a.), kervanla karşılaşılacağını sandığı için geride kaldığını, düşmanı bilse asla kalmayacağını söyledi; Rasûlullah "Doğru söyledin" buyurdu (Beyhakî, *Delâilü'n-Nübüvve*, 3/133).
 B2|Evlakî'nin hatırlattığı gibi bazı sahâbîler Bedir'in ne büyük bir gün olacağını sonradan idrak etmişti.
 B1|Mekke'de haber bomba etkisi yaptı; savaştan kaçıp ilk gelen Haysumân b. Abdullah el-Huzâî ölenleri tek tek saydı.
 B2|Utbe ve Şeybe, Ebü'l-Hakem b. Hişâm, Ümeyye b. Halef, Zem'a b. Esved, Haccâc'ın oğulları Nübeyh ve Münebbih ve Ebü'l-Bahterî bunlar arasındaydı.
@@ -202,7 +202,7 @@ ENDTABLE
 B1|Hz. Ömer de onu, Amr b. Âs'a destek olarak gönderdiği, her biri bin kişiye bedel dört kişiden biri saydı.
 H2|Bedir Ehli ve İman Bağı
 INTRO|Bedir ehlinin mertebesi, Bedir'de iman bağının kan bağına üstün gelmesinden doğdu.
-B1|Evlakî bu mertebenin en çarpıcı delilini, Bedir ehlinden Hâtib b. Ebî Belteâ'nın (r.a.) fetihten önce sefer hazırlığını bir kadınla gönderdiği mektupla Mekkelilere bildirmek istemesinde bulur.
+B1|Evlakî bu mertebenin en çarpıcı delilini, Bedir ehlinden Hâtıb b. Ebî Belteâ'nın (r.a.) fetihten önce sefer hazırlığını bir kadınla gönderdiği mektupla Mekkelilere bildirmek istemesinde bulur.
 B2|Vahiyle haber verilen mektup yolda ele geçirildi; Hz. Ömer "Bırak boynunu vurayım, bu adam münafık oldu" deyince Rasûlullah (s.a.v.) ona şu cevabı verdi.
 QUOTE|ch22-168
 B1|Ömer'in gözlerinden yaşlar boşaldı; Evlakî siyer kaynaklarından "Bedir'e ya da Hudeybiye'ye katılan hiç kimse cehennem ateşine girmeyecektir" sözünü de aktarır.
@@ -219,9 +219,9 @@ B1|Sallâbî'ye göre bunlar yaşanmış gerçeklerdir; gerçek kan bağı inan�
 B1|Ayrışmanın acı bir yüzü de vardı; hicret edemeyip Mekke'de kalan bazı Müslüman gençler Bedir'e müşriklerin safında çıktı.
 B2|Bunlar Abdullah b. Süheyl b. Amr, Hâris b. Zem'a, Ebû Kays b. Fâkih, Ebû Kays b. Velîd b. Muğîre, Ali b. Ümeyye b. Halef ve Âs b. Münebbih'ti.
 B1|Abdullah b. Süheyl (r.a.) saf değiştirip Rasûlullah'a katıldı ve Bedir ehli oldu; diğerleri müşriklerin safında öldürüldü.
-B1|Taberî'ye göre bu gençler kavimleriyle istemeyerek çıkmış, Müslümanların azlığını görünce "Bunları dinleri aldatmış" diyerek fitneye düşmüşlerdi.
+B1|Taberî'ye göre bu gençler kavimleriyle istemeyerek çıkmış, Müslümanların azlığını görünce "Bunları dinleri aldatmış" diyerek fitneye düşmüşlerdi (*Tefsîr*, 10/21).
 B1|Ümeyye'nin hanımı Ümmü Safvân (r.anhâ), oğlu Ali'yi Bedir'de yaralayan Hubâb b. Münzir kendisine gösterilince şöyle dedi.
-SOZ|💬 ÜMMÜ SAFVÂN|"Şirk üzere öldürülenleri anmayı bırakın! Allah, Hubâb'ın darbesiyle Ali'yi rezil, Ali'ye vurmakla Hubâb'ı aziz kıldı. Mekke'den çıktığında İslâm üzereydi, ama başka bir şey üzerinde öldürüldü."|Hümeydî, et-Târîhu'l-İslâmî, 4/154; Taberî, Tefsîr, 10/21
+SOZ|💬 ÜMMÜ SAFVÂN|"Şirk üzere öldürülenleri anmayı bırakın! Allah, Hubâb'ın darbesiyle Ali'yi rezil, Ali'ye vurmakla Hubâb'ı aziz kıldı. Mekke'den çıktığında İslâm üzereydi, ama başka bir şey üzerinde öldürüldü."|Hümeydî, et-Târîhu'l-İslâmî, 4/154
 B1|Evlakî'ye göre bunlar, hicretin meşakkatine katlanamayan varlıklı Kureyş ailelerinin nazlı çocuklarıydı ve belki tek ok atmadan öldüler; haklarında şu âyet indi.
 QUOTE|ch22-169
 B1|İbn Abbas'a göre mazeretleri yoktu; saflar arası uzak değildi ve Abdullah b. Süheyl gibi müminlerin safına geçebilirlerdi.
@@ -241,7 +241,7 @@ ROW|7|Gerçek bir ihtiyacın bulunması
 ENDTABLE
 H2|Gaybdan Haberler ve Şiir Cephesi
 INTRO|Bedir ve sonrası gaybdan haberlerle ve mucizelerle doludur; mücadele şiir cephesinde de sürdü.
-B1|Ümeyye b. Halef'in öldürüleceğinin yıllar önce bildirilmesi (Buhârî, 3632), Abbas'ın gömdüğü malın ve Umeyr ile Safvân'ın gizli pazarlığının açığa çıkması gaybdan haberlerdir.
+B1|Ümeyye b. Halef'in öldürüleceğinin önceden bildirilmesi (Buhârî, 3632), Abbas'ın gömdüğü malın ve Umeyr ile Safvân'ın gizli pazarlığının açığa çıkması gaybdan haberlerdir.
 KAVRAM|💡 KAVRAM · GAYB BİLGİSİ|Sallâbî'nin hatırlattığı gibi gaybı yalnız Allah bilir (Neml 27/65); Peygamber kendiliğinden bilmez (En'âm 6/50), Allah dilediği peygamberine vahiyle dilediği kadarını bildirir (Cin 72/26-27).
 B1|Enes'in naklettiğine göre Hz. Ömer, Rasûlullah'ın (s.a.v.) bir gün önceden gösterdiği ölüm yerleri için yemin etmişti.
 SOZ|💬 HZ. ÖMER|"Onu hak ile gönderene yemin ederim ki çizdiği çizgilerin dışına hiç çıkmadılar."|Müslim, 2873
@@ -265,7 +265,7 @@ B1|Bedir'in en büyük dersi zaferin yalnız Allah'tan olduğudur; "Allah bunu s
 B1|Sallâbî'ye göre mümin sebeplere sarılmak zorundadır, ama onlara güvenip gururlanmamalıdır; tek dayanak sebeplerin yaratıcısıdır.
 B1|Evlakî bu farkı Kârûn'la anlatır; Kârûn malını "bende olan bir bilgi sayesinde" kazandığını söylemişti (Kasas 28/78), Bedir ehli ise zaferi Allah'ın yardımına bağladı.
 KAVRAM|💡 KAVRAM · TEVEKKÜL|Tevekkül çabayı bırakmak değildir; mümin sebeplere sarılır, ama sebeplerin yaratıcısına dayanır.
-B1|Hz. Ömer, mescitte miskince oturup kendilerine "mütevekkil" diyenleri "Gökten altın ve gümüş yağmadığını biliyorsunuz" diyerek çalışmaya göndermişti.
+B1|Hz. Ömer, miskin miskin gezip kendilerine "mütevekkil" diyenleri "Gökten altın ve gümüş yağmadığını biliyorsunuz" diyerek çalışmaya göndermişti.
 B1|Rasûlullah'ın (s.a.v.) ifadesiyle hakkıyla tevekkül edenler, sabah aç çıkıp akşam tok dönen kuşlar gibi rızıklanır; kuşlar da yuvada beklemez, çıkıp çalışır (Tirmizî, 2344; İbn Mâce, 4164; Ahmed b. Hanbel, 205, 372).
 KAVRAM|💡 KAVRAM · FURKÂN GÜNÜ|Kur'ân'ın Bedir'e verdiği addır; Seyyid Kutub bu adda altı ayrışma görür (Fî Zılâli'l-Kur'ân, 3/1523-1524).
 TABLE|Sıra|Furkân Günü'ndeki ayrışma

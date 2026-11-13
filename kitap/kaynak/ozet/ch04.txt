@@ -7,7 +7,7 @@ B1|Bu ışıkların ikisi, Abdülmuttalib'in yeri rüyada gösterilen Zemzem'i k
 B1|Evlakî'ye göre bu hadiseler, Rasûlullah'ın doğduğu yıla uzanan tarihî olayların son halkasıdır.
 H2|Dört Gecelik Rüya
 INTRO|Zemzem'in yeri Abdülmuttalib'e dört gecelik bir rüyayla bildirildi.
-B1|Sallâbî olayı, İbrâhim el-Aliy'in eserinde Hz. Ali'den (r.a.) gelen sahih rivayetle naklettiği şekliyle anlatır (İbrâhim el-Aliy, *es-Sîretü'n-Nebeviyye es-Sahîha*, 1/158).
+B1|Sallâbî olayı, İbrâhim el-Alî'in eserinde Hz. Ali'den (r.a.) gelen sahih rivayetle naklettiği şekliyle anlatır (İbrâhim el-Alî, *es-Sîretü'n-Nebeviyye es-Sahîha*, 1/158).
 B2|Sahih rivayetlere dayanan bu siyer, birinci bölümde görüldüğü gibi Evlakî'nin de iki ana kaynağından biridir; iki müellifin yolu burada yine kesişir.
 B1|Hz. İsmâil'in (a.s.) hücresinde uyuyan Abdülmuttalib rüyasında kendisine seslenen birini gördü; ses üç gece ayrı adlarla bir şeyi kazmasını emretti, ne olduğunu sorduğunda ise cevap vermeden çekip gitti.
 TABLE|Gece|Söylenen ad|Anlamı
@@ -37,7 +37,7 @@ B1|Zemzem'in fazileti hakkında çok sayıda hadis vardır; Ebû Zer'in (r.a.) r
 QUOTE|ch04-19
 B1|İbn Abbas'ın (r.a.) rivayet ettiği hadiste ise Zemzem'in sırrı anlatılır.
 QUOTE|ch04-20
-B1|Şeyh Muhammed Ebû Şehbe'nin aktardığına göre müteahhir hâfızlardan Hâfız ed-Dimyâtî bu hadisi sahih görmüş, Hâfız el-Irâkī de sıhhatini kabul etmiştir.
+B1|Şeyh Muhammed Ebû Şehbe'nin aktardığına göre müteahhir hâfızlardan Hâfız ed-Dimyâtî bu hadisi sahih görmüş, Hâfız el-Irâkî de sıhhatini kabul etmiştir.
 B1|Allah'ın Hz. İsmâil'e (a.s.) verdiği su böylece Abdülmuttalib'in elinde yeniden gün yüzüne çıktı ve bu hâdise Rasûlullah'ın dedesinin Mekke'deki konumunu pekiştirdi.
 H2|Yemen'de Taht Kavgası: Necâşî, Aryat ve Ebrehe
 INTRO|Necran'ın intikamına gelen Habeşliler Yemen'i aldı, Ebrehe de hileli bir düelloyla tek hâkim oldu.
@@ -64,7 +64,7 @@ B1|Habeşistan hazinesiyle San'â'da sanat şaheseri sayılacak kadar büyük ve
 B2|Sallâbî'nin ifadesiyle Ebrehe hacıların yönünü bu kiliseye çevireceğini ilan etmişti; bütün özendirme ve korkutmalara rağmen Araplar bundan çekinip kabul etmedi.
 B1|Plandan hoşlanmayan bir bedevî Arap büyük bir küstahlıkla kilisenin içine pisleyince Ebrehe büyük bir öfkeyle Kâbe'den intikam almaya yemin etti.
 TABLE|Konu|Sallâbî|Evlakî
-ROW|Kilisenin adı|Külleys|Kalîs (Kulleys)
+ROW|Kilisenin adı|Külleys|Kalîs (Külleys)
 ROW|Bedevînin yaptığı|Kilisenin içine büyük abdestini bozdu.|Ayrıca pisliği duvarlara da sürüp kaçtı.
 ROW|Ebrehe'nin yemini|Yürüyüp Kâbe'yi yakacağına yemin etti.|"Buna bir son vereceğim ve Kâbe'yi yıkacağım" dedi.
 ENDTABLE
@@ -79,11 +79,11 @@ B2|Kavmiyle savaşıp yenilen ve yakalanan Zû Nefer, öldürülmemesinin kral i
 B1|Has'am topraklarında bu kez Nüfeyl, bazı Yemen kabileleriyle karşısına çıktı; Sallâbî'ye göre yenilip esir düşen Nüfeyl, Arap diyarını iyi bildiğini ve kavminin kendisine itaat ettiğini söyleyerek canını kurtardı ve orduya kılavuz oldu.
 B1|Tâif'te Sakîf'ten bir heyet Mes'ûd b. Muattib ile gelip kralın kulları olduklarını, aradığının putları Lât değil Mekke'deki Beyt olduğunu söyledi ve yol gösterecek birini vereceklerini bildirdi.
 TABLE|Konu|Sallâbî|Evlakî
-ROW|Yoldaki direniş|Önce Himyerli Zû Nefer, sonra Has'amlı Nüfeyl direndi; Nüfeyl kılavuz oldu.|Yalnız Has'am şefi Nufeyl b. Habîb el-Has'amî direndi; büyük orduya dayanamayıp esir düştü ve ordunun içinde esir olarak kaldı.
-ROW|Ebû Riğāl|Sakîf'in kılavuz olarak Ebrehe'ye kattığı azatlısıydı.|Ebrehe'ye yardım eden Tâiflilerden biriydi; rehberliği kendisi teklif etti.
-ROW|Ebû Riğāl'in ölümü|Mekke ile Tâif arasında, Mekke'ye yakın Muğammes'e gelince öldü.|Tâif'ten çıkar çıkmaz aniden öldü.
+ROW|Yoldaki direniş|Önce Himyerli Zû Nefer, sonra Has'amlı Nüfeyl direndi; Nüfeyl kılavuz oldu.|Yalnız Has'am şefi Nüfeyl b. Habîb el-Has'amî direndi; büyük orduya dayanamayıp esir düştü ve ordunun içinde esir olarak kaldı.
+ROW|Ebû Riğâl|Sakîf'in kılavuz olarak Ebrehe'ye kattığı azatlısıydı.|Ebrehe'ye yardım eden Tâiflilerden biriydi; rehberliği kendisi teklif etti.
+ROW|Ebû Riğâl'in ölümü|Mekke ile Tâif arasında, Mekke'ye yakın Muğammes'e gelince öldü.|Tâif'ten çıkar çıkmaz aniden öldü.
 ENDTABLE
-B1|İki anlatım aynı sonla biter; bu ihanete öfkelenen Araplar Ebû Riğāl'in kabrini taşladı ve hainin hatırasını taşlamak Arabistan'da gelenek hâline geldi.
+B1|İki anlatım aynı sonla biter; bu ihanete öfkelenen Araplar Ebû Riğâl'in kabrini taşladı ve hainin hatırasını taşlamak Arabistan'da gelenek hâline geldi.
 B1|Muğammes'te konaklayan Ebrehe, Esved b. Maksûd'u süvarilerin başına getirip Harem ahalisinin mallarını toplattı; bunların arasında Rasûlullah'ın (s.a.v.) dedesi Abdülmuttalib'in iki yüz devesi de vardı.
 B2|Evlakî bu develerin Mekke'nin dış mahallelerinde hayvan otlatan çobanlardan alındığını söyler.
 B1|Ebrehe, Hünâte el-Himyerî'yi şehrin en şereflisine kralın savaşmaya değil yalnız Beyt'i yıkmaya geldiğini bildirmek üzere Mekke'ye gönderdi.
@@ -93,8 +93,8 @@ H2|Develerin Sahibi, Beyt'in Sahibi
 INTRO|Abdülmuttalib develerini geri istedi, Beyt'i ise sahibine bıraktı.
 B1|Ebrehe'yle görüşmek için aracı gerekiyordu; iki müellif bu bağlantı zincirini farklı isimlerle kurar.
 TABLE|Konu|Sallâbî|Evlakî
-ROW|Esir dost|Karargâhta esir tutulan eski dostu Zû Nefer|Esir dostu Nufeyl
-ROW|Aracı|Zû Nefer'in haber gönderdiği filin bakıcısı Enis|Nufeyl'in orduda dost olduğu filin sürücüsü Uneys
+ROW|Esir dost|Karargâhta esir tutulan eski dostu Zû Nefer|Esir dostu Nüfeyl
+ROW|Aracı|Zû Nefer'in haber gönderdiği filin bakıcısı Enis|Nüfeyl'in orduda dost olduğu filin sürücüsü Üneys
 ENDTABLE
 B1|Sallâbî'nin rivayetinde Zû Nefer, sabah akşam öldürülmekten emin olmayan bir esirin elinden ne geleceğini söyledi, ama Enis'ten kral nezdinde Abdülmuttalib'in büyüklüğünü anlatmasını isteyeceğini bildirdi.
 B2|Onu Enis'e Kureyş'in lideri, Mekke kervanının sahibi, ovada insanları ve dağlarda vahşi hayvanları doyuran bir zat diye tanıttı; iki yüz devesi alınan dostu için yardım istedi.
@@ -122,7 +122,7 @@ B1|Evlakî'ye göre şehirden en son çıkan Abdülmuttalib oldu; duasını biti
 B1|Ebrehe Muğammes'te ordusunu düzene sokup filini getirtti ve yükleri yükletti; ama fil yerinde durdu, az kalsın göğsünü yere çarpacakken zorlukla çöktü.
 B2|Başına balta sapıyla vurdular, başka yollarla zorladılar, Evlakî'ye göre mızraklarla kanatacak kadar yaraladılar; yine yürümedi.
 B2|Yönü Yemen'e çevrilince kalkıp koşuyor, Harem'e çevrilince yeniden oturuyordu.
-B1|Evlakî'nin yer verdiği bir rivayete göre esir Nufeyl zincirlerinden kurtulup filin kulağına "Bu, Allah'ın evidir; sakın ona saldırma" diye fısıldamış ve kaçmıştı.
+B1|Evlakî'nin yer verdiği bir rivayete göre esir Nüfeyl zincirlerinden kurtulup filin kulağına "Bu, Allah'ın evidir; sakın ona saldırma" diye fısıldamış ve kaçmıştı.
 B2|Evlakî'ye göre sebep bu olsun ya da olmasın sonuç değişmez; fil Kâbe'nin üzerine yürümeyi reddetti.
 TABLE|Konu|Sallâbî|Evlakî
 ROW|Filin sonu|Fil sonunda çevredeki dağlardan birine kaçtı.|Askerler fili bırakıp Kâbe'nin üzerine kendileri yürümeye karar verdi.
@@ -163,7 +163,7 @@ B2|Kureyş de üç hac göreviyle hükmeden önderler ve itaat edilen liderler o
 TABLE|Görev|Mahiyeti
 ROW|Vifâde|Her sene kendi mallarından toplayıp Minâ günlerinde hacılara yiyecek dağıtmak
 ROW|Sidâne|Kâbe hizmeti
-ROW|Sikāye|Hacılara su dağıtmak
+ROW|Sikâye|Hacılara su dağıtmak
 ENDTABLE
 B1|İbn Teymiyye'ye göre olayın yaşandığı sene Kâbe'nin komşuları putlara tapan müşriklerdi; bu yönüyle Hıristiyanların dini onlarınkinden daha hayırlıydı.
 B2|Demek ki bu ilâhî müdahale Kâbe komşuları için değil; ya Beytullah, ya o sene Kâbe'nin yanında doğan Peygamber ya da her ikisi içindi ve hangisi olursa olsun onun peygamberliğinin delilidir (İbn Teymiyye, *el-Cevâbü's-Sahîh*, 4/122).
@@ -171,7 +171,7 @@ B1|İbn Kesîr ise en meşhur görüşe göre Rasûlullah aynı sene doğduğu i
 KAVRAM|💡 KAVRAM · İRHÂS|Peygamberlikten önce görülen olağanüstü işaretlerdir.
 B2|İbn Kesîr'e göre kudret, hâl diliyle Kureyş'e şöyle sesleniyordu.
 SOZ|💬 İBN KESÎR|"Ey Kureyş topluluğu! Allah size Habeşlilerden daha hayırlı olduğunuz için yardım etmedi; hâtemü'l-enbiyâ olan ümmî Muhammed'in gönderilişiyle şereflendirip yücelteceği Beyt-i Atîk'i korumak için yardım etti."|İbn Kesîr, Tefsîr, 4/458-459
-B1|Kāsımî de Kāşânî'den, fil sahiplerinin hikâyesinin Rasûlullah'ın zamanına yakın meşhur bir olay, Allah'ın kudretinin âyetlerinden biri ve haremlerinin çiğnenmesine cüret edenlere gazabının eseri olduğunu nakleder (Kāsımî, *Mehâsinü't-Te'vîl*, 17/262).
+B1|Kâsımî de Kâşânî'den, fil sahiplerinin hikâyesinin Rasûlullah'ın zamanına yakın meşhur bir olay, Allah'ın kudretinin âyetlerinden biri ve haremlerinin çiğnenmesine cüret edenlere gazabının eseri olduğunu nakleder (Kâsımî, *Mehâsinü't-Te'vîl*, 17/262).
 B1|Evlakî'ye göre bu yılda üç olay buluştu ve bu tesadüf değil, sahnenin perdesinin açılmasıdır.
 B2|Kâbe'nin ilâhî koruma altında olduğu herkesin gözü önünde gösterildi.
 B2|Kureyş'in "Beyt'in sahipleri" olarak Arap dünyasındaki saygınlığı zirveye çıktı.
@@ -181,7 +181,7 @@ INTRO|Dersler Kâbe'ye saygı, ihanetin akıbeti, tevekkül ve Mekke'nin ilâhî
 B1|Sallâbî derslere Kâbe'ye saygıyla başlar; putperest Araplar bile insanlar için kurulan ilk ev olan Kâbe'yi her şeyden kutsal sayardı ve bu, Hz. İbrâhim ile Hz. İsmâil'in dininden kalan bir mirastı.
 B2|Ebrehe'nin ihtişamlı rakip mabedi, özendirmesi ve korkutması Arapları Kâbe'den çeviremedi; fıtrata işlemiş bir hakikat en süslü taklitle yerinden edilemez.
 B1|Sallâbî'ye göre Zû Nefer'in ve Nüfeyl'in büyük orduya rağmen silaha sarılması, mukaddesatı savunmanın ve o yolda fedakârlığın her insanın yaratılışındaki fıtrî bir duygu olduğunu gösterir.
-B1|Beytullah'ı yıkmaya gelen düşmana yol gösteren Ebû Riğāl, Sallâbî'nin ifadesiyle hıyanet ve ajanlığın sembolü, kalplerde buğzedilen bir isim oldu.
+B1|Beytullah'ı yıkmaya gelen düşmana yol gösteren Ebû Riğâl, Sallâbî'nin ifadesiyle hıyanet ve ajanlığın sembolü, kalplerde buğzedilen bir isim oldu.
 B2|Ümmetin mukaddesatına karşı düşmanla iş birliği yapanlar, gözcülük ve casusluk edenler dünyada ve âhirette rezil olur; insanlar da Allah da onlara lânet eder.
 B1|Abdülmuttalib'in "Bu Beyt'in de bir sahibi vardır" sözü, gücün gerçekte kimin elinde olduğunu bilen bir kalbin sükûnetidir; sorumluluk alanını ihmal etmeyip gücünün yetmediği yerde işi sahibine bırakmak tevekkülün ta kendisidir.
 B1|Zemzem hikâyesi de tevekkülün ne olmadığını öğretir; tevekkül sebepleri terk etmek değil, sebeplere sarılıp sonucu Allah'a bırakmaktır.

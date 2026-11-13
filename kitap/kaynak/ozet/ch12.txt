@@ -16,7 +16,7 @@ B1|Ebû Cehil, Muhammed'in Kureyş liderlerinin gözü önünde secde ettiğini 
 B1|Rasûlullah namazdayken geldi, fakat adımını atar atmaz elleriyle kendini korumaya çalışarak geri döndü; aralarında ateşten bir hendek, dehşet verici şeyler ve kanatlar gördüğünü söyledi.
 QUOTE|ch12-81
 B1|Ebû Cehil başka bir defa onu namazdan menettiğini hatırlatıp Mekke'de en çok taraftarın kendisinde olduğuyla övününce "O, meclisini çağırsın; biz de zebanileri çağıracağız" âyetleri indi (Alak 96/17-18).
-B2|İbn Abbas'ın (r.a.) dediği gibi taraftarlarını çağırsaydı zebaniler onu yakalayacaktı (Müslim, 2797; Evlakî tehdit sözleri için Buhârî, 4958 ve Tirmizî, 3348'e dayanır).
+B2|İbn Abbas'ın (r.a.) dediği gibi taraftarlarını çağırsaydı zebaniler onu yakalayacaktı (Evlakî tehdit sözleri için Buhârî, 4958 ve Tirmizî, 3348'e dayanır).
 B1|Yine Ebû Cehil'in kışkırtmasıyla, Kâbe'de secdeye varan Rasûlullah'ın omuzları arasına kesilmiş bir devenin işkembesi kondu; o secdeden başını kaldırmadı, onlar gülmekten birbirlerinin üzerine yıkıldı.
 B2|Sahih rivayetlere göre pisliği Ukbe b. Ebî Muayt getirmiş, Ebû Cehil kışkırtmıştı (Buhârî, Namaz, 21; Evlakî'nin verdiği yer).
 B1|Haberi alan Fâtıma (r.anhâ) koşup pisliği babasının sırtından attı ve onlara ağzına geleni söyledi.
@@ -78,7 +78,7 @@ B1|Velîd, Kur'ân'ın sözünde bir ihtişam bulunduğunu, kökünün hurma ağ
 B1|Yine de gerçeğe en yakın ithamın, kişiyle babasının, karısının, kardeşinin ve kabilesinin arasını açan bir "sihirbaz" olduğuna karar verdi; Kur'ân bu sahneyi bütün çıplaklığıyla kaydetti.
 QUOTE|ch12-83
 B1|Sallâbî bu kıssada psikolojik harbin belirli kurallarla planlandığını görür; insanların toplandığı hac mevsimi seçilmiş, tek söylemle çelişki önlenmiş, heyetlerin yolu tutulup zihinleri zehirlenmeye çalışılmıştı.
-B1|Evlakî kampanyaya, İran'dan kıssalar öğrenip Rasûlullah'ın konuştuğu her yerde "Bana gelin, benim daha güzel kıssalarım var" diye insanları toplayan Nadr b. Hâris'i de ekler (Furkān 25/5).
+B1|Evlakî kampanyaya, İran'dan kıssalar öğrenip Rasûlullah'ın konuştuğu her yerde "Bana gelin, benim daha güzel kıssalarım var" diye insanları toplayan Nadr b. Hâris'i de ekler (Furkân 25/5).
 B1|Fakat propaganda davayı kuşatamadı; Sallâbî'ye göre kibirli Velîd bile Kur'ân'ın azametini itiraf etmişti.
 B1|Peygamber Efendimiz konuşmadan önce heybeti ve vakarıyla, konuşunca üslubuyla dinleyeni etkiliyordu; demir perdeyi delenler bunun örnekleridir.
 B1|Delileri efsunla tedavi eden Ezd-i Şenûe kabilesinden Dımâd, propagandaya inanıp "Belki Allah onu benim elimle iyileştirir" diyerek Rasûlullah'ı aradı; Rasûlullah onu hilim ve sükûnetle dinleyip şu sözlerle başladı.
@@ -157,7 +157,7 @@ ROW|Mağaraya sığınan gençlerin kıssası nedir?|Ashâb-ı Kehf kıssası b�
 ROW|Doğuyu ve batıyı dolaşan adam kimdir?|Zülkarneyn kıssası bütün ayrıntısıyla anlatıldı (Kehf 18/83-98).
 ENDTABLE
 B1|Sallâbî'ye göre bu arayış davayı zayıflatmak yerine Kur'ân'ın kapsamını ortaya çıkardı.
-B1|Mekkî sûrelerdeki geniş Firavun ve İsrâiloğulları kıssaları Ehl-i Kitab'a kendi tarihinden hitap ediyor, Müslümanlara zulme karşı sabrı öğretiyordu; Kur'ân'da adı en çok geçen peygamber de bu yüzden Hz. Mûsâ'dır.
+B1|Mekkî sûrelerdeki geniş Firavun ve İsrâiloğulları kıssaları Ehl-i Kitab'a kendi tarihinden hitap ediyor, Müslümanlara zulme karşı sabrı öğretiyordu; Kur'ân'da adı en çok geçen peygamber de Hz. Mûsâ'dır.
 H2|Mustaz'afların Çilesi: Sahâbeye Yapılan İşkenceler
 INTRO|Rasûlullah'ı (s.a.v.) Ebû Tâlib korurken ashâbı, ileri gelenlerinden kölelere kadar ağır işkencelere katlandı.
 B1|Evlakî'ye göre Rasûlullah tahkir edildi, incitildi, itham edildi; fakat Allah onu Ebû Tâlib vasıtasıyla koruduğu için ashâbının gördüğü işkenceye uğramadı.
@@ -176,7 +176,7 @@ ENDTABLE
 B1|Canını Allah yolunda hiçe sayan Bilâl (r.a.) çocuklara teslim edilip Mekke sokaklarında dolaştırıldı; o ise "Ahad, Ahad" demeye devam etti.
 B2|Evlakî'nin naklettiğine göre sebebi sorulunca "Çünkü onları en çok bunun kızdırdığını fark ettim" demişti.
 B1|Sallâbî'ye göre cahiliyede hizmet etmek ve alınıp satılmaktan başka rolü olmayan bu köle, yeni dava kalbine girer girmez kâinatta bir insan olarak doğmuştu.
-B1|Ebû Bekir onu efendisi Ümeyye b. Halef'ten daha güçlü bir kölesi karşılığında, diğer bir rivayette yedi veya kırk vekī altınla satın alıp azat etti.
+B1|Ebû Bekir onu efendisi Ümeyye b. Halef'ten daha güçlü bir kölesi karşılığında, diğer bir rivayette yedi veya kırk vekî altınla satın alıp azat etti.
 SOZ|💬 HZ. ÖMER|"Ebû Bekir efendimizdir; efendimizi de o azat etti."|
 B1|Rasûlullah da cennette önünde Bilâl'in ayak seslerini duyduğunu haber verecekti (Buhârî, 1149; Müslim, 2458).
 B1|Ebû Bekir, Âmir b. Füheyre'yi, Ümmü Ubeys'i, Zinnîre'yi, Nehdiyye ile kızını ve henüz Müslüman olmayan Ömer'in dövdüğü bir câriyeyi de satın alıp azat etti.
@@ -191,17 +191,17 @@ B1|Ammâr, Peygamber aleyhinde konuşup ilâhlarını hayırla anmadıkça bıra
 B2|Kalbi imanla dolu olarak küfre zorlananı istisna eden âyet bu ruhsatı teyit ediyordu (Nahl 16/106); Evlakî meseleyi "Allah hiç kimseye gücünün yetmeyeceği bir yük yüklemez" (Bakara 2/286) âyetiyle anar.
 B1|Sallâbî, Bilâl ile Ammâr'ın tutumunda azîmet ile ruhsat arasında gidip gelen büyük bir fıkhî mesele bulunduğunu, davetçilerin bunu ifrat ve tefrite düşmeden kavraması gerektiğini söyler.
 KAVRAM|💡 KAVRAM · AZÎMET VE RUHSAT|Bilâl'in "Ahad, Ahad" diye direnmesi azîmeti, Ammâr'ın kalbi imanla dolu olarak söylediği sözler ruhsatı temsil eder; ikisi de meşrudur.
-B1|Sa'd b. Ebî Vakkās'ın (r.a.) müşrik annesi, insanların oğlunu "anasının katili" diye ayıplamasını umarak o dininden dönmedikçe yiyip içmeyi bıraktı.
+B1|Sa'd b. Ebî Vakkâs'ın (r.a.) müşrik annesi, insanların oğlunu "anasının katili" diye ayıplamasını umarak o dininden dönmedikçe yiyip içmeyi bıraktı.
 B1|Annesi üç gün aç kalıp takatsiz düşünce Sa'd, yüz canı olsa ve teker teker çıksa bile dinini bırakmayacağını söyledi; annesi de yemeye başladı.
 B2|Kur'ân ana babaya iyiliği emrederken şirke zorladıklarında onlara itaat edilmeyeceğini bildirdi (Ankebût 29/8).
 B1|Mekke'nin en zengin ve en zarif delikanlısı Mus'ab b. Umeyr (r.a.) imanı yüzünden ailesince hapsedildi, kaçıp Habeşistan'a ilk hicrete katıldı.
-B2|Sa'd onu sonra cildi yılan derisi gibi dökülen takatsiz bir hâlde gördüğünü anlatır; Rasûlullah ise "Mekke'de Mus'ab'dan daha zarif giyinen ve nimet içinde yüzen birini görmedim" derdi (İbn İshak, 193; Hâkim, 3/200; İbn Sa'd, et-Tabakātü'l-Kübrâ, 3/116).
+B2|Sa'd onu sonra cildi yılan derisi gibi dökülen takatsiz bir hâlde gördüğünü anlatır; Rasûlullah ise "Mekke'de Mus'ab'dan daha zarif giyinen ve nimet içinde yüzen birini görmedim" derdi (İbn İshâk, 193; Hâkim, 3/200; İbn Sa'd, et-Tabakâtü'l-Kübrâ, 3/116).
 B1|Demirci Habbâb b. Eret (r.a.) kızgın taşlara yatırılmış, sahibesi Ümmü Enmâr kızgın demiri başına bastırmıştı.
 B2|Yıllar sonra Halife Ömer Mekke'de gördüklerini sorunca Habbâb konuşmadan gömleğini kaldırıp yanık izleriyle dolu sırtını gösterdi.
 B1|Eziyetler artınca Habbâb, Kâbe'nin gölgesinde hırkasını yastık edinmiş Rasûlullah'tan yardım duası istedi; Rasûlullah doğrulup oturdu, yüzü kıpkırmızı kesilmişti.
 QUOTE|ch12-89
 B1|Evlakî'ye göre Rasûlullah, ümmetinin önceki ümmetlerden daha sabırlı olmasını ve kıyamet günü onunla övünmeyi istediği için kızmıştı.
-B2|Evlakî burada ümmetin çokluğunun gösterildiği rivayeti (Buhârî, 3410, 5752; Müslim, 221) ve "Kıyamet günü sizin çokluğunuzla övüneceğim" hadisini (Abdurrezzâk, 10391) hatırlatır.
+B2|Evlakî burada ümmetin çokluğunun gösterildiği rivayeti (Buhârî, 3410, 5752; Müslim, 221) ve "Kıyamet günü sizin çokluğunuzla övüneceğim" hadisini (Abdürrezzâk, 10391) hatırlatır.
 B1|Silahlı kabilelerin bitmeyen savaşlarıyla emniyetsiz olan Yemen'in örnek seçilmesi, İslâm'ın getireceği emniyetin büyüklüğünü anlatıyordu.
 B1|Kur'ân'ı Kureyş'in önünde açıktan okuyan ilk kişi olan Abdullah b. Mes'ûd, Rahmân sûresini okuduğu için yüzüne vuruldu; ertesi gün yine okumak isteyince arkadaşları "Yeter" dediler.
 B1|Evlakî'nin on birinci yöntem saydığı suikast girişimleri Ebû Tâlib'in vefatından sonra gündeme gelecektir (Enfâl 8/30).

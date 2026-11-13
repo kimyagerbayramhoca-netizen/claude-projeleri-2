@@ -3,7 +3,7 @@ H2|Bölüme Bakış
 INTRO|Bölüm, umutsuz bir dünyada doğan yetimin yirmili yaşlarına kadarki hayatını izler.
 B1|Evlakî doğum öncesi dünyayı Ebü'l-Hasen en-Nedvî'nin *Müslümanların Gerilemesiyle Dünya Neler Kaybetti* eserinden çizer; Arabistan'ın hâli vahimdi, Pers, Çin, Hint ve Bizans dünyalarında da durum iç açıcı değildi.
 B2|Bütün bu coğrafyaların ortak ruh hâli umutsuzluktu; yine de kötülük her şeyi kaplamış değildi.
-B1|Said Ramazan el-Bûtî'ye göre Araplar misafirperverlik, cömertlik, söze sadakat, onur duygusu, haksızlığı ve ahlaksızlığı reddetme, kararlılık, nezaket ve sade yaşayış gibi vasıfları korumuştu.
+B1|Saîd Ramazan el-Bûtî'ye göre Araplar misafirperverlik, cömertlik, söze sadakat, onur duygusu, haksızlığı ve ahlaksızlığı reddetme, kararlılık, nezaket ve sade yaşayış gibi vasıfları korumuştu.
 B1|Evlakî'ye göre bu değerler gelecek mesajla buluşunca patlayıcı bir güce dönüştü; sahâbenin "fâtih" değil "kurtarıcı" diye karşılanması, kaynak için değil davet için yola çıkması ve yönetimi yerli halka bırakması bu mayanın meyvesiydi.
 B1|"Allah, peygamberliğini kime vereceğini çok iyi bilir" (En'âm 6/124) âyeti, son mesaj için bu beldenin ve bu halkın seçilmesinin rastgele olmadığını hatırlatır.
 B1|Sallâbî'nin ısrarla vurguladığı gibi yetimlik, çöl, çobanlık ve ticaret yolu ilâhî bir hazırlık programının basamaklarıdır; hiçbirinde insan eli yoktur.
@@ -15,12 +15,12 @@ B1|Evlakî bu silsileyi bir merdiven gibi okuyup Hâşimoğulları ile Peygamber
 B1|Evlakî'nin naklettiği bir rivayete göre insanlar onu "büyükçe bir çölün ortasında yetişen yeşil bir ağaç", yani kabilesinin en iyisi diye anıyordu.
 B2|Bu söz ulaşınca minbere çıkıp "Ben kimim?" diye sordu; "Allah'ın elçisisin" denince Abdülmuttalib oğlu Abdullah'ın oğlu Muhammed olduğunu, Allah'ın kendisini mahlûkatın en iyileri arasına, kabilelerin ve ailelerin en hayırlısına koyduğunu, onların en hayırlısı olduğunu bildirdi (Tirmizî, 3608; Ahmed b. Hanbel, *Müsned*, 1692).
 B2|Evlakî'ye göre incelik, sıradan insanların değil en soylu kabilenin ve en hayırlı ailenin en seçilmişi olduğunu söylemesindedir; bu, nimetin tabanında değil zirvesinde durmaktır.
-B1|İmam Buhârî'nin kesintisiz saydığı nesep Ebü'l-Kāsım Muhammed b. Abdullah b. Abdülmuttalib b. Hâşim b. Abdümenâf b. Kusay b. Kilâb b. Mürre b. Kâ'b b. Lüey b. Gālib b. Fihr b. Mâlik b. Nadr b. Kinâne b. Huzeyme b. Müdrike b. İlyâs b. Mudar b. Nizâr b. Muadd b. Adnân şeklindedir.
+B1|İmam Buhârî'nin kesintisiz saydığı nesep Ebü'l-Kâsım Muhammed b. Abdullah b. Abdülmuttalib b. Hâşim b. Abdümenâf b. Kusay b. Kilâb b. Mürre b. Ka'b b. Lüey b. Gâlib b. Fihr b. Mâlik b. Nadr b. Kinâne b. Huzeyme b. Müdrike b. İlyâs b. Mudar b. Nizâr b. Muadd b. Adnân şeklindedir.
 B1|Adnân'ın ötesinde âlimler temkinlidir.
 TABLE|Âlim|Adnân'ın ötesine dair görüşü
 ROW|Bağavî (*Şerhu's-Sünne*)|Adnân'dan yukarısı korunmamıştır.
-ROW|İbn Kayyım (*Zâdü'l-Meâd*)|Adnân'a kadarki nesep ittifakla bilinir, ötesi ihtilâflıdır.
-ROW|İbn Sa'd (*Tabakāt*)|Adnân ile İsmâil arasında susmayı esas alır.
+ROW|İbn Kayyim (*Zâdü'l-Meâd*)|Adnân'a kadarki nesep ittifakla bilinir, ötesi ihtilâflıdır.
+ROW|İbn Sa'd (*Tabakât*)|Adnân ile İsmâil arasında susmayı esas alır.
 ROW|Urve b. Zübeyr|Adnân ile Kahtân'ın yukarısını bilen birine rastlanmamıştır.
 ROW|Zehebî|Adnân'ın Hz. İsmâil'in evlâdından olduğunda ittifak vardır; ihtilâf yalnızca aradaki babalardadır.
 ENDTABLE
@@ -176,7 +176,7 @@ B2|Kibirli ve sert mizaçlı deveyi güden sertleşebilir, koyunu güden yumuşa
 B1|İbn Hacer el-Askalânî'ye göre kavimlerinden sorumlu olacak peygamberler sürü gütmekte ustalaşmıştır; koyun gütmek müsamaha, merhamet ve sabır kazandırır, dağılmaya meyilli sürüyü korumak da insanları iç ve dış tehlikelere karşı yönetmenin provasıdır.
 B1|Sallâbî'nin saydığı ilk haslet sabırdır; koyun geç doyar ve güneşin doğuşundan batışına kadar otlatılır.
 B2|Çoban saraylarda yaşamaz, bolluk ve israf görmez, kavurucu sıcakta kuru ekmekle ve dar geçimle yetinir; insanları terbiye etmek de böyle bir sabır ister.
-B2|Evlakî burada Hz. Mûsâ'yı hatırlatır; ona "sekiz yıl, dilersen on yıl" çalışma teklif edilmişti (Kasas 28/27), Rasûlullah (s.a.v.) hangisini tamamladığını sorunca Cibrîl "Tastamam ve kâmil süreyi çalıştı" dedi.
+B2|Evlakî de sabrı çobanlığın ikinci dersi sayar ve Hz. Mûsâ'yı hatırlatır; ona "sekiz yıl, dilersen on yıl" çalışma teklif edilmişti (Kasas 28/27), Rasûlullah (s.a.v.) hangisini tamamladığını sorunca Cibrîl "Tastamam ve kâmil süreyi çalıştı" dedi.
 B2|Dokuz yüz elli yıl kavmini gece gündüz davet eden Hz. Nûh'un sabrı da (Nûh 71/5) aynı okulun ürünüdür.
 B1|İkinci haslet tevazudur; koyunlara hizmet etmek, doğumlarıyla ilgilenmek ve pisliklerine katlanmak nefisten kibri söker.
 B2|Peygamberimiz kalbinde zerre kadar kibir bulunanın cennete giremeyeceğini bildirmiştir (Müslim, 91; Tirmizî, 1999; Hâkim, 1/26).
@@ -185,9 +185,9 @@ B1|Üçüncüsü sürüyü yırtıcılardan koruyacak cesaret, dördüncüsü ha
 B1|Evlakî'nin listesinin başında ise sorumluluk yer alır.
 QUOTE|ch05-28
 B2|Çoban sürünün sahibine "Koyunlardan biri çıldırdı, onu kaybettim" diyemez; sorumlu olan çobandır, lider de takipçilerinin seviyesi ne olursa olsun onlardan sorumludur.
-B1|Evlakî'nin ikinci dersi korumadır; bir gece Medine'de büyük bir gürültü kopunca oraya koşan sahâbîler Rasûlullah'ı "Korkmayın, her şey yolunda" diyerek dönerken buldu (Buhârî, 3040; Müslim, 2309; Ahmed b. Hanbel, 12252).
+B1|Evlakî'nin üçüncü dersi korumadır; bir gece Medine'de büyük bir gürültü kopunca oraya koşan sahâbîler Rasûlullah'ı "Korkmayın, her şey yolunda" diyerek dönerken buldu (Buhârî, 3040; Müslim, 2309; Ahmed b. Hanbel, 12252).
 B2|Deccâl'e karşı ümmetini hiçbir peygamberin uyarmadığı kadar uyarması da aynı duygudandır.
-B1|Üçüncü ders ileri görüşlülüktür; koyunun ufku dardır, dik duran çoban tehlikeyi ilk görür ve Peygamberimiz ümmetiyle ilişkisini böyle anlatır.
+B1|Dördüncü ders ileri görüşlülüktür; koyunun ufku dardır, dik duran çoban tehlikeyi ilk görür ve Peygamberimiz ümmetiyle ilişkisini böyle anlatır.
 QUOTE|ch05-29
 B1|Evlakî'ye göre çobanlık ona sadeliği, birkaç eşya ve sade bir yatakla yetinmeyi, sürüsünü güvenceye almadan sığınağa girmemeyi ve yapmacık dünyadan uzak, Allah'ın yarattıklarıyla iç içe tefekkürü öğretti.
 B2|Sallâbî de çobanlığın ona gecenin sükûnetinde, ay ışığında ve seher vaktinde varlıklarla münâcât imkânı verdiğini söyler.
@@ -202,7 +202,7 @@ H2|Masum Bir Gençlik: İlâhî Koruma
 INTRO|Allah onu peygamberlikten önce de şirkten ve cahiliye eğlencelerinden korudu.
 B1|Allah Teâlâ Hz. Muhammed'i (s.a.v.) peygamberlikten önce de şirkten korudu; Hz. Hatice'nin (r.anhâ) bir komşusu onun Hatice'ye "Allah'a yemin olsun, Lât ve Uzzâ'ya asla tapmam" dediğini duymuştu (Ahmed b. Hanbel, *Müsned*, 4/222; 5/362).
 B2|Putlar için kesilen hayvanların etinden yemezdi; Zeyd b. Amr b. Nüfeyl de bu konuda onunla aynı tavırdaydı.
-B1|Evlakî'nin aktardığı Zeyd b. Hârise rivayetine göre müşrikler tavafta İsâf ve Nâ'ile adlı bakır putlara dokunurdu; Rasûlullah Zeyd'e "Onlara dokunma" dedi.
+B1|Evlakî'nin aktardığı Zeyd b. Hârise rivayetine göre müşrikler tavafta İsâf ve Nâile adlı bakır putlara dokunurdu; Rasûlullah Zeyd'e "Onlara dokunma" dedi.
 B2|Zeyd ne olacağını görmek için sonraki tavafta yine dokununca "Bundan alıkonmadın mı?" buyurdu; Zeyd'e göre o, vahiy gelinceye kadar hiçbir putu öpmedi, ona el sürmedi.
 B1|Evlakî'ye göre bu koruma ev halkına da yansıdı; Ebû Tâlib'in sıkıntılı günlerinde Rasûlullah'ın yanına alınıp onun evinde büyüyen Hz. Ali (r.a.) bir kez bile puta secde etmedi.
 B1|Gençliğin fıtrî heveslerine karşı da korundu; Hz. Ali'nin naklettiğine göre bunu bizzat şöyle anlatır (Beyhakî, *es-Sünenü'l-Kübrâ*, 2/33-34; Bezzâr, 2403).
@@ -221,8 +221,8 @@ B1|Ebû Tâlib Kureyş'in yaşlıları ve ileri gelenleriyle Şam'a giderken ye�
 B1|Önceki geçişlerinde yüzlerine bile bakmayan râhib bu kez çocuğun elinden tutup onun âlemlerin efendisi, âlemlerin Rabbinin elçisi olduğunu ve âlemlere rahmet olarak gönderileceğini söyledi.
 B2|Nereden bildiği sorulunca, peygamberden başkasına secde etmeyen ağaç ve taşların akabeden inerlerken ona secde ettiğini ve onu omzunun altındaki elma büyüklüğündeki nübüvvet mühründen tanıdığını söyledi (Beyhakî, *Delâil*, 2/24-25; Tirmizî, 3620; Hâkim, 2/615).
 B1|Yemeğe davet ettiğinde çocuk develerin başındaydı; gelirken bir bulut onu gölgeliyordu, oturunca da ağacın gölgesi ona doğru meyletti.
-B1|Râhib, Rumlar onu tanırsa öldüreceği için onu Rum diyarına götürmemelerini istedi.
-B2|O peygamberin bu ay çıkacağını duyup bütün yollara adam salan yedi Rum gelince, râhib Allah'ın murad ettiğini kimsenin geri çeviremeyeceğini hatırlatarak onları vazgeçirdi; ısrarı üzerine Ebû Tâlib de yeğenini Mekke'ye geri götürdü.
+B1|Râhib, Rumlar onu tanırsa öldüreceği için onu Rûm diyarına götürmemelerini istedi.
+B2|O peygamberin bu ay çıkacağını duyup bütün yollara adam salan yedi Rûm gelince, râhib Allah'ın murad ettiğini kimsenin geri çeviremeyeceğini hatırlatarak onları vazgeçirdi; ısrarı üzerine Ebû Tâlib de yeğenini Mekke'ye geri götürdü.
 B1|Sallâbî'ye göre kıssa, sadık Ehl-i Kitap âlimlerinin onu kitaplarındaki alâmetlerden tanıdığını, Rumların ise nüfuzlarını bitirecek bir peygamberden korktuğunu gösterir; Kureyş'in tecrübeli büyükleriyle yapılan yolculuk da genç Muhammed'e çok şey öğretti.
 H2|Ficâr Savaşı ve Erdemliler Yemini
 INTRO|Gençlik yıllarının iki büyük toplumsal olayı Ficâr Savaşı ve Hilfu'l-Fudûl'du.

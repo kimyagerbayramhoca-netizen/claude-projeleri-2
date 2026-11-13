@@ -39,7 +39,7 @@ B1|Sallâbî'ye göre tevhidin ikrarından sonra ilk farz kılınan şer'î hük
 B1|Namaz farz kılındığında Mekke'nin yukarısındaki Allah Rasûlü'ne Cebrâil geldi ve topuğuyla vadinin bir yanına vurarak bir pınar akıttı.
 B1|Cebrâil abdest alıp onunla namaz kıldı; Allah Rasûlü ona bakarak abdest aldı, ona uydu ve eve dönünce gördüğü gibi Hz. Hatice'ye öğretti.
 B1|Hz. Hatice'nin ardından İslâm'a giren Ali b. Ebû Tâlib, çocuklardan ilk iman eden oldu.
-B2|En kuvvetli görüş olan Taberî ve İbn İshak'ın görüşüne göre o sırada on yaşındaydı.
+B2|En kuvvetli görüş olan Taberî ve İbn İshâk'ın görüşüne göre o sırada on yaşındaydı.
 B1|Allah onu amcası Ebû Tâlib'in yanından alıp Rasûlullah'ın ailesine kattığından Ali İslâm'dan önce de onun himayesinde büyüdü.
 B1|Ali, Allah Rasûlü ve Hz. Hatice'den sonra namaz kılan üçüncü kişi oldu.
 B1|Allah Rasûlü'nün çok sevdiği, azat edip evlat edindiği Zeyd b. Hârise (r.a.) azatlılardan ilk iman edendir; Evlakî onu ilk Müslüman köle sayar.
@@ -59,7 +59,7 @@ ROW|Evlat edinilen kişi|Mümin, dürüst ve yardımcı
 ROW|Kızlar|Tasdik eden, iman eden ve emri yerine getiren kimseler
 ENDTABLE
 B1|Eşler arasında da Kur'ân'ın "gönlü ona ısınsın diye eşini de ondan var eden" Allah'tan söz ettiği türden bir anlayış ve dayanışma vardır (A'râf 7/189).
-B1|Sallâbî, kızların herkesten önce imana koşmasını evdeki terbiye metodunun doğruluğuna bağlar ve "Her doğan çocuk fıtrat üzere doğar; sonra anne ve babası onu Yahudi, Hıristiyan veya Mecusî yapar" hadisini hatırlatır (Buhârî, 1358; Müslim, 2658).
+B1|Sallâbî, kızların herkesten önce imana koşmasını evdeki terbiye metodunun doğruluğuna bağlar ve "Her doğan çocuk fıtrat üzere doğar; sonra anne ve babası onu Yahudi, Hıristiyan veya Mecûsî yapar" hadisini hatırlatır (Buhârî, 1358; Müslim, 2658).
 B1|Ona göre rabbânî metotta ıslah ve inşa, önce Müslüman ferdi ve aileyi bina etmekle başlar.
 B2|Fert her sosyal yapının köşe taşıdır; aile ise fert ile toplum arasındaki aracı ve çocuğun şahsiyetinin belirlendiği ilk yuvadır.
 B2|Bu aracı sağlam olduğunda hem ferde hem topluma selâmetle hizmet eder.
@@ -87,7 +87,7 @@ QUOTE|ch09-56
 TABLE|Konu|Sallâbî|Evlakî
 ROW|Ebû Bekir'in imanı|Onun kabulü sıradan bir insanın değil, bir ümmetin kabulü gibiydi.|İnsanların çoğu durup düşünmüştü; o ise davet sunulur sunulmaz kabul etti.
 ENDTABLE
-B1|İbn İshak'a göre Ebû Bekir Kureyş'in gözleri mesabesindeydi; kavmi içinde sevilen, sayılan ve yumuşak huylu biriydi.
+B1|İbn İshâk'a göre Ebû Bekir Kureyş'in gözleri mesabesindeydi; kavmi içinde sevilen, sayılan ve yumuşak huylu biriydi.
 B2|Kureyş'in nesebini, iyi ve kötü yanlarını en iyi bilen, güzel ahlâklı ve iyiliksever bir tüccardı.
 B1|Araplarda ilimlerin en önemlisi sayılan nesep ve tarihte büyük payı vardı.
 B1|Bu yüzden meclisine bilgi arayan kültürlü kimseler, zeki gençler, Mekke'nin sermaye sahipleri, işi düşenler ve güzel ahlâkı sebebiyle halkın sıradan insanları devam ederdi.
@@ -124,12 +124,12 @@ H2|Mekke'nin Her Obasından: İkinci ve Üçüncü Halka
 INTRO|İlk öncülerden sonra İslâm, Kureyş'in bütün obalarından gelen seçkin insanlarla genişledi.
 B1|İlk öncüleri ikinci ve üçüncü halka izledi.
 TABLE|Halka|İman edenler
-ROW|İkinci halka|Ebû Ubeyde b. Cerrâh, Ebû Seleme Abdullah b. Abdülesed, Erkam b. Ebi'l-Erkam el-Mahzûmî, Osman b. Maz'ûn el-Cumahî, Ubeyde b. Hâris b. Abdülmuttalib, Saîd b. Zeyd b. Amr b. Nüfeyl, Maz'ûn'un oğulları Kudâme ve Abdullah, Ömer b. Hattâb'ın kız kardeşi ve Saîd b. Zeyd'in eşi Fâtıma bint Hattâb, Ebû Bekir'in kızları Esmâ ve Âişe, Habbâb b. Eret
-ROW|Üçüncü halka|Ümeyr b. Ebû Vakkâs, Abdullah b. Mes'ûd, Mes'ûd b. Kārî, Selît b. Amr ve kardeşi Hâtıb b. Amr, Ayyâş b. Ebû Rebîa ve hanımı Esmâ bint Seleme, Huneys b. Huzâfe es-Sehmî, Âmir b. Rebîa, Abdullah b. Cahş ve kardeşi Ebû Ahmed, Ca'fer b. Ebû Tâlib ve hanımı Esmâ bint Umeys
-ROW|Onlara katılanlar|Hâtıb b. Hâris ve hanımı Fâtıma bint Mücellil, kardeşi Hattâb b. Hâris ve hanımı Fükeyhe bint Yesâr, Muttalib b. Ezher ve hanımı Remle bint Ebû Avf, Nahhâm b. Abdullah b. Üseyd, Hâlid b. Saîd b. Âs ve hanımı Emîne bint Halef, Ebû Huzeyfe b. Utbe b. Rebîa, Vâkıd b. Abdullah, Bükeyr b. Abdiyâleyl ve oğulları Hâlid, Âmir, Âkıl ve İyâs, Ammâr b. Yâsir, Ebû Bekir'in satın alıp azat ettiği Âmir b. Füheyre ve annesi Füheyre
+ROW|İkinci halka|Ebû Ubeyde b. Cerrâh, Ebû Seleme Abdullah b. Abdülesed, Erkam b. Ebî'l-Erkam el-Mahzûmî, Osman b. Maz'ûn el-Cumahî, Ubeyde b. Hâris b. Abdülmuttalib, Saîd b. Zeyd b. Amr b. Nüfeyl, Maz'ûn'un oğulları Kudâme ve Abdullah, Ömer b. Hattâb'ın kız kardeşi ve Saîd b. Zeyd'in eşi Fâtıma bint Hattâb, Ebû Bekir'in kızları Esmâ ve Âişe, Habbâb b. Eret
+ROW|Üçüncü halka|Umeyr b. Ebî Vakkâs, Abdullah b. Mes'ûd, Mes'ûd b. Kârî, Selît b. Amr ve kardeşi Hâtıb b. Amr, Ayyâş b. Ebû Rebîa ve hanımı Esmâ bint Seleme, Huneys b. Huzâfe es-Sehmî, Âmir b. Rebîa, Abdullah b. Cahş ve kardeşi Ebû Ahmed, Ca'fer b. Ebû Tâlib ve hanımı Esmâ bint Umeys
+ROW|Üçüncü halka (devamı)|Hâtıb b. Hâris ve hanımı Fâtıma bint Mücellil, kardeşi Hattâb b. Hâris ve hanımı Fükeyhe bint Yesâr, Muttalib b. Ezher ve hanımı Remle bint Ebû Avf, Nahhâm b. Abdullah b. Üseyd, Hâlid b. Saîd b. Âs ve hanımı Emîne bint Halef, Ebû Huzeyfe b. Utbe b. Rebîa, Vâkıd b. Abdullah, Bükeyr b. Abdiyâleyl ve oğulları Hâlid, Âmir, Âkıl ve İyâs, Ammâr b. Yâsir, Ebû Bekir'in satın alıp azat ettiği Âmir b. Füheyre ve annesi Füheyre
 ENDTABLE
 B1|İbn Hişâm bunlara Rumlardan ilk Müslüman olan Süheyb b. Sinân'ı, Ebû Zer el-Gıfârî'yi, kardeşi Üneys'i ve annesini ekler; Bilâl b. Rebâh ise ilk Müslümanların da ilklerindendir (es-Sîretü'n-Nebeviyye, 1/245-262).
-B1|İbn Hişâm bu ilk Müslümanlardan kırktan fazlasını sayar; İbn İshak'a göre sonra insanlar kadın erkek cemaat cemaat İslâm'a girdi ve İslâm'ın adı Mekke'de yayıldı.
+B1|İbn Hişâm bu ilk Müslümanlardan kırktan fazlasını sayar; İbn İshâk'a göre sonra insanlar kadın erkek cemaat cemaat İslâm'a girdi ve İslâm'ın adı Mekke'de yayıldı.
 B1|Sallâbî bu isimlerden, İslâm'a ilk koşanların kavimlerinin en seçkinleri olduğu sonucunu çıkarır; onlar İslâm düşmanlarının çizdiği gibi toplumun bayağıları, döküntüleri ya da yalnızca hürriyet arayan köleler değildi.
 B1|İlk girenlerin çoğunun fakir, zayıf ve köle olduğunu yazan bazı siyer yazarları gerçekten uzaklaşmıştır.
 B1|Derin bir araştırma, fakir, mustaz'af, azatlı ve köle denilenlerin toplamının on üç kişi olduğunu gösterir; bu sayı toplam içinde "çoğunluk" sayılamaz.
@@ -208,7 +208,7 @@ B1|Kader bilgisi onlara tevekkülü, sebeplere bel bağlamamayı, verilene sevin
 B1|Ölüm inancı ise dünyaya gönül bağlamamayı, âhirete yönelmeyi ve salih amele devamı öğretti.
 B1|Sahâbe geceleri âbid, gündüzleri mücahitti; ilim ve huşûları alışveriş, ziraat, evlilik ve aile ihtiyaçları gibi dünya işlerine engel olmuyordu.
 B1|Sonraki bazı âbidlere bulaşan ucb hastalığından ise tamamen uzaktılar.
-KAVRAM|💡 KAVRAM · UCB|Başkalarının amellerini küçümseme ve hizmetlerini değersiz görme hâlidir; Sallâbî'ye göre bütün kötü ahlâkların kaynağı ve salih amellerin boşa gitme sebebidir.
+KAVRAM|💡 KAVRAM · UCB|Başkalarının amellerini küçümseme ve hizmetlerini değersiz görme şeklinde ortaya çıkan nefsini beğenme hastalığıdır; Sallâbî'ye göre bütün kötü ahlâkların kaynağı ve salih amellerin boşa gitme sebebidir.
 B1|Sallâbî'ye göre Mekke'de tam bir sükûnet, tedricîlik ve gizlilik içinde tamamlanan bu oluşumu, bölümün başındaki Kehf sûresinin 28. âyeti özetler.
 B1|Âyet Allah Rasûlü'ne (s.a.v.), davayı kabul edenlerin hatalarına, çok soru sormalarına ve tereddütlerine sabretmesini emreder.
 B2|Onları düşmanların fitnelerine karşı sabırlı kılmasını ve onlara davet yolunun tabiatını ve zorluğunu açıklamasını da ister.
@@ -259,7 +259,7 @@ ROW|Ammâr b. Yâsir|Mezhic'in Ans kolu
 ROW|Zeyd b. Hârise|Kelb
 ROW|Tufeyl b. Amr|Devs
 ROW|Amr b. Abese|Süleym
-ROW|Süheyb|Benî Nemir b. Kāsıt
+ROW|Süheyb|Benî Nemir b. Kâsıt
 ENDTABLE
 B1|Böylece İslâm'ın Mekke'ye has bir dava olmadığı ortaya çıkıyordu; Kur'ân da kendini "O, ancak âlemler için bir öğüttür" diye tanıtır (Sâd 38/87; Kalem 68/52).
 B1|Sallâbî'ye göre Allah Rasûlü (s.a.v.) yolunu dikkat ve plan içinde çizmiş, tevekkülle birlikte sebeplere sarılmıştı.

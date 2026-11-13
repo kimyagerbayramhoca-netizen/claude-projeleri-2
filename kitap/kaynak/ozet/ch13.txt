@@ -13,7 +13,7 @@ B2|Dileseydi bunları sebepsiz yaratabilirdi; fakat hikmeti böyle cereyan etti 
 B1|Kur'ân müminleri dünya ve âhiret işlerinde amel etmeye ve yeryüzünde dolaşıp Allah'ın rızkından yemeye çağırır (Tevbe 9/105; Mülk 67/15).
 B1|Allah en zayıf anında bile Hz. Meryem'den hurma dalını silkelemesini isteyerek sebebe sarılmasını emretmişti (Meryem 19/25).
 B1|İlk nesil, Allah'ın mutlak kudretine ve kadere imanın sebeplere sarılmaya engel olmadığını biliyordu; Allah her şeye gücü yettiği hâlde cârî sünnetin sabit kalmasına hükmetmişti, harikulâde ise istisnaydı.
-B2|Muhammed Kutub'un ifadesiyle onlar, bir sonuca ulaşmak için cârî sünnetlere uyup neticeye ulaştıran sebeplere sarılmak gerektiğini idrak etmişlerdi (Mefâhîm Yenbagī en Tusahhah, 262).
+B2|Muhammed Kutub'un ifadesiyle onlar, bir sonuca ulaşmak için cârî sünnetlere uyup neticeye ulaştıran sebeplere sarılmak gerektiğini idrak etmişlerdi (Mefâhîm Yenbagî en Tusahhah, 262).
 B1|Tevekkül sebebe sarılmanın zıddı değildir; mümin sebeplere Allah'a itaat için sarılır, fakat sonucu sebeplerin meydana getirdiğine inanmadığı için sebeplere tevekkül etmez.
 B1|Sallâbî'nin tespitiyle sebebe sarılmak itaat olduğu için ibadettir, sonuç ise Allah'ın takdiridir; böylece müminin şuuru sebeplere kulluktan kurtulur.
 B1|Enes b. Mâlik'in (r.a.) rivayetine göre devesini mescit kapısında serbest bırakıp tevekkül edip edemeyeceğini soran adama Rasûlullah kısa ve kesin bir cevap verdi.
@@ -54,13 +54,13 @@ INTRO|Hicretin de Habeşistan'ın seçilmesinin de birçok sebebi vardı.
 B1|Kaynaklar hicretin sebeplerini farklı yönleriyle açıklar.
 TABLE|Kaynak|Hicretin sebebi
 ROW|Zührî'nin Urve'den rivayeti|Müslümanlar çoğalınca Kureyş kabilelerinden iman edenleri hapsedip işkenceyle dinden döndürmeye çalıştı; Rasûlullah (s.a.v.) "Yeryüzüne dağılın" buyurup Habeşistan'ı gösterdi.
-ROW|İbn İshak|Müslümanlar fitne korkusuyla, dinleriyle Allah'a kaçmak için yola çıktı.
+ROW|İbn İshâk|Müslümanlar fitne korkusuyla, dinleriyle Allah'a kaçmak için yola çıktı.
 ROW|İbn Hazm|Sayıları ve gördükleri işkence arttıkça Allah onlara hicret izni verdi.
 ROW|Evlakî|Herkes işkenceye Bilâl gibi dayanamaz, bazıları imanından olabilirdi; hadise göre mümin başa çıkamayacağı belâlara kendini maruz bırakıp zelil etmemelidir (Tirmizî, 2254; İbn Mâce, 4016).
 ENDTABLE
 B1|Evlakî, tek varlığı olan yumurta büyüklüğündeki altını sadaka getiren adama gösterilen tepki ile bütün malını veren Ebû Bekir'in (r.a.) övülmesi arasındaki farkı da böyle yorumlar; Ebû Bekir bu yükü taşıyabilirdi, ama herkes onun gibi değildi.
 B1|Seyyid Kutub, hicreti yalnızca can kurtarma çabası saymayı yanlış bulur; öyle olsaydı en ağır işkenceyi gören zayıflar ve köleler giderdi, oysa muhacirlerin çoğu Kureyş'in güçlü ve itibarlı ailelerindendi (Fî Zılâli'l-Kur'ân, 1/29).
-B2|Evlakî bu isimleri Ca'fer b. Ebî Tâlib, Zübeyr b. Avvâm, Abdurrahmân b. Avf, Ebû Seleme el-Mahzûmî, Osman b. Affân ve Kureyş lideri Ebû Süfyân'ın kızı Ümmü Habîbe (r.anhüm) olarak sayar.
+B2|Evlakî bu isimleri Ca'fer b. Ebî Tâlib, Zübeyr b. Avvâm, Abdurrahman b. Avf, Ebû Seleme el-Mahzûmî, Osman b. Affân ve Kureyş lideri Ebû Süfyân'ın kızı Ümmü Habîbe (r.anhüm) olarak sayar.
 B1|Kutub'a göre en soylu oğul ve kızlarının din uğruna baba ocağını terk etmesi Kureyş için en büyük aşağılanmaydı; asıl hedef akîdeyi korumak ve Mekke dışında yeni bir karargâh aramaktı.
 B1|Münîr el-Gadbân'a göre Mekke'de bir şey olursa din yaşasın diye ikinci bir üs kurulmuştu; Rasûlullah muhacirleri ancak Hendek'ten sonra, Medine beş yıl Kureyş'in hücumlarına göğüs gerip güvenli bir üs olduğu kesinleşince geri çağırdı.
 B1|İzzet Derveze, Hristiyan Habeşistan'ın seçilmesinde davet alanı bulma umudunun da payı olduğunu söyler; Süleyman b. Hamd, Necâşî'nin ve bazı Habeşlilerin Müslüman oluşunu buna delil sayar.
@@ -73,7 +73,7 @@ ROW|Bağımsızlık|Ülke Kureyş'in nüfuz alanı dışındaydı, diğer kabile
 ROW|Rasûlullah'ın sevgisi|Zührî'ye göre Habeşistan, Rasûlullah için yeryüzünün en sevimli ülkesiydi.
 ENDTABLE
 B1|Sallâbî bu sevginin sebepleri arasında, putperestlikten İslâm'a daha yakın olan Hristiyanlığı da sayar; Kur'ân da müminlere sevgice en yakınların "Biz Hristiyanız" diyenler olduğunu bildirir (Mâide 5/82).
-B2|Müminlerin bi'setin sekizinci yılında Hristiyan Rumların Mecusî Farslara galibiyetine sevinmesi de bundandır.
+B2|Müminlerin bi'setin sekizinci yılında Hristiyan Rumların Mecûsî Farslara galibiyetine sevinmesi de bundandır.
 B1|Rasûlullah Habeşistan'ı, çocukluğundan beri yanında olan ve ona memleketinin yemeklerini yapan Habeşli Ümmü Eymen (r.anhâ) vasıtasıyla da tanıyordu.
 TABLE|Konu|Sallâbî|Evlakî
 ROW|Ümmü Eymen'in Habeş şivesi|Rasûlullah, şivesi yüzünden düzgün söyleyemediği sözlerde ona ruhsat verirdi.|Huneyn'de "sebbitallâhu" (Allah ayaklarınızı sabit kılsın) diyecekken "sabbatallâhu" deyip "Allah ayaklarınızı cumartesi yapsın" gibi bir anlam çıkınca Rasûlullah ona "Sus, senin dilinde bir zorluk var" demişti.
@@ -83,11 +83,11 @@ INTRO|Erken dönüşü garânîk uydurmasına bağlamak yanlıştır; gerçek se
 B1|Evlakî'ye göre ilk muhacirler Kureyşlilerin Müslüman olduğu yönündeki yanlış bir söylentiyle döndüler; söylenti, Necm sûresinin secde âyeti okununca oradaki müşriklerin de istemsizce secdeye kapanmasından doğmuştu.
 B1|Bazı müfessirler dönüşü garânîk hikâyesiyle açıklamaya kalkışmıştır; Sallâbî bu hikâyenin nakil, akıl ve lügat bakımından asılsız olduğunu ortaya koyar.
 TABLE|Açı|Sallâbî'nin delilleri
-ROW|Nakil|Kādî İyâz, hikâyeyi zikreden müfessirlerden Bezzâr dışında kimsenin onu isnat etmediğini, onun rivayetinde de kusur bulunduğunu belirtir; İbn Hacer onu ne nakil ne akıl yönünden doğru bulur; İbn Kesîr tamamının mürsel yollarla geldiğini, sahih isnadla görmediğini söyler.
+ROW|Nakil|Kâdî İyâz, hikâyeyi zikreden müfessirlerden Bezzâr dışında kimsenin onu isnat etmediğini, onun rivayetinde de kusur bulunduğunu belirtir; İbn Hacer onu ne nakil ne akıl yönünden doğru bulur; İbn Kesîr tamamının mürsel yollarla geldiğini, sahih isnadla görmediğini söyler.
 ROW|Akıl|Ümmet Peygamber'in (s.a.v.) böyle şeylerden masumiyetinde icmâ etmiştir; bu câiz olsaydı yalan söylemesi de câiz olurdu ki muhaldir. Hikâye getirdiği tevhide de aykırıdır; şeytanların başı bile ihlâslı kullara hâkim olamadığını itiraf etmişken (Sâd 38/82-83) ihlâsın zirvesindeki Hz. Muhammed'e bu isnat edilemez.
 ENDTABLE
 KAVRAM|💡 KAVRAM · GURNÛK|Siyah veya beyaz bir su kuşu ya da beyaz tenli genç anlamına gelir; Araplar şiirlerinde ve sözlerinde ilâhlarını hiçbir zaman garânîk kelimesiyle nitelememiştir.
-B1|Ebû Şehbe'nin tespitiyle bu hikâye, akîdeyi bozmak ve peygamberlerin efendisini yalanlamak isteyen zındıkların uydurmasıdır (Kādî İyâz, eş-Şifâ, 2/117; İbn Hacer, Fethu'l-Bârî, hadis nr. 4862; Ebû Şehbe, es-Sîretü'n-Nebeviyye fî Dav'i'l-Kur'ân ve's-Sünne, 1/372).
+B1|Ebû Şehbe'nin tespitiyle bu hikâye, akîdeyi bozmak ve peygamberlerin efendisini yalanlamak isteyen zındıkların uydurmasıdır (Kâdî İyâz, eş-Şifâ, 2/117; İbn Hacer, Fethu'l-Bârî, hadis nr. 4862; Ebû Şehbe, es-Sîretü'n-Nebeviyye fî Dav'i'l-Kur'ân ve's-Sünne, 1/372).
 B1|Sallâbî'ye göre muhacirlerin yaklaşık üç ay sonra dönmesinin gerçek sebebi, Mekke'de Müslümanların hayatında meydana gelen büyük değişikliktir.
 B2|Kureyş gençlerinin en azizi ve en güçlüsü Hamza b. Abdülmuttalib (r.a.) önce yeğenine hamiyetle, sonra kalbi açılarak Müslüman oldu; Kureyş Peygamber'in korunacağını anladı.
 B2|Ardından ulaşılmaz cesaretiyle Ömer b. Hattâb Müslüman oldu; ashâb ikisiyle izzet bulup Kureyş'e ağır basmaya başladı.
@@ -98,7 +98,7 @@ H2|İkinci Hicret ve Kureyş'in Elçileri
 INTRO|Artan şiddet ikinci bir hicreti doğurdu; Kureyş muhacirlerin peşini Necâşî'nin sarayına kadar bırakmadı.
 B1|İbn Sa'd'ın naklettiğine göre ashâb dönünce kavimlerinin şiddeti arttı; Kureyş, Hamza ve Ömer'in İslâm'ına karşı hile ve zorbalık içeren tedbirlere ve terör silahlarına yeni eklenen ekonomik ambargoya başvurdu.
 B1|Rasûlullah (s.a.v.) ikinci defa hicret izni verdi; bu çıkış ilkinden daha zor ve meşakkatliydi.
-B1|Osman b. Affân, bu son hicretlerinde de Peygamber'in kendileriyle olmayacağını hatırlatınca Rasûlullah "Siz Allah'a ve bana hicret edenlerdensiniz; şu iki hicretin ikisi de sizin olsun" diyerek yüreklerine su serpti (İbn Sa'd, et-Tabakātü'l-Kübrâ, 1/207).
+B1|Osman b. Affân, bu son hicretlerinde de Peygamber'in kendileriyle olmayacağını hatırlatınca Rasûlullah "Siz Allah'a ve bana hicret edenlerdensiniz; şu iki hicretin ikisi de sizin olsun" diyerek yüreklerine su serpti (İbn Sa'd, et-Tabakâtü'l-Kübrâ, 1/207).
 TABLE|Konu|Sallâbî|Evlakî
 ROW|Erkeklerin sayısı|Ammâr b. Yâsir (r.a.) dâhil edilirse seksen üç, edilmezse seksen ikidir; Süheylî ikincisini siyer âlimlerinin en sahih görüşü sayar.|Seksen üç erkekten söz eder.
 ROW|Kadınların sayısı|On biri Kureyşli, yedisi Kureyş dışından on sekiz kadındır; götürülen ve orada doğan çocuklar bu sayıya dâhil değildir.|On sekiz ya da on dokuz kadından söz eder.
@@ -116,7 +116,7 @@ SOZ|💬 NECÂŞÎ|"Hayır, olayı onların tarafından da dinlemedikçe ülkeme
 B1|Evlakî'nin ifadesiyle rüşvetle örülen bütün plan, adaletli bir kralın "önce onları da dinleyeyim" cümlesiyle çöktü.
 B1|Sallâbî'ye göre böylece davetçilere kendilerini ve davalarını anlatabilecekleri, belki bir daha ele geçmeyecek bir fırsat doğmuştu.
 H2|Necâşî'nin Huzurunda: Ca'fer'in Konuşması
-INTRO|Muhacirler sonu ne olursa olsun İslâm'ı olduğu gibi anlatmaya karar verdi; Ca'fer'in konuşması bir davet ve diplomasi şaheseri oldu.
+INTRO|Muhâcirler sonu ne olursa olsun İslâm'ı olduğu gibi anlatmaya karar verdi; Ca'fer'in konuşması bir davet ve diplomasi şaheseri oldu.
 B1|Necâşî'nin elçisi çağırınca muhacirler istişare etti; Sallâbî, şûrâ kararının başarıya daha yakın olduğunu ve ihtilâfsız tek görüşte birleşmelerinin terbiyelerinin alâmeti olduğunu belirtir.
 B1|Mahvolmalarına yol açsa bile İslâm'ı Rasûlullah'ın (s.a.v.) getirdiği şekliyle anlatmaya karar verdiler; Ümmü Seleme bunu "Peygamberimiz bize ne öğrettiyse onu söyleyeceğiz, sonu ne olursa olsun" diye ifade eder.
 B1|Sözcüleri, bu hicretin emîri, Rasûlullah'ın amcaoğlu ve Ali'nin (r.a.) ağabeyi Ca'fer b. Ebî Tâlib'di.
@@ -127,7 +127,7 @@ B1|Ardından Necâşî hükmünü verdi ve elçilere Müslümanları asla teslim
 SOZ|💬 NECÂŞÎ|"Bu ve Îsâ'nın getirdiği, aynı kandilden çıkmaktadır."|
 B1|Amr pes etmedi; arkadaşı "Yapma, onlar yine de bizim akrabalarımız" dese de ertesi gün krala Müslümanların Îsâ hakkında büyük bir söz söylediklerini bildirdi.
 B1|Ümmü Seleme'ye göre başlarına bundan daha endişe verici bir şey gelmemişti; yine de hakkı söylemeye karar verdiler ve Necâşî Îsâ'yı sorunca Ca'fer cevap verdi.
-SOZ|💬 CA'FER B. EBÎ TÂLİB|"O, Allah'ın kulu, rasûlü, ruhu ve iffetli Meryem'e ilkā ettiği kelimesidir."|
+SOZ|💬 CA'FER B. EBÎ TÂLİB|"O, Allah'ın kulu, rasûlü, ruhu ve iffetli Meryem'e ilkâ ettiği kelimesidir."|
 B1|Necâşî yerden bir çöp alıp Îsâ'nın Ca'fer'in söylediğinden bu çöp kadar bile fazla olmadığını söyledi; homurdanan patriklere aldırmadan bu insanların ülkesinde özgür olacağını ilân etti.
 B1|Müslümanlara emniyet verdi, onlara sövenin cezalandırılacağını duyurdu, hediyeleri iade ettirip elçileri eli boş gönderdi.
 B2|Sallâbî'ye göre Amr'a, Kureyş'in ticaret malının, hediyesinin ve şerefinin artık kendisi için hiçbir değer taşımadığını da söylemişti.
@@ -149,11 +149,11 @@ B1|Evlakî, İbn Teymiyye'den Necâşî'nin Kur'ân'la hükmetmediğini, tercih 
 B1|Yine de Necâşî kesinlikle Müslüman olmuştu ve İslâm'ı ona Ca'fer öğretmişti; vefat ettiği gün Cibrîl bunu Peygamber Efendimize (s.a.v.) bildirince o ashâbına seslendi.
 QUOTE|ch13-96
 B1|Habeşistan'ın kazandırdığı bir başka şahsiyet, muhakemede Kureyş'in elçisi olan Amr b. Âs'tı; rivayetlerin çoğuna göre İslâm'ı Habeşistan'da Necâşî'nin eliyle başlamıştı ve İbn Hacer meşhur görüşün bu olduğunu söyler.
-B2|Zerkānî bunu, bir sahâbînin bir tâbiînin vasıtasıyla Müslüman olduğu benzersiz bir latife sayar; bazı rivayetler ise Amr'ın Ca'fer vasıtasıyla Müslüman olduğunu bildirir.
+B2|Zerkânî bunu, bir sahâbînin bir tâbiînin vasıtasıyla Müslüman olduğu benzersiz bir latife sayar; bazı rivayetler ise Amr'ın Ca'fer vasıtasıyla Müslüman olduğunu bildirir.
 B1|Sallâbî buradan, râcih bir maslahat için bazı hükümlerin bilinmemesinin kişiye zarar vermediği dersini çıkarır.
 B2|İbn Teymiyye'nin naklettiğine göre Medine'de mukimlerin namazı artırılınca Mekke ve Habeşistan'dakiler iki rekât kılmaya devam etmiş, Peygamber Efendimiz iade emretmemişti.
 B2|Zehebî de ilim gelip hüccet ikame edilmeden kimsenin günahkâr olmayacağını söyler; Habeşistan'daki sahâbîlere yeni hükümler aylar sonra ulaşabiliyordu (İbn Teymiyye, el-Fetâvâ, 22/43; Zehebî, el-Kebâir, 21).
-B1|Muhacirlerin Peygamber Efendimize kavuşması oradaki ihtiyaç yüzünden Hayber'in fethine, Evlakî'nin kaydıyla hicretin yedinci yılına kadar gecikti.
+B1|Muhâcirlerin Peygamber Efendimize kavuşması oradaki ihtiyaç yüzünden Hayber'in fethine, Evlakî'nin kaydıyla hicretin yedinci yılına kadar gecikti.
 B1|Gemi ehlinden Ca'fer'in eşi Esmâ bint Umeys (r.anhâ) Hz. Hafsa'yı (r.anhâ) ziyaret ettiğinde, Hz. Ömer gemiyle gelen kadın olduğunu öğrenince "Hicrette sizi geçtik; biz Rasûlullah'a sizden daha lâyıkız" dedi.
 B1|Esmâ buna kızdı.
 SOZ|💬 ESMÂ BİNT UMEYS|"Siz Rasûlullah ile birlikteydiniz; o açınızı doyuruyor, bilmeyeninize öğretiyordu. Biz ise uzak ve nefret edilen bir diyardaydık; hem de Allah ve Rasûlü için."|

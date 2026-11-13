@@ -2,7 +2,7 @@ QUOTE|ch19-138
 H2|Bölüme Bakış
 INTRO|Bu bölüm, Rasûlullah'ın (s.a.v.) Medine'de mescid, kardeşlik ve Vesîka üzerine kurduğu ilk İslâm devletinin temellerini, ilk yılların hâdiselerini ve kıblenin Kâbe'ye çevrilişini anlatır.
 B1|Medine sokaklarında ağır ağır ilerleyen devenin yularına, üzerindeki yolcuyu ağırlamak isteyen herkes uzanıyor, onu kendi mahallesine çekmeye çalışıyordu.
-B1|Rasûlullah hepsine "Onu bırakın, çünkü o Allah'ın buyruğundadır" cevabını veriyordu (Abdurrezzâk, *el-Musannef*, 9743).
+B1|Rasûlullah hepsine "Onu bırakın, çünkü o Allah'ın buyruğundadır" cevabını veriyordu (Abdürrezzâk, *el-Musannef*, 9743).
 B1|Deve sonunda şehrin iki yetimine ait, hurmaların kurutulduğu küçük bir harman yerine çöktü ve Allah Rasûlü "Menzilimiz burasıdır" buyurdu.
 B2|Devenin çöktüğü bu nokta, hem bir mescidin hem de tarihteki ilk İslâm devletinin kalbi olacaktı.
 B1|Bir şehre yeni yerleşen liderin ilk işi, neyi önemsediğini gösterir.
@@ -74,7 +74,7 @@ ROW|Vakıf malını süslemeye harcamak|Mescid için vakfedilen malın süslemey
 ENDTABLE
 B1|Sallâbî'nin naklettiğine göre mescidleri ilk süsleyen Velîd b. Abdülmelik oldu, sonra aşırıya gidildi.
 B2|Aşırı süslü bir mescide giren kişi kulluğun tevazuundan çok mimarinin ihtişamını hisseder; fakir ise ibadet yerinde bile mahrum kaldığı dünya ziynetiyle yüz yüze gelir.
-B1|Evlakî de Ebu'd-Derdâ'nın bu konudaki uyarısını hatırlatır.
+B1|Evlakî de Ebü'd-Derdâ'nın bu konudaki uyarısını hatırlatır.
 SOZ|💬 EBU'D-DERDÂ|"Mescidlerinizi desenlerle süslediğinizde ve Mushaflarınızı süslediğinizde mahvolmuşsunuzdur."|
 B1|En hayırlı nesil, kerpiçten bir binadan yetişmişti.
 B1|Ebû Saîd el-Hudrî (r.a.) takvâ üzerine kurulan mescidin hangisi olduğunu sorduğunda Rasûlullah yerden bir avuç çakıl alıp yere vurmuş ve "O, işte şu mescidinizdir" buyurmuştu (Müslim, 1398; Tirmizî, 3099; Nesâî, 2/36; Ahmed b. Hanbel, 3/8).
@@ -200,7 +200,7 @@ ROW|Ebû Bekir|Hârice b. Züheyr
 ROW|Ömer|Utbân b. Mâlik
 ROW|Ebû Ubeyde|Sa'd b. Muâz
 ROW|Mus'ab b. Umeyr|Ebû Eyyûb el-Ensârî
-ROW|Selmân-ı Fârisî|Ebu'd-Derdâ
+ROW|Selmân-ı Fârisî|Ebü'd-Derdâ
 ROW|Abdurrahman b. Avf|Sa'd b. Rebî'
 ENDTABLE
 B1|Evlakî, Mekke'den değil İran'dan, peygamberi bulmak için gelen Selmân'ın da Muhâcir sayılıp bu halkaya alındığına dikkat çeker.
@@ -236,8 +236,8 @@ B1|Muhâcirler sonunda "Böyle bir kavim görmedik; bütün sevabı onların ala
 B2|Evlakî aynı hadisi Buhârî, 2325, 2719, 3782 numaralarıyla kaydeder ve ondan, iyilik yapana teşekkür ve dua etmenin bir alışkanlık hâline gelmesi gerektiği dersini çıkarır.
 B1|Yıllar sonra Bahreyn'in geliri Ensâr'a teklif edildiğinde "Muhâcir kardeşlerimize de bir o kadarını vermedikçe kabul etmeyiz" dediler.
 B2|Allah Rasûlü de kendisinden sonra başkalarının onlara tercih edileceğini haber verip kendisiyle buluşuncaya kadar sabretmelerini istedi (Buhârî, 3794).
-B1|Kardeşlik aynı zamanda nasihatleşmekti; Selmân, kardeşi Ebu'd-Derdâ'yı ziyarete gittiğinde eşini perişan bir hâlde buldu ve kadın kocasının dünyayla hiç ilgilenmediğini söyledi.
-B1|Ebu'd-Derdâ oruçlu olduğunu söyleyince Selmân "Sen yemezsen ben de yemem" diyerek orucunu bozdurdu.
+B1|Kardeşlik aynı zamanda nasihatleşmekti; Selmân, kardeşi Ebü'd-Derdâ'yı ziyarete gittiğinde eşini perişan bir hâlde buldu ve kadın kocasının dünyayla hiç ilgilenmediğini söyledi.
+B1|Ebü'd-Derdâ oruçlu olduğunu söyleyince Selmân "Sen yemezsen ben de yemem" diyerek orucunu bozdurdu.
 B2|Gece namaza kalkmak istedikçe "Uyu" dedi, gecenin sonunda ise "Şimdi kalk" diyerek birlikte namaz kıldılar.
 SOZ|💬 SELMÂN-I FÂRİSÎ|"Rabbinin senin üzerinde hakkı vardır, nefsinin de senin üzerinde hakkı vardır; her hak sahibine hakkını ver."|Buhârî, 1968, 6139; Tirmizî, 2413
 B1|Durumu öğrenen Rasûlullah "Selmân doğru söylemiştir" buyurdu.
@@ -245,7 +245,7 @@ B2|Evlakî'nin naklettiği rivayette bu haklar arasında ailenin hakkı da sayı
 B1|Rasûlullah bu kardeşliği gerçek bir sorumluluk hâline getirmişti; bu yüzden ilk dönemde miras akrabalığa değil kardeşliğe bağlandı.
 B2|Sallâbî'ye göre bunun hikmeti, kardeşliğin bir slogan değil, gözle görülür sonuçları olan bir hakikat olduğunu zihinlere yerleştirmekti.
 TABLE|Kaynak|Kardeşlik mirasının sona ermesi
-ROW|İbn Abbâs|Muhâcir, akrabası olmadığı hâlde kardeşlik sebebiyle Ensârî kardeşine vâris oluyordu; "Her biri için vârisler kıldık" (Nisâ 4/33) âyeti inince bu hüküm kaldırıldı (Buhârî, 2292, 4580, 6747; Ebû Dâvûd, 2922).
+ROW|İbn Abbas|Muhâcir, akrabası olmadığı hâlde kardeşlik sebebiyle Ensârî kardeşine vâris oluyordu; "Her biri için vârisler kıldık" (Nisâ 4/33) âyeti inince bu hüküm kaldırıldı (Buhârî, 2292, 4580, 6747; Ebû Dâvûd, 2922).
 ROW|Sallâbî|Muhâcirler rızık yollarını öğrenip Bedir'de ganimet elde edince miras, "Allah'ın kitabına göre yakın akrabalar birbirlerine vâris olmaya daha lâyıktır" (Enfâl 8/75) âyetiyle yeniden akrabalığa döndü.
 ROW|Evlakî|Bu hususi kardeşlik Muhâcirlerin durumu düzelinceye kadar sürdü.
 ENDTABLE
@@ -265,7 +265,7 @@ ENDTABLE
 H2|Medine Vesîkası: Bir Şehri Devlete Dönüştüren Metin
 INTRO|Medine Vesîkası, şehrin farklı topluluklarını ümmet esasına dayanan bir devlet çatısı altında topladı ve insanlığın asırlar sonra ulaşacağı ilkeleri güvenceye aldı.
 B1|Rasûlullah (s.a.v.), Medine'de yaşayan toplulukların ilişkilerini düzenleyen yazılı bir belge hazırlattı.
-B1|Eski kaynaklarda "kitap" ve "sahîfe", yeni araştırmalarda "anayasa" diye anılan bu metni İbn İshak nakletmiştir.
+B1|Eski kaynaklarda "kitap" ve "sahîfe", yeni araştırmalarda "anayasa" diye anılan bu metni İbn İshâk nakletmiştir.
 B2|Evlakî onu devletin hukukî temeli, tarihteki ilk yazılı çok kültürlü devlet sözleşmesi olarak niteler.
 B1|Sallâbî, metnin farklı yollardan gelen rivayetlerinin toplamının sahih hadis derecesine ulaştığını söyleyen Ekrem Ziyâ el-Ömerî'nin tespitini aktarır (Ömerî, *es-Sîretü'n-Nebeviyye es-Sahîha*, 1/275; Sâlih el-Adiyy, *Tanzîmâtü'r-Resûl el-İdâriyye*, 45).
 B2|Ömerî'ye göre üslubu da metnin orijinal olduğunu gösterir; maddeleri Rasûlullah devrinde kullanılıp sonradan unutulan terimlerle doludur ve içinde hiçbir kişiyi ya da topluluğu öven veya yeren bir ifade yoktur.
@@ -303,10 +303,10 @@ B1|Müellif bu vesikanın, bugün medeniyet ölçüsü sayılan insan hakları b
 H2|Gurbet, Hastalık ve İlk Müjdeler
 INTRO|Mekke'de kalanların hicret çabası, Medine'nin ateşli hastalığı ve Muhâcirlerin ilk çocuğunun doğuşu, ilk yılların sıkıntı ve sevinçlerini yansıtır.
 B1|Medine'de devletin temelleri atılırken Mekke'de kalan bazı Müslümanlar hâlâ hicret yolunu arıyordu.
-B1|Evlakî'nin anlattığına göre Suheyb er-Rûmî (r.a.), Romalılarla Araplar arasındaki bir savaşta esir düşmüş, köle olarak Romalılar arasında büyüdüğü için Arapçayı farklı bir aksanla konuşur olmuştu.
+B1|Evlakî'nin anlattığına göre Süheyb er-Rûmî (r.a.), Romalılarla Araplar arasındaki bir savaşta esir düşmüş, köle olarak Romalılar arasında büyüdüğü için Arapçayı farklı bir aksanla konuşur olmuştu.
 B2|Elden ele satıldıktan sonra Abdullah b. Cüd'ân tarafından azat edilmiş, zeki ve hareketli biri olduğu için ticaretle servet kazanmıştı.
 B1|Hicret etmeye karar verince malını bir çukura gömüp yola çıktı; peşine düşen Kureyşliler "Bize sefil bir fakir olarak geldin, aramızda mal ve itibar kazandın; şimdi kendini ve malını alıp gitmek mi istiyorsun?" dediler.
-TABLE|Rivayet|Suheyb'in yolunu açması
+TABLE|Rivayet|Süheyb'in yolunu açması
 ROW|Birinci rivayet|Malını onlara bırakma karşılığında yolunu açtı.
 ROW|İkinci rivayet|Kırk okunu çıkarıp her birini birine saplayacağını, sonra kılıcına sarılacağını söyledi; ardından malının yerini tarif edip "Gidin onu alın, beni bırakın" dedi.
 ENDTABLE

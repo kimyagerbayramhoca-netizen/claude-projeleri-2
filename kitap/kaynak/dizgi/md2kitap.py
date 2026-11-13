@@ -108,7 +108,7 @@ def quote_line(q):
         if not ar:
             missing_ar.append(q["id"])
         ref = src if src and src != "Hadîs-i şerîf" else ""
-        if lafiz:
+        if lafiz and lafiz not in ref:
             nums_src = set(re.findall(r"\d{2,5}", ref))
             nums_laf = set(re.findall(r"\d{2,5}", lafiz))
             if not (nums_laf and nums_laf <= nums_src):
@@ -177,7 +177,7 @@ lines += [
     "OUT|Alemlere_Rahmet_Siyer-i_Nebi.docx",
     "HEADER|ÂLEMLERE RAHMET · Cahiliyeden Uhud'a Siyer-i Nebî",
     "COVER|SİYER-İ NEBÎ|ÂLEMLERE RAHMET|Cahiliyeden Uhud'a Siyer-i Nebî|Ali Muhammed Sallâbî · Enver el-Evlakî"
-    "|Siyer-i Nebî ve Rasulullah'ın Hayatı eserlerinden hareketle",
+    "|Siyer-i Nebî ve Rasûlullah'ın Hayatı eserlerinden hareketle",
     "LEGEND",
     "TOC|İÇİNDEKİLER",
 ]

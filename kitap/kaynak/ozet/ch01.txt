@@ -151,7 +151,7 @@ B2|Bu gençler bir rock yıldızı ya da futbolcuyla bir sahâbîden daha çok o
 B2|Allah'ın peygamberlerinden pek azını ismen tanır ve Müslüman kimliğini ulusal kimliğin bir alt başlığı gibi taşır.
 B1|Evlakî bu krize karşı iki sütun önerir.
 TABLE|Sütun|İçeriği|İşlevi
-ROW|İslâm tarihini iyi öğrenmek|Peygamberlerin, Rasûlullah'ın ve sahâbenin, ardından Râşid Halifeler, Emevîler, Abbasîler ve sonrasının tarihi; tarih ümmetin göbek bağıdır.|Köklerin derinleşmesini sağlar.
+ROW|İslâm tarihini iyi öğrenmek|Peygamberlerin, Rasûlullah'ın ve sahâbenin, ardından Râşid Halifeler, Emevîler, Abbâsîler ve sonrasının tarihi; tarih ümmetin göbek bağıdır.|Köklerin derinleşmesini sağlar.
 ROW|Küresel ümmetin parçası olduğunu bilmek|İngiliz, Amerikalı, Pakistanlı ya da Türkiyeli olmak İslâmî kimliği bastırmamalı; Filistin'de ya da Keşmir'de yaşananlar her Müslümanı kendi evinde olup bitiyormuş gibi ilgilendirmelidir.|Dalların genişlemesini sağlar.
 ENDTABLE
 B1|Evlakî ulus-devlet mefhumunu da İslâm'ın bütüncül kimliğini parçalayan bir proje olarak okur.
@@ -177,15 +177,15 @@ ROW|Türkiye|Mehmet, Muhammet ve Ahmet
 ROW|Arap dünyası|Ahmed, Mahmûd, Hâmid ve Hamîd
 ENDTABLE
 B1|"Muhammed" övülmüş demektir ve o, isminin mânâsını hayatıyla kuşanmıştır.
-B1|Adı her anıldığında ümmet ona salavat getirir; Müslümanlar her saat dilimine yayıldığı için "Eşhedü enne Muhammede'r-Rasûlullâh" sesi günün hiçbir dakikasında yeryüzünden eksik olmaz.
+B1|Adı her anıldığında ümmet ona salavat getirir; Müslümanlar her saat dilimine yayıldığı için "Eşhedü enne Muhammede'r-Rasûlullah" sesi günün hiçbir dakikasında yeryüzünden eksik olmaz.
 B2|Evlakî bunu "Senin için zikrini yücelttik" (İnşirâh 94/4) âyetinin gözle görülür tecellisi sayar.
 H2|Kaynaklar ve Usul: Siyer ile Hadis Arasında
 INTRO|Evlakî'nin kaynak tercihi, siyer ile hadis arasındaki eski usul farkını ve buna yöneltilen çağdaş itirazı gündeme getirir.
 B1|Bir siyer çalışmasının değeri büyük ölçüde kaynak tercihine bağlıdır; Evlakî iki ana kaynak belirler.
 B1|Birincisi İbn Kesîr'in (ö. 774/1373) *el-Bidâye ve'n-Nihâye*'sidir (İbn Kesîr, *el-Bidâye ve'n-Nihâye*, Sîret kısmı).
-B2|İbn Kesîr müstakil bir siyer kitabı değil; yaratılışın başlangıcından geçmiş peygamberlere, Rasûlullah'ın (s.a.v.) hayatına, Râşid Halifeler, Emevî ve Abbasî dönemlerine, kendi devrine, fitnelere, kıyamet alâmetlerine, cennet ve cehenneme uzanan bir tarih ansiklopedisi yazmıştır.
+B2|İbn Kesîr müstakil bir siyer kitabı değil; yaratılışın başlangıcından geçmiş peygamberlere, Rasûlullah'ın (s.a.v.) hayatına, Râşid Halifeler, Emevî ve Abbâsî dönemlerine, kendi devrine, fitnelere, kıyamet alâmetlerine, cennet ve cehenneme uzanan bir tarih ansiklopedisi yazmıştır.
 B2|"Başlangıç ve Son" anlamındaki adı, tarihi varlığın ilk anından âhirete uzanan bir bütün sayan tasavvuru yansıtır; siyer kısmı bu anlatının kalbindedir.
-B1|İkincisi, hadis usulüne dayanan çağdaş bir çalışma olan İbrahim Muhammed el-Alî'nin *Sahîhü's-Sîreti'n-Nebeviyye*'sidir.
+B1|İkincisi, hadis usulüne dayanan çağdaş bir çalışma olan İbrâhim Muhammed el-Alî'nin *Sahîhu's-Sîreti'n-Nebeviyye*'sidir.
 B2|Eser yalnızca sahih rivayetleri kabul eder ve Buhârî, Müslim, Ebû Dâvûd gibi ana hadis kitaplarının siyerle ilgili bölümlerini tarar.
 B1|Bu iki kaynak, siyer ile hadis ilmi arasındaki eski bir usul farkını hatırlatır.
 TABLE|Konu|Hadis ilmi|Siyer
@@ -197,7 +197,7 @@ B1|İbn İshâk, İbn Sa'd ve Vâkıdî gibi klasik müellifler bütünlüğü k
 B1|Son dönemde bazı âlimler bu ayrıma itiraz etti.
 B2|Onlara göre İmam Ahmed'in zamanında hilafet vardı ve siyer genel dersler için okunuyordu; bugün ise davetin nasıl yapılacağı ve İslâm'ın yeniden nasıl ikame edileceği siyerden öğrenilecektir.
 B2|Siyer bu yönüyle uygulanan bir fıkıh hâline geldiği için hadis usulü ona da tatbik edilmelidir.
-B1|Said Havvâ'nın *el-Esâs fi's-Sünne*'si ve İbrahim el-Alî'nin *Sahîhü's-Sîreti'n-Nebeviyye*'si, İbn İshâk ya da İbn Hişâm yerine doğrudan Buhârî ve Müslim'i kullanan bu yaklaşımın ürünleridir.
+B1|Saîd Havvâ'nın *el-Esâs fi's-Sünne*'si ve İbrâhim el-Alî'nin *Sahîhu's-Sîreti'n-Nebeviyye*'si, İbn İshâk ya da İbn Hişâm yerine doğrudan Buhârî ve Müslim'i kullanan bu yaklaşımın ürünleridir.
 B1|Evlakî ise ana tabloyu sahih rivayetlerle kurmayı, bağlamı ve nüansları klasik kaynaklarla zenginleştirmeyi önerir.
 B1|İbn Kesîr'i seçmesinin sebebi de budur; o hem siyer kaynaklarından hem hadis kitaplarından rivayet eder, rivayet bolluğu ile sahihlik denetimini aynı eserde birleştirir.
 B1|İbn Kesîr'in isnadların tamamını zikretmesi metni ağırlaştırır, tematik sebeplerle kronolojik kaymalar yapar ve aynı olaya dair farklı rivayetleri bir arada vermesi okuru zorlar.
@@ -206,9 +206,9 @@ B1|Evlakî çağdaş *fıkhu's-sîre* literatüründen başka eserleri de tanıt
 TABLE|Müellif|Eser|Yaklaşımı
 ROW|Münîr el-Gadbân|*el-Minhâc el-Harekî*|Siyeri gizli ve açık safhalara ayırarak sistematik bir hareket metodu çıkarır.
 ROW|Muhammed Gazâlî|*Fıkhu's-Sîre*|Terbiye derslerini öne çıkarır.
-ROW|M. Said Ramazan el-Bûtî|*Fıkhu's-Sîre*|Fıkhî çıkarımları öne çıkarır.
-ROW|Selman el-Avde|*el-Gurabâ*|"İslâm garip olarak başladı ve başladığı gibi yine garipliğe dönecektir; ne mutlu gariplere" hadisinden hareketle ilk dönemin garipleriyle bugünün garipleri arasında köprü kurar (Müslim, Kitâbü'l-Îmân; Ebû Hüreyre rivayeti).
-ROW|Muhammed el-Abdâh|*et-Tarîk ile'l-Medîne*|Mekke'den Medine'ye uzanan yürüyüşün her durağından dersler çıkarır.
+ROW|M. Saîd Ramazan el-Bûtî|*Fıkhu's-Sîre*|Fıkhî çıkarımları öne çıkarır.
+ROW|Selmân el-Avde|*el-Gurabâ*|"İslâm garip olarak başladı ve başladığı gibi yine garipliğe dönecektir; ne mutlu gariplere" hadisinden hareketle ilk dönemin garipleriyle bugünün garipleri arasında köprü kurar (Müslim, Kitâbü'l-Îmân; Ebû Hüreyre rivayeti).
+ROW|Muhammed el-Abdâh|*et-Tarîk ile'l-Medine*|Mekke'den Medine'ye uzanan yürüyüşün her durağından dersler çıkarır.
 ENDTABLE
 H2|Bu Bölümün İbretleri
 INTRO|Evlakî siyer okumanın yedi sebebini bir ağacın katmanlarına benzeterek bölümü toparlar.

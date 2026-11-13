@@ -3,7 +3,7 @@ H2|Bölüme Bakış
 INTRO|Bölüm, bi'setten önce hakkı arayan üç yolcuyu ve önceki kitaplardaki müjdeleri anlatır.
 B1|Evlakî'nin ifadesiyle bi'setten önceki karanlıklar zamanında tek tük ve birbirinden uzak ışıklar vardı; insanlık acil bir hidayete muhtaçtı.
 B1|Yine de kalbini hakka yöneltenler vardı; kimi kabilesinin putlarına sırt çevirdi, kimi eski kitaplarda kaybolmuş tevhidi aradı, kimi memleketini, servetini ve hürriyetini bırakıp diyar diyar dolaştı.
-B1|Evlakî'ye göre hak arayışı mesajın önünden gelir, çünkü fıtrat her insanı tevhide çağırır; ama vahiy olmadan yolu bulmak neredeyse imkânsızdır.
+B1|Evlakî'ye göre hak arayışı mesajın önünden gelir, çünkü fıtrat her insanı tevhide çağırır; ama vahiy olmadan yolu bulmak imkânsızdır.
 B1|Öbür yanda önceki peygamberlerin ve kitapların müjdeleri vardı; Ehl-i Kitap âlimleri onu bekliyor, Yahudiler onun geleceği yere yerleşiyor, kimi râhipler talebelerine alâmetlerini tarif ediyordu.
 H2|Mekke'de Yalnız Bir Ses: Zeyd b. Amr b. Nüfeyl
 INTRO|İlk hakikat yolcusu Zeyd, fıtratıyla şirki reddedip İbrâhim'in yoluna bağlanan bir Kureyşliydi.
@@ -38,7 +38,7 @@ B2|Bu, ehl-i fetret hakkında da önemli bir karinedir; Allah'ın rahmeti vahyin
 KAVRAM|💡 KAVRAM · EHL-İ FETRET|Vahiyler arasında kalan veya mesaj kendilerine tam ulaşmayan insanlardır.
 H2|İsfahan'dan Medine'ye: Selmân-ı Fârisî'nin Yolculuğu
 INTRO|En uzun hikâye, Mecûsî bir köy reisinin oğlunu İsfahan'dan Medine'ye taşıyan yolculuktur.
-B1|Selmân-ı Fârisî (r.a.) bu kıssayı, yaşı ilerlemişken kendisinden hayatını anlatmasını isteyen İbn Abbâs'a (r.anhümâ) anlattı.
+B1|Selmân-ı Fârisî (r.a.) bu kıssayı, yaşı ilerlemişken kendisinden hayatını anlatmasını isteyen İbn Abbas'a (r.anhümâ) anlattı.
 B1|İsfahanlı bir Fârisî olan Selmân'ın köyü Ceyy, babası da köyün reisiydi; Evlakî'ye göre aslen Râmhürmüzlü olup çocukken Ceyy'e taşındığı için kendini oralı saymıştır.
 B1|Ailesi Mecûsîydi; Selmân bu dinde öyle gayret gösterdi ki hiç sönmeyen kutsal ateşin, ateşgedenin bekçisi olarak yüksek bir mevkie ulaştı.
 KAVRAM|💡 KAVRAM · MECÛSÎLİK|İyilik ve kötülük olmak üzere iki gücün savaştığına inanan, ateşe tapan ve Ehl-i Kitap'tan sayılmayan bir şirk dinidir.
@@ -85,10 +85,10 @@ ROW|Nübüvvet mührü|Bakîu'l-Garkad'da bir cenazenin ardında yürüyen Rasû
 ENDTABLE
 SOZ|💬 SELMÂN-I FÂRİSÎ|"Peygamberlik mührünü sırtında görünce yere kapandım, kendimi ona bırakıp secde ettim ve ağlayarak ayaklarını öpmeye başladım."|
 B1|Evlakî'ye göre saygı secdesi, Hz. Yûsuf'un kardeşlerinin secdesi gibi önceki şeriatlerde caizdi; Muhammedî şeriatta ise haram kılınmıştır.
-B2|Nitekim Rasûlullah buna razı olmayıp Selmân'ı kaldırdı, "Hikâyeni anlat" dedi ve hikâyeyi ashabına da anlatmasını istedi; yıllar sonra İbn Abbâs'a anlatılan da budur.
+B2|Nitekim Rasûlullah buna razı olmayıp Selmân'ı kaldırdı, "Hikâyeni anlat" dedi ve hikâyeyi ashabına da anlatmasını istedi; yıllar sonra İbn Abbas'a anlatılan da budur.
 B1|Köle olduğu için Bedir ve Uhud'a katılamayan Selmân'a Rasûlullah, "Ey Selmân, kendini mukâtebe ile esaretten kurtar" dedi.
 KAVRAM|💡 KAVRAM · MUKÂTEBE|Kölenin belirli bir bedeli ödeyerek hürriyetini satın almak üzere efendisiyle yaptığı anlaşmadır.
-B1|Yahudi efendi, hepsi kök tutmuş üç yüz hurma ağacı ve kırk ukiyye altın istedi; Evlakî'nin hesabıyla bu yaklaşık bir buçuk kilo altındı.
+B1|Yahudi efendi, hepsi kök tutmuş üç yüz hurma ağacı ve kırk ukiyye altın istedi; Evlakî'nin hesabıyla bu yaklaşık 1,6 kilo altındı.
 B1|Rasûlullah "Kardeşinize yardım edin" deyince sahâbîlerden kimi otuz, kimi yirmi, kimi on beş fidan getirdi ve üç yüz fidan tamamlandı.
 B1|Rasûlullah çukurları Selmân'a kazdırıp dikimden önce haber verilmesini istedi; sonra bizzat gelip fidanları taşıdı, hepsini mübarek elleriyle toprağa yerleştirdi ve hiçbiri kurumadı.
 B1|Kısa süre sonra kendisine getirilen küçük bir altın parçasını "Fârisî kardeşiniz nerede?" diye sorarak Selmân'a verdi.
@@ -97,7 +97,7 @@ B1|Hürriyetine kavuşan Selmân bundan sonra hiçbir savaştan geri kalmadı; E
 H2|Bekleyenler ve Bilip İnkâr Edenler
 INTRO|Medine Yahudileri gelecek peygamberi bekliyordu; ama onu bilenlerin bir kısmı hasetle inkâr etti.
 TABLE|Konu|Sallâbî|Evlakî
-ROW|Yahudilerin bekleyişi|Şam'dan gelip Benî Kurayza'ya yerleşen, bi'setten iki yıl önce ölen âlim Ebû Teyyihâ, bereketli toprakları bırakıp Hicaz'ın çetin toprağına zamanı yaklaşan peygamberi beklemek için geldiğini ölüm döşeğinde söyledi ve ona uymayı umdu.|Yahudiler gelecek peygamberi biliyordu ve Medine'ye asıl onu beklemek için yerleşmişti; Evs ve Hazrec ile çekişince "Yakında bir peygamber çıkacak; o zaman sizi Âd kavmi gibi öldüreceğiz" diye tehdit ederlerdi.
+ROW|Yahudilerin bekleyişi|Şam'dan gelip Benî Kurayza'ya yerleşen, bi'setten iki yıl önce ölen âlim Ebû Teyyihâ, bereketli toprakları bırakıp Hicaz'ın çetin toprağına zamanı yaklaşan peygamberi beklemek için geldiğini ölüm döşeğinde söyledi ve ona uymayı umdu.|Yahudiler gelecek peygamberi biliyordu ve Medine'ye asıl onu beklemek için yerleşmişti; Evs ve Hazrec ile çekişince "Bir gün aramızdan bir peygamber çıkacak; o zaman sizi Âd kavmi gibi öldüreceğiz" diye tehdit ederlerdi.
 ENDTABLE
 B1|Bu sözler Yahudiler ve diğerleri arasında kesinlik derecesinde yayıldı.
 B1|Putperest Ensâr, kendilerini İslâm'a çağıran sebeplerden birinin, kendilerinde olmayan bilgiye sahip Ehl-i Kitap'tan duydukları olduğunu söylemiştir.
@@ -117,7 +117,7 @@ ROW|2|Müslüman olsun olmasın o kitaplara vâkıf olanların Rasûlullah'ın a
 ROW|3|Ehl-i Kitap komşularının bir peygamber beklediğini anlatan Ensâr'ın mütevâtir haberleri
 ENDTABLE
 B1|İbn Teymiyye, peygamberliğin açıkça yazılı olduğu bazı Zebur nüshaları gördüğünü, bir başkasında görmediğini söyler ve bunu sorun saymaz (*el-Cevâbü's-Sahîh*, 1/340).
-B1|Sallâbî'ye göre Rum kralı Herakleios da Rasûlullah'ın mektubunu alınca onun çıkacağını bildiğini, ama kendi aralarından çıkacağını sandığını itiraf etti.
+B1|Sallâbî'ye göre Rûm kralı Herakleios da Rasûlullah'ın mektubunu alınca onun çıkacağını bildiğini, ama Araplardan çıkacağını tahmin etmediğini itiraf etti.
 H2|Kur'ân'da ve Tevrat'ta Haber Verilen Peygamber
 INTRO|Sallâbî'ye göre önceki peygamberlerin müjdeleri, insanları bu peygamberliğe hazırlamanın ilk vasıtasıydı.
 B1|Hz. İbrâhim'in Kâbe'nin temellerini yükseltirken ettiği dua ve Hz. Îsâ'nın "adı Ahmed olan" peygamberi müjdelemesi, beşinci bölümde görüldüğü gibi bunların başındadır; Kur'ân da Ehl-i Kitap'ın onu kitaplarında yazılı bulduğunu bildirir.
@@ -139,7 +139,7 @@ H2|Kitâb-ı Mukaddes'teki İşaretler
 INTRO|Evlakî'ye göre müjdelerin bir kısmı bugünkü Kitâb-ı Mukaddes metinlerinde de izlenebilir.
 B1|Ona göre kitap evrelerden geçerek değişmeseydi bu müjdeler çok daha açık olurdu; ama bugün bile yeterince işaret vardır.
 H2|"Senin Gibi Bir Peygamber"
-INTRO|Evlakî'nin en güçlü delil saydığı Tesniye 18:18'de Allah, Hz. Mûsâ'ya ona benzeyen bir peygamberi müjdeler.
+INTRO|Evlakî'nin en güçlü öngörülerden saydığı Tesniye 18:18'de Allah, Hz. Mûsâ'ya ona benzeyen bir peygamberi müjdeler.
 B1|Hristiyanlar bu müjdeyi Hz. Îsâ'ya bağlar; Evlakî ise Mûsâ'ya kimin daha çok benzediğini on üç noktada karşılaştırır.
 SOZ|💬 KİTÂB-I MUKADDES|"Onlara kardeşleri arasından senin gibi bir peygamber çıkaracağım. Sözlerimi onun ağzından işiteceksiniz. Kendisine buyurduklarımın tümünü onlara bildirecek."|Tesniye 18:18
 TABLE|Nokta|Mûsâ ve Muhammed (s.a.v.)|Îsâ
@@ -153,7 +153,7 @@ B1|Evlakî'ye göre bir de iç çelişki vardır; Îsâ tanrı ise Mûsâ gibi b
 TABLE|Müjdenin ifadesi|Evlakî'nin yorumu
 ROW|"Senin gibi"|Tesniye "O günden bu yana İsrail'de Mûsâ gibi bir peygamber çıkmadı" der (34:10); demek ki beklenen peygamber İsrâiloğullarından değildir.
 ROW|"Kardeşleri arasından"|İbrâhim'in oğulları İshâk ile İsmâil'den gelen iki kardeş kavim düşünülünce, İsrâiloğullarının kardeşleri ancak İsmâiloğulları yani Araplardır.
-ROW|"Sözlerimi onun ağzından işiteceksiniz"|"O, kendi hevâsından konuşmaz" (Necm 53/3) âyetiyle örtüşür; Kur'ân'da Allah çoğu yerde "Ben Allah'ım, benden başka ilah yoktur" (Tâhâ 20/14) diye birinci şahısla konuşur.
+ROW|"Sözlerimi onun ağzından işiteceksiniz"|"O, kendi hevâsından konuşmaz" (Necm 53/3) âyetiyle örtüşür; Kur'ân'da Allah birçok âyette "Ben Allah'ım, benden başka ilah yoktur" (Tâhâ 20/14) diye birinci şahısla konuşur.
 ROW|"Buyurduklarımın tümünü bildirecek"|Tebliğdeki tam sadakati anlatır.
 ENDTABLE
 B1|Evlakî, İncil kitaplarının insanların aklından geçip onların diliyle ve eliyle yazıldığını kabul eden Dr. W. Graham Scroggie'yi (Moody İncil Enstitüsü) aktararak tek kaynaklı Kur'ân'ı çok yazarlı İncil'den ayırır.
@@ -183,7 +183,7 @@ B1|Evlakî'ye göre Kutsal Kişi Mekke'den çıkmış, hidayet Medine'den dünya
 B1|Evlakî, Yeşaya'nın 21. bölümünde Siyer'in sırasını görür.
 TABLE|Yeşaya 21|Evlakî'nin yorumu
 ROW|Peygamber atlıları, eşek ve deve binicilerini görür (21:7).|Eşeğe binen Îsâ, deveye binen Muhammed'dir; Buhârî'ye göre o at, eşek ve devenin üçüne de binmiştir (Buhârî, Cihâd ve Siyer, Merdâ ve İlim kitapları).
-ROW|Babil yıkılır, taptıkları bütün putlar yere çalınıp parçalanır (21:9).|Hz. Ömer (r.a.) döneminde Irak'ın fethi ve oradaki putperestliğin sona ermesidir.
+ROW|Bâbil yıkılır, taptıkları bütün putlar yere çalınıp parçalanır (21:9).|Hz. Ömer (r.a.) döneminde Irak'ın fethi ve oradaki putperestliğin sona ermesidir.
 ROW|Tema'da oturanlardan, yalın kılıçtan ve gerilmiş yaydan kaçan susamışlara su ve ekmek vermeleri istenir (21:14-15).|Hicret ve Muhâcirlere kucak açan Ensâr'dır.
 ROW|Kedâr'ın bütün övüncü bir yılda sona erecek, okçularından pek azı sağ kalacaktır (21:16-17).|Hicretten bir yıl sonra, ikinci yılda yapılan Bedir'de Ebû Cehil, Ümeyye b. Halef ve Ukbe b. Ebî Muayt gibi Kureyş'in en azgın liderleri öldürüldü.
 ENDTABLE

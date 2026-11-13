@@ -1,8 +1,8 @@
 QUOTE|ch14-98
 H2|Bölüme Bakış
 INTRO|Bu bölüm, Mekke'nin çetin ama bereketli yıllarını Hamza ile Ömer'in İslâm'ı, boykot ve mucizeler üzerinden izler.
-B1|Muhacirler Habeşistan'da güvenli bir yurt bulmuşken Mekke'de kalanlar için günler ağırlaşıyordu; fakat bu yıllar Allah'ın beklenmedik müdahalelerinin de yıllarıydı.
-B2|Bir taş Mekke'nin en yiğit avcısını iman safına getirdi; Müslüman olması en son umulan adam kılıcını kuşandığı gün Rasûlullah'ın (s.a.v.) huzurunda tekbir getirdi.
+B1|Muhâcirler Habeşistan'da güvenli bir yurt bulmuşken Mekke'de kalanlar için günler ağırlaşıyordu; fakat bu yıllar Allah'ın beklenmedik müdahalelerinin de yıllarıydı.
+B2|Bir taş Mekke'nin en yiğit avcısını iman safına getirdi; Müslüman olması en son umulan adam kılıcını kuşandığı gün Rasûlullah'ın (s.a.v.) huzurunda tekbirlerle karşılandı.
 B2|Kâbe'ye asılan zulüm sayfası ise sonunda bir ağaç kurdunun dişleri arasında eriyip gitti.
 B1|Enver el-Evlakî, Hamza ile Ömer'in İslâm'ını, Hâşimoğulları'na uygulanan boykotu ve eşlik eden mucizeleri "Mekke'de tarihin akışını değiştiren hâdiseler" diye niteler; ona göre bunlar birlikte okununca Kureyş'in fizikî baskısının ilahî müdahalelerle kırıldığı görülür.
 B1|Ali Muhammed Sallâbî ise boykotu, Kureyş'in daveti susturmak için başvurduğu üslupların sonuncusu ve en ağırı olarak ele alır.
@@ -154,7 +154,7 @@ B1|İkinci mucize Ay'ın yarılmasıdır; Kureyşliler sanki Kur'ân yetmiyormu�
 B1|Evlakî'nin anlatımına göre Allah Cebrâil vasıtasıyla isterlerse Ay'ı yaracağını bildirdi; Rasûlullah müşrikleri çağırıp haber verdi ve geceleyin toplananların gözü önünde Ay ikiye ayrılıp yeniden birleşti.
 B1|Kur'ân hâdiseyi ve müşriklerin tavrını kaydeder.
 QUOTE|ch14-105
-B1|Abdullah b. Mes'ûd o gece Rasûlullah ile Mina'da olduklarını, Ay'ın bir parçası dağın arkasında, diğeri dağ tarafında kalacak şekilde yarıldığını ve Rasûlullah'ın "Buna şahit olun" buyurduğunu anlatır (Müslim, 2800).
+B1|Abdullah b. Mes'ûd o gece Rasûlullah ile Minâ'da olduklarını, Ay'ın bir parçası dağın arkasında, diğeri dağ tarafında kalacak şekilde yarıldığını ve Rasûlullah'ın "Buna şahit olun" buyurduğunu anlatır (Müslim, 2800).
 B2|Buhârî hâdisenin Ömer'in Müslüman oluşu ile Habeşistan'a hicret arasında vuku bulduğunu zikreder (Buhârî, 3871).
 B1|Evlakî, Ay yarıldıysa neden bütün dünyanın görmediği sorusuna birkaç cevap verir.
 TABLE|Evlakî'nin cevabı|Açıklama

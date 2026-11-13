@@ -3,13 +3,13 @@ H2|Bölüme Bakış
 INTRO|Bu bölüm Uhud şehitlerini, defni, Hamrâü'l-Esed'i, Uhud'un kadınlarını ve Kur'ân'ın bu günü okuyuşunu anlatır.
 B1|Ebû Süfyân çekilince Uhud'un eteğine ağır bir sessizlik çöktü; savaş bitmişti, gün bitmemişti.
 B1|Rasûlullah (s.a.v.) yaralarına rağmen ashâbını aramaya çıktı; vadide, kayaların dibinde ve sancakların düştüğü yerlerde yetmiş şehit yatıyordu.
-B1|Evlakî'nin hatırlattığı gibi şehadetten bahseden âyet ve hadislerin çoğu Uhud vesilesiyle gelmiş, Şehitlerin Efendisi Hamza da bu toprağa düşmüştü.
+B1|Evlakî'nin hatırlattığı gibi şehadet âyeti Uhud vesilesiyle inmiş, şehadetten bahseden hadislerin birçoğu Uhud'da vârid olmuş, Şehitlerin Efendisi Hamza da bu toprağa düşmüştü.
 B1|Evlakî bir dil inceliğine de dikkat çeker; şehitler için "öldü" demek dilin alışkanlığıdır, Kur'ân'a göre ise onlar ölü değil diridir.
 H2|Seyyidü'ş-Şühedâ: Hamza
 INTRO|Bu başlık Hamza'nın şehadetini, uğradığı müsleyi ve katilinin tevbesini anlatır.
 B1|Hamza b. Abdülmuttalib (r.a.) o gün büyük bir kahramanlıkla savaşmış, Abdüddâroğulları'nın sancaktarlarını birer birer düşürmüştü.
 KAVRAM|💡 KAVRAM · SEYYİDÜ'Ş-ŞÜHEDÂ|Şehitlerin efendisi demektir; Hz. Hamza'nın unvanıdır.
-B1|Hamza'yı nasıl şehit ettiğini yıllar sonra Vahşî bizzat anlattı; Evlakî'ye göre yaşlılığında ziyaretine gelen Tâbiînden iki kişiye kıssayı Rasûlullah'a (s.a.v.) anlattığı gibi anlatacağına söz vermişti ve bu anlatım Buhârî'de tam metniyle yer alır (Buhârî, 4072; Beyhakī, Delâil, 3/241-243).
+B1|Hamza'yı nasıl şehit ettiğini yıllar sonra Vahşî bizzat anlattı; Evlakî'ye göre yaşlılığında ziyaretine gelen Tâbiînden iki kişiye kıssayı Rasûlullah'a (s.a.v.) anlattığı gibi anlatacağına söz vermişti ve bu anlatım Buhârî'de tam metniyle yer alır (Buhârî, 4072; Beyhakî, Delâil, 3/241-243).
 B1|Cübeyr b. Mut'im'in kölesi olan ve Bedir'de öldürülen Tuayme b. Adiy'in intikamı karşılığında özgürlük vaat edilen Vahşî, "Ben Habeşliyim; hemşehrilerim gibi mızrak atarım, çok nadir ıskalarım" der.
 B1|Saflar karşılaşınca düelloya çıkan Sibâ' b. Abdüluzzâ'yı Hamza, kadın sünnetçisi Ümmü Enmâr'ın oğlu diye anıp Allah'a ve Rasûlüne meydan okumakla suçladı.
 B2|Onu öyle seri bir darbeyle öldürdü ki Vahşî darbenin ıskaladığını sanmıştı.
@@ -43,7 +43,7 @@ ROW|Rasûlullah'ın vefatından sonra|Hamza'yı şehit ettiği mızrakla Yemâme
 ENDTABLE
 B1|Sallâbî bu şefkatli talimatta kınama görmez; Vahşî'yi görmek amcasına yapılanları canlandırıp Rasûlullah'ı sıkıntıya soktuğundan musibeti hatırlatan sebebi uzaklaştırmak istemişti.
 B1|Rasûlullah ona ayrıca "Çık ve daha önce Allah yolundan alıkoymak için nasıl savaştıysan şimdi de Allah yolunda savaş" demişti (Evlakî'den Taberânî, el-Mu'cemü'l-Kebîr, 370).
-B2|Sallâbî, Vahşî'nin Müseyleme'ye yönelik hamlesinde bu nebevî talimatın etkisini görür.
+B2|Sallâbî, Vahşî'nin Müseyleme'ye yönelik hamlesinin bu nebevî talimatın eseri olabileceğini belirtir.
 SOZ|💬 VAHŞÎ|"İnsanların en hayırlısını öldürdüm, insanların en kötüsünü de öldürdüm."|
 B1|Evlakî hikâyeden tevbenin esasını çıkarır; "İyilikler kötülükleri giderir" (Hûd 11/114), günah işleyen hemen tevbe eder ve onu salih amellerle silmeye çalışır.
 H2|Sözlerine Sadık Kalanlar
@@ -54,16 +54,16 @@ B1|Uhud'da Muhâcirlerin sancağını taşıyordu; Evlakî'ye göre bir kolu kes
 SOZ|💬 HABBÂB|"Rasûlullah (s.a.v.) ile hicret ettik, sadece Allah'ın rızasını gözetiyorduk. Bizden bir kısmımız bu yolda kaldı ve karşılığında bir şey elde etmedi. Bunlardan biri Mus'ab b. Umeyr'dir. Alaca çizgili bir kumaştan başka bir şey bırakmamıştı. Başını örttüğümüzde ayakları, ayaklarını örttüğümüzde başı açıkta kalıyordu. Rasûlullah 'Başını örtün, ayaklarını da otlarla örtün' buyurdu."|Buhârî, 1276, 3897
 B1|Yıllar sonra oruçluyken önüne yemek konan Abdurrahman b. Avf, Mus'ab'ı ve Hamza'yı hatırlayıp onların kendisinden hayırlı olduğunu, kendilerine güzelliklerin peşinen dünyada verilmiş olmasından korktuğunu söyleyerek ağladı ve yemeği bıraktı.
 B1|Ebû Hüreyre'nin rivayetine göre Rasûlullah Uhud'dan ayrılırken Mus'ab'ın başında durup dua etti ve "Müminlerden öyle adamlar vardır ki Allah'a verdikleri söze sadık kaldılar" âyetini okudu.
-B2|Uhud şehitlerini ziyaret etmeyi emretmiş, kıyamete kadar onlara selam verenin selamını mutlaka alacaklarına yemin etmişti (Hâkim, 3/200; Beyhakī, Delâil, 3/284).
+B2|Uhud şehitlerini ziyaret etmeyi emretmiş, kıyamete kadar onlara selam verenin selamını mutlaka alacaklarına yemin etmişti (Hâkim, 3/200; Beyhakî, Delâil, 3/284).
 B1|Okların Sa'd b. Rebî'e (r.a.) yöneldiğini gören Rasûlullah, savaştan sonra onun sağ mı ölü mü olduğuna bakacak birini aradı.
 B2|Sallâbî'ye göre Übey b. Ka'b gidip onu son nefesini verirken buldu.
 B2|Evlakî, Akabe nakiblerinden olan ve Uhud öncesinde Rasûlullah'ın sırrını paylaştığı bu sahâbînin on iki yara aldığını kaydeder.
 SOZ|💬 SA'D B. REBÎ'İN SON SÖZLERİ|"Rasûlullah'a ve sana selam olsun. Ona de ki: Ey Allah'ın Rasûlü! Ben cennetin kokusunu alıyorum. Benim kavmim Ensâr'a da de ki: Sizde kırpabilen bir göz oldukça düşman Rasûlullah'ın yanına kadar ulaşacak olursa, bunda sizin hiçbir mazeretiniz olamaz."|İbn Hişâm
 B1|Sallâbî'ye göre bu öğüt, ne ölümün ne de yaraların acısının sarsabildiği güçlü bir imanın ve biata sadakatin ifadesidir.
-B1|Abdullah b. Cahş'ın (r.a.) teklifiyle o ve Sa'd b. Ebî Vakkās savaştan önce tenha bir yere çekilip dua ettiler; Sa'd güçlü ve öfkeli bir düşmanı yenip öldürmeyi ve zırhını almayı diledi, Abdullah "Âmin" dedi.
+B1|Abdullah b. Cahş'ın (r.a.) teklifiyle o ve Sa'd b. Ebî Vakkâs savaştan önce tenha bir yere çekilip dua ettiler; Sa'd güçlü ve öfkeli bir düşmanı yenip öldürmeyi ve zırhını almayı diledi, Abdullah "Âmin" dedi.
 B2|Abdullah ise öfkeli ve güçlü bir düşmanla Allah için savaşıp onun eliyle burnu ve kulağı kesilerek ölmeyi, huzura çıktığında bunun Allah ve Rasûlü yolunda olduğunu söyleyip tasdik edilmeyi diledi.
-SOZ|💬 SA'D B. EBÎ VAKKĀS, YILLAR SONRA OĞLUNA|"Ey oğlum! Abdullah'ın duası benimkinden daha hayırlıydı. Günün sonunda onu gördüm; burnu ve kulağı bir ipe dizilmişti."|Hâkim, 3/201; Beyhakī, Delâil, 3/285; Zâdü'l-Meâd, 3/212
-B1|Sallâbî, İbn Kayyım'a dayanarak bu rivayetten Allah yolunda öldürülmeyi istemenin câiz, yasaklananın ise ölümü temenni etmek olduğu sonucunu çıkarır.
+SOZ|💬 SA'D B. EBÎ VAKKÂS, YILLAR SONRA OĞLUNA|"Ey oğlum! Abdullah'ın duası benimkinden daha hayırlıydı. Günün sonunda onu gördüm; burnu ve kulağı bir ipe dizilmişti."|Hâkim, 3/201; Beyhakî, Delâil, 3/285; Zâdü'l-Meâd, 3/212
+B1|Sallâbî, İbn Kayyim'a dayanarak bu rivayetten Allah yolunda öldürülmeyi istemenin câiz, yasaklananın ise ölümü temenni etmek olduğu sonucunu çıkarır.
 B1|Ensâr'dan Hanzala (r.a.), Abdullah b. Übey'in kızı Cemîle ile evlenmiş, gerdek gecesi Uhud'un arifesine denk gelmişti.
 B2|Vâkıdî'ye göre Rasûlullah'tan izin alıp geceyi hanımıyla geçirdi; sabah namazından sonra çıkmak isterken Cemîle onu bırakmadı ve cünüp oldu.
 B2|Savaş çağrısını duyunca gusletmeye vakit bulamadan ordunun peşinden koştu.
@@ -101,7 +101,7 @@ B1|Üçüncü kez de kalkan Vehb'e Rasûlullah "Kalk ve sana cennet müjdesi ols
 B2|Vehb "Vallahi bir an durmayacağım, geri kalmayacağım!" diyerek düşmanın içine daldı, çıktı, tekrar daldı; Rasûlullah ise "Allah'ım, ona merhamet et!" diyordu.
 B2|Vücudunda her biri öldürücü yirmi mızrak yarasıyla şehit düştü; ardından yeğeni de amcası gibi savaşıp şehit oldu.
 SOZ|💬 HZ. ÖMER|"Benim en çok istediğim ölüm, el-Müzenî gibi ölmektir."|
-B1|Yaklaşık on üç yıl sonra Kâdisiye'de Müzeyne'den bir genci gören Sa'd b. Ebî Vakkās Vehb'i hatırladı; Evlakî'ye göre bu, ganimet payından şikâyetle gelen Bilâl adlı yeğeniydi.
+B1|Yaklaşık on üç yıl sonra Kâdisiye'de Müzeyne'den bir genci gören Sa'd b. Ebî Vakkâs Vehb'i hatırladı; Evlakî'ye göre bu, ganimet payından şikâyetle gelen Bilâl adlı yeğeniydi.
 B2|Sa'd ona, üçüncü hücumdaki cennet müjdesini duyunca aynı ecre ortak olmak için Vehb'le gittiğini ve Uhud'da o adamda gördüğü manzarayı kimsede görmediğini anlattı.
 B1|Sa'd'ın şahitliğine göre Rasûlullah yaralı ve bitkin olduğu hâlde Vehb'in kabri kazılırken başında bekledi; Sallâbî'nin kaydına göre hırkasını onun başına çekti, ayaklarını otlarla örttürdü ve "Allah senden razı olsun; çünkü ben de senden razıyım" dedi.
 B1|İleri derecede topal olan Amr b. Cemûh'un (r.a.) Hallâd, Muavviz, Muâz ve Ebû Eymen adında aslanlar gibi dört oğlu vardı.
@@ -122,7 +122,7 @@ B1|Asıl adı Amr b. Sâbit b. Vakş olan Abdüleşhelli Useyrim, Ebû Hüreyre'
 B1|Uhud günü Sa'd b. Muâz'ın, kardeşinin oğullarının ve kavminin Uhud'da olduğunu öğrenince o anda Müslüman oldu, silahlanıp atına bindi ve sahâbîlere yetişti.
 B2|"Bizden uzak dur, ey Amr!" diyen Müslümanlara "Ben iman ettim" cevabını verdi ve bütün vücudu yaralarla kaplanıncaya kadar savaştı.
 B1|Ölmek üzereyken niçin geldiği sorulunca İslâm'a rağbet edip Allah'a ve Rasûlüne iman ettiğini, ölürse bütün malının Muhammed'in olduğunu söyledi.
-B1|Rasûlullah (s.a.v.) "O, cennet ehlindendir" buyurdu; hiç namaz kılmadan cennete girdiği söylenince de "Çok az amel işledi ama çok mükâfat aldı" dedi (İbn Hişâm, 3/95; Beyhakī, Delâil, 3/247; Buhârî, 2808; Müslim, 1900).
+B1|Rasûlullah (s.a.v.) "O, cennet ehlindendir" buyurdu; hiç namaz kılmadan cennete girdiği söylenince de "Çok az amel işledi ama çok mükâfat aldı" dedi (İbn Hişâm, 3/95; Beyhakî, Delâil, 3/247; Buhârî, 2808; Müslim, 1900).
 B2|Ebû Hüreyre sonraları "Hiç namaz kılmadığı hâlde cennete giden adam kimdir, bilir misiniz?" diye sorar, "O, Useyrim'dir" diye kendisi cevap verirdi.
 B1|Evlakî'ye göre bu kıssa şehadete güvenip diğer amellerin terk edilebileceği anlamına gelmez; Useyrim'in durumu, savaşın en kızgın anında İslâm'a girip o anın vacibini yerine getiren birine özgü istisnaî bir hâldi.
 B1|Evlakî'nin Yahudi âlimi olarak tanıttığı Muhayrîk, Uhud başlayınca kavmine "Ey Yahudi cemaati! Vallahi bilirsiniz ki bugün Muhammed'e yardım etmek üzerinize bir vecibedir" dedi.
@@ -164,9 +164,9 @@ B2|Evlakî duanın tamamını Ahmed b. Hanbel'in el-Müsned'inden (15066) nakled
 B1|Sallâbî'ye göre yenilginin hemen ardından safları düzenleyip hamd ve senâ etmek derin bir imanın ve mutlak kulluğun tablosudur; zaferde de hezimette de dua kalpleri Yaratıcı'ya bağlayıp sebat verir.
 B1|Düşmanın niyetinden emin olmak isteyen Rasûlullah Hz. Ali'yi onları izlemeye gönderdi.
 B2|Atları yedip develere binmişlerse Mekke'ye, atlara binip develeri sürüyorlarsa Medine'ye gidiyor olacaklardı; Rasûlullah Medine'ye yönelirlerse üzerlerine yürüyüp savaşacağına yemin etti.
-B2|Ali dönüp atları yedip develere bindiklerini ve Mekke'ye yöneldiklerini bildirdi (Vâkıdî, 1/298; Taberî, Târîh, 2/527; Beyhakī, Delâil, 3/282).
+B2|Ali dönüp atları yedip develere bindiklerini ve Mekke'ye yöneldiklerini bildirdi (Vâkıdî, 1/298; Taberî, Târîh, 2/527; Beyhakî, Delâil, 3/282).
 B1|Sallâbî bu sahnede Rasûlullah'ın daima uyanık oluşunu, düşmanı gözlem altında tutmasını ve Ali'ye güvenini görür; çünkü müşrikler onu fark etseler öldürmekten çekinmezlerdi.
-B2|Ona göre meydanı hemen terk etmeyip yaralıları ve şehitleri araştırması, defni yönetmesi, dua edip keşif göndermesi Uhud'dan geriye kalanı korumaya yönelikti.
+B2|Ona göre meydanı hemen terk etmeyip yaralıları ve şehitleri araştırması, defni yönetmesi, dua edip keşif göndermesi Uhud'da elde edilen zaferi kalıcı kılmaya yönelikti.
 H2|Hamrâü'l-Esed: Yenilginin İzini Silen Yürüyüş
 INTRO|Yaralı ordu ertesi sabah düşmanın peşine düştü, Kureyş savaşmayı göze alamayıp döndü.
 B1|İbn Abbas'a göre Medine'ye yetmiş üç kilometre uzaklıktaki Ravhâ'ya gelen Ebû Süfyân, "Ne Muhammed'i öldürdünüz ne de bakireleri peşinize taktınız. Çok kötü bir şey yaptınız" dedi.
@@ -194,7 +194,7 @@ B1|Sallâbî'ye göre yürüyüşün maksadı Uhud'a katılanların ruhundaki ye
 B1|Müslümanlar Medine'ye başları dik döndü; bu ruh yenilginin utancını silmiş, münafıkların ve Yahudilerin sataşmalarını boşa çıkarmıştı.
 B1|Medine'ye dönmeden önce şair Ebû İzzet el-Cumahî (Evlakî'de Ebû Azze) esir düştü.
 B2|Bedir'de de esir alınan bu adam, kızlarının muhtaç olduğunu söyleyip bir daha Müslümanlara karşı savaşmama sözüyle fidyesiz bırakılmıştı; Evlakî'ye göre Kureyş onu kandırıp yeniden orduya katmıştı.
-B1|Yine af dileyince Rasûlullah, Mekke'de yanaklarını okşayıp "Muhammed'i iki kez kandırdım" demesine izin vermeyeceğini söyleyerek Zübeyr'e boynunu vurdurdu ve "Mümin bir delikten iki kez ısırılmaz" buyurdu (İbn Sa'd, 2/43; Beyhakī, Sünen, 9/65; Buhârî, 6133; Müslim, 2998; Evlakî'de ayrıca Ebû Dâvûd, 4862).
+B1|Yine af dileyince Rasûlullah, Mekke'de yanaklarını okşayıp "Muhammed'i iki kez kandırdım" demesine izin vermeyeceğini söyleyerek Zübeyr'e boynunu vurdurdu ve "Mümin bir delikten iki kez ısırılmaz" buyurdu (İbn Sa'd, 2/43; Beyhakî, Sünen, 9/65; Buhârî, 6133; Müslim, 2998; Evlakî'de ayrıca Ebû Dâvûd, 4862).
 B2|Sallâbî'ye göre bu söz daha önce duyulmamış bir deyim olarak dillere yerleşti; olay şer'î siyaset çerçevesinde değerlendirilir, çünkü fitne çığırtkanı bu şairi bağışlamak ona yeniden savaşma imkânı vermek olurdu.
 B2|Ebû İzzet, Uhud'da müşriklerden alınan tek esirdi.
 B1|Uhud'un bilançosu ağırdı; Müslümanlardan yetmiş şehit, müşriklerden yirmi iki ölü vardı.
@@ -219,15 +219,15 @@ B2|Evlakî onun Ebû Bekir döneminde Müseyleme'ye karşı da savaştığını 
 B1|Sallâbî'nin naklettiği değerlendirmelere göre Nüseybe'nin savaşması, insanlar dağılıp Rasûlullah tehlikeye düşünce doğan bir zorunluluktu.
 B2|Zaruret hâlinde ve örtünmeye riayetle kadınlar tedavi ve hizmette bulunabilir; düşman saldırısında ise savaşmak herkese vacip olur.
 B1|Kadınlar sabırda da örnek oldu; Rasûlullah dönüşte Hamne bint Cahş'a önce kardeşi Abdullah b. Cahş'ın, sonra dayısı Hamza'nın şehadetini bildirdi ve Hamne her defasında istircâ edip mağfiret diledi.
-B2|Kocası Mus'ab b. Umeyr'in şehadetini duyunca kendini tutamayıp feryat etti; Rasûlullah kocanın kadın için önemli bir yeri olduğunu söyledi, Hamne de çocuklarının yetim kalışını düşündüğünü belirtti (İbn Mâce, 1590; Taberî, Târîh, 2/532; Beyhakī, Delâil, 3/301).
+B2|Kocası Mus'ab b. Umeyr'in şehadetini duyunca kendini tutamayıp feryat etti; Rasûlullah kocanın kadın için önemli bir yeri olduğunu söyledi, Hamne de çocuklarının yetim kalışını düşündüğünü belirtti (İbn Mâce, 1590; Taberî, Târîh, 2/532; Beyhakî, Delâil, 3/301).
 B2|Allah Rasûlü onun ve çocuklarının yeni hayatını güzel kılması için dua etti.
 TABLE|Konu|Sallâbî|Evlakî
 ROW|Talha b. Ubeydullah ile evlenen dul|Hamne bint Cahş; Muhammed ve İmrân adında iki oğlu oldu.|Hanzala'nın dul eşi Cemîle; oğlu Muhammed b. Talha, üvey kardeşi Abdullah b. Hanzala'ya en yakın kişiydi.
 ENDTABLE
-B1|Kocası, kardeşi ve babası Uhud'da şehit olan Benî Dînarlı bir kadın haberi alınca önce Rasûlullah'ı sordu; iyi olduğunu öğrenip onu görünce "Senden sonra bütün musibetler bana hafif gelir" dedi.
+B1|Kocası, kardeşi ve babası Uhud'da şehit olan Benî Dînarlı bir kadın haberi alınca önce Rasûlullah'ı sordu; iyi olduğunu öğrenip onu görünce "Senden sonra bütün musibetler bana hafif gelir" dedi (İbn Kesîr, 4/48).
 B1|Oğlu Amr'ı kaybeden Sa'd b. Muâz'ın annesi Kebşe bint Ubeyd de Rasûlullah'ı görünce "Seni sağlam gördüm ya, artık bütün musibetler benim için küçülmüştür" dedi.
 B2|Rasûlullah ona başsağlığı dileyip ailelere, cennette bir araya gelen on iki ölülerine aileleri için şefaat hakkı verildiği müjdesini iletmesini istedi.
-B2|Ümmü Sa'd "Razı olduk, ey Allah'ın Rasûlü! Bundan sonra onlar için kim ağlar?" deyip geride kalanlar için dua isteyince Rasûlullah onların kalplerindeki hüznün giderilmesi ve musibetlerinde sebat bulmaları için dua etti (İbn Kesîr, 4/48; Vâkıdî, 1/292, 1/315-316; Taberî, Târîh, 2/533).
+B2|Ümmü Sa'd "Razı olduk, ey Allah'ın Rasûlü! Bundan sonra onlar için kim ağlar?" deyip geride kalanlar için dua isteyince Rasûlullah onların kalplerindeki hüznün giderilmesi ve musibetlerinde sebat bulmaları için dua etti (Vâkıdî, 1/292, 1/315-316; Taberî, Târîh, 2/533).
 H2|Kur'ân'ın Gözüyle Uhud
 INTRO|Âl-i İmrân'ın Uhud âyetleri teselli eder, hikmeti açıklar ve hatayı terbiye eder.
 B1|Sallâbî'ye göre Uhud'u anlatan en güçlü kaynak siyer kitapları değil Kur'ân'dır; Âl-i İmrân'ın Uhud âyetleri ordunun ruh hâlini rivayetlerden canlı anlatır, kalplerin gizli taraflarına ışık tutar.
@@ -236,7 +236,7 @@ B2|Evlakî bu âyetin yetmiş şehidin ardından, Müslümanların Rasûlullah (
 B1|Ardından musibetin hikmeti açıklanır.
 QUOTE|ch25-192
 B1|Sallâbî âyetlerden dört hikmet çıkarır; Allah'ın ilmi tahakkuk edip müminlere gösterilir, bazılarına yüksek mertebelere ulaştıran şehadet ikram edilir, müminler günahlardan ve münafıklardan arındırılır, kâfirler de yavaş yavaş helâke sürüklenir.
-B1|Evlakî'nin İbn Kayyım'dan aktardığı tespite göre bazı kulların Allah katında amelleriyle ulaşamayacakları makamları vardır; Allah onları bir musibetle imtihan eder ve o makama şehadetle ulaştırır.
+B1|Evlakî'nin İbn Kayyim'dan aktardığı tespite göre bazı kulların Allah katında amelleriyle ulaşamayacakları makamları vardır; Allah onları bir musibetle imtihan eder ve o makama şehadetle ulaştırır.
 B1|Sallâbî ile Evlakî, Kur'ân'ın üslubundaki farkın bir terbiye dersi olduğuna dikkat çeker.
 TABLE|Savaş|Âyetlerin üslubu|Örnek
 ROW|Büyük bir zafer olan Bedir|Sert ve hesap sorucu|"Eğer Allah'ın daha önce verilmiş bir hükmü olmasaydı aldığınız şeyden dolayı size büyük bir azap dokunurdu" (Enfâl 8/68)
@@ -254,7 +254,7 @@ B2|Allah Peygamberine onları affetmesini, onlar için istiğfar etmesini ve ist
 B2|İbn Selûl'e ise sert davranılmadı; yaptığının herkesçe bilinmesi yetti.
 B1|Zührî'ye göre her cuma hutbeden önce kalkıp insanları Rasûlullah'a itaate çağıran İbn Selûl, Uhud'dan sonraki ilk cuma yine kalkınca Müslümanlar onu, Allah düşmanı olarak bu sözleri söylemeye hakkı olmadığını söyleyip elbisesinden çekerek oturttular (İbn Kesîr, 4/53).
 B2|Rasûlullah'tan af dilemesini söyleyen Ensârîlere "Vallahi onun beni bağışlamasını istemiyorum" cevabını verdi.
-B1|Sa'd b. Ebî Vakkās, Uhud'da Rasûlullah'ın sağında ve solunda çok şiddetli savaşan, ne önce ne sonra gördüğü beyaz elbiseli iki adamın Cebrâil ile Mîkâil olduğunu anlatır (Buhârî, 4054; Müslim, 1230).
+B1|Sa'd b. Ebî Vakkâs, Uhud'da Rasûlullah'ın sağında ve solunda çok şiddetli savaşan, ne önce ne sonra gördüğü beyaz elbiseli iki adamın Cebrâil ile Mîkâil olduğunu anlatır (Buhârî, 4054; Müslim, 1230).
 B2|Sallâbî'ye göre meleklerin Uhud'daki müdafaası Rasûlullah'ı korumakla sınırlı kaldı; çünkü Allah yardımını sabır, takvâ ve düşmana ansızın saldırmak şartlarına bağlamıştı (Âl-i İmrân 3/124-125).
 B1|Aynı gün Rasûlullah, yuvasından çıkıp yanağına düşen Katâde b. Nu'mân'ın gözünü eliyle yerine koydu ve göz eskisinden de keskin oldu; Evlakî bunun Bedir'de mi Uhud'da mı olduğu konusunda farklı görüşler bulunduğunu kaydeder.
 B1|Evlakî, Abdullah b. Ömer'in bir gece Übey b. Halef'in öldüğü yerden geçerken zincirlerle sürüklenen, su isteyip de su verilmeyen bir adam gördüğünü de nakleder.

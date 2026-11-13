@@ -34,7 +34,7 @@ B1|Rasûlullah kabul edip amcalarına açtı; onların muvafakatiyle amcası Ham
 B1|Damat yirmi beş, gelin kırk yaşındaydı; Evlakî'ye göre Hatice iki kez evlenmiş bir duldu, Rasûlullah ise bekârdı.
 B1|Hatice onun ilk eşiydi; o hayattayken Rasûlullah başka bir kadınla evlenmedi ve hayatta kalan bütün çocukları ondandı.
 TABLE|Çocuk|Hayatı
-ROW|Kāsım|İlk oğuldur; Rasûlullah onunla künyelendi, Kāsım ata binecek yaşa gelince vefat etti.
+ROW|Kâsım|İlk oğuldur; Rasûlullah onunla künyelendi, Kâsım ata binecek yaşa gelince vefat etti.
 ROW|Abdullah|Tâhir ve Tayyib lakaplı ikinci oğuldur; bi'setten önce çok küçükken öldü.
 ROW|Zeyneb, Rukiyye, Ümmü Gülsüm ve Fâtıma (r.anhünne)|Müslüman oldular, Medine'ye hicret ettiler ve evlendiler.
 ENDTABLE
@@ -75,7 +75,7 @@ INTRO|Tek eşli yirmi beş yıl ve sonraki evliliklerin sebepleri, Rasûlullah'a
 B1|Sallâbî'ye göre bu evlilik, Peygamber'i lezzet ve şehvet düşkünü göstermeye çalışan müsteşriklerin iddiasını kendiliğinden çürütür; Evlakî de meseleyi üç gerçek üzerinden ele alır.
 TABLE|Konu|Sallâbî|Evlakî
 ROW|Gençlikteki iffet|Yirmi beş yaşına kadar cahilî çevrede iffetli ve bekâr yaşadı, etrafındaki bozuk akımların hiçbirine kapılmadı.|Fuhşun son derece yaygın olduğu ortamda akranları eğlencelere katılırken o, akıntıya karşı kürek çekerek fesattan uzak kaldı.
-ROW|Eşinin yaşı|Neredeyse kendi yaşının iki katındaki bir hanımla evlenip gençliğini, orta yaşlılığını ve yaşlılığının ilk yıllarını onunla geçirdi.|Beni Hâşim'in soylu genci, istediği genç kız yerine on beş yaş büyük bir dulu seçti; bu tercih ancak karakter ve manevî yakınlığa dayanabilirdi.
+ROW|Eşinin yaşı|Neredeyse kendi yaşının iki katındaki bir hanımla evlenip gençliğini, orta yaşlılığını ve yaşlılığının ilk yıllarını onunla geçirdi.|Benî Hâşim'in soylu genci, istediği genç kız yerine on beş yaş büyük bir dulu seçti; bu tercih ancak karakter ve manevî yakınlığa dayanabilirdi.
 ROW|Tek eşli yıllar|Evlilik Hz. Hatice (r.anhâ) altmış beş yaşında vefat edene kadar yirmi beş yıl sürdü; o gün elli yaşına yeni giren Rasûlullah, arzuların en hareketli olduğu yirmi-elli yaşları arasında başka evlilik düşünmedi.|Arzuların en güçlü olduğu yirmi beş-elli yaş aralığını tek eşle geçirdi; başka bir evliliği düşündüğüne dair tek bir haber yoktur.
 ENDTABLE
 B1|Buhârî'nin Hz. Âişe'den naklettiğine göre cahiliyede meşru evliliğin yanında, üzerine bayrak asılan genelevlerden bir kadının birden çok erkekle birlikteliğine kadar türlü ilişki biçimleri vardı (Buhârî, Nikâh, 63, 5127; Ebû Dâvûd, 2272; Dârekutnî, 3471; Beyhakî, 7/109).
@@ -242,7 +242,7 @@ B1|Dürüstlükle yapılan ticaret kişiyi kimseye muhtaç etmez ve onu peygambe
 B1|Gazâlî'nin dikkat çektiği gibi Hatice, büyük davaların yükünü taşıyanların yanında duran eşler için ebedî bir örnektir; vefası Rasûlullah'ın (s.a.v.) vefasıyla karşılık buldu ve bu sevgi ölümle bitmedi.
 B1|Evlat acısı, acının insanı yumuşatan bir terbiye olduğunu hatırlatır.
 B2|Sallâbî'nin tespitiyle acıyı tatmış olan mahzunun yardımına koşar, hiç acı görmemiş olan sertliğe daha yatkındır; peygamberlerin en çok belâya uğrayanlar olması da merhametlerini derinleştiren bir sırdır.
-B1|Hacerülesved hakemliği, toplumsal krizlerin çoğunun adalet, sabır ve herkesi şerefe ortak eden bir hikmetle çözülebileceğini gösterir; kılıçlar kanlı kaplara batırılmışken bir parça kumaş Mekke'yi savaştan kurtardı.
+B1|Hacerülesved hakemliği, toplumsal krizlerin çoğunun adalet, sabır ve herkesi şerefe ortak eden bir hikmetle çözülebileceğini gösterir; eller kanlı kaplara batırılmışken bir parça kumaş Mekke'yi savaştan kurtardı.
 B1|Rasûlullah'ın imanı taze bir kavmi fitneye düşürmemek için arzu ettiği bir işi ertelemesi, davetçilere sabrı ve insanların hâlini gözetmeyi öğretir.
 B1|İmam Mâlik'in Kâbe'nin kralların elinde oyuncak olmasına razı olmaması, mukaddes olanın istikrarını korumayı öğretir.
 B1|Hira, hızla akan hayatımızda Allah ile baş başa kalınan vakitlerin ihmal edilmemesi gerektiğini hatırlatır; bu, toplumdan kaçış değil, topluma daha arınmış bir kalple dönüştür.

@@ -104,7 +104,7 @@ QUOTE|ch20-148
 B1|Allah oruç ayını övmüş ve Kur'ân'ın inişi için onu bütün aylar arasından seçmişti (Bakara 2/185).
 B1|Sallâbî'ye göre oruç ümmet için eşi olmayan bir medrese ve nefsi arındıran bir eğitim devresidir.
 B2|Rasûlullah başka günlerde de oruç tutmayı teşvik ederek bu medreseyi bütün yıl açık tuttu; Allah rızası için bir gün oruç tutanın yüzünün cehennemden yetmiş yıllık mesafe uzaklaşacağını müjdeledi (Buhârî, 2840; Müslim, 1153).
-B1|İbn Abbâs'ın rivayetine göre fitre, oruçluyu boş ve çirkin sözlerden arındırmak ve yoksullara yiyecek olmak için farz kılındı.
+B1|İbn Abbas'ın rivayetine göre fitre, oruçluyu boş ve çirkin sözlerden arındırmak ve yoksullara yiyecek olmak için farz kılındı.
 B2|Bayram namazından önce verilen fitre makbul bir zekât, sonra verilen ise sadakalardan bir sadaka sayılırdı (Ebû Dâvûd, 1609; İbn Mâce, 1827; Hâkim, *el-Müstedrek*, 1/409).
 B1|Sallâbî'ye göre fitre, şehrin yaygın gıdasından herkesin zorlanmadan verebileceği kadar bilerek az tutulmuştu; toplandığında ise muhtaç için zenginlik oluyordu, çünkü bayramda sevinç herkesi kucaklamalıydı.
 B1|İlk bayramda Rasûlullah insanlarla birlikte musallâya çıktı; Müslümanlar peş peşe yağan nimetlere şükür için tekbir ve tehlil getirerek yürüdü.
@@ -119,7 +119,7 @@ ROW|Medine|Cemaatin toprağı, varlığı ve hâkimiyeti oluşunca teklifler ba�
 ENDTABLE
 B1|Mekke âyetleri de yoksulu gözetmeyi imanın parçası saymıştı.
 B2|Cehennem ehli "Biz namaz kılanlardan değildik, yoksulu doyurmazdık" diyecekti (Müddessir 74/42-46); yoksulları mahrum bırakmak için ürünü gece toplamaya karar verenlerin bahçesi yanıp kül olmuştu (Kalem 68/19-33).
-B2|Ebu'd-Derdâ eşine, imanları sayesinde cehennem zincirinin yarısından kurtulduklarını, kalan yarısı için yoksulu doyurmaya teşvik etmesini söylerdi (Ebû Ubeyd, *el-Emvâl*, 35; Karadâvî, *Fıkhu'z-Zekât*, 1/70).
+B2|Ebü'd-Derdâ eşine, imanları sayesinde cehennem zincirinin yarısından kurtulduklarını, kalan yarısı için yoksulu doyurmaya teşvik etmesini söylerdi (Ebû Ubeyd, *el-Emvâl*, 35; Karadâvî, *Fıkhu'z-Zekât*, 1/70).
 B1|Sallâbî'ye göre zekât ferdi nefsin cimriliğinden korur (Haşr 59/9) ve malını eksiltmez, artırır; Allah hayra harcananın yerine yenisini verir (Sebe 34/39) ve sadakaları bereketlendirir (Bakara 2/276).
 B2|Gece gündüz, gizli açık infak edenlere ne korku vardır ne de üzüntü (Bakara 2/274).
 B1|Toplumda ise zenginle fakir arasında sevgi doğar, güven ve huzur yayılır, fertler tek bir vücut olduklarını hisseder.
@@ -270,7 +270,7 @@ B2|Sallâbî'ye göre propaganda önce başarılı oldu ve Medine'de bile tartı
 B1|Sonunda vahiy meseleye son noktayı koydu.
 QUOTE|ch20-153
 B1|Evlakî'ye göre âyet bir denge kuruyordu; Abdullah'ın yaptığına bakarken Kureyş'in çok daha büyük suçlarını unutmamak gerekirdi.
-B2|İbn İshak'ın ifadesiyle Kureyş bir Müslümanı dininden döndürünceye kadar ona eziyet ediyordu ve bu fitne öldürmekten ağırdı.
+B2|İbn İshâk'ın ifadesiyle Kureyş bir Müslümanı dininden döndürünceye kadar ona eziyet ediyordu ve bu fitne öldürmekten ağırdı.
 B1|Mükâfat uman seriyye mensupları için "İman edenler, hicret edenler ve Allah yolunda cihad edenler, işte onlar Allah'ın rahmetini umabilirler" (Bakara 2/218) âyeti indi.
 B1|Rasûlullah, kaybolan bir deveyi ararken geride kalan Sa'd b. Ebî Vakkâs ile Utbe b. Gazvân dönmeden Kureyş'in esirler için gönderdiği fidyeyi kabul etmedi.
 B2|"Sa'd b. Mâlik'i ve Utbe b. Gazvân'ı yakalamanızdan korkuyorum" dedi; ikisi dönünce fidye alınıp esirler bırakıldı.
