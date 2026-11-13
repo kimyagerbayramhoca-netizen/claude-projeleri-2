@@ -1,0 +1,1570 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Kimyasal Güvenlik · Kimya Rotası 9</title>
+<style>
+/* ==========================================================
+   KİMYA ROTASI — ortak sayfa ve kutu tasarımı (A4, baskı)
+   Her ünite kendi --unite rengini <body style> ile verir.
+   ========================================================== */
+
+@page { size: A4; margin: 0; }
+
+:root {
+  --unite: #4338ca;          /* ünite kimlik rengi (mol: indigo) */
+  --unite-acik: #eef0ff;
+  --unite-koyu: #2a2380;
+  --vurgu: #f59e0b;          /* ikincil vurgu (amber) */
+
+  --kavram: #4f46e5;   --kavram-bg: #eef2ff;
+  --hayat: #c26a06;    --hayat-bg: #fff6e5;
+  --dikkat: #e11d48;   --dikkat-bg: #fff1f3;
+  --ornek: #0f8f84;    --ornek-bg: #eafaf7;
+  --ipucu: #7c3aed;    --ipucu-bg: #f4f0ff;
+  --hata: #ea580c;     --hata-bg: #fff4ec;
+
+  --metin: #1d2133;
+  --soluk: #5d6478;
+  --cizgi: #dfe3ee;
+  --kagit: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Inter", "DejaVu Sans", sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.5;
+  color: var(--metin);
+  background: #8a8fa3;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* ---------- Sayfa ---------- */
+.sayfa {
+  width: 210mm; height: 297mm;
+  position: relative; overflow: hidden;
+  background: var(--kagit);
+  padding: 22mm 16mm 18mm 16mm;
+  page-break-after: always; break-after: page;
+  margin: 0 auto;
+}
+@media screen { .sayfa { margin: 8mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.25); } }
+
+.ust-serit {
+  position: absolute; top: 0; left: 0; right: 0; height: 13mm;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16mm; font-size: 8pt; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--unite-koyu); font-weight: 600;
+  border-bottom: 1.2mm solid var(--unite);
+  background: linear-gradient(90deg, var(--unite-acik), #fff 70%);
+}
+.ust-serit .baslik-k { display: flex; gap: 3mm; align-items: center; }
+.ust-serit .nokta { width: 2.4mm; height: 2.4mm; border-radius: 50%; background: var(--vurgu); }
+
+.alt-bilgi {
+  position: absolute; bottom: 5mm; left: 16mm; right: 16mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 7.5pt; color: var(--soluk);
+}
+.alt-bilgi .no {
+  min-width: 7.5mm; height: 7.5mm; border-radius: 50%;
+  background: var(--unite); color: #fff; font-weight: 700; font-size: 8.4pt;
+  display: grid; place-items: center;
+}
+.sayfa.cift .alt-bilgi { flex-direction: row-reverse; }
+
+/* ---------- Başlıklar ---------- */
+h1, h2, h3, h4 { font-family: "Inter Display", "Inter", sans-serif; margin: 0; line-height: 1.15; }
+h2.konu {
+  font-size: 21pt; font-weight: 800; color: var(--unite-koyu);
+  display: flex; align-items: baseline; gap: 3.5mm; margin-bottom: 1.5mm;
+}
+h2.konu .num {
+  font-size: 11pt; font-weight: 700; color: #fff; background: var(--unite);
+  padding: .6mm 2.6mm; border-radius: 2mm; transform: translateY(-1mm);
+}
+.alt-baslik { color: var(--soluk); font-size: 10pt; margin-bottom: 5mm; }
+h3 {
+  font-size: 13pt; font-weight: 750; color: var(--unite-koyu);
+  margin: 4.5mm 0 2mm; display: flex; align-items: center; gap: 2.2mm;
+}
+h3::before { content: ""; width: 1.4mm; height: 5mm; background: var(--vurgu); border-radius: 1mm; }
+p { margin: 0 0 2.4mm; }
+ul { margin: 0 0 2.4mm; padding-left: 5mm; }
+li { margin-bottom: 1mm; }
+b, strong { font-weight: 700; }
+.vurgu { background: linear-gradient(transparent 58%, #fde68a 58%); padding: 0 .5mm; }
+.k { color: var(--unite); font-weight: 700; }
+.kucuk { font-size: 8.6pt; color: var(--soluk); }
+.ortala { text-align: center; }
+
+/* Kimyasal formül ve üs */
+.f { white-space: nowrap; font-weight: 600; }
+sub, sup { font-size: 68%; line-height: 0; }
+.izotop { display: inline-flex; align-items: center; white-space: nowrap; font-weight: 600; }
+.izotop .yz { display: inline-flex; flex-direction: column; font-size: 62%; line-height: 1.05; text-align: right; margin-right: .3mm; font-weight: 600; }
+
+/* ---------- Izgara ---------- */
+.iki { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.iki-genis { display: grid; grid-template-columns: 1.25fr 1fr; gap: 5mm; }
+.uc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.dort { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+
+/* ---------- Kutular ---------- */
+.kutu {
+  border-radius: 3mm; padding: 3.2mm 4mm 3mm; margin: 0 0 3.5mm;
+  position: relative; break-inside: avoid;
+  background: var(--bg); border: .35mm solid color-mix(in srgb, var(--renk) 30%, #fff);
+}
+.kutu > .etiket {
+  display: inline-flex; align-items: center; gap: 1.6mm;
+  font-family: "Inter Display", sans-serif;
+  font-size: 7.6pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--renk);
+  padding: .7mm 2.4mm .7mm 1.6mm; border-radius: 1.4mm; margin-bottom: 2mm;
+}
+.kutu > .etiket svg { width: 3.4mm; height: 3.4mm; }
+.kutu p:last-child, .kutu ul:last-child { margin-bottom: 0; }
+.kavram { --renk: var(--kavram); --bg: var(--kavram-bg); }
+.hayat  { --renk: var(--hayat);  --bg: var(--hayat-bg); }
+.dikkat { --renk: var(--dikkat); --bg: var(--dikkat-bg); }
+.ornek  { --renk: var(--ornek);  --bg: var(--ornek-bg); }
+.ipucu  { --renk: var(--ipucu);  --bg: var(--ipucu-bg); }
+.hata   { --renk: var(--hata);   --bg: var(--hata-bg); }
+.duz    { --renk: var(--unite);  --bg: #fff; }
+
+.kutu.serit { border: none; border-left: 1.4mm solid var(--renk); border-radius: 0 3mm 3mm 0; }
+
+/* Yanılgı kartı: yanlış / doğru */
+.yanilgi { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-top: 1mm; }
+.yanilgi > div { border-radius: 2mm; padding: 2mm 2.6mm; font-size: 9.2pt; line-height: 1.4; }
+.yanilgi .yanlis { background: #fff; border: .3mm dashed var(--dikkat); }
+.yanilgi .dogru { background: #fff; border: .3mm solid var(--ornek); }
+.yanilgi b.y { color: var(--dikkat); }
+.yanilgi b.d { color: var(--ornek); }
+
+/* Çözümlü örnek */
+.ornek .soru { font-weight: 600; margin-bottom: 2mm; }
+.cozum { background: #fff; border-radius: 2mm; padding: 2.2mm 3mm; font-size: 9.4pt; }
+.cozum .adim { display: grid; grid-template-columns: 5mm 1fr; gap: 1.6mm; margin-bottom: 1.1mm; align-items: start; }
+.cozum .adim .n {
+  width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--ornek); color: #fff;
+  font-size: 7pt; font-weight: 700; display: grid; place-items: center; margin-top: .4mm;
+}
+.sonuc {
+  display: inline-block; margin-top: .8mm; font-weight: 700; color: var(--ornek);
+  border: .35mm solid var(--ornek); border-radius: 1.5mm; padding: .2mm 2mm;
+}
+.denklem {
+  font-family: "Inter", sans-serif; font-weight: 600; text-align: center;
+  font-size: 11pt; padding: 1.5mm 0; color: var(--unite-koyu);
+}
+.kesir { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 1mm; line-height: 1.2; }
+.kesir > span:first-child { border-bottom: .3mm solid currentColor; padding: 0 1mm; }
+.kesir > span:last-child { padding: 0 1mm; }
+
+/* Tablo */
+table.tablo { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9.2pt; margin: 1mm 0 3mm; }
+table.tablo th { background: var(--unite); color: #fff; font-weight: 700; padding: 1.6mm 2mm; text-align: left; }
+table.tablo th:first-child { border-top-left-radius: 2mm; }
+table.tablo th:last-child { border-top-right-radius: 2mm; }
+table.tablo td { padding: 1.6mm 2mm; border-bottom: .3mm solid var(--cizgi); }
+table.tablo tr:nth-child(even) td { background: #f7f8fc; }
+
+/* ---------- Soru düzeni ---------- */
+.soru-blok { break-inside: avoid; margin-bottom: 4.5mm; }
+.soru-ust { display: flex; gap: 2.4mm; align-items: flex-start; }
+.soru-no {
+  flex: none; width: 7.5mm; height: 7.5mm; border-radius: 2mm;
+  background: var(--unite); color: #fff; font-weight: 800; font-size: 10pt;
+  display: grid; place-items: center; font-family: "Inter Display", sans-serif;
+}
+.soru-metin { flex: 1; }
+.secenek { display: grid; grid-template-columns: 1fr 1fr; gap: .8mm 4mm; margin-top: 1.6mm; font-size: 9.6pt; }
+.secenek.tek { grid-template-columns: 1fr; }
+.secenek.bes { grid-template-columns: repeat(5, 1fr); }
+.secenek span b { color: var(--unite); margin-right: 1mm; }
+.oncul { margin: 1mm 0 1mm 1mm; }
+.oncul div { display: grid; grid-template-columns: 7mm 1fr; }
+.oncul div > b:first-child { color: var(--unite); }
+.veri { font-size: 8.4pt; color: var(--soluk); font-style: italic; }
+
+.etiket-soru svg { width: 3mm; height: 3mm; }
+.etiket-soru {
+  display: inline-flex; gap: 1.4mm; align-items: center;
+  font-size: 7pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  padding: .5mm 2mm; border-radius: 10mm; margin-bottom: 1.2mm;
+  color: var(--renk); background: var(--bg); border: .3mm solid var(--renk);
+}
+.zorluk { display: inline-flex; gap: .7mm; margin-left: 1.2mm; vertical-align: middle; }
+.zorluk i { width: 1.9mm; height: 1.9mm; border-radius: 50%; background: #d8dbe6; display: inline-block; }
+.zorluk i.d { background: var(--vurgu); }
+
+/* Bölüm kapağı tipi sayfa başı bandı */
+.bant {
+  margin: 0 -16mm 5mm; padding: 5mm 16mm 4mm; color: #fff;
+  background: linear-gradient(110deg, var(--renk, var(--unite)) 0%, color-mix(in srgb, var(--renk, var(--unite)) 70%, #000) 100%);
+  position: relative; overflow: hidden;
+}
+.bant h2 { font-size: 22pt; font-weight: 850; color: #fff; }
+.bant p { margin: 1mm 0 0; opacity: .92; font-size: 9.6pt; max-width: 135mm; }
+.bant .ikon-buyuk { position: absolute; right: 14mm; top: 50%; transform: translateY(-50%); opacity: .95; }
+
+/* Hata avcısı defter kartı */
+.defter {
+  background:
+    repeating-linear-gradient(transparent 0 6.1mm, #c9d6ee 6.1mm 6.4mm),
+    #fffef8;
+  border-radius: 2mm; padding: 1.2mm 4mm 1.6mm 14mm; position: relative;
+  font-family: "Caladea", "Bitstream Charter", serif; font-style: italic; font-size: 11pt;
+  line-height: 6.4mm; color: #24356b; border: .3mm solid #e6e1cc;
+}
+.defter::before { content: ""; position: absolute; left: 10mm; top: 0; bottom: 0; width: .35mm; background: #f2a7a7; }
+.defter .satir { position: relative; }
+.defter .satir .sn { position: absolute; left: -9.5mm; font-family: "Inter", sans-serif; font-style: normal; font-size: 7pt; color: #9aa3b8; font-weight: 700; }
+.defter .ogrenci { font-family: "Inter", sans-serif; font-style: normal; font-size: 7.2pt; color: var(--soluk); letter-spacing: .05em; text-transform: uppercase; }
+.duzelt {
+  border: .35mm dashed var(--hata); border-radius: 2mm; min-height: 26mm; margin-top: 2mm;
+  padding: 1.6mm 3mm; font-size: 8.4pt; color: var(--hata); font-weight: 600; background: #fff;
+}
+.sorgu { display: flex; gap: 2mm; flex-wrap: wrap; margin-top: 1.6mm; }
+.sorgu span { font-size: 8.2pt; background: #fff; border: .3mm solid var(--hata); color: var(--hata); border-radius: 10mm; padding: .2mm 2.2mm; font-weight: 600; }
+
+/* İpucu merdiveni */
+.merdiven { display: grid; gap: 1.8mm; margin-top: 2mm; }
+.basamak {
+  display: grid; grid-template-columns: 17mm 1fr; align-items: stretch;
+  border-radius: 2mm; overflow: hidden; background: #fff; border: .3mm solid #ddd3fb;
+}
+.basamak .bas {
+  background: var(--ipucu); color: #fff; font-size: 7pt; font-weight: 800; letter-spacing: .06em;
+  display: grid; place-items: center; text-align: center; line-height: 1.15; padding: 1mm;
+}
+.basamak:nth-child(2) .bas { background: #9061f0; }
+.basamak:nth-child(3) .bas { background: #a985f5; }
+.basamak .ic { padding: 1.6mm 3mm; font-size: 9.2pt; }
+.basamak:nth-child(2) { margin-left: 6mm; }
+.basamak:nth-child(3) { margin-left: 12mm; }
+.cevap-alani { border: .3mm dashed #b9a6f3; border-radius: 2mm; height: 24mm; margin-top: 2mm; background: #fff;
+  font-size: 7.6pt; color: #8b74d6; padding: 1mm 2.6mm; font-weight: 700; letter-spacing: .06em; }
+
+/* Öz değerlendirme */
+.kontrol { list-style: none; padding: 0; }
+.kontrol li { display: grid; grid-template-columns: 6mm 1fr auto; gap: 2mm; align-items: center; padding: 1.3mm 0; border-bottom: .3mm dotted var(--cizgi); font-size: 9.3pt; }
+.kontrol .kare { width: 4mm; height: 4mm; border: .4mm solid var(--unite); border-radius: 1mm; }
+.kontrol .yuz { display: flex; gap: 1.4mm; font-size: 7.4pt; color: var(--soluk); }
+.kontrol .yuz span { border: .3mm solid var(--cizgi); border-radius: 1mm; padding: 0 1.4mm; }
+
+/* Cevap anahtarı */
+.anahtar { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.4mm; margin-bottom: 4mm; }
+.anahtar div { border: .35mm solid var(--unite); border-radius: 1.6mm; text-align: center; overflow: hidden; font-size: 9pt; }
+.anahtar div b { display: block; background: var(--unite); color: #fff; font-size: 7.6pt; }
+.anahtar div span { display: block; font-weight: 800; color: var(--unite-koyu); padding: .6mm 0; }
+.coz-liste { columns: 2; column-gap: 6mm; font-size: 8.5pt; line-height: 1.42; }
+.coz-liste .c { break-inside: avoid; margin-bottom: 2.4mm; padding-left: 2.4mm; border-left: .6mm solid var(--renk, var(--unite)); }
+.coz-liste .c b:first-child { color: var(--renk, var(--unite)); }
+.coz-baslik { font-size: 9pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--renk, var(--unite)); margin: 2mm 0 1.4mm; column-span: all; }
+
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite: #0e7490; --unite-acik: #e9f7fa; --unite-koyu: #0b4655; }
+.kapak { padding: 0; background: #0b4655; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 26mm; font-size: 11pt; font-weight: 700; color: #fbbf24; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 60pt; font-weight: 900; letter-spacing: -.02em; line-height: .95; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 9mm; display: inline-flex; align-items: center; gap: 4mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 24pt; font-weight: 800; color: #fbbf24; white-space: nowrap; }
+.kapak .avo span { font-size: 9pt; opacity: .88; max-width: 62mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.2pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #cfd3e3; padding: .8mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; }
+.test.devam .iki { min-height: 222mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 40mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+
+/* liste: iki sütunlu madde işaretli kural listesi */
+.kural { list-style: none; padding: 0; margin: 0 0 2.4mm; font-size: 9.3pt; }
+.kural li { margin: 0 0 1.1mm; padding-left: 4.2mm; position: relative; line-height: 1.4; }
+.kural li::before { content: ""; position: absolute; left: 0; top: 1.7mm; width: 1.8mm; height: 1.8mm; border-radius: .5mm; background: var(--unite); transform: rotate(45deg); }
+
+/* piktogramlar */
+.pk { display: block; }
+.pikto { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.6mm; margin: 1mm 0 3mm; }
+.pikto > div { display: grid; grid-template-columns: 15mm 1fr; gap: 2.2mm; align-items: start; border: .3mm solid var(--cizgi); border-radius: 2.5mm; padding: 2mm 2.4mm; background: #fff; }
+.pikto svg { width: 15mm; height: 15mm; }
+.pikto b { display: block; color: var(--unite-koyu); font-size: 9.2pt; line-height: 1.2; margin-bottom: .6mm; }
+.pikto span { display: block; font-size: 7.9pt; line-height: 1.32; color: var(--metin); }
+.pikto i { display: block; font-style: normal; font-size: 7.5pt; color: var(--soluk); margin-top: .5mm; line-height: 1.25; }
+
+.isaretler { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 1mm 0 3.5mm; }
+.isaretler > div { border-radius: 2.5mm; padding: 2mm 2.2mm 2.2mm; background: #fff; border: .3mm solid var(--cizgi); }
+.isaretler h4 { font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1mm; }
+.isaretler .not { font-size: 7.6pt; color: var(--soluk); line-height: 1.3; margin-bottom: 1.4mm; }
+.isaretler .ikili { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4mm 1.6mm; text-align: center; font-size: 7.4pt; line-height: 1.2; }
+.isaretler .ikili svg { width: 12mm; height: 12mm; margin: 0 auto .6mm; display: block; }
+
+/* malzeme kartları */
+.malz { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.6mm; margin: 1mm 0 3mm; }
+.malz > div { border: .3mm solid var(--cizgi); border-radius: 2.5mm; padding: 1.8mm 2mm 2mm; background: #fff; text-align: center; }
+.malz svg { height: 21mm; width: auto; display: block; margin: 0 auto 1mm; }
+.malz b { display: block; color: var(--unite-koyu); font-size: 9pt; line-height: 1.2; }
+.malz span { display: block; font-size: 7.7pt; color: var(--metin); line-height: 1.3; margin-top: .6mm; }
+.malz.alti { grid-template-columns: repeat(6, 1fr); gap: 2mm; }
+.malz.alti > div { padding: 1.4mm 1.4mm 1.6mm; }
+.malz.alti svg { height: 13mm; }
+.malz.alti b { font-size: 8.2pt; }
+.malz.alti span { font-size: 7.1pt; line-height: 1.25; }
+.grup-baslik { font-size: 7.6pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--unite); margin: 1.6mm 0 1mm; }
+
+/* mini etkinlik */
+.etkinlik { border: .4mm dashed var(--unite); border-radius: 3mm; padding: 2.6mm 3.6mm 3mm; background: var(--unite-acik); margin-bottom: 3.5mm; break-inside: avoid; }
+.etkinlik > .baslik { font-size: 7.8pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--unite-koyu); margin-bottom: 1.4mm; display: flex; align-items: center; gap: 1.6mm; }
+.etkinlik > .baslik svg { width: 3.6mm; height: 3.6mm; }
+.dy { width: 100%; border-collapse: collapse; font-size: 9pt; }
+.dy td { padding: 1.1mm 1.6mm; border-bottom: .3mm dotted #9fd3df; vertical-align: middle; }
+.dy td:first-child { width: 5mm; font-weight: 800; color: var(--unite); }
+.dy td:last-child { width: 18mm; text-align: right; white-space: nowrap; }
+.dy .kutucuk { display: inline-block; width: 5.4mm; height: 5mm; border: .35mm solid var(--unite); border-radius: 1mm; background: #fff; font-size: 6.8pt; font-weight: 800; color: var(--unite); text-align: center; line-height: 4.6mm; margin-left: 1mm; }
+.bos { display: inline-block; min-width: 26mm; border-bottom: .35mm solid var(--unite-koyu); height: 3.6mm; vertical-align: -0.6mm; }
+.kelime { display: flex; flex-wrap: wrap; gap: 1.6mm; margin: 1mm 0 1.6mm; }
+.kelime span { background: #fff; border: .3mm solid var(--unite); color: var(--unite-koyu); font-weight: 700; font-size: 8.4pt; border-radius: 10mm; padding: .2mm 2.6mm; }
+
+.etiket-sise { width: 100%; height: auto; display: block; }
+.matris { border-collapse: separate; border-spacing: .8mm; font-size: 8pt; margin: 0 auto; }
+.matris td, .matris th { text-align: center; vertical-align: middle; }
+.matris td.h { width: 9.4mm; height: 7.6mm; border-radius: 1.2mm; font-weight: 800; font-size: 10pt; }
+.matris td.e { background: #dcfce7; color: #15803d; }
+.matris td.x { background: #ffe4e6; color: #e11d48; }
+.matris td.o { background: #fef3c7; color: #b45309; }
+.matris th svg { width: 8.6mm; height: 8.6mm; display: block; margin: 0 auto; }
+.matris th.ad { font-size: 7.2pt; font-weight: 700; color: var(--unite-koyu); text-align: right; padding-right: 1mm; white-space: nowrap; }
+
+table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; }
+.pk-satir { display: inline-flex; gap: 1mm; vertical-align: middle; }
+.pk-satir svg { width: 7.5mm; height: 7.5mm; }
+.grafik { width: 100%; height: auto; display: block; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     ORTAK ÇİZİMLER (piktogram, işaret ve malzeme simgeleri)
+     ========================================================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- GHS çerçevesi -->
+    <polygon id="elmas" points="50,5 95,50 50,95 5,50" fill="#fff" stroke="#d7192d" stroke-width="6" stroke-linejoin="round"/>
+    <path id="alev-yol" d="M50 24c3 9 13 14 13 28c0 9-6 15-13 15s-13-6-13-14c0-6 3-9 6-13c0 5 2 8 5 9c-1-9 0-17 2-25z"/>
+
+    <g id="g-patlayici"><use href="#elmas"/>
+      <g fill="#111"><circle cx="47" cy="57" r="8.5"/>
+        <path d="M55 46 L63 35 L60 48 Z"/><path d="M58 56 L71 54 L59 61 Z"/><path d="M46 46 L44 32 L51 45 Z"/>
+        <path d="M38 50 L28 44 L38 55 Z"/><path d="M53 65 L61 72 L50 67 Z"/></g>
+      <g stroke="#111" stroke-width="2.4" stroke-linecap="round"><path d="M64 44 L68 40"/><path d="M36 40 L33 36"/><path d="M66 64 L70 66"/></g>
+    </g>
+    <g id="g-alev"><use href="#elmas"/><g fill="#111"><use href="#alev-yol"/><rect x="36" y="70" width="28" height="3.6"/></g></g>
+    <g id="g-oksit"><use href="#elmas"/>
+      <g fill="#111"><use href="#alev-yol" transform="translate(20 14) scale(.6)"/><rect x="38" y="72.5" width="24" height="3.4"/></g>
+      <circle cx="50" cy="61" r="8" fill="none" stroke="#111" stroke-width="4.5"/>
+    </g>
+    <g id="g-gaz"><use href="#elmas"/><g fill="#111"><rect x="28" y="46" width="40" height="15" rx="7.5"/><rect x="67" y="49.5" width="5" height="8"/><rect x="72" y="47.5" width="3.4" height="12" rx="1"/></g></g>
+    <g id="g-korozif"><use href="#elmas"/>
+      <g fill="#111">
+        <path d="M33 32 L43 28 L49 42 L39 46 Z"/><path d="M67 32 L57 28 L51 42 L61 46 Z"/>
+        <circle cx="42" cy="50" r="1.8"/><circle cx="41" cy="55" r="1.5"/><circle cx="58" cy="50" r="1.8"/><circle cx="59" cy="55" r="1.5"/>
+        <path d="M30 60 h6 a3.5 3.5 0 0 0 7 0 h5 v8 h-18 z"/>
+        <path d="M52 68 v-5 q0 -3 3 -3 h3 a3.5 3.5 0 0 0 7 0 h2 q3 0 3 3 v5 z"/>
+        <rect x="34" y="69.5" width="32" height="2.8"/>
+      </g>
+    </g>
+    <g id="g-zehir"><use href="#elmas"/>
+      <g stroke="#111" stroke-width="4.5" stroke-linecap="round"><path d="M37 58 L63 70"/><path d="M63 58 L37 70"/></g>
+      <g fill="#111"><ellipse cx="50" cy="40" rx="11" ry="10"/><rect x="44" y="45" width="12" height="8.5" rx="2"/></g>
+      <g fill="#fff"><circle cx="45.6" cy="40" r="2.9"/><circle cx="54.4" cy="40" r="2.9"/><path d="M50 44 l-1.6 3 h3.2 z"/><rect x="47" y="50" width="1.2" height="3.5"/><rect x="51.8" y="50" width="1.2" height="3.5"/></g>
+    </g>
+    <g id="g-unlem"><use href="#elmas"/><g fill="#111"><rect x="46" y="28" width="8" height="28" rx="3"/><circle cx="50" cy="66" r="4.5"/></g></g>
+    <g id="g-saglik"><use href="#elmas"/>
+      <g fill="#111"><circle cx="50" cy="33" r="6"/><path d="M37 72 V54 q0 -11 13 -11 q13 0 13 11 V72 z"/></g>
+      <polygon fill="#fff" points="50.0,48.0 51.4,53.7 56.4,50.6 53.3,55.6 59.0,57.0 53.3,58.4 56.4,63.4 51.4,60.3 50.0,66.0 48.6,60.3 43.6,63.4 46.7,58.4 41.0,57.0 46.7,55.6 43.6,50.6 48.6,53.7"/>
+    </g>
+    <g id="g-cevre"><use href="#elmas"/>
+      <g stroke="#111" stroke-width="2.6" stroke-linecap="round" fill="none"><path d="M34 72 H66"/><path d="M40 72 V40"/><path d="M40 50 L33 42"/><path d="M40 56 L47 48"/><path d="M40 45 L44 37"/></g>
+      <g fill="#111"><ellipse cx="54" cy="64" rx="8" ry="4.2"/><path d="M61 64 L67 59.5 L67 68.5 Z"/></g>
+      <g stroke="#fff" stroke-width="1.1"><path d="M49 62 l2.4 2.4 M51.4 62 l-2.4 2.4"/></g>
+    </g>
+    <g id="g-radyo">
+      <polygon points="50,8 94,86 6,86" fill="#facc15" stroke="#111" stroke-width="5" stroke-linejoin="round"/>
+      <path fill="#111" d="M40.5 45.5A19 19 0 0 1 59.5 45.5L53.2 56.4A6.5 6.5 0 0 0 46.8 56.4ZM69.0 62.0A19 19 0 0 1 59.5 78.5L53.2 67.6A6.5 6.5 0 0 0 56.5 62.0ZM40.5 78.5A19 19 0 0 1 31.0 62.0L43.5 62.0A6.5 6.5 0 0 0 46.8 67.6Z"/>
+      <circle cx="50" cy="62" r="4" fill="#111"/>
+    </g>
+    <g id="g-biyo">
+      <polygon points="50,8 94,86 6,86" fill="#facc15" stroke="#111" stroke-width="5" stroke-linejoin="round"/>
+      <g fill="#111"><circle cx="50" cy="52" r="9.5"/><circle cx="59" cy="67.5" r="9.5"/><circle cx="41" cy="67.5" r="9.5"/></g>
+      <g fill="#facc15"><circle cx="50" cy="49" r="6"/><circle cx="61.6" cy="69" r="6"/><circle cx="38.4" cy="69" r="6"/><circle cx="50" cy="62.3" r="3.6"/></g>
+      <circle cx="50" cy="62.3" r="6.6" fill="none" stroke="#111" stroke-width="1.8"/>
+    </g>
+
+    <!-- Zorunluluk (mavi daire) -->
+    <circle id="mavi" cx="50" cy="50" r="46" fill="#1d6fb8"/>
+    <g id="z-gozluk"><use href="#mavi"/><g fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="20" y="40" width="26" height="18" rx="7"/><rect x="54" y="40" width="26" height="18" rx="7"/><path d="M46 46 q4 -4 8 0"/></g></g>
+    <g id="z-eldiven"><use href="#mavi"/><g fill="#fff"><rect x="36" y="42" width="28" height="26" rx="6"/><rect x="36.5" y="24" width="6" height="22" rx="3"/><rect x="43.5" y="20" width="6" height="26" rx="3"/><rect x="50.5" y="21" width="6" height="25" rx="3"/><rect x="57.5" y="26" width="6" height="20" rx="3"/><rect x="26" y="44" width="6" height="18" rx="3" transform="rotate(-40 29 53)"/><rect x="38" y="68" width="24" height="12" rx="2"/></g></g>
+    <g id="z-onluk"><use href="#mavi"/><path fill="#fff" d="M38 24 L46 22 L50 32 L54 22 L62 24 L77 44 L68 50 L64 42 V78 H36 V42 L32 50 L23 44 Z"/><path d="M50 34 V76" stroke="#1d6fb8" stroke-width="1.6"/></g>
+    <g id="z-maske"><use href="#mavi"/><g fill="#fff"><path d="M28 42 q22 -12 44 0 v10 q-22 20 -44 0 z"/></g><g stroke="#fff" stroke-width="3" fill="none"><path d="M28 44 L16 38"/><path d="M72 44 L84 38"/><path d="M29 52 L17 58"/><path d="M71 52 L83 58"/></g><g stroke="#1d6fb8" stroke-width="1.4"><path d="M34 46 H66"/><path d="M34 51 H66"/></g></g>
+
+    <!-- Uyarı (sarı üçgen) -->
+    <polygon id="sari" points="50,8 94,86 6,86" fill="#facc15" stroke="#111" stroke-width="5" stroke-linejoin="round"/>
+    <g id="u-elektrik"><use href="#sari"/><polygon fill="#111" points="56,30 40,58 50,58 43,80 62,50 52,50 60,30"/></g>
+    <g id="u-sicak"><use href="#sari"/><rect x="30" y="72" width="40" height="5" fill="#111"/><g fill="none" stroke="#111" stroke-width="3.4" stroke-linecap="round"><path d="M38 66 q-4 -6 0 -12 q4 -6 0 -12"/><path d="M50 66 q-4 -6 0 -12 q4 -6 0 -12"/><path d="M62 66 q-4 -6 0 -12 q4 -6 0 -12"/></g></g>
+    <g id="u-kesici"><use href="#sari"/><g fill="#111"><path d="M33 72 L62 40 L68 44 L42 74 Z"/><rect x="26" y="70" width="12" height="7" rx="2" transform="rotate(-48 32 73)"/></g></g>
+    <g id="u-cam"><use href="#sari"/><g fill="none" stroke="#111" stroke-width="3.6" stroke-linejoin="round"><path d="M37 42 V76 H63 V42"/><path d="M50 42 L46 54 L54 60 L47 72" stroke-width="2.6"/></g></g>
+
+    <!-- Yasak (kırmızı daire) -->
+    <g id="y-yemek"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#d7192d" stroke-width="8"/><g fill="#111"><path d="M36 38 h22 l-3 32 h-16 z"/><path d="M58 44 h4 q5 0 5 6 q0 6 -5 6 h-5 v-4 h4 q2 0 2 -2 q0 -2 -2 -2 h-4 z"/></g><path d="M21 21 L79 79" stroke="#d7192d" stroke-width="8"/></g>
+    <g id="y-alev"><circle cx="50" cy="50" r="42" fill="#fff" stroke="#d7192d" stroke-width="8"/><g fill="#111"><use href="#alev-yol" transform="translate(12 6) scale(.78)"/><rect x="47" y="58" width="6" height="20"/></g><path d="M21 21 L79 79" stroke="#d7192d" stroke-width="8"/></g>
+
+    <!-- Acil durum (yeşil kare) -->
+    <rect id="yesil" x="6" y="6" width="88" height="88" rx="10" fill="#15803d"/>
+    <g id="a-gozdusu"><use href="#yesil"/><path d="M22 60 q28 -24 56 0 q-28 24 -56 0z" fill="#fff"/><circle cx="50" cy="60" r="7" fill="#15803d"/><g stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round"><path d="M36 20 q6 10 2 22"/><path d="M50 18 v24"/><path d="M64 20 q-6 10 -2 22"/></g></g>
+    <g id="a-ilkyardim"><use href="#yesil"/><g fill="#fff"><rect x="40" y="20" width="20" height="60" rx="2"/><rect x="20" y="40" width="60" height="20" rx="2"/></g></g>
+
+    <!-- Malzemeler (viewBox 0 0 60 80) -->
+    <clipPath id="c-ayr"><path d="M27 12 C10 22 12 44 27 54 H33 C48 44 50 22 33 12 Z"/></clipPath>
+    <g id="e-tup" fill="none" stroke="#0b4655" stroke-width="1.6" stroke-linecap="round"><path d="M24.8 46 V64 a5.2 5.2 0 0 0 10.4 0 V46 Z" fill="#bfe9f5" stroke="none"/><path d="M24 10 V64 a6 6 0 0 0 12 0 V10"/><path d="M22 10 h16"/></g>
+    <g id="e-beher" fill="none" stroke="#0b4655" stroke-width="1.6" stroke-linecap="round"><path d="M14.8 46 V70 q0 2.2 2.2 2.2 H43 q2.2 0 2.2 -2.2 V46 Z" fill="#bfe9f5" stroke="none"/><path d="M14 16 V70 q0 3 3 3 H43 q3 0 3 -3 V16"/><path d="M14 16 q-2 -1 -4 -4"/><g stroke-width=".8"><path d="M38 28 h7"/><path d="M38 36 h7"/><path d="M38 44 h7"/><path d="M38 52 h7"/><path d="M38 60 h7"/></g></g>
+    <g id="e-erlen" fill="none" stroke="#0b4655" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"><path d="M17.3 50 L11.9 66 q-1.4 5 3.6 5.6 H44.5 q5 -.6 3.6 -5.6 L42.7 50 Z" fill="#bfe9f5" stroke="none"/><path d="M25 10 V28 L11 66 q-2 6 4 7 H45 q6 -1 4 -7 L35 28 V10"/><path d="M23 10 h14"/></g>
+    <g id="e-balon" fill="none" stroke="#0b4655" stroke-width="1.6" stroke-linecap="round"><path d="M10.6 55 A20 20 0 0 0 49.4 55 Z" fill="#bfe9f5" stroke="none"/><path d="M26 8 V31 A20 20 0 1 0 34 31 V8"/><path d="M24 8 h12"/></g>
+    <g id="e-joje" fill="none" stroke="#0b4655" stroke-width="1.6" stroke-linecap="round"><path d="M27.8 20 V43 A15 15 0 1 0 32.2 43 V20 Z" fill="#bfe9f5" stroke="none"/><path d="M27 4 V42.3 A16 16 0 1 0 33 42.3 V4"/><path d="M25 4 h10"/><path d="M24.5 20 h11" stroke="#e11d48" stroke-width="1.2"/></g>
+    <g id="e-mezur" fill="none" stroke="#0b4655" stroke-width="1.6" stroke-linecap="round"><rect x="22.8" y="34" width="14.4" height="36" fill="#bfe9f5" stroke="none"/><path d="M22 8 V70 M38 8 V70"/><path d="M20 8 H38"/><path d="M14 70 H46 V75 H14 Z"/><g stroke-width=".8"><path d="M31 16 h7"/><path d="M33 22 h5"/><path d="M31 28 h7"/><path d="M33 34 h5"/><path d="M31 40 h7"/><path d="M33 46 h5"/><path d="M31 52 h7"/><path d="M33 58 h5"/><path d="M31 64 h7"/></g></g>
+    <g id="e-pipet" fill="none" stroke="#0b4655" stroke-width="1.4" stroke-linejoin="round"><path d="M28.6 30 V60 L29.8 74 H30.2 L31.4 60 V30 Z" fill="#bfe9f5" stroke="none"/><path d="M28 2 V60 L29.4 76 H30.6 L32 60 V2"/><g stroke-width=".7"><path d="M28 10 h3"/><path d="M28 16 h3"/><path d="M28 22 h3"/><path d="M28 28 h3"/><path d="M28 34 h3"/><path d="M28 40 h3"/><path d="M28 46 h3"/><path d="M28 52 h3"/></g></g>
+    <g id="e-buret" fill="none" stroke="#0b4655" stroke-width="1.5" stroke-linejoin="round"><rect x="26.8" y="14" width="6.4" height="44" fill="#bfe9f5" stroke="none"/><path d="M26 2 V58 M34 2 V58"/><rect x="25" y="58" width="10" height="6" fill="#e2e8f0"/><path d="M19 61 H41" stroke-width="2.4" stroke-linecap="round"/><path d="M28 64 L29.5 76 H30.5 L32 64"/><g stroke-width=".7"><path d="M26 10 h4"/><path d="M26 18 h4"/><path d="M26 26 h4"/><path d="M26 34 h4"/><path d="M26 42 h4"/><path d="M26 50 h4"/></g></g>
+    <g id="e-ayirma" fill="none" stroke="#0b4655" stroke-width="1.5" stroke-linejoin="round"><g clip-path="url(#c-ayr)" stroke="none"><rect x="0" y="22" width="60" height="13" fill="#fde68a"/><rect x="0" y="35" width="60" height="30" fill="#bfe9f5"/></g><path d="M27 4 V12 C10 22 12 44 27 54 V57 H33 V54 C48 44 50 22 33 12 V4"/><rect x="24" y="57" width="12" height="5" fill="#e2e8f0"/><path d="M18 59.5 H42" stroke-width="2.2" stroke-linecap="round"/><path d="M28.5 62 V76 M31.5 62 V76"/><path d="M24.5 3 h11"/></g>
+    <g id="e-huni" fill="none" stroke="#0b4655" stroke-width="1.6" stroke-linejoin="round"><path d="M8 12 L27 40 V76 M52 12 L33 40 V76 M8 12 H52"/></g>
+    <g id="e-suzgec" fill="none" stroke="#0b4655" stroke-width="1.3"><circle cx="30" cy="40" r="22" fill="#fff"/><path d="M8 40 H52 M30 40 V18" stroke-dasharray="2 1.4"/><path d="M30 40 L45.6 24.4" stroke-dasharray="2 1.4"/></g>
+    <g id="e-saat" fill="none" stroke="#0b4655" stroke-linecap="round"><path d="M6 42 Q30 58 54 42" stroke-width="2.4"/><g fill="#94a3b8" stroke="none"><path d="M24 47 l3 -3 l3 3z"/><path d="M30 48 l2.4 -3 l2.4 3z"/><path d="M27 49 l2 -2 l2 2z"/></g></g>
+    <g id="e-kroze" fill="none" stroke="#0b4655" stroke-width="1.6" stroke-linejoin="round"><path d="M16 34 H44 L40 60 Q30 64 20 60 Z" fill="#f1f5f9"/><path d="M14 30 Q30 22 46 30 Z" fill="#f1f5f9"/></g>
+    <g id="e-havan" fill="none" stroke="#0b4655" stroke-width="1.6" stroke-linejoin="round"><rect x="32" y="8" width="7" height="40" rx="3.5" transform="rotate(25 35 28)" fill="#e2e8f0"/><path d="M8 40 H52 Q50 66 30 66 Q10 66 8 40 Z" fill="#f1f5f9"/><path d="M22 66 h16 v4 h-16z"/></g>
+    <g id="e-spatul" fill="none" stroke="#0b4655" stroke-linecap="round"><path d="M12 72 L44 20" stroke-width="2.2"/><ellipse cx="46.5" cy="15.5" rx="6" ry="3.4" transform="rotate(-58 46.5 15.5)" fill="#cbd5e1" stroke-width="1.4"/><path d="M12 72 L9 77" stroke-width="3.6"/></g>
+    <g id="e-baget"><rect x="27" y="4" width="6" height="72" rx="3" fill="#e0f2fe" stroke="#0b4655" stroke-width="1.4" transform="rotate(20 30 40)"/></g>
+    <g id="e-termo" stroke="#0b4655" stroke-width="1.4"><rect x="26" y="4" width="8" height="64" rx="4" fill="#fff"/><circle cx="30" cy="70" r="6" fill="#ef4444"/><rect x="28.9" y="30" width="2.2" height="38" fill="#ef4444" stroke="none"/><g stroke-width=".7"><path d="M30 14 h4"/><path d="M30 22 h4"/><path d="M30 30 h4"/><path d="M30 38 h4"/><path d="M30 46 h4"/><path d="M30 54 h4"/></g></g>
+    <g id="e-ispirto" stroke="#0b4655" stroke-width="1.5" stroke-linejoin="round"><path d="M30 10 C35 18 34 24 30 28 C26 24 25 18 30 10 Z" fill="#fbbf24" stroke="#c26a06" stroke-width="1"/><path d="M30 28 V36" stroke-width="2"/><rect x="25" y="36" width="10" height="7" fill="#cbd5e1"/><path d="M14 74 Q8 52 22 43 H38 Q52 52 46 74 Z" fill="#e0f2fe"/><path d="M13.5 60 H46.5" stroke-width=".8"/></g>
+    <g id="e-bunzen" stroke="#0b4655" stroke-width="1.4" stroke-linejoin="round"><path d="M30 6 C38 18 36 26 30 30 C24 26 22 18 30 6 Z" fill="#bfdbfe" stroke="#60a5fa" stroke-width=".8"/><path d="M30 16 C33 22 32 26 30 28 C28 26 27 22 30 16 Z" fill="#2563eb" stroke="none"/><rect x="26" y="30" width="8" height="40" fill="#cbd5e1"/><circle cx="30" cy="60" r="1.8" fill="#fff"/><path d="M34 64 H46" stroke-width="2.6" stroke-linecap="round"/><path d="M14 70 H46 V76 H14 Z" fill="#94a3b8"/></g>
+    <g id="e-sacayagi" fill="none" stroke="#0b4655" stroke-width="2" stroke-linecap="round"><ellipse cx="30" cy="28" rx="20" ry="5" stroke-width="2.4"/><path d="M14 31 L8 76"/><path d="M46 31 L52 76"/><path d="M30 33 V72"/></g>
+    <g id="e-telkafes" stroke="#0b4655"><path d="M6 46 L18 30 H54 L42 46 Z" fill="#f8fafc" stroke-width="1.4"/><g stroke-width=".5" fill="none"><path d="M12 38 H48"/><path d="M15 34 H51"/><path d="M9 42 H45"/><path d="M18 30 L6 46"/><path d="M27 30 L15 46"/><path d="M36 30 L24 46"/><path d="M45 30 L33 46"/></g><ellipse cx="30" cy="38" rx="9" ry="4.6" fill="#d6d3d1" stroke="none"/></g>
+    <g id="e-spor" stroke="#0b4655" stroke-width="1.4" stroke-linejoin="round"><rect x="6" y="70" width="44" height="6" rx="1" fill="#94a3b8"/><rect x="14" y="4" width="3.4" height="66" fill="#cbd5e1"/><rect x="12" y="26" width="8" height="8" rx="1" fill="#64748b"/><path d="M20 30 H40" stroke-width="2.2"/><path d="M40 25 q9 5 0 10" fill="none" stroke-width="2"/><path d="M47 25 q-9 5 0 10" fill="none" stroke-width="2"/></g>
+    <g id="e-sogutucu" stroke="#0b4655" stroke-width="1.4"><g transform="rotate(35 30 40)"><rect x="23" y="6" width="14" height="68" rx="4" fill="#e0f2fe"/><path d="M28.4 0 V80 M31.6 0 V80" fill="none"/><rect x="37" y="12" width="7" height="4" fill="#fff"/><rect x="16" y="64" width="7" height="4" fill="#fff"/></g></g>
+    <g id="e-piset" stroke="#0b4655" stroke-width="1.4" stroke-linejoin="round" fill="none"><path d="M16 32 Q16 26 22 26 H38 Q44 26 44 32 V72 Q44 76 40 76 H20 Q16 76 16 72 Z" fill="#f1f5f9"/><rect x="24" y="20" width="12" height="6" fill="#0e7490" stroke="none"/><path d="M30 20 V12 Q30 8 34 8 H44 L49 14" stroke-width="1.8"/><path d="M30 26 V72" stroke-width=".8"/><rect x="17" y="50" width="26" height="25" fill="#bfe9f5" stroke="none"/></g>
+    <g id="e-puar" stroke="#0b4655" stroke-width="1.3"><circle cx="30" cy="34" r="15" fill="#f87171"/><rect x="27" y="14" width="6" height="6" rx="1.4" fill="#ef4444"/><rect x="26.5" y="48" width="7" height="8" rx="1.4" fill="#ef4444"/><rect x="33" y="57" width="8" height="5" rx="1.4" fill="#ef4444"/><path d="M28 56 V78 M32 56 V78" fill="none" stroke-width="1"/></g>
+    <g id="e-damlalik" stroke="#0b4655" stroke-width="1.4" stroke-linejoin="round"><rect x="23" y="4" width="14" height="22" rx="6" fill="#ef4444"/><path d="M28.2 56 V66 L29.8 74 H30.2 L31.8 66 V56 Z" fill="#bfe9f5" stroke="none"/><path d="M27 26 V66 L29.4 76 H30.6 L33 66 V26" fill="none"/><circle cx="30" cy="79" r="1.4" fill="#bfe9f5" stroke="none"/></g>
+  </defs>
+</svg>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="82%" cy="18%" r="75%"><stop offset="0" stop-color="#1aa3c4"/><stop offset=".55" stop-color="#0e6680"/><stop offset="1" stop-color="#0b4655"/></radialGradient>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+    <g fill="none" stroke="#ffffff" stroke-opacity=".13" stroke-width=".5">
+      <polygon points="160,22 202,64 160,106 118,64"/>
+      <polygon points="160,34 190,64 160,94 130,64"/>
+      <polygon points="118,98 140,120 118,142 96,120"/>
+      <polygon points="196,108 212,124 196,140 180,124"/>
+    </g>
+    <g transform="translate(140 44) scale(.4)"><use href="#alev-yol" fill="#fbbf24"/></g>
+    <rect x="148" y="72" width="24" height="1.6" fill="#fbbf24"/>
+    <g fill="none" stroke="#ffffff" stroke-opacity=".16" stroke-width=".6" stroke-linejoin="round">
+      <path d="M22 186 V200 L10 228 q-2 5 3 5 H45 q5 0 3 -5 L36 200 V186"/>
+      <path d="M62 196 V231 q0 2 2 2 H84 q2 0 2 -2 V196"/>
+      <path d="M104 178 V203 A14 14 0 1 0 110 203 V178"/>
+      <path d="M138 172 V232 M146 172 V232 M132 232 H152"/>
+      <path d="M170 182 V214 A12 12 0 1 0 176 214 V182"/>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 9. Sınıf</span><span>Tema 1 · Bölüm 2</span></div>
+    <div class="bolum">Kimya Hayattır · Bölüm 2</div>
+    <h1>Kimyasal<br>Güvenlik</h1>
+    <div class="slogan">Kimyasal maddelerin kullanımı ve güvenlik</div>
+    <div class="avo"><b>ASİT → SU</b><span>Laboratuvarın en kısa kuralı: derişik asit suya yavaşça eklenir, tersi asla yapılmaz. Bu bölüm, bunun gibi kuralların <b>nedenini</b> anlatıyor.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Laboratuvarda güvenli çalışma</span><span>2</span></li>
+          <li><span>2 · Kimyasallar ve cam malzemelerle çalışma</span><span>3</span></li>
+          <li><span>3 · Güvenlik işaretleri ve kaza anı</span><span>4</span></li>
+          <li><span>4 · Tehlike piktogramları</span><span>5</span></li>
+          <li><span>5 · Etiket, depolama ve atıklar</span><span>6</span></li>
+          <li><span>6 · Laboratuvar malzemeleri (I ve II)</span><span>7</span></li>
+          <li><span>Tek sayfada güvenlik (özet)</span><span>9</span></li>
+          <li><span>Hata Avcısı</span><span>10</span></li>
+          <li><span>Bağlam temelli sorular</span><span>11</span></li>
+          <li><span>İpucu Merdiveni</span><span>12</span></li>
+          <li><span>Bölüm testi</span><span>13</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>15</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg></i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg></i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M8 8l5 5M13 8l-5 5"/></svg></i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v18M17 3v18M7 8h10M7 13h10M7 18h10"/></svg></i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Laboratuvar kurallarını gerekçeleriyle açıklayacaksın.</li>
+          <li>Güvenlik işaretlerini ve tehlike piktogramlarını okuyup önlem seçeceksin.</li>
+          <li>Temel laboratuvar malzemelerini tanıyıp amaca uygun olanı seçeceksin.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · LABORATUVARDA GÜVENLİ ÇALIŞMA
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>Güvenli çalışma</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Laboratuvarda güvenli çalışma</h2>
+  <div class="alt-baslik">Kazaların çoğu “bir şey olmaz” düşüncesiyle başlar. Kurallar, riski olmadan önce durdurmak içindir.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+    <p><b>Laboratuvar:</b> Deney, gözlem ve ölçümlerin kontrollü koşullarda yapıldığı, bunun için gereken araç gereçle donatılmış çalışma ortamıdır. Okulda, hastanede, fabrikada ya da araştırma merkezinde olabilir.</p>
+    <p><b>Kişisel koruyucu donanım (KKD):</b> Çalışan kişiyi kimyasal sıçramasına, ısıya, kesilmeye ve zararlı buhara karşı koruyan önlük, gözlük, eldiven ve maske gibi ekipmanlardır.</p>
+  </div>
+
+  <div class="iki-genis">
+    <div>
+      <h3>Deneyden önce</h3>
+      <ul class="kural">
+        <li>Deney yönergesini baştan sona oku; adımları değiştirme, kendi kafana göre ekleme yapma.</li>
+        <li>Önlüğünü giy ve düğmele, saçını topla; yüzük, bilezik gibi takıları çıkar. Kapalı ayakkabı giy.</li>
+        <li>Kullanacağın kimyasalların etiketlerini oku, gerekli KKD’yi önceden hazırla.</li>
+        <li>Göz duşu, acil duş, yangın battaniyesi, yangın söndürücü ve ilk yardım dolabının yerini öğren.</li>
+      </ul>
+      <h3>Deney sırasında</h3>
+      <ul class="kural">
+        <li>Laboratuvarda yiyecek ve içecek tüketme; ellerini yüzüne, gözüne, ağzına götürme.</li>
+        <li>Kimyasala çıplak elle dokunma; koklayarak ya da tadına bakarak tanımaya çalışma.</li>
+        <li>Şaka, koşma ve oyun yok. Deneyin başından ayrılma, deney bitmeden ortamı terk etme.</li>
+      </ul>
+    </div>
+    <svg viewBox="0 0 120 150" style="width:100%;height:auto">
+      <g font-family="Inter" font-size="5.6" fill="#1d2133">
+        <rect x="47" y="116" width="10" height="24" fill="#334155"/><rect x="63" y="116" width="10" height="24" fill="#334155"/>
+        <rect x="44" y="139" width="15" height="6" rx="2" fill="#111"/><rect x="61" y="139" width="15" height="6" rx="2" fill="#111"/>
+        <rect x="55" y="44" width="10" height="10" fill="#f6d3b3"/>
+        <path d="M40 58 L28 98" stroke="#0b4655" stroke-width="11.5" stroke-linecap="round"/><path d="M40 58 L28 98" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+        <path d="M80 58 L92 98" stroke="#0b4655" stroke-width="11.5" stroke-linecap="round"/><path d="M80 58 L92 98" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+        <path d="M38 56 q22 -10 44 0 l4 62 h-52z" fill="#fff" stroke="#0b4655" stroke-width="1.2"/>
+        <path d="M60 52 V118" stroke="#0b4655" stroke-width=".8"/>
+        <circle cx="63" cy="70" r="1.2" fill="#0b4655"/><circle cx="63" cy="84" r="1.2" fill="#0b4655"/><circle cx="63" cy="98" r="1.2" fill="#0b4655"/>
+        <circle cx="27" cy="103" r="6" fill="#7c3aed"/><circle cx="93" cy="103" r="6" fill="#7c3aed"/>
+        <circle cx="60" cy="34" r="14" fill="#f6d3b3"/>
+        <path d="M46 32 a14 14 0 0 1 28 0 q-6 -7 -14 -7 q-8 0 -14 7z" fill="#3b2a20"/><circle cx="60" cy="17" r="5" fill="#3b2a20"/>
+        <rect x="46.5" y="29" width="27" height="8" rx="3" fill="#bae6fd" stroke="#0b4655" stroke-width="1"/>
+        <path d="M50 40 h20 v4 q-10 7 -20 0z" fill="#e5e7eb" stroke="#9aa3b8" stroke-width=".8"/>
+        <g stroke="#5d6478" stroke-width=".45" fill="none">
+          <path d="M74 33 L92 26"/><path d="M65 15 L88 12"/><path d="M52 44 L30 44"/><path d="M84 80 L100 80"/><path d="M21 104 L12 112"/><path d="M76 143 L92 136"/>
+        </g>
+        <text x="93" y="27">Gözlük</text>
+        <text x="89" y="13">Toplu saç</text>
+        <text x="29" y="43" text-anchor="end">Maske</text>
+        <text x="29" y="49" text-anchor="end" font-size="4.6" fill="#5d6478">(gerekirse)</text>
+        <text x="101" y="79">Önlük</text>
+        <text x="101" y="85" font-size="4.6" fill="#5d6478">düğmeli</text>
+        <text x="2" y="117">Eldiven</text>
+        <text x="93" y="136">Kapalı</text><text x="93" y="142">ayakkabı</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="iki">
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p>Laboratuvar önlükleri çoğunlukla pamuktan ya da alev geciktirici kumaştan yapılır. Bazı sentetik kumaşlar alevle karşılaşınca eriyip deriye yapışabilir. Önlüğün uzun kollu ve düğmeli olması, sıçrayan kimyasalın giysiye ve deriye ulaşmasını geciktirir.</p>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi">
+        <div class="yanlis"><b class="y">✗</b> “Gözlüğü yalnızca patlama ya da alev olan deneylerde takarım.”</div>
+        <div class="dogru"><b class="d">✓</b> Sıçrama en sıradan işlemde, örneğin bir şişeden sıvı dökerken bile olur. Kimyasal ve camla çalışılan her deneyde gözlük takılır.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#f4fbfd">
+    <p style="margin:0"><b class="k">Deneyden sonra:</b> Kullandığın malzemeleri temizle ve yerine koy; metal gereçleri kurula. Elektrikli aletlerin fişini çek, su ve gaz vanalarını kapat. Atıkları lavaboya değil, atık toplama kabına koy. Laboratuvardan çıkmadan önce ellerini sabunla yıka.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · KİMYASALLAR VE CAM MALZEMELERLE ÇALIŞMA
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>Kimyasallar ve cam</span></div>
+
+  <h2 class="konu"><span class="num">2</span>Kimyasallar ve cam malzemelerle çalışma</h2>
+  <div class="alt-baslik">Her kuralın arkasında bir kimya bilgisi vardır. Nedenini bilen, kuralı unutmaz.</div>
+
+  <div class="iki">
+    <div>
+      <h3>Kimyasal maddelerle</h3>
+      <ul class="kural">
+        <li>Şişeden yalnızca gereken kadar al ve kapağı hemen kapat. Uçucu maddeler buharlaşarak ortama yayılır.</li>
+        <li>Artan kimyasalı <b>stok şişesine geri dökme</b>; tüm şişe kirlenebilir.</li>
+        <li>Katıyı temiz spatülle, sıvıyı puarlı pipetle al. Pipeti <b>asla ağızla çekme</b>.</li>
+        <li>Şişeden sıvı dökerken etiket avuç içine gelsin; damla etiketi bozmasın.</li>
+        <li>Kimyasalları rastgele karıştırma. Zararlı gaz ya da buhar çıkabilecek işlemleri <b>çeker ocakta</b> yap.</li>
+        <li>Yanıcı ve uçucu maddeleri alevden uzak, ağzı kapalı tut. Kimyasalları güneş almayan yerde sakla.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Cam malzemelerle</h3>
+      <ul class="kural">
+        <li>Çatlak, kırık ya da kirli cam malzeme kullanma. Kullanmadan önce ve sonra saf suyla çalkala.</li>
+        <li>Kırılan camı elle toplama; fırça ve faraşla al, <b>kırık cam kutusuna</b> at.</li>
+        <li>Sıcak camı soğuk yüzeye ya da suya koyma: ani sıcaklık değişimi camı çatlatır.</li>
+        <li>Uzun cam boru ve bagetleri dik taşı. Tıpaya cam boru takarken kayganlaştırıcı kullan, elini bezle koru.</li>
+        <li>Termometre kırılırsa dokunmadan laboratuvar sorumlusuna haber ver.</li>
+        <li>Deney tüpünü ısıtırken ağzını kendine ya da bir arkadaşına doğru tutma.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 1 · Neden asit suya?</div>
+    <div class="iki-genis" style="gap:4mm;align-items:center">
+      <div>
+        <div class="soru">Derişik sülfürik asitten seyreltik çözelti hazırlanırken asit neden suya eklenir de su aside eklenmez?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>Derişik asit suyla karışırken <b>çok ısı açığa çıkar</b>.</span></div>
+          <div class="adim"><span class="n">2</span><span>Az miktar su, derişik asidin üstüne dökülürse bu ısı o küçük su kütlesini bir anda kaynatır; buhar, asidi dışarı <b>sıçratır</b>.</span></div>
+          <div class="adim"><span class="n">3</span><span>Asit çok miktardaki suya azar azar eklenirse açığa çıkan ısıyı bol su emer; karışım karıştırılarak güvenle seyreltilir.</span></div>
+          <span class="sonuc">Asit → su, yavaşça ve karıştırarak</span>
+        </div>
+      </div>
+      <svg viewBox="0 0 120 84" style="width:100%">
+        <g font-family="Inter" text-anchor="middle">
+          <rect x="1" y="1" width="57" height="82" rx="4" fill="#fff" stroke="#0f8f84" stroke-width=".6"/>
+          <rect x="62" y="1" width="57" height="82" rx="4" fill="#fff" stroke="#e11d48" stroke-width=".6"/>
+          <text x="29.5" y="10" font-size="6" font-weight="800" fill="#0f8f84">✓ DOĞRU</text>
+          <text x="90.5" y="10" font-size="6" font-weight="800" fill="#e11d48">✗ YANLIŞ</text>
+          <!-- doğru: su beherine asit -->
+          <path d="M14 48 V73 q0 2 2 2 H40 q2 0 2 -2 V48" fill="none" stroke="#0b4655" stroke-width="1"/>
+          <rect x="14.6" y="54" width="26.8" height="20.4" fill="#bfe9f5"/>
+          <g transform="rotate(-48 36 26)"><path d="M30 18 V36 h12 V18" fill="#fff" stroke="#0b4655" stroke-width="1"/><rect x="30.6" y="27" width="10.8" height="8.4" fill="#fde68a"/></g>
+          <path d="M26 38 q-1 8 -2 16" fill="none" stroke="#e8b923" stroke-width="1"/>
+          <text x="29.5" y="80.5" font-size="4.6" fill="#1d2133">asit, bol suya azar azar</text>
+          <text x="22" y="66" font-size="4.6" fill="#0b4655">su</text>
+          <!-- yanlış: asit beherine su -->
+          <path d="M75 48 V73 q0 2 2 2 H101 q2 0 2 -2 V48" fill="none" stroke="#0b4655" stroke-width="1"/>
+          <rect x="75.6" y="58" width="26.8" height="16.4" fill="#fde68a"/>
+          <g transform="rotate(-48 97 26)"><path d="M91 18 V36 h12 V18" fill="#fff" stroke="#0b4655" stroke-width="1"/><rect x="91.6" y="27" width="10.8" height="8.4" fill="#bfe9f5"/></g>
+          <path d="M87 38 q-1 10 -2 20" fill="none" stroke="#7cc4dc" stroke-width="1"/>
+          <g fill="#e11d48"><circle cx="80" cy="44" r="1.3"/><circle cx="76" cy="38" r="1"/><circle cx="96" cy="42" r="1.2"/><circle cx="101" cy="36" r="1"/><circle cx="84" cy="33" r=".9"/></g>
+          <text x="90.5" y="66" font-size="4.6" fill="#8a5a00">asit</text>
+          <text x="90.5" y="80.5" font-size="4.6" fill="#e11d48">su asidin üstüne: sıçrama!</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="etkinlik">
+    <div class="baslik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg> Mini Etkinlik 1 · Doğru mu, yanlış mı?</div>
+    <table class="dy">
+      <tr><td>a</td><td>Kullanılmadan artan çözelti, israf olmasın diye stok şişesine geri dökülür.</td><td>D<span class="kutucuk"></span> Y<span class="kutucuk"></span></td></tr>
+      <tr><td>b</td><td>Şişeden sıvı dökülürken şişe, etiket avuç içine gelecek şekilde tutulur.</td><td>D<span class="kutucuk"></span> Y<span class="kutucuk"></span></td></tr>
+      <tr><td>c</td><td>Zararlı buhar çıkaran bir tepkime çeker ocakta gerçekleştirilir.</td><td>D<span class="kutucuk"></span> Y<span class="kutucuk"></span></td></tr>
+      <tr><td>d</td><td>Puar bulunmadığında az miktar sıvı, pipetle ağızla dikkatlice çekilebilir.</td><td>D<span class="kutucuk"></span> Y<span class="kutucuk"></span></td></tr>
+      <tr><td>e</td><td>Ocaktan yeni alınan sıcak beher, hızla soğusun diye soğuk su dolu kaba konur.</td><td>D<span class="kutucuk"></span> Y<span class="kutucuk"></span></td></tr>
+      <tr><td>f</td><td>Bir kimyasalın kokusu gözlemlenecekse kap burna götürülmez; buhar elle yelpazelenir.</td><td>D<span class="kutucuk"></span> Y<span class="kutucuk"></span></td></tr>
+    </table>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · GÜVENLİK İŞARETLERİ VE KAZA ANI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>İşaretler ve kaza anı</span></div>
+
+  <h2 class="konu"><span class="num">3</span>Güvenlik işaretleri ve kaza anı</h2>
+  <div class="alt-baslik">Bir işaretin önce rengini ve biçimini oku: ne yazdığını okumadan ne demek istediğini anlarsın.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+    <p><b>Güvenlik işareti:</b> Bir ortamda yapılması gerekeni, yapılmaması gerekeni ya da dikkat edilmesi gereken bir tehlikeyi yazıya gerek kalmadan anlatan resimli işarettir. İşaretin <b>rengi ve biçimi</b> türünü, içindeki <b>çizim</b> konusunu gösterir.</p>
+  </div>
+
+  <div class="isaretler">
+    <div>
+      <h4 style="color:#1d6fb8">Zorunluluk</h4>
+      <div class="not">Mavi daire · <b>yapmalısın</b></div>
+      <div class="ikili">
+        <div><svg viewBox="0 0 100 100"><use href="#z-gozluk"/></svg>Gözlük tak</div>
+        <div><svg viewBox="0 0 100 100"><use href="#z-eldiven"/></svg>Eldiven tak</div>
+        <div><svg viewBox="0 0 100 100"><use href="#z-onluk"/></svg>Önlük giy</div>
+        <div><svg viewBox="0 0 100 100"><use href="#z-maske"/></svg>Maske tak</div>
+      </div>
+    </div>
+    <div>
+      <h4 style="color:#a16207">Uyarı</h4>
+      <div class="not">Sarı üçgen · <b>dikkat et</b></div>
+      <div class="ikili">
+        <div><svg viewBox="0 0 100 100"><use href="#u-elektrik"/></svg>Elektrik</div>
+        <div><svg viewBox="0 0 100 100"><use href="#u-sicak"/></svg>Sıcak yüzey</div>
+        <div><svg viewBox="0 0 100 100"><use href="#u-kesici"/></svg>Kesici/delici</div>
+        <div><svg viewBox="0 0 100 100"><use href="#u-cam"/></svg>Kırılabilir cam</div>
+      </div>
+    </div>
+    <div>
+      <h4 style="color:#d7192d">Yasak</h4>
+      <div class="not">Kırmızı çizgili daire · <b>yapma</b></div>
+      <div class="ikili">
+        <div><svg viewBox="0 0 100 100"><use href="#y-yemek"/></svg>Yeme-içme yok</div>
+        <div><svg viewBox="0 0 100 100"><use href="#y-alev"/></svg>Açık alev yok</div>
+      </div>
+    </div>
+    <div>
+      <h4 style="color:#15803d">Acil durum</h4>
+      <div class="not">Yeşil kare · <b>yardım burada</b></div>
+      <div class="ikili">
+        <div><svg viewBox="0 0 100 100"><use href="#a-gozdusu"/></svg>Göz duşu</div>
+        <div><svg viewBox="0 0 100 100"><use href="#a-ilkyardim"/></svg>İlk yardım</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Kaza olursa ne yapmalı?</h3>
+  <table class="tablo sik">
+    <tr><th style="width:31%">Durum</th><th>İlk yapılacak</th></tr>
+    <tr><td><b>Göze kimyasal sıçradı</b></td><td>Göz duşunda, göz kapakları açık tutularak <b>en az 15 dakika</b> bol suyla yıka. Gözü ovma.</td></tr>
+    <tr><td><b>Deriye kimyasal döküldü</b></td><td>Bulaşan giysiyi çıkar, bölgeyi en az 15 dakika bol akan suyla yıka. Asit de baz da olsa <b>ilk adım sudur</b>.</td></tr>
+    <tr><td><b>Sıcak cisim yanığı</b></td><td>Yanan bölgeyi ağrı azalana kadar serin akan suyun altında tut. Buz, diş macunu ya da yağ sürme.</td></tr>
+    <tr><td><b>Cam kesiği</b></td><td>Öğretmene haber ver; temiz bezle bastırarak kanamayı durdur. Batan camı kendin çıkarmaya çalışma.</td></tr>
+    <tr><td><b>Giysi alev aldı</b></td><td>Koşma: dur, yere yat, yuvarlan. Yangın battaniyesiyle sararak alevin havayla temasını kes.</td></tr>
+    <tr><td><b>Kimyasal yutuldu</b></td><td>Kusturmaya çalışma. Hemen tıbbi yardım iste; kimyasalın şişesini ya da etiketini yanında götür.</td></tr>
+  </table>
+
+  <div class="iki">
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi">
+        <div class="yanlis"><b class="y">✗</b> “Elime asit sıçrarsa hemen üzerine baz dökerek nötrleştiririm.”</div>
+        <div class="dogru"><b class="d">✓</b> Nötrleşme de ısı açığa çıkarır; yanlış seçilen baz deriyi ayrıca yakar. Önce <b>bol su</b>, sonrası öğretmenin kararıyla.</div>
+      </div>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p>Türkiye’de bir kimyasal yutulduğunda ya da solunduğunda <b>114</b> numaralı Ulusal Zehir Danışma Merkezi aranabilir. Acil sağlık yardımı ve yangın için ise <b>112</b> aranır. Ararken ürünün adını ve etiketini elinin altında bulundurmak doğru bilgi almayı hızlandırır.</p>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · TEHLİKE PİKTOGRAMLARI
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>Tehlike piktogramları</span></div>
+
+  <h2 class="konu"><span class="num">4</span>Tehlike piktogramları</h2>
+  <div class="alt-baslik">Kırmızı çerçeveli dokuz küçük elmas, bir kimyasalın nasıl zarar verebileceğini her dilde aynı biçimde anlatır.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+    <p><b>Tehlike (risk) piktogramı:</b> Kimyasal maddenin ambalajında yer alan, maddenin hangi yolla zarar verebileceğini gösteren uyarı simgesidir. Birleşmiş Milletler’in geliştirdiği <b>Küresel Uyumlaştırılmış Sistem</b>de (GHS) dokuz piktogram vardır: beyaz zemin, kırmızı çerçeve, siyah çizim. Ülkemizde de kimyasalların etiketlenmesi bu sisteme göre yapılır. Bir şişede birden fazla piktogram bulunabilir.</p>
+  </div>
+
+  <div class="pikto">
+    <div><svg class="pk" viewBox="0 0 100 100"><use href="#g-patlayici"/></svg><div><b>Patlayıcı</b><span>Isı, darbe, sürtünme ya da kıvılcımla patlayabilir. Darbeden ve ısıdan uzak tutulur.</span><i>Örnek: TNT, nitrogliserin</i></div></div>
+    <div><svg class="pk" viewBox="0 0 100 100"><use href="#g-alev"/></svg><div><b>Yanıcı (parlayıcı)</b><span>Kolay tutuşur. Alev, kıvılcım ve ısı kaynağından uzak, ağzı kapalı saklanır.</span><i>Örnek: etil alkol, aseton, benzin, metan</i></div></div>
+    <div><svg class="pk" viewBox="0 0 100 100"><use href="#g-oksit"/></svg><div><b>Yakıcı (oksitleyici)</b><span>Yanmayı başlatır ya da şiddetlendirir. Yanıcı maddelerle temas ettirilmez.</span><i>Örnek: derişik hidrojen peroksit, potasyum permanganat</i></div></div>
+    <div><svg class="pk" viewBox="0 0 100 100"><use href="#g-gaz"/></svg><div><b>Basınç altındaki gaz</b><span>Tüp ısınırsa patlayabilir; soğutulmuş gaz soğuk yanığı yapabilir. Tüpler sabitlenir, güneşte bırakılmaz.</span><i>Örnek: oksijen, azot, karbon dioksit tüpleri</i></div></div>
+    <div><svg class="pk" viewBox="0 0 100 100"><use href="#g-korozif"/></svg><div><b>Aşındırıcı (korozif)</b><span>Deriyi, gözü ve metali aşındırır, kimyasal yanık yapar. Gözlük, eldiven ve önlük şarttır.</span><i>Örnek: derişik HCl (tuz ruhu), <span class="f">H<sub>2</sub>SO<sub>4</sub></span>, <span class="f">NaOH</span></i></div></div>
+    <div><svg class="pk" viewBox="0 0 100 100"><use href="#g-zehir"/></svg><div><b>Zehirli (akut toksik)</b><span>Az miktarı bile yutulma, solunma ya da deriden emilme yoluyla ağır zehirlenme yapabilir.</span><i>Örnek: cıva, karbon monoksit, metanol</i></div></div>
+    <div><svg class="pk" viewBox="0 0 100 100"><use href="#g-unlem"/></svg><div><b>Tahriş edici, zararlı</b><span>Deride, gözde ve solunum yolunda tahriş, kaşıntı ya da alerji yapabilir. Buharı solunmaz.</span><i>Örnek: bazı deterjan ve yüzey temizleyiciler</i></div></div>
+    <div><svg class="pk" viewBox="0 0 100 100"><use href="#g-saglik"/></svg><div><b>Ciddi sağlık tehlikesi</b><span>Etkisi uzun vadede çıkabilir: kanser, organ hasarı, solunum yolu hassaslığı gibi.</span><i>Örnek: benzen, formaldehit</i></div></div>
+    <div><svg class="pk" viewBox="0 0 100 100"><use href="#g-cevre"/></svg><div><b>Çevreye zararlı</b><span>Su canlıları ve ekosistem için zehirlidir. Lavaboya dökülmez, doğaya bırakılmaz.</span><i>Örnek: cıva bileşikleri, bakır(II) sülfat</i></div></div>
+  </div>
+
+  <div class="iki-genis">
+    <div class="kutu duz" style="--bg:#fff;margin-bottom:0">
+      <div class="etiket" style="--renk:#a16207">GHS dışındaki iki önemli işaret</div>
+      <div style="display:grid;grid-template-columns:13mm 1fr 13mm 1fr;gap:2mm;align-items:center;font-size:8.3pt;line-height:1.32">
+        <svg viewBox="0 0 100 100" style="width:13mm"><use href="#g-radyo"/></svg>
+        <span><b>Radyoaktif madde:</b> Yaydığı ışınım canlı dokuya kalıcı zarar verebilir. Özellikle çocuklar ve hamileler uzak durur.</span>
+        <svg viewBox="0 0 100 100" style="width:13mm"><use href="#g-biyo"/></svg>
+        <span><b>Biyolojik tehlike:</b> Hastalık yapıcı mikrop taşıyabilen atıkları gösterir; tıbbi atık kaplarında bulunur.</span>
+      </div>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Etikette kurukafa yoksa madde zararsızdır.”</div>
+        <div class="dogru"><b class="d">✓</b> Her piktogram <b>farklı bir tehlike</b> anlatır. Alev ya da aşındırıcı işareti taşıyan madde de ciddi kaza yapabilir.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · ETİKET, DEPOLAMA, ATIK
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>Etiket, depolama, atık</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Etiket, depolama ve atıklar</h2>
+  <div class="alt-baslik">Bir kimyasalın güvenliği yalnızca kullanılırken değil, rafta beklerken ve atılırken de önemlidir.</div>
+
+  <div class="iki-genis" style="align-items:start">
+    <div>
+      <h3 style="margin-top:0">Etiketi okumak</h3>
+      <p>Kimyasal ambalajının etiketinde en az şu bilgiler bulunur: maddenin adı, <b>uyarı kelimesi</b> (ciddi tehlikede “Tehlike”, daha hafifinde “Dikkat”), <b>piktogramlar</b>, maddenin nasıl zarar verdiğini anlatan <b>zararlılık ifadeleri</b>, alınacak <b>önlem ifadeleri</b> ve üretici bilgisi.</p>
+      <div class="kutu kavram" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+        <p><b>Kimyasal depolama matrisi:</b> Hangi tehlike sınıfındaki maddelerin aynı yerde saklanabileceğini, hangilerinin ayrılması gerektiğini gösteren tablodur. Birbiriyle tepkimeye girebilecek maddeler yan yana konmaz.</p>
+      </div>
+    </div>
+    <svg class="etiket-sise" viewBox="0 0 100 92">
+      <g font-family="Inter">
+        <rect x="2" y="2" width="96" height="88" rx="4" fill="#fff" stroke="#0b4655" stroke-width=".7"/>
+        <rect x="2" y="2" width="96" height="13" rx="4" fill="#e9f7fa"/>
+        <text x="6" y="11" font-size="6.4" font-weight="800" fill="#0b4655">ETİL ALKOL %96</text>
+        <svg x="5" y="18" width="20" height="20" viewBox="0 0 100 100"><use href="#g-alev"/></svg>
+        <svg x="25" y="18" width="20" height="20" viewBox="0 0 100 100"><use href="#g-unlem"/></svg>
+        <text x="49" y="27" font-size="6.6" font-weight="800" fill="#d7192d">TEHLİKE</text>
+        <text x="49" y="33" font-size="3.6" fill="#5d6478">uyarı kelimesi</text>
+        <text x="6" y="46" font-size="4" font-weight="700" fill="#1d2133">Kolay alevlenir sıvı ve buhar.</text>
+        <text x="6" y="51.5" font-size="4" font-weight="700" fill="#1d2133">Ciddi göz tahrişine yol açar.</text>
+        <text x="6" y="60" font-size="4" fill="#1d2133">Isıdan, kıvılcımdan, açık alevden uzak tutun.</text>
+        <text x="6" y="65.5" font-size="4" fill="#1d2133">Kabı sıkıca kapalı tutun.</text>
+        <text x="6" y="71" font-size="4" fill="#1d2133">Göz koruması kullanın.</text>
+        <line x1="6" y1="76" x2="94" y2="76" stroke="#dfe3ee" stroke-width=".5"/>
+        <text x="6" y="83" font-size="3.6" fill="#5d6478">Üretici: Örnek Kimya · Tel: 0 000 000 00 00</text>
+        <g fill="#0e7490" font-size="3.5" font-weight="700">
+          <text x="94" y="47" text-anchor="end">zararlılık</text><text x="94" y="51.5" text-anchor="end">ifadeleri</text>
+          <text x="94" y="63" text-anchor="end">önlem</text><text x="94" y="67.5" text-anchor="end">ifadeleri</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="iki" style="margin-top:3mm;align-items:start">
+    <div>
+      <table class="matris">
+        <tr><th></th>
+          <th><svg viewBox="0 0 100 100"><use href="#g-alev"/></svg></th>
+          <th><svg viewBox="0 0 100 100"><use href="#g-oksit"/></svg></th>
+          <th><svg viewBox="0 0 100 100"><use href="#g-zehir"/></svg></th>
+          <th><svg viewBox="0 0 100 100"><use href="#g-korozif"/></svg></th>
+          <th><svg viewBox="0 0 100 100"><use href="#g-unlem"/></svg></th></tr>
+        <tr><th class="ad">Yanıcı</th><td class="h e">✔</td><td class="h x">✘</td><td class="h x">✘</td><td class="h x">✘</td><td class="h o">!</td></tr>
+        <tr><th class="ad">Oksitleyici</th><td class="h x">✘</td><td class="h e">✔</td><td class="h x">✘</td><td class="h x">✘</td><td class="h x">✘</td></tr>
+        <tr><th class="ad">Zehirli</th><td class="h x">✘</td><td class="h x">✘</td><td class="h e">✔</td><td class="h x">✘</td><td class="h e">✔</td></tr>
+        <tr><th class="ad">Aşındırıcı</th><td class="h x">✘</td><td class="h x">✘</td><td class="h x">✘</td><td class="h e">✔</td><td class="h e">✔</td></tr>
+        <tr><th class="ad">Tahriş edici</th><td class="h o">!</td><td class="h x">✘</td><td class="h e">✔</td><td class="h e">✔</td><td class="h e">✔</td></tr>
+      </table>
+      <p class="kucuk" style="margin:1.4mm 0 0;text-align:center"><b style="color:#15803d">✔</b> birlikte saklanabilir · <b style="color:#e11d48">✘</b> ayrı saklanmalı · <b style="color:#b45309">!</b> ancak özel önlemle<br>Sadeleştirilmiş örnek matris. Gerçek depoda maddenin güvenlik bilgi formu esas alınır.</p>
+    </div>
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p>4 Ağustos 2020’de Lübnan’ın başkenti Beyrut’ta, limandaki bir depoda yıllarca uygun olmayan koşullarda bekletilen yaklaşık 2750 ton <b>amonyum nitrat</b> patladı. Patlamada 200’den fazla kişi hayatını kaybetti, binlerce kişi yaralandı. Gübre yapımında da kullanılan oksitleyici bir madde, yanlış depolanınca büyük bir felakete dönüştü.</p>
+    </div>
+  </div>
+
+  <h3>Atıklar nereye gider?</h3>
+  <ul class="kural" style="columns:2;column-gap:6mm">
+    <li>Kimyasal atık <b>lavaboya dökülmez</b>, çöpe atılmaz; türüne göre etiketli <b>atık toplama kabında</b> biriktirilir ve yetkili firmalarca bertaraf edilir.</li>
+    <li>Birbiriyle tepkimeye girebilecek atıklar (örneğin asitli atık ile bazik atık) aynı kaba konmaz.</li>
+    <li>Kırık cam, delinmeye dayanıklı <b>kırık cam kutusuna</b> atılır; atık kutularının ağzı kapalı tutulur.</li>
+    <li><b>Tıbbi atık:</b> Hastane ve sağlık kuruluşlarında oluşan, enfeksiyon riski taşıyan atıklardır (kullanılmış enjektör, kanlı pamuk, sargı bezi). Ayrı toplanır, evsel çöpe karışmaz.</li>
+  </ul>
+
+  <div class="etkinlik" style="margin-bottom:0">
+    <div class="baslik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg> Mini Etkinlik 2 · Eşleştir</div>
+    <div style="display:grid;grid-template-columns:1fr auto;gap:4mm;align-items:center">
+      <table class="dy">
+        <tr><td>1</td><td>Tüp güneşte ısınırsa patlayabilir.</td><td><span class="kutucuk"></span></td></tr>
+        <tr><td>2</td><td>Lavaboya dökülürse dereye ulaşıp balıklara zarar verir.</td><td><span class="kutucuk"></span></td></tr>
+        <tr><td>3</td><td>Deriye değerse yanık yapar, metal kapağı bile aşındırır.</td><td><span class="kutucuk"></span></td></tr>
+        <tr><td>4</td><td>Yıllarca solunursa kansere yol açabilir.</td><td><span class="kutucuk"></span></td></tr>
+        <tr><td>5</td><td>Küçük bir kıvılcımla tutuşabilir.</td><td><span class="kutucuk"></span></td></tr>
+      </table>
+      <div style="display:grid;grid-template-columns:repeat(5,12mm);gap:1.6mm;text-align:center;font-weight:800;color:var(--unite-koyu);font-size:8.6pt">
+        <div><svg viewBox="0 0 100 100" style="width:12mm"><use href="#g-alev"/></svg>a</div>
+        <div><svg viewBox="0 0 100 100" style="width:12mm"><use href="#g-saglik"/></svg>b</div>
+        <div><svg viewBox="0 0 100 100" style="width:12mm"><use href="#g-gaz"/></svg>c</div>
+        <div><svg viewBox="0 0 100 100" style="width:12mm"><use href="#g-korozif"/></svg>d</div>
+        <div><svg viewBox="0 0 100 100" style="width:12mm"><use href="#g-cevre"/></svg>e</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · MALZEMELER I: KAPLAR VE HACİM ÖLÇÜMÜ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>Laboratuvar malzemeleri I</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Laboratuvar malzemeleri I</h2>
+  <div class="alt-baslik">Kaplar ve hacim ölçen cam malzemeler: hangisi saklar, hangisi karıştırır, hangisi tam ölçer?</div>
+
+  <div class="malz">
+    <div><svg viewBox="0 0 60 80"><use href="#e-tup"/></svg><b>Deney tüpü</b><span>Az miktarda katı ya da sıvıyı ısıtmak, karıştırmak ve tepkimeyi gözlemek için.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-beher"/></svg><b>Beherglas (beher)</b><span>Oluklu ağızlı, ısıya dayanıklı kap. Karıştırma, ısıtma, aktarma, çözelti hazırlama.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-erlen"/></svg><b>Erlenmayer (erlen)</b><span>Konik gövdeli, dar ağızlı. Çalkalarken sıçratmaz; titrasyonda ve kaynatmada kullanılır.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-balon"/></svg><b>Cam balon</b><span>Küre gövdeli, dar boyunlu. Çözeltiyi ısıtmak, kaynatmak ve damıtmak için.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-joje"/></svg><b>Balon joje</b><span>Boynundaki tek çizgi belirli bir hacmi gösterir (ör. 250 mL). Kesin hacimde çözelti hazırlanır.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-mezur"/></svg><b>Mezür (dereceli silindir)</b><span>Sıvı hacmini ölçmek ve aktarmak için. Pratiktir ama pipet kadar hassas değildir.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-pipet"/></svg><b>Pipet</b><span>Az miktarda sıvıyı çok hassas ölçüp aktarır. Puar ya da pipet pompasıyla çekilir.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-buret"/></svg><b>Büret</b><span>Uzun, dereceli, alt ucu musluklu. Titrasyonda eklenen sıvının hacmini hassas ölçer.</span></div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Hassas ölçüm, yaklaşık ölçüm</div>
+      <p style="font-size:9.3pt"><b>Hassas:</b> pipet, büret, balon joje. Kesin hacim gereken işlemlerde seçilir.</p>
+      <p style="font-size:9.3pt"><b>Orta:</b> mezür. Günlük ölçümler için yeterlidir.</p>
+      <p style="font-size:9.3pt"><b>Yaklaşık:</b> beher ve erlen üzerindeki çizgiler. Bu kaplar ölçmek için değil, tutmak, karıştırmak ve ısıtmak içindir.</p>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Balon joje camdan yapıldığı için bekin alevinde ısıtılabilir.”</div>
+        <div class="dogru"><b class="d">✓</b> Hacim ölçen cam malzemeler (balon joje, mezür, pipet, büret) <b>ısıtılmaz</b>. Isınan cam genleşir, ölçüsü bozulur, kırılabilir. Isıtmak için beher, erlen ya da cam balon seçilir.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:1mm">Hacim nasıl okunur?</h3>
+  <div class="iki-genis" style="align-items:center">
+    <div>
+      <ul class="kural">
+        <li>Ölçü kabını <b>düz ve sabit</b> bir masaya koy; elinde tutarak okuma.</li>
+        <li>Gözünü sıvı yüzeyinin <b>tam hizasına</b> getir. Yukarıdan bakarsan fazla, aşağıdan bakarsan az okursun.</li>
+        <li>Su gibi camı ıslatan sıvıların yüzeyi çukurdur (<b>menisküs</b>); çukurun <b>en alt noktası</b> okunur. Cıvanın yüzeyi tümsektir; en üst noktası okunur.</li>
+        <li>Terazide kimyasal doğrudan kefeye konmaz, tartım kabı kullanılır; terazinin üzerine madde dökülmemesine dikkat edilir.</li>
+      </ul>
+    </div>
+    <svg viewBox="0 0 130 70" style="width:100%">
+      <g font-family="Inter" font-size="4.6" fill="#1d2133">
+        <path d="M58 6 V64 M78 6 V64" stroke="#0b4655" stroke-width="1" fill="none"/>
+        <path d="M58.5 30 Q68 40 77.5 30 V64 H58.5 Z" fill="#bfe9f5"/>
+        <path d="M58.5 30 Q68 40 77.5 30" fill="none" stroke="#0b4655" stroke-width=".6"/>
+        <g stroke="#0b4655" stroke-width=".5"><path d="M70 15 h8"/><path d="M73 20 h5"/><path d="M73 25 h5"/><path d="M73 30 h5"/><path d="M70 35 h8"/><path d="M73 40 h5"/><path d="M73 45 h5"/><path d="M73 50 h5"/><path d="M70 55 h8"/></g>
+        <text x="80" y="16.5" font-size="4">50</text><text x="80" y="36.5" font-size="4">40</text><text x="80" y="56.5" font-size="4">30</text>
+        <g fill="none" stroke-dasharray="1.4 1" stroke-width=".6">
+          <path d="M18 14 L68 35" stroke="#e11d48"/><path d="M18 35 H68" stroke="#0f8f84"/><path d="M18 56 L68 35" stroke="#e11d48"/>
+        </g>
+        <g fill="#fff" stroke="#1d2133" stroke-width=".6"><path d="M8 14 q5 -4 10 0 q-5 4 -10 0z"/><path d="M8 35 q5 -4 10 0 q-5 4 -10 0z"/><path d="M8 56 q5 -4 10 0 q-5 4 -10 0z"/></g>
+        <g fill="#1d2133"><circle cx="13" cy="14" r="1.3"/><circle cx="13" cy="35" r="1.3"/><circle cx="13" cy="56" r="1.3"/></g>
+        <text x="3" y="8" fill="#e11d48" font-weight="700">fazla okur</text>
+        <text x="3" y="43" fill="#0f8f84" font-weight="700">doğru: 40 mL</text>
+        <text x="3" y="64" fill="#e11d48" font-weight="700">az okur</text>
+        <path d="M86 35 H96" stroke="#0f8f84" stroke-width=".6"/>
+        <text x="97" y="33" font-size="4" fill="#0f8f84" font-weight="700">menisküsün</text>
+        <text x="97" y="38" font-size="4" fill="#0f8f84" font-weight="700">alt noktası</text>
+        <path d="M78 30 L96 22" stroke="#5d6478" stroke-width=".4"/>
+        <text x="97" y="23" font-size="4" fill="#5d6478">kenarlar camda</text>
+        <text x="97" y="27.5" font-size="4" fill="#5d6478">yukarı tırmanır</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · MALZEMELER II
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>Laboratuvar malzemeleri II</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Laboratuvar malzemeleri II</h2>
+  <div class="alt-baslik">Ayırma, ısıtma ve tutma işleri için kullanılan yardımcı malzemeler</div>
+
+  <div class="grup-baslik">Ayırma ve aktarma</div>
+  <div class="malz alti">
+    <div><svg viewBox="0 0 60 80"><use href="#e-huni"/></svg><b>Huni</b><span>Sıvıyı dar ağızlı kaba aktarır; süzgeç kâğıdıyla süzmede kullanılır.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-suzgec"/></svg><b>Süzgeç kâğıdı</b><span>Katı-sıvı heterojen karışımı süzerek ayırır.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-ayirma"/></svg><b>Ayırma hunisi</b><span>Birbirinde çözünmeyen sıvıları ayırır; az yoğun sıvı üstte kalır.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-sogutucu"/></svg><b>Soğutucu</b><span>İç içe iki boru. Buharı yoğuşturup sıvı olarak geri kazandırır.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-piset"/></svg><b>Piset</b><span>Saf su ya da yıkama sıvısı içeren, sıkılarak kullanılan plastik şişe.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-damlalik"/></svg><b>Damlalık</b><span>Çok az miktardaki sıvıyı damla damla aktarır.</span></div>
+  </div>
+  <div class="grup-baslik">Isıtma</div>
+  <div class="malz alti">
+    <div><svg viewBox="0 0 60 80"><use href="#e-ispirto"/></svg><b>İspirto ocağı</b><span>Fitilli cam hazne; ispirto yakarak hafif ısıtma sağlar.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-bunzen"/></svg><b>Bunzen beki</b><span>Gazla çalışan ocak; ısıtma, yakma ve sterilizasyon.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-sacayagi"/></svg><b>Sacayağı (üçayak)</b><span>Isıtılacak kabı ocağın üzerinde tutan metal ayak.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-telkafes"/></svg><b>Tel kafes</b><span>Camı alevden ayırır, ısıyı yayar. Eski adı amyant tel.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-kroze"/></svg><b>Kroze</b><span>Fincan biçimli, ısıya dayanıklı kap; kurutma, eritme, kül tayini.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-saat"/></svg><b>Saat camı</b><span>İçbükey cam; az miktar katıyı tartma, kurutma ve örtme.</span></div>
+  </div>
+  <div class="grup-baslik">Tutma, karıştırma, ölçme</div>
+  <div class="malz alti">
+    <div><svg viewBox="0 0 60 80"><use href="#e-spor"/></svg><b>Spor ve kıskaç</b><span>Düzeneği dik ve sabit tutar; kıskaç malzemeyi spora bağlar.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-havan"/></svg><b>Havan</b><span>Katıyı ezip toz hâline getirir.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-spatul"/></svg><b>Spatül</b><span>Toz ya da küçük parçalı katıyı bir kaptan diğerine alır.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-baget"/></svg><b>Baget</b><span>Karıştırmak için cam çubuk; sıvıyı yönlendirir.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-termo"/></svg><b>Termometre</b><span>Sıcaklığı °C cinsinden ölçer.</span></div>
+    <div><svg viewBox="0 0 60 80"><use href="#e-puar"/></svg><b>Puar</b><span>Üç vanalı lastik pipet pompası; sıvıyı güvenle çeker.</span></div>
+  </div>
+
+  <div class="iki-genis" style="margin-top:2.6mm;align-items:center">
+    <svg viewBox="0 0 150 92" style="width:100%">
+      <g font-family="Inter" font-size="4.6" fill="#1d2133">
+        <rect x="6" y="86" width="34" height="4" rx="1" fill="#94a3b8"/><rect x="12" y="6" width="2.6" height="80" fill="#cbd5e1" stroke="#0b4655" stroke-width=".5"/>
+        <path d="M14.6 20 H37" stroke="#64748b" stroke-width="1.6"/>
+        <path d="M40.5 62.3 A13 13 0 0 0 66.5 62.3 Z" fill="#bfe9f5" transform="translate(-13.5 -6)"/>
+        <path d="M37.5 12 V35.2 A13 13 0 1 0 42.5 35.2 V12" fill="none" stroke="#0b4655" stroke-width="1"/>
+        <rect x="36.3" y="8" width="7.4" height="4.4" fill="#a16207"/>
+        <rect x="39.1" y="1" width="1.8" height="22" fill="#fff" stroke="#0b4655" stroke-width=".5"/><circle cx="40" cy="23.5" r="1.5" fill="#ef4444"/>
+        <path d="M42.5 21 L60 30" stroke="#0b4655" stroke-width="3.4"/><path d="M42.5 21 L60 30" stroke="#fff" stroke-width="2"/>
+        <path d="M60 30 L126 60" stroke="#0b4655" stroke-width="10" stroke-linecap="round"/><path d="M60 30 L126 60" stroke="#e0f2fe" stroke-width="8.4" stroke-linecap="round"/>
+        <path d="M58 29 L134 63.5" stroke="#0b4655" stroke-width="3.2"/><path d="M58 29 L134 63.5" stroke="#fff" stroke-width="1.8"/>
+        <path d="M117 60 L120 72" stroke="#0b4655" stroke-width="3.4"/><path d="M117 60 L120 72" stroke="#e0f2fe" stroke-width="2"/>
+        <path d="M70 31 L67 22" stroke="#0b4655" stroke-width="3.4"/><path d="M70 31 L67 22" stroke="#e0f2fe" stroke-width="2"/>
+        <path d="M131 62 V68 L122 86 H146 L137 68 V62" fill="#fff" stroke="#0b4655" stroke-width="1"/>
+        <path d="M124.5 81 L122.6 85.2 H145.4 L143.5 81 Z" fill="#bfe9f5"/>
+        <path d="M26 64 H54" stroke="#64748b" stroke-width="2"/>
+        <path d="M29 65 L25 88 M51 65 L55 88" stroke="#0b4655" stroke-width="1.2"/>
+        <path d="M33 87 H47 V89 H33 Z" fill="#94a3b8"/><rect x="38.2" y="72" width="3.6" height="15" fill="#cbd5e1" stroke="#0b4655" stroke-width=".4"/>
+        <path d="M40 63 C43 67 42.5 70 40 72 C37.5 70 37 67 40 63 Z" fill="#60a5fa"/>
+        <g fill="#0e7490" font-weight="700">
+          <text x="44" y="5">termometre</text>
+          <text x="2" y="48">cam</text><text x="2" y="53">balon</text>
+          <text x="57" y="68">tel kafes</text>
+          <text x="57" y="80">bunzen beki</text>
+          <text x="84" y="35">soğutucu</text>
+          <text x="116" y="92" font-size="4.2">erlenmayer</text>
+        </g>
+        <path d="M27 49 L10 50" stroke="#5d6478" stroke-width=".3"/><path d="M55 64 L56.5 66" stroke="#5d6478" stroke-width=".3"/><path d="M43 78 L56.5 78.5" stroke="#5d6478" stroke-width=".3"/>
+        <g fill="#0f8f84" font-size="4">
+          <text x="104" y="80">su girişi ↑</text>
+          <text x="52" y="20">su çıkışı</text>
+        </g>
+      </g>
+    </svg>
+    <div>
+      <div class="kutu kavram" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Basit damıtma düzeneği</div>
+        <p style="font-size:9pt">Cam balondaki karışım ısıtılır; uçucu bileşen buharlaşır. Termometrenin haznesi yan borunun hizasında durur, buharın sıcaklığını ölçer. Buhar soğutucuda yoğuşur ve erlende toplanır.</p>
+        <p style="font-size:9pt">Soğutucunun suyu <b>alttan girer, üstten çıkar</b>: ceket tamamen suyla dolar ve soğuk su, buharla ters yönde akarak daha iyi soğutur.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="etkinlik" style="margin:3mm 0 0">
+    <div class="baslik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg> Mini Etkinlik 3 · Boşluğu doldur</div>
+    <div class="kelime"><span>ayırma hunisi</span><span>soğutucu</span><span>kroze</span><span>havan</span><span>spor</span><span>saat camı</span></div>
+    <div style="font-size:9pt;line-height:1.75">
+      <b class="k">1.</b> Zeytinyağı ile suyu birbirinden ayırmak için gereken malzeme: <span class="bos"></span><br>
+      <b class="k">2.</b> Damıtmada buharı yeniden sıvıya dönüştüren cam malzeme: <span class="bos"></span><br>
+      <b class="k">3.</b> Kül tayini için katının yüksek sıcaklıkta ısıtıldığı porselen kap: <span class="bos"></span><br>
+      <b class="k">4.</b> Kaya tuzu parçalarını toz hâline getiren malzeme: <span class="bos"></span><br>
+      <b class="k">5.</b> Kıskaçların bağlandığı, düzeneği dik tutan metal çubuk: <span class="bos"></span>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · TEK SAYFADA GÜVENLİK
+     ========================================================= -->
+<section class="sayfa ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada güvenlik</h2><p>Laboratuvara girmeden önce bu sayfaya bir kez bak. Her kutuyu bir arkadaşına “neden” sorusuyla birlikte anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Altın kurallar</div>
+      <ul style="font-size:9pt">
+        <li>Önlük, gözlük, eldiven; saç toplu, takı yok.</li>
+        <li>Koklama, tatma, ağızla pipet çekme yok.</li>
+        <li><b>Asit → su</b>, yavaşça ve karıştırarak.</li>
+        <li>Zararlı buhar → çeker ocak. Yanıcı → alevden uzak.</li>
+        <li>Atık lavaboya değil, atık kabına.</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> İşaretin dili</div>
+      <ul style="font-size:9pt">
+        <li><b>Mavi daire:</b> zorunluluk · <b>Sarı üçgen:</b> uyarı</li>
+        <li><b>Kırmızı çizgili daire:</b> yasak · <b>Yeşil kare:</b> acil durum</li>
+        <li><b>Kırmızı elmas:</b> kimyasal tehlike piktogramı (9 tane)</li>
+      </ul>
+      <div style="display:flex;gap:1mm;margin-top:1.4mm">
+        <svg viewBox="0 0 100 100" style="width:8.6mm"><use href="#g-patlayici"/></svg><svg viewBox="0 0 100 100" style="width:8.6mm"><use href="#g-alev"/></svg><svg viewBox="0 0 100 100" style="width:8.6mm"><use href="#g-oksit"/></svg><svg viewBox="0 0 100 100" style="width:8.6mm"><use href="#g-gaz"/></svg><svg viewBox="0 0 100 100" style="width:8.6mm"><use href="#g-korozif"/></svg><svg viewBox="0 0 100 100" style="width:8.6mm"><use href="#g-zehir"/></svg><svg viewBox="0 0 100 100" style="width:8.6mm"><use href="#g-unlem"/></svg><svg viewBox="0 0 100 100" style="width:8.6mm"><use href="#g-saglik"/></svg><svg viewBox="0 0 100 100" style="width:8.6mm"><use href="#g-cevre"/></svg>
+      </div>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Malzemeyi amaca göre seç</div>
+      <ul style="font-size:9pt">
+        <li><b>Hassas hacim:</b> pipet, büret, balon joje</li>
+        <li><b>Isıtma kabı:</b> deney tüpü, beher, erlen, cam balon, kroze</li>
+        <li><b>Ayırma:</b> huni + süzgeç kâğıdı, ayırma hunisi, soğutucu</li>
+        <li><b>Hacim ölçen cam ısıtılmaz.</b> Menisküsün alt noktası, göz hizasında okunur.</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kaza anında</div>
+      <ul style="font-size:9pt">
+        <li>Göz ya da deri: <b>en az 15 dk bol su</b>; ovma, nötrleştirmeye çalışma.</li>
+        <li>Isı yanığı: serin akan su; buz ve krem yok.</li>
+        <li>Giysi alev aldı: dur, yat, yuvarlan; yangın battaniyesi.</li>
+        <li>Yutma: kusturma yok; etiketle birlikte tıbbi yardım (112, 114).</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Laboratuvar kurallarını nedenleriyle birlikte sayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Asidin neden suya eklendiğini açıklayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Güvenlik işaretlerinin türünü renk ve biçiminden tanıyabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Dokuz tehlike piktogramının anlamını ve gerekli önlemi söyleyebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Depolama matrisini okuyup bir maddenin nerede saklanacağına karar verebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bir işlem için uygun laboratuvar malzemesini seçip gerekçelendirebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:5mm"><b>KENDİME NOT · Laboratuvarda en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Dört öğrenci laboratuvar defterine aşağıdaki planları ve yorumları yazdı. Her birinde bir hata var. Hatalı satırı bul, neden yanlış olduğunu yaz, doğrusunu kutuya ekle.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Görev:</b> Derişik asitten seyreltik bir çözelti hazırlama adımlarını yaz.</p>
+      <div class="defter">
+        <div class="ogrenci">Elif’in planı</div>
+        <div class="satir"><span class="sn">1</span>Önlüğümü, gözlüğümü ve eldivenimi taktım.</div>
+        <div class="satir"><span class="sn">2</span>Gereken asidi mezürle ölçüp behere koydum.</div>
+        <div class="satir"><span class="sn">3</span>Üzerine suyu hızlıca ekleyip karıştırdım.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğrusu:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Görev:</b> Etiketinde <span class="pk-satir"><svg viewBox="0 0 100 100"><use href="#g-alev"/></svg><svg viewBox="0 0 100 100"><use href="#g-unlem"/></svg></span> bulunan sıvı için önlem yaz.</p>
+      <div class="defter">
+        <div class="ogrenci">Burak’ın yorumu</div>
+        <div class="satir"><span class="sn">1</span>Alev: kolay tutuşur, ısıdan uzak tutmalıyım.</div>
+        <div class="satir"><span class="sn">2</span>Ünlem: tahriş eder, gözlük ve eldiven takarım.</div>
+        <div class="satir"><span class="sn">3</span>Kurukafa yok, yani zehirsiz; koklayıp tanırım.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğrusu:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Görev:</b> Mezürdeki suyun hacmini doğru biçimde oku.</p>
+      <div class="defter">
+        <div class="ogrenci">Cansu’nun ölçümü</div>
+        <div class="satir"><span class="sn">1</span>Mezürü düz ve sabit masaya koydum.</div>
+        <div class="satir"><span class="sn">2</span>Gözümü sıvı yüzeyinin hizasına getirdim.</div>
+        <div class="satir"><span class="sn">3</span>Menisküsün en üst kenarını okudum: 26 mL.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğrusu:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Görev:</b> Deneyden artan bakır(II) sülfat çözeltisini ne yaparsın?</p>
+      <div class="defter">
+        <div class="ogrenci">Mert’in kararı</div>
+        <div class="satir"><span class="sn">1</span>Stok şişesine geri dökmedim, kirlenmesin.</div>
+        <div class="satir"><span class="sn">2</span>Lavaboya döküp bol suyla seyrelttim.</div>
+        <div class="satir"><span class="sn">3</span>Kabımı yıkadım, kurulayıp yerine koydum.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğrusu:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Bir güvenlik kararını kontrol etmenin en hızlı yolu “Bu adım ters giderse <b>kime</b> ve <b>neye</b> zarar verir?” diye sormaktır. Cevap “bana, arkadaşıma ya da çevreye” ise o satırı bir kez daha oku.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Metni, grafiği ve tabloyu dikkatle oku; kararını bir güvenlik kuralına dayandır.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Evde temizlik</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Bir apartman görevlisi, merdivenleri daha hızlı temizlemek için çamaşır suyu ile amonyak içeren bir cam temizleyiciyi aynı kovada karıştırıyor. Kısa süre sonra gözlerinde yanma ve öksürük başlıyor.</p>
+          <p>Bu olayla ilgili;</p>
+          <div class="oncul"><div><b>I.</b><span>Karışımdan solunduğunda zararlı olan gazlar çıkmıştır.</span></div><div><b>II.</b><span>Ortamı havalandırıp kişiyi temiz havaya çıkarmak doğru ilk müdahaledir.</span></div><div><b>III.</b><span>İki ürün de temizlik maddesi olduğundan karıştırılmaları temizlik gücünü güvenle artırır.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Su analizi</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Bir belediyenin su analizi laboratuvarında, içme suyu örneğinin sertliği titrasyonla belirlenecektir. Teknisyen şu işlemleri yapacaktır:</p>
+          <div class="oncul"><div><b>I.</b><span>20,0 mL su örneğini hassas biçimde ölçüp aktarmak</span></div><div><b>II.</b><span>Örneği titrasyon boyunca çalkalanabilecek bir kapta tutmak</span></div><div><b>III.</b><span>Eklenen çözeltinin hacmini musluğu açıp kapatarak ölçmek</span></div></div>
+          <p>Bu işlemler için sırasıyla hangi malzemeler seçilmelidir?</p>
+          <div class="secenek tek"><span><b>A)</b>Pipet – Erlenmayer – Büret</span><span><b>B)</b>Mezür – Beherglas – Pipet</span><span><b>C)</b>Büret – Balon joje – Pipet</span><span><b>D)</b>Pipet – Beherglas – Mezür</span><span><b>E)</b>Balon joje – Erlenmayer – Büret</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Okul güvenliği</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>Bir okul, birinci dönemden sonra laboratuvarda gözlük takmayı zorunlu yaptı ve kırık camlar için fırça, faraş ve ayrı bir kutu koydu. İki dönemdeki küçük kaza kayıtları grafikte verilmiştir.</p>
+          <svg class="grafik" viewBox="0 0 120 64" style="margin:1mm 0 2mm">
+            <g font-family="Inter" font-size="4.2" fill="#5d6478">
+              <g stroke="#e5e7f0" stroke-width=".3"><path d="M16 12 H116"/><path d="M16 22 H116"/><path d="M16 32 H116"/><path d="M16 42 H116"/></g>
+              <path d="M16 52 H117 M16 52 V6" stroke="#1d2133" stroke-width=".5"/>
+              <text x="13" y="53.4" text-anchor="end">0</text><text x="13" y="43.4" text-anchor="end">2</text><text x="13" y="33.4" text-anchor="end">4</text><text x="13" y="23.4" text-anchor="end">6</text><text x="13" y="13.4" text-anchor="end">8</text>
+              <text x="2" y="5" fill="#1d2133" font-weight="700">Kaza sayısı</text>
+              <!-- ölçek: 1 kaza = 5 birim -->
+              <rect x="22" y="7" width="8" height="45" fill="#c26a06"/><rect x="31" y="37" width="8" height="15" fill="#0e7490"/>
+              <rect x="47" y="22" width="8" height="30" fill="#c26a06"/><rect x="56" y="32" width="8" height="20" fill="#0e7490"/>
+              <rect x="72" y="27" width="8" height="25" fill="#c26a06"/><rect x="81" y="47" width="8" height="5" fill="#0e7490"/>
+              <rect x="97" y="12" width="8" height="40" fill="#c26a06"/><rect x="106" y="42" width="8" height="10" fill="#0e7490"/>
+              <g fill="#1d2133" font-size="3.8" text-anchor="middle"><text x="26" y="6">9</text><text x="35" y="36">3</text><text x="51" y="21">6</text><text x="60" y="31">4</text><text x="76" y="26">5</text><text x="85" y="46">1</text><text x="101" y="11">8</text><text x="110" y="41">2</text></g>
+              <g text-anchor="middle" fill="#1d2133"><text x="30.5" y="57">Cam kesiği</text><text x="55.5" y="57">Isı yanığı</text><text x="80.5" y="57">Göze sıçrama</text><text x="105.5" y="57">Deriye temas</text></g>
+              <rect x="40" y="60" width="3" height="3" fill="#c26a06"/><text x="44.5" y="62.6">1. dönem</text>
+              <rect x="66" y="60" width="3" height="3" fill="#0e7490"/><text x="70.5" y="62.6">2. dönem</text>
+            </g>
+          </svg>
+          <p>Buna göre aşağıdakilerden hangisi söylenebilir?</p>
+          <div class="secenek tek"><span><b>A)</b>Her kaza türü yarı yarıya azalmıştır.</span><span><b>B)</b>Oransal olarak en büyük azalma göze sıçrama kazalarındadır.</span><span><b>C)</b>Isı yanıkları hiç azalmamıştır.</span><span><b>D)</b>2. dönemde en sık görülen kaza deriye temastır.</span><span><b>E)</b>Toplam kaza sayısı değişmemiştir.</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Kimyasal deposu</div>
+    <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+      <p>Bir boya fabrikasının deposuna dört madde gelmiştir. Maddelerin etiketlerindeki piktogramlar ve deponun matrisinden bir kesit aşağıdadır.</p>
+      <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:4mm;align-items:center">
+        <table class="tablo sik" style="margin:0">
+          <tr><th>Madde</th><th>Piktogram</th><th>Tehlike sınıfı</th></tr>
+          <tr><td><b>X</b></td><td><span class="pk-satir"><svg viewBox="0 0 100 100"><use href="#g-alev"/></svg></span></td><td>Yanıcı</td></tr>
+          <tr><td><b>Y</b></td><td><span class="pk-satir"><svg viewBox="0 0 100 100"><use href="#g-oksit"/></svg></span></td><td>Oksitleyici</td></tr>
+          <tr><td><b>Z</b></td><td><span class="pk-satir"><svg viewBox="0 0 100 100"><use href="#g-zehir"/></svg></span></td><td>Zehirli</td></tr>
+          <tr><td><b>T</b></td><td><span class="pk-satir"><svg viewBox="0 0 100 100"><use href="#g-unlem"/></svg></span></td><td>Tahriş edici</td></tr>
+        </table>
+        <div>
+          <table class="matris">
+            <tr><th></th><th class="ad" style="text-align:center">X</th><th class="ad" style="text-align:center">Y</th><th class="ad" style="text-align:center">Z</th><th class="ad" style="text-align:center">T</th></tr>
+            <tr><th class="ad">X</th><td class="h e">✔</td><td class="h x">✘</td><td class="h x">✘</td><td class="h o">!</td></tr>
+            <tr><th class="ad">Y</th><td class="h x">✘</td><td class="h e">✔</td><td class="h x">✘</td><td class="h x">✘</td></tr>
+            <tr><th class="ad">Z</th><td class="h x">✘</td><td class="h x">✘</td><td class="h e">✔</td><td class="h e">✔</td></tr>
+            <tr><th class="ad">T</th><td class="h o">!</td><td class="h x">✘</td><td class="h e">✔</td><td class="h e">✔</td></tr>
+          </table>
+          <p class="kucuk" style="margin:1mm 0 0;text-align:center">✔ birlikte saklanabilir · ✘ ayrı saklanmalı · ! özel önlemle</p>
+        </div>
+      </div>
+      <p style="margin-top:2mm">Buna göre; <b>I.</b> X ve Y aynı rafa konamaz. &nbsp;<b>II.</b> Z ve T aynı rafa konabilir. &nbsp;<b>III.</b> Y, diğer üç maddeden hiçbiriyle aynı rafa konamaz. &nbsp;yargılarından hangileri doğrudur?</p>
+      <div class="secenek bes"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, yalnızca o ipucunu oku ve yeniden düşün. Bu sorularda hesap yok; güçlü bir gerekçe var.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p>Bir öğrenci, etiketinde <span class="pk-satir"><svg viewBox="0 0 100 100"><use href="#g-alev"/></svg><svg viewBox="0 0 100 100"><use href="#g-unlem"/></svg></span> bulunan bir sıvıyı <b>bunzen bekinin alevinde, ağzı açık bir beherde</b> ısıtmayı planlıyor. Bu plandaki tehlikeleri belirle ve planı güvenli hâle getir.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Her piktogramı ayrı oku: alev neyi, ünlem neyi anlatıyor?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Yanıcı bir sıvı ısınınca buharı artar. Buhar açık alevle karşılaşırsa ne olur? Ağzı açık kap bu durumu nasıl etkiler?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Isı kaynağını değiştir (alevsiz ısıtıcı ya da sıcak su banyosu), buharı uzaklaştıracak yeri seç ve ünlem için gereken KKD’yi ekle.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p>Bir okul laboratuvarına beş kimyasal gelmiştir: <b>yanıcı</b>, <b>oksitleyici</b>, <b>zehirli</b>, <b>aşındırıcı</b> ve <b>tahriş edici</b> birer madde. Sayfa 6’daki depolama matrisine göre, “özel önlem” gerektiren eşleşmelerden de kaçınarak bu maddeler <b>en az kaç ayrı dolap bölmesine</b> yerleştirilmelidir? Bir yerleşim örneği ver.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Matriste hiçbir maddeyle ✔ alamayan (yalnız kalması gereken) maddeleri bul.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Oksitleyici herkesle ✘. Yanıcının tek olası komşusu tahriş edici, o da yalnızca “!” ile. Bu ikisi kendi bölmelerinde kalır.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Kalan üç maddeye bak: zehirli ile aşındırıcı ✘. Tahriş edici ikisiyle de ✔. Tahriş edici hangisinin yanına gidebilir?</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p>Tuzlu sudan tuz elde etmek isteyen bir grup şu planı yazıyor: “Karışımı huni ve süzgeç kâğıdıyla süzeceğiz. Süzüntüyü <b>balon jojeye</b> alıp bunzen bekinin alevinde doğrudan ısıtarak suyunu buharlaştıracağız.” Plandaki hatalı malzeme seçimini bul ve yerine ne kullanılması gerektiğini gerekçesiyle yaz.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Plandaki her malzemenin asıl görevini yaz: huni, süzgeç kâğıdı, balon joje, bunzen beki.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Balon joje ne için üretilmiştir? Hacim ölçen bir cam ısıtılırsa ne olur?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Isıya dayanıklı, geniş ağızlı (buharlaşmayı kolaylaştıran) bir kap seç ve camı alevden ayıracak düzeneği ekle.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 20 dakika. Görselleri dikkatle incele; her sorunun tek bir doğru cevabı vardır.</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <div style="display:grid;grid-template-columns:16mm 1fr;gap:3mm;align-items:center">
+          <svg viewBox="0 0 100 100" style="width:16mm"><use href="#g-oksit"/></svg>
+          <p style="margin:0">Bir kimyasalın etiketinde yandaki piktogram bulunmaktadır. Bu piktogram aşağıdakilerden hangisini anlatır?</p>
+        </div>
+        <div class="secenek"><span><b>A)</b>Yanıcı</span><span><b>B)</b>Yakıcı (oksitleyici)</span><span><b>C)</b>Patlayıcı</span><span><b>D)</b>Basınç altındaki gaz</span><span><b>E)</b>Tahriş edici</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>Aşağıdaki davranışlardan hangisi laboratuvar güvenlik kurallarına <b>uygundur</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Artan çözeltiyi temiz kalsın diye stok şişesine geri dökmek</span><span><b>B)</b>Kırılan beherin parçalarını eldivenle toplayıp normal çöpe atmak</span><span><b>C)</b>Uçucu bir çözücünün şişesini yanan bekin yanında açık bırakmak</span><span><b>D)</b>Deney tüpünü ısıtırken ağzını kendisine ve arkadaşlarına doğru tutmamak</span><span><b>E)</b>Deney bitmeden başka bir grubun deneyini izlemek için masadan ayrılmak</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <div style="display:grid;grid-template-columns:1fr 24mm;gap:3mm;align-items:center">
+          <p style="margin:0">Yandaki mezürde bulunan suyun hacmi, kurallara uygun okunduğunda kaç mL’dir? (Her küçük çizgi 1 mL’dir.)</p>
+          <svg viewBox="0 0 60 70" style="width:24mm">
+            <g font-family="Inter" font-size="5" fill="#1d2133">
+              <path d="M22.8 38 Q30 46 37.2 38 V66 H22.8 Z" fill="#bfe9f5"/>
+              <path d="M22.8 38 Q30 46 37.2 38" fill="none" stroke="#0b4655" stroke-width=".5"/>
+              <path d="M22 4 V66 M38 4 V66" stroke="#0b4655" stroke-width="1" fill="none"/>
+              <g stroke="#0b4655" stroke-width=".5"><path d="M30 18 h8"/><path d="M34 22 h4"/><path d="M34 26 h4"/><path d="M34 30 h4"/><path d="M34 34 h4"/><path d="M30 38 h8"/><path d="M34 42 h4"/><path d="M34 46 h4"/><path d="M34 50 h4"/><path d="M34 54 h4"/><path d="M30 58 h8"/></g>
+              <text x="40" y="19.6">30</text><text x="40" y="39.6">25</text><text x="40" y="59.6">20</text>
+              <path d="M4 42 h7" stroke="#0f8f84" stroke-width=".6" stroke-dasharray="1.2 .8"/>
+              <path d="M1 42 q4 -3 8 0 q-4 3 -8 0z" fill="#fff" stroke="#1d2133" stroke-width=".5"/><circle cx="5" cy="42" r="1" fill="#1d2133"/>
+            </g>
+          </svg>
+        </div>
+        <div class="secenek bes"><span><b>A)</b>22</span><span><b>B)</b>23</span><span><b>C)</b>24</span><span><b>D)</b>25</span><span><b>E)</b>26</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <table class="tablo sik" style="margin:0 0 1.6mm">
+          <tr><th>Malzeme</th><th>Kullanım amacı</th></tr>
+          <tr><td>I. Havan</td><td>a. Titrasyonda eklenen sıvının hacmini ölçmek</td></tr>
+          <tr><td>II. Ayırma hunisi</td><td>b. Katıyı ezip toz hâline getirmek</td></tr>
+          <tr><td>III. Büret</td><td>c. Birbirinde çözünmeyen sıvıları ayırmak</td></tr>
+        </table>
+        <p>Malzemeler ile kullanım amaçlarının doğru eşleştirilmesi hangisidir?</p>
+        <div class="secenek"><span><b>A)</b>I-b, II-c, III-a</span><span><b>B)</b>I-a, II-b, III-c</span><span><b>C)</b>I-b, II-a, III-c</span><span><b>D)</b>I-c, II-b, III-a</span><span><b>E)</b>I-a, II-c, III-b</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p><b>I.</b> Pipet &nbsp; <b>II.</b> Beherglas &nbsp; <b>III.</b> Balon joje &nbsp; <b>IV.</b> Erlenmayer</p>
+        <p>Yukarıdaki cam malzemelerden hangileri sıvı hacmini <b>hassas</b> ölçmek için kullanılır?</p>
+        <div class="secenek"><span><b>A)</b>I ve II</span><span><b>B)</b>I ve III</span><span><b>C)</b>II ve IV</span><span><b>D)</b>I, III ve IV</span><span><b>E)</b>I, II, III ve IV</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <div style="display:grid;grid-template-columns:1fr 14mm;gap:3mm;align-items:center">
+          <p style="margin:0">Bir lavabo açıcının ambalajında yandaki piktogram bulunmaktadır. Bu ürünle ilgili;</p>
+          <svg viewBox="0 0 100 100" style="width:14mm"><use href="#g-korozif"/></svg>
+        </div>
+        <div class="oncul"><div><b>I.</b><span>Deri ve gözle temas ederse yanık oluşturabilir.</span></div><div><b>II.</b><span>Kullanılırken eldiven ve gözlük takılmalıdır.</span></div><div><b>III.</b><span>Bu piktogram, ürünün kolayca alev aldığını gösterir.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · TEST (7–12)
+     ========================================================= -->
+<section class="sayfa cift test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>Etiketinde yalnızca <span class="pk-satir"><svg viewBox="0 0 100 100"><use href="#g-alev"/></svg></span> piktogramı bulunan aseton, aşağıdaki maddelerden hangisiyle aynı rafta saklanmaya <b>en uygundur</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Etiketinde yalnız alev piktogramı bulunan etil alkol</span><span><b>B)</b>Etiketinde daire üzerinde alev bulunan bir oksitleyici</span><span><b>C)</b>Etiketinde aşındırıcı piktogramı bulunan derişik asit</span><span><b>D)</b>Etiketinde kurukafa bulunan zehirli bir tuz</span><span><b>E)</b>Etiketinde patlayan bomba bulunan bir madde</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p>Aşağıdakilerden hangisi <b>tıbbi atık</b> sınıfına girer?</p>
+        <div class="secenek tek"><span><b>A)</b>Okul laboratuvarında artan bakır(II) sülfat çözeltisi</span><span><b>B)</b>Bitmiş kalem pil</span><span><b>C)</b>Hastanede kullanılmış enjektör ve kanlı pamuk</span><span><b>D)</b>Laboratuvarda kırılan beher parçaları</span><span><b>E)</b>Boşalmış deterjan şişesi</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>Deney sırasında bir öğrencinin gözüne kimyasal sıçramıştır. Yapılması gereken <b>ilk ve en doğru</b> davranış hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>Kimyasalı çıkarmak için gözü ovmak</span><span><b>B)</b>Gözü kapatıp ağrı geçene kadar beklemek</span><span><b>C)</b>Nötrleştirmek için göze zayıf baz damlatmak</span><span><b>D)</b>Yıkamadan önce kimyasalın adını araştırmak</span><span><b>E)</b>Göz duşunda gözü açık tutarak en az 15 dakika yıkamak</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p>Basit damıtma düzeneği ile ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>Soğutucuya su alttan girer, üstten çıkar.</span></div><div><b>II.</b><span>Termometrenin haznesi kaynayan sıvının içine daldırılır.</span></div><div><b>III.</b><span>Cam balon, alevle arasına tel kafes konarak ısıtılır.</span></div></div>
+        <p>ifadelerinden hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2mm;text-align:center;font-weight:800;color:var(--unite);font-size:9pt;margin-bottom:1.6mm">
+          <div><svg viewBox="0 0 100 100" style="width:12mm;display:block;margin:0 auto"><use href="#z-gozluk"/></svg>I</div>
+          <div><svg viewBox="0 0 100 100" style="width:12mm;display:block;margin:0 auto"><use href="#u-elektrik"/></svg>II</div>
+          <div><svg viewBox="0 0 100 100" style="width:12mm;display:block;margin:0 auto"><use href="#u-sicak"/></svg>III</div>
+          <div><svg viewBox="0 0 100 100" style="width:12mm;display:block;margin:0 auto"><use href="#z-onluk"/></svg>IV</div>
+        </div>
+        <p>Yukarıdaki işaretlerden hangileri bir tehlikeye karşı <b>uyarı</b> işaretidir?</p>
+        <div class="secenek"><span><b>A)</b>I ve II</span><span><b>B)</b>II ve III</span><span><b>C)</b>I ve IV</span><span><b>D)</b>III ve IV</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p>Piktogram ile anlamının eşleştirilmesi aşağıdakilerden hangisinde <b>yanlış</b> verilmiştir?</p>
+        <div class="secenek tek"><span><b>A)</b>Kurukafa – az miktarı bile zehirlenmeye yol açabilir.</span><span><b>B)</b>Alev – kolay tutuşur.</span><span><b>C)</b>Gaz tüpü – basınç altında gaz içerir.</span><span><b>D)</b>Ölü ağaç ve balık – su canlılarına zararlıdır.</span><span><b>E)</b>Ünlem işareti – darbe ve kıvılcımla patlar.</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#f4fbfd;margin-top:2mm">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: özet sayfasını ve Hata Avcısı’nı tekrar et · 6 ve altı: 4. ve 6. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">14</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 15 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Güvenlik</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>B</span></div><div><b>2</b><span>D</span></div><div><b>3</b><span>C</span></div><div><b>4</b><span>A</span></div>
+    <div><b>5</b><span>B</span></div><div><b>6</b><span>C</span></div><div><b>7</b><span>A</span></div><div><b>8</b><span>C</span></div>
+    <div><b>9</b><span>E</span></div><div><b>10</b><span>D</span></div><div><b>11</b><span>B</span></div><div><b>12</b><span>E</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · B</b> Daire üzerinde alev, yanmayı başlatan ya da şiddetlendiren oksitleyici maddeyi gösterir. Yalnız alev (A) yanıcıdır.</div>
+    <div class="c"><b>2 · D</b> Tüpün ağzı kimseye yöneltilmez. A stok şişeyi kirletir, B’de cam fırça-faraşla alınıp kırık cam kutusuna atılmalıdır, C yangın riski, E deneyi terk etmektir.</div>
+    <div class="c"><b>3 · C</b> Göz menisküs hizasında; çukurun alt noktası 24 mL çizgisinde. Kenarlar 25’e tırmanır, 25 okumak yaygın hatadır.</div>
+    <div class="c"><b>4 · A</b> Havan ezer (b), ayırma hunisi karışmayan sıvıları ayırır (c), büret titrasyonda hacim ölçer (a).</div>
+    <div class="c"><b>5 · B</b> Pipet ve balon joje hassastır. Beher ve erlen üzerindeki çizgiler yaklaşık değer verir.</div>
+    <div class="c"><b>6 · C</b> Aşındırıcı piktogramı deri, göz ve metal hasarını anlatır (I ✓); KKD gerekir (II ✓). Tutuşma alev piktogramıyla gösterilir (III ✗).</div>
+    <div class="c"><b>7 · A</b> Aynı tehlike sınıfındaki yanıcılar birlikte saklanabilir. Yanıcı; oksitleyici, aşındırıcı, zehirli ve patlayıcı maddelerden ayrı tutulur.</div>
+    <div class="c"><b>8 · C</b> Enfeksiyon riski taşıyan sağlık atığı tıbbi atıktır. A kimyasal atık, B ve D ayrı toplanan atık, E ambalaj atığıdır.</div>
+    <div class="c"><b>9 · E</b> İlk adım bol sudur. Ovmak yarayı büyütür, baz damlatmak ikinci bir yanık yapar, beklemek ve araştırmak zaman kaybettirir.</div>
+    <div class="c"><b>10 · D</b> I ✓ (ceket tam dolar, ters akış iyi soğutur). II ✗: hazne yan boru hizasında, buharın sıcaklığını ölçer. III ✓.</div>
+    <div class="c"><b>11 · B</b> Sarı üçgenler (elektrik, sıcak yüzey) uyarıdır. Mavi daireler (gözlük, önlük) zorunluluk işaretidir.</div>
+    <div class="c"><b>12 · E</b> Ünlem, tahriş edici ve zararlı maddeleri gösterir. Patlamayı anlatan piktogram patlayan bombadır.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> Çamaşır suyu ile amonyak tepkimeye girerek solunduğunda zararlı gazlar (kloraminler) oluşturur (I ✓). İlk müdahale temiz havadır (II ✓). Temizlik ürünleri karıştırılmaz (III ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · A</b> Hassas hacim → pipet; çalkalanan kap → erlenmayer; musluklu hacim ölçümü → büret. Balon joje tek bir sabit hacmi ölçer, 20,0 mL aktarmak için kullanılmaz.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · B</b> Azalma oranları: kesik 9→3 (%67), yanık 6→4 (%33), göz 5→1 (%80), deri 8→2 (%75). Toplam 28→10. 2. dönemde en sık kaza ısı yanığıdır (4).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · E</b> X–Y ✘ (I ✓). Z–T ✔ (II ✓). Y’nin satırında yalnız kendisiyle ✔ var (III ✓).</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1</b> Alev: madde yanıcıdır; ısınınca çıkan buhar açık alevde tutuşabilir, ağzı açık kap buharı serbest bırakır. Güvenli plan: alevsiz ısıtıcı ya da sıcak su banyosu, çeker ocak veya iyi havalandırma, ağzı gevşek örtülü kap, ortamda başka alev yok. Ünlem için gözlük, eldiven, önlük.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2 · En az 4 bölme</b> [oksitleyici] · [yanıcı] · [zehirli + tahriş edici] · [aşındırıcı]. Ya da tahriş edici aşındırıcının yanına: [zehirli] · [aşındırıcı + tahriş edici].</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3</b> Hata balon jojededir: hacim ölçen cam ısıtılmaz; genleşir, ölçüsü bozulur, kırılabilir. Süzüntü beher ya da porselen kaba (kroze) alınır; kap sacayağındaki tel kafes üzerinde ısıtılır.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 3</b> Su aside eklenmez. Behere önce su konur, asit suya yavaşça ve karıştırarak eklenir.</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 3</b> Kurukafa olmaması zararsızlık demek değildir; ünlem zaten tahriş uyarısıdır. Kimyasal koklanarak tanınmaz.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 3</b> Su çukur menisküs oluşturur; çukurun en alt noktası okunur. Üst kenar okunursa sonuç olduğundan büyük çıkar.</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 2</b> Bakır(II) sülfat çevreye zararlıdır; seyreltmek onu zararsız yapmaz. Etiketli atık toplama kabına konur.</div>
+
+    <div class="coz-baslik" style="--renk:var(--unite)">Mini etkinlikler</div>
+    <div class="c"><b>1 · D/Y</b> a Y · b D · c D · d Y · e Y · f D</div>
+    <div class="c"><b>2 · Eşleştir</b> 1-c · 2-e · 3-d · 4-b · 5-a</div>
+    <div class="c"><b>3 · Boşluk</b> 1 ayırma hunisi · 2 soğutucu · 3 kroze · 4 havan · 5 spor (saat camı artar)</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Güvenlik</span><span class="no">15</span></div>
+</section>
+
+</body>
+</html>
