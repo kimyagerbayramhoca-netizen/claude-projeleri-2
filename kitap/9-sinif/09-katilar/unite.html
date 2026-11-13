@@ -1,0 +1,1150 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Katılar ve Özellikleri · Kimya Rotası 9</title>
+<style>
+/* ==========================================================
+   KİMYA ROTASI — ortak sayfa ve kutu tasarımı (A4, baskı)
+   Her ünite kendi --unite rengini <body style> ile verir.
+   ========================================================== */
+
+@page { size: A4; margin: 0; }
+
+:root {
+  --unite: #4338ca;          /* ünite kimlik rengi (mol: indigo) */
+  --unite-acik: #eef0ff;
+  --unite-koyu: #2a2380;
+  --vurgu: #f59e0b;          /* ikincil vurgu (amber) */
+
+  --kavram: #4f46e5;   --kavram-bg: #eef2ff;
+  --hayat: #c26a06;    --hayat-bg: #fff6e5;
+  --dikkat: #e11d48;   --dikkat-bg: #fff1f3;
+  --ornek: #0f8f84;    --ornek-bg: #eafaf7;
+  --ipucu: #7c3aed;    --ipucu-bg: #f4f0ff;
+  --hata: #ea580c;     --hata-bg: #fff4ec;
+
+  --metin: #1d2133;
+  --soluk: #5d6478;
+  --cizgi: #dfe3ee;
+  --kagit: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Inter", "DejaVu Sans", sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.5;
+  color: var(--metin);
+  background: #8a8fa3;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* ---------- Sayfa ---------- */
+.sayfa {
+  width: 210mm; height: 297mm;
+  position: relative; overflow: hidden;
+  background: var(--kagit);
+  padding: 22mm 16mm 18mm 16mm;
+  page-break-after: always; break-after: page;
+  margin: 0 auto;
+}
+@media screen { .sayfa { margin: 8mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.25); } }
+
+.ust-serit {
+  position: absolute; top: 0; left: 0; right: 0; height: 13mm;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16mm; font-size: 8pt; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--unite-koyu); font-weight: 600;
+  border-bottom: 1.2mm solid var(--unite);
+  background: linear-gradient(90deg, var(--unite-acik), #fff 70%);
+}
+.ust-serit .baslik-k { display: flex; gap: 3mm; align-items: center; }
+.ust-serit .nokta { width: 2.4mm; height: 2.4mm; border-radius: 50%; background: var(--vurgu); }
+
+.alt-bilgi {
+  position: absolute; bottom: 5mm; left: 16mm; right: 16mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 7.5pt; color: var(--soluk);
+}
+.alt-bilgi .no {
+  min-width: 7.5mm; height: 7.5mm; border-radius: 50%;
+  background: var(--unite); color: #fff; font-weight: 700; font-size: 8.4pt;
+  display: grid; place-items: center;
+}
+.sayfa.cift .alt-bilgi { flex-direction: row-reverse; }
+
+/* ---------- Başlıklar ---------- */
+h1, h2, h3, h4 { font-family: "Inter Display", "Inter", sans-serif; margin: 0; line-height: 1.15; }
+h2.konu {
+  font-size: 21pt; font-weight: 800; color: var(--unite-koyu);
+  display: flex; align-items: baseline; gap: 3.5mm; margin-bottom: 1.5mm;
+}
+h2.konu .num {
+  font-size: 11pt; font-weight: 700; color: #fff; background: var(--unite);
+  padding: .6mm 2.6mm; border-radius: 2mm; transform: translateY(-1mm);
+}
+.alt-baslik { color: var(--soluk); font-size: 10pt; margin-bottom: 5mm; }
+h3 {
+  font-size: 13pt; font-weight: 750; color: var(--unite-koyu);
+  margin: 4.5mm 0 2mm; display: flex; align-items: center; gap: 2.2mm;
+}
+h3::before { content: ""; width: 1.4mm; height: 5mm; background: var(--vurgu); border-radius: 1mm; }
+p { margin: 0 0 2.4mm; }
+ul { margin: 0 0 2.4mm; padding-left: 5mm; }
+li { margin-bottom: 1mm; }
+b, strong { font-weight: 700; }
+.vurgu { background: linear-gradient(transparent 58%, #fde68a 58%); padding: 0 .5mm; }
+.k { color: var(--unite); font-weight: 700; }
+.kucuk { font-size: 8.6pt; color: var(--soluk); }
+.ortala { text-align: center; }
+
+/* Kimyasal formül ve üs */
+.f { white-space: nowrap; font-weight: 600; }
+sub, sup { font-size: 68%; line-height: 0; }
+.izotop { display: inline-flex; align-items: center; white-space: nowrap; font-weight: 600; }
+.izotop .yz { display: inline-flex; flex-direction: column; font-size: 62%; line-height: 1.05; text-align: right; margin-right: .3mm; font-weight: 600; }
+
+/* ---------- Izgara ---------- */
+.iki { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.iki-genis { display: grid; grid-template-columns: 1.25fr 1fr; gap: 5mm; }
+.uc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.dort { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+
+/* ---------- Kutular ---------- */
+.kutu {
+  border-radius: 3mm; padding: 3.2mm 4mm 3mm; margin: 0 0 3.5mm;
+  position: relative; break-inside: avoid;
+  background: var(--bg); border: .35mm solid color-mix(in srgb, var(--renk) 30%, #fff);
+}
+.kutu > .etiket {
+  display: inline-flex; align-items: center; gap: 1.6mm;
+  font-family: "Inter Display", sans-serif;
+  font-size: 7.6pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--renk);
+  padding: .7mm 2.4mm .7mm 1.6mm; border-radius: 1.4mm; margin-bottom: 2mm;
+}
+.kutu > .etiket svg { width: 3.4mm; height: 3.4mm; }
+.kutu p:last-child, .kutu ul:last-child { margin-bottom: 0; }
+.kavram { --renk: var(--kavram); --bg: var(--kavram-bg); }
+.hayat  { --renk: var(--hayat);  --bg: var(--hayat-bg); }
+.dikkat { --renk: var(--dikkat); --bg: var(--dikkat-bg); }
+.ornek  { --renk: var(--ornek);  --bg: var(--ornek-bg); }
+.ipucu  { --renk: var(--ipucu);  --bg: var(--ipucu-bg); }
+.hata   { --renk: var(--hata);   --bg: var(--hata-bg); }
+.duz    { --renk: var(--unite);  --bg: #fff; }
+
+.kutu.serit { border: none; border-left: 1.4mm solid var(--renk); border-radius: 0 3mm 3mm 0; }
+
+/* Yanılgı kartı: yanlış / doğru */
+.yanilgi { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-top: 1mm; }
+.yanilgi > div { border-radius: 2mm; padding: 2mm 2.6mm; font-size: 9.2pt; line-height: 1.4; }
+.yanilgi .yanlis { background: #fff; border: .3mm dashed var(--dikkat); }
+.yanilgi .dogru { background: #fff; border: .3mm solid var(--ornek); }
+.yanilgi b.y { color: var(--dikkat); }
+.yanilgi b.d { color: var(--ornek); }
+
+/* Çözümlü örnek */
+.ornek .soru { font-weight: 600; margin-bottom: 2mm; }
+.cozum { background: #fff; border-radius: 2mm; padding: 2.2mm 3mm; font-size: 9.4pt; }
+.cozum .adim { display: grid; grid-template-columns: 5mm 1fr; gap: 1.6mm; margin-bottom: 1.1mm; align-items: start; }
+.cozum .adim .n {
+  width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--ornek); color: #fff;
+  font-size: 7pt; font-weight: 700; display: grid; place-items: center; margin-top: .4mm;
+}
+.sonuc {
+  display: inline-block; margin-top: .8mm; font-weight: 700; color: var(--ornek);
+  border: .35mm solid var(--ornek); border-radius: 1.5mm; padding: .2mm 2mm;
+}
+.denklem {
+  font-family: "Inter", sans-serif; font-weight: 600; text-align: center;
+  font-size: 11pt; padding: 1.5mm 0; color: var(--unite-koyu);
+}
+.kesir { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 1mm; line-height: 1.2; }
+.kesir > span:first-child { border-bottom: .3mm solid currentColor; padding: 0 1mm; }
+.kesir > span:last-child { padding: 0 1mm; }
+
+/* Tablo */
+table.tablo { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9.2pt; margin: 1mm 0 3mm; }
+table.tablo th { background: var(--unite); color: #fff; font-weight: 700; padding: 1.6mm 2mm; text-align: left; }
+table.tablo th:first-child { border-top-left-radius: 2mm; }
+table.tablo th:last-child { border-top-right-radius: 2mm; }
+table.tablo td { padding: 1.6mm 2mm; border-bottom: .3mm solid var(--cizgi); }
+table.tablo tr:nth-child(even) td { background: #f7f8fc; }
+
+/* ---------- Soru düzeni ---------- */
+.soru-blok { break-inside: avoid; margin-bottom: 4.5mm; }
+.soru-ust { display: flex; gap: 2.4mm; align-items: flex-start; }
+.soru-no {
+  flex: none; width: 7.5mm; height: 7.5mm; border-radius: 2mm;
+  background: var(--unite); color: #fff; font-weight: 800; font-size: 10pt;
+  display: grid; place-items: center; font-family: "Inter Display", sans-serif;
+}
+.soru-metin { flex: 1; }
+.secenek { display: grid; grid-template-columns: 1fr 1fr; gap: .8mm 4mm; margin-top: 1.6mm; font-size: 9.6pt; }
+.secenek.tek { grid-template-columns: 1fr; }
+.secenek.bes { grid-template-columns: repeat(5, 1fr); }
+.secenek span b { color: var(--unite); margin-right: 1mm; }
+.oncul { margin: 1mm 0 1mm 1mm; }
+.oncul div { display: grid; grid-template-columns: 7mm 1fr; }
+.oncul div > b:first-child { color: var(--unite); }
+.veri { font-size: 8.4pt; color: var(--soluk); font-style: italic; }
+
+.etiket-soru svg { width: 3mm; height: 3mm; }
+.etiket-soru {
+  display: inline-flex; gap: 1.4mm; align-items: center;
+  font-size: 7pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  padding: .5mm 2mm; border-radius: 10mm; margin-bottom: 1.2mm;
+  color: var(--renk); background: var(--bg); border: .3mm solid var(--renk);
+}
+.zorluk { display: inline-flex; gap: .7mm; margin-left: 1.2mm; vertical-align: middle; }
+.zorluk i { width: 1.9mm; height: 1.9mm; border-radius: 50%; background: #d8dbe6; display: inline-block; }
+.zorluk i.d { background: var(--vurgu); }
+
+/* Bölüm kapağı tipi sayfa başı bandı */
+.bant {
+  margin: 0 -16mm 5mm; padding: 5mm 16mm 4mm; color: #fff;
+  background: linear-gradient(110deg, var(--renk, var(--unite)) 0%, color-mix(in srgb, var(--renk, var(--unite)) 70%, #000) 100%);
+  position: relative; overflow: hidden;
+}
+.bant h2 { font-size: 22pt; font-weight: 850; color: #fff; }
+.bant p { margin: 1mm 0 0; opacity: .92; font-size: 9.6pt; max-width: 135mm; }
+.bant .ikon-buyuk { position: absolute; right: 14mm; top: 50%; transform: translateY(-50%); opacity: .95; }
+
+/* Hata avcısı defter kartı */
+.defter {
+  background:
+    repeating-linear-gradient(transparent 0 6.1mm, #c9d6ee 6.1mm 6.4mm),
+    #fffef8;
+  border-radius: 2mm; padding: 1.2mm 4mm 1.6mm 14mm; position: relative;
+  font-family: "Caladea", "Bitstream Charter", serif; font-style: italic; font-size: 11pt;
+  line-height: 6.4mm; color: #24356b; border: .3mm solid #e6e1cc;
+}
+.defter::before { content: ""; position: absolute; left: 10mm; top: 0; bottom: 0; width: .35mm; background: #f2a7a7; }
+.defter .satir { position: relative; }
+.defter .satir .sn { position: absolute; left: -9.5mm; font-family: "Inter", sans-serif; font-style: normal; font-size: 7pt; color: #9aa3b8; font-weight: 700; }
+.defter .ogrenci { font-family: "Inter", sans-serif; font-style: normal; font-size: 7.2pt; color: var(--soluk); letter-spacing: .05em; text-transform: uppercase; }
+.duzelt {
+  border: .35mm dashed var(--hata); border-radius: 2mm; min-height: 26mm; margin-top: 2mm;
+  padding: 1.6mm 3mm; font-size: 8.4pt; color: var(--hata); font-weight: 600; background: #fff;
+}
+.sorgu { display: flex; gap: 2mm; flex-wrap: wrap; margin-top: 1.6mm; }
+.sorgu span { font-size: 8.2pt; background: #fff; border: .3mm solid var(--hata); color: var(--hata); border-radius: 10mm; padding: .2mm 2.2mm; font-weight: 600; }
+
+/* İpucu merdiveni */
+.merdiven { display: grid; gap: 1.8mm; margin-top: 2mm; }
+.basamak {
+  display: grid; grid-template-columns: 17mm 1fr; align-items: stretch;
+  border-radius: 2mm; overflow: hidden; background: #fff; border: .3mm solid #ddd3fb;
+}
+.basamak .bas {
+  background: var(--ipucu); color: #fff; font-size: 7pt; font-weight: 800; letter-spacing: .06em;
+  display: grid; place-items: center; text-align: center; line-height: 1.15; padding: 1mm;
+}
+.basamak:nth-child(2) .bas { background: #9061f0; }
+.basamak:nth-child(3) .bas { background: #a985f5; }
+.basamak .ic { padding: 1.6mm 3mm; font-size: 9.2pt; }
+.basamak:nth-child(2) { margin-left: 6mm; }
+.basamak:nth-child(3) { margin-left: 12mm; }
+.cevap-alani { border: .3mm dashed #b9a6f3; border-radius: 2mm; height: 24mm; margin-top: 2mm; background: #fff;
+  font-size: 7.6pt; color: #8b74d6; padding: 1mm 2.6mm; font-weight: 700; letter-spacing: .06em; }
+
+/* Öz değerlendirme */
+.kontrol { list-style: none; padding: 0; }
+.kontrol li { display: grid; grid-template-columns: 6mm 1fr auto; gap: 2mm; align-items: center; padding: 1.3mm 0; border-bottom: .3mm dotted var(--cizgi); font-size: 9.3pt; }
+.kontrol .kare { width: 4mm; height: 4mm; border: .4mm solid var(--unite); border-radius: 1mm; }
+.kontrol .yuz { display: flex; gap: 1.4mm; font-size: 7.4pt; color: var(--soluk); }
+.kontrol .yuz span { border: .3mm solid var(--cizgi); border-radius: 1mm; padding: 0 1.4mm; }
+
+/* Cevap anahtarı */
+.anahtar { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.4mm; margin-bottom: 4mm; }
+.anahtar div { border: .35mm solid var(--unite); border-radius: 1.6mm; text-align: center; overflow: hidden; font-size: 9pt; }
+.anahtar div b { display: block; background: var(--unite); color: #fff; font-size: 7.6pt; }
+.anahtar div span { display: block; font-weight: 800; color: var(--unite-koyu); padding: .6mm 0; }
+.coz-liste { columns: 2; column-gap: 6mm; font-size: 8.5pt; line-height: 1.42; }
+.coz-liste .c { break-inside: avoid; margin-bottom: 2.4mm; padding-left: 2.4mm; border-left: .6mm solid var(--renk, var(--unite)); }
+.coz-liste .c b:first-child { color: var(--renk, var(--unite)); }
+.coz-baslik { font-size: 9pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--renk, var(--unite)); margin: 2mm 0 1.4mm; column-span: all; }
+
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite: #475569; --unite-acik: #f1f4f8; --unite-koyu: #273242; }
+.kapak { padding: 0; background: #1b2330; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 30mm; font-size: 11pt; font-weight: 700; color: #fbbf24; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 58pt; font-weight: 900; letter-spacing: -.02em; line-height: .95; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 10mm; display: inline-flex; align-items: baseline; gap: 3mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 26pt; font-weight: 800; color: #fbbf24; white-space: nowrap; }
+.kapak .avo span { font-size: 9pt; opacity: .85; max-width: 64mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.4pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #cfd5de; padding: .9mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.grafik { width: 100%; height: auto; display: block; }
+.grafik-kutu { border: .3mm solid var(--cizgi); border-radius: 3mm; padding: 2mm 2.4mm 1.4mm; background: #fff; margin-bottom: 3.5mm; }
+.grafik-kutu .gb { font-size: 8pt; font-weight: 700; color: var(--unite-koyu); letter-spacing: .04em; margin-bottom: .6mm; }
+.grafik-kutu .ga { font-size: 7.8pt; color: var(--soluk); line-height: 1.3; margin-top: .6mm; }
+.hatirlat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.4mm; margin: 1mm 0 3.5mm; }
+.hatirlat div { background: var(--unite-acik); border-radius: 2.4mm; padding: 2mm 2.4mm; font-size: 8.4pt; line-height: 1.35; }
+.hatirlat b { display: block; color: var(--unite-koyu); font-size: 9pt; }
+.ozellik { list-style: none; padding: 0; margin: 0 0 2.4mm; font-size: 9.4pt; }
+.ozellik li { padding-left: 5mm; position: relative; margin-bottom: 1.1mm; }
+.ozellik li::before { content: ""; position: absolute; left: .6mm; top: 1.7mm; width: 2.2mm; height: 2.2mm; border-radius: .6mm; background: var(--unite); transform: rotate(45deg); }
+.agac { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.4mm; margin-top: 1.6mm; }
+.agac div { border-radius: 2.4mm; padding: 1.8mm 2.2mm; font-size: 8.3pt; line-height: 1.3; color: #fff; background: var(--r); }
+.agac div b { display: block; font-size: 9.2pt; }
+table.tablo.sik td, table.tablo.sik th { padding: 1mm 2mm; }
+table.tablo td.on, table.tablo th.on { text-align: center; }
+table.tablo.kars td:first-child { font-weight: 700; color: var(--unite-koyu); background: var(--unite-acik); }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; }
+.test.devam .iki { min-height: 212mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 44mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.hata-sayfa .duzelt { min-height: 20mm; }
+.hata-sayfa .soru-blok { margin-bottom: 3mm; }
+.ipucu-sayfa .cevap-alani { height: 21mm; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="80%" cy="18%" r="80%"><stop offset="0" stop-color="#64748b"/><stop offset=".5" stop-color="#475569"/><stop offset="1" stop-color="#1b2330"/></radialGradient>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+    <!-- kaya tuzu örgüsü motifi -->
+    <g transform="translate(116,62)">
+      <g stroke="#ffffff" stroke-opacity=".22" stroke-width=".35" fill="none">
+        <path d="M0 0 H72 M0 18 H72 M0 36 H72 M0 54 H72 M0 72 H72 M0 0 V72 M18 0 V72 M36 0 V72 M54 0 V72 M72 0 V72"/>
+        <path d="M0 0 L12 -9 H84 V63 L72 72 M72 0 L84 -9 M18 0 L30 -9 M36 0 L48 -9 M54 0 L66 -9 M72 18 L84 9 M72 36 L84 27 M72 54 L84 45" stroke-opacity=".14"/>
+      </g>
+      <g fill="#34d399" fill-opacity=".55">
+        <circle cx="0" cy="0" r="4.4"/><circle cx="36" cy="0" r="4.4"/><circle cx="72" cy="0" r="4.4"/>
+        <circle cx="18" cy="18" r="4.4"/><circle cx="54" cy="18" r="4.4"/>
+        <circle cx="0" cy="36" r="4.4"/><circle cx="36" cy="36" r="4.4"/><circle cx="72" cy="36" r="4.4"/>
+        <circle cx="18" cy="54" r="4.4"/><circle cx="54" cy="54" r="4.4"/>
+        <circle cx="0" cy="72" r="4.4"/><circle cx="36" cy="72" r="4.4"/><circle cx="72" cy="72" r="4.4"/>
+      </g>
+      <g fill="#c4b5fd" fill-opacity=".75">
+        <circle cx="18" cy="0" r="2.6"/><circle cx="54" cy="0" r="2.6"/>
+        <circle cx="0" cy="18" r="2.6"/><circle cx="36" cy="18" r="2.6"/><circle cx="72" cy="18" r="2.6"/>
+        <circle cx="18" cy="36" r="2.6"/><circle cx="54" cy="36" r="2.6"/>
+        <circle cx="0" cy="54" r="2.6"/><circle cx="36" cy="54" r="2.6"/><circle cx="72" cy="54" r="2.6"/>
+        <circle cx="18" cy="72" r="2.6"/><circle cx="54" cy="72" r="2.6"/>
+      </g>
+      <circle cx="36" cy="36" r="9" fill="none" stroke="#fbbf24" stroke-width=".6"/>
+    </g>
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="13">
+      <text x="-6" y="170">iyonik · moleküler · kovalent · metalik</text>
+      <text x="-26" y="187">kristal · amorf · kristal · amorf · kristal</text>
+      <text x="-12" y="204">metalik · iyonik · moleküler · kovalent</text>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 9. Sınıf</span><span>Tema 2 · Bölüm 4</span></div>
+    <div class="bolum">Bölüm 4 · Etkileşimden Maddeye</div>
+    <h1>Katılar ve<br>Özellikleri</h1>
+    <div class="slogan">Tanecikler nasıl dizilirse katı öyle davranır</div>
+    <div class="avo"><b>801 °C</b><span>Sofra tuzunun erime noktası: Na<sup>+</sup> ve Cl<sup>−</sup> iyonlarını kristalde bir arada tutan çekimin gücü.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Katı hâl: amorf ve kristal</span><span>2</span></li>
+          <li><span>2 · İyonik katılar</span><span>3</span></li>
+          <li><span>3 · Moleküler katılar</span><span>4</span></li>
+          <li><span>4 · Kovalent ağ katılar ve allotropi</span><span>5</span></li>
+          <li><span>5 · Metalik katılar</span><span>6</span></li>
+          <li><span>6 · Katıları karşılaştırma ve tanıma</span><span>7</span></li>
+          <li><span>Tek sayfada katılar</span><span>8</span></li>
+          <li><span>Hata Avcısı</span><span>9</span></li>
+          <li><span>Bağlam temelli sorular</span><span>10</span></li>
+          <li><span>İpucu Merdiveni</span><span>11</span></li>
+          <li><span>Bölüm testi</span><span>12</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>14</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg></i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg></i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M8 8l5 5M13 8l-5 5"/></svg></i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v18M17 3v18M7 8h10M7 13h10M7 18h10"/></svg></i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Amorf ve kristal katıları tanecik düzenine göre ayırt edeceksin.</li>
+          <li>Kristal katıları dört türe ayırıp tanecikleri tutan kuvveti söyleyeceksin.</li>
+          <li>Erime noktası, sertlik ve iletkenliği yapıyla gerekçelendireceksin.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · AMORF VE KRİSTAL
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Katılar ve Özellikleri</span><span>Amorf ve kristal</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Katı hâl: amorf ve kristal</h2>
+  <div class="alt-baslik">Maddenin en düzenli ve en düşük enerjili hâli: ama her katı aynı ölçüde düzenli değildir.</div>
+
+  <p>Katılarda tanecikler (atom, iyon ya da molekül) birbirine çok yakındır ve aralarındaki çekim onları yerlerinde tutar. Tanecikler yer değiştiremez, yalnızca bulundukları yerde <b>titreşir</b>.</p>
+  <div class="hatirlat">
+    <div><b>Belirli şekil</b>Kabın şeklini almaz.</div>
+    <div><b>Belirli hacim</b>Hacmi değişmez.</div>
+    <div><b>Sıkıştırılamaz</b>Boşluk çok azdır.</div>
+    <div><b>Yalnızca titreşim</b>Öteleme yapmaz.</div>
+  </div>
+
+  <div class="grafik-kutu"><div class="gb">Aynı bileşim, iki farklı düzen: silisyum dioksit (<span class="f">SiO<sub>2</sub></span>)</div><svg viewBox="0 0 180 53" class="grafik"><g font-family="Inter" text-anchor="middle"><rect x="1" y="1" width="86" height="39" rx="3" fill="#f1f4f8"/><rect x="93" y="1" width="86" height="39" rx="3" fill="#fbf7f0"/><line x1="6.0" y1="5.0" x2="13.0" y2="5.0" stroke="#94a3b8" stroke-width=".55"/><line x1="13.0" y1="5.0" x2="16.5" y2="11.1" stroke="#94a3b8" stroke-width=".55"/><line x1="16.5" y1="11.1" x2="23.5" y2="11.1" stroke="#94a3b8" stroke-width=".55"/><line x1="16.5" y1="11.1" x2="13.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="23.5" y1="11.1" x2="27.0" y2="5.0" stroke="#94a3b8" stroke-width=".55"/><line x1="23.5" y1="11.1" x2="27.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="27.0" y1="5.0" x2="34.0" y2="5.0" stroke="#94a3b8" stroke-width=".55"/><line x1="34.0" y1="5.0" x2="37.5" y2="11.1" stroke="#94a3b8" stroke-width=".55"/><line x1="37.5" y1="11.1" x2="44.5" y2="11.1" stroke="#94a3b8" stroke-width=".55"/><line x1="37.5" y1="11.1" x2="34.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="44.5" y1="11.1" x2="48.0" y2="5.0" stroke="#94a3b8" stroke-width=".55"/><line x1="44.5" y1="11.1" x2="48.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="48.0" y1="5.0" x2="55.0" y2="5.0" stroke="#94a3b8" stroke-width=".55"/><line x1="55.0" y1="5.0" x2="58.5" y2="11.1" stroke="#94a3b8" stroke-width=".55"/><line x1="58.5" y1="11.1" x2="65.5" y2="11.1" stroke="#94a3b8" stroke-width=".55"/><line x1="58.5" y1="11.1" x2="55.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="65.5" y1="11.1" x2="69.0" y2="5.0" stroke="#94a3b8" stroke-width=".55"/><line x1="65.5" y1="11.1" x2="69.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="69.0" y1="5.0" x2="76.0" y2="5.0" stroke="#94a3b8" stroke-width=".55"/><line x1="76.0" y1="5.0" x2="79.5" y2="11.1" stroke="#94a3b8" stroke-width=".55"/><line x1="79.5" y1="11.1" x2="76.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="6.0" y1="17.1" x2="13.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="13.0" y1="17.1" x2="16.5" y2="23.2" stroke="#94a3b8" stroke-width=".55"/><line x1="16.5" y1="23.2" x2="23.5" y2="23.2" stroke="#94a3b8" stroke-width=".55"/><line x1="16.5" y1="23.2" x2="13.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="23.5" y1="23.2" x2="27.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="23.5" y1="23.2" x2="27.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="27.0" y1="17.1" x2="34.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="34.0" y1="17.1" x2="37.5" y2="23.2" stroke="#94a3b8" stroke-width=".55"/><line x1="37.5" y1="23.2" x2="44.5" y2="23.2" stroke="#94a3b8" stroke-width=".55"/><line x1="37.5" y1="23.2" x2="34.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="44.5" y1="23.2" x2="48.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="44.5" y1="23.2" x2="48.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="48.0" y1="17.1" x2="55.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="55.0" y1="17.1" x2="58.5" y2="23.2" stroke="#94a3b8" stroke-width=".55"/><line x1="58.5" y1="23.2" x2="65.5" y2="23.2" stroke="#94a3b8" stroke-width=".55"/><line x1="58.5" y1="23.2" x2="55.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="65.5" y1="23.2" x2="69.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="65.5" y1="23.2" x2="69.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="69.0" y1="17.1" x2="76.0" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="76.0" y1="17.1" x2="79.5" y2="23.2" stroke="#94a3b8" stroke-width=".55"/><line x1="79.5" y1="23.2" x2="76.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="6.0" y1="29.2" x2="13.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="13.0" y1="29.2" x2="16.5" y2="35.3" stroke="#94a3b8" stroke-width=".55"/><line x1="16.5" y1="35.3" x2="23.5" y2="35.3" stroke="#94a3b8" stroke-width=".55"/><line x1="23.5" y1="35.3" x2="27.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="27.0" y1="29.2" x2="34.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="34.0" y1="29.2" x2="37.5" y2="35.3" stroke="#94a3b8" stroke-width=".55"/><line x1="37.5" y1="35.3" x2="44.5" y2="35.3" stroke="#94a3b8" stroke-width=".55"/><line x1="44.5" y1="35.3" x2="48.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="48.0" y1="29.2" x2="55.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="55.0" y1="29.2" x2="58.5" y2="35.3" stroke="#94a3b8" stroke-width=".55"/><line x1="58.5" y1="35.3" x2="65.5" y2="35.3" stroke="#94a3b8" stroke-width=".55"/><line x1="65.5" y1="35.3" x2="69.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="69.0" y1="29.2" x2="76.0" y2="29.2" stroke="#94a3b8" stroke-width=".55"/><line x1="76.0" y1="29.2" x2="79.5" y2="35.3" stroke="#94a3b8" stroke-width=".55"/><circle cx="9.5" cy="5.0" r="1.25" fill="#e11d48"/><circle cx="14.8" cy="8.0" r="1.25" fill="#e11d48"/><circle cx="20.0" cy="11.1" r="1.25" fill="#e11d48"/><circle cx="14.8" cy="14.1" r="1.25" fill="#e11d48"/><circle cx="25.2" cy="8.0" r="1.25" fill="#e11d48"/><circle cx="25.2" cy="14.1" r="1.25" fill="#e11d48"/><circle cx="30.5" cy="5.0" r="1.25" fill="#e11d48"/><circle cx="35.8" cy="8.0" r="1.25" fill="#e11d48"/><circle cx="41.0" cy="11.1" r="1.25" fill="#e11d48"/><circle cx="35.8" cy="14.1" r="1.25" fill="#e11d48"/><circle cx="46.2" cy="8.0" r="1.25" fill="#e11d48"/><circle cx="46.2" cy="14.1" r="1.25" fill="#e11d48"/><circle cx="51.5" cy="5.0" r="1.25" fill="#e11d48"/><circle cx="56.8" cy="8.0" r="1.25" fill="#e11d48"/><circle cx="62.0" cy="11.1" r="1.25" fill="#e11d48"/><circle cx="56.8" cy="14.1" r="1.25" fill="#e11d48"/><circle cx="67.2" cy="8.0" r="1.25" fill="#e11d48"/><circle cx="67.2" cy="14.1" r="1.25" fill="#e11d48"/><circle cx="72.5" cy="5.0" r="1.25" fill="#e11d48"/><circle cx="77.8" cy="8.0" r="1.25" fill="#e11d48"/><circle cx="77.8" cy="14.1" r="1.25" fill="#e11d48"/><circle cx="9.5" cy="17.1" r="1.25" fill="#e11d48"/><circle cx="14.8" cy="20.2" r="1.25" fill="#e11d48"/><circle cx="20.0" cy="23.2" r="1.25" fill="#e11d48"/><circle cx="14.8" cy="26.2" r="1.25" fill="#e11d48"/><circle cx="25.2" cy="20.2" r="1.25" fill="#e11d48"/><circle cx="25.2" cy="26.2" r="1.25" fill="#e11d48"/><circle cx="30.5" cy="17.1" r="1.25" fill="#e11d48"/><circle cx="35.8" cy="20.2" r="1.25" fill="#e11d48"/><circle cx="41.0" cy="23.2" r="1.25" fill="#e11d48"/><circle cx="35.8" cy="26.2" r="1.25" fill="#e11d48"/><circle cx="46.2" cy="20.2" r="1.25" fill="#e11d48"/><circle cx="46.2" cy="26.2" r="1.25" fill="#e11d48"/><circle cx="51.5" cy="17.1" r="1.25" fill="#e11d48"/><circle cx="56.8" cy="20.2" r="1.25" fill="#e11d48"/><circle cx="62.0" cy="23.2" r="1.25" fill="#e11d48"/><circle cx="56.8" cy="26.2" r="1.25" fill="#e11d48"/><circle cx="67.2" cy="20.2" r="1.25" fill="#e11d48"/><circle cx="67.2" cy="26.2" r="1.25" fill="#e11d48"/><circle cx="72.5" cy="17.1" r="1.25" fill="#e11d48"/><circle cx="77.8" cy="20.2" r="1.25" fill="#e11d48"/><circle cx="77.8" cy="26.2" r="1.25" fill="#e11d48"/><circle cx="9.5" cy="29.2" r="1.25" fill="#e11d48"/><circle cx="14.8" cy="32.3" r="1.25" fill="#e11d48"/><circle cx="20.0" cy="35.3" r="1.25" fill="#e11d48"/><circle cx="25.2" cy="32.3" r="1.25" fill="#e11d48"/><circle cx="30.5" cy="29.2" r="1.25" fill="#e11d48"/><circle cx="35.8" cy="32.3" r="1.25" fill="#e11d48"/><circle cx="41.0" cy="35.3" r="1.25" fill="#e11d48"/><circle cx="46.2" cy="32.3" r="1.25" fill="#e11d48"/><circle cx="51.5" cy="29.2" r="1.25" fill="#e11d48"/><circle cx="56.8" cy="32.3" r="1.25" fill="#e11d48"/><circle cx="62.0" cy="35.3" r="1.25" fill="#e11d48"/><circle cx="67.2" cy="32.3" r="1.25" fill="#e11d48"/><circle cx="72.5" cy="29.2" r="1.25" fill="#e11d48"/><circle cx="77.8" cy="32.3" r="1.25" fill="#e11d48"/><circle cx="6.0" cy="5.0" r="2" fill="#334155"/><circle cx="13.0" cy="5.0" r="2" fill="#334155"/><circle cx="16.5" cy="11.1" r="2" fill="#334155"/><circle cx="23.5" cy="11.1" r="2" fill="#334155"/><circle cx="27.0" cy="5.0" r="2" fill="#334155"/><circle cx="34.0" cy="5.0" r="2" fill="#334155"/><circle cx="37.5" cy="11.1" r="2" fill="#334155"/><circle cx="44.5" cy="11.1" r="2" fill="#334155"/><circle cx="48.0" cy="5.0" r="2" fill="#334155"/><circle cx="55.0" cy="5.0" r="2" fill="#334155"/><circle cx="58.5" cy="11.1" r="2" fill="#334155"/><circle cx="65.5" cy="11.1" r="2" fill="#334155"/><circle cx="69.0" cy="5.0" r="2" fill="#334155"/><circle cx="76.0" cy="5.0" r="2" fill="#334155"/><circle cx="79.5" cy="11.1" r="2" fill="#334155"/><circle cx="6.0" cy="17.1" r="2" fill="#334155"/><circle cx="13.0" cy="17.1" r="2" fill="#334155"/><circle cx="16.5" cy="23.2" r="2" fill="#334155"/><circle cx="23.5" cy="23.2" r="2" fill="#334155"/><circle cx="27.0" cy="17.1" r="2" fill="#334155"/><circle cx="34.0" cy="17.1" r="2" fill="#334155"/><circle cx="37.5" cy="23.2" r="2" fill="#334155"/><circle cx="44.5" cy="23.2" r="2" fill="#334155"/><circle cx="48.0" cy="17.1" r="2" fill="#334155"/><circle cx="55.0" cy="17.1" r="2" fill="#334155"/><circle cx="58.5" cy="23.2" r="2" fill="#334155"/><circle cx="65.5" cy="23.2" r="2" fill="#334155"/><circle cx="69.0" cy="17.1" r="2" fill="#334155"/><circle cx="76.0" cy="17.1" r="2" fill="#334155"/><circle cx="79.5" cy="23.2" r="2" fill="#334155"/><circle cx="6.0" cy="29.2" r="2" fill="#334155"/><circle cx="13.0" cy="29.2" r="2" fill="#334155"/><circle cx="16.5" cy="35.3" r="2" fill="#334155"/><circle cx="23.5" cy="35.3" r="2" fill="#334155"/><circle cx="27.0" cy="29.2" r="2" fill="#334155"/><circle cx="34.0" cy="29.2" r="2" fill="#334155"/><circle cx="37.5" cy="35.3" r="2" fill="#334155"/><circle cx="44.5" cy="35.3" r="2" fill="#334155"/><circle cx="48.0" cy="29.2" r="2" fill="#334155"/><circle cx="55.0" cy="29.2" r="2" fill="#334155"/><circle cx="58.5" cy="35.3" r="2" fill="#334155"/><circle cx="65.5" cy="35.3" r="2" fill="#334155"/><circle cx="69.0" cy="29.2" r="2" fill="#334155"/><circle cx="76.0" cy="29.2" r="2" fill="#334155"/><circle cx="79.5" cy="35.3" r="2" fill="#334155"/><line x1="97.2" y1="3.4" x2="105.7" y2="3.0" stroke="#94a3b8" stroke-width=".55"/><line x1="105.7" y1="3.0" x2="108.7" y2="10.4" stroke="#94a3b8" stroke-width=".55"/><line x1="108.7" y1="10.4" x2="113.5" y2="11.1" stroke="#94a3b8" stroke-width=".55"/><line x1="108.7" y1="10.4" x2="104.1" y2="17.5" stroke="#94a3b8" stroke-width=".55"/><line x1="113.5" y1="11.1" x2="116.9" y2="4.7" stroke="#94a3b8" stroke-width=".55"/><line x1="113.5" y1="11.1" x2="117.8" y2="17.5" stroke="#94a3b8" stroke-width=".55"/><line x1="116.9" y1="4.7" x2="124.0" y2="3.1" stroke="#94a3b8" stroke-width=".55"/><line x1="124.0" y1="3.1" x2="129.2" y2="12.6" stroke="#94a3b8" stroke-width=".55"/><line x1="129.2" y1="12.6" x2="134.8" y2="9.8" stroke="#94a3b8" stroke-width=".55"/><line x1="129.2" y1="12.6" x2="126.1" y2="18.8" stroke="#94a3b8" stroke-width=".55"/><line x1="134.8" y1="9.8" x2="140.6" y2="7.1" stroke="#94a3b8" stroke-width=".55"/><line x1="134.8" y1="9.8" x2="139.6" y2="18.3" stroke="#94a3b8" stroke-width=".55"/><line x1="140.6" y1="7.1" x2="147.4" y2="4.5" stroke="#94a3b8" stroke-width=".55"/><line x1="147.4" y1="4.5" x2="152.7" y2="9.0" stroke="#94a3b8" stroke-width=".55"/><line x1="152.7" y1="9.0" x2="159.1" y2="10.1" stroke="#94a3b8" stroke-width=".55"/><line x1="152.7" y1="9.0" x2="145.4" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="159.1" y1="10.1" x2="159.4" y2="3.2" stroke="#94a3b8" stroke-width=".55"/><line x1="159.1" y1="10.1" x2="162.7" y2="16.3" stroke="#94a3b8" stroke-width=".55"/><line x1="159.4" y1="3.2" x2="167.1" y2="6.5" stroke="#94a3b8" stroke-width=".55"/><line x1="167.1" y1="6.5" x2="170.0" y2="11.4" stroke="#94a3b8" stroke-width=".55"/><line x1="170.0" y1="11.4" x2="168.9" y2="17.6" stroke="#94a3b8" stroke-width=".55"/><line x1="98.8" y1="16.8" x2="104.1" y2="17.5" stroke="#94a3b8" stroke-width=".55"/><line x1="104.1" y1="17.5" x2="108.3" y2="22.3" stroke="#94a3b8" stroke-width=".55"/><line x1="108.3" y1="22.3" x2="116.9" y2="24.1" stroke="#94a3b8" stroke-width=".55"/><line x1="108.3" y1="22.3" x2="106.5" y2="28.3" stroke="#94a3b8" stroke-width=".55"/><line x1="116.9" y1="24.1" x2="117.8" y2="17.5" stroke="#94a3b8" stroke-width=".55"/><line x1="116.9" y1="24.1" x2="117.5" y2="27.5" stroke="#94a3b8" stroke-width=".55"/><line x1="117.8" y1="17.5" x2="126.1" y2="18.8" stroke="#94a3b8" stroke-width=".55"/><line x1="126.1" y1="18.8" x2="130.6" y2="22.2" stroke="#94a3b8" stroke-width=".55"/><line x1="130.6" y1="22.2" x2="138.7" y2="21.4" stroke="#94a3b8" stroke-width=".55"/><line x1="130.6" y1="22.2" x2="124.0" y2="30.5" stroke="#94a3b8" stroke-width=".55"/><line x1="138.7" y1="21.4" x2="139.6" y2="18.3" stroke="#94a3b8" stroke-width=".55"/><line x1="138.7" y1="21.4" x2="138.1" y2="29.0" stroke="#94a3b8" stroke-width=".55"/><line x1="139.6" y1="18.3" x2="145.4" y2="17.1" stroke="#94a3b8" stroke-width=".55"/><line x1="145.4" y1="17.1" x2="148.4" y2="24.0" stroke="#94a3b8" stroke-width=".55"/><line x1="148.4" y1="24.0" x2="158.7" y2="23.5" stroke="#94a3b8" stroke-width=".55"/><line x1="148.4" y1="24.0" x2="147.2" y2="31.0" stroke="#94a3b8" stroke-width=".55"/><line x1="158.7" y1="23.5" x2="162.7" y2="16.3" stroke="#94a3b8" stroke-width=".55"/><line x1="158.7" y1="23.5" x2="160.4" y2="31.0" stroke="#94a3b8" stroke-width=".55"/><line x1="162.7" y1="16.3" x2="168.9" y2="17.6" stroke="#94a3b8" stroke-width=".55"/><line x1="168.9" y1="17.6" x2="171.9" y2="23.0" stroke="#94a3b8" stroke-width=".55"/><line x1="171.9" y1="23.0" x2="170.1" y2="27.6" stroke="#94a3b8" stroke-width=".55"/><line x1="98.7" y1="31.5" x2="106.5" y2="28.3" stroke="#94a3b8" stroke-width=".55"/><line x1="106.5" y1="28.3" x2="108.0" y2="36.1" stroke="#94a3b8" stroke-width=".55"/><line x1="108.0" y1="36.1" x2="113.3" y2="35.1" stroke="#94a3b8" stroke-width=".55"/><line x1="113.3" y1="35.1" x2="117.5" y2="27.5" stroke="#94a3b8" stroke-width=".55"/><line x1="117.5" y1="27.5" x2="124.0" y2="30.5" stroke="#94a3b8" stroke-width=".55"/><line x1="124.0" y1="30.5" x2="127.8" y2="34.1" stroke="#94a3b8" stroke-width=".55"/><line x1="127.8" y1="34.1" x2="136.0" y2="37.0" stroke="#94a3b8" stroke-width=".55"/><line x1="136.0" y1="37.0" x2="138.1" y2="29.0" stroke="#94a3b8" stroke-width=".55"/><line x1="138.1" y1="29.0" x2="147.2" y2="31.0" stroke="#94a3b8" stroke-width=".55"/><line x1="147.2" y1="31.0" x2="152.0" y2="37.0" stroke="#94a3b8" stroke-width=".55"/><line x1="152.0" y1="37.0" x2="156.5" y2="34.9" stroke="#94a3b8" stroke-width=".55"/><line x1="156.5" y1="34.9" x2="160.4" y2="31.0" stroke="#94a3b8" stroke-width=".55"/><line x1="160.4" y1="31.0" x2="170.1" y2="27.6" stroke="#94a3b8" stroke-width=".55"/><line x1="170.1" y1="27.6" x2="170.0" y2="34.1" stroke="#94a3b8" stroke-width=".55"/><circle cx="101.4" cy="3.2" r="1.25" fill="#e11d48"/><circle cx="107.2" cy="6.7" r="1.25" fill="#e11d48"/><circle cx="111.1" cy="10.8" r="1.25" fill="#e11d48"/><circle cx="106.4" cy="14.0" r="1.25" fill="#e11d48"/><circle cx="115.2" cy="7.9" r="1.25" fill="#e11d48"/><circle cx="115.6" cy="14.3" r="1.25" fill="#e11d48"/><circle cx="120.4" cy="3.9" r="1.25" fill="#e11d48"/><circle cx="126.6" cy="7.8" r="1.25" fill="#e11d48"/><circle cx="132.0" cy="11.2" r="1.25" fill="#e11d48"/><circle cx="127.6" cy="15.7" r="1.25" fill="#e11d48"/><circle cx="137.7" cy="8.4" r="1.25" fill="#e11d48"/><circle cx="137.2" cy="14.0" r="1.25" fill="#e11d48"/><circle cx="144.0" cy="5.8" r="1.25" fill="#e11d48"/><circle cx="150.0" cy="6.8" r="1.25" fill="#e11d48"/><circle cx="155.9" cy="9.5" r="1.25" fill="#e11d48"/><circle cx="149.0" cy="13.0" r="1.25" fill="#e11d48"/><circle cx="159.3" cy="6.7" r="1.25" fill="#e11d48"/><circle cx="160.9" cy="13.2" r="1.25" fill="#e11d48"/><circle cx="163.2" cy="4.8" r="1.25" fill="#e11d48"/><circle cx="168.6" cy="8.9" r="1.25" fill="#e11d48"/><circle cx="169.5" cy="14.5" r="1.25" fill="#e11d48"/><circle cx="101.5" cy="17.2" r="1.25" fill="#e11d48"/><circle cx="106.2" cy="19.9" r="1.25" fill="#e11d48"/><circle cx="112.6" cy="23.2" r="1.25" fill="#e11d48"/><circle cx="107.4" cy="25.3" r="1.25" fill="#e11d48"/><circle cx="117.3" cy="20.8" r="1.25" fill="#e11d48"/><circle cx="117.2" cy="25.8" r="1.25" fill="#e11d48"/><circle cx="122.0" cy="18.2" r="1.25" fill="#e11d48"/><circle cx="128.3" cy="20.5" r="1.25" fill="#e11d48"/><circle cx="134.6" cy="21.8" r="1.25" fill="#e11d48"/><circle cx="127.3" cy="26.3" r="1.25" fill="#e11d48"/><circle cx="139.2" cy="19.9" r="1.25" fill="#e11d48"/><circle cx="138.4" cy="25.2" r="1.25" fill="#e11d48"/><circle cx="142.5" cy="17.7" r="1.25" fill="#e11d48"/><circle cx="146.9" cy="20.5" r="1.25" fill="#e11d48"/><circle cx="153.5" cy="23.7" r="1.25" fill="#e11d48"/><circle cx="147.8" cy="27.5" r="1.25" fill="#e11d48"/><circle cx="160.7" cy="19.9" r="1.25" fill="#e11d48"/><circle cx="159.5" cy="27.3" r="1.25" fill="#e11d48"/><circle cx="165.8" cy="16.9" r="1.25" fill="#e11d48"/><circle cx="170.4" cy="20.3" r="1.25" fill="#e11d48"/><circle cx="171.0" cy="25.3" r="1.25" fill="#e11d48"/><circle cx="102.6" cy="29.9" r="1.25" fill="#e11d48"/><circle cx="107.2" cy="32.2" r="1.25" fill="#e11d48"/><circle cx="110.6" cy="35.6" r="1.25" fill="#e11d48"/><circle cx="115.4" cy="31.3" r="1.25" fill="#e11d48"/><circle cx="120.7" cy="29.0" r="1.25" fill="#e11d48"/><circle cx="125.9" cy="32.3" r="1.25" fill="#e11d48"/><circle cx="131.9" cy="35.6" r="1.25" fill="#e11d48"/><circle cx="137.0" cy="33.0" r="1.25" fill="#e11d48"/><circle cx="142.6" cy="30.0" r="1.25" fill="#e11d48"/><circle cx="149.6" cy="34.0" r="1.25" fill="#e11d48"/><circle cx="154.2" cy="36.0" r="1.25" fill="#e11d48"/><circle cx="158.4" cy="33.0" r="1.25" fill="#e11d48"/><circle cx="165.2" cy="29.3" r="1.25" fill="#e11d48"/><circle cx="170.1" cy="30.9" r="1.25" fill="#e11d48"/><circle cx="97.2" cy="3.4" r="2" fill="#334155"/><circle cx="105.7" cy="3.0" r="2" fill="#334155"/><circle cx="108.7" cy="10.4" r="2" fill="#334155"/><circle cx="113.5" cy="11.1" r="2" fill="#334155"/><circle cx="116.9" cy="4.7" r="2" fill="#334155"/><circle cx="124.0" cy="3.1" r="2" fill="#334155"/><circle cx="129.2" cy="12.6" r="2" fill="#334155"/><circle cx="134.8" cy="9.8" r="2" fill="#334155"/><circle cx="140.6" cy="7.1" r="2" fill="#334155"/><circle cx="147.4" cy="4.5" r="2" fill="#334155"/><circle cx="152.7" cy="9.0" r="2" fill="#334155"/><circle cx="159.1" cy="10.1" r="2" fill="#334155"/><circle cx="159.4" cy="3.2" r="2" fill="#334155"/><circle cx="167.1" cy="6.5" r="2" fill="#334155"/><circle cx="170.0" cy="11.4" r="2" fill="#334155"/><circle cx="98.8" cy="16.8" r="2" fill="#334155"/><circle cx="104.1" cy="17.5" r="2" fill="#334155"/><circle cx="108.3" cy="22.3" r="2" fill="#334155"/><circle cx="116.9" cy="24.1" r="2" fill="#334155"/><circle cx="117.8" cy="17.5" r="2" fill="#334155"/><circle cx="126.1" cy="18.8" r="2" fill="#334155"/><circle cx="130.6" cy="22.2" r="2" fill="#334155"/><circle cx="138.7" cy="21.4" r="2" fill="#334155"/><circle cx="139.6" cy="18.3" r="2" fill="#334155"/><circle cx="145.4" cy="17.1" r="2" fill="#334155"/><circle cx="148.4" cy="24.0" r="2" fill="#334155"/><circle cx="158.7" cy="23.5" r="2" fill="#334155"/><circle cx="162.7" cy="16.3" r="2" fill="#334155"/><circle cx="168.9" cy="17.6" r="2" fill="#334155"/><circle cx="171.9" cy="23.0" r="2" fill="#334155"/><circle cx="98.7" cy="31.5" r="2" fill="#334155"/><circle cx="106.5" cy="28.3" r="2" fill="#334155"/><circle cx="108.0" cy="36.1" r="2" fill="#334155"/><circle cx="113.3" cy="35.1" r="2" fill="#334155"/><circle cx="117.5" cy="27.5" r="2" fill="#334155"/><circle cx="124.0" cy="30.5" r="2" fill="#334155"/><circle cx="127.8" cy="34.1" r="2" fill="#334155"/><circle cx="136.0" cy="37.0" r="2" fill="#334155"/><circle cx="138.1" cy="29.0" r="2" fill="#334155"/><circle cx="147.2" cy="31.0" r="2" fill="#334155"/><circle cx="152.0" cy="37.0" r="2" fill="#334155"/><circle cx="156.5" cy="34.9" r="2" fill="#334155"/><circle cx="160.4" cy="31.0" r="2" fill="#334155"/><circle cx="170.1" cy="27.6" r="2" fill="#334155"/><circle cx="170.0" cy="34.1" r="2" fill="#334155"/><text x="44" y="46" font-size="4.4" font-weight="800" fill="#273242">KRİSTAL (kuvars)</text><text x="44" y="51" font-size="3.4" fill="#5d6478">Aynı desen her yönde tekrar eder</text><text x="136" y="46" font-size="4.4" font-weight="800" fill="#8a4a03">AMORF (cam)</text><text x="136" y="51" font-size="3.4" fill="#5d6478">Halkalar bozuk, uzun erimli düzen yok</text></g></svg><div class="ga">Koyu: Si · kırmızı: O. Erimiş <span class="f">SiO<sub>2</sub></span> yavaş soğutulursa kristal (kuvars), çok hızlı soğutulursa amorf yapı (silika camı) oluşur.</div></div>
+
+  <div class="iki" style="gap:4mm">
+    <div class="kutu kavram" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kristal katı</div>
+      <p style="font-size:9.2pt">Tanecikleri üç boyutta <b>düzenli ve tekrarlanan</b> bir desenle dizilmiş katıdır. Bu düzenli yapıya <b>kristal örgü</b>, örgünün tüm özelliklerini taşıyan en küçük tekrar birimine <b>birim hücre</b> denir. Belirli koşullarda <b>sabit bir erime noktası</b> vardır. Örnek: tuz, şeker, buz, bakır.</p>
+    </div>
+    <div class="kutu kavram" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Amorf katı</div>
+      <p style="font-size:9.2pt">Tanecikleri <b>gelişigüzel</b> istiflenmiş, belirli bir geometrik düzeni olmayan katıdır. Belirli bir erime noktası yoktur; ısıtılınca bir sıcaklık aralığında <b>yumuşayarak</b> akışkanlaşır. Bu aralığa <b>camsı geçiş sıcaklığı</b> denir. Genellikle serttirler ve elektriği iletmezler. Örnek: cam, mum, plastik, lastik.</p>
+    </div>
+  </div>
+
+  <div class="grafik-kutu" style="margin-top:3.5mm"><div class="gb">Isıtıldıklarında ne olur?</div><svg viewBox="0 0 180 50" class="grafik"><g font-family="Inter" font-size="3.6" fill="#5d6478"><line x1="14" y1="41" x2="86" y2="41" stroke="#1d2133" stroke-width=".45"/><line x1="14" y1="41" x2="14" y2="7" stroke="#1d2133" stroke-width=".45"/><text x="50.0" y="46" text-anchor="middle" fill="#1d2133" font-weight="700">Zaman (ısı verilir)</text><text x="12" y="5" fill="#1d2133" font-weight="700" text-anchor="start">Sıcaklık</text><text x="86" y="8" text-anchor="end" font-size="4.4" font-weight="800" fill="#475569">Kristal katı</text><polyline fill="none" stroke="#475569" stroke-width="1.1" points="14,38 36,25 64,25 84,11"/><line x1="14" y1="25" x2="36" y2="25" stroke="#475569" stroke-width=".35" stroke-dasharray="1.2 1"/><text x="15" y="23.5" text-anchor="start" font-size="3.3" fill="#273242" font-weight="700">Erime noktası</text><text x="50" y="30" text-anchor="middle" font-size="3.2">katı + sıvı</text><text x="50" y="34" text-anchor="middle" font-size="3.2">sıcaklık sabit</text><line x1="104" y1="41" x2="176" y2="41" stroke="#1d2133" stroke-width=".45"/><line x1="104" y1="41" x2="104" y2="7" stroke="#1d2133" stroke-width=".45"/><text x="140.0" y="46" text-anchor="middle" fill="#1d2133" font-weight="700">Zaman (ısı verilir)</text><text x="102" y="5" fill="#1d2133" font-weight="700" text-anchor="start">Sıcaklık</text><text x="176" y="8" text-anchor="end" font-size="4.4" font-weight="800" fill="#c26a06">Amorf katı</text><rect x="105" y="17" width="70" height="11" fill="#fff6e5"/><text x="175" y="26.4" text-anchor="end" font-size="3.2" fill="#8a4a03" font-weight="700">yumuşama aralığı</text><path d="M104,38 C124,27 134,25 144,23 S164,17 174,10" fill="none" stroke="#c26a06" stroke-width="1.1"/><text x="107" y="12" text-anchor="start" font-size="3.2">Düz bölge (plato) yok:</text><text x="107" y="15.600000000000001" text-anchor="start" font-size="3.2">giderek akışkanlaşır</text></g></svg></div>
+
+  <div class="iki">
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Cam çok yavaş akan bir sıvıdır; eski pencerelerin altı bu yüzden kalındır.”</div>
+        <div class="dogru"><b class="d">✓</b> Cam amorf bir <b>katıdır</b>; oda sıcaklığındaki akışı ölçülemeyecek kadar azdır. Kalınlık farkı eski üretim yöntemlerinden gelir.</div>
+      </div>
+    </div>
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9pt">Toz şeker kristaldir. Eritilen şeker ince iplikler hâlinde hızla soğutulunca tanecikler dizilmeye zaman bulamaz: <b>pamuk şeker</b> büyük ölçüde amorftur. Volkanik cam <b>obsidyen</b> de lavın hızla soğumasıyla oluşur.</p>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Katılar</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · İYONİK KATILAR
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Katılar ve Özellikleri</span><span>İyonik katılar</span></div>
+
+  <h2 class="konu"><span class="num">2</span>İyonik katılar</h2>
+  <div class="alt-baslik">Kristal katılar, örgü noktalarındaki tanecik türüne göre dört gruba ayrılır. İlk grup: zıt yüklü iyonlar.</div>
+
+  <div class="agac">
+    <div style="--r:#7c3aed"><b>İyonik</b>katyon + anyon · iyonik bağ</div>
+    <div style="--r:#475569"><b>Moleküler</b>moleküller · moleküller arası etkileşim</div>
+    <div style="--r:#0f8f84"><b>Kovalent ağ</b>atomlar · kovalent bağ</div>
+    <div style="--r:#c26a06"><b>Metalik</b>katyonlar + elektron denizi · metalik bağ</div>
+  </div>
+
+  <div class="iki-genis" style="grid-template-columns:1.35fr 1fr;align-items:center;margin-top:3.5mm">
+    <div>
+      <div class="kutu kavram">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+        <p><b>İyonik katı:</b> Örgü noktalarında katyon ve anyonların bulunduğu, zıt yüklü iyonların <b>elektrostatik çekimle</b> (iyonik bağ) bir arada tutulduğu kristal katıdır. Genellikle bir metal ile bir ametalin bileşiğidir.</p>
+        <p>Sofra tuzu kristalinde her Na<sup>+</sup> iyonunu 6 Cl<sup>−</sup>, her Cl<sup>−</sup> iyonunu 6 Na<sup>+</sup> çevreler. Kristalde ayrı “NaCl molekülleri” yoktur; <span class="f">NaCl</span> formülü iyonların <b>1 : 1 sayı oranını</b> gösterir.</p>
+      </div>
+      <h3 style="margin-top:0">Özellikleri</h3>
+      <ul class="ozellik">
+        <li>Çekim çok yönlü ve güçlüdür: <b>erime noktaları yüksektir</b>.</li>
+        <li><b>Serttirler</b> ama <b>kırılgandırlar</b>; dövülüp tel ya da levha yapılamazlar.</li>
+        <li>Katı hâlde iyonlar yerinde titreşir, serbestçe hareket edemez: <b>yalıtkandırlar</b>.</li>
+        <li><b>Eriyikleri</b> ve <b>sulu çözeltileri</b> iyon hareketiyle elektrik akımını iletir.</li>
+      </ul>
+    </div>
+    <div class="grafik-kutu" style="margin:0"><div class="gb">Sofra tuzu (<span class="f">NaCl</span>) kristal örgüsü</div><svg viewBox="0 0 92 84" class="grafik"><g font-family="Inter" text-anchor="middle"><line x1="36.0" y1="50.2" x2="58.0" y2="50.2" stroke="#94a3b8" stroke-width=".4" opacity="0.55"/><line x1="36.0" y1="50.2" x2="36.0" y2="28.2" stroke="#94a3b8" stroke-width=".4" opacity="0.55"/><line x1="36.0" y1="28.2" x2="58.0" y2="28.2" stroke="#94a3b8" stroke-width=".4" opacity="0.55"/><line x1="36.0" y1="28.2" x2="36.0" y2="6.2" stroke="#94a3b8" stroke-width=".4" opacity="0.55"/><line x1="36.0" y1="6.2" x2="58.0" y2="6.2" stroke="#94a3b8" stroke-width=".4" opacity="0.55"/><line x1="58.0" y1="50.2" x2="80.0" y2="50.2" stroke="#94a3b8" stroke-width=".4" opacity="0.55"/><line x1="58.0" y1="50.2" x2="58.0" y2="28.2" stroke="#94a3b8" stroke-width=".4" opacity="0.55"/><line x1="58.0" y1="28.2" x2="80.0" y2="28.2" stroke="#94a3b8" stroke-width=".4" opacity="0.55"/><line x1="58.0" y1="28.2" x2="58.0" y2="6.2" stroke="#94a3b8" stroke-width=".4" opacity="0.55"/><line x1="58.0" y1="6.2" x2="80.0" y2="6.2" stroke="#94a3b8" stroke-width=".4" opacity="0.55"/><line x1="80.0" y1="50.2" x2="80.0" y2="28.2" stroke="#94a3b8" stroke-width=".4" opacity="0.55"/><line x1="80.0" y1="28.2" x2="80.0" y2="6.2" stroke="#94a3b8" stroke-width=".4" opacity="0.55"/><circle cx="36.0" cy="50.2" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="0.55"/><circle cx="58.0" cy="50.2" r="3.5" fill="#7c3aed" stroke="#5b21b6" stroke-width=".3" opacity="0.55"/><circle cx="80.0" cy="50.2" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="0.55"/><circle cx="36.0" cy="28.2" r="3.5" fill="#7c3aed" stroke="#5b21b6" stroke-width=".3" opacity="0.55"/><circle cx="58.0" cy="28.2" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="0.55"/><circle cx="80.0" cy="28.2" r="3.5" fill="#7c3aed" stroke="#5b21b6" stroke-width=".3" opacity="0.55"/><circle cx="36.0" cy="6.2" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="0.55"/><circle cx="58.0" cy="6.2" r="3.5" fill="#7c3aed" stroke="#5b21b6" stroke-width=".3" opacity="0.55"/><circle cx="80.0" cy="6.2" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="0.55"/><line x1="25.0" y1="58.1" x2="47.0" y2="58.1" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="25.0" y1="58.1" x2="25.0" y2="36.1" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="25.0" y1="58.1" x2="36.0" y2="50.2" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="25.0" y1="36.1" x2="47.0" y2="36.1" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="25.0" y1="36.1" x2="25.0" y2="14.1" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="25.0" y1="36.1" x2="36.0" y2="28.2" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="25.0" y1="14.1" x2="47.0" y2="14.1" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="25.0" y1="14.1" x2="36.0" y2="6.2" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="47.0" y1="58.1" x2="69.0" y2="58.1" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="47.0" y1="58.1" x2="47.0" y2="36.1" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="47.0" y1="58.1" x2="58.0" y2="50.2" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="47.0" y1="36.1" x2="69.0" y2="36.1" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="47.0" y1="36.1" x2="47.0" y2="14.1" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="47.0" y1="36.1" x2="58.0" y2="28.2" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="47.0" y1="14.1" x2="69.0" y2="14.1" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="47.0" y1="14.1" x2="58.0" y2="6.2" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="69.0" y1="58.1" x2="69.0" y2="36.1" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="69.0" y1="58.1" x2="80.0" y2="50.2" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="69.0" y1="36.1" x2="69.0" y2="14.1" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="69.0" y1="36.1" x2="80.0" y2="28.2" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><line x1="69.0" y1="14.1" x2="80.0" y2="6.2" stroke="#94a3b8" stroke-width=".4" opacity="0.78"/><circle cx="25.0" cy="58.1" r="3.5" fill="#7c3aed" stroke="#5b21b6" stroke-width=".3" opacity="0.78"/><circle cx="47.0" cy="58.1" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="0.78"/><circle cx="69.0" cy="58.1" r="3.5" fill="#7c3aed" stroke="#5b21b6" stroke-width=".3" opacity="0.78"/><circle cx="25.0" cy="36.1" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="0.78"/><circle cx="47.0" cy="36.1" r="3.5" fill="#7c3aed" stroke="#5b21b6" stroke-width=".3" opacity="0.78"/><circle cx="69.0" cy="36.1" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="0.78"/><circle cx="25.0" cy="14.1" r="3.5" fill="#7c3aed" stroke="#5b21b6" stroke-width=".3" opacity="0.78"/><circle cx="47.0" cy="14.1" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="0.78"/><circle cx="69.0" cy="14.1" r="3.5" fill="#7c3aed" stroke="#5b21b6" stroke-width=".3" opacity="0.78"/><line x1="14.0" y1="66.0" x2="36.0" y2="66.0" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="14.0" y1="66.0" x2="14.0" y2="44.0" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="14.0" y1="66.0" x2="25.0" y2="58.1" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="14.0" y1="44.0" x2="36.0" y2="44.0" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="14.0" y1="44.0" x2="14.0" y2="22.0" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="14.0" y1="44.0" x2="25.0" y2="36.1" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="14.0" y1="22.0" x2="36.0" y2="22.0" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="14.0" y1="22.0" x2="25.0" y2="14.1" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="36.0" y1="66.0" x2="58.0" y2="66.0" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="36.0" y1="66.0" x2="36.0" y2="44.0" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="36.0" y1="66.0" x2="47.0" y2="58.1" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="36.0" y1="44.0" x2="58.0" y2="44.0" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="36.0" y1="44.0" x2="36.0" y2="22.0" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="36.0" y1="44.0" x2="47.0" y2="36.1" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="36.0" y1="22.0" x2="58.0" y2="22.0" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="36.0" y1="22.0" x2="47.0" y2="14.1" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="58.0" y1="66.0" x2="58.0" y2="44.0" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="58.0" y1="66.0" x2="69.0" y2="58.1" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="58.0" y1="44.0" x2="58.0" y2="22.0" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="58.0" y1="44.0" x2="69.0" y2="36.1" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><line x1="58.0" y1="22.0" x2="69.0" y2="14.1" stroke="#94a3b8" stroke-width=".4" opacity="1.00"/><circle cx="14.0" cy="66.0" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="1.00"/><circle cx="36.0" cy="66.0" r="3.5" fill="#7c3aed" stroke="#5b21b6" stroke-width=".3" opacity="1.00"/><circle cx="58.0" cy="66.0" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="1.00"/><circle cx="14.0" cy="44.0" r="3.5" fill="#7c3aed" stroke="#5b21b6" stroke-width=".3" opacity="1.00"/><circle cx="36.0" cy="44.0" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="1.00"/><circle cx="58.0" cy="44.0" r="3.5" fill="#7c3aed" stroke="#5b21b6" stroke-width=".3" opacity="1.00"/><circle cx="14.0" cy="22.0" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="1.00"/><circle cx="36.0" cy="22.0" r="3.5" fill="#7c3aed" stroke="#5b21b6" stroke-width=".3" opacity="1.00"/><circle cx="58.0" cy="22.0" r="5.9" fill="#10b981" stroke="#047857" stroke-width=".3" opacity="1.00"/><circle cx="10" cy="80" r="2.6" fill="#10b981"/><text x="14" y="81.4" text-anchor="start" font-size="4" fill="#1d2133">Cl⁻</text><circle cx="30" cy="80" r="1.6" fill="#7c3aed"/><text x="33" y="81.4" text-anchor="start" font-size="4" fill="#1d2133">Na⁺</text><text x="70" y="81.4" font-size="3.4" fill="#5d6478">çizgiler: örgü</text></g></svg><div class="ga">Büyük yeşil küreler Cl<sup>−</sup>, küçük mor küreler Na<sup>+</sup>. Her iyonun çevresi zıt yüklü iyonlarla doludur.</div></div>
+  </div>
+
+  <div class="iki-genis" style="grid-template-columns:1.5fr 1fr;align-items:stretch">
+    <div class="grafik-kutu" style="margin:0"><div class="gb">Neden kırılgan? Bir darbe katmanları kaydırırsa…</div><svg viewBox="0 0 180 50" class="grafik"><g font-family="Inter" text-anchor="middle"><defs><marker id="kk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0 0 10 5 0 10z" fill="#1d2133"/></marker><marker id="kr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0 0 10 5 0 10z" fill="#e11d48"/></marker></defs><circle cx="6.0" cy="9.0" r="3.2" fill="#7c3aed"/><text x="6.0" y="10.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="15.5" cy="9.0" r="4.2" fill="#10b981"/><text x="15.5" y="10.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="25.0" cy="9.0" r="3.2" fill="#7c3aed"/><text x="25.0" y="10.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="34.5" cy="9.0" r="4.2" fill="#10b981"/><text x="34.5" y="10.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="44.0" cy="9.0" r="3.2" fill="#7c3aed"/><text x="44.0" y="10.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="53.5" cy="9.0" r="4.2" fill="#10b981"/><text x="53.5" y="10.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="6.0" cy="19.0" r="4.2" fill="#10b981"/><text x="6.0" y="20.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="15.5" cy="19.0" r="3.2" fill="#7c3aed"/><text x="15.5" y="20.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="25.0" cy="19.0" r="4.2" fill="#10b981"/><text x="25.0" y="20.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="34.5" cy="19.0" r="3.2" fill="#7c3aed"/><text x="34.5" y="20.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="44.0" cy="19.0" r="4.2" fill="#10b981"/><text x="44.0" y="20.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="53.5" cy="19.0" r="3.2" fill="#7c3aed"/><text x="53.5" y="20.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="6.0" cy="29.0" r="3.2" fill="#7c3aed"/><text x="6.0" y="30.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="15.5" cy="29.0" r="4.2" fill="#10b981"/><text x="15.5" y="30.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="25.0" cy="29.0" r="3.2" fill="#7c3aed"/><text x="25.0" y="30.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="34.5" cy="29.0" r="4.2" fill="#10b981"/><text x="34.5" y="30.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="44.0" cy="29.0" r="3.2" fill="#7c3aed"/><text x="44.0" y="30.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="53.5" cy="29.0" r="4.2" fill="#10b981"/><text x="53.5" y="30.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="113.5" cy="9.0" r="3.2" fill="#7c3aed"/><text x="113.5" y="10.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="123.0" cy="9.0" r="4.2" fill="#10b981"/><text x="123.0" y="10.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="132.5" cy="9.0" r="3.2" fill="#7c3aed"/><text x="132.5" y="10.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="142.0" cy="9.0" r="4.2" fill="#10b981"/><text x="142.0" y="10.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="151.5" cy="9.0" r="3.2" fill="#7c3aed"/><text x="151.5" y="10.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="161.0" cy="9.0" r="4.2" fill="#10b981"/><text x="161.0" y="10.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="104.0" cy="19.0" r="4.2" fill="#10b981"/><text x="104.0" y="20.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="113.5" cy="19.0" r="3.2" fill="#7c3aed"/><text x="113.5" y="20.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="123.0" cy="19.0" r="4.2" fill="#10b981"/><text x="123.0" y="20.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="132.5" cy="19.0" r="3.2" fill="#7c3aed"/><text x="132.5" y="20.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="142.0" cy="19.0" r="4.2" fill="#10b981"/><text x="142.0" y="20.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="151.5" cy="19.0" r="3.2" fill="#7c3aed"/><text x="151.5" y="20.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="104.0" cy="29.0" r="3.2" fill="#7c3aed"/><text x="104.0" y="30.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="113.5" cy="29.0" r="4.2" fill="#10b981"/><text x="113.5" y="30.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="123.0" cy="29.0" r="3.2" fill="#7c3aed"/><text x="123.0" y="30.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="132.5" cy="29.0" r="4.2" fill="#10b981"/><text x="132.5" y="30.6" font-size="5" font-weight="800" fill="#fff">−</text><circle cx="142.0" cy="29.0" r="3.2" fill="#7c3aed"/><text x="142.0" y="30.6" font-size="4.6" font-weight="800" fill="#fff">+</text><circle cx="151.5" cy="29.0" r="4.2" fill="#10b981"/><text x="151.5" y="30.6" font-size="5" font-weight="800" fill="#fff">−</text><path d="M106 2.5 H118" stroke="#1d2133" stroke-width=".6" marker-end="url(#kk)"/><line x1="102" y1="14" x2="170" y2="14" stroke="#e11d48" stroke-width=".5" stroke-dasharray="1.6 1"/><text x="38" y="44" font-size="3.8" fill="#1d2133" font-weight="700">Düzenli dizilim: zıt yükler komşu</text><text x="38" y="48.5" font-size="3.3" fill="#5d6478">her iyonu zıt yüklüler çevreler</text><path d="M76 20 H96" stroke="#1d2133" stroke-width=".7" marker-end="url(#kk)"/><text x="86" y="17.5" font-size="3.3" fill="#5d6478">darbe</text><text x="136" y="44" font-size="3.8" fill="#e11d48" font-weight="700">Katman kayar: aynı yükler karşı karşıya</text><text x="136" y="48.5" font-size="3.3" fill="#5d6478">itme kuvveti kristali bu düzlemden ayırır</text></g></svg></div>
+    <div class="kutu hayat" style="margin:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:8.9pt">Kaya tuzu (halit) çekiçle vurulunca düzgün yüzeyli, küp biçimli parçalara ayrılır. Kırılma, iyon katmanları boyunca olur. Erime noktaları: KCl 770 °C, NaCl 801 °C, CaO 2613 °C.</p>
+    </div>
+  </div>
+
+  <div class="kutu ornek" style="margin-top:3.5mm;margin-bottom:0">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 1</div>
+    <div class="iki" style="gap:4mm">
+      <div class="soru" style="margin:0"><span class="f">KBr</span>, <span class="f">I<sub>2</sub></span>, <span class="f">CaO</span>, <span class="f">Cu</span> ve <span class="f">MgF<sub>2</sub></span> maddelerinden hangileri oda koşullarında iyonik katıdır? <span class="veri">(K, Ca, Mg, Cu: metal · Br, I, O, F: ametal)</span></div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>İyonik bileşik genellikle <b>metal + ametal</b> içerir: <span class="f">KBr</span>, <span class="f">CaO</span>, <span class="f">MgF<sub>2</sub></span>.</span></div>
+        <div class="adim"><span class="n">2</span><span><span class="f">I<sub>2</sub></span> yalnız ametal atomlarından oluşan moleküldür; <span class="f">Cu</span> saf metaldir.</span></div>
+        <span class="sonuc"><span class="f">KBr</span>, <span class="f">CaO</span>, <span class="f">MgF<sub>2</sub></span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Katılar</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · MOLEKÜLER KATILAR
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Katılar ve Özellikleri</span><span>Moleküler katılar</span></div>
+
+  <h2 class="konu"><span class="num">3</span>Moleküler katılar</h2>
+  <div class="alt-baslik">Molekülün içi sağlam, moleküller arası zayıf: erimek için moleküllerin ayrılması yeter.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+    <p><b>Moleküler katı:</b> Örgü noktalarında <b>moleküllerin</b> bulunduğu kristal katıdır. Moleküller birbirine <b>hidrojen bağı</b>, <b>dipol–dipol etkileşimleri</b> ve/veya <b>London kuvvetleriyle</b> tutunur. Bu etkileşimler molekül içindeki kovalent bağlardan çok daha zayıftır.</p>
+  </div>
+
+  <div class="grafik-kutu"><svg viewBox="0 0 180 62" class="grafik"><g font-family="Inter" text-anchor="middle"><rect x="1" y="1" width="96" height="50" rx="3" fill="#f0fbfa"/><line x1="11.0" y1="13.4" x2="11.0" y2="8.0" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="13.4" y1="6.6" x2="18.1" y2="3.9" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="8.6" y1="6.6" x2="3.9" y2="3.9" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="25.2" y1="13.4" x2="25.2" y2="8.0" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="27.6" y1="6.6" x2="32.3" y2="3.9" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="22.8" y1="6.6" x2="18.1" y2="3.9" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="39.4" y1="13.4" x2="39.4" y2="8.0" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="41.8" y1="6.6" x2="46.5" y2="3.9" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="37.0" y1="6.6" x2="32.3" y2="3.9" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="53.6" y1="13.4" x2="53.6" y2="8.0" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="56.0" y1="6.6" x2="60.7" y2="3.9" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="51.2" y1="6.6" x2="46.5" y2="3.9" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="67.8" y1="13.4" x2="67.8" y2="8.0" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="70.2" y1="6.6" x2="74.9" y2="3.9" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="65.4" y1="6.6" x2="60.7" y2="3.9" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="82.0" y1="13.4" x2="82.0" y2="8.0" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="84.4" y1="6.6" x2="89.1" y2="3.9" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="79.6" y1="6.6" x2="74.9" y2="3.9" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="18.1" y1="25.7" x2="18.1" y2="20.3" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="20.5" y1="18.9" x2="25.2" y2="16.2" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="15.7" y1="18.9" x2="11.0" y2="16.2" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="32.3" y1="25.7" x2="32.3" y2="20.3" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="34.7" y1="18.9" x2="39.4" y2="16.2" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="29.9" y1="18.9" x2="25.2" y2="16.2" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="46.5" y1="25.7" x2="46.5" y2="20.3" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="48.9" y1="18.9" x2="53.6" y2="16.2" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="44.1" y1="18.9" x2="39.4" y2="16.2" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="60.7" y1="25.7" x2="60.7" y2="20.3" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="63.1" y1="18.9" x2="67.8" y2="16.2" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="58.3" y1="18.9" x2="53.6" y2="16.2" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="74.9" y1="25.7" x2="74.9" y2="20.3" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="77.3" y1="18.9" x2="82.0" y2="16.2" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="72.5" y1="18.9" x2="67.8" y2="16.2" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="89.1" y1="25.7" x2="89.1" y2="20.3" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="86.7" y1="18.9" x2="82.0" y2="16.2" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="11.0" y1="38.0" x2="11.0" y2="32.6" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="13.4" y1="31.2" x2="18.1" y2="28.5" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="8.6" y1="31.2" x2="3.9" y2="28.5" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="25.2" y1="38.0" x2="25.2" y2="32.6" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="27.6" y1="31.2" x2="32.3" y2="28.5" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="22.8" y1="31.2" x2="18.1" y2="28.5" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="39.4" y1="38.0" x2="39.4" y2="32.6" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="41.8" y1="31.2" x2="46.5" y2="28.5" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="37.0" y1="31.2" x2="32.3" y2="28.5" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="53.6" y1="38.0" x2="53.6" y2="32.6" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="56.0" y1="31.2" x2="60.7" y2="28.5" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="51.2" y1="31.2" x2="46.5" y2="28.5" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="67.8" y1="38.0" x2="67.8" y2="32.6" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="70.2" y1="31.2" x2="74.9" y2="28.5" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="65.4" y1="31.2" x2="60.7" y2="28.5" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="82.0" y1="38.0" x2="82.0" y2="32.6" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="84.4" y1="31.2" x2="89.1" y2="28.5" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="79.6" y1="31.2" x2="74.9" y2="28.5" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="20.5" y1="43.5" x2="25.2" y2="40.8" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="15.7" y1="43.5" x2="11.0" y2="40.8" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="34.7" y1="43.5" x2="39.4" y2="40.8" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="29.9" y1="43.5" x2="25.2" y2="40.8" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="48.9" y1="43.5" x2="53.6" y2="40.8" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="44.1" y1="43.5" x2="39.4" y2="40.8" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="63.1" y1="43.5" x2="67.8" y2="40.8" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="58.3" y1="43.5" x2="53.6" y2="40.8" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="77.3" y1="43.5" x2="82.0" y2="40.8" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="72.5" y1="43.5" x2="67.8" y2="40.8" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="86.7" y1="43.5" x2="82.0" y2="40.8" stroke="#0f8f84" stroke-width=".55" stroke-dasharray="1 .8"/><line x1="11.0" y1="16.2" x2="11.0" y2="13.4" stroke="#64748b" stroke-width=".8"/><line x1="11.0" y1="8.0" x2="13.4" y2="6.6" stroke="#64748b" stroke-width=".8"/><line x1="11.0" y1="8.0" x2="8.6" y2="6.6" stroke="#64748b" stroke-width=".8"/><line x1="25.2" y1="16.2" x2="25.2" y2="13.4" stroke="#64748b" stroke-width=".8"/><line x1="25.2" y1="8.0" x2="27.6" y2="6.6" stroke="#64748b" stroke-width=".8"/><line x1="25.2" y1="8.0" x2="22.8" y2="6.6" stroke="#64748b" stroke-width=".8"/><line x1="39.4" y1="16.2" x2="39.4" y2="13.4" stroke="#64748b" stroke-width=".8"/><line x1="39.4" y1="8.0" x2="41.8" y2="6.6" stroke="#64748b" stroke-width=".8"/><line x1="39.4" y1="8.0" x2="37.0" y2="6.6" stroke="#64748b" stroke-width=".8"/><line x1="53.6" y1="16.2" x2="53.6" y2="13.4" stroke="#64748b" stroke-width=".8"/><line x1="53.6" y1="8.0" x2="56.0" y2="6.6" stroke="#64748b" stroke-width=".8"/><line x1="53.6" y1="8.0" x2="51.2" y2="6.6" stroke="#64748b" stroke-width=".8"/><line x1="67.8" y1="16.2" x2="67.8" y2="13.4" stroke="#64748b" stroke-width=".8"/><line x1="67.8" y1="8.0" x2="70.2" y2="6.6" stroke="#64748b" stroke-width=".8"/><line x1="67.8" y1="8.0" x2="65.4" y2="6.6" stroke="#64748b" stroke-width=".8"/><line x1="82.0" y1="16.2" x2="82.0" y2="13.4" stroke="#64748b" stroke-width=".8"/><line x1="82.0" y1="8.0" x2="84.4" y2="6.6" stroke="#64748b" stroke-width=".8"/><line x1="82.0" y1="8.0" x2="79.6" y2="6.6" stroke="#64748b" stroke-width=".8"/><line x1="18.1" y1="28.5" x2="18.1" y2="25.7" stroke="#64748b" stroke-width=".8"/><line x1="18.1" y1="20.3" x2="20.5" y2="18.9" stroke="#64748b" stroke-width=".8"/><line x1="18.1" y1="20.3" x2="15.7" y2="18.9" stroke="#64748b" stroke-width=".8"/><line x1="32.3" y1="28.5" x2="32.3" y2="25.7" stroke="#64748b" stroke-width=".8"/><line x1="32.3" y1="20.3" x2="34.7" y2="18.9" stroke="#64748b" stroke-width=".8"/><line x1="32.3" y1="20.3" x2="29.9" y2="18.9" stroke="#64748b" stroke-width=".8"/><line x1="46.5" y1="28.5" x2="46.5" y2="25.7" stroke="#64748b" stroke-width=".8"/><line x1="46.5" y1="20.3" x2="48.9" y2="18.9" stroke="#64748b" stroke-width=".8"/><line x1="46.5" y1="20.3" x2="44.1" y2="18.9" stroke="#64748b" stroke-width=".8"/><line x1="60.7" y1="28.5" x2="60.7" y2="25.7" stroke="#64748b" stroke-width=".8"/><line x1="60.7" y1="20.3" x2="63.1" y2="18.9" stroke="#64748b" stroke-width=".8"/><line x1="60.7" y1="20.3" x2="58.3" y2="18.9" stroke="#64748b" stroke-width=".8"/><line x1="74.9" y1="28.5" x2="74.9" y2="25.7" stroke="#64748b" stroke-width=".8"/><line x1="74.9" y1="20.3" x2="77.3" y2="18.9" stroke="#64748b" stroke-width=".8"/><line x1="74.9" y1="20.3" x2="72.5" y2="18.9" stroke="#64748b" stroke-width=".8"/><line x1="89.1" y1="28.5" x2="89.1" y2="25.7" stroke="#64748b" stroke-width=".8"/><line x1="89.1" y1="20.3" x2="86.7" y2="18.9" stroke="#64748b" stroke-width=".8"/><line x1="11.0" y1="40.8" x2="11.0" y2="38.0" stroke="#64748b" stroke-width=".8"/><line x1="11.0" y1="32.6" x2="13.4" y2="31.2" stroke="#64748b" stroke-width=".8"/><line x1="11.0" y1="32.6" x2="8.6" y2="31.2" stroke="#64748b" stroke-width=".8"/><line x1="25.2" y1="40.8" x2="25.2" y2="38.0" stroke="#64748b" stroke-width=".8"/><line x1="25.2" y1="32.6" x2="27.6" y2="31.2" stroke="#64748b" stroke-width=".8"/><line x1="25.2" y1="32.6" x2="22.8" y2="31.2" stroke="#64748b" stroke-width=".8"/><line x1="39.4" y1="40.8" x2="39.4" y2="38.0" stroke="#64748b" stroke-width=".8"/><line x1="39.4" y1="32.6" x2="41.8" y2="31.2" stroke="#64748b" stroke-width=".8"/><line x1="39.4" y1="32.6" x2="37.0" y2="31.2" stroke="#64748b" stroke-width=".8"/><line x1="53.6" y1="40.8" x2="53.6" y2="38.0" stroke="#64748b" stroke-width=".8"/><line x1="53.6" y1="32.6" x2="56.0" y2="31.2" stroke="#64748b" stroke-width=".8"/><line x1="53.6" y1="32.6" x2="51.2" y2="31.2" stroke="#64748b" stroke-width=".8"/><line x1="67.8" y1="40.8" x2="67.8" y2="38.0" stroke="#64748b" stroke-width=".8"/><line x1="67.8" y1="32.6" x2="70.2" y2="31.2" stroke="#64748b" stroke-width=".8"/><line x1="67.8" y1="32.6" x2="65.4" y2="31.2" stroke="#64748b" stroke-width=".8"/><line x1="82.0" y1="40.8" x2="82.0" y2="38.0" stroke="#64748b" stroke-width=".8"/><line x1="82.0" y1="32.6" x2="84.4" y2="31.2" stroke="#64748b" stroke-width=".8"/><line x1="82.0" y1="32.6" x2="79.6" y2="31.2" stroke="#64748b" stroke-width=".8"/><line x1="18.1" y1="44.9" x2="20.5" y2="43.5" stroke="#64748b" stroke-width=".8"/><line x1="18.1" y1="44.9" x2="15.7" y2="43.5" stroke="#64748b" stroke-width=".8"/><line x1="32.3" y1="44.9" x2="34.7" y2="43.5" stroke="#64748b" stroke-width=".8"/><line x1="32.3" y1="44.9" x2="29.9" y2="43.5" stroke="#64748b" stroke-width=".8"/><line x1="46.5" y1="44.9" x2="48.9" y2="43.5" stroke="#64748b" stroke-width=".8"/><line x1="46.5" y1="44.9" x2="44.1" y2="43.5" stroke="#64748b" stroke-width=".8"/><line x1="60.7" y1="44.9" x2="63.1" y2="43.5" stroke="#64748b" stroke-width=".8"/><line x1="60.7" y1="44.9" x2="58.3" y2="43.5" stroke="#64748b" stroke-width=".8"/><line x1="74.9" y1="44.9" x2="77.3" y2="43.5" stroke="#64748b" stroke-width=".8"/><line x1="74.9" y1="44.9" x2="72.5" y2="43.5" stroke="#64748b" stroke-width=".8"/><line x1="89.1" y1="44.9" x2="86.7" y2="43.5" stroke="#64748b" stroke-width=".8"/><line x1="11.0" y1="16.2" x2="12.6" y2="17.3" stroke="#64748b" stroke-width=".8"/><line x1="25.2" y1="16.2" x2="26.8" y2="17.3" stroke="#64748b" stroke-width=".8"/><line x1="39.4" y1="16.2" x2="41.0" y2="17.3" stroke="#64748b" stroke-width=".8"/><line x1="53.6" y1="16.2" x2="55.2" y2="17.3" stroke="#64748b" stroke-width=".8"/><line x1="67.8" y1="16.2" x2="69.4" y2="17.3" stroke="#64748b" stroke-width=".8"/><line x1="82.0" y1="16.2" x2="83.6" y2="17.3" stroke="#64748b" stroke-width=".8"/><line x1="18.1" y1="28.5" x2="19.7" y2="29.6" stroke="#64748b" stroke-width=".8"/><line x1="32.3" y1="28.5" x2="33.9" y2="29.6" stroke="#64748b" stroke-width=".8"/><line x1="46.5" y1="28.5" x2="48.1" y2="29.6" stroke="#64748b" stroke-width=".8"/><line x1="60.7" y1="28.5" x2="62.3" y2="29.6" stroke="#64748b" stroke-width=".8"/><line x1="74.9" y1="28.5" x2="76.5" y2="29.6" stroke="#64748b" stroke-width=".8"/><line x1="89.1" y1="28.5" x2="90.7" y2="29.6" stroke="#64748b" stroke-width=".8"/><line x1="11.0" y1="40.8" x2="12.6" y2="41.9" stroke="#64748b" stroke-width=".8"/><line x1="25.2" y1="40.8" x2="26.8" y2="41.9" stroke="#64748b" stroke-width=".8"/><line x1="39.4" y1="40.8" x2="41.0" y2="41.9" stroke="#64748b" stroke-width=".8"/><line x1="53.6" y1="40.8" x2="55.2" y2="41.9" stroke="#64748b" stroke-width=".8"/><line x1="67.8" y1="40.8" x2="69.4" y2="41.9" stroke="#64748b" stroke-width=".8"/><line x1="82.0" y1="40.8" x2="83.6" y2="41.9" stroke="#64748b" stroke-width=".8"/><circle cx="74.9" cy="20.3" r="2.4" fill="#e11d48"/><circle cx="18.1" cy="20.3" r="2.4" fill="#e11d48"/><circle cx="32.3" cy="28.5" r="2.4" fill="#e11d48"/><circle cx="39.4" cy="40.8" r="2.4" fill="#e11d48"/><circle cx="82.0" cy="8.0" r="2.4" fill="#e11d48"/><circle cx="60.7" cy="20.3" r="2.4" fill="#e11d48"/><circle cx="89.1" cy="44.9" r="2.4" fill="#e11d48"/><circle cx="46.5" cy="3.9" r="2.4" fill="#e11d48"/><circle cx="11.0" cy="8.0" r="2.4" fill="#e11d48"/><circle cx="53.6" cy="40.8" r="2.4" fill="#e11d48"/><circle cx="82.0" cy="32.6" r="2.4" fill="#e11d48"/><circle cx="18.1" cy="44.9" r="2.4" fill="#e11d48"/><circle cx="3.9" cy="3.9" r="2.4" fill="#e11d48"/><circle cx="11.0" cy="32.6" r="2.4" fill="#e11d48"/><circle cx="74.9" cy="44.9" r="2.4" fill="#e11d48"/><circle cx="67.8" cy="16.2" r="2.4" fill="#e11d48"/><circle cx="25.2" cy="16.2" r="2.4" fill="#e11d48"/><circle cx="60.7" cy="44.9" r="2.4" fill="#e11d48"/><circle cx="89.1" cy="28.5" r="2.4" fill="#e11d48"/><circle cx="32.3" cy="3.9" r="2.4" fill="#e11d48"/><circle cx="46.5" cy="20.3" r="2.4" fill="#e11d48"/><circle cx="39.4" cy="8.0" r="2.4" fill="#e11d48"/><circle cx="18.1" cy="28.5" r="2.4" fill="#e11d48"/><circle cx="3.9" cy="28.5" r="2.4" fill="#e11d48"/><circle cx="74.9" cy="28.5" r="2.4" fill="#e11d48"/><circle cx="82.0" cy="16.2" r="2.4" fill="#e11d48"/><circle cx="25.2" cy="40.8" r="2.4" fill="#e11d48"/><circle cx="67.8" cy="40.8" r="2.4" fill="#e11d48"/><circle cx="60.7" cy="28.5" r="2.4" fill="#e11d48"/><circle cx="39.4" cy="32.6" r="2.4" fill="#e11d48"/><circle cx="53.6" cy="8.0" r="2.4" fill="#e11d48"/><circle cx="11.0" cy="16.2" r="2.4" fill="#e11d48"/><circle cx="67.8" cy="32.6" r="2.4" fill="#e11d48"/><circle cx="53.6" cy="32.6" r="2.4" fill="#e11d48"/><circle cx="32.3" cy="20.3" r="2.4" fill="#e11d48"/><circle cx="46.5" cy="44.9" r="2.4" fill="#e11d48"/><circle cx="89.1" cy="3.9" r="2.4" fill="#e11d48"/><circle cx="82.0" cy="40.8" r="2.4" fill="#e11d48"/><circle cx="74.9" cy="3.9" r="2.4" fill="#e11d48"/><circle cx="11.0" cy="40.8" r="2.4" fill="#e11d48"/><circle cx="18.1" cy="3.9" r="2.4" fill="#e11d48"/><circle cx="60.7" cy="3.9" r="2.4" fill="#e11d48"/><circle cx="39.4" cy="16.2" r="2.4" fill="#e11d48"/><circle cx="32.3" cy="44.9" r="2.4" fill="#e11d48"/><circle cx="46.5" cy="28.5" r="2.4" fill="#e11d48"/><circle cx="67.8" cy="8.0" r="2.4" fill="#e11d48"/><circle cx="25.2" cy="8.0" r="2.4" fill="#e11d48"/><circle cx="53.6" cy="16.2" r="2.4" fill="#e11d48"/><circle cx="25.2" cy="32.6" r="2.4" fill="#e11d48"/><circle cx="89.1" cy="20.3" r="2.4" fill="#e11d48"/><circle cx="11.0" cy="13.4" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="13.4" cy="6.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="8.6" cy="6.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="25.2" cy="13.4" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="27.6" cy="6.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="22.8" cy="6.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="39.4" cy="13.4" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="41.8" cy="6.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="37.0" cy="6.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="53.6" cy="13.4" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="56.0" cy="6.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="51.2" cy="6.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="67.8" cy="13.4" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="70.2" cy="6.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="65.4" cy="6.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="82.0" cy="13.4" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="84.4" cy="6.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="79.6" cy="6.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="18.1" cy="25.7" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="20.5" cy="18.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="15.7" cy="18.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="32.3" cy="25.7" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="34.7" cy="18.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="29.9" cy="18.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="46.5" cy="25.7" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="48.9" cy="18.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="44.1" cy="18.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="60.7" cy="25.7" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="63.1" cy="18.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="58.3" cy="18.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="74.9" cy="25.7" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="77.3" cy="18.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="72.5" cy="18.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="89.1" cy="25.7" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="86.7" cy="18.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="11.0" cy="38.0" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="13.4" cy="31.2" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="8.6" cy="31.2" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="25.2" cy="38.0" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="27.6" cy="31.2" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="22.8" cy="31.2" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="39.4" cy="38.0" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="41.8" cy="31.2" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="37.0" cy="31.2" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="53.6" cy="38.0" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="56.0" cy="31.2" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="51.2" cy="31.2" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="67.8" cy="38.0" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="70.2" cy="31.2" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="65.4" cy="31.2" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="82.0" cy="38.0" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="84.4" cy="31.2" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="79.6" cy="31.2" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="20.5" cy="43.5" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="15.7" cy="43.5" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="34.7" cy="43.5" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="29.9" cy="43.5" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="48.9" cy="43.5" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="44.1" cy="43.5" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="63.1" cy="43.5" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="58.3" cy="43.5" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="77.3" cy="43.5" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="72.5" cy="43.5" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="86.7" cy="43.5" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="12.6" cy="17.3" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="26.8" cy="17.3" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="41.0" cy="17.3" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="55.2" cy="17.3" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="69.4" cy="17.3" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="83.6" cy="17.3" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="19.7" cy="29.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="33.9" cy="29.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="48.1" cy="29.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="62.3" cy="29.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="76.5" cy="29.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="90.7" cy="29.6" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="12.6" cy="41.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="26.8" cy="41.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="41.0" cy="41.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="55.2" cy="41.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="69.4" cy="41.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><circle cx="83.6" cy="41.9" r="1.15" fill="#fff" stroke="#64748b" stroke-width=".35"/><rect x="102" y="1" width="77" height="50" rx="3" fill="#f6f3ff"/><circle cx="109.9" cy="8.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="114.1" cy="11.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="127.9" cy="11.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="132.1" cy="8.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="145.9" cy="8.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="150.1" cy="11.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="163.9" cy="11.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="168.1" cy="8.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="109.9" cy="26.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="114.1" cy="23.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="127.9" cy="23.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="132.1" cy="26.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="145.9" cy="26.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="150.1" cy="23.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="163.9" cy="23.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="168.1" cy="26.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="109.9" cy="38.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="114.1" cy="41.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="127.9" cy="41.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="132.1" cy="38.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="145.9" cy="38.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="150.1" cy="41.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="163.9" cy="41.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><circle cx="168.1" cy="38.5" r="3.4" fill="#8b5cf6" stroke="#5b21b6" stroke-width=".3"/><text x="49" y="56" font-size="4.2" font-weight="800" fill="#0b6b62">Buz, H₂O(k)</text><text x="49" y="61" font-size="3.3" fill="#5d6478">kesikli çizgi: hidrojen bağı · boşluklu altıgen halkalar</text><text x="140.5" y="56" font-size="4.2" font-weight="800" fill="#5b21b6">İyot, I₂(k)</text><text x="140.5" y="61" font-size="3.3" fill="#5d6478">molekülleri London kuvvetleri tutar</text></g></svg><div class="ga">Buzda kırmızı: O, beyaz: H (bazı H’ler düzlemin dışına uzanır). Gerçek buzda her su molekülü dört komşusuna hidrojen bağıyla bağlanır.</div></div>
+
+  <div class="iki-genis" style="grid-template-columns:1.15fr 1fr">
+    <div>
+      <table class="tablo sik">
+        <tr><th>Katı</th><th>Etkin kuvvet</th><th class="on">Erime n. (°C)</th></tr>
+        <tr><td>Kuru buz, <span class="f">CO<sub>2</sub></span></td><td>London</td><td class="on">−78,5*</td></tr>
+        <tr><td>Buz, <span class="f">H<sub>2</sub>O</span></td><td>Hidrojen bağı</td><td class="on">0</td></tr>
+        <tr><td>Naftalin, <span class="f">C<sub>10</sub>H<sub>8</sub></span></td><td>London</td><td class="on">80</td></tr>
+        <tr><td>İyot, <span class="f">I<sub>2</sub></span></td><td>London</td><td class="on">114</td></tr>
+        <tr><td>Sakkaroz (şeker)</td><td>Hidrojen bağı</td><td class="on">≈186**</td></tr>
+      </table>
+      <p class="kucuk" style="margin-top:-1.6mm">* 1 atm’de erimez, süblimleşir. ** Erirken bozunmaya başlar.</p>
+      <ul class="ozellik">
+        <li><b>Erime noktaları genellikle düşüktür</b>; iyot, naftalin ve kuru buz kolayca süblimleşir.</li>
+        <li>Diğer kristal türlerine göre <b>yumuşaktırlar</b>.</li>
+        <li>Serbest iyon ya da elektron içermez: ısıyı ve elektriği <b>iletmezler</b>.</li>
+      </ul>
+      <div class="kutu hayat" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+        <p style="font-size:8.9pt">Boşluklu yapısı buzu sıvı sudan daha az yoğun yapar (0,92 g/cm³). Göller bu yüzden üstten donar; buz tabakası alttaki suyu yalıtır.</p>
+      </div>
+    </div>
+    <div>
+      <div class="kutu ornek">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 2</div>
+        <div class="soru"><span class="f">H<sub>2</sub>O</span> ve <span class="f">H<sub>2</sub>S</span> molekülleri benzer biçimlidir. Buz 0 °C’de, katı <span class="f">H<sub>2</sub>S</span> yaklaşık −85 °C’de erir. Farkı açıklayınız.</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>İkisi de moleküler katıdır; erirken yalnızca moleküller arası etkileşimler yenilir.</span></div>
+          <div class="adim"><span class="n">2</span><span><span class="f">H<sub>2</sub>O</span>’da H, çok elektronegatif O’ya bağlıdır: moleküller arasında <b>hidrojen bağı</b> oluşur. <span class="f">H<sub>2</sub>S</span>’de bu etkileşim çok zayıftır.</span></div>
+          <span class="sonuc">Güçlü etkileşim → yüksek erime noktası</span>
+        </div>
+      </div>
+      <div class="kutu dikkat" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Buz eriyince moleküldeki O–H bağları kopar.”</div>
+          <div class="dogru"><b class="d">✓</b> Erime fiziksel bir olaydır. Zayıflayan, <b>moleküller arasındaki</b> hidrojen bağlarıdır; eriyen buz yine <span class="f">H<sub>2</sub>O</span>’dur.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Katılar</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · KOVALENT AĞ KATILAR VE ALLOTROPİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Katılar ve Özellikleri</span><span>Kovalent ağ katılar</span></div>
+
+  <h2 class="konu"><span class="num">4</span>Kovalent ağ katılar ve allotropi</h2>
+  <div class="alt-baslik">Kristalin tamamı tek bir dev molekül gibidir: eritmek için kovalent bağları koparmak gerekir.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+    <p><b>Kovalent (ağ örgülü) katı:</b> Örgü noktalarındaki atomların birbirine <b>kovalent bağlarla</b> bağlanarak kesintisiz bir ağ oluşturduğu kristal katıdır. Ayrı moleküller yoktur. Örnekler: elmas, grafit, kuvars (<span class="f">SiO<sub>2</sub></span>), silisyum, silisyum karbür (<span class="f">SiC</span>), silisyum nitrür (<span class="f">Si<sub>3</sub>N<sub>4</sub></span>).</p>
+  </div>
+
+  <div class="grafik-kutu"><div class="gb">Aynı atom, iki farklı ağ: karbonun iki kristal yapısı</div><svg viewBox="0 0 180 64" class="grafik"><g font-family="Inter" text-anchor="middle"><rect x="1" y="1" width="72" height="51" rx="3" fill="#f1f4f8"/><line x1="19.1" y1="40.7" x2="31.5" y2="33.5" stroke="#cbd5e1" stroke-width=".35" stroke-dasharray="1.2 1"/><line x1="19.1" y1="40.7" x2="19.1" y2="15.6" stroke="#cbd5e1" stroke-width=".35" stroke-dasharray="1.2 1"/><line x1="19.1" y1="40.7" x2="42.5" y2="44.6" stroke="#cbd5e1" stroke-width=".35" stroke-dasharray="1.2 1"/><line x1="31.5" y1="33.5" x2="31.5" y2="8.4" stroke="#cbd5e1" stroke-width=".35" stroke-dasharray="1.2 1"/><line x1="31.5" y1="33.5" x2="54.9" y2="37.4" stroke="#cbd5e1" stroke-width=".35" stroke-dasharray="1.2 1"/><line x1="19.1" y1="15.6" x2="31.5" y2="8.4" stroke="#cbd5e1" stroke-width=".35" stroke-dasharray="1.2 1"/><line x1="19.1" y1="15.6" x2="42.5" y2="19.5" stroke="#cbd5e1" stroke-width=".35" stroke-dasharray="1.2 1"/><line x1="31.5" y1="8.4" x2="54.9" y2="12.3" stroke="#cbd5e1" stroke-width=".35" stroke-dasharray="1.2 1"/><line x1="42.5" y1="44.6" x2="54.9" y2="37.4" stroke="#cbd5e1" stroke-width=".35" stroke-dasharray="1.2 1"/><line x1="42.5" y1="44.6" x2="42.5" y2="19.5" stroke="#cbd5e1" stroke-width=".35" stroke-dasharray="1.2 1"/><line x1="54.9" y1="37.4" x2="54.9" y2="12.3" stroke="#cbd5e1" stroke-width=".35" stroke-dasharray="1.2 1"/><line x1="42.5" y1="19.5" x2="54.9" y2="12.3" stroke="#cbd5e1" stroke-width=".35" stroke-dasharray="1.2 1"/><circle cx="42.5" cy="19.5" r="1.38" fill="#334155" opacity="0.64"/><line x1="39.7" y1="23.0" x2="42.5" y2="19.5" stroke="#64748b" stroke-width="1.1" opacity="0.60"/><circle cx="42.5" cy="44.6" r="1.82" fill="#334155" opacity="0.73"/><circle cx="30.8" cy="30.1" r="1.91" fill="#334155" opacity="0.75"/><line x1="30.8" y1="30.1" x2="39.7" y2="23.0" stroke="#64748b" stroke-width="1.1" opacity="0.65"/><circle cx="39.7" cy="23.0" r="1.94" fill="#0ea5e9" opacity="0.76"/><circle cx="19.1" cy="15.6" r="2.01" fill="#334155" opacity="0.77"/><line x1="39.7" y1="23.0" x2="48.7" y2="28.4" stroke="#64748b" stroke-width="1.1" opacity="0.68"/><line x1="37.0" y1="13.9" x2="39.7" y2="23.0" stroke="#64748b" stroke-width="1.1" opacity="0.69"/><circle cx="48.7" cy="28.4" r="2.19" fill="#334155" opacity="0.81"/><line x1="28.1" y1="33.6" x2="30.8" y2="30.1" stroke="#64748b" stroke-width="1.1" opacity="0.71"/><circle cx="37.0" cy="13.9" r="2.28" fill="#334155" opacity="0.83"/><circle cx="19.1" cy="40.7" r="2.44" fill="#334155" opacity="0.86"/><line x1="19.1" y1="40.7" x2="28.1" y2="33.6" stroke="#64748b" stroke-width="1.1" opacity="0.77"/><line x1="45.9" y1="31.9" x2="48.7" y2="28.4" stroke="#64748b" stroke-width="1.1" opacity="0.77"/><circle cx="28.1" cy="33.6" r="2.47" fill="#0ea5e9" opacity="0.87"/><circle cx="54.9" cy="12.3" r="2.56" fill="#334155" opacity="0.89"/><line x1="34.3" y1="17.5" x2="37.0" y2="13.9" stroke="#64748b" stroke-width="1.1" opacity="0.79"/><line x1="28.1" y1="33.6" x2="37.0" y2="39.1" stroke="#64748b" stroke-width="1.1" opacity="0.80"/><line x1="25.3" y1="24.6" x2="28.1" y2="33.6" stroke="#64748b" stroke-width="1.1" opacity="0.81"/><circle cx="37.0" cy="39.1" r="2.72" fill="#334155" opacity="0.92"/><line x1="37.0" y1="39.1" x2="45.9" y2="31.9" stroke="#64748b" stroke-width="1.1" opacity="0.82"/><circle cx="45.9" cy="31.9" r="2.75" fill="#0ea5e9" opacity="0.93"/><circle cx="25.3" cy="24.6" r="2.81" fill="#334155" opacity="0.94"/><line x1="25.3" y1="24.6" x2="34.3" y2="17.5" stroke="#64748b" stroke-width="1.1" opacity="0.85"/><circle cx="34.3" cy="17.5" r="2.84" fill="#0ea5e9" opacity="0.95"/><line x1="45.9" y1="31.9" x2="54.9" y2="37.4" stroke="#64748b" stroke-width="1.1" opacity="0.85"/><line x1="43.2" y1="22.9" x2="45.9" y2="31.9" stroke="#64748b" stroke-width="1.1" opacity="0.86"/><line x1="34.3" y1="17.5" x2="43.2" y2="22.9" stroke="#64748b" stroke-width="1.1" opacity="0.87"/><circle cx="54.9" cy="37.4" r="2.99" fill="#334155" opacity="0.98"/><line x1="31.5" y1="8.4" x2="34.3" y2="17.5" stroke="#64748b" stroke-width="1.1" opacity="0.88"/><circle cx="43.2" cy="22.9" r="3.09" fill="#334155" opacity="1.00"/><circle cx="31.5" cy="8.4" r="3.18" fill="#334155" opacity="1.00"/><circle cx="31.5" cy="33.5" r="3.62" fill="#334155" opacity="1.00"/><rect x="78" y="1" width="101" height="51" rx="3" fill="#f1f4f8"/><line x1="86.0" y1="11.0" x2="93.0" y2="11.0" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="93.0" y1="11.0" x2="99.8" y2="13.2" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="99.8" y1="13.2" x2="106.8" y2="13.2" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="99.8" y1="13.2" x2="99.7" y2="15.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="106.8" y1="13.2" x2="107.0" y2="11.0" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="106.8" y1="13.2" x2="113.7" y2="15.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="107.0" y1="11.0" x2="114.0" y2="11.0" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="114.0" y1="11.0" x2="120.8" y2="13.2" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="120.8" y1="13.2" x2="127.8" y2="13.2" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="120.8" y1="13.2" x2="120.7" y2="15.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="127.8" y1="13.2" x2="128.0" y2="11.0" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="127.8" y1="13.2" x2="134.7" y2="15.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="128.0" y1="11.0" x2="135.0" y2="11.0" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="135.0" y1="11.0" x2="141.8" y2="13.2" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="141.8" y1="13.2" x2="148.8" y2="13.2" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="141.8" y1="13.2" x2="141.7" y2="15.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="92.7" y1="15.4" x2="99.7" y2="15.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="99.7" y1="15.4" x2="106.5" y2="17.5" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="106.5" y1="17.5" x2="113.5" y2="17.5" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="106.5" y1="17.5" x2="106.3" y2="19.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="113.5" y1="17.5" x2="113.7" y2="15.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="113.5" y1="17.5" x2="120.3" y2="19.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="113.7" y1="15.4" x2="120.7" y2="15.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="120.7" y1="15.4" x2="127.5" y2="17.5" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="127.5" y1="17.5" x2="134.5" y2="17.5" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="127.5" y1="17.5" x2="127.3" y2="19.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="134.5" y1="17.5" x2="134.7" y2="15.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="134.5" y1="17.5" x2="141.3" y2="19.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="134.7" y1="15.4" x2="141.7" y2="15.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="141.7" y1="15.4" x2="148.5" y2="17.5" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="148.5" y1="17.5" x2="155.5" y2="17.5" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="148.5" y1="17.5" x2="148.3" y2="19.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="99.3" y1="19.7" x2="106.3" y2="19.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="106.3" y1="19.7" x2="113.2" y2="21.9" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="113.2" y1="21.9" x2="120.2" y2="21.9" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="120.2" y1="21.9" x2="120.3" y2="19.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="120.3" y1="19.7" x2="127.3" y2="19.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="127.3" y1="19.7" x2="134.2" y2="21.9" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="134.2" y1="21.9" x2="141.2" y2="21.9" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="141.2" y1="21.9" x2="141.3" y2="19.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="141.3" y1="19.7" x2="148.3" y2="19.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="148.3" y1="19.7" x2="155.2" y2="21.9" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="155.2" y1="21.9" x2="162.2" y2="21.9" stroke="#64748b" stroke-width=".9" opacity="0.85"/><circle cx="86.0" cy="11.0" r="1.45" fill="#334155" opacity="0.85"/><circle cx="93.0" cy="11.0" r="1.45" fill="#334155" opacity="0.85"/><circle cx="99.8" cy="13.2" r="1.45" fill="#334155" opacity="0.85"/><circle cx="106.8" cy="13.2" r="1.45" fill="#334155" opacity="0.85"/><circle cx="107.0" cy="11.0" r="1.45" fill="#334155" opacity="0.85"/><circle cx="114.0" cy="11.0" r="1.45" fill="#334155" opacity="0.85"/><circle cx="120.8" cy="13.2" r="1.45" fill="#334155" opacity="0.85"/><circle cx="127.8" cy="13.2" r="1.45" fill="#334155" opacity="0.85"/><circle cx="128.0" cy="11.0" r="1.45" fill="#334155" opacity="0.85"/><circle cx="135.0" cy="11.0" r="1.45" fill="#334155" opacity="0.85"/><circle cx="141.8" cy="13.2" r="1.45" fill="#334155" opacity="0.85"/><circle cx="148.8" cy="13.2" r="1.45" fill="#334155" opacity="0.85"/><circle cx="92.7" cy="15.4" r="1.45" fill="#334155" opacity="0.85"/><circle cx="99.7" cy="15.4" r="1.45" fill="#334155" opacity="0.85"/><circle cx="106.5" cy="17.5" r="1.45" fill="#334155" opacity="0.85"/><circle cx="113.5" cy="17.5" r="1.45" fill="#334155" opacity="0.85"/><circle cx="113.7" cy="15.4" r="1.45" fill="#334155" opacity="0.85"/><circle cx="120.7" cy="15.4" r="1.45" fill="#334155" opacity="0.85"/><circle cx="127.5" cy="17.5" r="1.45" fill="#334155" opacity="0.85"/><circle cx="134.5" cy="17.5" r="1.45" fill="#334155" opacity="0.85"/><circle cx="134.7" cy="15.4" r="1.45" fill="#334155" opacity="0.85"/><circle cx="141.7" cy="15.4" r="1.45" fill="#334155" opacity="0.85"/><circle cx="148.5" cy="17.5" r="1.45" fill="#334155" opacity="0.85"/><circle cx="155.5" cy="17.5" r="1.45" fill="#334155" opacity="0.85"/><circle cx="99.3" cy="19.7" r="1.45" fill="#334155" opacity="0.85"/><circle cx="106.3" cy="19.7" r="1.45" fill="#334155" opacity="0.85"/><circle cx="113.2" cy="21.9" r="1.45" fill="#334155" opacity="0.85"/><circle cx="120.2" cy="21.9" r="1.45" fill="#334155" opacity="0.85"/><circle cx="120.3" cy="19.7" r="1.45" fill="#334155" opacity="0.85"/><circle cx="127.3" cy="19.7" r="1.45" fill="#334155" opacity="0.85"/><circle cx="134.2" cy="21.9" r="1.45" fill="#334155" opacity="0.85"/><circle cx="141.2" cy="21.9" r="1.45" fill="#334155" opacity="0.85"/><circle cx="141.3" cy="19.7" r="1.45" fill="#334155" opacity="0.85"/><circle cx="148.3" cy="19.7" r="1.45" fill="#334155" opacity="0.85"/><circle cx="155.2" cy="21.9" r="1.45" fill="#334155" opacity="0.85"/><circle cx="162.2" cy="21.9" r="1.45" fill="#334155" opacity="0.85"/><line x1="93.0" y1="23.0" x2="100.0" y2="23.0" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="100.0" y1="23.0" x2="106.8" y2="25.2" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="106.8" y1="25.2" x2="113.8" y2="25.2" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="106.8" y1="25.2" x2="106.7" y2="27.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="113.8" y1="25.2" x2="114.0" y2="23.0" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="113.8" y1="25.2" x2="120.7" y2="27.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="114.0" y1="23.0" x2="121.0" y2="23.0" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="121.0" y1="23.0" x2="127.8" y2="25.2" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="127.8" y1="25.2" x2="134.8" y2="25.2" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="127.8" y1="25.2" x2="127.7" y2="27.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="134.8" y1="25.2" x2="135.0" y2="23.0" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="134.8" y1="25.2" x2="141.7" y2="27.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="135.0" y1="23.0" x2="142.0" y2="23.0" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="142.0" y1="23.0" x2="148.8" y2="25.2" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="148.8" y1="25.2" x2="155.8" y2="25.2" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="148.8" y1="25.2" x2="148.7" y2="27.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="99.7" y1="27.4" x2="106.7" y2="27.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="106.7" y1="27.4" x2="113.5" y2="29.5" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="113.5" y1="29.5" x2="120.5" y2="29.5" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="113.5" y1="29.5" x2="113.3" y2="31.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="120.5" y1="29.5" x2="120.7" y2="27.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="120.5" y1="29.5" x2="127.3" y2="31.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="120.7" y1="27.4" x2="127.7" y2="27.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="127.7" y1="27.4" x2="134.5" y2="29.5" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="134.5" y1="29.5" x2="141.5" y2="29.5" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="134.5" y1="29.5" x2="134.3" y2="31.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="141.5" y1="29.5" x2="141.7" y2="27.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="141.5" y1="29.5" x2="148.3" y2="31.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="141.7" y1="27.4" x2="148.7" y2="27.4" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="148.7" y1="27.4" x2="155.5" y2="29.5" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="155.5" y1="29.5" x2="162.5" y2="29.5" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="155.5" y1="29.5" x2="155.3" y2="31.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="106.3" y1="31.7" x2="113.3" y2="31.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="113.3" y1="31.7" x2="120.2" y2="33.9" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="120.2" y1="33.9" x2="127.2" y2="33.9" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="127.2" y1="33.9" x2="127.3" y2="31.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="127.3" y1="31.7" x2="134.3" y2="31.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="134.3" y1="31.7" x2="141.2" y2="33.9" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="141.2" y1="33.9" x2="148.2" y2="33.9" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="148.2" y1="33.9" x2="148.3" y2="31.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="148.3" y1="31.7" x2="155.3" y2="31.7" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="155.3" y1="31.7" x2="162.2" y2="33.9" stroke="#64748b" stroke-width=".9" opacity="0.85"/><line x1="162.2" y1="33.9" x2="169.2" y2="33.9" stroke="#64748b" stroke-width=".9" opacity="0.85"/><circle cx="93.0" cy="23.0" r="1.45" fill="#334155" opacity="0.85"/><circle cx="100.0" cy="23.0" r="1.45" fill="#334155" opacity="0.85"/><circle cx="106.8" cy="25.2" r="1.45" fill="#334155" opacity="0.85"/><circle cx="113.8" cy="25.2" r="1.45" fill="#334155" opacity="0.85"/><circle cx="114.0" cy="23.0" r="1.45" fill="#334155" opacity="0.85"/><circle cx="121.0" cy="23.0" r="1.45" fill="#334155" opacity="0.85"/><circle cx="127.8" cy="25.2" r="1.45" fill="#334155" opacity="0.85"/><circle cx="134.8" cy="25.2" r="1.45" fill="#334155" opacity="0.85"/><circle cx="135.0" cy="23.0" r="1.45" fill="#334155" opacity="0.85"/><circle cx="142.0" cy="23.0" r="1.45" fill="#334155" opacity="0.85"/><circle cx="148.8" cy="25.2" r="1.45" fill="#334155" opacity="0.85"/><circle cx="155.8" cy="25.2" r="1.45" fill="#334155" opacity="0.85"/><circle cx="99.7" cy="27.4" r="1.45" fill="#334155" opacity="0.85"/><circle cx="106.7" cy="27.4" r="1.45" fill="#334155" opacity="0.85"/><circle cx="113.5" cy="29.5" r="1.45" fill="#334155" opacity="0.85"/><circle cx="120.5" cy="29.5" r="1.45" fill="#334155" opacity="0.85"/><circle cx="120.7" cy="27.4" r="1.45" fill="#334155" opacity="0.85"/><circle cx="127.7" cy="27.4" r="1.45" fill="#334155" opacity="0.85"/><circle cx="134.5" cy="29.5" r="1.45" fill="#334155" opacity="0.85"/><circle cx="141.5" cy="29.5" r="1.45" fill="#334155" opacity="0.85"/><circle cx="141.7" cy="27.4" r="1.45" fill="#334155" opacity="0.85"/><circle cx="148.7" cy="27.4" r="1.45" fill="#334155" opacity="0.85"/><circle cx="155.5" cy="29.5" r="1.45" fill="#334155" opacity="0.85"/><circle cx="162.5" cy="29.5" r="1.45" fill="#334155" opacity="0.85"/><circle cx="106.3" cy="31.7" r="1.45" fill="#334155" opacity="0.85"/><circle cx="113.3" cy="31.7" r="1.45" fill="#334155" opacity="0.85"/><circle cx="120.2" cy="33.9" r="1.45" fill="#334155" opacity="0.85"/><circle cx="127.2" cy="33.9" r="1.45" fill="#334155" opacity="0.85"/><circle cx="127.3" cy="31.7" r="1.45" fill="#334155" opacity="0.85"/><circle cx="134.3" cy="31.7" r="1.45" fill="#334155" opacity="0.85"/><circle cx="141.2" cy="33.9" r="1.45" fill="#334155" opacity="0.85"/><circle cx="148.2" cy="33.9" r="1.45" fill="#334155" opacity="0.85"/><circle cx="148.3" cy="31.7" r="1.45" fill="#334155" opacity="0.85"/><circle cx="155.3" cy="31.7" r="1.45" fill="#334155" opacity="0.85"/><circle cx="162.2" cy="33.9" r="1.45" fill="#334155" opacity="0.85"/><circle cx="169.2" cy="33.9" r="1.45" fill="#334155" opacity="0.85"/><line x1="86.0" y1="35.0" x2="93.0" y2="35.0" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="93.0" y1="35.0" x2="99.8" y2="37.2" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="99.8" y1="37.2" x2="106.8" y2="37.2" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="99.8" y1="37.2" x2="99.7" y2="39.4" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="106.8" y1="37.2" x2="107.0" y2="35.0" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="106.8" y1="37.2" x2="113.7" y2="39.4" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="107.0" y1="35.0" x2="114.0" y2="35.0" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="114.0" y1="35.0" x2="120.8" y2="37.2" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="120.8" y1="37.2" x2="127.8" y2="37.2" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="120.8" y1="37.2" x2="120.7" y2="39.4" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="127.8" y1="37.2" x2="128.0" y2="35.0" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="127.8" y1="37.2" x2="134.7" y2="39.4" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="128.0" y1="35.0" x2="135.0" y2="35.0" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="135.0" y1="35.0" x2="141.8" y2="37.2" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="141.8" y1="37.2" x2="148.8" y2="37.2" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="141.8" y1="37.2" x2="141.7" y2="39.4" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="92.7" y1="39.4" x2="99.7" y2="39.4" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="99.7" y1="39.4" x2="106.5" y2="41.5" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="106.5" y1="41.5" x2="113.5" y2="41.5" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="106.5" y1="41.5" x2="106.3" y2="43.7" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="113.5" y1="41.5" x2="113.7" y2="39.4" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="113.5" y1="41.5" x2="120.3" y2="43.7" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="113.7" y1="39.4" x2="120.7" y2="39.4" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="120.7" y1="39.4" x2="127.5" y2="41.5" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="127.5" y1="41.5" x2="134.5" y2="41.5" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="127.5" y1="41.5" x2="127.3" y2="43.7" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="134.5" y1="41.5" x2="134.7" y2="39.4" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="134.5" y1="41.5" x2="141.3" y2="43.7" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="134.7" y1="39.4" x2="141.7" y2="39.4" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="141.7" y1="39.4" x2="148.5" y2="41.5" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="148.5" y1="41.5" x2="155.5" y2="41.5" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="148.5" y1="41.5" x2="148.3" y2="43.7" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="99.3" y1="43.7" x2="106.3" y2="43.7" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="106.3" y1="43.7" x2="113.2" y2="45.9" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="113.2" y1="45.9" x2="120.2" y2="45.9" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="120.2" y1="45.9" x2="120.3" y2="43.7" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="120.3" y1="43.7" x2="127.3" y2="43.7" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="127.3" y1="43.7" x2="134.2" y2="45.9" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="134.2" y1="45.9" x2="141.2" y2="45.9" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="141.2" y1="45.9" x2="141.3" y2="43.7" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="141.3" y1="43.7" x2="148.3" y2="43.7" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="148.3" y1="43.7" x2="155.2" y2="45.9" stroke="#64748b" stroke-width=".9" opacity="1.0"/><line x1="155.2" y1="45.9" x2="162.2" y2="45.9" stroke="#64748b" stroke-width=".9" opacity="1.0"/><circle cx="86.0" cy="35.0" r="1.45" fill="#334155" opacity="1.0"/><circle cx="93.0" cy="35.0" r="1.45" fill="#334155" opacity="1.0"/><circle cx="99.8" cy="37.2" r="1.45" fill="#334155" opacity="1.0"/><circle cx="106.8" cy="37.2" r="1.45" fill="#334155" opacity="1.0"/><circle cx="107.0" cy="35.0" r="1.45" fill="#334155" opacity="1.0"/><circle cx="114.0" cy="35.0" r="1.45" fill="#334155" opacity="1.0"/><circle cx="120.8" cy="37.2" r="1.45" fill="#334155" opacity="1.0"/><circle cx="127.8" cy="37.2" r="1.45" fill="#334155" opacity="1.0"/><circle cx="128.0" cy="35.0" r="1.45" fill="#334155" opacity="1.0"/><circle cx="135.0" cy="35.0" r="1.45" fill="#334155" opacity="1.0"/><circle cx="141.8" cy="37.2" r="1.45" fill="#334155" opacity="1.0"/><circle cx="148.8" cy="37.2" r="1.45" fill="#334155" opacity="1.0"/><circle cx="92.7" cy="39.4" r="1.45" fill="#334155" opacity="1.0"/><circle cx="99.7" cy="39.4" r="1.45" fill="#334155" opacity="1.0"/><circle cx="106.5" cy="41.5" r="1.45" fill="#334155" opacity="1.0"/><circle cx="113.5" cy="41.5" r="1.45" fill="#334155" opacity="1.0"/><circle cx="113.7" cy="39.4" r="1.45" fill="#334155" opacity="1.0"/><circle cx="120.7" cy="39.4" r="1.45" fill="#334155" opacity="1.0"/><circle cx="127.5" cy="41.5" r="1.45" fill="#334155" opacity="1.0"/><circle cx="134.5" cy="41.5" r="1.45" fill="#334155" opacity="1.0"/><circle cx="134.7" cy="39.4" r="1.45" fill="#334155" opacity="1.0"/><circle cx="141.7" cy="39.4" r="1.45" fill="#334155" opacity="1.0"/><circle cx="148.5" cy="41.5" r="1.45" fill="#334155" opacity="1.0"/><circle cx="155.5" cy="41.5" r="1.45" fill="#334155" opacity="1.0"/><circle cx="99.3" cy="43.7" r="1.45" fill="#334155" opacity="1.0"/><circle cx="106.3" cy="43.7" r="1.45" fill="#334155" opacity="1.0"/><circle cx="113.2" cy="45.9" r="1.45" fill="#334155" opacity="1.0"/><circle cx="120.2" cy="45.9" r="1.45" fill="#334155" opacity="1.0"/><circle cx="120.3" cy="43.7" r="1.45" fill="#334155" opacity="1.0"/><circle cx="127.3" cy="43.7" r="1.45" fill="#334155" opacity="1.0"/><circle cx="134.2" cy="45.9" r="1.45" fill="#334155" opacity="1.0"/><circle cx="141.2" cy="45.9" r="1.45" fill="#334155" opacity="1.0"/><circle cx="141.3" cy="43.7" r="1.45" fill="#334155" opacity="1.0"/><circle cx="148.3" cy="43.7" r="1.45" fill="#334155" opacity="1.0"/><circle cx="155.2" cy="45.9" r="1.45" fill="#334155" opacity="1.0"/><circle cx="162.2" cy="45.9" r="1.45" fill="#334155" opacity="1.0"/><line x1="172" y1="12" x2="172" y2="40" stroke="#f59e0b" stroke-width=".5" stroke-dasharray="1 .8"/><text x="170" y="22" font-size="3.2" fill="#b45309" text-anchor="end" font-weight="700">zayıf</text><text x="170" y="26" font-size="3.2" fill="#b45309" text-anchor="end">katmanlar</text><text x="170" y="30" font-size="3.2" fill="#b45309" text-anchor="end">arası</text><text x="37" y="57" font-size="4.2" font-weight="800" fill="#273242">Elmas</text><text x="37" y="62" font-size="3.3" fill="#5d6478">her C, 4 C ile bağlı (düzgün dörtyüzlü)</text><text x="128.5" y="57" font-size="4.2" font-weight="800" fill="#273242">Grafit</text><text x="128.5" y="62" font-size="3.3" fill="#5d6478">her C, 3 C ile bağlı; altıgen katmanlar üst üste</text></g></svg></div>
+
+  <div class="iki-genis" style="grid-template-columns:1.2fr 1fr">
+    <div>
+      <table class="tablo sik">
+        <tr><th></th><th>Elmas</th><th>Grafit</th></tr>
+        <tr><td><b>Bir C’nin bağ sayısı</b></td><td>4 (üç boyutlu ağ)</td><td>3 (düzlemsel katman)</td></tr>
+        <tr><td><b>Sertlik (Mohs)</b></td><td>10, en sert doğal madde</td><td>1–2, kayganlaştırıcı</td></tr>
+        <tr><td><b>Elektrik</b></td><td>İletmez</td><td>Katman boyunca iletir</td></tr>
+        <tr><td><b>Yoğunluk</b></td><td>3,51 g/cm³</td><td>≈2,2 g/cm³</td></tr>
+        <tr><td><b>Kullanım</b></td><td>Kesici uç, mücevher</td><td>Kalem ucu, pil elektrodu</td></tr>
+      </table>
+      <ul class="ozellik">
+        <li><b>Erime noktaları çok yüksektir</b> (kuvars ≈ 1713 °C, silisyum 1414 °C).</li>
+        <li>Genellikle <b>çok serttirler</b> ve <b>yalıtkandırlar</b>.</li>
+        <li><b>Grafit istisnadır:</b> her C atomunun dördüncü değerlik elektronu katman boyunca serbestçe hareket eder, bu yüzden elektriği iletir.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="kutu kavram">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Allotropi</div>
+        <p style="font-size:9.1pt">Bir elementin atomlarının <b>farklı biçimde bağlanıp dizilmesiyle</b> oluşan, özellikleri farklı hâllerine <b>allotrop</b> denir.</p>
+        <ul style="font-size:8.9pt;margin:0">
+          <li><b>Karbon:</b> elmas, grafit, grafen (tek katman grafit), fulleren (<span class="f">C<sub>60</sub></span>)</li>
+          <li><b>Oksijen:</b> <span class="f">O<sub>2</sub></span> ve ozon (<span class="f">O<sub>3</sub></span>)</li>
+          <li><b>Fosfor:</b> beyaz ve kırmızı fosfor</li>
+        </ul>
+      </div>
+      <div class="kutu dikkat">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Elmas ve grafit, karbonun izotoplarıdır.”</div>
+          <div class="dogru"><b class="d">✓</b> İzotoplar atom düzeyinde (nötron sayısı) farklıdır. Elmas ve grafit aynı atomların <b>farklı dizilişidir</b>: allotroptur.</div>
+        </div>
+      </div>
+      <div class="kutu hayat" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+        <p style="font-size:8.8pt">Tek atom kalınlığındaki grafen çalışmaları 2010 Nobel Fizik Ödülü’nü getirdi. Top biçimli <span class="f">C<sub>60</sub></span> ise <b>moleküler</b> katı oluşturur.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Katılar</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · METALİK KATILAR
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Katılar ve Özellikleri</span><span>Metalik katılar</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Metalik katılar</h2>
+  <div class="alt-baslik">Paylaşılan değerlik elektronları bir “deniz” oluşturur; parlaklık, iletkenlik ve işlenebilirlik buradan gelir.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+    <p><b>Metalik katı:</b> Örgü noktalarında <b>metal katyonlarının</b> bulunduğu, bu katyonların aralarında serbestçe dolaşan değerlik elektronlarıyla (<b>elektron denizi</b>) bir arada tutulduğu kristal katıdır. Katyonlar ile elektron denizi arasındaki çekime <b>metalik bağ</b> denir. Tüm metaller ve alaşımlar bu gruptadır.</p>
+  </div>
+
+  <div class="grafik-kutu"><div class="gb">Elektron denizi modeli ve dövülebilirlik</div><svg viewBox="0 0 180 47" class="grafik"><g font-family="Inter" text-anchor="middle"><defs><marker id="mk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0 0 10 5 0 10z" fill="#1d2133"/></marker></defs><rect x="5" y="4" width="55" height="28" rx="3" fill="#fff7e6"/><circle cx="19.1" cy="19.1" r=".7" fill="#f59e0b"/><circle cx="25.9" cy="20.5" r=".7" fill="#f59e0b"/><circle cx="38.9" cy="7.6" r=".7" fill="#f59e0b"/><circle cx="7.7" cy="26.1" r=".7" fill="#f59e0b"/><circle cx="20.2" cy="11.6" r=".7" fill="#f59e0b"/><circle cx="57.8" cy="17.3" r=".7" fill="#f59e0b"/><circle cx="49.7" cy="17.4" r=".7" fill="#f59e0b"/><circle cx="39.6" cy="9.6" r=".7" fill="#f59e0b"/><circle cx="39.4" cy="26.8" r=".7" fill="#f59e0b"/><circle cx="33.7" cy="23.8" r=".7" fill="#f59e0b"/><circle cx="41.2" cy="7.5" r=".7" fill="#f59e0b"/><circle cx="45.7" cy="20.2" r=".7" fill="#f59e0b"/><circle cx="22.4" cy="6.7" r=".7" fill="#f59e0b"/><circle cx="51.1" cy="17.3" r=".7" fill="#f59e0b"/><circle cx="43.7" cy="27.1" r=".7" fill="#f59e0b"/><circle cx="43.4" cy="28.1" r=".7" fill="#f59e0b"/><circle cx="27.1" cy="25.2" r=".7" fill="#f59e0b"/><circle cx="29.7" cy="28.5" r=".7" fill="#f59e0b"/><circle cx="51.8" cy="8.3" r=".7" fill="#f59e0b"/><circle cx="13.9" cy="11.2" r=".7" fill="#f59e0b"/><circle cx="56.2" cy="16.5" r=".7" fill="#f59e0b"/><circle cx="39.0" cy="13.2" r=".7" fill="#f59e0b"/><circle cx="32.9" cy="15.3" r=".7" fill="#f59e0b"/><circle cx="24.9" cy="20.0" r=".7" fill="#f59e0b"/><circle cx="36.8" cy="27.7" r=".7" fill="#f59e0b"/><circle cx="41.8" cy="28.3" r=".7" fill="#f59e0b"/><circle cx="50.7" cy="29.8" r=".7" fill="#f59e0b"/><circle cx="41.2" cy="9.9" r=".7" fill="#f59e0b"/><circle cx="10.0" cy="9.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="10.0" y="10.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="19.0" cy="9.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="19.0" y="10.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="28.0" cy="9.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="28.0" y="10.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="37.0" cy="9.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="37.0" y="10.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="46.0" cy="9.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="46.0" y="10.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="55.0" cy="9.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="55.0" y="10.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="10.0" cy="18.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="10.0" y="19.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="19.0" cy="18.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="19.0" y="19.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="28.0" cy="18.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="28.0" y="19.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="37.0" cy="18.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="37.0" y="19.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="46.0" cy="18.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="46.0" y="19.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="55.0" cy="18.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="55.0" y="19.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="10.0" cy="27.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="10.0" y="28.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="19.0" cy="27.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="19.0" y="28.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="28.0" cy="27.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="28.0" y="28.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="37.0" cy="27.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="37.0" y="28.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="46.0" cy="27.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="46.0" y="28.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="55.0" cy="27.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="55.0" y="28.4" font-size="3.8" font-weight="800" fill="#fff">+</text><path d="M70 18 H90" stroke="#1d2133" stroke-width=".7" marker-end="url(#mk)"/><text x="80" y="15.5" font-size="3.3" fill="#5d6478">darbe</text><rect x="100" y="4" width="64" height="28" rx="3" fill="#fff7e6"/><circle cx="139.4" cy="23.8" r=".7" fill="#f59e0b"/><circle cx="149.7" cy="28.6" r=".7" fill="#f59e0b"/><circle cx="146.4" cy="28.1" r=".7" fill="#f59e0b"/><circle cx="103.7" cy="17.2" r=".7" fill="#f59e0b"/><circle cx="158.6" cy="21.6" r=".7" fill="#f59e0b"/><circle cx="156.1" cy="8.7" r=".7" fill="#f59e0b"/><circle cx="130.1" cy="11.9" r=".7" fill="#f59e0b"/><circle cx="134.6" cy="19.8" r=".7" fill="#f59e0b"/><circle cx="102.8" cy="11.2" r=".7" fill="#f59e0b"/><circle cx="118.8" cy="28.0" r=".7" fill="#f59e0b"/><circle cx="147.9" cy="9.8" r=".7" fill="#f59e0b"/><circle cx="149.8" cy="9.3" r=".7" fill="#f59e0b"/><circle cx="139.0" cy="9.0" r=".7" fill="#f59e0b"/><circle cx="102.1" cy="26.9" r=".7" fill="#f59e0b"/><circle cx="114.6" cy="11.2" r=".7" fill="#f59e0b"/><circle cx="160.9" cy="26.9" r=".7" fill="#f59e0b"/><circle cx="119.4" cy="29.1" r=".7" fill="#f59e0b"/><circle cx="134.4" cy="22.3" r=".7" fill="#f59e0b"/><circle cx="114.3" cy="28.6" r=".7" fill="#f59e0b"/><circle cx="143.4" cy="29.2" r=".7" fill="#f59e0b"/><circle cx="155.6" cy="13.2" r=".7" fill="#f59e0b"/><circle cx="123.7" cy="10.0" r=".7" fill="#f59e0b"/><circle cx="110.7" cy="7.6" r=".7" fill="#f59e0b"/><circle cx="120.1" cy="20.5" r=".7" fill="#f59e0b"/><circle cx="102.2" cy="22.3" r=".7" fill="#f59e0b"/><circle cx="122.3" cy="13.4" r=".7" fill="#f59e0b"/><circle cx="151.1" cy="17.5" r=".7" fill="#f59e0b"/><circle cx="120.9" cy="17.5" r=".7" fill="#f59e0b"/><circle cx="114.0" cy="9.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="114.0" y="10.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="123.0" cy="9.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="123.0" y="10.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="132.0" cy="9.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="132.0" y="10.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="141.0" cy="9.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="141.0" y="10.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="150.0" cy="9.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="150.0" y="10.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="159.0" cy="9.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="159.0" y="10.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="105.0" cy="18.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="105.0" y="19.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="114.0" cy="18.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="114.0" y="19.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="123.0" cy="18.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="123.0" y="19.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="132.0" cy="18.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="132.0" y="19.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="141.0" cy="18.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="141.0" y="19.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="150.0" cy="18.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="150.0" y="19.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="105.0" cy="27.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="105.0" y="28.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="114.0" cy="27.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="114.0" y="28.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="123.0" cy="27.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="123.0" y="28.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="132.0" cy="27.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="132.0" y="28.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="141.0" cy="27.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="141.0" y="28.4" font-size="3.8" font-weight="800" fill="#fff">+</text><circle cx="150.0" cy="27.0" r="2.9" fill="#94a3b8" stroke="#64748b" stroke-width=".3"/><text x="150.0" y="28.4" font-size="3.8" font-weight="800" fill="#fff">+</text><path d="M104 2.4 H116" stroke="#1d2133" stroke-width=".6" marker-end="url(#mk)"/><text x="35" y="37" font-size="3.8" fill="#1d2133" font-weight="700">Katyonlar + serbest elektronlar</text><text x="35" y="41.5" font-size="3.3" fill="#5d6478">elektronlar tek bir atoma ait değildir</text><text x="138" y="37" font-size="3.8" fill="#0f8f84" font-weight="700">Katman kayar, bağ kopmaz</text><text x="138" y="41.5" font-size="3.3" fill="#5d6478">elektron denizi katyonları yine bir arada tutar</text><circle cx="62" cy="45.6" r=".9" fill="#f59e0b"/><text x="64" y="46.8" font-size="3.2" fill="#5d6478" text-anchor="start">elektron</text><circle cx="86" cy="45.6" r="1.6" fill="#94a3b8"/><text x="89" y="46.8" font-size="3.2" fill="#5d6478" text-anchor="start">metal katyonu</text></g></svg></div>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1.05fr">
+    <div>
+      <ul class="ozellik">
+        <li>Serbest elektronlar sayesinde <b>ısıyı ve elektriği iyi iletirler</b>.</li>
+        <li>Yeni kesilmiş yüzeyleri <b>parlaktır</b>.</li>
+        <li><b>İşlenebilirler:</b> dövülerek levha, çekilerek tel hâline getirilebilirler.</li>
+        <li><b>Erime noktaları ve sertlikleri geniş bir aralıktadır.</b></li>
+      </ul>
+      <table class="tablo sik">
+        <tr><th>Metal</th><th class="on">Erime n. (°C)</th><th class="on">Sertlik (Mohs)</th></tr>
+        <tr><td>Potasyum (K)</td><td class="on">63,5</td><td class="on">0,4</td></tr>
+        <tr><td>Alüminyum (Al)</td><td class="on">660</td><td class="on">2,75</td></tr>
+        <tr><td>Bakır (Cu)</td><td class="on">1085</td><td class="on">3</td></tr>
+        <tr><td>Demir (Fe)</td><td class="on">1538</td><td class="on">4</td></tr>
+        <tr><td>Tungsten (W)</td><td class="on">3422</td><td class="on">7,5</td></tr>
+      </table>
+      <div class="kutu dikkat" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Bütün metaller sert ve oda koşullarında katıdır.”</div>
+          <div class="dogru"><b class="d">✓</b> Potasyum bıçakla kesilecek kadar yumuşaktır; cıva (Hg) −38,8 °C’de erir, oda koşullarında <b>sıvıdır</b>.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="kutu ornek">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 3</div>
+        <div class="soru"><sub>19</sub>K ve <sub>20</sub>Ca aynı periyottadır. Kalsiyumun erime noktası (842 °C), potasyumunkinden (63,5 °C) neden çok yüksektir?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>K: 2-8-8-1 → her atom denize <b>1</b> elektron verir, K<sup>+</sup> oluşur. Ca: 2-8-8-2 → <b>2</b> elektron verir, Ca<sup>2+</sup> oluşur.</span></div>
+          <div class="adim"><span class="n">2</span><span>Ca’da katyon yükü ve denizdeki elektron sayısı daha büyüktür; katyon–elektron çekimi güçlenir.</span></div>
+          <span class="sonuc">Metalik bağ Ca’da daha güçlü</span>
+        </div>
+      </div>
+      <div class="kutu hayat" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+        <p style="font-size:8.9pt">Altın, ışığı geçirecek kadar ince (yaklaşık 0,1 mikrometre) varaklar hâline dövülebilir. <b>Alaşımlar</b> da metalik katıdır: çelik (demir + karbon), bronz (bakır + kalay), pirinç (bakır + çinko).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Katılar</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · KARŞILAŞTIRMA VE TANIMA
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Katılar ve Özellikleri</span><span>Karşılaştırma</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Katıları karşılaştırma ve tanıma</h2>
+  <div class="alt-baslik">Özellikleri yapıya bağla: tanecikleri tutan kuvvet ne kadar güçlüyse katıyı eritmek o kadar zordur.</div>
+
+  <table class="tablo kars sik" style="font-size:8.6pt">
+    <tr><th></th><th>İyonik</th><th>Moleküler</th><th>Kovalent ağ</th><th>Metalik</th></tr>
+    <tr><td>Örgü noktası</td><td>Katyon ve anyon</td><td>Molekül</td><td>Atom</td><td>Metal katyonu</td></tr>
+    <tr><td>Tutan kuvvet</td><td>İyonik bağ</td><td>H bağı, dipol–dipol, London</td><td>Kovalent bağ</td><td>Metalik bağ</td></tr>
+    <tr><td>Erime noktası</td><td>Yüksek</td><td>Düşük</td><td>Çok yüksek</td><td>Düşükten çok yükseğe</td></tr>
+    <tr><td>Mekanik</td><td>Sert, kırılgan</td><td>Yumuşak</td><td>Çok sert (grafit hariç)</td><td>İşlenebilir</td></tr>
+    <tr><td>İletkenlik</td><td>Katı: yok · eriyik/çözelti: var</td><td>Yok</td><td>Yok (grafit iletir)</td><td>Katı ve sıvı hâlde iyi</td></tr>
+    <tr><td>Örnek</td><td><span class="f">NaCl</span>, <span class="f">CaO</span>, <span class="f">KNO<sub>3</sub></span></td><td><span class="f">H<sub>2</sub>O</span>, <span class="f">I<sub>2</sub></span>, <span class="f">CO<sub>2</sub></span>, <span class="f">C<sub>10</sub>H<sub>8</sub></span></td><td>Elmas, <span class="f">SiO<sub>2</sub></span>, <span class="f">SiC</span></td><td>Na, Al, Fe, çelik</td></tr>
+  </table>
+
+  <div class="iki" style="gap:4mm;align-items:start">
+    <div class="grafik-kutu" style="margin:0"><div class="gb">Erime noktalarının katı türüne göre dağılımı</div><svg viewBox="0 0 110 118" class="grafik"><g font-family="Inter" font-size="3.4" fill="#5d6478"><line x1="25.0" y1="2" x2="25.0" y2="106" stroke="#e5e7f0" stroke-width=".3"/><text x="25.0" y="110" text-anchor="middle">0</text><line x1="43.9" y1="2" x2="43.9" y2="106" stroke="#e5e7f0" stroke-width=".3"/><text x="43.9" y="110" text-anchor="middle">1000</text><line x1="62.9" y1="2" x2="62.9" y2="106" stroke="#e5e7f0" stroke-width=".3"/><text x="62.9" y="110" text-anchor="middle">2000</text><line x1="81.8" y1="2" x2="81.8" y2="106" stroke="#e5e7f0" stroke-width=".3"/><text x="81.8" y="110" text-anchor="middle">3000</text><line x1="25.0" y1="2" x2="25.0" y2="106" stroke="#1d2133" stroke-width=".45"/><text x="61.0" y="115.5" text-anchor="middle" fill="#1d2133" font-weight="700" font-size="3.6">Erime noktası (°C, 1 atm)</text><text x="26" y="4.4" font-weight="800" fill="#475569" font-size="3.6">Moleküler</text><text x="21.6" y="9.3" text-anchor="end" fill="#1d2133" font-size="3.3">Kuru buz*</text><rect x="23.5" y="6.4" width="1.5" height="3.6" fill="#475569" opacity=".85"/><text x="26.2" y="9.3" fill="#1d2133" font-size="3.1" font-weight="700">-78,5</text><text x="23.8" y="13.9" text-anchor="end" fill="#1d2133" font-size="3.3">Buz</text><rect x="25.0" y="11.0" width="0.5" height="3.6" fill="#475569" opacity=".85"/><text x="26.2" y="13.9" fill="#1d2133" font-size="3.1" font-weight="700">0</text><text x="23.8" y="18.5" text-anchor="end" fill="#1d2133" font-size="3.3">Naftalin</text><rect x="25.0" y="15.6" width="1.5" height="3.6" fill="#475569" opacity=".85"/><text x="27.7" y="18.5" fill="#1d2133" font-size="3.1" font-weight="700">80</text><text x="23.8" y="23.1" text-anchor="end" fill="#1d2133" font-size="3.3">İyot</text><rect x="25.0" y="20.2" width="2.2" height="3.6" fill="#475569" opacity=".85"/><text x="28.4" y="23.1" fill="#1d2133" font-size="3.1" font-weight="700">114</text><text x="26" y="29.4" font-weight="800" fill="#c26a06" font-size="3.6">Metalik</text><text x="23.8" y="34.3" text-anchor="end" fill="#1d2133" font-size="3.3">Sodyum</text><rect x="25.0" y="31.4" width="1.9" height="3.6" fill="#c26a06" opacity=".85"/><text x="28.1" y="34.3" fill="#1d2133" font-size="3.1" font-weight="700">98</text><text x="23.8" y="38.9" text-anchor="end" fill="#1d2133" font-size="3.3">Alüminyum</text><rect x="25.0" y="36.0" width="12.5" height="3.6" fill="#c26a06" opacity=".85"/><text x="38.7" y="38.9" fill="#1d2133" font-size="3.1" font-weight="700">660</text><text x="23.8" y="43.5" text-anchor="end" fill="#1d2133" font-size="3.3">Demir</text><rect x="25.0" y="40.6" width="29.1" height="3.6" fill="#c26a06" opacity=".85"/><text x="55.3" y="43.5" fill="#1d2133" font-size="3.1" font-weight="700">1538</text><text x="23.8" y="48.1" text-anchor="end" fill="#1d2133" font-size="3.3">Tungsten</text><rect x="25.0" y="45.2" width="64.8" height="3.6" fill="#c26a06" opacity=".85"/><text x="91.0" y="48.1" fill="#1d2133" font-size="3.1" font-weight="700">3422</text><text x="26" y="54.400000000000006" font-weight="800" fill="#7c3aed" font-size="3.6">İyonik</text><text x="23.8" y="59.3" text-anchor="end" fill="#1d2133" font-size="3.3">KCl</text><rect x="25.0" y="56.4" width="14.6" height="3.6" fill="#7c3aed" opacity=".85"/><text x="40.8" y="59.3" fill="#1d2133" font-size="3.1" font-weight="700">770</text><text x="23.8" y="63.9" text-anchor="end" fill="#1d2133" font-size="3.3">NaCl</text><rect x="25.0" y="61.0" width="15.2" height="3.6" fill="#7c3aed" opacity=".85"/><text x="41.4" y="63.9" fill="#1d2133" font-size="3.1" font-weight="700">801</text><text x="23.8" y="68.5" text-anchor="end" fill="#1d2133" font-size="3.3">CaF₂</text><rect x="25.0" y="65.6" width="26.9" height="3.6" fill="#7c3aed" opacity=".85"/><text x="53.1" y="68.5" fill="#1d2133" font-size="3.1" font-weight="700">1418</text><text x="23.8" y="73.1" text-anchor="end" fill="#1d2133" font-size="3.3">MgO</text><rect x="25.0" y="70.2" width="54.0" height="3.6" fill="#7c3aed" opacity=".85"/><text x="80.2" y="73.1" fill="#1d2133" font-size="3.1" font-weight="700">2852</text><text x="26" y="79.39999999999999" font-weight="800" fill="#0f8f84" font-size="3.6">Kovalent ağ</text><text x="23.8" y="84.3" text-anchor="end" fill="#1d2133" font-size="3.3">Silisyum</text><rect x="25.0" y="81.4" width="26.8" height="3.6" fill="#0f8f84" opacity=".85"/><text x="53.0" y="84.3" fill="#1d2133" font-size="3.1" font-weight="700">1414</text><text x="23.8" y="88.9" text-anchor="end" fill="#1d2133" font-size="3.3">Kuvars</text><rect x="25.0" y="86.0" width="32.5" height="3.6" fill="#0f8f84" opacity=".85"/><text x="58.7" y="88.9" fill="#1d2133" font-size="3.1" font-weight="700">1713</text><text x="23.8" y="93.5" text-anchor="end" fill="#1d2133" font-size="3.3">SiC*</text><rect x="25.0" y="90.6" width="51.7" height="3.6" fill="#0f8f84" opacity=".85"/><text x="77.9" y="93.5" fill="#1d2133" font-size="3.1" font-weight="700">2730</text><text x="23.8" y="98.1" text-anchor="end" fill="#1d2133" font-size="3.3">Grafit*</text><rect x="25.0" y="95.2" width="69.2" height="3.6" fill="#0f8f84" opacity=".85"/><text x="95.4" y="98.1" fill="#1d2133" font-size="3.1" font-weight="700">3650</text></g></svg><div class="ga">* Kuru buz, SiC ve grafit 1 atm’de erimeden süblimleşir ya da bozunur; yaklaşık dönüşüm sıcaklıkları verilmiştir.</div></div>
+    <div class="grafik-kutu" style="margin:0"><div class="gb">Bilinmeyen bir kristal katıyı tanıma yolu</div><svg viewBox="0 0 120 100" class="grafik"><g font-family="Inter" text-anchor="middle"><defs><marker id="ak" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0 0 10 5 0 10z" fill="#64748b"/></marker></defs><rect x="2" y="2.5" width="62" height="13" rx="2.5" fill="#fff" stroke="#475569" stroke-width=".5"/><text x="33" y="8" font-size="3.5" font-weight="700" fill="#273242">Belirli bir erime</text><text x="33" y="12.6" font-size="3.5" font-weight="700" fill="#273242">noktası var mı?</text><path d="M64 9 L74 9" stroke="#64748b" stroke-width=".55" fill="none" marker-end="url(#ak)"/><text x="69.0" y="7.4" font-size="2.9" font-weight="800" fill="#5d6478" text-anchor="middle">HAYIR</text><rect x="75.0" y="3" width="44" height="12" rx="6" fill="#c26a06"/><text x="97" y="8.6" font-size="3.6" font-weight="800" fill="#fff">AMORF KATI</text><text x="97" y="12.6" font-size="3.1" fill="#fff">cam, mum, plastik</text><path d="M33 15.5 L33 25.3" stroke="#64748b" stroke-width=".55" fill="none" marker-end="url(#ak)"/><text x="35.0" y="21.4" font-size="2.9" font-weight="800" fill="#5d6478" text-anchor="start">EVET</text><rect x="2" y="25.5" width="62" height="13" rx="2.5" fill="#fff" stroke="#475569" stroke-width=".5"/><text x="33" y="31" font-size="3.5" font-weight="700" fill="#273242">Katı hâlde elektrik</text><text x="33" y="35.6" font-size="3.5" font-weight="700" fill="#273242">akımını iletir mi?</text><path d="M64 32 L74 32" stroke="#64748b" stroke-width=".55" fill="none" marker-end="url(#ak)"/><text x="69.0" y="30.4" font-size="2.9" font-weight="800" fill="#5d6478" text-anchor="middle">EVET</text><rect x="75.0" y="26" width="44" height="12" rx="6" fill="#c26a06"/><text x="97" y="31.6" font-size="3.6" font-weight="800" fill="#fff">METALİK</text><text x="97" y="35.6" font-size="3.1" fill="#fff">parlak, işlenebilir</text><path d="M33 38.5 L33 48.3" stroke="#64748b" stroke-width=".55" fill="none" marker-end="url(#ak)"/><text x="35.0" y="44.4" font-size="2.9" font-weight="800" fill="#5d6478" text-anchor="start">HAYIR</text><rect x="2" y="48.5" width="62" height="13" rx="2.5" fill="#fff" stroke="#475569" stroke-width=".5"/><text x="33" y="54" font-size="3.5" font-weight="700" fill="#273242">Eriyiği ya da sulu</text><text x="33" y="58.6" font-size="3.5" font-weight="700" fill="#273242">çözeltisi iletir mi?</text><path d="M64 55 L74 55" stroke="#64748b" stroke-width=".55" fill="none" marker-end="url(#ak)"/><text x="69.0" y="53.4" font-size="2.9" font-weight="800" fill="#5d6478" text-anchor="middle">EVET</text><rect x="75.0" y="49" width="44" height="12" rx="6" fill="#7c3aed"/><text x="97" y="54.6" font-size="3.6" font-weight="800" fill="#fff">İYONİK</text><text x="97" y="58.6" font-size="3.1" fill="#fff">sert ama kırılgan</text><path d="M33 61.5 L33 71.3" stroke="#64748b" stroke-width=".55" fill="none" marker-end="url(#ak)"/><text x="35.0" y="67.4" font-size="2.9" font-weight="800" fill="#5d6478" text-anchor="start">HAYIR</text><rect x="2" y="71.5" width="62" height="13" rx="2.5" fill="#fff" stroke="#475569" stroke-width=".5"/><text x="33" y="77" font-size="3.5" font-weight="700" fill="#273242">Erime noktası çok</text><text x="33" y="81.6" font-size="3.5" font-weight="700" fill="#273242">yüksek mi? (≳1000 °C)</text><path d="M64 78 L74 78" stroke="#64748b" stroke-width=".55" fill="none" marker-end="url(#ak)"/><text x="69.0" y="76.4" font-size="2.9" font-weight="800" fill="#5d6478" text-anchor="middle">EVET</text><rect x="75.0" y="72" width="44" height="12" rx="6" fill="#0f8f84"/><text x="97" y="77.6" font-size="3.6" font-weight="800" fill="#fff">KOVALENT AĞ</text><text x="97" y="81.6" font-size="3.1" fill="#fff">elmas, kuvars, SiC</text><path d="M33 84.5 L33 88.7" stroke="#64748b" stroke-width=".55" fill="none" marker-end="url(#ak)"/><rect x="5.0" y="88" width="56" height="12" rx="6" fill="#475569"/><text x="33" y="93.6" font-size="3.6" font-weight="800" fill="#fff">MOLEKÜLER KATI</text><text x="33" y="97.6" font-size="3.1" fill="#fff">buz, iyot, kuru buz, şeker</text><text x="35" y="87.8" font-size="2.9" font-weight="800" fill="#5d6478" text-anchor="start">HAYIR</text></g></svg><div class="ga">Şema genel eğilimleri gösterir. Grafit katı hâlde iletir ama kovalent ağ katıdır; bu yüzden parlaklık ve işlenebilirliğe de bakılır.</div></div>
+  </div>
+
+  <div class="kutu ornek" style="margin-top:3.5mm;margin-bottom:0">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 4</div>
+    <div class="iki-genis" style="grid-template-columns:1.1fr 1fr;gap:4mm">
+      <div>
+        <div class="soru">Bir laboratuvarda üç katı incelendi. Türlerini belirleyiniz.</div>
+        <table class="tablo sik" style="margin:0;font-size:8.6pt">
+          <tr><th>Katı</th><th>Erime n.</th><th>Katı hâlde iletkenlik</th><th>Eriyik iletkenliği</th></tr>
+          <tr><td>X</td><td>1455 °C</td><td>İletir</td><td>İletir</td></tr>
+          <tr><td>Y</td><td>53 °C</td><td>İletmez</td><td>İletmez</td></tr>
+          <tr><td>Z</td><td>996 °C</td><td>İletmez</td><td>İletir</td></tr>
+        </table>
+      </div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span><b>X:</b> katı hâlde iletiyor, erime noktası yüksek → <b>metalik</b> (örneğin nikel).</span></div>
+        <div class="adim"><span class="n">2</span><span><b>Y:</b> hiç iletmiyor, erime noktası düşük → <b>moleküler</b>.</span></div>
+        <div class="adim"><span class="n">3</span><span><b>Z:</b> katısı yalıtkan, eriyiği iletken → <b>iyonik</b> (hareketli iyonlar eriyince oluşur).</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Katılar</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · ÖZET
+     ========================================================= -->
+<section class="sayfa cift ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Katılar ve Özellikleri</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada katılar</h2><p>Sınavdan önceki gece bu sayfaya bakman yeter. Her kutuyu kendi cümlelerinle bir arkadaşına anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Amorf ve kristal</div>
+      <ul style="font-size:9.1pt">
+        <li>Katıda tanecikler yalnızca titreşir; katı sıkıştırılamaz</li>
+        <li>Kristal: düzenli örgü, birim hücre, sabit erime noktası</li>
+        <li>Amorf: gelişigüzel dizilim, erime noktası yok</li>
+        <li>Amorf katı bir aralıkta yumuşar: camsı geçiş sıcaklığı</li>
+        <li>Aynı madde soğuma hızına göre kristal ya da amorf olabilir</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Dört kristal türü</div>
+      <ul style="font-size:9.1pt">
+        <li><b>İyonik:</b> iyonlar, iyonik bağ · <span class="f">NaCl</span>, <span class="f">MgO</span></li>
+        <li><b>Moleküler:</b> moleküller, H bağı / dipol / London · buz, <span class="f">I<sub>2</sub></span></li>
+        <li><b>Kovalent ağ:</b> atomlar, kovalent bağ · elmas, <span class="f">SiO<sub>2</sub></span></li>
+        <li><b>Metalik:</b> katyon + elektron denizi · Cu, Fe, çelik</li>
+        <li>Allotrop: aynı elementin farklı yapıları (elmas, grafit)</li>
+      </ul>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Özellikleri yapıya bağla</div>
+      <ul style="font-size:9.1pt">
+        <li>Erime noktası: genellikle moleküler &lt; metalik/iyonik &lt; kovalent ağ</li>
+        <li>Katı hâlde iletken: metaller ve grafit</li>
+        <li>Yalnız eriyik/çözeltisi iletken: iyonik katılar</li>
+        <li>Kırılgan: iyonik · işlenebilir: metalik</li>
+        <li>İyon yükü büyük, buz H bağı → erime noktası yüksek</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> En sık 4 hata</div>
+      <ul style="font-size:9.1pt">
+        <li>Erime ya da süblimleşmede molekül içi bağların koptuğunu sanmak</li>
+        <li>İyon içeren her katıyı iletken sanmak</li>
+        <li>Sertliği “kristal olma” ölçütü saymak (cam serttir ama amorftur)</li>
+        <li>Allotrop ile izotopu karıştırmak</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Amorf ve kristal katıları tanecik düzeni ve ısıtılma davranışıyla ayırt edebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Kristal örgü ve birim hücre kavramlarını açıklayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bir kristal katının türünü örgü noktasındaki taneciklerden belirleyebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Her kristal türünde tanecikleri bir arada tutan kuvveti söyleyebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Erime noktası, sertlik ve iletkenlik verilerinden katı türünü tahmin edebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Elmas ile grafitin farklı özelliklerini yapılarıyla açıklayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:4mm;height:31mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Katılar</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa hata-sayfa" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Katılar ve Özellikleri</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Aşağıdaki açıklamaları dört farklı öğrenci yazdı. Her birinde bir hata var. Hatayı bul, hangi satırda olduğunu yaz, doğrusunu kutuya yaz.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Kuru buz oda koşullarında neden hızla gaza dönüşür?</p>
+      <div class="defter">
+        <div class="ogrenci">Burak’ın açıklaması</div>
+        <div class="satir"><span class="sn">1</span>Kuru buz, <span class="f">CO<sub>2</sub></span> moleküllerinden oluşan moleküler katıdır.</div>
+        <div class="satir"><span class="sn">2</span>Süblimleşirken moleküldeki C=O bağları kopar.</div>
+        <div class="satir"><span class="sn">3</span>Moleküller arası London kuvvetleri zayıf olduğundan az enerji yeter.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğrusu:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Sofra tuzu hangi durumlarda elektrik akımını iletir?</p>
+      <div class="defter">
+        <div class="ogrenci">Elif’in açıklaması</div>
+        <div class="satir"><span class="sn">1</span><span class="f">NaCl</span> iyonik katıdır; Na<sup>+</sup> ve Cl<sup>−</sup> iyonlarından oluşur.</div>
+        <div class="satir"><span class="sn">2</span>İyon içerdiği için katı hâlde de akımı iletir.</div>
+        <div class="satir"><span class="sn">3</span>Suda çözünürse iyonlar serbestleşir, çözelti de iletir.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğrusu:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Pencere camı amorf mu, kristal mi?</p>
+      <div class="defter">
+        <div class="ogrenci">Mert’in açıklaması</div>
+        <div class="satir"><span class="sn">1</span>Cam serttir ve oda sıcaklığında şeklini korur.</div>
+        <div class="satir"><span class="sn">2</span>Sert ve şekli belirli olan her katı kristal katıdır.</div>
+        <div class="satir"><span class="sn">3</span>Bu nedenle camın tanecikleri düzenli dizilmiştir.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğrusu:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Yumuşak bir katı olan grafitin erime noktası hakkında ne söylenebilir?</p>
+      <div class="defter">
+        <div class="ogrenci">Zehra’nın açıklaması</div>
+        <div class="satir"><span class="sn">1</span>Grafit kâğıtta iz bırakacak kadar yumuşaktır.</div>
+        <div class="satir"><span class="sn">2</span>Bu yumuşaklık katmanlar arası zayıf etkileşimden gelir.</div>
+        <div class="satir"><span class="sn">3</span>Yumuşak katılar kolay erir; grafitin erime noktası düşüktür.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğrusu:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Bir açıklamayı kontrol ederken önce şunu sor: <b>Bu olayda hangi kuvvet yenilmek zorunda?</b> Moleküller arası etkileşim mi, iyonik bağ mı, kovalent bağ mı, metalik bağ mı? Hataların çoğu bu soruda gizlidir.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Katılar</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Katılar ve Özellikleri</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni, tabloyu ya da grafiği oku, sonra hangi bilginin işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Endüstri</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Bir mühendis, 1800 °C’de çalışacak bir fırının iç yüzeyi için malzeme seçiyor. Malzeme bu sıcaklıkta <b>katı kalmalı</b> ve <b>elektriği iletmemelidir</b>. Adayların erime noktaları grafikte verilmiştir.</p>
+          <div class="grafik-kutu" style="margin:1mm 0 2mm"><svg viewBox="0 0 116 80" class="grafik"><g font-family="Inter" font-size="3.4" fill="#5d6478"><line x1="26" y1="64.0" x2="112" y2="64.0" stroke="#e5e7f0" stroke-width=".3"/><text x="24.5" y="65.2" text-anchor="end">0</text><line x1="26" y1="54.3" x2="112" y2="54.3" stroke="#e5e7f0" stroke-width=".3"/><text x="24.5" y="55.5" text-anchor="end">600</text><line x1="26" y1="44.7" x2="112" y2="44.7" stroke="#e5e7f0" stroke-width=".3"/><text x="24.5" y="45.9" text-anchor="end">1200</text><line x1="26" y1="35.0" x2="112" y2="35.0" stroke="#e5e7f0" stroke-width=".3"/><text x="24.5" y="36.2" text-anchor="end">1800</text><line x1="26" y1="25.3" x2="112" y2="25.3" stroke="#e5e7f0" stroke-width=".3"/><text x="24.5" y="26.5" text-anchor="end">2400</text><line x1="26" y1="15.7" x2="112" y2="15.7" stroke="#e5e7f0" stroke-width=".3"/><text x="24.5" y="16.9" text-anchor="end">3000</text><line x1="26" y1="6.0" x2="112" y2="6.0" stroke="#e5e7f0" stroke-width=".3"/><text x="24.5" y="7.2" text-anchor="end">3600</text><line x1="26" y1="35.0" x2="112" y2="35.0" stroke="#e11d48" stroke-width=".55" stroke-dasharray="1.6 1"/><text x="27" y="33.8" fill="#e11d48" font-weight="700" font-size="3.2">fırın sıcaklığı 1800 °C</text><rect x="27.6" y="53.4" width="7.5" height="10.6" fill="#c26a06" opacity=".85"/><text x="31.4" y="52.4" text-anchor="middle" fill="#1d2133" font-size="2.9" font-weight="700">660</text><text transform="translate(32.5,66.2) rotate(-40)" text-anchor="end" fill="#1d2133" font-size="3.1">Alüminyum</text><rect x="38.4" y="51.1" width="7.5" height="12.9" fill="#7c3aed" opacity=".85"/><text x="42.1" y="50.1" text-anchor="middle" fill="#1d2133" font-size="2.9" font-weight="700">801</text><text transform="translate(43.2,66.2) rotate(-40)" text-anchor="end" fill="#1d2133" font-size="3.1">NaCl</text><rect x="49.1" y="46.5" width="7.5" height="17.5" fill="#c26a06" opacity=".85"/><text x="52.9" y="45.5" text-anchor="middle" fill="#1d2133" font-size="2.9" font-weight="700">1085</text><text transform="translate(54.0,66.2) rotate(-40)" text-anchor="end" fill="#1d2133" font-size="3.1">Bakır</text><rect x="59.9" y="41.2" width="7.5" height="22.8" fill="#7c3aed" opacity=".85"/><text x="63.6" y="40.2" text-anchor="middle" fill="#1d2133" font-size="2.9" font-weight="700">1418</text><text transform="translate(64.7,66.2) rotate(-40)" text-anchor="end" fill="#1d2133" font-size="3.1">CaF₂</text><rect x="70.6" y="39.2" width="7.5" height="24.8" fill="#c26a06" opacity=".85"/><text x="74.4" y="38.2" text-anchor="middle" fill="#1d2133" font-size="2.9" font-weight="700">1538</text><text transform="translate(75.5,66.2) rotate(-40)" text-anchor="end" fill="#1d2133" font-size="3.1">Demir</text><rect x="81.3" y="30.6" width="7.5" height="33.4" fill="#7c3aed" opacity=".85"/><text x="85.1" y="29.6" text-anchor="middle" fill="#1d2133" font-size="2.9" font-weight="700">2072</text><text transform="translate(86.2,66.2) rotate(-40)" text-anchor="end" fill="#1d2133" font-size="3.1">Al₂O₃</text><rect x="92.1" y="18.1" width="7.5" height="45.9" fill="#7c3aed" opacity=".85"/><text x="95.9" y="17.1" text-anchor="middle" fill="#1d2133" font-size="2.9" font-weight="700">2852</text><text transform="translate(97.0,66.2) rotate(-40)" text-anchor="end" fill="#1d2133" font-size="3.1">MgO</text><rect x="102.8" y="8.9" width="7.5" height="55.1" fill="#c26a06" opacity=".85"/><text x="106.6" y="7.9" text-anchor="middle" fill="#1d2133" font-size="2.9" font-weight="700">3422</text><text transform="translate(107.7,66.2) rotate(-40)" text-anchor="end" fill="#1d2133" font-size="3.1">Tungsten</text><line x1="26" y1="64" x2="112" y2="64" stroke="#1d2133" stroke-width=".45"/><line x1="26" y1="64" x2="26" y2="4" stroke="#1d2133" stroke-width=".45"/><text x="2" y="3.4" fill="#1d2133" font-weight="700">Erime noktası (°C)</text><rect x="70" y="0.6" width="3" height="3" fill="#c26a06"/><text x="74.5" y="3.2" font-size="3">metal</text><rect x="88" y="0.6" width="3" height="3" fill="#7c3aed"/><text x="92.5" y="3.2" font-size="3">iyonik</text></g></svg></div>
+          <div class="oncul"><div><b>I.</b><span><span class="f">MgO</span> ve <span class="f">Al<sub>2</sub>O<sub>3</sub></span> iki koşulu da sağlar.</span></div><div><b>II.</b><span>Tungsten yalnızca erime noktası koşulunu sağlar.</span></div><div><b>III.</b><span>Grafikteki iyonik katıların tamamı uygundur.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek bes" style="font-size:9pt"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Teknoloji</div>
+        <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+          <p>Taş kesme uçlarında elmas tozu, lityum iyon pillerin elektrotlarında grafit kullanılır. Bir öğrenci şunları yazıyor:</p>
+          <div class="oncul"><div><b>I.</b><span>Grafit, katmanları boyunca hareket eden elektronları sayesinde elektrot olabilir.</span></div><div><b>II.</b><span>Kurşun kalem ucu kurşun (Pb) metalinden yapılır.</span></div><div><b>III.</b><span>Elmasın sertliği, her C atomunun dört C atomuna kovalent bağlı olmasından kaynaklanır.</span></div></div>
+          <p>Hangileri doğrudur?</p>
+          <div class="secenek bes" style="font-size:9pt"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>II ve III</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Laboratuvar</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Etiketi silinmiş dört katı üzerinde yapılan testlerin sonuçları tabloda verilmiştir.</p>
+          <table class="tablo sik" style="font-size:8.4pt">
+            <tr><th></th><th>Erime n. (°C)</th><th>Katı iletken mi?</th><th>Çekiçle vurulunca</th></tr>
+            <tr><td><b>P</b></td><td>1085</td><td>Evet</td><td>Yassılaşır</td></tr>
+            <tr><td><b>R</b></td><td>801</td><td>Hayır</td><td>Parçalanır</td></tr>
+            <tr><td><b>S</b></td><td>≈186</td><td>Hayır</td><td>Ufalanır</td></tr>
+            <tr><td><b>T</b></td><td>≈1713</td><td>Hayır</td><td>Çizilmez, çok sert</td></tr>
+          </table>
+          <p style="font-size:9.3pt">R’nin sulu çözeltisi iletken, S’ninki yalıtkandır. Buna göre türler hangisinde doğru verilmiştir? <span class="veri">(Ağ: kovalent ağ katı)</span></p>
+          <table class="tablo sik" style="font-size:8.4pt;margin-top:1.4mm">
+            <tr><th></th><th>P</th><th>R</th><th>S</th><th>T</th></tr>
+            <tr><td><b>A)</b></td><td>İyonik</td><td>Metalik</td><td>Moleküler</td><td>Ağ</td></tr>
+            <tr><td><b>B)</b></td><td>Metalik</td><td>İyonik</td><td>Moleküler</td><td>Ağ</td></tr>
+            <tr><td><b>C)</b></td><td>Metalik</td><td>Moleküler</td><td>İyonik</td><td>Ağ</td></tr>
+            <tr><td><b>D)</b></td><td>Metalik</td><td>İyonik</td><td>Ağ</td><td>Moleküler</td></tr>
+            <tr><td><b>E)</b></td><td>Ağ</td><td>İyonik</td><td>Moleküler</td><td>Metalik</td></tr>
+          </table>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Sağlık</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>Çok düşük sıcaklıkta saklanması gereken bazı aşılar, −78,5 °C’de sıvılaşmadan gaza dönüşen kuru buz (<span class="f">CO<sub>2</sub></span>) ile taşınır.</p>
+          <div class="oncul"><div><b>I.</b><span>Kuru buz moleküler bir katıdır.</span></div><div><b>II.</b><span><span class="f">CO<sub>2</sub></span> moleküllerini London kuvvetleri bir arada tutar.</span></div><div><b>III.</b><span>Kuru buz katı hâlde elektriği iletmez.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek bes" style="font-size:9pt"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Katılar</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa ipucu-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Katılar ve Özellikleri</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, sadece o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p><span class="f">MgO</span> ile <span class="f">NaCl</span> aynı tür kristal örgüye sahiptir. <span class="f">MgO</span>’nun erime noktası 2852 °C, <span class="f">NaCl</span>’ninki 801 °C’dir. Bu büyük farkı açıklayınız. <span class="veri">(<sub>8</sub>O, <sub>11</sub>Na, <sub>12</sub>Mg, <sub>17</sub>Cl)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">İki katının türünü belirle. Erime sırasında hangi çekim yenilmek zorunda?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Her iki bileşikteki iyonların yüklerini yaz: Mg ve O kaç elektron verir/alır, Na ve Cl kaç?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Zıt yükler büyüdükçe ve iyonlar birbirine yaklaştıkça elektrostatik çekim nasıl değişir? Mg<sup>2+</sup> ve O<sup>2−</sup>, Na<sup>+</sup> ve Cl<sup>−</sup>’den küçüktür.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p>Elmas ve grafit yalnızca karbon atomlarından oluşur. Grafit elektriği iletirken elmasın iletmemesinin nedeni nedir? <span class="veri">(<sub>6</sub>C)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Karbonun değerlik elektron sayısını bul (2-4 dağılımına bak).</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Elmasta her C kaç bağ yapar, grafitte kaç bağ yapar? Her bağ için bir değerlik elektronu harcandığını düşün.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Grafitte bağa katılmayan elektron nerede hareket edebilir? Akım için hareketli yüklü tanecik gerektiğini hatırla.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p>Mutfakta iki beyaz kristal toz var: biri sofra tuzu, diğeri toz şeker. Tadına bakmadan, yalnızca bir iletkenlik düzeneği ve su kullanarak hangisinin hangisi olduğunu nasıl bulursun? Gerekçelendir.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Her iki katının türünü belirle: tuz hangi tür, şeker hangi tür kristal katıdır?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Katı hâldeyken ikisi de iletmez. Suda çözündüklerinde hangisi serbest iyonlar oluşturur?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">İki çözeltiyi ayrı ayrı iletkenlik düzeneğine bağla: lamba hangisinde yanar?</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Katılar</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa cift test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Katılar ve Özellikleri</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 25 dakika. Her sorunun yalnızca bir doğru cevabı vardır.</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>Amorf katılarla ilgili aşağıdaki ifadelerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Tanecikleri gelişigüzel istiflenmiştir.</span><span><b>B)</b>Belirli bir erime noktaları yoktur.</span><span><b>C)</b>Isıtıldıklarında bir sıcaklık aralığında yumuşarlar.</span><span><b>D)</b>Cam, mum ve plastik amorf katılara örnektir.</span><span><b>E)</b>Tanecikleri, birim hücrelerin tekrarıyla düzenli bir örgü oluşturur.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>Aşağıdaki katılardan hangisinin kristal örgü noktalarında <b>moleküller</b> bulunur?</p>
+        <div class="secenek"><span><b>A)</b>Elmas</span><span><b>B)</b>Sofra tuzu</span><span><b>C)</b>Kuru buz</span><span><b>D)</b>Bakır</span><span><b>E)</b>Kuvars</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p>Bir X katısı ile ilgili şu bilgiler veriliyor:</p>
+        <ul style="font-size:9.4pt;margin-bottom:1mm"><li>Katı hâlde elektrik akımını iletmez.</li><li>Erimiş hâlde elektrik akımını iletir.</li><li>Çekiçle vurulunca parçalanır.</li><li>Erime noktası yaklaşık 990 °C’dir.</li></ul>
+        <p>Buna göre X aşağıdakilerden hangisi olabilir?</p>
+        <div class="secenek"><span><b>A)</b>Grafit</span><span><b>B)</b><span class="f">NaF</span></span><span><b>C)</b><span class="f">I<sub>2</sub></span></span><span><b>D)</b>Fe</span><span><b>E)</b><span class="f">SiO<sub>2</sub></span></span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p>Elmas ve grafit için;</p>
+        <div class="oncul"><div><b>I.</b><span>Yalnızca karbon atomlarından oluşur.</span></div><div><b>II.</b><span>Atomları kovalent bağlarla ağ örgü oluşturur.</span></div><div><b>III.</b><span>Katı hâlde elektrik akımını iletir.</span></div></div>
+        <p>özelliklerinden hangileri ortaktır?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p>Metallerin dövülerek levha, çekilerek tel hâline getirilebilmesinin temel nedeni aşağıdakilerden hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>Metal atomları arasında yönlü kovalent bağlar bulunur.</span><span><b>B)</b>Metallerin erime noktaları düşüktür.</span><span><b>C)</b>Örgü noktalarında moleküller bulunur.</span><span><b>D)</b>Katmanlar kaysa da elektron denizi katyonları bir arada tutar.</span><span><b>E)</b>Metal katyonları birbirini elektrostatik olarak çeker.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p>Buz (<span class="f">H<sub>2</sub>O</span>), sofra tuzu (<span class="f">NaCl</span>) ve kuvars (<span class="f">SiO<sub>2</sub></span>) katılarının 1 atm’deki erime noktalarının küçükten büyüğe sıralanışı hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>Buz &lt; NaCl &lt; Kuvars</span><span><b>B)</b>NaCl &lt; Buz &lt; Kuvars</span><span><b>C)</b>Kuvars &lt; NaCl &lt; Buz</span><span><b>D)</b>Buz &lt; Kuvars &lt; NaCl</span><span><b>E)</b>NaCl &lt; Kuvars &lt; Buz</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Katılar</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · TEST (7–12)
+     ========================================================= -->
+<section class="sayfa test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Katılar ve Özellikleri</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>Buz ile ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>Molekülleri arasında hidrojen bağları vardır.</span></div><div><b>II.</b><span>Eridiğinde su moleküllerindeki O–H bağları kopar.</span></div><div><b>III.</b><span>Boşluklu yapısı nedeniyle yoğunluğu sıvı sudan küçüktür.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p>Aşağıdakilerden hangisi bir elementin <b>allotroplarına</b> örnektir?</p>
+        <div class="secenek tek"><span><b>A)</b>Buz – sıvı su</span><span><b>B)</b>Elmas – grafit</span><span><b>C)</b>Kuvars – cam</span><span><b>D)</b><span class="izotop"><span class="yz"><span>12</span><span>6</span></span>C</span> – <span class="izotop"><span class="yz"><span>14</span><span>6</span></span>C</span></span><span><b>E)</b><span class="f">NaCl</span> – <span class="f">KCl</span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>K, L ve M kristal katılarının bazı özellikleri tabloda verilmiştir.</p>
+        <table class="tablo sik" style="font-size:8.4pt">
+          <tr><th></th><th>Erime n. (°C)</th><th>Katı iletken mi?</th><th>Eriyik iletken mi?</th></tr>
+          <tr><td><b>K</b></td><td>1085</td><td>Evet</td><td>Evet</td></tr>
+          <tr><td><b>L</b></td><td>80</td><td>Hayır</td><td>Hayır</td></tr>
+          <tr><td><b>M</b></td><td>2852</td><td>Hayır</td><td>Evet</td></tr>
+        </table>
+        <p>Buna göre K, L ve M’nin türleri hangisinde doğru verilmiştir?</p>
+        <div class="secenek tek" style="font-size:9pt"><span><b>A)</b>K: iyonik · L: moleküler · M: metalik</span><span><b>B)</b>K: metalik · L: kovalent ağ · M: iyonik</span><span><b>C)</b>K: kovalent ağ · L: moleküler · M: iyonik</span><span><b>D)</b>K: metalik · L: moleküler · M: kovalent ağ</span><span><b>E)</b>K: metalik · L: moleküler · M: iyonik</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p>İyonik katılara çekiçle vurulduğunda kırılıp dağılmalarının nedeni aşağıdakilerden hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>Katmanlar kayınca aynı yüklü iyonlar karşı karşıya gelir ve birbirini iter.</span><span><b>B)</b>İyonlar arasındaki çekim çok zayıftır.</span><span><b>C)</b>Yapılarında serbest elektronlar bulunur.</span><span><b>D)</b>Örgü noktalarında moleküller bulunur.</span><span><b>E)</b>Erime noktaları çok düşüktür.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <p>Sofra tuzu (<span class="f">NaCl</span>) kristali için;</p>
+        <div class="oncul"><div><b>I.</b><span>Her Na<sup>+</sup> iyonu 6 tane Cl<sup>−</sup> iyonu ile çevrilidir.</span></div><div><b>II.</b><span><span class="f">NaCl</span> formülü, kristaldeki tek bir molekülü gösterir.</span></div><div><b>III.</b><span>Katı hâlde iyonlar serbestçe hareket edemez.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>I ve II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p>Kuvars ve pencere camı ile ilgili aşağıdaki ifadelerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>İkisinin yapısında da Si–O bağları bulunur.</span><span><b>B)</b>İkisinin tanecik düzeni aynıdır.</span><span><b>C)</b>Kuvarsın belirli koşullarda sabit bir erime noktası vardır.</span><span><b>D)</b>Cam ısıtıldığında bir sıcaklık aralığında yumuşar.</span><span><b>E)</b>Kuvars kristal, cam amorf bir katıdır.</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fafbfc;margin-top:2mm">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 2–6. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Katılar</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Katılar ve Özellikleri</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>E</span></div><div><b>2</b><span>C</span></div><div><b>3</b><span>B</span></div><div><b>4</b><span>C</span></div>
+    <div><b>5</b><span>D</span></div><div><b>6</b><span>A</span></div><div><b>7</b><span>D</span></div><div><b>8</b><span>B</span></div>
+    <div><b>9</b><span>E</span></div><div><b>10</b><span>A</span></div><div><b>11</b><span>C</span></div><div><b>12</b><span>B</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · E</b> Düzenli örgü ve birim hücre kristal katılara aittir; amorf katılarda uzun erimli düzen yoktur.</div>
+    <div class="c"><b>2 · C</b> Kuru buz <span class="f">CO<sub>2</sub></span> moleküllerinden oluşur. Elmas ve kuvars: atom ağı; tuz: iyonlar; bakır: metal katyonları.</div>
+    <div class="c"><b>3 · B</b> Katısı yalıtkan, eriyiği iletken ve kırılgan: iyonik katı. <span class="f">NaF</span> metal + ametal bileşiğidir (erime n. ≈ 993 °C).</div>
+    <div class="c"><b>4 · C</b> İkisi de karbonun kovalent ağ allotropudur (I, II). Elmas iletmez, yalnız grafit iletir (III ortak değil).</div>
+    <div class="c"><b>5 · D</b> Kayan katmanlardaki katyonlar elektron denizinden kopmaz; bağ yönlü değildir, metal bükülür.</div>
+    <div class="c"><b>6 · A</b> Buz (0 °C, moleküler) &lt; NaCl (801 °C, iyonik) &lt; kuvars (≈1713 °C, kovalent ağ).</div>
+    <div class="c"><b>7 · D</b> Erime fiziksel olaydır; moleküller arası hidrojen bağları zayıflar, O–H bağları kopmaz (II ✗).</div>
+    <div class="c"><b>8 · B</b> A: aynı maddenin iki hâli · C: aynı bileşiğin kristal/amorf hâli · D: izotop · E: farklı bileşikler.</div>
+    <div class="c"><b>9 · E</b> K: katıda iletken → metalik (bakır). L: düşük erime, yalıtkan → moleküler (naftalin). M: eriyik iletken → iyonik (<span class="f">MgO</span>).</div>
+    <div class="c"><b>10 · A</b> Kayma, aynı yüklü iyonları yan yana getirir; itme kristali ayırır.</div>
+    <div class="c"><b>11 · C</b> Kristalde molekül yoktur, formül 1 : 1 iyon oranını gösterir (II ✗).</div>
+    <div class="c"><b>12 · B</b> Bileşimleri benzer ama kuvars düzenli (kristal), cam düzensiz (amorf) dizilmiştir.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> 1800 °C’nin üstünde eriyenler: <span class="f">Al<sub>2</sub>O<sub>3</sub></span> (2072), <span class="f">MgO</span> (2852), W (3422). W metal olduğu için iletir (I ✓, II ✓). NaCl ve CaF₂ bu sıcaklıkta erir (III ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · B</b> P katıda iletken ve dövülebilir: metalik. R katıda yalıtkan, çözeltisi iletken, kırılgan: iyonik. S düşük erime, çözeltisi yalıtkan: moleküler (şeker). T çok sert, yüksek erime, yalıtkan: kovalent ağ (kuvars).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · E</b> <span class="f">CO<sub>2</sub></span> apolar moleküllerden oluşan moleküler katıdır; aradaki tek etkileşim London kuvvetleridir; serbest iyon/elektron yoktur.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · D</b> Kalem ucu grafit ve kil karışımıdır, kurşun içermez (II ✗). I ve III doğrudur.</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1</b> İkisi de iyonik; erirken iyonik bağ yenilir. <span class="f">MgO</span>’da Mg<sup>2+</sup> ve O<sup>2−</sup> (yükler 2 kat), iyonlar daha küçük ve birbirine yakın → çekim çok daha güçlü → erime noktası çok yüksek.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2</b> C’nin 4 değerlik elektronu var. Elmasta dördü de bağda, hareketli elektron yok. Grafitte 3 bağ yapılır, 4. elektron katman boyunca serbestçe hareket eder ve akımı taşır.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3</b> Tuz iyonik, şeker moleküler katıdır. Suda tuz Na<sup>+</sup> ve Cl<sup>−</sup> iyonlarına ayrışır, şeker molekül olarak çözünür. Lambanın yandığı çözelti tuzunkidir.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 2</b> Süblimleşme fiziksel bir olaydır; C=O bağları kopmaz, yalnızca moleküller arası London kuvvetleri yenilir. Gaz yine <span class="f">CO<sub>2</sub></span>’dir.</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 2</b> Katı tuzda iyonlar örgüde sabittir, hareket edemez: katı tuz yalıtkandır. Eriyik ve sulu çözelti iletir.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 2</b> Sertlik ve belirli şekil kristal olmanın ölçütü değildir. Cam sert ama amorftur: belirli erime noktası yoktur, bir aralıkta yumuşar.</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 3</b> Grafiti eritmek için katman içindeki kovalent bağlar kopmalıdır; bu çok enerji ister. Grafit ≈ 3650 °C’de (1 atm’de süblimleşerek) katı hâlden ayrılır.</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Katılar</span><span class="no">14</span></div>
+</section>
+
+</body>
+</html>

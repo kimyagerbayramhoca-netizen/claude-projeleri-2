@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Moleküller Arası Etkileşimler · Kimya Rotası 9</title>
+<style>
+/* ==========================================================
+   KİMYA ROTASI — ortak sayfa ve kutu tasarımı (A4, baskı)
+   Her ünite kendi --unite rengini <body style> ile verir.
+   ========================================================== */
+
+@page { size: A4; margin: 0; }
+
+:root {
+  --unite: #4338ca;          /* ünite kimlik rengi (mol: indigo) */
+  --unite-acik: #eef0ff;
+  --unite-koyu: #2a2380;
+  --vurgu: #f59e0b;          /* ikincil vurgu (amber) */
+
+  --kavram: #4f46e5;   --kavram-bg: #eef2ff;
+  --hayat: #c26a06;    --hayat-bg: #fff6e5;
+  --dikkat: #e11d48;   --dikkat-bg: #fff1f3;
+  --ornek: #0f8f84;    --ornek-bg: #eafaf7;
+  --ipucu: #7c3aed;    --ipucu-bg: #f4f0ff;
+  --hata: #ea580c;     --hata-bg: #fff4ec;
+
+  --metin: #1d2133;
+  --soluk: #5d6478;
+  --cizgi: #dfe3ee;
+  --kagit: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Inter", "DejaVu Sans", sans-serif;
+  font-size: 10.2pt;
+  line-height: 1.5;
+  color: var(--metin);
+  background: #8a8fa3;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* ---------- Sayfa ---------- */
+.sayfa {
+  width: 210mm; height: 297mm;
+  position: relative; overflow: hidden;
+  background: var(--kagit);
+  padding: 22mm 16mm 18mm 16mm;
+  page-break-after: always; break-after: page;
+  margin: 0 auto;
+}
+@media screen { .sayfa { margin: 8mm auto; box-shadow: 0 4px 24px rgba(0,0,0,.25); } }
+
+.ust-serit {
+  position: absolute; top: 0; left: 0; right: 0; height: 13mm;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16mm; font-size: 8pt; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--unite-koyu); font-weight: 600;
+  border-bottom: 1.2mm solid var(--unite);
+  background: linear-gradient(90deg, var(--unite-acik), #fff 70%);
+}
+.ust-serit .baslik-k { display: flex; gap: 3mm; align-items: center; }
+.ust-serit .nokta { width: 2.4mm; height: 2.4mm; border-radius: 50%; background: var(--vurgu); }
+
+.alt-bilgi {
+  position: absolute; bottom: 5mm; left: 16mm; right: 16mm;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 7.5pt; color: var(--soluk);
+}
+.alt-bilgi .no {
+  min-width: 7.5mm; height: 7.5mm; border-radius: 50%;
+  background: var(--unite); color: #fff; font-weight: 700; font-size: 8.4pt;
+  display: grid; place-items: center;
+}
+.sayfa.cift .alt-bilgi { flex-direction: row-reverse; }
+
+/* ---------- Başlıklar ---------- */
+h1, h2, h3, h4 { font-family: "Inter Display", "Inter", sans-serif; margin: 0; line-height: 1.15; }
+h2.konu {
+  font-size: 21pt; font-weight: 800; color: var(--unite-koyu);
+  display: flex; align-items: baseline; gap: 3.5mm; margin-bottom: 1.5mm;
+}
+h2.konu .num {
+  font-size: 11pt; font-weight: 700; color: #fff; background: var(--unite);
+  padding: .6mm 2.6mm; border-radius: 2mm; transform: translateY(-1mm);
+}
+.alt-baslik { color: var(--soluk); font-size: 10pt; margin-bottom: 5mm; }
+h3 {
+  font-size: 13pt; font-weight: 750; color: var(--unite-koyu);
+  margin: 4.5mm 0 2mm; display: flex; align-items: center; gap: 2.2mm;
+}
+h3::before { content: ""; width: 1.4mm; height: 5mm; background: var(--vurgu); border-radius: 1mm; }
+p { margin: 0 0 2.4mm; }
+ul { margin: 0 0 2.4mm; padding-left: 5mm; }
+li { margin-bottom: 1mm; }
+b, strong { font-weight: 700; }
+.vurgu { background: linear-gradient(transparent 58%, #fde68a 58%); padding: 0 .5mm; }
+.k { color: var(--unite); font-weight: 700; }
+.kucuk { font-size: 8.6pt; color: var(--soluk); }
+.ortala { text-align: center; }
+
+/* Kimyasal formül ve üs */
+.f { white-space: nowrap; font-weight: 600; }
+sub, sup { font-size: 68%; line-height: 0; }
+.izotop { display: inline-flex; align-items: center; white-space: nowrap; font-weight: 600; }
+.izotop .yz { display: inline-flex; flex-direction: column; font-size: 62%; line-height: 1.05; text-align: right; margin-right: .3mm; font-weight: 600; }
+
+/* ---------- Izgara ---------- */
+.iki { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.iki-genis { display: grid; grid-template-columns: 1.25fr 1fr; gap: 5mm; }
+.uc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+.dort { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+
+/* ---------- Kutular ---------- */
+.kutu {
+  border-radius: 3mm; padding: 3.2mm 4mm 3mm; margin: 0 0 3.5mm;
+  position: relative; break-inside: avoid;
+  background: var(--bg); border: .35mm solid color-mix(in srgb, var(--renk) 30%, #fff);
+}
+.kutu > .etiket {
+  display: inline-flex; align-items: center; gap: 1.6mm;
+  font-family: "Inter Display", sans-serif;
+  font-size: 7.6pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--renk);
+  padding: .7mm 2.4mm .7mm 1.6mm; border-radius: 1.4mm; margin-bottom: 2mm;
+}
+.kutu > .etiket svg { width: 3.4mm; height: 3.4mm; }
+.kutu p:last-child, .kutu ul:last-child { margin-bottom: 0; }
+.kavram { --renk: var(--kavram); --bg: var(--kavram-bg); }
+.hayat  { --renk: var(--hayat);  --bg: var(--hayat-bg); }
+.dikkat { --renk: var(--dikkat); --bg: var(--dikkat-bg); }
+.ornek  { --renk: var(--ornek);  --bg: var(--ornek-bg); }
+.ipucu  { --renk: var(--ipucu);  --bg: var(--ipucu-bg); }
+.hata   { --renk: var(--hata);   --bg: var(--hata-bg); }
+.duz    { --renk: var(--unite);  --bg: #fff; }
+
+.kutu.serit { border: none; border-left: 1.4mm solid var(--renk); border-radius: 0 3mm 3mm 0; }
+
+/* Yanılgı kartı: yanlış / doğru */
+.yanilgi { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-top: 1mm; }
+.yanilgi > div { border-radius: 2mm; padding: 2mm 2.6mm; font-size: 9.2pt; line-height: 1.4; }
+.yanilgi .yanlis { background: #fff; border: .3mm dashed var(--dikkat); }
+.yanilgi .dogru { background: #fff; border: .3mm solid var(--ornek); }
+.yanilgi b.y { color: var(--dikkat); }
+.yanilgi b.d { color: var(--ornek); }
+
+/* Çözümlü örnek */
+.ornek .soru { font-weight: 600; margin-bottom: 2mm; }
+.cozum { background: #fff; border-radius: 2mm; padding: 2.2mm 3mm; font-size: 9.4pt; }
+.cozum .adim { display: grid; grid-template-columns: 5mm 1fr; gap: 1.6mm; margin-bottom: 1.1mm; align-items: start; }
+.cozum .adim .n {
+  width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--ornek); color: #fff;
+  font-size: 7pt; font-weight: 700; display: grid; place-items: center; margin-top: .4mm;
+}
+.sonuc {
+  display: inline-block; margin-top: .8mm; font-weight: 700; color: var(--ornek);
+  border: .35mm solid var(--ornek); border-radius: 1.5mm; padding: .2mm 2mm;
+}
+.denklem {
+  font-family: "Inter", sans-serif; font-weight: 600; text-align: center;
+  font-size: 11pt; padding: 1.5mm 0; color: var(--unite-koyu);
+}
+.kesir { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 1mm; line-height: 1.2; }
+.kesir > span:first-child { border-bottom: .3mm solid currentColor; padding: 0 1mm; }
+.kesir > span:last-child { padding: 0 1mm; }
+
+/* Tablo */
+table.tablo { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9.2pt; margin: 1mm 0 3mm; }
+table.tablo th { background: var(--unite); color: #fff; font-weight: 700; padding: 1.6mm 2mm; text-align: left; }
+table.tablo th:first-child { border-top-left-radius: 2mm; }
+table.tablo th:last-child { border-top-right-radius: 2mm; }
+table.tablo td { padding: 1.6mm 2mm; border-bottom: .3mm solid var(--cizgi); }
+table.tablo tr:nth-child(even) td { background: #f7f8fc; }
+
+/* ---------- Soru düzeni ---------- */
+.soru-blok { break-inside: avoid; margin-bottom: 4.5mm; }
+.soru-ust { display: flex; gap: 2.4mm; align-items: flex-start; }
+.soru-no {
+  flex: none; width: 7.5mm; height: 7.5mm; border-radius: 2mm;
+  background: var(--unite); color: #fff; font-weight: 800; font-size: 10pt;
+  display: grid; place-items: center; font-family: "Inter Display", sans-serif;
+}
+.soru-metin { flex: 1; }
+.secenek { display: grid; grid-template-columns: 1fr 1fr; gap: .8mm 4mm; margin-top: 1.6mm; font-size: 9.6pt; }
+.secenek.tek { grid-template-columns: 1fr; }
+.secenek.bes { grid-template-columns: repeat(5, 1fr); }
+.secenek span b { color: var(--unite); margin-right: 1mm; }
+.oncul { margin: 1mm 0 1mm 1mm; }
+.oncul div { display: grid; grid-template-columns: 7mm 1fr; }
+.oncul div > b:first-child { color: var(--unite); }
+.veri { font-size: 8.4pt; color: var(--soluk); font-style: italic; }
+
+.etiket-soru svg { width: 3mm; height: 3mm; }
+.etiket-soru {
+  display: inline-flex; gap: 1.4mm; align-items: center;
+  font-size: 7pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  padding: .5mm 2mm; border-radius: 10mm; margin-bottom: 1.2mm;
+  color: var(--renk); background: var(--bg); border: .3mm solid var(--renk);
+}
+.zorluk { display: inline-flex; gap: .7mm; margin-left: 1.2mm; vertical-align: middle; }
+.zorluk i { width: 1.9mm; height: 1.9mm; border-radius: 50%; background: #d8dbe6; display: inline-block; }
+.zorluk i.d { background: var(--vurgu); }
+
+/* Bölüm kapağı tipi sayfa başı bandı */
+.bant {
+  margin: 0 -16mm 5mm; padding: 5mm 16mm 4mm; color: #fff;
+  background: linear-gradient(110deg, var(--renk, var(--unite)) 0%, color-mix(in srgb, var(--renk, var(--unite)) 70%, #000) 100%);
+  position: relative; overflow: hidden;
+}
+.bant h2 { font-size: 22pt; font-weight: 850; color: #fff; }
+.bant p { margin: 1mm 0 0; opacity: .92; font-size: 9.6pt; max-width: 135mm; }
+.bant .ikon-buyuk { position: absolute; right: 14mm; top: 50%; transform: translateY(-50%); opacity: .95; }
+
+/* Hata avcısı defter kartı */
+.defter {
+  background:
+    repeating-linear-gradient(transparent 0 6.1mm, #c9d6ee 6.1mm 6.4mm),
+    #fffef8;
+  border-radius: 2mm; padding: 1.2mm 4mm 1.6mm 14mm; position: relative;
+  font-family: "Caladea", "Bitstream Charter", serif; font-style: italic; font-size: 11pt;
+  line-height: 6.4mm; color: #24356b; border: .3mm solid #e6e1cc;
+}
+.defter::before { content: ""; position: absolute; left: 10mm; top: 0; bottom: 0; width: .35mm; background: #f2a7a7; }
+.defter .satir { position: relative; }
+.defter .satir .sn { position: absolute; left: -9.5mm; font-family: "Inter", sans-serif; font-style: normal; font-size: 7pt; color: #9aa3b8; font-weight: 700; }
+.defter .ogrenci { font-family: "Inter", sans-serif; font-style: normal; font-size: 7.2pt; color: var(--soluk); letter-spacing: .05em; text-transform: uppercase; }
+.duzelt {
+  border: .35mm dashed var(--hata); border-radius: 2mm; min-height: 26mm; margin-top: 2mm;
+  padding: 1.6mm 3mm; font-size: 8.4pt; color: var(--hata); font-weight: 600; background: #fff;
+}
+.sorgu { display: flex; gap: 2mm; flex-wrap: wrap; margin-top: 1.6mm; }
+.sorgu span { font-size: 8.2pt; background: #fff; border: .3mm solid var(--hata); color: var(--hata); border-radius: 10mm; padding: .2mm 2.2mm; font-weight: 600; }
+
+/* İpucu merdiveni */
+.merdiven { display: grid; gap: 1.8mm; margin-top: 2mm; }
+.basamak {
+  display: grid; grid-template-columns: 17mm 1fr; align-items: stretch;
+  border-radius: 2mm; overflow: hidden; background: #fff; border: .3mm solid #ddd3fb;
+}
+.basamak .bas {
+  background: var(--ipucu); color: #fff; font-size: 7pt; font-weight: 800; letter-spacing: .06em;
+  display: grid; place-items: center; text-align: center; line-height: 1.15; padding: 1mm;
+}
+.basamak:nth-child(2) .bas { background: #9061f0; }
+.basamak:nth-child(3) .bas { background: #a985f5; }
+.basamak .ic { padding: 1.6mm 3mm; font-size: 9.2pt; }
+.basamak:nth-child(2) { margin-left: 6mm; }
+.basamak:nth-child(3) { margin-left: 12mm; }
+.cevap-alani { border: .3mm dashed #b9a6f3; border-radius: 2mm; height: 24mm; margin-top: 2mm; background: #fff;
+  font-size: 7.6pt; color: #8b74d6; padding: 1mm 2.6mm; font-weight: 700; letter-spacing: .06em; }
+
+/* Öz değerlendirme */
+.kontrol { list-style: none; padding: 0; }
+.kontrol li { display: grid; grid-template-columns: 6mm 1fr auto; gap: 2mm; align-items: center; padding: 1.3mm 0; border-bottom: .3mm dotted var(--cizgi); font-size: 9.3pt; }
+.kontrol .kare { width: 4mm; height: 4mm; border: .4mm solid var(--unite); border-radius: 1mm; }
+.kontrol .yuz { display: flex; gap: 1.4mm; font-size: 7.4pt; color: var(--soluk); }
+.kontrol .yuz span { border: .3mm solid var(--cizgi); border-radius: 1mm; padding: 0 1.4mm; }
+
+/* Cevap anahtarı */
+.anahtar { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.4mm; margin-bottom: 4mm; }
+.anahtar div { border: .35mm solid var(--unite); border-radius: 1.6mm; text-align: center; overflow: hidden; font-size: 9pt; }
+.anahtar div b { display: block; background: var(--unite); color: #fff; font-size: 7.6pt; }
+.anahtar div span { display: block; font-weight: 800; color: var(--unite-koyu); padding: .6mm 0; }
+.coz-liste { columns: 2; column-gap: 6mm; font-size: 8.5pt; line-height: 1.42; }
+.coz-liste .c { break-inside: avoid; margin-bottom: 2.4mm; padding-left: 2.4mm; border-left: .6mm solid var(--renk, var(--unite)); }
+.coz-liste .c b:first-child { color: var(--renk, var(--unite)); }
+.coz-baslik { font-size: 9pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--renk, var(--unite)); margin: 2mm 0 1.4mm; column-span: all; }
+
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite: #0369a1; --unite-acik: #eaf5fc; --unite-koyu: #073b5e; }
+.kapak { padding: 0; background: #062a44; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 24mm; font-size: 11pt; font-weight: 700; color: #fbbf24; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 50pt; font-weight: 900; letter-spacing: -.02em; line-height: .98; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 8mm; display: inline-flex; align-items: center; gap: 4mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 26pt; font-weight: 800; color: #fbbf24; white-space: nowrap; }
+.kapak .avo span { font-size: 9pt; opacity: .9; max-width: 78mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.4pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #c3d9e8; padding: .9mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.grafik { width: 100%; height: auto; display: block; }
+.grafik-kutu { border: .3mm solid var(--cizgi); border-radius: 3mm; padding: 2mm 2.4mm 1.4mm; background: #fff; margin-bottom: 3.5mm; }
+.grafik-kutu .gb { font-size: 8pt; font-weight: 700; color: var(--unite-koyu); letter-spacing: .04em; margin-bottom: .6mm; }
+.grafik-kutu .ga { font-size: 7.8pt; color: var(--soluk); line-height: 1.3; margin-top: .6mm; }
+.karsit { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4mm; }
+.karsit > div { border-radius: 2.4mm; padding: 2.2mm 2.8mm; font-size: 8.8pt; line-height: 1.38; }
+.karsit .gu { background: var(--unite-acik); border: .3mm solid #b9dbef; }
+.karsit .za { background: #fff7e6; border: .3mm solid #f6d79a; }
+.karsit b.bb { display: block; font-size: 9.6pt; margin-bottom: .6mm; }
+.karsit .gu b.bb { color: var(--unite-koyu); }
+.karsit .za b.bb { color: #a16207; }
+.karsit ul { margin: 0; padding-left: 3.6mm; }
+.karsit li { margin-bottom: .4mm; }
+.hatirlat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4mm; margin: 0; }
+.hatirlat div { background: var(--unite-acik); border-radius: 2.4mm; padding: 2mm 2.4mm; font-size: 8.5pt; line-height: 1.35; }
+.hatirlat b { display: block; color: var(--unite-koyu); font-size: 9pt; }
+.adimlar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4mm; }
+.adimlar > div { border: .35mm solid var(--unite); border-radius: 2.6mm; padding: 2mm 2.6mm; background: #fff; font-size: 8.8pt; line-height: 1.36; }
+.adimlar > div b.n { display: inline-grid; place-items: center; width: 5mm; height: 5mm; border-radius: 50%; background: var(--unite); color: #fff; font-size: 8pt; margin-right: 1.2mm; }
+table.tablo.sik td, table.tablo.sik th { padding: .9mm 2mm; }
+table.tablo td.on, table.tablo th.on { text-align: center; }
+.ev { color: var(--ornek); font-weight: 800; }
+.ha { color: var(--dikkat); font-weight: 800; }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; }
+.test.devam .iki { min-height: 212mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 44mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="80%" cy="18%" r="80%"><stop offset="0" stop-color="#0ea5e9"/><stop offset=".45" stop-color="#0369a1"/><stop offset="1" stop-color="#062a44"/></radialGradient>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+    <g opacity=".9"><line x1="157.7" y1="57.9" x2="176.0" y2="70.0" stroke="#fbbf24" stroke-opacity=".75" stroke-width=".7" stroke-dasharray="1.6 1.2"/><line x1="177.3" y1="79.6" x2="160.0" y2="92.0" stroke="#fbbf24" stroke-opacity=".75" stroke-width=".7" stroke-dasharray="1.6 1.2"/><line x1="119.0" y1="72.3" x2="112.0" y2="52.0" stroke="#fbbf24" stroke-opacity=".75" stroke-width=".7" stroke-dasharray="1.6 1.2"/><line x1="168.9" y1="95.7" x2="186.0" y2="108.0" stroke="#fbbf24" stroke-opacity=".75" stroke-width=".7" stroke-dasharray="1.6 1.2"/><line x1="154.1" y1="99.7" x2="136.0" y2="112.0" stroke="#fbbf24" stroke-opacity=".75" stroke-width=".7" stroke-dasharray="1.6 1.2"/><line x1="144.2" y1="106.8" x2="160.0" y2="92.0" stroke="#fbbf24" stroke-opacity=".75" stroke-width=".7" stroke-dasharray="1.6 1.2"/><circle cx="150.00" cy="52.00" r="7.48" fill="#38bdf8" stroke="#e0f2fe" stroke-width="0.35"/><circle cx="157.65" cy="57.93" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="142.35" cy="57.93" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="176.00" cy="70.00" r="7.48" fill="#38bdf8" stroke="#e0f2fe" stroke-width="0.35"/><circle cx="184.96" cy="66.33" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="177.31" cy="79.59" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="128.00" cy="76.00" r="7.48" fill="#38bdf8" stroke="#e0f2fe" stroke-width="0.35"/><circle cx="126.69" cy="85.59" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="119.04" cy="72.33" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="160.00" cy="92.00" r="7.48" fill="#38bdf8" stroke="#e0f2fe" stroke-width="0.35"/><circle cx="168.93" cy="95.74" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="154.14" cy="99.71" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="186.00" cy="108.00" r="7.48" fill="#38bdf8" stroke="#e0f2fe" stroke-width="0.35"/><circle cx="189.67" cy="116.96" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="176.41" cy="109.31" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="136.00" cy="112.00" r="7.48" fill="#38bdf8" stroke="#e0f2fe" stroke-width="0.35"/><circle cx="144.19" cy="106.83" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="138.95" cy="121.22" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="112.00" cy="52.00" r="7.48" fill="#38bdf8" stroke="#e0f2fe" stroke-width="0.35"/><circle cx="103.81" cy="57.17" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="109.05" cy="42.78" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="190.00" cy="40.00" r="7.48" fill="#38bdf8" stroke="#e0f2fe" stroke-width="0.35"/><circle cx="180.78" cy="37.05" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/><circle cx="195.17" cy="31.81" r="4.62" fill="#ffffff" stroke="#bae6fd" stroke-width="0.3"/></g>
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="13">
+      <text x="-6" y="176">δ+ ··· δ− · δ+ ··· δ− · δ+ ··· δ−</text>
+      <text x="-26" y="193">H–O ··· H–O ··· H–F ··· H–N ··· H–O</text>
+      <text x="-12" y="210">δ− ··· δ+ · δ− ··· δ+ · δ− ··· δ+</text>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 9. Sınıf</span><span>Tema 2 · Bölüm 3</span></div>
+    <div class="bolum">Bölüm 3 · Zayıf Etkileşimler</div>
+    <h1>Moleküller<br>Arası<br>Etkileşimler</h1>
+    <div class="slogan">Molekülleri bir arada tutan görünmez çekimler</div>
+    <div class="avo"><b>100 °C</b><span>Suyun kaynama noktası. Aynı gruptan oksijen yerine kükürt içeren <span class="f">H<sub>2</sub>S</span> ise −60 °C’ta kaynar. Aradaki 160 derecelik farkı hidrojen bağları yaratır.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Zayıf etkileşimler ve dipoller</span><span>2</span></li>
+          <li><span>2 · İyon–dipol ve dipol–dipol</span><span>3</span></li>
+          <li><span>3 · İndüklenmiş dipoller ve London</span><span>4</span></li>
+          <li><span>4 · Hidrojen bağı</span><span>5</span></li>
+          <li><span>5 · Etkileşim gücü ve kaynama noktası</span><span>6</span></li>
+          <li><span>6 · Karışımlarda etkileşim ve çözünme</span><span>7</span></li>
+          <li><span>Tek sayfada etkileşimler (özet)</span><span>8</span></li>
+          <li><span>Hata Avcısı</span><span>9</span></li>
+          <li><span>Bağlam temelli sorular</span><span>10</span></li>
+          <li><span>İpucu Merdiveni</span><span>11</span></li>
+          <li><span>Bölüm testi</span><span>12</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>14</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg></i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg></i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21M8 8l5 5M13 8l-5 5"/></svg></i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v18M17 3v18M7 8h10M7 13h10M7 18h10"/></svg></i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Tanecik çiftleri arasındaki etkileşim türünü adlandıracaksın.</li>
+          <li>Hidrojen bağının hangi moleküllerde oluştuğunu gerekçelendireceksin.</li>
+          <li>Kaynama noktası ve çözünmeyi etkileşimlerle açıklayacaksın.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · ZAYIF ETKİLEŞİMLER VE DİPOLLER
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Moleküller Arası Etkileşimler</span><span>Zayıf etkileşimler ve dipoller</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Zayıf etkileşimler ve dipoller</h2>
+  <div class="alt-baslik">Bir bardak suyu bir arada tutan, molekülleri birbirine çeken zayıf kuvvetlerdir.</div>
+
+  <p>Bölüm 1’de atomları ve iyonları bir arada tutan <b>güçlü etkileşimleri</b> (iyonik, kovalent ve metalik bağ) tanıdın. Peki su molekülleri neden birbirinden kopup hemen havaya karışmaz? Çünkü moleküller de birbirini çeker. Tanecikler arasındaki bu çekimler kimyasal bağlardan çok daha zayıftır. Bunlara <b class="k">zayıf etkileşimler</b> ya da <b class="k">moleküller arası etkileşimler</b> denir.</p>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1fr;align-items:center;margin-bottom:3mm">
+    <div class="karsit">
+      <div class="gu"><b class="bb">Güçlü etkileşim</b><ul><li>Atomları ya da iyonları bağlar</li><li>Kırılırsa yeni madde oluşur (kimyasal değişim)</li><li>Enerjisi genellikle 40 kJ/mol’den büyük</li></ul></div>
+      <div class="za"><b class="bb">Zayıf etkileşim</b><ul><li>Tanecikleri birbirine çeker</li><li>Kopması hâl değişimi, çözünme gibi fiziksel olaylardır</li><li>Enerjisi genellikle 40 kJ/mol’den küçük</li></ul></div>
+    </div>
+    <div class="grafik-kutu" style="margin:0"><svg viewBox="0 0 92 50" class="grafik"><g font-family="Inter"><circle cx="16.00" cy="27.00" r="5.44" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><text x="16.00" y="28.76" font-size="4.90" font-weight="800" fill="#fff" text-anchor="middle">O</text><circle cx="23.04" cy="27.00" r="3.36" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="23.04" y="28.27" font-size="3.53" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="14.24" cy="33.82" r="3.36" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="14.24" y="35.09" font-size="3.53" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="41.00" cy="27.00" r="5.44" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><text x="41.00" y="28.76" font-size="4.90" font-weight="800" fill="#fff" text-anchor="middle">O</text><circle cx="45.31" cy="21.43" r="3.36" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="45.31" y="22.70" font-size="3.53" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="45.31" cy="32.57" r="3.36" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="45.31" y="33.84" font-size="3.53" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><line x1="26.64" y1="27.00" x2="37.40" y2="27.00" stroke="#f59e0b" stroke-width="0.9" stroke-dasharray="1.1 .8" stroke-linecap="round"/><path d="M19.5 25.8 L54 12" stroke="#0369a1" stroke-width=".35" fill="none"/><path d="M32.5 28.2 L54 40" stroke="#f59e0b" stroke-width=".35" fill="none"/><text x="55" y="10" font-size="3.3" font-weight="800" fill="#073b5e">O–H kovalent bağı</text><text x="55" y="14.4" font-size="3.1" fill="#5d6478">molekül içi · ≈ 460 kJ/mol</text><text x="55" y="18.6" font-size="3.1" font-weight="700" fill="#0369a1">GÜÇLÜ etkileşim</text><text x="55" y="38" font-size="3.3" font-weight="800" fill="#b45309">Hidrojen bağı</text><text x="55" y="42.4" font-size="3.1" fill="#5d6478">moleküller arası · ≈ 20 kJ/mol</text><text x="55" y="46.6" font-size="3.1" font-weight="700" fill="#b45309">ZAYIF etkileşim</text></g></svg></div>
+  </div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kavram</div>
+    <p><b>Yoğun faz:</b> Maddenin katı ve sıvı hâlleridir. Bu hâllerde tanecikler birbirine çok yakındır ve zayıf etkileşimler etkilidir. Gaz hâlinde tanecikler birbirinden çok uzak olduğundan aralarındaki etkileşimler genellikle ihmal edilir. Bu yüzden etkileşim türleri hep “yoğun fazda” ifadesiyle anlatılır.</p>
+  </div>
+
+  <h3>Dipol: iki kutuplu tanecik</h3>
+  <p>Zayıf etkileşimlerin hepsinin temelinde elektriksel çekim vardır: Kısmi pozitif (<b>δ+</b>) bir bölge, kısmi negatif (<b>δ−</b>) bir bölgeyi çeker. Bir taneciğin bir ucunun δ+, diğer ucunun δ− yüklü olmasına <b class="k">dipol</b> (iki kutup) denir.</p>
+
+  <div class="grafik-kutu"><svg viewBox="0 0 178 50" class="grafik"><defs><radialGradient id="bs" cx="50%" cy="50%" r="55%" fx="50%" fy="50%"><stop offset="0" stop-color="#0ea5e9" stop-opacity=".85"/><stop offset=".55" stop-color="#7dd3fc" stop-opacity=".55"/><stop offset="1" stop-color="#e0f2fe" stop-opacity=".15"/></radialGradient><radialGradient id="bk" cx="45%" cy="50%" r="55%" fx="18%" fy="50%"><stop offset="0" stop-color="#0ea5e9" stop-opacity=".85"/><stop offset=".55" stop-color="#7dd3fc" stop-opacity=".55"/><stop offset="1" stop-color="#e0f2fe" stop-opacity=".15"/></radialGradient><marker id="ok1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 10 5 0 10z" fill="#5d6478"/></marker></defs><g font-family="Inter" text-anchor="middle"><rect x="1" y="1" width="56" height="48" rx="3" fill="#eaf5fc"/><text x="29" y="7.4" font-size="3.4" font-weight="800" fill="#073b5e">KALICI DİPOL</text><rect x="61" y="1" width="56" height="48" rx="3" fill="#eaf5fc"/><text x="89" y="7.4" font-size="3.4" font-weight="800" fill="#073b5e">ANLIK (GEÇİCİ) DİPOL</text><rect x="121" y="1" width="56" height="48" rx="3" fill="#eaf5fc"/><text x="149" y="7.4" font-size="3.4" font-weight="800" fill="#073b5e">İNDÜKLENMİŞ DİPOL</text><ellipse cx="27" cy="26" rx="15" ry="9.5" fill="url(#bk)" transform="rotate(180 27 26)"/><circle cx="19.50" cy="26.00" r="4.20" fill="#ffffff" stroke="#94a3b8" stroke-width="0.35"/><text x="19.50" y="27.44" font-size="4.00" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="30.50" cy="26.00" r="7.20" fill="#4ade80" stroke="#15803d" stroke-width="0.35"/><text x="30.50" y="27.80" font-size="5.00" font-weight="800" fill="#064e3b" text-anchor="middle">Cl</text><text x="17" y="16.5" font-size="4" font-weight="800" fill="#2563eb">δ+</text><text x="35" y="15" font-size="4" font-weight="800" fill="#dc2626">δ−</text><text x="29" y="41.5" font-size="3.1" font-weight="700" fill="#1d2133">HCl · polar molekül</text><text x="29" y="46" font-size="2.9" fill="#5d6478">Kutuplar sürekli yerinde</text><circle cx="76" cy="25" r="8.5" fill="url(#bs)"/><circle cx="76" cy="25" r="1.2" fill="#073b5e"/><path d="M87 25 H95" stroke="#5d6478" stroke-width=".5" marker-end="url(#ok1)"/><text x="91" y="21.5" font-size="2.6" fill="#5d6478">bir an</text><ellipse cx="106" cy="25" rx="9.5" ry="8.5" fill="url(#bk)"/><circle cx="108" cy="25" r="1.2" fill="#073b5e"/><text x="100" y="14.5" font-size="4" font-weight="800" fill="#dc2626">δ−</text><text x="113" y="14.5" font-size="4" font-weight="800" fill="#2563eb">δ+</text><text x="89" y="41.5" font-size="3.1" font-weight="700" fill="#1d2133">Ar · soy gaz atomu</text><text x="89" y="46" font-size="2.9" fill="#5d6478">Elektron bulutu bir an kayar</text><circle cx="131.00" cy="25.00" r="4.60" fill="#8b5cf6" stroke="#6d28d9" stroke-width="0.35"/><text x="131.00" y="27.16" font-size="6.00" font-weight="800" fill="#fff" text-anchor="middle">+</text><text x="131" y="17" font-size="2.8" font-weight="700" fill="#6d28d9">katyon</text><ellipse cx="155" cy="25" rx="14" ry="8" fill="url(#bk)"/><circle cx="151" cy="25" r="1.1" fill="#073b5e"/><circle cx="160" cy="25" r="1.1" fill="#073b5e"/><text x="144" y="15" font-size="4" font-weight="800" fill="#dc2626">δ−</text><text x="167" y="15" font-size="4" font-weight="800" fill="#2563eb">δ+</text><text x="149" y="41.5" font-size="3.1" font-weight="700" fill="#1d2133">Yük, apolar taneciği kutuplar</text><text x="149" y="46" font-size="2.9" fill="#5d6478">Elektronlar + yüke doğru çekilir</text></g></svg></div>
+
+  <div class="uc" style="gap:3mm">
+    <div class="kutu kavram" style="margin-bottom:3mm"><div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kalıcı dipol</div><p style="font-size:9pt">Polar moleküllerde elektronegatiflik farkı ve molekül şekli nedeniyle sürekli var olan kutuplanmadır. <span class="f">HCl</span>, <span class="f">H<sub>2</sub>O</span>, <span class="f">NH<sub>3</sub></span> gibi.</p></div>
+    <div class="kutu kavram" style="margin-bottom:3mm"><div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Anlık dipol</div><p style="font-size:9pt">Elektronların hareketiyle bulutun bir an bir tarafa toplanmasıdır. Her tanecikte oluşur. Apolar moleküllerin ve soy gazların tek dipol türüdür.</p></div>
+    <div class="kutu kavram" style="margin-bottom:3mm"><div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> İndüklenmiş dipol</div><p style="font-size:9pt">Yakındaki bir iyonun ya da dipolün etkisiyle oluşan kutuplanmadır. “İndüklemek”, bir etkiyle oluşturmak demektir.</p></div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu duz serit" style="--bg:#f6fbfe;margin-bottom:0">
+      <p style="margin:0;font-size:9pt"><b class="k">Hatırlatma (Bölüm 2):</b> <b>Polar:</b> <span class="f">H<sub>2</sub>O</span>, <span class="f">NH<sub>3</sub></span>, <span class="f">HCl</span>, <span class="f">H<sub>2</sub>S</span>, <span class="f">SO<sub>2</sub></span>, <span class="f">CH<sub>3</sub>Cl</span>, <span class="f">PCl<sub>3</sub></span> · <b>Apolar:</b> <span class="f">H<sub>2</sub></span>, <span class="f">O<sub>2</sub></span>, <span class="f">N<sub>2</sub></span>, <span class="f">Cl<sub>2</sub></span>, <span class="f">CO<sub>2</sub></span>, <span class="f">CH<sub>4</sub></span>, <span class="f">CCl<sub>4</sub></span>, <span class="f">BF<sub>3</sub></span> · Soy gaz atomları (He, Ne, Ar…) apolar gibi davranır.</p>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi">
+        <div class="yanlis"><b class="y">✗</b> “Apolar moleküllerde hiç dipol oluşmaz.”</div>
+        <div class="dogru"><b class="d">✓</b> <b>Kalıcı</b> dipol oluşmaz ama elektron hareketiyle her an <b>anlık</b> dipoller oluşur.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · İYON–DİPOL VE DİPOL–DİPOL
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Moleküller Arası Etkileşimler</span><span>İyon–dipol ve dipol–dipol</span></div>
+
+  <h2 class="konu"><span class="num">2</span>İyon–dipol ve dipol–dipol</h2>
+  <div class="alt-baslik">Kalıcı yükler ve kalıcı kutuplar birbirini bulur.</div>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1.05fr;align-items:center">
+    <div>
+      <h3 style="margin-top:0">İyon–dipol etkileşimi</h3>
+      <p>Bir <b>iyon</b> ile <b>polar molekül</b> arasındaki çekimdir. Katyon, polar molekülün δ− ucunu; anyon ise δ+ ucunu çeker. Sofra tuzu suda böyle çözünür: Su molekülleri iyonları kristalden koparıp her birinin çevresini sarar.</p>
+      <p style="margin:0">İyonun yükü büyüdükçe çekim güçlenir: Mg<sup>2+</sup> iyonu su moleküllerini Na<sup>+</sup> iyonundan daha güçlü çeker. İyon–dipol etkileşimi, zayıf etkileşimler arasında <b>en güçlü</b> olanıdır.</p>
+    </div>
+    <div class="grafik-kutu" style="margin:0"><div class="gb">NaCl’ün suda çözünmesi: iyonları saran su molekülleri</div><svg viewBox="0 0 120 56" class="grafik"><g font-family="Inter" text-anchor="middle"><circle cx="41.26" cy="33.50" r="3.40" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><circle cx="45.33" cy="31.83" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="41.85" cy="37.86" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="30.00" cy="40.00" r="3.40" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><circle cx="33.48" cy="42.69" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="26.52" cy="42.69" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="18.74" cy="33.50" r="3.40" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><circle cx="18.15" cy="37.86" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="14.67" cy="31.83" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="18.74" cy="20.50" r="3.40" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><circle cx="14.67" cy="22.17" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="18.15" cy="16.14" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="30.00" cy="14.00" r="3.40" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><circle cx="26.52" cy="11.31" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="33.48" cy="11.31" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="41.26" cy="20.50" r="3.40" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><circle cx="41.85" cy="16.14" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="45.33" cy="22.17" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="30.00" cy="27.00" r="5.00" fill="#8b5cf6" stroke="#6d28d9" stroke-width="0.35"/><text x="30.00" y="28.30" font-size="3.60" font-weight="800" fill="#fff" text-anchor="middle">Na⁺</text><circle cx="105.00" cy="27.00" r="3.40" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><circle cx="102.31" cy="30.48" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="102.31" cy="23.52" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="97.50" cy="39.99" r="3.40" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><circle cx="93.14" cy="39.40" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="99.17" cy="35.92" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="82.50" cy="39.99" r="3.40" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><circle cx="80.83" cy="35.92" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="86.86" cy="39.40" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="75.00" cy="27.00" r="3.40" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><circle cx="77.69" cy="23.52" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="77.69" cy="30.48" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="82.50" cy="14.01" r="3.40" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><circle cx="86.86" cy="14.60" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="80.83" cy="18.08" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="97.50" cy="14.01" r="3.40" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><circle cx="99.17" cy="18.08" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="93.14" cy="14.60" r="2.10" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><circle cx="90.00" cy="27.00" r="7.00" fill="#4ade80" stroke="#15803d" stroke-width="0.35"/><text x="90.00" y="28.37" font-size="3.80" font-weight="800" fill="#064e3b" text-anchor="middle">Cl⁻</text><text x="30" y="51" font-size="3.1" font-weight="700" fill="#1d2133">Katyonu suyun δ− ucu (O) sarar</text><text x="90" y="51" font-size="3.1" font-weight="700" fill="#1d2133">Anyonu suyun δ+ ucu (H) sarar</text><text x="60" y="55.5" font-size="2.7" fill="#5d6478">● O (kırmızı) · ○ H (beyaz) · iyonlar ölçekli değildir</text></g></svg></div>
+  </div>
+  <p class="kucuk" style="margin:1.6mm 0 0">Not: İyon bir molekül değildir. Ancak polar moleküllerle etkileşimi, zayıf etkileşimler içinde incelenir.</p>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1.15fr;align-items:center;margin-top:1mm">
+    <div class="grafik-kutu" style="margin:0"><div class="gb">Sıvı HCl’de moleküllerin dizilişi (temsilî)</div><svg viewBox="0 0 92 46" class="grafik"><g font-family="Inter" text-anchor="middle"><line x1="23.50" y1="12.00" x2="31.50" y2="12.00" stroke="#f59e0b" stroke-width="0.6" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="21.50" y1="33.00" x2="33.50" y2="33.00" stroke="#f59e0b" stroke-width="0.6" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="10.00" y1="15.80" x2="10.00" y2="29.20" stroke="#f59e0b" stroke-width="0.6" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="17.00" y1="16.50" x2="17.00" y2="28.50" stroke="#f59e0b" stroke-width="0.6" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="51.50" y1="12.00" x2="59.50" y2="12.00" stroke="#f59e0b" stroke-width="0.6" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="49.50" y1="33.00" x2="61.50" y2="33.00" stroke="#f59e0b" stroke-width="0.6" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="38.00" y1="15.80" x2="38.00" y2="29.20" stroke="#f59e0b" stroke-width="0.6" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="45.00" y1="16.50" x2="45.00" y2="28.50" stroke="#f59e0b" stroke-width="0.6" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="66.00" y1="15.80" x2="66.00" y2="29.20" stroke="#f59e0b" stroke-width="0.6" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="73.00" y1="16.50" x2="73.00" y2="28.50" stroke="#f59e0b" stroke-width="0.6" stroke-dasharray="1.1 .8" stroke-linecap="round"/><circle cx="10.00" cy="12.00" r="3.20" fill="#ffffff" stroke="#94a3b8" stroke-width="0.35"/><text x="10.00" y="13.08" font-size="3.00" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="17.00" cy="12.00" r="5.40" fill="#4ade80" stroke="#15803d" stroke-width="0.35"/><text x="17.00" y="13.30" font-size="3.60" font-weight="800" fill="#064e3b" text-anchor="middle">Cl</text><circle cx="10.00" cy="33.00" r="5.40" fill="#4ade80" stroke="#15803d" stroke-width="0.35"/><text x="10.00" y="34.30" font-size="3.60" font-weight="800" fill="#064e3b" text-anchor="middle">Cl</text><circle cx="17.00" cy="33.00" r="3.20" fill="#ffffff" stroke="#94a3b8" stroke-width="0.35"/><text x="17.00" y="34.08" font-size="3.00" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="38.00" cy="12.00" r="3.20" fill="#ffffff" stroke="#94a3b8" stroke-width="0.35"/><text x="38.00" y="13.08" font-size="3.00" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="45.00" cy="12.00" r="5.40" fill="#4ade80" stroke="#15803d" stroke-width="0.35"/><text x="45.00" y="13.30" font-size="3.60" font-weight="800" fill="#064e3b" text-anchor="middle">Cl</text><circle cx="38.00" cy="33.00" r="5.40" fill="#4ade80" stroke="#15803d" stroke-width="0.35"/><text x="38.00" y="34.30" font-size="3.60" font-weight="800" fill="#064e3b" text-anchor="middle">Cl</text><circle cx="45.00" cy="33.00" r="3.20" fill="#ffffff" stroke="#94a3b8" stroke-width="0.35"/><text x="45.00" y="34.08" font-size="3.00" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="66.00" cy="12.00" r="3.20" fill="#ffffff" stroke="#94a3b8" stroke-width="0.35"/><text x="66.00" y="13.08" font-size="3.00" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="73.00" cy="12.00" r="5.40" fill="#4ade80" stroke="#15803d" stroke-width="0.35"/><text x="73.00" y="13.30" font-size="3.60" font-weight="800" fill="#064e3b" text-anchor="middle">Cl</text><circle cx="66.00" cy="33.00" r="5.40" fill="#4ade80" stroke="#15803d" stroke-width="0.35"/><text x="66.00" y="34.30" font-size="3.60" font-weight="800" fill="#064e3b" text-anchor="middle">Cl</text><circle cx="73.00" cy="33.00" r="3.20" fill="#ffffff" stroke="#94a3b8" stroke-width="0.35"/><text x="73.00" y="34.08" font-size="3.00" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><text x="46" y="44.5" font-size="3" font-weight="700" fill="#1d2133">δ+ uç (H) komşunun δ− ucunu (Cl) çeker</text></g></svg></div>
+    <div>
+      <h3 style="margin-top:0">Dipol–dipol etkileşimi</h3>
+      <p>İki <b>polar molekül</b> arasında, birinin δ+ ucu ile diğerinin δ− ucu arasındaki çekimdir. Yoğun fazdaki <span class="f">HCl</span>, <span class="f">H<sub>2</sub>S</span>, <span class="f">SO<sub>2</sub></span>, <span class="f">CH<sub>3</sub>Cl</span>, <span class="f">PCl<sub>3</sub></span> ve <span class="f">CH<sub>2</sub>O</span> moleküllerinde etkindir.</p>
+      <p style="margin:0">Farklı polar moleküller arasında da oluşur. Örneğin <span class="f">HCl</span> ile <span class="f">H<sub>2</sub>S</span> karıştırıldığında iki molekül arasında da dipol–dipol etkileşimi kurulur.</p>
+    </div>
+  </div>
+
+  <div class="kutu kavram" style="margin-top:3.5mm">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Etkin (baskın) etkileşim</div>
+    <p>Tanecikler arasında aynı anda birden fazla etkileşim bulunabilir. Bunlardan <b>en güçlü olanına etkin etkileşim</b> denir. Sıvı <span class="f">HCl</span>’de moleküller arasında hem London kuvvetleri (sayfa 4) hem de dipol–dipol etkileşimi vardır; etkin olan <b>dipol–dipol</b> etkileşimidir.</p>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 1</div>
+    <div class="soru">Aşağıdaki tanecik çiftleri arasındaki etkin etkileşimi belirleyiniz. a) KBr suda çözünürken K<sup>+</sup> ile <span class="f">H<sub>2</sub>O</span> &nbsp; b) Sıvı <span class="f">H<sub>2</sub>S</span> molekülleri &nbsp; c) <span class="f">SO<sub>2</sub></span> ile <span class="f">CH<sub>3</sub>Cl</span></div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>Önce her taneciğin türünü belirle: K<sup>+</sup> <b>iyon</b>; <span class="f">H<sub>2</sub>O</span>, <span class="f">H<sub>2</sub>S</span>, <span class="f">SO<sub>2</sub></span> ve <span class="f">CH<sub>3</sub>Cl</span> <b>polar molekül</b>.</span></div>
+      <div class="adim"><span class="n">2</span><span>a) iyon + polar → <b>iyon–dipol</b> &nbsp; b) polar + polar → <b>dipol–dipol</b> &nbsp; c) polar + polar → <b>dipol–dipol</b></span></div>
+      <span class="sonuc">a) iyon–dipol · b) dipol–dipol · c) dipol–dipol</span>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9.2pt">Mikrodalga fırın, yiyeceklerdeki su moleküllerinin <b>kalıcı dipollerini</b> çok hızlı yön değiştiren elektrik alanla sürekli döndürür. Dönen moleküllerin komşularına sürtünüp çarpması ısı açığa çıkarır. Bu yüzden içinde su bulunan yiyecekler çabuk ısınır.</p>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Tuz suda çözünürken iyonlarla su arasında yeni kimyasal bağlar oluşur.”</div>
+        <div class="dogru"><b class="d">✓</b> İyonlar su molekülleriyle <b>iyon–dipol</b> etkileşimi kurar. Yeni madde oluşmaz; çözünme fiziksel bir olaydır.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · İNDÜKLENMİŞ DİPOLLER VE LONDON
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Moleküller Arası Etkileşimler</span><span>İndüklenmiş dipoller ve London</span></div>
+
+  <h2 class="konu"><span class="num">3</span>İndüklenmiş dipoller ve London</h2>
+  <div class="alt-baslik">Apolar tanecikler de çekilir; yeter ki yanlarında bir yük, bir dipol ya da başka bir elektron bulutu olsun.</div>
+
+  <div class="uc" style="gap:3mm">
+    <div class="kutu kavram" style="margin-bottom:3mm"><div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> İyon–ind. dipol</div><p style="font-size:9pt"><b>İyon</b> ile <b>apolar molekül</b> ya da <b>soy gaz</b> atomu arasında oluşur. İyon, komşu taneciğin elektron bulutunu kutuplar. Örnek: Ca<sup>2+</sup> iyonu ile <span class="f">CH<sub>4</sub></span> molekülü.</p></div>
+    <div class="kutu kavram" style="margin-bottom:3mm"><div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Dipol–ind. dipol</div><p style="font-size:9pt"><b>Polar molekül</b> ile <b>apolar molekül</b> ya da <b>soy gaz</b> atomu arasında oluşur. Örnek: suda çözünmüş <span class="f">O<sub>2</sub></span>; tentürdiyottaki <span class="f">I<sub>2</sub></span> ile etanol.</p></div>
+    <div class="kutu kavram" style="margin-bottom:3mm"><div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> London kuvvetleri</div><p style="font-size:9pt">Anlık dipol ile indüklenmiş dipol arasındaki çekimdir. <b>Bütün</b> tanecikler arasında vardır; apolar moleküllerde ve soy gazlarda <b>tek</b> etkileşimdir.</p></div>
+  </div>
+
+  <div class="iki-genis" style="grid-template-columns:1.1fr 1fr;align-items:center">
+    <div class="grafik-kutu" style="margin:0"><div class="gb">London kuvvetleri nasıl oluşur?</div><svg viewBox="0 0 92 34" class="grafik"><defs><radialGradient id="lk" cx="45%" cy="50%" r="55%" fx="18%" fy="50%"><stop offset="0" stop-color="#0ea5e9" stop-opacity=".85"/><stop offset=".55" stop-color="#7dd3fc" stop-opacity=".55"/><stop offset="1" stop-color="#e0f2fe" stop-opacity=".15"/></radialGradient></defs><g font-family="Inter" text-anchor="middle"><ellipse cx="22" cy="15" rx="11" ry="9" fill="url(#lk)"/><circle cx="24" cy="15" r="1.2" fill="#073b5e"/><text x="15" y="4.5" font-size="3.6" font-weight="800" fill="#dc2626">δ−</text><text x="30" y="4.5" font-size="3.6" font-weight="800" fill="#2563eb">δ+</text><ellipse cx="62" cy="15" rx="11" ry="9" fill="url(#lk)"/><circle cx="64" cy="15" r="1.2" fill="#073b5e"/><text x="55" y="4.5" font-size="3.6" font-weight="800" fill="#dc2626">δ−</text><text x="70" y="4.5" font-size="3.6" font-weight="800" fill="#2563eb">δ+</text><line x1="33.00" y1="15.00" x2="51.00" y2="15.00" stroke="#f59e0b" stroke-width="0.8" stroke-dasharray="1.1 .8" stroke-linecap="round"/><text x="42" y="12.6" font-size="2.8" font-weight="700" fill="#b45309">çekim</text><text x="22" y="28.5" font-size="3" font-weight="700" fill="#1d2133">1 · Anlık dipol</text><text x="62" y="28.5" font-size="3" font-weight="700" fill="#1d2133">2 · İndüklenmiş dipol</text><text x="42" y="33" font-size="2.7" fill="#5d6478">Bir taneciğin anlık kutbu komşusunu kutuplar; kutuplar birbirini çeker.</text><text x="84" y="16" font-size="2.7" fill="#5d6478">tekrar</text><text x="84" y="19.5" font-size="2.7" fill="#5d6478">tekrar…</text></g></svg></div>
+    <p style="margin:0;font-size:9.6pt">London kuvvetleri adını, bu çekimi 1930’da açıklayan fizikçi Fritz London’dan alır. Kendi başına en zayıf etkileşimdir ama her yerde vardır. Polar moleküller arasında da dipol–dipol etkileşimine eşlik eder. Bu kuvvetlere <b>indüklenmiş dipol–indüklenmiş dipol etkileşimleri</b> ya da <b>dağılma kuvvetleri</b> de denir.</p>
+  </div>
+
+  <h3>London kuvvetlerinin gücünü ne belirler?</h3>
+  <div class="iki">
+    <div>
+      <p style="font-size:9.4pt"><b class="k">1 · Elektron sayısı.</b> Elektron sayısı arttıkça elektron bulutu büyür ve daha kolay kutuplanır. London kuvvetleri güçlenir, kaynama noktası yükselir. Halojenler oda koşullarında bu yüzden gaz, sıvı ve katı hâlde bulunur.</p>
+      <div class="grafik-kutu" style="margin:0"><div class="gb">Halojenlerin kaynama noktaları (1 atm) ve 25 °C’taki hâlleri</div><svg viewBox="0 0 92 62" class="grafik"><g font-family="Inter" font-size="3" fill="#5d6478"><line x1="16" y1="46.0" x2="88" y2="46.0" stroke="#e5e7f0" stroke-width=".3"/><text x="14.5" y="47.0" text−anchor="end">−200</text><line x1="16" y1="36.0" x2="88" y2="36.0" stroke="#e5e7f0" stroke-width=".3"/><text x="14.5" y="37.0" text−anchor="end">−100</text><line x1="16" y1="26.0" x2="88" y2="26.0" stroke="#e5e7f0" stroke-width=".3"/><text x="14.5" y="27.0" text−anchor="end">0</text><line x1="16" y1="16.0" x2="88" y2="16.0" stroke="#e5e7f0" stroke-width=".3"/><text x="14.5" y="17.0" text−anchor="end">100</text><line x1="16" y1="6.0" x2="88" y2="6.0" stroke="#e5e7f0" stroke-width=".3"/><text x="14.5" y="7.0" text−anchor="end">200</text><line x1="16" y1="46" x2="88" y2="46" stroke="#1d2133" stroke-width=".4"/><line x1="16" y1="46" x2="16" y2="4" stroke="#1d2133" stroke-width=".4"/><text x="1" y="3" fill="#1d2133" font-weight="700" font-size="3">KN (°C)</text><rect x="20.5" y="44.8" width="11" height="1.2" rx="1" fill="#bae6fd"/><text x="26" y="43.5" text−anchor="middle" font−weight="700" fill="#1d2133">−188</text><text x="26" y="50.2" text-anchor="middle" font-weight="800" fill="#1d2133" font-size="3.6">F₂</text><text x="26" y="54.2" text-anchor="middle" font-size="2.8">18 e⁻</text><text x="26" y="58" text-anchor="middle" font-size="2.8" font-weight="700" fill="#073b5e">gaz</text><rect x="38.5" y="29.4" width="11" height="16.6" rx="1" fill="#bae6fd"/><text x="44" y="28.1" text−anchor="middle" font−weight="700" fill="#1d2133">−34</text><text x="44" y="50.2" text-anchor="middle" font-weight="800" fill="#1d2133" font-size="3.6">Cl₂</text><text x="44" y="54.2" text-anchor="middle" font-size="2.8">34 e⁻</text><text x="44" y="58" text-anchor="middle" font-size="2.8" font-weight="700" fill="#073b5e">gaz</text><rect x="56.5" y="20.1" width="11" height="25.9" rx="1" fill="#38bdf8"/><text x="62" y="18.8" text−anchor="middle" font−weight="700" fill="#1d2133">59</text><text x="62" y="50.2" text-anchor="middle" font-weight="800" fill="#1d2133" font-size="3.6">Br₂</text><text x="62" y="54.2" text-anchor="middle" font-size="2.8">70 e⁻</text><text x="62" y="58" text-anchor="middle" font-size="2.8" font-weight="700" fill="#073b5e">sıvı</text><rect x="74.5" y="7.6" width="11" height="38.4" rx="1" fill="#0369a1"/><text x="80" y="6.3" text−anchor="middle" font−weight="700" fill="#1d2133">184</text><text x="80" y="50.2" text-anchor="middle" font-weight="800" fill="#1d2133" font-size="3.6">I₂</text><text x="80" y="54.2" text-anchor="middle" font-size="2.8">106 e⁻</text><text x="80" y="58" text-anchor="middle" font-size="2.8" font-weight="700" fill="#073b5e">katı</text><line x1="16" y1="23.5" x2="88" y2="23.5" stroke="#dc2626" stroke-width=".45" stroke-dasharray="1.4 .9"/><text x="17" y="22.3" font-size="2.6" fill="#dc2626" font-weight="700">25 °C</text></g></svg></div>
+    </div>
+    <div>
+      <p style="font-size:9.4pt"><b class="k">2 · Molekülün şekli.</b> Elektron sayıları eşitse moleküllerin birbirine değdiği yüzey önem kazanır. Uzun, dallanmamış moleküller birbirine geniş yüzeyle değer. Küresel (çok dallanmış) moleküller ise birbirine ancak dar bir bölgeden dokunur.</p>
+      <div class="grafik-kutu" style="margin:0"><div class="gb">Aynı formül (<span class="f">C<sub>5</sub>H<sub>12</sub></span>), aynı elektron sayısı (42), farklı şekil</div><svg viewBox="0 0 92 40" class="grafik"><g font-family="Inter" text-anchor="middle"><line x1="6.00" y1="14.60" x2="6.00" y2="20.40" stroke="#f59e0b" stroke-width="0.5" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="11.60" y1="11.40" x2="11.60" y2="17.20" stroke="#f59e0b" stroke-width="0.5" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="17.20" y1="14.60" x2="17.20" y2="20.40" stroke="#f59e0b" stroke-width="0.5" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="22.80" y1="11.40" x2="22.80" y2="17.20" stroke="#f59e0b" stroke-width="0.5" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="28.40" y1="14.60" x2="28.40" y2="20.40" stroke="#f59e0b" stroke-width="0.5" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="6.0" y1="12.0" x2="11.6" y2="8.8" stroke="#475569" stroke-width="1"/><line x1="11.6" y1="8.8" x2="17.2" y2="12.0" stroke="#475569" stroke-width="1"/><line x1="17.2" y1="12.0" x2="22.8" y2="8.8" stroke="#475569" stroke-width="1"/><line x1="22.8" y1="8.8" x2="28.4" y2="12.0" stroke="#475569" stroke-width="1"/><circle cx="6.00" cy="12.00" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="11.60" cy="8.80" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="17.20" cy="12.00" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="22.80" cy="8.80" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="28.40" cy="12.00" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><line x1="6.0" y1="23.0" x2="11.6" y2="19.8" stroke="#475569" stroke-width="1"/><line x1="11.6" y1="19.8" x2="17.2" y2="23.0" stroke="#475569" stroke-width="1"/><line x1="17.2" y1="23.0" x2="22.8" y2="19.8" stroke="#475569" stroke-width="1"/><line x1="22.8" y1="19.8" x2="28.4" y2="23.0" stroke="#475569" stroke-width="1"/><circle cx="6.00" cy="23.00" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="11.60" cy="19.80" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="17.20" cy="23.00" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="22.80" cy="19.80" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="28.40" cy="23.00" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><line x1="62" y1="17" x2="57.4" y2="17" stroke="#475569" stroke-width="1"/><line x1="62" y1="17" x2="66.6" y2="17" stroke="#475569" stroke-width="1"/><line x1="62" y1="17" x2="62" y2="12.4" stroke="#475569" stroke-width="1"/><line x1="62" y1="17" x2="62" y2="21.6" stroke="#475569" stroke-width="1"/><circle cx="57.40" cy="17.00" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="66.60" cy="17.00" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="62.00" cy="12.40" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="62.00" cy="21.60" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="62.00" cy="17.00" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><line x1="78.4" y1="17" x2="73.80000000000001" y2="17" stroke="#475569" stroke-width="1"/><line x1="78.4" y1="17" x2="83.0" y2="17" stroke="#475569" stroke-width="1"/><line x1="78.4" y1="17" x2="78.4" y2="12.4" stroke="#475569" stroke-width="1"/><line x1="78.4" y1="17" x2="78.4" y2="21.6" stroke="#475569" stroke-width="1"/><circle cx="73.80" cy="17.00" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="83.00" cy="17.00" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="78.40" cy="12.40" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="78.40" cy="21.60" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><circle cx="78.40" cy="17.00" r="2.30" fill="#475569" stroke="#1e293b" stroke-width="0.35"/><line x1="67.80" y1="17.00" x2="72.80" y2="17.00" stroke="#f59e0b" stroke-width="0.5" stroke-dasharray="1.1 .8" stroke-linecap="round"/><text x="17" y="33" font-size="3.1" font-weight="800" fill="#1d2133">n-pentan · KN 36 °C</text><text x="17" y="37.4" font-size="2.7" fill="#5d6478">uzun zincir · geniş temas</text><text x="70" y="33" font-size="3.1" font-weight="800" fill="#1d2133">neopentan · KN 9,5 °C</text><text x="70" y="37.4" font-size="2.7" fill="#5d6478">küresel · dar temas</text></g></svg></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#f6fbfe;margin:3.5mm 0">
+    <p style="margin:0;font-size:9.2pt"><b class="k">Alkanlarda aynı eğilim:</b> <span class="f">CH<sub>4</sub></span> (10 e<sup>−</sup>) −162 °C · <span class="f">C<sub>2</sub>H<sub>6</sub></span> (18 e<sup>−</sup>) −89 °C · <span class="f">C<sub>3</sub>H<sub>8</sub></span> (26 e<sup>−</sup>) −42 °C · <span class="f">C<sub>4</sub>H<sub>10</sub></span> (34 e<sup>−</sup>) −0,5 °C. Zincir uzadıkça elektron sayısı ve kaynama noktası artar.</p>
+  </div>
+
+  <div class="kutu hayat" style="margin-bottom:0">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+    <p style="font-size:9.3pt">Geko kertenkeleleri cam gibi pürüzsüz yüzeylerde bile baş aşağı yürüyebilir. Ayak tabanlarında milyonlarca mikroskobik kıl ve bu kılların uçlarında daha da ince dallar vardır. Her ucun yüzeyle kurduğu London çekimi çok küçüktür. Ancak bu uçların sayısı o kadar fazladır ki toplam çekim hayvanın ağırlığını taşımaya yeter. Bilim insanları bu fikirden yola çıkarak yapıştırıcısız tutunan “geko bantlar” geliştirmektedir.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · HİDROJEN BAĞI
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Moleküller Arası Etkileşimler</span><span>Hidrojen bağı</span></div>
+
+  <h2 class="konu"><span class="num">4</span>Hidrojen bağı</h2>
+  <div class="alt-baslik">H–F, H–O, H–N: küçük ama çok güçlü bir köprü</div>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1.1fr;align-items:center">
+    <div>
+      <p>Bir molekülde <b>F, O ya da N</b> atomuna kovalent bağla bağlı <b>H atomu</b>, komşu molekülün F, O ya da N atomundaki ortaklanmamış elektron çiftini çeker. Bu özel ve güçlü çekime <b class="k">hidrojen bağı</b> denir ve “···” ile gösterilir.</p>
+      <p style="margin:0"><b>Neden bu kadar güçlü?</b> F, O ve N hem çok elektronegatif hem de küçük atomlardır. Bağ elektronlarını kendine çekerler; H atomunun çekirdeği neredeyse açıkta kalır (δ+ çok büyüktür). Bu küçük ve güçlü δ+ uç, komşu atoma çok yaklaşabilir.</p>
+    </div>
+    <div class="grafik-kutu" style="margin:0"><svg viewBox="0 0 120 56" class="grafik"><g font-family="Inter" text-anchor="middle"><line x1="40.58" y1="33.09" x2="45.16" y2="36.64" stroke="#f59e0b" stroke-width="0.7" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="27.42" y1="33.09" x2="22.84" y2="36.64" stroke="#f59e0b" stroke-width="0.7" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="29.19" y1="21.14" x2="32.51" y2="25.87" stroke="#f59e0b" stroke-width="0.7" stroke-dasharray="1.1 .8" stroke-linecap="round"/><line x1="38.81" y1="21.14" x2="35.49" y2="25.87" stroke="#f59e0b" stroke-width="0.7" stroke-dasharray="1.1 .8" stroke-linecap="round"/><circle cx="47.22" cy="38.24" r="4.42" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><text x="47.22" y="39.67" font-size="3.98" font-weight="800" fill="#fff" text-anchor="middle">O</text><circle cx="50.54" cy="33.58" r="2.73" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="50.54" y="34.61" font-size="2.87" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="50.90" cy="42.62" r="2.73" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="50.90" y="43.65" font-size="2.87" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="20.78" cy="38.24" r="4.42" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><text x="20.78" y="39.67" font-size="3.98" font-weight="800" fill="#fff" text-anchor="middle">O</text><circle cx="17.10" cy="42.62" r="2.73" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="17.10" y="43.65" font-size="2.87" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="17.46" cy="33.58" r="2.73" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="17.46" y="34.61" font-size="2.87" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="24.42" cy="14.32" r="4.42" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><text x="24.42" y="15.75" font-size="3.98" font-weight="800" fill="#fff" text-anchor="middle">O</text><circle cx="27.70" cy="19.01" r="2.73" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="27.70" y="20.04" font-size="2.87" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="19.06" cy="16.32" r="2.73" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="19.06" y="17.36" font-size="2.87" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="43.58" cy="14.32" r="4.42" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><text x="43.58" y="15.75" font-size="3.98" font-weight="800" fill="#fff" text-anchor="middle">O</text><circle cx="48.94" cy="16.32" r="2.73" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="48.94" y="17.36" font-size="2.87" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="40.30" cy="19.01" r="2.73" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="40.30" y="20.04" font-size="2.87" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="34.00" cy="28.00" r="4.42" fill="#ef4444" stroke="#b91c1c" stroke-width="0.35"/><text x="34.00" y="29.43" font-size="3.98" font-weight="800" fill="#fff" text-anchor="middle">O</text><circle cx="38.52" cy="31.50" r="2.73" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="38.52" y="32.53" font-size="2.87" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="29.48" cy="31.50" r="2.73" fill="#ffffff" stroke="#94a3b8" stroke-width="0.3"/><text x="29.48" y="32.53" font-size="2.87" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><line x1="82.80" y1="25.40" x2="89.85" y2="28.93" stroke="#f59e0b" stroke-width="0.7" stroke-dasharray="1.1 .8" stroke-linecap="round"/><circle cx="76.00" cy="22.00" r="3.80" fill="#bef264" stroke="#65a30d" stroke-width="0.35"/><text x="76.00" y="23.22" font-size="3.40" font-weight="800" fill="#365314" text-anchor="middle">F</text><circle cx="80.65" cy="24.33" r="2.40" fill="#ffffff" stroke="#94a3b8" stroke-width="0.35"/><text x="80.65" y="25.19" font-size="2.40" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><line x1="98.80" y1="26.60" x2="105.85" y2="23.07" stroke="#f59e0b" stroke-width="0.7" stroke-dasharray="1.1 .8" stroke-linecap="round"/><circle cx="92.00" cy="30.00" r="3.80" fill="#bef264" stroke="#65a30d" stroke-width="0.35"/><text x="92.00" y="31.22" font-size="3.40" font-weight="800" fill="#365314" text-anchor="middle">F</text><circle cx="96.65" cy="27.67" r="2.40" fill="#ffffff" stroke="#94a3b8" stroke-width="0.35"/><text x="96.65" y="28.54" font-size="2.40" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><circle cx="108.00" cy="22.00" r="3.80" fill="#bef264" stroke="#65a30d" stroke-width="0.35"/><text x="108.00" y="23.22" font-size="3.40" font-weight="800" fill="#365314" text-anchor="middle">F</text><circle cx="112.50" cy="19.40" r="2.40" fill="#ffffff" stroke="#94a3b8" stroke-width="0.35"/><text x="112.50" y="20.26" font-size="2.40" font-weight="800" fill="#1d2133" text-anchor="middle">H</text><text x="92" y="44" font-size="3.1" font-weight="800" fill="#1d2133">HF zinciri</text><text x="92" y="48.4" font-size="2.7" fill="#5d6478">F–H ··· F–H ··· F–H</text><text x="34" y="54.5" font-size="3" font-weight="700" fill="#1d2133">Sudaki hidrojen bağları (- - -)</text></g></svg></div>
+  </div>
+
+  <div class="kutu kavram" style="margin-top:3.5mm">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg> H–FON kuralı</div>
+    <div class="iki" style="gap:4mm">
+      <p style="font-size:9.3pt;margin:0"><b class="k">Verici:</b> Bir molekülde F, O ya da N atomuna <b>doğrudan bağlı</b> H atomu bulunmalı (H–F, H–O, H–N).<br><b class="k">Alıcı:</b> Diğer molekülde ortaklanmamış elektron çifti olan bir F, O ya da N atomu bulunmalı.</p>
+      <p style="font-size:9.3pt;margin:0">Bir maddenin <b>kendi molekülleri</b> arasında hidrojen bağı olması için molekülde hem verici hem alıcı bulunmalıdır. Hidrojen bağı olan maddelerde dipol–dipol ve London kuvvetleri de vardır; etkin olan hidrojen bağıdır.</p>
+    </div>
+  </div>
+
+  <table class="tablo sik">
+    <tr><th>Madde</th><th class="on">Kendi molekülleri arasında H bağı</th><th class="on">Su ile H bağı</th><th>Gerekçe</th></tr>
+    <tr><td><span class="f">H<sub>2</sub>O</span>, <span class="f">NH<sub>3</sub></span>, HF</td><td class="on ev">var</td><td class="on ev">var</td><td>O–H, N–H, F–H bağı içerir</td></tr>
+    <tr><td><span class="f">CH<sub>3</sub>OH</span>, <span class="f">C<sub>2</sub>H<sub>5</sub>OH</span> (alkoller)</td><td class="on ev">var</td><td class="on ev">var</td><td>–OH grubu içerir</td></tr>
+    <tr><td><span class="f">CH<sub>3</sub></span>–O–<span class="f">CH<sub>3</sub></span> (dimetil eter)</td><td class="on ha">yok</td><td class="on ev">var</td><td>H’ler C’ye bağlı; ama O atomu alıcı olabilir</td></tr>
+    <tr><td><span class="f">CH<sub>2</sub>O</span> (formaldehit)</td><td class="on ha">yok</td><td class="on ev">var</td><td>H’ler C’ye bağlı; O atomu alıcı</td></tr>
+    <tr><td><span class="f">CH<sub>4</sub></span>, <span class="f">H<sub>2</sub>S</span>, <span class="f">HCl</span></td><td class="on ha">yok</td><td class="on ha">yok</td><td>H; F, O ya da N’ye bağlı değil ve alıcı atom yok</td></tr>
+  </table>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 2</div>
+    <div class="soru">Etanol (<span class="f">CH<sub>3</sub></span>–<span class="f">CH<sub>2</sub></span>–OH) ile dimetil eterin (<span class="f">CH<sub>3</sub></span>–O–<span class="f">CH<sub>3</sub></span>) formülü aynıdır: <span class="f">C<sub>2</sub>H<sub>6</sub>O</span>. İkisinin de elektron sayısı 26’dır. Etanol 78 °C’ta, dimetil eter ise −24 °C’ta kaynar. Bu büyük farkı açıklayınız.</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>Elektron sayıları eşit olduğu için London kuvvetleri yaklaşık aynıdır; fark başka bir etkileşimden gelmelidir.</span></div>
+      <div class="adim"><span class="n">2</span><span>Etanolde O’ya bağlı H var (verici) ve O alıcıdır → kendi molekülleri arasında <b>hidrojen bağı</b>.</span></div>
+      <div class="adim"><span class="n">3</span><span>Eterde bütün H’ler C’ye bağlı; verici yok → moleküller arasında yalnız <b>dipol–dipol</b> ve London.</span></div>
+      <span class="sonuc">Hidrojen bağı daha güçlü → etanolün kaynama noktası çok daha yüksek</span>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9.1pt">Çoğu maddenin katısı sıvısından yoğundur; buz ise suda yüzer. Donan suda her molekül dört komşusuyla hidrojen bağı kurar ve boşluklu, düzenli bir yapı oluşur. Bu yüzden buzun yoğunluğu (≈ 0,92 g/cm³) sıvı sudan (≈ 1,00 g/cm³) küçüktür. Göller yüzeyden donar, alttaki su canlılar için sıvı kalır.</p>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Hidrojen bağı, su molekülündeki O–H bağının adıdır.”</div>
+        <div class="dogru"><b class="d">✓</b> O–H bağı molekül <b>içindeki</b> kovalent bağdır. Hidrojen bağı ise bir molekülün H’si ile <b>komşu</b> molekülün O’su arasındaki zayıf etkileşimdir.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · ETKİLEŞİM GÜCÜ VE KAYNAMA NOKTASI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Moleküller Arası Etkileşimler</span><span>Etkileşim gücü ve kaynama noktası</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Etkileşim gücü ve kaynama noktası</h2>
+  <div class="alt-baslik">Tanecikler birbirini ne kadar güçlü çekerse onları ayırmak için o kadar çok enerji gerekir.</div>
+
+  <div class="iki-genis" style="grid-template-columns:1.2fr 1fr;align-items:start">
+    <table class="tablo sik" style="margin:0">
+      <tr><th>Etkileşim</th><th>Görüldüğü tanecikler</th><th>Yaklaşık enerji (kJ/mol)</th></tr>
+      <tr><td><b>İyon–dipol</b></td><td>iyon + polar molekül</td><td>zayıfların en güçlüsü</td></tr>
+      <tr><td><b>Hidrojen bağı</b></td><td>H–F, H–O, H–N içeren moleküller</td><td>10 – 40</td></tr>
+      <tr><td><b>Dipol–dipol</b></td><td>polar + polar molekül</td><td>5 – 25</td></tr>
+      <tr><td><b>London</b></td><td>bütün tanecikler</td><td>0,05 – 40 (büyüdükçe artar)</td></tr>
+    </table>
+    <div class="kutu kavram" style="margin:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kaynama noktası</div>
+      <p style="font-size:9.1pt">Bir sıvı kaynarken molekülleri birbirinden ayrılır; molekül içindeki bağlar <b>kopmaz</b>. Aynı dış basınçta, tanecikler arası etkileşim ne kadar güçlüyse <b>kaynama ve erime noktası</b> o kadar yüksektir.</p>
+    </div>
+  </div>
+  <p class="kucuk" style="margin:1.4mm 0 3mm">Diğer etkenler (tanecik büyüklüğü, elektron sayısı) yaklaşık aynıyken genel sıralama: <b>iyon–dipol &gt; hidrojen bağı &gt; dipol–dipol &gt; London</b>.</p>
+
+  <div class="iki-genis" style="grid-template-columns:1.15fr 1fr;align-items:center">
+    <div class="grafik-kutu" style="margin:0"><div class="gb">4A–7A grubu hidrürlerinin kaynama noktaları (1 atm)</div><svg viewBox="0 0 120 86" class="grafik"><g font-family="Inter" font-size="3.1" fill="#5d6478"><line x1="20" y1="74.0" x2="116" y2="74.0" stroke="#e5e7f0" stroke-width=".3"/><text x="18.5" y="75.0" text−anchor="end">−180</text><line x1="20" y1="67.4" x2="116" y2="67.4" stroke="#e5e7f0" stroke-width=".3"/><line x1="20" y1="60.8" x2="116" y2="60.8" stroke="#e5e7f0" stroke-width=".3"/><text x="18.5" y="61.8" text−anchor="end">−120</text><line x1="20" y1="54.2" x2="116" y2="54.2" stroke="#e5e7f0" stroke-width=".3"/><line x1="20" y1="47.6" x2="116" y2="47.6" stroke="#e5e7f0" stroke-width=".3"/><text x="18.5" y="48.6" text−anchor="end">−60</text><line x1="20" y1="41.0" x2="116" y2="41.0" stroke="#e5e7f0" stroke-width=".3"/><line x1="20" y1="34.4" x2="116" y2="34.4" stroke="#e5e7f0" stroke-width=".3"/><text x="18.5" y="35.4" text−anchor="end">0</text><line x1="20" y1="27.8" x2="116" y2="27.8" stroke="#e5e7f0" stroke-width=".3"/><line x1="20" y1="21.2" x2="116" y2="21.2" stroke="#e5e7f0" stroke-width=".3"/><text x="18.5" y="22.2" text−anchor="end">60</text><line x1="20" y1="14.6" x2="116" y2="14.6" stroke="#e5e7f0" stroke-width=".3"/><line x1="20" y1="8.0" x2="116" y2="8.0" stroke="#e5e7f0" stroke-width=".3"/><text x="18.5" y="9.0" text−anchor="end">120</text><line x1="20" y1="34.4" x2="116" y2="34.4" stroke="#cbd5e1" stroke-width=".4"/><line x1="20" y1="74" x2="116" y2="74" stroke="#1d2133" stroke-width=".45"/><line x1="20" y1="74" x2="20" y2="5" stroke="#1d2133" stroke-width=".45"/><text x="32" y="78.4" text-anchor="middle">2</text><text x="58" y="78.4" text-anchor="middle">3</text><text x="84" y="78.4" text-anchor="middle">4</text><text x="110" y="78.4" text-anchor="middle">5</text><text x="68.0" y="83.5" text-anchor="middle" fill="#1d2133" font-weight="700">Periyot</text><text x="1" y="4" fill="#1d2133" font-weight="700">Kaynama noktası (°C)</text><rect x="26" y="7" width="12" height="37.3" rx="2" fill="#f59e0b" fill-opacity=".14" stroke="#f59e0b" stroke-width=".35" stroke-dasharray="1 .7"/><polyline fill="none" stroke="#64748b" stroke-width=".8" points="32.0,69.9 58.0,59.0 84.0,53.9 110.0,45.8"/><circle cx="32.0" cy="69.9" r="1.1" fill="#64748b"/><text x="37.5" y="71.1" text-anchor="middle" font-size="2.9" font-weight="800" fill="#64748b">CH₄</text><circle cx="58.0" cy="59.0" r="1.1" fill="#64748b"/><circle cx="84.0" cy="53.9" r="1.1" fill="#64748b"/><circle cx="110.0" cy="45.8" r="1.1" fill="#64748b"/><text x="115.2" y="49.8" text-anchor="middle" font-size="2.9" font-weight="800" fill="#64748b">SnH₄</text><polyline fill="none" stroke="#2563eb" stroke-width=".8" points="32.0,41.7 58.0,53.7 84.0,48.1 110.0,38.1"/><circle cx="32.0" cy="41.7" r="1.1" fill="#2563eb"/><text x="25.8" y="39.9" text-anchor="middle" font-size="2.9" font-weight="800" fill="#2563eb">NH₃</text><circle cx="58.0" cy="53.7" r="1.1" fill="#2563eb"/><circle cx="84.0" cy="48.1" r="1.1" fill="#2563eb"/><circle cx="110.0" cy="38.1" r="1.1" fill="#2563eb"/><text x="115.2" y="39.7" text-anchor="middle" font-size="2.9" font-weight="800" fill="#2563eb">SbH₃</text><polyline fill="none" stroke="#dc2626" stroke-width=".8" points="32.0,12.4 58.0,47.7 84.0,43.5 110.0,34.9"/><circle cx="32.0" cy="12.4" r="1.1" fill="#dc2626"/><text x="38.5" y="13.6" text-anchor="middle" font-size="2.9" font-weight="800" fill="#dc2626">H₂O</text><circle cx="58.0" cy="47.7" r="1.1" fill="#dc2626"/><circle cx="84.0" cy="43.5" r="1.1" fill="#dc2626"/><circle cx="110.0" cy="34.9" r="1.1" fill="#dc2626"/><text x="115.6" y="33.7" text-anchor="middle" font-size="2.9" font-weight="800" fill="#dc2626">H₂Te</text><polyline fill="none" stroke="#16a34a" stroke-width=".8" points="32.0,30.1 58.0,53.1 84.0,49.1 110.0,42.2"/><circle cx="32.0" cy="30.1" r="1.1" fill="#16a34a"/><text x="37.0" y="31.6" text-anchor="middle" font-size="2.9" font-weight="800" fill="#16a34a">HF</text><circle cx="58.0" cy="53.1" r="1.1" fill="#16a34a"/><circle cx="84.0" cy="49.1" r="1.1" fill="#16a34a"/><circle cx="110.0" cy="42.2" r="1.1" fill="#16a34a"/><text x="114.4" y="43.7" text-anchor="middle" font-size="2.9" font-weight="800" fill="#16a34a">HI</text><line x1="66" y1="12.0" x2="71" y2="12.0" stroke="#64748b" stroke-width="1"/><text x="73" y="13.0" font-size="2.8" fill="#1d2133"><tspan font-weight="800">4A</tspan> CH₄ → SnH₄</text><line x1="66" y1="16.4" x2="71" y2="16.4" stroke="#2563eb" stroke-width="1"/><text x="73" y="17.4" font-size="2.8" fill="#1d2133"><tspan font-weight="800">5A</tspan> NH₃ → SbH₃</text><line x1="66" y1="20.8" x2="71" y2="20.8" stroke="#dc2626" stroke-width="1"/><text x="73" y="21.8" font-size="2.8" fill="#1d2133"><tspan font-weight="800">6A</tspan> H₂O → H₂Te</text><line x1="66" y1="25.200000000000003" x2="71" y2="25.200000000000003" stroke="#16a34a" stroke-width="1"/><text x="73" y="26.200000000000003" font-size="2.8" fill="#1d2133"><tspan font-weight="800">7A</tspan> HF → HI</text><text x="39.5" y="10.6" font-size="2.6" font-weight="800" fill="#b45309">hidrojen bağı</text></g></svg></div>
+    <div style="font-size:9.3pt">
+      <p><b>4A</b> hidrürleri (<span class="f">CH<sub>4</sub></span> → <span class="f">SnH<sub>4</sub></span>) apolardır; yalnızca London kuvvetleri vardır. Periyot arttıkça elektron sayısı arttığı için kaynama noktası düzenli yükselir.</p>
+      <p><b>5A, 6A, 7A</b> gruplarında 3.–5. periyotlar aynı eğilimi izler. Ancak ilk üyeler <b><span class="f">NH<sub>3</sub></span>, <span class="f">H<sub>2</sub>O</span> ve HF</b> beklenenin çok üstündedir: moleküllerinin arasında <b>hidrojen bağı</b> vardır.</p>
+      <p style="margin:0">Su, <span class="f">H<sub>2</sub>S</span>’den 160 °C daha yüksek sıcaklıkta kaynar. Hidrojen bağları olmasaydı su, oda koşullarında gaz olurdu.</p>
+    </div>
+  </div>
+
+  <h3>Kaynama noktalarını karşılaştırırken üç soru</h3>
+  <div class="adimlar">
+    <div><b class="n">1</b><b>Etkin etkileşim türü farklı mı?</b> Benzer büyüklükteki taneciklerde hidrojen bağı &gt; dipol–dipol &gt; London.</div>
+    <div><b class="n">2</b><b>Tür aynı mı?</b> Elektron sayısı fazla olanın London kuvvetleri güçlüdür: HBr &gt; HCl, <span class="f">C<sub>3</sub>H<sub>8</sub></span> &gt; <span class="f">C<sub>2</sub>H<sub>6</sub></span>.</div>
+    <div><b class="n">3</b><b>Elektron sayısı da eşit mi?</b> Polar olan apolardan, dallanması az olan çok dallanmış olandan yüksek kaynar.</div>
+  </div>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1.1fr;align-items:start;margin-top:3.5mm">
+    <div class="grafik-kutu" style="margin:0"><div class="gb">Hepsi 18 elektronlu: farkı etkileşim türü yaratır</div><svg viewBox="0 0 92 58" class="grafik"><g font-family="Inter" font-size="3" fill="#5d6478"><line x1="15" y1="44.0" x2="90" y2="44.0" stroke="#e5e7f0" stroke-width=".3"/><text x="13.5" y="45.0" text−anchor="end">−200</text><line x1="15" y1="37.7" x2="90" y2="37.7" stroke="#e5e7f0" stroke-width=".3"/><line x1="15" y1="31.3" x2="90" y2="31.3" stroke="#e5e7f0" stroke-width=".3"/><text x="13.5" y="32.3" text−anchor="end">−100</text><line x1="15" y1="25.0" x2="90" y2="25.0" stroke="#e5e7f0" stroke-width=".3"/><line x1="15" y1="18.7" x2="90" y2="18.7" stroke="#e5e7f0" stroke-width=".3"/><text x="13.5" y="19.7" text−anchor="end">0</text><line x1="15" y1="12.3" x2="90" y2="12.3" stroke="#e5e7f0" stroke-width=".3"/><line x1="15" y1="6.0" x2="90" y2="6.0" stroke="#e5e7f0" stroke-width=".3"/><text x="13.5" y="7.0" text−anchor="end">100</text><line x1="15" y1="44" x2="90" y2="44" stroke="#1d2133" stroke-width=".4"/><line x1="15" y1="44" x2="15" y2="4" stroke="#1d2133" stroke-width=".4"/><text x="1" y="3" fill="#1d2133" font-weight="700">KN (°C)</text><rect x="18.5" y="42.5" width="10" height="1.5" rx="1" fill="#7dd3fc"/><text x="23.5" y="41.3" text−anchor="middle" font−weight="700" fill="#1d2133">−188</text><text x="23.5" y="48.2" text-anchor="middle" font-weight="800" fill="#1d2133" font-size="3.3">F₂</text><rect x="33.5" y="42.2" width="10" height="1.8" rx="1" fill="#7dd3fc"/><text x="38.5" y="41.0" text−anchor="middle" font−weight="700" fill="#1d2133">−186</text><text x="38.5" y="48.2" text-anchor="middle" font-weight="800" fill="#1d2133" font-size="3.3">Ar</text><rect x="48.5" y="29.4" width="10" height="14.6" rx="1" fill="#f59e0b"/><text x="53.5" y="28.2" text−anchor="middle" font−weight="700" fill="#1d2133">−85</text><text x="53.5" y="48.2" text-anchor="middle" font-weight="800" fill="#1d2133" font-size="3.3">HCl</text><rect x="63.5" y="26.3" width="10" height="17.7" rx="1" fill="#f59e0b"/><text x="68.5" y="25.1" text−anchor="middle" font−weight="700" fill="#1d2133">−60</text><text x="68.5" y="48.2" text-anchor="middle" font-weight="800" fill="#1d2133" font-size="3.3">H₂S</text><rect x="78.5" y="10.5" width="10" height="33.5" rx="1" fill="#dc2626"/><text x="83.5" y="9.3" text−anchor="middle" font−weight="700" fill="#1d2133">65</text><text x="83.5" y="48.2" text-anchor="middle" font-weight="800" fill="#1d2133" font-size="3.3">CH₃OH</text><rect x="6" y="52" width="4" height="3" rx=".6" fill="#7dd3fc"/><text x="11.5" y="54.5" font-size="2.9" fill="#1d2133">London</text><rect x="36" y="52" width="4" height="3" rx=".6" fill="#f59e0b"/><text x="41.5" y="54.5" font-size="2.9" fill="#1d2133">Dipol–dipol</text><rect x="66" y="52" width="4" height="3" rx=".6" fill="#dc2626"/><text x="71.5" y="54.5" font-size="2.9" fill="#1d2133">Hidrojen bağı</text></g></svg></div>
+    <div>
+      <div class="kutu ornek" style="margin-bottom:2.6mm">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 3</div>
+        <div class="soru" style="font-size:9.3pt">10’ar elektronlu <span class="f">CH<sub>4</sub></span>, <span class="f">NH<sub>3</sub></span>, HF ve <span class="f">H<sub>2</sub>O</span>’yu aynı basınçtaki kaynama noktalarına göre sıralayınız.</div>
+        <div class="cozum" style="font-size:9pt">
+          <div class="adim"><span class="n">1</span><span><span class="f">CH<sub>4</sub></span> apolar, yalnız London → en düşük.</span></div>
+          <div class="adim"><span class="n">2</span><span>Diğer üçünde hidrojen bağı var. <span class="f">H<sub>2</sub>O</span>’nun 2 H atomu ve 2 elektron çifti var; molekül başına en çok H bağını o kurar.</span></div>
+          <div class="adim"><span class="n">3</span><span>F, N’den daha elektronegatif → HF’nin H bağı <span class="f">NH<sub>3</sub></span>’ünkünden güçlü.</span></div>
+          <span class="sonuc"><span class="f">H<sub>2</sub>O</span> &gt; HF &gt; <span class="f">NH<sub>3</sub></span> &gt; <span class="f">CH<sub>4</sub></span></span>
+        </div>
+      </div>
+      <div class="kutu dikkat serit" style="margin-bottom:0">
+        <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Dikkat</div>
+        <p style="font-size:8.9pt">Elektron sayısı çok farklıysa London kuvvetleri öne geçebilir. Apolar <span class="f">I<sub>2</sub></span> (106 e<sup>−</sup>) 184 °C’ta kaynar; bu, suyun kaynama noktasından yüksektir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · KARIŞIMLARDA ETKİLEŞİM VE ÇÖZÜNME
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Moleküller Arası Etkileşimler</span><span>Karışımlarda etkileşim ve çözünme</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Karışımlarda etkileşim ve çözünme</h2>
+  <div class="alt-baslik">Hangi tanecik hangisiyle karşılaşıyor? Önce türlerini belirle, sonra tabloya bak.</div>
+
+  <div class="grafik-kutu"><div class="gb">Kim kimle? İki taneciğin türüne göre aralarındaki etkin etkileşim</div><svg viewBox="0 0 178 63" class="grafik"><g font-family="Inter" text-anchor="middle"><rect x="28.6" y=".5" width="48.8" height="11" rx="2" fill="#8b5cf6"/><text x="53.0" y="5.4" font-size="3.3" font-weight="800" fill="#fff">İyon</text><text x="53.0" y="9.4" font-size="2.6" fill="#fff" fill-opacity=".9">Na⁺, Cl⁻, Mg²⁺…</text><rect x=".5" y="13.6" width="26.5" height="13.8" rx="2" fill="#8b5cf6"/><text x="14.0" y="21.7" font-size="3.3" font-weight="800" fill="#fff">İyon</text><rect x="78.6" y=".5" width="48.8" height="11" rx="2" fill="#0369a1"/><text x="103.0" y="5.4" font-size="3.3" font-weight="800" fill="#fff">Polar molekül</text><text x="103.0" y="9.4" font-size="2.6" fill="#fff" fill-opacity=".9">kalıcı dipol: H₂O, HCl…</text><rect x=".5" y="28.6" width="26.5" height="13.8" rx="2" fill="#0369a1"/><text x="14.0" y="34.9" font-size="3.1" font-weight="800" fill="#fff">Polar</text><text x="14.0" y="38.7" font-size="3.1" font-weight="800" fill="#fff">molekül</text><rect x="128.6" y=".5" width="48.8" height="11" rx="2" fill="#64748b"/><text x="153.0" y="5.4" font-size="3.3" font-weight="800" fill="#fff">Apolar molekül / soy gaz</text><text x="153.0" y="9.4" font-size="2.6" fill="#fff" fill-opacity=".9">anlık dipol: CH₄, I₂, Ar…</text><rect x=".5" y="43.6" width="26.5" height="13.8" rx="2" fill="#64748b"/><text x="14.0" y="48.3" font-size="3" font-weight="800" fill="#fff">Apolar</text><text x="14.0" y="51.8" font-size="3" font-weight="800" fill="#fff">molekül /</text><text x="14.0" y="55.3" font-size="3" font-weight="800" fill="#fff">soy gaz</text><g opacity="1"><rect x="28.6" y="13.6" width="48.8" height="13.8" rx="2" fill="#f1f5f9" stroke="#5d6478" stroke-opacity=".35" stroke-width=".3"/><text x="53.0" y="19.6" font-size="3.5" font-weight="800" fill="#5d6478">İyonik bağ</text><text x="53.0" y="24" font-size="2.7" fill="#5d6478">güçlü etkileşim (Bölüm 1)</text></g><g opacity="1"><rect x="78.6" y="13.6" width="48.8" height="13.8" rx="2" fill="#ede9fe" stroke="#5b21b6" stroke-opacity=".35" stroke-width=".3"/><text x="103.0" y="19.6" font-size="3.5" font-weight="800" fill="#5b21b6">İyon–dipol</text><text x="103.0" y="24" font-size="2.7" fill="#5d6478">tuzun suda çözünmesi</text></g><g opacity="1"><rect x="128.6" y="13.6" width="48.8" height="13.8" rx="2" fill="#f5f3ff" stroke="#6d28d9" stroke-opacity=".35" stroke-width=".3"/><text x="153.0" y="19.6" font-size="3.5" font-weight="800" fill="#6d28d9">İyon–indüklenmiş dipol</text><text x="153.0" y="24" font-size="2.7" fill="#5d6478">iyon apolar taneciği kutuplar</text></g><g opacity=".45"><rect x="28.6" y="28.6" width="48.8" height="13.8" rx="2" fill="#ede9fe" stroke="#5b21b6" stroke-opacity=".35" stroke-width=".3"/><text x="53.0" y="34.6" font-size="3.5" font-weight="800" fill="#5b21b6">İyon–dipol</text><text x="53.0" y="39" font-size="2.7" fill="#5d6478">tuzun suda çözünmesi</text></g><g opacity="1"><rect x="78.6" y="28.6" width="48.8" height="13.8" rx="2" fill="#e0f2fe" stroke="#073b5e" stroke-opacity=".35" stroke-width=".3"/><text x="103.0" y="34.6" font-size="3.5" font-weight="800" fill="#073b5e">Dipol–dipol</text><text x="103.0" y="39" font-size="2.7" fill="#5d6478">H–F, H–O, H–N varsa: hidrojen bağı</text></g><g opacity="1"><rect x="128.6" y="28.6" width="48.8" height="13.8" rx="2" fill="#f0f9ff" stroke="#0369a1" stroke-opacity=".35" stroke-width=".3"/><text x="153.0" y="34.6" font-size="3.5" font-weight="800" fill="#0369a1">Dipol–indüklenmiş dipol</text><text x="153.0" y="39" font-size="2.7" fill="#5d6478">O₂ gazının suda çözünmesi</text></g><g opacity=".45"><rect x="28.6" y="43.6" width="48.8" height="13.8" rx="2" fill="#f5f3ff" stroke="#6d28d9" stroke-opacity=".35" stroke-width=".3"/><text x="53.0" y="49.6" font-size="3.5" font-weight="800" fill="#6d28d9">İyon–indüklenmiş dipol</text><text x="53.0" y="54" font-size="2.7" fill="#5d6478">iyon apolar taneciği kutuplar</text></g><g opacity=".45"><rect x="78.6" y="43.6" width="48.8" height="13.8" rx="2" fill="#f0f9ff" stroke="#0369a1" stroke-opacity=".35" stroke-width=".3"/><text x="103.0" y="49.6" font-size="3.5" font-weight="800" fill="#0369a1">Dipol–indüklenmiş dipol</text><text x="103.0" y="54" font-size="2.7" fill="#5d6478">O₂ gazının suda çözünmesi</text></g><g opacity="1"><rect x="128.6" y="43.6" width="48.8" height="13.8" rx="2" fill="#f1f5f9" stroke="#334155" stroke-opacity=".35" stroke-width=".3"/><text x="153.0" y="49.6" font-size="3.5" font-weight="800" fill="#334155">London kuvvetleri</text><text x="153.0" y="54" font-size="2.7" fill="#5d6478">I₂ – CCl₄, Ar – Ar</text></g><text x="89" y="62" font-size="2.8" fill="#5d6478">Soluk kutular simetrik eşleri tekrarlar. Bütün tanecik çiftlerinde ayrıca London kuvvetleri de vardır.</text></g></svg></div>
+
+  <div class="kutu kavram">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Benzer benzeri çözer</div>
+    <p>Etkileşim türleri birbirine benzeyen maddeler genellikle birbiri içinde iyi çözünür ve homojen karışım oluşturur. <b>İyonik ve polar</b> maddeler polar çözücülerde (su, etanol), <b>apolar</b> maddeler apolar çözücülerde (hekzan, <span class="f">CCl<sub>4</sub></span>, benzin) iyi çözünür. Polar ve apolar sıvılar genellikle birbirine karışmaz, iki ayrı faz oluşturur.</p>
+  </div>
+
+  <table class="tablo sik">
+    <tr><th>Karışım</th><th>Tanecik türleri</th><th>Aralarındaki etkin etkileşim</th><th>Sonuç</th></tr>
+    <tr><td>Etanol + su</td><td>polar (–OH) + polar (–OH)</td><td>hidrojen bağı</td><td>her oranda karışır</td></tr>
+    <tr><td>NaCl + su</td><td>iyon + polar</td><td>iyon–dipol</td><td>çözünür</td></tr>
+    <tr><td><span class="f">I<sub>2</sub></span> + <span class="f">CCl<sub>4</sub></span></td><td>apolar + apolar</td><td>London</td><td>çözünür (mor renkli)</td></tr>
+    <tr><td><span class="f">I<sub>2</sub></span> + su</td><td>apolar + polar</td><td>dipol–indüklenmiş dipol</td><td>çok az çözünür</td></tr>
+    <tr><td>Zeytinyağı + su</td><td>apolar + polar</td><td>dipol–indüklenmiş dipol</td><td>karışmaz, iki faz</td></tr>
+  </table>
+
+  <div class="kutu ornek">
+    <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Çözümlü Örnek 4</div>
+    <div class="soru">İçinde su bulunan üç deney tüpünden I.’ye metanol (<span class="f">CH<sub>3</sub>OH</span>), II.’ye <span class="f">CCl<sub>4</sub></span>, III.’ye <span class="f">KNO<sub>3</sub></span> katısı ekleniyor ve tüpler çalkalanıyor. Her tüpte su ile eklenen madde arasındaki etkin etkileşimi ve karışımın türünü belirleyiniz.</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>I. Metanolde O–H var → su ile <b>hidrojen bağı</b> kurar; benzer etkileşim → <b>homojen</b>.</span></div>
+      <div class="adim"><span class="n">2</span><span>II. <span class="f">CCl<sub>4</sub></span> apolar, su polar → <b>dipol–indüklenmiş dipol</b>. Su molekülleri birbirini daha güçlü çeker → karışmaz, <b>heterojen</b> (yoğun olan <span class="f">CCl<sub>4</sub></span> alta çöker).</span></div>
+      <div class="adim"><span class="n">3</span><span>III. K<sup>+</sup> ve <span class="f">NO<sub>3</sub><sup>−</sup></span> iyonları suyla <b>iyon–dipol</b> etkileşimi kurar → çözünür, <b>homojen</b>.</span></div>
+    </div>
+  </div>
+
+  <div class="iki">
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Su ile yağ arasında hiçbir çekim yoktur, bu yüzden karışmazlar.”</div>
+        <div class="dogru"><b class="d">✓</b> Aralarında dipol–indüklenmiş dipol ve London çekimi <b>vardır</b>. Ancak su molekülleri arasındaki hidrojen bağları çok daha güçlü olduğu için su molekülleri birbirine tutunur, yağ dışarıda kalır.</div>
+      </div>
+    </div>
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Hayatın İçinden</div>
+      <p style="font-size:9.1pt">Tabaktaki yağ, yalnız suyla durulanınca çıkmaz. Deterjan moleküllerinin bir ucu iyonik ya da polardır ve suyla etkileşir. Uzun, apolar ucu ise yağ tanecikleri arasına girer. Deterjan, iki ayrı dünyayı birbirine bağlayan bir köprü gibi çalışır ve yağı suyla birlikte sürükler.</p>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · ÖZET
+     ========================================================= -->
+<section class="sayfa ozet-sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Moleküller Arası Etkileşimler</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada etkileşimler</h2><p>Sınavdan önceki gece bu sayfaya bakman yeter. Her kutuyu kendi cümlelerinle bir arkadaşına anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> Kim kimle?</div>
+      <ul style="font-size:9.1pt">
+        <li>İyon + polar → <b>iyon–dipol</b></li>
+        <li>İyon + apolar / soy gaz → <b>iyon–indüklenmiş dipol</b></li>
+        <li>Polar + polar → <b>dipol–dipol</b> (H–FON varsa <b>hidrojen bağı</b>)</li>
+        <li>Polar + apolar / soy gaz → <b>dipol–indüklenmiş dipol</b></li>
+        <li>Apolar + apolar / soy gaz → <b>London</b> (her çiftte zaten var)</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg> Güç ve kaynama noktası</div>
+      <div class="denklem" style="font-size:10.4pt">iyon–dipol &gt; H bağı &gt; dipol–dipol &gt; London</div>
+      <ul style="font-size:9.1pt">
+        <li>Birden fazla etkileşim varsa en güçlüsü <b>etkin</b> etkileşimdir.</li>
+        <li>Etkileşim güçlü → kaynama ve erime noktası yüksek.</li>
+        <li>Kaynarken molekül içi bağlar kopmaz.</li>
+      </ul>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg> London ve hidrojen bağı</div>
+      <ul style="font-size:9.1pt">
+        <li>Elektron sayısı ↑ → London kuvvetleri ↑: F<sub>2</sub> &lt; Cl<sub>2</sub> &lt; Br<sub>2</sub> &lt; I<sub>2</sub></li>
+        <li>Elektron sayısı eşitse dallanmamış &gt; dallanmış</li>
+        <li>H bağı: F, O, N’ye bağlı H + komşuda F, O, N</li>
+        <li><span class="f">NH<sub>3</sub></span>, <span class="f">H<sub>2</sub>O</span>, HF: kaynama noktası grubunda beklenenden yüksek</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg> En sık 4 hata</div>
+      <ul style="font-size:9.1pt">
+        <li>Kaynarken kovalent bağların koptuğunu sanmak</li>
+        <li>Polar bağ içeren her molekülü polar sanmak (<span class="f">CCl<sub>4</sub></span>, <span class="f">CO<sub>2</sub></span> apolar)</li>
+        <li>H içeren her molekülde H bağı aramak (<span class="f">CH<sub>4</sub></span>, <span class="f">CH<sub>3</sub></span>–O–<span class="f">CH<sub>3</sub></span>)</li>
+        <li>Elektron sayısını unutup yalnız polarlığa bakmak (HBr &gt; HCl)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Güçlü ve zayıf etkileşimleri örneklerle ayırt edebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Kalıcı, anlık ve indüklenmiş dipolü açıklayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>İki taneciğin türünden aralarındaki etkin etkileşimi bulabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Hidrojen bağının hangi moleküller arasında oluştuğunu gerekçelendirebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Kaynama noktalarını etkileşim türü ve elektron sayısıyla karşılaştırabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bir maddenin hangi çözücüde iyi çözüneceğini tahmin edebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:5mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Moleküller Arası Etkileşimler</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Aşağıdaki çözümleri dört farklı öğrenci yazdı. Her birinde bir hata var. Hatayı bul, hangi satırda olduğunu yaz, doğrusunu kutuya çöz.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Su kaynarken hangi etkileşimlerin üstesinden gelinir?</p>
+      <div class="defter">
+        <div class="ogrenci">Ece’nin çözümü</div>
+        <div class="satir"><span class="sn">1</span>Kaynarken moleküller sıvıdan ayrılıp gaz olur.</div>
+        <div class="satir"><span class="sn">2</span>Bunun için O–H bağları kopmalıdır.</div>
+        <div class="satir"><span class="sn">3</span>Bu bağlar güçlü, KN bu yüzden yüksek.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Sıvı <span class="f">CCl<sub>4</sub></span> molekülleri arasındaki etkin etkileşim nedir?</p>
+      <div class="defter">
+        <div class="ogrenci">Baran’ın çözümü</div>
+        <div class="satir"><span class="sn">1</span>C–Cl bağları polar kovalent bağdır.</div>
+        <div class="satir"><span class="sn">2</span>Bu yüzden <span class="f">CCl<sub>4</sub></span> polar bir moleküldür.</div>
+        <div class="satir"><span class="sn">3</span>Etkin etkileşim: dipol–dipol.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Dimetil eter (<span class="f">CH<sub>3</sub></span>–O–<span class="f">CH<sub>3</sub></span>) molekülleri arasında hidrojen bağı var mıdır?</p>
+      <div class="defter">
+        <div class="ogrenci">Selin’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>Molekülde bir O atomu bulunuyor.</div>
+        <div class="satir"><span class="sn">2</span>Molekülde 6 tane H atomu da var.</div>
+        <div class="satir"><span class="sn">3</span>O hâlde moleküller arası H bağı vardır.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Aynı basınçta HCl mi, HBr mi daha yüksek sıcaklıkta kaynar? (<sub>1</sub>H, <sub>17</sub>Cl, <sub>35</sub>Br)</p>
+      <div class="defter">
+        <div class="ogrenci">Kaan’ın çözümü</div>
+        <div class="satir"><span class="sn">1</span>İkisi de polar; etkin olan dipol–dipol.</div>
+        <div class="satir"><span class="sn">2</span>Cl daha elektronegatif, HCl daha polar.</div>
+        <div class="satir"><span class="sn">3</span>Bu yüzden HCl daha yüksekte kaynar.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Etkileşim sorusunda ilk iş, taneciğin türünü doğru koymaktır: <b>iyon mu, polar molekül mü, apolar molekül mü?</b> Bağın polar olması molekülün polar olduğunu göstermez; H atomu bulunması da hidrojen bağı için yetmez.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Moleküller Arası Etkileşimler</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni ve görseli oku, sonra hangi bilginin işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Endüstri</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Evlerde ve araçlarda kullanılan LPG, propan ve bütan gazlarının basınç altında sıvılaştırılmış karışımıdır. Tüpten çıkan sıvı buharlaşarak yakılır. Kışın soğuk havada bütanın buharlaşması yavaşlar; bu nedenle kış karışımlarında propan oranı artırılır.</p>
+          <table class="tablo sik" style="margin:1mm 0 2mm">
+            <tr><th>Madde</th><th class="on">Elektron sayısı</th><th class="on">KN (1 atm)</th></tr>
+            <tr><td>Propan, <span class="f">C<sub>3</sub>H<sub>8</sub></span></td><td class="on">26</td><td class="on">−42 °C</td></tr>
+            <tr><td>Bütan, <span class="f">C<sub>4</sub>H<sub>10</sub></span></td><td class="on">34</td><td class="on">−0,5 °C</td></tr>
+          </table>
+          <div class="oncul"><div><b>I.</b><span>İki maddenin de molekülleri arasındaki etkin etkileşim London kuvvetleridir.</span></div><div><b>II.</b><span>Bütan molekülleri arasındaki etkileşimler, propanınkinden güçlüdür.</span></div><div><b>III.</b><span>Bütan molekülleri arasında dipol–dipol etkileşimleri de bulunur.</span></div></div>
+          <p>yargılarından hangileri doğrudur? <span class="veri">(<sub>1</sub>H, <sub>6</sub>C)</span></p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Sağlık</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>Vitaminler suda ve yağda çözünenler olarak iki gruba ayrılır. Suda çözünenlerin fazlası idrarla atılırken yağda çözünenler vücutta depolanabilir.</p>
+          <table class="tablo sik" style="margin:1mm 0 2mm">
+            <tr><th>Vitamin</th><th>Molekül yapısının özelliği</th></tr>
+            <tr><td>C vitamini (<span class="f">C<sub>6</sub>H<sub>8</sub>O<sub>6</sub></span>)</td><td>Küçük molekül, 4 tane –OH grubu</td></tr>
+            <tr><td>A vitamini (<span class="f">C<sub>20</sub>H<sub>30</sub>O</span>)</td><td>Uzun hidrokarbon zinciri, 1 tane –OH grubu</td></tr>
+          </table>
+          <p>Buna göre aşağıdaki ifadelerden hangisi <b>yanlıştır</b>?</p>
+          <div class="secenek tek"><span><b>A)</b>C vitamini su molekülleriyle hidrojen bağı kurar.</span><span><b>B)</b>A vitamini molekülünün büyük kısmı apolardır.</span><span><b>C)</b>A vitamini molekülleri arasında London kuvvetleri vardır.</span><span><b>D)</b>C vitamininin fazlası suda çözünerek vücuttan atılabilir.</span><span><b>E)</b>A vitamini –OH grubu içerdiği için suda C vitamininden daha iyi çözünür.</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg> Çevre</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Fabrika ve santrallerin soğutma suyunu akarsulara sıcak olarak bırakması “ısıl kirlilik” yaratır. Grafikte, havayla dengedeki tatlı suda çözünebilen en fazla oksijen miktarı sıcaklığa göre verilmiştir.</p>
+          <div class="grafik-kutu" style="margin:1mm 0 2mm"><svg viewBox="0 0 92 56" class="grafik"><g font-family="Inter" font-size="3" fill="#5d6478"><line x1="14" y1="44.0" x2="88" y2="44.0" stroke="#e5e7f0" stroke-width=".3"/><text x="12.5" y="45.0" text-anchor="end">0</text><line x1="14" y1="34.2" x2="88" y2="34.2" stroke="#e5e7f0" stroke-width=".3"/><text x="12.5" y="35.2" text-anchor="end">4</text><line x1="14" y1="24.5" x2="88" y2="24.5" stroke="#e5e7f0" stroke-width=".3"/><text x="12.5" y="25.5" text-anchor="end">8</text><line x1="14" y1="14.8" x2="88" y2="14.8" stroke="#e5e7f0" stroke-width=".3"/><text x="12.5" y="15.8" text-anchor="end">12</text><line x1="14" y1="5.0" x2="88" y2="5.0" stroke="#e5e7f0" stroke-width=".3"/><text x="12.5" y="6.0" text-anchor="end">16</text><text x="18.0" y="48.2" text-anchor="middle">0</text><text x="34.5" y="48.2" text-anchor="middle">10</text><text x="51.0" y="48.2" text-anchor="middle">20</text><text x="67.5" y="48.2" text-anchor="middle">30</text><text x="84.0" y="48.2" text-anchor="middle">40</text><line x1="14" y1="44" x2="88" y2="44" stroke="#1d2133" stroke-width=".4"/><line x1="14" y1="44" x2="14" y2="3" stroke="#1d2133" stroke-width=".4"/><polyline fill="none" stroke="#0369a1" stroke-width=".9" points="18.0,8.4 34.5,16.5 51.0,21.8 67.5,25.5 84.0,28.4"/><circle cx="18.0" cy="8.4" r="1.1" fill="#0369a1"/><text x="19.5" y="6.8" font-weight="700" fill="#1d2133">14,6</text><circle cx="34.5" cy="16.5" r="1.1" fill="#0369a1"/><text x="36.0" y="14.9" font-weight="700" fill="#1d2133">11,3</text><circle cx="51.0" cy="21.8" r="1.1" fill="#0369a1"/><text x="52.5" y="20.2" font-weight="700" fill="#1d2133">9,1</text><circle cx="67.5" cy="25.5" r="1.1" fill="#0369a1"/><text x="69.0" y="23.9" font-weight="700" fill="#1d2133">7,6</text><circle cx="84.0" cy="28.4" r="1.1" fill="#0369a1"/><text x="85.5" y="26.8" font-weight="700" fill="#1d2133">6,4</text><text x="51.0" y="53" text-anchor="middle" fill="#1d2133" font-weight="700">Su sıcaklığı (°C)</text><text x="1" y="2.6" fill="#1d2133" font-weight="700">Çözünmüş O₂ (mg/L)</text></g></svg></div>
+          <div class="oncul"><div><b>I.</b><span><span class="f">O<sub>2</sub></span> ile <span class="f">H<sub>2</sub>O</span> molekülleri arasındaki etkin etkileşim dipol–indüklenmiş dipol etkileşimidir.</span></div><div><b>II.</b><span>30 °C’taki suda çözünen <span class="f">O<sub>2</sub></span> miktarı, 10 °C’takinin yarısından azdır.</span></div><div><b>III.</b><span><span class="f">O<sub>2</sub></span> moleküllerinde kalıcı dipol bulunur.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/></svg> Laboratuvar</div>
+        <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+          <p>Bir öğrenci temiz bir cam yüzeye ve parafin (mum) sürülmüş bir yüzeye birer damla su damlatıyor. Cam yüzeyde Si–O–H grupları bulunur; parafin ise uzun zincirli, apolar hidrokarbonlardan oluşur.</p>
+          <div class="grafik-kutu" style="margin:1mm 0 2mm"><svg viewBox="0 0 92 30" class="grafik"><defs><linearGradient id="dm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#0284c7"/></linearGradient></defs><g font-family="Inter" text-anchor="middle"><rect x="3" y="17" width="40" height="3" rx=".6" fill="#cbd5e1" stroke="#94a3b8" stroke-width=".3"/><path d="M8 17 Q23 11.5 38 17 Z" fill="url(#dm)"/><rect x="49" y="17" width="40" height="3" rx=".6" fill="#fde68a" stroke="#d97706" stroke-width=".3"/><path d="M63.2 17 A6.6 6.6 0 1 1 74.8 17 Z" fill="url(#dm)"/><text x="23" y="25.5" font-size="3.1" font-weight="800" fill="#1d2133">Temiz cam</text><text x="23" y="29" font-size="2.6" fill="#5d6478">damla yayılır</text><text x="69" y="25.5" font-size="3.1" font-weight="800" fill="#1d2133">Parafin (mum) kaplı yüzey</text><text x="69" y="29" font-size="2.6" fill="#5d6478">damla boncuk gibi toplanır</text></g></svg></div>
+          <div class="oncul"><div><b>I.</b><span>Su ile cam yüzeyi arasında hidrojen bağları oluşabilir.</span></div><div><b>II.</b><span>Su ile parafin arasında dipol–indüklenmiş dipol etkileşimi vardır.</span></div><div><b>III.</b><span>Parafin molekülleri arasında hidrojen bağları vardır.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>I ve II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Moleküller Arası Etkileşimler</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, sadece o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p>Ne, HCl, <span class="f">Cl<sub>2</sub></span> ve HF maddelerinin 1 atm’deki kaynama noktaları karışık sırayla −246 °C, −85 °C, −34 °C ve 20 °C’tır. Her maddeyi kendi kaynama noktasıyla eşleştiriniz. <span class="veri">(<sub>1</sub>H, <sub>9</sub>F, <sub>10</sub>Ne, <sub>17</sub>Cl)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Her maddenin etkin etkileşimini yaz: HF’de F’ye bağlı H var. HCl polar. Ne ve <span class="f">Cl<sub>2</sub></span> apolar.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Elektron sayılarını hesapla: Ne 10, HF 10, HCl 18, <span class="f">Cl<sub>2</sub></span> 34. Hidrojen bağlı madde en yükseğe yerleşir.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic"><span class="f">Cl<sub>2</sub></span>’nin elektron sayısı HCl’ninkinin yaklaşık iki katıdır. Bu farkta London kuvvetleri, HCl’nin dipol katkısını geçer.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p>A ve B maddelerinin formülü aynıdır: <span class="f">C<sub>3</sub>H<sub>8</sub>O</span>. Açık formülleri <span class="f">CH<sub>3</sub></span>–<span class="f">CH<sub>2</sub></span>–<span class="f">CH<sub>2</sub></span>–OH ve <span class="f">CH<sub>3</sub></span>–O–<span class="f">CH<sub>2</sub></span>–<span class="f">CH<sub>3</sub></span> şeklindedir. Maddelerden biri 97 °C’ta, diğeri 7 °C’ta kaynar. Hangisinin hangi kaynama noktasına sahip olduğunu bulunuz; her birinin kendi molekülleri arasındaki ve su molekülleriyle arasındaki etkin etkileşimi yazınız.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">İki molekülün elektron sayısı eşittir. Fark, etkileşim türünden gelir.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Hangi molekülde O’ya <b>doğrudan</b> bağlı H var? O molekül kendi molekülleriyle hidrojen bağı kurar.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Diğer molekülün O atomu alıcı olabilir: su molekülünün H’si ona bağlanabilir mi?</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok" style="margin-bottom:0">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p>Bir behere eşit hacimde su ve hekzan (<span class="f">C<sub>6</sub>H<sub>14</sub></span>, yoğunluğu 0,66 g/mL) konuluyor. Üzerine biraz katı <span class="f">I<sub>2</sub></span> ve biraz NaCl eklenip karıştırılıyor ve bekleniyor. Beherde kaç faz oluşur? <span class="f">I<sub>2</sub></span> ve NaCl hangi fazda toplanır, orada hangi etkin etkileşimle tutunur?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Su polar, hekzan apolar: karışırlar mı? Yoğunluğu küçük olan hangisi üstte kalır?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">“Benzer benzeri çözer”: Apolar <span class="f">I<sub>2</sub></span> hangi sıvıyı, iyonik NaCl hangi sıvıyı seçer?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Tanecik türlerine bak: <span class="f">I<sub>2</sub></span> + hekzan → ? &nbsp;·&nbsp; Na<sup>+</sup>, Cl<sup>−</sup> + su → ?</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa cift test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Moleküller Arası Etkileşimler</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 25 dakika. Atom numaraları: <sub>1</sub>H, <sub>6</sub>C, <sub>7</sub>N, <sub>8</sub>O, <sub>9</sub>F, <sub>10</sub>Ne, <sub>16</sub>S, <sub>17</sub>Cl, <sub>18</sub>Ar, <sub>35</sub>Br, <sub>53</sub>I</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>Aşağıdaki maddelerden hangisinin yoğun fazında tanecikleri arasındaki etkin etkileşim <b>dipol–dipol</b> etkileşimidir?</p>
+        <div class="secenek"><span><b>A)</b><span class="f">CH<sub>4</sub></span></span><span><b>B)</b>Ne</span><span><b>C)</b><span class="f">H<sub>2</sub>S</span></span><span><b>D)</b>HF</span><span><b>E)</b><span class="f">CO<sub>2</sub></span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>Aşağıdaki olayların hangisinde <b>güçlü etkileşimler</b> kırılır?</p>
+        <div class="secenek tek"><span><b>A)</b>Katı iyotun süblimleşmesi</span><span><b>B)</b>Suyun kaynaması</span><span><b>C)</b>Şekerin suda çözünmesi</span><span><b>D)</b>Hidrojen gazının yanarak su buharı oluşturması</span><span><b>E)</b>Etanolün buharlaşması</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p>Aşağıdaki maddelerden hangisinin kendi molekülleri arasında hidrojen bağı <b>oluşmaz</b>, ancak su molekülleriyle hidrojen bağı oluşur?</p>
+        <div class="secenek tek"><span><b>A)</b><span class="f">CH<sub>3</sub>OH</span></span><span><b>B)</b><span class="f">NH<sub>3</sub></span></span><span><b>C)</b><span class="f">CH<sub>4</sub></span></span><span><b>D)</b><span class="f">CH<sub>3</sub></span>–O–<span class="f">CH<sub>3</sub></span></span><span><b>E)</b><span class="f">CCl<sub>4</sub></span></span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p><span class="f">F<sub>2</sub></span>, <span class="f">Cl<sub>2</sub></span>, <span class="f">Br<sub>2</sub></span> ve <span class="f">I<sub>2</sub></span> molekülleriyle ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>Yoğun fazlarında moleküller arasındaki etkin etkileşim London kuvvetleridir.</span></div><div><b>II.</b><span>Aynı basınçta kaynama noktası en yüksek olan <span class="f">I<sub>2</sub></span>’dir.</span></div><div><b>III.</b><span><span class="f">Br<sub>2</sub></span> molekülleri arasında dipol–dipol etkileşimi olduğu için oda koşullarında sıvıdır.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>I ve II</span><span><b>B)</b>Yalnız I</span><span><b>C)</b>Yalnız III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p>Grafikte 6A grubu elementlerinin hidrojenle oluşturduğu bileşiklerin 1 atm’deki kaynama noktaları verilmiştir.</p>
+        <div class="grafik-kutu" style="margin:1mm 0 2mm"><svg viewBox="0 0 84 48" class="grafik"><g font-family="Inter" font-size="3" fill="#5d6478"><line x1="16" y1="38.0" x2="80" y2="38.0" stroke="#e5e7f0" stroke-width=".3"/><text x="14.5" y="39.0" text-anchor="end">−100</text><line x1="16" y1="30.5" x2="80" y2="30.5" stroke="#e5e7f0" stroke-width=".3"/><text x="14.5" y="31.5" text-anchor="end">−50</text><line x1="16" y1="23.0" x2="80" y2="23.0" stroke="#e5e7f0" stroke-width=".3"/><text x="14.5" y="24.0" text-anchor="end">0</text><line x1="16" y1="15.5" x2="80" y2="15.5" stroke="#e5e7f0" stroke-width=".3"/><text x="14.5" y="16.5" text-anchor="end">50</text><line x1="16" y1="8.0" x2="80" y2="8.0" stroke="#e5e7f0" stroke-width=".3"/><text x="14.5" y="9.0" text-anchor="end">100</text><line x1="16" y1="38" x2="80" y2="38" stroke="#1d2133" stroke-width=".4"/><line x1="16" y1="38" x2="16" y2="3" stroke="#1d2133" stroke-width=".4"/><polyline fill="none" stroke="#0369a1" stroke-width=".8" points="25.0,8.0 41.0,32.0 57.0,29.2 73.0,23.3"/><circle cx="25.0" cy="8.0" r="1.1" fill="#0369a1"/><text x="25.0" y="42.3" text-anchor="middle" font-weight="800" fill="#1d2133" font-size="3.2">H₂O</text><circle cx="41.0" cy="32.0" r="1.1" fill="#0369a1"/><text x="41.0" y="42.3" text-anchor="middle" font-weight="800" fill="#1d2133" font-size="3.2">H₂S</text><circle cx="57.0" cy="29.2" r="1.1" fill="#0369a1"/><text x="57.0" y="42.3" text-anchor="middle" font-weight="800" fill="#1d2133" font-size="3.2">H₂Se</text><circle cx="73.0" cy="23.3" r="1.1" fill="#0369a1"/><text x="73.0" y="42.3" text-anchor="middle" font-weight="800" fill="#1d2133" font-size="3.2">H₂Te</text><text x="48.0" y="46.8" text-anchor="middle" fill="#1d2133" font-weight="700">Molekül kütlesi artar →</text><text x="1" y="2.6" fill="#1d2133" font-weight="700">KN (°C)</text></g></svg></div>
+        <p><span class="f">H<sub>2</sub>O</span>’nun kaynama noktasının eğilimin dışında kalmasının nedeni aşağıdakilerden hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>Molekül kütlesinin en büyük olması</span><span><b>B)</b>Molekülleri arasında hidrojen bağı bulunması</span><span><b>C)</b>Apolar bir molekül olması</span><span><b>D)</b>Molekülündeki O–H bağlarının çok güçlü olması</span><span><b>E)</b>Elektron sayısının en fazla olması</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · TEST (6–12)
+     ========================================================= -->
+<section class="sayfa test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Moleküller Arası Etkileşimler</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p>KBr katısı suda çözündüğünde oluşan karışımda;</p>
+        <div class="oncul"><div><b>I.</b><span>K<sup>+</sup> iyonları ile <span class="f">H<sub>2</sub>O</span> molekülleri arasında iyon–dipol etkileşimi</span></div><div><b>II.</b><span><span class="f">H<sub>2</sub>O</span> molekülleri arasında hidrojen bağı</span></div><div><b>III.</b><span>Br<sup>−</sup> iyonları ile <span class="f">H<sub>2</sub>O</span> molekülleri arasında iyon–indüklenmiş dipol etkileşimi</span></div></div>
+        <p>etkileşimlerinden hangileri etkin olarak bulunur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>Aşağıdaki tanecik çiftlerinden hangisinde aralarındaki etkin etkileşim <b>yanlış</b> verilmiştir?</p>
+        <div class="secenek tek"><span><b>A)</b>Ar – Ar: London kuvvetleri</span><span><b>B)</b><span class="f">CO<sub>2</sub></span> – <span class="f">H<sub>2</sub>O</span>: dipol–indüklenmiş dipol</span><span><b>C)</b>Li<sup>+</sup> – <span class="f">NH<sub>3</sub></span>: iyon–dipol</span><span><b>D)</b><span class="f">CH<sub>3</sub>OH</span> – <span class="f">H<sub>2</sub>O</span>: hidrojen bağı</span><span><b>E)</b><span class="f">CH<sub>4</sub></span> – HCl: dipol–dipol</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p>X: <span class="f">CH<sub>3</sub></span>–<span class="f">CH<sub>2</sub></span>–<span class="f">CH<sub>2</sub></span>–<span class="f">CH<sub>2</sub></span>–<span class="f">CH<sub>3</sub></span> &nbsp;(n-pentan)<br>Y: C(CH<sub>3</sub>)<sub>4</sub> &nbsp;(neopentan)<br>Z: <span class="f">CH<sub>3</sub></span>–<span class="f">CH<sub>2</sub></span>–<span class="f">CH<sub>2</sub></span>–<span class="f">CH<sub>3</sub></span> &nbsp;(n-bütan)</p>
+        <p>Bu maddelerin aynı basınçtaki kaynama noktalarının büyükten küçüğe sıralanışı hangisidir?</p>
+        <div class="secenek bes"><span><b>A)</b>X &gt; Y &gt; Z</span><span><b>B)</b>Y &gt; X &gt; Z</span><span><b>C)</b>X &gt; Z &gt; Y</span><span><b>D)</b>Z &gt; Y &gt; X</span><span><b>E)</b>X = Y &gt; Z</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>X maddesinin molekülleri üzerinde yalnızca anlık dipoller oluşur. Y maddesinin molekülleri kalıcı dipole sahiptir ve O atomuna bağlı H atomu içerir. X ve Y aşağıdakilerden hangisi olabilir?</p>
+        <div class="secenek tek"><span><b>A)</b>X: <span class="f">H<sub>2</sub>O</span> &nbsp; Y: <span class="f">CH<sub>4</sub></span></span><span><b>B)</b>X: <span class="f">CO<sub>2</sub></span> &nbsp; Y: <span class="f">CH<sub>3</sub>OH</span></span><span><b>C)</b>X: <span class="f">NH<sub>3</sub></span> &nbsp; Y: <span class="f">CCl<sub>4</sub></span></span><span><b>D)</b>X: <span class="f">N<sub>2</sub></span> &nbsp; Y: HCl</span><span><b>E)</b>X: <span class="f">CH<sub>4</sub></span> &nbsp; Y: <span class="f">H<sub>2</sub>S</span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p>Aşağıdaki maddelerden hangisinin suda iyi çözünmesi <b>beklenmez</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>NaCl</span><span><b>B)</b><span class="f">C<sub>2</sub>H<sub>5</sub>OH</span></span><span><b>C)</b><span class="f">NH<sub>3</sub></span></span><span><b>D)</b><span class="f">CCl<sub>4</sub></span></span><span><b>E)</b>Sofra şekeri (sakkaroz)</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <p>“···” ile gösterilen etkileşimlerden hangisi bir <b>hidrojen bağıdır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b><span class="f">H<sub>3</sub></span>C–H ··· O<span class="f">H<sub>2</sub></span></span><span><b>B)</b>Cl–H ··· Cl–H</span><span><b>C)</b>HO–H ··· N<span class="f">H<sub>3</sub></span></span><span><b>D)</b>HS–H ··· S<span class="f">H<sub>2</sub></span></span><span><b>E)</b><span class="f">H<sub>3</sub></span>C–H ··· N<span class="f">H<sub>3</sub></span></span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p>Elektron sayıları eşit olan üç maddenin 1 atm’deki kaynama noktaları tabloda verilmiştir.</p>
+        <table class="tablo sik" style="margin:1mm 0 2mm"><tr><th>Madde</th><th class="on">Elektron sayısı</th><th class="on">KN (°C)</th></tr><tr><td>K</td><td class="on">18</td><td class="on">−186</td></tr><tr><td>L</td><td class="on">18</td><td class="on">−85</td></tr><tr><td>M</td><td class="on">18</td><td class="on">65</td></tr></table>
+        <div class="oncul"><div><b>I.</b><span>K bir soy gaz olabilir.</span></div><div><b>II.</b><span>L’nin molekülleri arasında etkin etkileşim dipol–dipol olabilir.</span></div><div><b>III.</b><span>M’nin molekülleri arasında hidrojen bağı olabilir.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>I ve II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#f6fbfe;margin-top:2mm">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 4. ve 5. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Moleküller Arası Etkileşimler</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>C</span></div><div><b>2</b><span>D</span></div><div><b>3</b><span>D</span></div><div><b>4</b><span>A</span></div>
+    <div><b>5</b><span>B</span></div><div><b>6</b><span>C</span></div><div><b>7</b><span>E</span></div><div><b>8</b><span>A</span></div>
+    <div><b>9</b><span>B</span></div><div><b>10</b><span>D</span></div><div><b>11</b><span>C</span></div><div><b>12</b><span>E</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · C</b> <span class="f">H<sub>2</sub>S</span> polar; S, F/O/N olmadığından H bağı yok → dipol–dipol. <span class="f">CH<sub>4</sub></span>, Ne, <span class="f">CO<sub>2</sub></span>: London; HF: hidrojen bağı.</div>
+    <div class="c"><b>2 · D</b> Yanmada H–H ve O=O bağları kopar, yeni madde (<span class="f">H<sub>2</sub>O</span>) oluşur. Diğerleri fiziksel olaylardır; yalnız zayıf etkileşimler aşılır.</div>
+    <div class="c"><b>3 · D</b> Eterde H’ler C’ye bağlı (verici yok) ama O alıcıdır; suyun H’si ona bağlanır. <span class="f">CH<sub>3</sub>OH</span> ve <span class="f">NH<sub>3</sub></span> kendi aralarında da H bağı kurar; <span class="f">CH<sub>4</sub></span> ve <span class="f">CCl<sub>4</sub></span> hiç kurmaz.</div>
+    <div class="c"><b>4 · A</b> Halojenler apolar → London (I ✓). Elektron sayısı en fazla <span class="f">I<sub>2</sub></span> → KN en yüksek (II ✓). <span class="f">Br<sub>2</sub></span> apolardır, dipol–dipol yoktur (III ✗).</div>
+    <div class="c"><b>5 · B</b> <span class="f">H<sub>2</sub>O</span> molekülleri arasında hidrojen bağı vardır. Kaynarken O–H bağları kopmaz (D çeldirici); kütlesi ve elektron sayısı en küçük olandır.</div>
+    <div class="c"><b>6 · C</b> İki iyon da polar su molekülüyle <b>iyon–dipol</b> etkileşimi kurar; su apolar değildir (III ✗). Su–su arası hidrojen bağı (II ✓).</div>
+    <div class="c"><b>7 · E</b> <span class="f">CH<sub>4</sub></span> apolar, HCl polar → dipol–indüklenmiş dipol olmalı.</div>
+    <div class="c"><b>8 · A</b> X ve Y 42, Z 34 elektronlu → Z en düşük. X ile Y’de elektron eşit; dallanmamış X daha yüksek. (Gerçek: 36 °C, 9,5 °C, −0,5 °C)</div>
+    <div class="c"><b>9 · B</b> <span class="f">CO<sub>2</sub></span> apolar (yalnız anlık dipol). <span class="f">CH<sub>3</sub>OH</span> polar ve O–H içerir. D’de HCl’de O–H yok; E’de <span class="f">H<sub>2</sub>S</span>’de O yok.</div>
+    <div class="c"><b>10 · D</b> <span class="f">CCl<sub>4</sub></span> apolar; su ile yalnız dipol–indüklenmiş dipol kurar, karışmaz. Diğerleri iyon–dipol ya da H bağıyla çözünür.</div>
+    <div class="c"><b>11 · C</b> H, O’ya bağlı (verici); alıcı N’nin elektron çifti. C–H, Cl–H ve S–H hidrojen bağı vermez.</div>
+    <div class="c"><b>12 · E</b> Hepsi “olabilir”: K Ar (−186 °C) olabilir; L HCl (−85 °C) gibi polar; M <span class="f">CH<sub>3</sub>OH</span> (65 °C) gibi H bağlı olabilir.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> İkisi de apolar alkan → London (I ✓). Bütanın elektron sayısı fazla, KN yüksek → etkileşim güçlü (II ✓). Apolar olduğundan dipol–dipol yok (III ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · A</b> <span class="f">O<sub>2</sub></span> apolar, su polar (I ✓, III ✗). 30 °C: 7,6 mg/L; 10 °C’ın yarısı 11,3/2 ≈ 5,7 mg/L. 7,6 &gt; 5,7 olduğundan II ✗.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · E</b> A vitamininin uzun apolar zinciri baskındır; tek –OH onu suda çözünür yapmaz. C vitamini 4 –OH ile suyla çok sayıda H bağı kurar.</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · B</b> Si–O–H grupları suyla H bağı kurar, damla yayılır (I ✓). Polar su–apolar parafin: dipol–indüklenmiş dipol (II ✓). Parafinde O–H yok, H bağı yok (III ✗).</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1</b> HF 20 °C (H bağı) · <span class="f">Cl<sub>2</sub></span> −34 °C (34 e<sup>−</sup>) · HCl −85 °C (dipol–dipol, 18 e<sup>−</sup>) · Ne −246 °C (10 e<sup>−</sup>, London).</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2</b> <span class="f">CH<sub>3</sub></span><span class="f">CH<sub>2</sub></span><span class="f">CH<sub>2</sub></span>OH (propanol) 97 °C: kendi arasında ve suyla H bağı. <span class="f">CH<sub>3</sub></span>O<span class="f">CH<sub>2</sub></span><span class="f">CH<sub>3</sub></span> (metil etil eter) 7 °C: kendi arasında dipol–dipol, suyla H bağı (O alıcı).</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3</b> İki faz: üstte hekzan, altta su. <span class="f">I<sub>2</sub></span> hekzanda (London), NaCl suda (iyon–dipol) toplanır.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 2</b> Kaynarken moleküller arası <b>hidrojen bağları</b> aşılır; O–H kovalent bağları kopsaydı <span class="f">H<sub>2</sub></span> ve <span class="f">O<sub>2</sub></span> oluşurdu.</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 2</b> <span class="f">CCl<sub>4</sub></span> düzgün dörtyüzlüdür; bağ dipolleri birbirini yok eder → apolar. Etkin etkileşim London.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 3</b> H’lerin hepsi C’ye bağlı; O’ya bağlı H yok → kendi arasında H bağı yok (dipol–dipol). Suyla ise H bağı kurar.</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 3</b> HBr 36, HCl 18 elektronludur; London farkı polarlık farkından baskın. HBr (−67 °C) &gt; HCl (−85 °C).</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Moleküller Arası Etkileşimler</span><span class="no">14</span></div>
+</section>
+
+</body>
+</html>

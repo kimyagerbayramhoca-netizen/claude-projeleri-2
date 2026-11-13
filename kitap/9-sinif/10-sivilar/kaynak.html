@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Sıvılar ve Özellikleri · Kimya Rotası 9</title>
+<style>
+/*KITAP_CSS*/
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite: #7c2d12; --unite-acik: #fcf1ec; --unite-koyu: #4a1a0a; }
+.kapak { padding: 0; background: #2a0f05; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 30mm; font-size: 11pt; font-weight: 700; color: #fbbf24; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 58pt; font-weight: 900; letter-spacing: -.02em; line-height: .95; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 10mm; display: inline-flex; align-items: baseline; gap: 3mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 24pt; font-weight: 800; color: #fbbf24; white-space: nowrap; }
+.kapak .avo span { font-size: 9pt; opacity: .85; max-width: 66mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.2pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #e6cfc4; padding: .7mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.grafik { width: 100%; height: auto; display: block; }
+.grafik-kutu { border: .3mm solid var(--cizgi); border-radius: 3mm; padding: 2mm 2.4mm 1.4mm; background: #fff; margin-bottom: 3.5mm; }
+.grafik-kutu .gb { font-size: 8pt; font-weight: 700; color: var(--unite-koyu); letter-spacing: .04em; margin-bottom: .6mm; }
+.grafik-kutu .ga { font-size: 7.8pt; color: var(--soluk); line-height: 1.3; margin-top: .6mm; }
+.hatirlat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.4mm; margin: 1mm 0 3.5mm; }
+.hatirlat div { background: var(--unite-acik); border-radius: 2.4mm; padding: 2mm 2.4mm; font-size: 8.4pt; line-height: 1.35; }
+.hatirlat b { display: block; color: var(--unite-koyu); font-size: 9pt; }
+.denk { font-weight: 600; color: var(--unite-koyu); text-align: center; font-size: 10.4pt; padding: 1mm 0; }
+table.tablo.sik td, table.tablo.sik th { padding: .9mm 2mm; }
+table.tablo td.on, table.tablo th.on { text-align: center; }
+.iyi { color: var(--ornek); font-weight: 800; }
+.kotu { color: var(--dikkat); font-weight: 800; }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; }
+.test.devam .iki { min-height: 212mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 44mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="80%" cy="18%" r="80%"><stop offset="0" stop-color="#c2410c"/><stop offset=".5" stop-color="#7c2d12"/><stop offset="1" stop-color="#2a0f05"/></radialGradient>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+    <!-- yükselen kabarcıklar -->
+    <g fill="none" stroke="#ffffff" stroke-width=".4">
+      <circle cx="150" cy="96" r="9" stroke-opacity=".30"/><circle cx="172" cy="70" r="6" stroke-opacity=".26"/>
+      <circle cx="160" cy="44" r="4.2" stroke-opacity=".22"/><circle cx="182" cy="30" r="3" stroke-opacity=".18"/>
+      <circle cx="136" cy="62" r="3.4" stroke-opacity=".2"/><circle cx="192" cy="96" r="4.6" stroke-opacity=".24"/>
+      <circle cx="128" cy="26" r="2.2" stroke-opacity=".16"/><circle cx="196" cy="54" r="2" stroke-opacity=".16"/>
+    </g>
+    <g fill="#ffffff"><circle cx="147" cy="93" r="2" fill-opacity=".25"/><circle cx="170" cy="68" r="1.4" fill-opacity=".22"/><circle cx="190" cy="94" r="1.2" fill-opacity=".2"/></g>
+    <!-- silik buhar basıncı eğrisi ve 760 çizgisi -->
+    <path d="M112 132 C150 130 172 122 200 92" fill="none" stroke="#fbbf24" stroke-opacity=".55" stroke-width=".7"/>
+    <path d="M112 112 H202" stroke="#fbbf24" stroke-opacity=".45" stroke-width=".4" stroke-dasharray="2 1.4"/>
+    <circle cx="186.5" cy="112" r="1.4" fill="#fbbf24" fill-opacity=".8"/>
+    <text x="200" y="109" font-family="Inter" font-size="4" font-weight="700" fill="#fbbf24" fill-opacity=".7" text-anchor="end">760 mmHg</text>
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="12">
+      <text x="-6" y="170">P buhar = P dış · P buhar = P dış</text>
+      <text x="-26" y="186">viskozite · yüzey gerilimi · kılcallık</text>
+      <text x="-12" y="202">buharlaşma ⇄ yoğuşma ⇄ buharlaşma</text>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 9. Sınıf</span><span>Tema 2 · Bölüm 5</span></div>
+    <div class="bolum">Bölüm 5 · Etkileşimden Özelliğe</div>
+    <h1>Sıvılar ve<br>Özellikleri</h1>
+    <div class="slogan">Kaçan tanecikler, iten buhar, direnen akış</div>
+    <div class="avo"><b>760 mmHg</b><span>Suyun 100 °C’deki buhar basıncı. Deniz seviyesinde su, buhar basıncı dış basınca eşit olduğu bu sıcaklıkta kaynar.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Sıvı hâl ve buharlaşma</span><span>2</span></li>
+          <li><span>2 · Buharlaşma hızı</span><span>3</span></li>
+          <li><span>3 · Denge buhar basıncı</span><span>4</span></li>
+          <li><span>4 · Buhar basıncı ve sıcaklık</span><span>5</span></li>
+          <li><span>5 · Kaynama</span><span>6</span></li>
+          <li><span>6 · Kaynama noktasını değiştirmek</span><span>7</span></li>
+          <li><span>7 · Viskozite</span><span>8</span></li>
+          <li><span>8 · Yüzey gerilimi ve kılcallık</span><span>9</span></li>
+          <li><span>Tek sayfada sıvılar</span><span>10</span></li>
+          <li><span>Hata Avcısı</span><span>11</span></li>
+          <li><span>Bağlam temelli sorular</span><span>12</span></li>
+          <li><span>İpucu Merdiveni</span><span>13</span></li>
+          <li><span>Bölüm testi</span><span>14</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>16</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i>@ikon:kavram</i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i>@ikon:hayat</i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i>@ikon:dikkat</i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i>@ikon:ornek</i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i>@ikon:hata</i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i>@ikon:ipucu</i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Buharlaşma hızını ve denge buhar basıncını etkileyen etkenleri ayırt edeceksin.</li>
+          <li>Kaynamayı “buhar basıncı = dış basınç” eşitliğiyle açıklayıp grafik okuyacaksın.</li>
+          <li>Viskozite, yüzey gerilimi ve kılcallığı tanecikler arası etkileşimlerle ilişkilendireceksin.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · SIVI HÂL VE BUHARLAŞMA
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Sıvı hâl ve buharlaşma</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Sıvı hâl ve buharlaşma</h2>
+  <div class="alt-baslik">Bir sıvının yüzeyinde, her sıcaklıkta, sessiz bir kaçış sürer.</div>
+
+  <div class="kutu duz serit" style="--bg:#fffaf7;padding:2.4mm 3.4mm">
+    <p style="margin:0 0 1.4mm"><b class="k">Hatırlatma (Bölüm 3):</b> Sıvıların özelliklerini belirleyen asıl etken, tanecikler arasındaki etkileşimlerin gücüdür.</p>
+    <div class="hatirlat" style="margin:0">
+      <div><b>London kuvvetleri</b>Tüm moleküllerde vardır; apolar moleküllerde tek etkileşimdir. Örnek: {CCl4}, {C5H12}</div>
+      <div><b>Dipol–dipol</b>Polar moleküller arasında görülür. Örnek: aseton ({C3H6O})</div>
+      <div><b>Hidrojen bağı</b>H atomu F, O ya da N’ye bağlıysa oluşur. Örnek: {H2O}, {C2H5OH}</div>
+      <div><b>Tek kural</b>Etkileşim güçlendikçe tanecikleri birbirinden ayırmak zorlaşır.</div>
+    </div>
+  </div>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1.05fr;align-items:start">
+    <div>
+      <h3 style="margin-top:0">Sıvı hâlin kimliği</h3>
+      <p style="font-size:9.5pt">Sıvı hâl, katı ile gaz arasında bir “orta yol”dur. Tanecikler birbirine değecek kadar yakındır ama yerleri sabit değildir; birbirinin üzerinden kayarak yer değiştirirler.</p>
+      <table class="tablo sik" style="font-size:8.6pt">
+        <tr><th>Özellik</th><th>Katı</th><th>Sıvı</th><th>Gaz</th></tr>
+        <tr><td>Şekil</td><td>belirli</td><td><b>kabın şekli</b></td><td>kabın şekli</td></tr>
+        <tr><td>Hacim</td><td>belirli</td><td><b>belirli</b></td><td>kabı doldurur</td></tr>
+        <tr><td>Hareket</td><td>titreşim</td><td><b>titreşim, dönme, öteleme</b></td><td>hepsi, çok hızlı</td></tr>
+        <tr><td>Boşluk</td><td>çok az</td><td><b>az</b></td><td>çok fazla</td></tr>
+        <tr><td>Çekim</td><td>güçlü</td><td><b>orta</b></td><td>çok zayıf</td></tr>
+      </table>
+      <p class="kucuk" style="margin:0">Sıvılar akışkandır, sıkıştırılamaz sayılacak kadar az sıkışır ve her sıcaklıkta buharlaşabilir.</p>
+    </div>
+    <div class="grafik-kutu" style="margin-bottom:0"><div class="gb">Buharlaşma tanecik düzeyinde</div><svg viewBox="0 0 130 80" class="grafik"><defs><marker id="bh-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#f59e0b"/></marker><marker id="bh-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#ef4444"/></marker></defs><g font-family="Inter"><rect x="22.5" y="40" width="67" height="35.6" fill="#dbeafe"/><path d="M22 22 V72 Q22 76 26 76 H86 Q90 76 90 72 V22" fill="none" stroke="#94a3b8" stroke-width="1.1"/><line x1="22.5" y1="40" x2="89.5" y2="40" stroke="#3b82f6" stroke-width=".5"/><circle cx="26.8" cy="43.0" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="33.6" cy="42.9" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="39.9" cy="43.2" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="52.6" cy="42.8" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="58.9" cy="42.9" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="64.8" cy="43.3" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="77.7" cy="43.1" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="84.8" cy="43.9" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="30.3" cy="49.9" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="37.3" cy="49.5" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="43.5" cy="49.7" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="48.9" cy="49.5" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="55.5" cy="50.4" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="61.8" cy="50.1" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="68.8" cy="49.8" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="75.1" cy="49.5" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="80.8" cy="49.6" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="26.9" cy="56.4" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="33.5" cy="56.5" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="39.5" cy="57.0" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="46.5" cy="56.3" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="52.7" cy="56.6" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="59.5" cy="56.9" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="65.1" cy="57.2" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="71.3" cy="56.5" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="78.6" cy="56.2" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="84.6" cy="56.0" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="30.4" cy="63.5" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="36.7" cy="63.7" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="42.7" cy="63.4" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="49.5" cy="63.3" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="55.7" cy="63.6" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="62.8" cy="63.2" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="68.8" cy="62.7" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="75.3" cy="63.4" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="82.1" cy="63.6" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="26.8" cy="70.0" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="32.7" cy="69.8" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="39.3" cy="69.3" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="45.6" cy="70.1" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="52.1" cy="69.5" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="58.8" cy="70.2" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="64.8" cy="69.7" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="71.9" cy="70.3" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="78.6" cy="70.2" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="84.3" cy="69.7" r="2.2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="47.0" cy="43.2" r="2.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="72.0" cy="43.4" r="2.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="56.0" cy="30.0" r="2.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M54.4 34.2 L53 39" stroke="#f59e0b" stroke-width=".6" marker-start="url(#bh-a)"/><circle cx="66.0" cy="18.0" r="2.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M64.4 22.2 L63 27" stroke="#f59e0b" stroke-width=".6" marker-start="url(#bh-a)"/><circle cx="40.0" cy="13.0" r="2.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M38.4 17.2 L37 22" stroke="#f59e0b" stroke-width=".6" marker-start="url(#bh-a)"/><path d="M47 39.8 V33.6" stroke="#f59e0b" stroke-width=".6" marker-end="url(#bh-a)"/><path d="M72 39.8 V33.6" stroke="#f59e0b" stroke-width=".6" marker-end="url(#bh-a)"/><path d="M36 79.6 q1.2 -1 0 -2 q-1.2 -1 0 -2" fill="none" stroke="#ef4444" stroke-width=".55" marker-end="url(#bh-k)"/><path d="M56 79.6 q1.2 -1 0 -2 q-1.2 -1 0 -2" fill="none" stroke="#ef4444" stroke-width=".55" marker-end="url(#bh-k)"/><path d="M76 79.6 q1.2 -1 0 -2 q-1.2 -1 0 -2" fill="none" stroke="#ef4444" stroke-width=".55" marker-end="url(#bh-k)"/><text x="97.0" y="15.0" font-size="4" text-anchor="start" font-weight="700" fill="#4a1a0a" >Buhar fazı</text><text x="97.0" y="20.0" font-size="3.3" text-anchor="start" font-weight="400" fill="#5d6478" >yüzeyi terk eden</text><text x="97.0" y="24.0" font-size="3.3" text-anchor="start" font-weight="400" fill="#5d6478" >tanecikler</text><circle cx="99" cy="37" r="2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><text x="103.0" y="38.2" font-size="3.3" text-anchor="start" font-weight="400" fill="#1d2133" >kinetik enerjisi</text><text x="103.0" y="42.2" font-size="3.3" text-anchor="start" font-weight="400" fill="#1d2133" >yeterli olan</text><text x="103.0" y="46.2" font-size="3.3" text-anchor="start" font-weight="400" fill="#1d2133" >yüzey taneciği</text><circle cx="99.0" cy="58.0" r="2" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><text x="103.0" y="59.2" font-size="3.3" text-anchor="start" font-weight="400" fill="#1d2133" >çekim kuvvetini</text><text x="103.0" y="63.2" font-size="3.3" text-anchor="start" font-weight="400" fill="#1d2133" >yenemeyen</text><text x="103.0" y="67.2" font-size="3.3" text-anchor="start" font-weight="400" fill="#1d2133" >tanecikler</text><text x="56.0" y="7.0" font-size="4" text-anchor="middle" font-weight="700" fill="#7c2d12" >Sıvı(s) + ısı → Buhar(g)</text></g></svg></div>
+  </div>
+
+  <div class="kutu kavram" style="margin-top:3.5mm">
+    <div class="etiket">@ikon:kavram Kavram · Buharlaşma</div>
+    <p>Sıvının <b>yüzeyindeki</b> taneciklerden, çevresindeki taneciklerin çekimini yenecek kadar kinetik enerjiye sahip olanların sıvıyı terk edip gaz (buhar) fazına geçmesine <b>buharlaşma</b> denir. Buharlaşma <b>her sıcaklıkta</b> ve yalnızca sıvının yüzeyinde gerçekleşir. Tanecikleri birbirinden ayırmak enerji gerektirdiği için buharlaşma <b>ısı alan (endotermik)</b> bir olaydır.</p>
+  </div>
+
+  <div class="iki">
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket">@ikon:hayat Hayatın İçinden · Buharlaşma soğutur</div>
+      <p style="font-size:9pt">Sıvıyı terk eden tanecikler en hızlı olanlardır. Geride kalanların <b>ortalama kinetik enerjisi</b>, yani sıcaklığı düşer. Terlediğimizde deri bu yolla serinler. Gözenekli toprak testinin dış yüzeyine sızan su buharlaşırken içerideki suyu soğutur. Ele dökülen kolonyadaki alkol hızla buharlaşır ve serinlik hissi verir.</p>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Su ancak 100 °C’ye ulaşınca buhara dönüşür.”</div>
+        <div class="dogru"><b class="d">✓</b> Su <b>her sıcaklıkta</b> buharlaşır; ıslak çamaşır 20 °C’de de kurur. 100 °C, deniz seviyesinde suyun <b>kaynadığı</b> sıcaklıktır.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · BUHARLAŞMA HIZI
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Buharlaşma hızı</span></div>
+
+  <h2 class="konu"><span class="num">2</span>Buharlaşma hızı</h2>
+  <div class="alt-baslik">Hangi su birikintisi önce kurur? Cevap üç soruda gizli.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:kavram Kavram</div>
+    <p style="margin:0"><b>Buharlaşma hızı:</b> Birim zamanda sıvı hâlden buhar hâline geçen tanecik sayısıdır (ya da sıvı miktarıdır). Hız ne kadar büyükse sıvı açık kapta o kadar kısa sürede tükenir. Üç temel etken vardır: <b>sıvının cinsi</b>, <b>yüzey alanı</b> ve <b>sıcaklık</b>.</p>
+  </div>
+
+  <div class="grafik-kutu"><div class="gb">Buharlaşma hızını artıran üç durum (oklar: birim zamanda kaçan tanecikler)</div><svg viewBox="0 0 180 56" class="grafik"><defs><marker id="et-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#f59e0b"/></marker></defs><g font-family="Inter"><rect x="1" y="1" width="56" height="54" rx="2.4" fill="#fff" stroke="#ead7cf" stroke-width=".4"/><text x="29.0" y="7.0" font-size="3.6" text-anchor="middle" font-weight="800" fill="#7c2d12" >1 · Sıvının cinsi</text><rect x="7.4" y="26" width="15.2" height="11.6" fill="#dbeafe"/><path d="M7.0 22 V36.5 Q7.0 38 8.5 38 H21.5 Q23.0 38 23.0 36.5 V22" fill="none" stroke="#94a3b8" stroke-width=".7"/><circle cx="12.4" cy="20.0" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M12.4 25.4 V22.2" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="17.6" cy="16.6" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M17.6 25.4 V18.8" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><text x="15.0" y="42.2" font-size="3.2" text-anchor="middle" font-weight="700" fill="#1d2133" >Su</text><text x="15.0" y="46.0" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >20 °C · S</text><rect x="35.4" y="26" width="15.2" height="11.6" fill="#fde7d9"/><path d="M35.0 22 V36.5 Q35.0 38 36.5 38 H49.5 Q51.0 38 51.0 36.5 V22" fill="none" stroke="#94a3b8" stroke-width=".7"/><circle cx="32.6" cy="20.0" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M32.6 25.4 V22.2" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="37.8" cy="16.6" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M37.8 25.4 V18.8" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="43.0" cy="20.0" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M43.0 25.4 V22.2" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="48.2" cy="16.6" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M48.2 25.4 V18.8" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="53.4" cy="20.0" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M53.4 25.4 V22.2" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><text x="43.0" y="42.2" font-size="3.2" text-anchor="middle" font-weight="700" fill="#1d2133" >Aseton</text><text x="43.0" y="46.0" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >20 °C · S</text><rect x="4" y="47.6" width="50" height="5.4" rx="1.4" fill="#fcf1ec"/><text x="29.0" y="51.4" font-size="3.1" text-anchor="middle" font-weight="700" fill="#4a1a0a" >Etkileşim zayıf → hız büyük</text><rect x="61" y="1" width="58" height="54" rx="2.4" fill="#fff" stroke="#ead7cf" stroke-width=".4"/><text x="90.0" y="7.0" font-size="3.6" text-anchor="middle" font-weight="800" fill="#7c2d12" >2 · Yüzey alanı</text><rect x="67.4" y="26" width="11.2" height="11.6" fill="#dbeafe"/><path d="M67.0 22 V36.5 Q67.0 38 68.5 38 H77.5 Q79.0 38 79.0 36.5 V22" fill="none" stroke="#94a3b8" stroke-width=".7"/><circle cx="70.4" cy="20.0" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M70.4 25.4 V22.2" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="75.6" cy="16.6" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M75.6 25.4 V18.8" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><text x="73.0" y="42.2" font-size="3.2" text-anchor="middle" font-weight="700" fill="#1d2133" >Su</text><text x="73.0" y="46.0" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >20 °C · S</text><rect x="89.4" y="26" width="27.2" height="11.6" fill="#dbeafe"/><path d="M89.0 22 V36.5 Q89.0 38 90.5 38 H115.5 Q117.0 38 117.0 36.5 V22" fill="none" stroke="#94a3b8" stroke-width=".7"/><circle cx="92.6" cy="20.0" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M92.6 25.4 V22.2" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="97.8" cy="16.6" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M97.8 25.4 V18.8" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="103.0" cy="20.0" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M103.0 25.4 V22.2" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="108.2" cy="16.6" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M108.2 25.4 V18.8" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="113.4" cy="20.0" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M113.4 25.4 V22.2" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><text x="103.0" y="42.2" font-size="3.2" text-anchor="middle" font-weight="700" fill="#1d2133" >Su</text><text x="103.0" y="46.0" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >20 °C · 2S</text><rect x="64" y="47.6" width="52" height="5.4" rx="1.4" fill="#fcf1ec"/><text x="90.0" y="51.4" font-size="3.1" text-anchor="middle" font-weight="700" fill="#4a1a0a" >Alan büyük → hız büyük</text><rect x="123" y="1" width="56" height="54" rx="2.4" fill="#fff" stroke="#ead7cf" stroke-width=".4"/><text x="151.0" y="7.0" font-size="3.6" text-anchor="middle" font-weight="800" fill="#7c2d12" >3 · Sıcaklık</text><rect x="127.4" y="26" width="15.2" height="11.6" fill="#dbeafe"/><path d="M127.0 22 V36.5 Q127.0 38 128.5 38 H141.5 Q143.0 38 143.0 36.5 V22" fill="none" stroke="#94a3b8" stroke-width=".7"/><circle cx="132.4" cy="20.0" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M132.4 25.4 V22.2" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="137.6" cy="16.6" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M137.6 25.4 V18.8" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><text x="135.0" y="42.2" font-size="3.2" text-anchor="middle" font-weight="700" fill="#1d2133" >Su</text><text x="135.0" y="46.0" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >20 °C · S</text><rect x="155.4" y="26" width="15.2" height="11.6" fill="#fecaca"/><path d="M155.0 22 V36.5 Q155.0 38 156.5 38 H169.5 Q171.0 38 171.0 36.5 V22" fill="none" stroke="#94a3b8" stroke-width=".7"/><circle cx="152.6" cy="20.0" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M152.6 25.4 V22.2" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="157.8" cy="16.6" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M157.8 25.4 V18.8" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="163.0" cy="20.0" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M163.0 25.4 V22.2" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="168.2" cy="16.6" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M168.2 25.4 V18.8" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><circle cx="173.4" cy="20.0" r="1.3" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M173.4 25.4 V22.2" stroke="#f59e0b" stroke-width=".45" marker-end="url(#et-a)"/><text x="163.0" y="42.2" font-size="3.2" text-anchor="middle" font-weight="700" fill="#1d2133" >Su</text><text x="163.0" y="46.0" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >50 °C · S</text><rect x="126" y="47.6" width="50" height="5.4" rx="1.4" fill="#fcf1ec"/><text x="151.0" y="51.4" font-size="3.1" text-anchor="middle" font-weight="700" fill="#4a1a0a" >Sıcaklık yüksek → hız büyük</text></g></svg></div>
+
+  <div class="iki-genis" style="grid-template-columns:1.1fr 1fr;align-items:start">
+    <div>
+      <ul style="font-size:9.4pt">
+        <li><b>Sıvının cinsi:</b> Aynı sıcaklıkta tanecikler arası etkileşimi zayıf olan sıvının tanecikleri yüzeyden daha kolay kopar. Aseton (dipol–dipol), sudan (hidrojen bağı) hızlı buharlaşır.</li>
+        <li><b>Yüzey alanı:</b> Buharlaşma yalnızca yüzeyde olur. Yüzey genişledikçe kaçabilecek tanecik sayısı artar. Serilen çarşaf, katlanmış olandan çabuk kurur.</li>
+        <li><b>Sıcaklık:</b> Sıcaklık arttıkça yeterli enerjiye sahip tanecik sayısı artar (sağdaki grafik).</li>
+      </ul>
+      <p style="font-size:9pt;margin:0"><b class="k">Başka etkenler:</b> <b>Rüzgâr</b> buharı yüzeyden uzaklaştırıp hızı artırır. Havadaki <b>nem</b> ve <b>dış basınç</b> arttıkça hız azalır. Sıvıda uçucu olmayan bir madde (tuz, şeker) çözünürse hız azalır; deniz suyu, aynı koşullardaki tatlı sudan yavaş buharlaşır.</p>
+    </div>
+    <div class="grafik-kutu" style="margin-bottom:0"><div class="gb">Sıcaklık neden hızlandırır?</div><svg viewBox="0 0 120 66" class="grafik"><defs><marker id="en-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#1d2133"/></marker></defs><g font-family="Inter"><polygon fill="#f59e0b" fill-opacity="0.35" points="64.0,56.0 64.0,46.8 64.2,46.8 64.5,46.9 64.8,47.0 65.0,47.1 65.2,47.1 65.5,47.2 65.8,47.3 66.0,47.4 66.2,47.5 66.5,47.5 66.8,47.6 67.0,47.7 67.2,47.7 67.5,47.8 67.8,47.9 68.0,48.0 68.2,48.0 68.5,48.1 68.8,48.2 69.0,48.2 69.2,48.3 69.5,48.4 69.8,48.4 70.0,48.5 70.2,48.6 70.5,48.6 70.8,48.7 71.0,48.8 71.2,48.8 71.5,48.9 71.8,49.0 72.0,49.0 72.2,49.1 72.5,49.1 72.8,49.2 73.0,49.3 73.2,49.3 73.5,49.4 73.8,49.5 74.0,49.5 74.2,49.6 74.5,49.6 74.8,49.7 75.0,49.7 75.2,49.8 75.5,49.9 75.8,49.9 76.0,50.0 76.2,50.0 76.5,50.1 76.8,50.1 77.0,50.2 77.2,50.2 77.5,50.3 77.8,50.3 78.0,50.4 78.2,50.4 78.5,50.5 78.8,50.5 79.0,50.6 79.2,50.6 79.5,50.7 79.8,50.7 80.0,50.8 80.2,50.8 80.5,50.9 80.8,50.9 81.0,51.0 81.2,51.0 81.5,51.1 81.8,51.1 82.0,51.2 82.2,51.2 82.5,51.2 82.8,51.3 83.0,51.3 83.2,51.4 83.5,51.4 83.8,51.5 84.0,51.5 84.2,51.5 84.5,51.6 84.8,51.6 85.0,51.7 85.2,51.7 85.5,51.7 85.8,51.8 86.0,51.8 86.2,51.9 86.5,51.9 86.8,51.9 87.0,52.0 87.2,52.0 87.5,52.1 87.8,52.1 88.0,52.1 88.2,52.2 88.5,52.2 88.8,52.2 89.0,52.3 89.2,52.3 89.5,52.3 89.8,52.4 90.0,52.4 90.2,52.4 90.5,52.5 90.8,52.5 91.0,52.5 91.2,52.6 91.5,52.6 91.8,52.6 92.0,52.7 92.2,52.7 92.5,52.7 92.8,52.8 93.0,52.8 93.2,52.8 93.5,52.9 93.8,52.9 94.0,52.9 94.2,52.9 94.5,53.0 94.8,53.0 95.0,53.0 95.2,53.1 95.5,53.1 95.8,53.1 96.0,53.1 96.2,53.2 96.5,53.2 96.8,53.2 97.0,53.3 97.2,53.3 97.5,53.3 97.8,53.3 98.0,53.4 98.2,53.4 98.5,53.4 98.8,53.4 99.0,53.5 99.2,53.5 99.5,53.5 99.8,53.5 100.0,53.6 100.2,53.6 100.5,53.6 100.8,53.6 101.0,53.6 101.2,53.7 101.5,53.7 101.8,53.7 102.0,53.7 102.2,53.8 102.5,53.8 102.8,53.8 103.0,53.8 103.2,53.8 103.5,53.9 103.8,53.9 104.0,53.9 104.2,53.9 104.5,53.9 104.8,54.0 105.0,54.0 105.2,54.0 105.5,54.0 105.8,54.0 106.0,54.1 106.2,54.1 106.5,54.1 106.8,54.1 107.0,54.1 107.2,54.2 107.5,54.2 107.8,54.2 108.0,54.2 108.2,54.2 108.5,54.2 108.8,54.3 109.0,54.3 109.2,54.3 109.5,54.3 109.8,54.3 110.0,54.3 110.2,54.4 110.5,54.4 110.8,54.4 111.0,54.4 111.2,54.4 111.5,54.4 111.8,54.5 112.0,54.5 112.2,54.5 112.5,54.5 112.8,54.5 113.0,54.5 113.2,54.5 113.5,54.6 113.8,54.6 114.0,54.6 114.0,56.0"/><polyline fill="none" stroke="#d97706" stroke-width=".8" points="14.2,50.0 14.5,47.7 14.8,45.9 15.0,44.5 15.2,43.2 15.5,42.2 15.8,41.2 16.0,40.4 16.2,39.6 16.5,38.9 16.8,38.3 17.0,37.7 17.2,37.2 17.5,36.7 17.8,36.2 18.0,35.8 18.2,35.4 18.5,35.1 18.8,34.7 19.0,34.4 19.2,34.1 19.5,33.9 19.8,33.6 20.0,33.4 20.2,33.2 20.5,33.0 20.8,32.8 21.0,32.6 21.2,32.5 21.5,32.3 21.8,32.2 22.0,32.1 22.2,32.0 22.5,31.9 22.8,31.8 23.0,31.7 23.2,31.7 23.5,31.6 23.8,31.6 24.0,31.5 24.2,31.5 24.5,31.5 24.8,31.5 25.0,31.5 25.2,31.5 25.5,31.5 25.8,31.5 26.0,31.5 26.2,31.5 26.5,31.5 26.8,31.6 27.0,31.6 27.2,31.6 27.5,31.7 27.8,31.7 28.0,31.8 28.2,31.8 28.5,31.9 28.8,32.0 29.0,32.0 29.2,32.1 29.5,32.2 29.8,32.2 30.0,32.3 30.2,32.4 30.5,32.5 30.8,32.6 31.0,32.6 31.2,32.7 31.5,32.8 31.8,32.9 32.0,33.0 32.2,33.1 32.5,33.2 32.8,33.3 33.0,33.4 33.2,33.5 33.5,33.6 33.8,33.7 34.0,33.8 34.2,33.9 34.5,34.0 34.8,34.2 35.0,34.3 35.2,34.4 35.5,34.5 35.8,34.6 36.0,34.7 36.2,34.8 36.5,35.0 36.8,35.1 37.0,35.2 37.2,35.3 37.5,35.4 37.8,35.5 38.0,35.7 38.2,35.8 38.5,35.9 38.8,36.0 39.0,36.2 39.2,36.3 39.5,36.4 39.8,36.5 40.0,36.6 40.2,36.8 40.5,36.9 40.8,37.0 41.0,37.1 41.2,37.2 41.5,37.4 41.8,37.5 42.0,37.6 42.2,37.7 42.5,37.9 42.8,38.0 43.0,38.1 43.2,38.2 43.5,38.3 43.8,38.5 44.0,38.6 44.2,38.7 44.5,38.8 44.8,39.0 45.0,39.1 45.2,39.2 45.5,39.3 45.8,39.4 46.0,39.5 46.2,39.7 46.5,39.8 46.8,39.9 47.0,40.0 47.2,40.1 47.5,40.3 47.8,40.4 48.0,40.5 48.2,40.6 48.5,40.7 48.8,40.8 49.0,40.9 49.2,41.1 49.5,41.2 49.8,41.3 50.0,41.4 50.2,41.5 50.5,41.6 50.8,41.7 51.0,41.8 51.2,41.9 51.5,42.1 51.8,42.2 52.0,42.3 52.2,42.4 52.5,42.5 52.8,42.6 53.0,42.7 53.2,42.8 53.5,42.9 53.8,43.0 54.0,43.1 54.2,43.2 54.5,43.3 54.8,43.4 55.0,43.5 55.2,43.6 55.5,43.7 55.8,43.8 56.0,43.9 56.2,44.0 56.5,44.1 56.8,44.2 57.0,44.3 57.2,44.4 57.5,44.5 57.8,44.6 58.0,44.7 58.2,44.8 58.5,44.9 58.8,45.0 59.0,45.1 59.2,45.1 59.5,45.2 59.8,45.3 60.0,45.4 60.2,45.5 60.5,45.6 60.8,45.7 61.0,45.8 61.2,45.8 61.5,45.9 61.8,46.0 62.0,46.1 62.2,46.2 62.5,46.3 62.8,46.4 63.0,46.4 63.2,46.5 63.5,46.6 63.8,46.7 64.0,46.8 64.2,46.8 64.5,46.9 64.8,47.0 65.0,47.1 65.2,47.1 65.5,47.2 65.8,47.3 66.0,47.4 66.2,47.5 66.5,47.5 66.8,47.6 67.0,47.7 67.2,47.7 67.5,47.8 67.8,47.9 68.0,48.0 68.2,48.0 68.5,48.1 68.8,48.2 69.0,48.2 69.2,48.3 69.5,48.4 69.8,48.4 70.0,48.5 70.2,48.6 70.5,48.6 70.8,48.7 71.0,48.8 71.2,48.8 71.5,48.9 71.8,49.0 72.0,49.0 72.2,49.1 72.5,49.1 72.8,49.2 73.0,49.3 73.2,49.3 73.5,49.4 73.8,49.5 74.0,49.5 74.2,49.6 74.5,49.6 74.8,49.7 75.0,49.7 75.2,49.8 75.5,49.9 75.8,49.9 76.0,50.0 76.2,50.0 76.5,50.1 76.8,50.1 77.0,50.2 77.2,50.2 77.5,50.3 77.8,50.3 78.0,50.4 78.2,50.4 78.5,50.5 78.8,50.5 79.0,50.6 79.2,50.6 79.5,50.7 79.8,50.7 80.0,50.8 80.2,50.8 80.5,50.9 80.8,50.9 81.0,51.0 81.2,51.0 81.5,51.1 81.8,51.1 82.0,51.2 82.2,51.2 82.5,51.2 82.8,51.3 83.0,51.3 83.2,51.4 83.5,51.4 83.8,51.5 84.0,51.5 84.2,51.5 84.5,51.6 84.8,51.6 85.0,51.7 85.2,51.7 85.5,51.7 85.8,51.8 86.0,51.8 86.2,51.9 86.5,51.9 86.8,51.9 87.0,52.0 87.2,52.0 87.5,52.1 87.8,52.1 88.0,52.1 88.2,52.2 88.5,52.2 88.8,52.2 89.0,52.3 89.2,52.3 89.5,52.3 89.8,52.4 90.0,52.4 90.2,52.4 90.5,52.5 90.8,52.5 91.0,52.5 91.2,52.6 91.5,52.6 91.8,52.6 92.0,52.7 92.2,52.7 92.5,52.7 92.8,52.8 93.0,52.8 93.2,52.8 93.5,52.9 93.8,52.9 94.0,52.9 94.2,52.9 94.5,53.0 94.8,53.0 95.0,53.0 95.2,53.1 95.5,53.1 95.8,53.1 96.0,53.1 96.2,53.2 96.5,53.2 96.8,53.2 97.0,53.3 97.2,53.3 97.5,53.3 97.8,53.3 98.0,53.4 98.2,53.4 98.5,53.4 98.8,53.4 99.0,53.5 99.2,53.5 99.5,53.5 99.8,53.5 100.0,53.6 100.2,53.6 100.5,53.6 100.8,53.6 101.0,53.6 101.2,53.7 101.5,53.7 101.8,53.7 102.0,53.7 102.2,53.8 102.5,53.8 102.8,53.8 103.0,53.8 103.2,53.8 103.5,53.9 103.8,53.9 104.0,53.9 104.2,53.9 104.5,53.9 104.8,54.0 105.0,54.0 105.2,54.0 105.5,54.0 105.8,54.0 106.0,54.1 106.2,54.1 106.5,54.1 106.8,54.1 107.0,54.1 107.2,54.2 107.5,54.2 107.8,54.2 108.0,54.2 108.2,54.2 108.5,54.2 108.8,54.3 109.0,54.3 109.2,54.3 109.5,54.3 109.8,54.3 110.0,54.3 110.2,54.4 110.5,54.4 110.8,54.4 111.0,54.4 111.2,54.4 111.5,54.4 111.8,54.5 112.0,54.5 112.2,54.5 112.5,54.5 112.8,54.5 113.0,54.5 113.2,54.5 113.5,54.6 113.8,54.6 114.0,54.6"/><polygon fill="#7c2d12" fill-opacity="0.45" points="64.0,56.0 64.0,52.2 64.2,52.3 64.5,52.4 64.8,52.4 65.0,52.5 65.2,52.5 65.5,52.6 65.8,52.7 66.0,52.7 66.2,52.8 66.5,52.8 66.8,52.9 67.0,52.9 67.2,53.0 67.5,53.1 67.8,53.1 68.0,53.2 68.2,53.2 68.5,53.3 68.8,53.3 69.0,53.3 69.2,53.4 69.5,53.4 69.8,53.5 70.0,53.5 70.2,53.6 70.5,53.6 70.8,53.7 71.0,53.7 71.2,53.7 71.5,53.8 71.8,53.8 72.0,53.9 72.2,53.9 72.5,53.9 72.8,54.0 73.0,54.0 73.2,54.0 73.5,54.1 73.8,54.1 74.0,54.1 74.2,54.2 74.5,54.2 74.8,54.2 75.0,54.3 75.2,54.3 75.5,54.3 75.8,54.4 76.0,54.4 76.2,54.4 76.5,54.4 76.8,54.5 77.0,54.5 77.2,54.5 77.5,54.6 77.8,54.6 78.0,54.6 78.2,54.6 78.5,54.7 78.8,54.7 79.0,54.7 79.2,54.7 79.5,54.8 79.8,54.8 80.0,54.8 80.2,54.8 80.5,54.8 80.8,54.9 81.0,54.9 81.2,54.9 81.5,54.9 81.8,54.9 82.0,55.0 82.2,55.0 82.5,55.0 82.8,55.0 83.0,55.0 83.2,55.0 83.5,55.1 83.8,55.1 84.0,55.1 84.2,55.1 84.5,55.1 84.8,55.1 85.0,55.2 85.2,55.2 85.5,55.2 85.8,55.2 86.0,55.2 86.2,55.2 86.5,55.2 86.8,55.3 87.0,55.3 87.2,55.3 87.5,55.3 87.8,55.3 88.0,55.3 88.2,55.3 88.5,55.4 88.8,55.4 89.0,55.4 89.2,55.4 89.5,55.4 89.8,55.4 90.0,55.4 90.2,55.4 90.5,55.4 90.8,55.5 91.0,55.5 91.2,55.5 91.5,55.5 91.8,55.5 92.0,55.5 92.2,55.5 92.5,55.5 92.8,55.5 93.0,55.5 93.2,55.5 93.5,55.6 93.8,55.6 94.0,55.6 94.2,55.6 94.5,55.6 94.8,55.6 95.0,55.6 95.2,55.6 95.5,55.6 95.8,55.6 96.0,55.6 96.2,55.6 96.5,55.6 96.8,55.6 97.0,55.7 97.2,55.7 97.5,55.7 97.8,55.7 98.0,55.7 98.2,55.7 98.5,55.7 98.8,55.7 99.0,55.7 99.2,55.7 99.5,55.7 99.8,55.7 100.0,55.7 100.2,55.7 100.5,55.7 100.8,55.7 101.0,55.7 101.2,55.7 101.5,55.8 101.8,55.8 102.0,55.8 102.2,55.8 102.5,55.8 102.8,55.8 103.0,55.8 103.2,55.8 103.5,55.8 103.8,55.8 104.0,55.8 104.2,55.8 104.5,55.8 104.8,55.8 105.0,55.8 105.2,55.8 105.5,55.8 105.8,55.8 106.0,55.8 106.2,55.8 106.5,55.8 106.8,55.8 107.0,55.8 107.2,55.8 107.5,55.8 107.8,55.8 108.0,55.8 108.2,55.8 108.5,55.9 108.8,55.9 109.0,55.9 109.2,55.9 109.5,55.9 109.8,55.9 110.0,55.9 110.2,55.9 110.5,55.9 110.8,55.9 111.0,55.9 111.2,55.9 111.5,55.9 111.8,55.9 112.0,55.9 112.2,55.9 112.5,55.9 112.8,55.9 113.0,55.9 113.2,55.9 113.5,55.9 113.8,55.9 114.0,55.9 114.0,56.0"/><polyline fill="none" stroke="#7c2d12" stroke-width=".8" points="14.2,41.7 14.5,36.2 14.8,32.2 15.0,29.1 15.2,26.5 15.5,24.4 15.8,22.5 16.0,20.9 16.2,19.5 16.5,18.3 16.8,17.2 17.0,16.3 17.2,15.5 17.5,14.8 17.8,14.2 18.0,13.7 18.2,13.3 18.5,12.9 18.8,12.6 19.0,12.3 19.2,12.2 19.5,12.0 19.8,11.9 20.0,11.9 20.2,11.8 20.5,11.9 20.8,11.9 21.0,12.0 21.2,12.1 21.5,12.2 21.8,12.4 22.0,12.6 22.2,12.8 22.5,13.0 22.8,13.2 23.0,13.5 23.2,13.7 23.5,14.0 23.8,14.3 24.0,14.6 24.2,14.9 24.5,15.3 24.8,15.6 25.0,15.9 25.2,16.3 25.5,16.6 25.8,17.0 26.0,17.4 26.2,17.7 26.5,18.1 26.8,18.5 27.0,18.9 27.2,19.3 27.5,19.7 27.8,20.1 28.0,20.4 28.2,20.8 28.5,21.2 28.8,21.6 29.0,22.0 29.2,22.4 29.5,22.8 29.8,23.2 30.0,23.6 30.2,24.0 30.5,24.4 30.8,24.8 31.0,25.2 31.2,25.6 31.5,26.0 31.8,26.3 32.0,26.7 32.2,27.1 32.5,27.5 32.8,27.9 33.0,28.2 33.2,28.6 33.5,29.0 33.8,29.3 34.0,29.7 34.2,30.1 34.5,30.4 34.8,30.8 35.0,31.1 35.2,31.5 35.5,31.8 35.8,32.2 36.0,32.5 36.2,32.8 36.5,33.2 36.8,33.5 37.0,33.8 37.2,34.1 37.5,34.5 37.8,34.8 38.0,35.1 38.2,35.4 38.5,35.7 38.8,36.0 39.0,36.3 39.2,36.6 39.5,36.9 39.8,37.2 40.0,37.4 40.2,37.7 40.5,38.0 40.8,38.3 41.0,38.5 41.2,38.8 41.5,39.1 41.8,39.3 42.0,39.6 42.2,39.8 42.5,40.1 42.8,40.3 43.0,40.6 43.2,40.8 43.5,41.1 43.8,41.3 44.0,41.5 44.2,41.8 44.5,42.0 44.8,42.2 45.0,42.4 45.2,42.6 45.5,42.8 45.8,43.1 46.0,43.3 46.2,43.5 46.5,43.7 46.8,43.9 47.0,44.1 47.2,44.3 47.5,44.4 47.8,44.6 48.0,44.8 48.2,45.0 48.5,45.2 48.8,45.3 49.0,45.5 49.2,45.7 49.5,45.9 49.8,46.0 50.0,46.2 50.2,46.4 50.5,46.5 50.8,46.7 51.0,46.8 51.2,47.0 51.5,47.1 51.8,47.3 52.0,47.4 52.2,47.6 52.5,47.7 52.8,47.8 53.0,48.0 53.2,48.1 53.5,48.2 53.8,48.4 54.0,48.5 54.2,48.6 54.5,48.7 54.8,48.9 55.0,49.0 55.2,49.1 55.5,49.2 55.8,49.3 56.0,49.4 56.2,49.6 56.5,49.7 56.8,49.8 57.0,49.9 57.2,50.0 57.5,50.1 57.8,50.2 58.0,50.3 58.2,50.4 58.5,50.5 58.8,50.6 59.0,50.7 59.2,50.8 59.5,50.8 59.8,50.9 60.0,51.0 60.2,51.1 60.5,51.2 60.8,51.3 61.0,51.4 61.2,51.4 61.5,51.5 61.8,51.6 62.0,51.7 62.2,51.7 62.5,51.8 62.8,51.9 63.0,52.0 63.2,52.0 63.5,52.1 63.8,52.2 64.0,52.2 64.2,52.3 64.5,52.4 64.8,52.4 65.0,52.5 65.2,52.5 65.5,52.6 65.8,52.7 66.0,52.7 66.2,52.8 66.5,52.8 66.8,52.9 67.0,52.9 67.2,53.0 67.5,53.1 67.8,53.1 68.0,53.2 68.2,53.2 68.5,53.3 68.8,53.3 69.0,53.3 69.2,53.4 69.5,53.4 69.8,53.5 70.0,53.5 70.2,53.6 70.5,53.6 70.8,53.7 71.0,53.7 71.2,53.7 71.5,53.8 71.8,53.8 72.0,53.9 72.2,53.9 72.5,53.9 72.8,54.0 73.0,54.0 73.2,54.0 73.5,54.1 73.8,54.1 74.0,54.1 74.2,54.2 74.5,54.2 74.8,54.2 75.0,54.3 75.2,54.3 75.5,54.3 75.8,54.4 76.0,54.4 76.2,54.4 76.5,54.4 76.8,54.5 77.0,54.5 77.2,54.5 77.5,54.6 77.8,54.6 78.0,54.6 78.2,54.6 78.5,54.7 78.8,54.7 79.0,54.7 79.2,54.7 79.5,54.8 79.8,54.8 80.0,54.8 80.2,54.8 80.5,54.8 80.8,54.9 81.0,54.9 81.2,54.9 81.5,54.9 81.8,54.9 82.0,55.0 82.2,55.0 82.5,55.0 82.8,55.0 83.0,55.0 83.2,55.0 83.5,55.1 83.8,55.1 84.0,55.1 84.2,55.1 84.5,55.1 84.8,55.1 85.0,55.2 85.2,55.2 85.5,55.2 85.8,55.2 86.0,55.2 86.2,55.2 86.5,55.2 86.8,55.3 87.0,55.3 87.2,55.3 87.5,55.3 87.8,55.3 88.0,55.3 88.2,55.3 88.5,55.4 88.8,55.4 89.0,55.4 89.2,55.4 89.5,55.4 89.8,55.4 90.0,55.4 90.2,55.4 90.5,55.4 90.8,55.5 91.0,55.5 91.2,55.5 91.5,55.5 91.8,55.5 92.0,55.5 92.2,55.5 92.5,55.5 92.8,55.5 93.0,55.5 93.2,55.5 93.5,55.6 93.8,55.6 94.0,55.6 94.2,55.6 94.5,55.6 94.8,55.6 95.0,55.6 95.2,55.6 95.5,55.6 95.8,55.6 96.0,55.6 96.2,55.6 96.5,55.6 96.8,55.6 97.0,55.7 97.2,55.7 97.5,55.7 97.8,55.7 98.0,55.7 98.2,55.7 98.5,55.7 98.8,55.7 99.0,55.7 99.2,55.7 99.5,55.7 99.8,55.7 100.0,55.7 100.2,55.7 100.5,55.7 100.8,55.7 101.0,55.7 101.2,55.7 101.5,55.8 101.8,55.8 102.0,55.8 102.2,55.8 102.5,55.8 102.8,55.8 103.0,55.8 103.2,55.8 103.5,55.8 103.8,55.8 104.0,55.8 104.2,55.8 104.5,55.8 104.8,55.8 105.0,55.8 105.2,55.8 105.5,55.8 105.8,55.8 106.0,55.8 106.2,55.8 106.5,55.8 106.8,55.8 107.0,55.8 107.2,55.8 107.5,55.8 107.8,55.8 108.0,55.8 108.2,55.8 108.5,55.9 108.8,55.9 109.0,55.9 109.2,55.9 109.5,55.9 109.8,55.9 110.0,55.9 110.2,55.9 110.5,55.9 110.8,55.9 111.0,55.9 111.2,55.9 111.5,55.9 111.8,55.9 112.0,55.9 112.2,55.9 112.5,55.9 112.8,55.9 113.0,55.9 113.2,55.9 113.5,55.9 113.8,55.9 114.0,55.9"/><line x1="14" y1="56" x2="116" y2="56" stroke="#1d2133" stroke-width=".5" marker-end="url(#en-o)"/><line x1="14" y1="56" x2="14" y2="5" stroke="#1d2133" stroke-width=".5" marker-end="url(#en-o)"/><line x1="64.0" y1="56" x2="64.0" y2="12" stroke="#1d2133" stroke-width=".45" stroke-dasharray="1.4 1"/><text x="65.5" y="14.0" font-size="3.2" text-anchor="start" font-weight="700" fill="#1d2133" >Buhar fazına geçmek için</text><text x="65.5" y="18.0" font-size="3.2" text-anchor="start" font-weight="700" fill="#1d2133" >gereken en az enerji</text><text x="25.2" y="9.8" font-size="3.3" text-anchor="start" font-weight="700" fill="#7c2d12" >Düşük sıcaklık</text><text x="46.5" y="36.6" font-size="3.3" text-anchor="start" font-weight="700" fill="#b45309" >Yüksek sıcaklık</text><text x="84.0" y="50.0" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >Yeterli enerjili</text><text x="84.0" y="53.4" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >tanecikler</text><text x="64.0" y="61.5" font-size="3.4" text-anchor="middle" font-weight="700" fill="#1d2133" >Taneciklerin kinetik enerjisi</text><text x="11.5" y="32.0" font-size="3.4" text-anchor="middle" font-weight="700" fill="#1d2133" transform="rotate(-90 11.5 32.0)">Tanecik sayısı</text></g></svg><div class="ga">Sıcaklık artınca eşiği aşan tanecik sayısı (taralı alan) büyür.</div></div>
+  </div>
+
+  <div class="iki" style="margin-top:3.5mm">
+    <div class="kutu kavram serit" style="margin-bottom:0">
+      <div class="etiket">@ikon:lab Deneyde değişkenler</div>
+      <p style="font-size:8.9pt;margin-bottom:1mm"><b>Bağımsız değişken:</b> Araştırmacının bilerek değiştirdiği nicelik.<br><b>Bağımlı değişken:</b> Buna bağlı olarak değişen, ölçülen nicelik.<br><b>Kontrol edilen değişken:</b> Sonucu etkileyebileceği için sabit tutulan nicelikler.</p>
+      <p style="font-size:8.9pt;margin:0">Yüzey alanının etkisi incelenirken: bağımsız → yüzey alanı; bağımlı → buharlaşma hızı; kontrol → sıvının cinsi, sıcaklık, ortam.</p>
+    </div>
+    <div class="kutu ornek" style="margin-bottom:0">
+      <div class="etiket">@ikon:ornek Çözümlü Örnek 1</div>
+      <div class="soru" style="font-size:9.1pt">Aynı ortamda üç kaba 50’şer mL sıvı konuyor. K: etanol, 25 °C, geniş kap · L: etanol, 25 °C, dar kap · M: su, 25 °C, geniş kap. a) Yüzey alanının, b) sıvı cinsinin etkisi için hangi kaplar karşılaştırılır? c) İlk hangisi tükenir?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">a</span><span>Yalnız yüzey alanı farklı olmalı: <b>K ve L</b>.</span></div>
+        <div class="adim"><span class="n">b</span><span>Yalnız sıvı cinsi farklı olmalı: <b>K ve M</b>.</span></div>
+        <div class="adim"><span class="n">c</span><span>Etanol sudan uçucudur; K, L’den geniştir.</span></div>
+        <span class="sonuc">İlk K tükenir</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu dikkat" style="margin-top:3.5mm;margin-bottom:0">
+    <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “Kaba daha çok sıvı koyarsam birim zamanda daha çok sıvı buharlaşır.”</div>
+      <div class="dogru"><b class="d">✓</b> Yüzey alanı ve sıcaklık aynıysa buharlaşma hızı <b>değişmez</b>. Sıvı fazla olduğu için yalnızca tükenme <b>süresi uzar</b>.</div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · DENGE BUHAR BASINCI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Denge buhar basıncı</span></div>
+
+  <h2 class="konu"><span class="num">3</span>Denge buhar basıncı</h2>
+  <div class="alt-baslik">Kapağı kapatınca kaçış durmaz; geri dönüş başlar.</div>
+
+  <p style="font-size:9.6pt">Ağzı açık bir kaptaki sıvı zamanla tamamen buharlaşır, çünkü buhar ortama dağılır. Ağzı kapalı bir kapta ise buhar tanecikleri kapta birikir; bir kısmı sıvı yüzeyine çarpıp yeniden sıvıya katılır. Buhar hâlinden sıvı hâle geçişe <b>yoğuşma</b> denir; yoğuşma <b>ısı veren (ekzotermik)</b> bir olaydır.</p>
+
+  <div class="grafik-kutu"><svg viewBox="0 0 180 62" class="grafik"><defs><marker id="dg-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#f59e0b"/></marker><marker id="dg-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#0f8f84"/></marker><marker id="dg-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#1d2133"/></marker></defs><g font-family="Inter"><rect x="5.4" y="34" width="29.2" height="13.6" fill="#dbeafe"/><rect x="5" y="8" width="30" height="40" rx="1.6" fill="none" stroke="#94a3b8" stroke-width=".8"/><rect x="3.5" y="5.6" width="33" height="2.4" rx=".8" fill="#7c2d12"/><path d="M11 33 V26" stroke="#f59e0b" stroke-width=".55" marker-end="url(#dg-a)"/><path d="M20 33 V26" stroke="#f59e0b" stroke-width=".55" marker-end="url(#dg-a)"/><path d="M29 33 V26" stroke="#f59e0b" stroke-width=".55" marker-end="url(#dg-a)"/><text x="20.0" y="53.0" font-size="3.2" text-anchor="middle" font-weight="700" fill="#4a1a0a" >Kap kapatıldı</text><text x="20.0" y="57.4" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >yalnızca buharlaşma</text><rect x="45.4" y="36" width="29.2" height="11.6" fill="#dbeafe"/><rect x="45" y="8" width="30" height="40" rx="1.6" fill="none" stroke="#94a3b8" stroke-width=".8"/><rect x="43.5" y="5.6" width="33" height="2.4" rx=".8" fill="#7c2d12"/><circle cx="48.5" cy="13.1" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="56.0" cy="24.2" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="63.9" cy="16.1" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="69.9" cy="28.7" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M51 35 V28" stroke="#f59e0b" stroke-width=".55" marker-end="url(#dg-a)"/><path d="M60 35 V28" stroke="#f59e0b" stroke-width=".55" marker-end="url(#dg-a)"/><path d="M69 35 V28" stroke="#f59e0b" stroke-width=".55" marker-end="url(#dg-a)"/><path d="M51.0 28 V35" stroke="#0f8f84" stroke-width=".55" marker-end="url(#dg-t)"/><text x="60.0" y="53.0" font-size="3.2" text-anchor="middle" font-weight="700" fill="#4a1a0a" >Buharlaşma > yoğuşma</text><text x="60.0" y="57.4" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >sıvı azalıyor</text><rect x="85.4" y="37" width="29.2" height="10.6" fill="#dbeafe"/><rect x="85" y="8" width="30" height="40" rx="1.6" fill="none" stroke="#94a3b8" stroke-width=".8"/><rect x="83.5" y="5.6" width="33" height="2.4" rx=".8" fill="#7c2d12"/><circle cx="88.5" cy="12.5" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="97.3" cy="23.9" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="104.3" cy="17.0" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="111.2" cy="27.3" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="96.5" cy="21.7" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="103.5" cy="14.5" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="111.1" cy="24.1" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="96.6" cy="18.2" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M91 36 V29" stroke="#f59e0b" stroke-width=".55" marker-end="url(#dg-a)"/><path d="M100 36 V29" stroke="#f59e0b" stroke-width=".55" marker-end="url(#dg-a)"/><path d="M109 36 V29" stroke="#f59e0b" stroke-width=".55" marker-end="url(#dg-a)"/><path d="M91.0 29 V36" stroke="#0f8f84" stroke-width=".55" marker-end="url(#dg-t)"/><path d="M100.0 29 V36" stroke="#0f8f84" stroke-width=".55" marker-end="url(#dg-t)"/><path d="M109.0 29 V36" stroke="#0f8f84" stroke-width=".55" marker-end="url(#dg-t)"/><text x="100.0" y="53.0" font-size="3.2" text-anchor="middle" font-weight="700" fill="#4a1a0a" >Denge</text><text x="100.0" y="57.4" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >buharlaşma = yoğuşma</text><line x1="128" y1="46" x2="177" y2="46" stroke="#1d2133" stroke-width=".45" marker-end="url(#dg-o)"/><line x1="128" y1="46" x2="128" y2="6" stroke="#1d2133" stroke-width=".45" marker-end="url(#dg-o)"/><line x1="128" y1="18" x2="174" y2="18" stroke="#f59e0b" stroke-width=".9"/><polyline fill="none" stroke="#0f8f84" stroke-width=".9" points="128.0,46.0 129.0,42.0 130.0,38.6 131.0,35.6 132.0,33.1 133.0,31.0 134.0,29.1 135.0,27.5 136.0,26.2 137.0,25.0 138.0,24.0 139.0,23.2 140.0,22.4 141.0,21.8 142.0,21.2 143.0,20.8 144.0,20.4 145.0,20.0 146.0,19.8 147.0,19.5 148.0,19.3 149.0,19.1 150.0,18.9 151.0,18.8 152.0,18.7 153.0,18.6 154.0,18.5 155.0,18.4 156.0,18.4 157.0,18.3 158.0,18.3 159.0,18.2 160.0,18.2 161.0,18.2 162.0,18.1 163.0,18.1 164.0,18.1 165.0,18.1 166.0,18.1 167.0,18.1 168.0,18.1 169.0,18.1 170.0,18.0 171.0,18.0 172.0,18.0 173.0,18.0 174.0,18.0"/><line x1="156" y1="46" x2="156" y2="12" stroke="#5d6478" stroke-width=".35" stroke-dasharray="1 .8"/><text x="157.0" y="11.5" font-size="3" text-anchor="start" font-weight="700" fill="#5d6478" >denge</text><text x="130.0" y="15.6" font-size="3" text-anchor="start" font-weight="700" fill="#b45309" >buharlaşma hızı</text><text x="133.0" y="35.0" font-size="3" text-anchor="start" font-weight="700" fill="#0f8f84" >yoğuşma hızı</text><text x="126.5" y="9.0" font-size="3.2" text-anchor="end" font-weight="700" fill="#1d2133" >hız</text><text x="176.0" y="50.4" font-size="3.2" text-anchor="end" font-weight="700" fill="#1d2133" >zaman</text><text x="152.0" y="53.0" font-size="3" text-anchor="middle" font-weight="700" fill="#4a1a0a" >Sabit sıcaklıkta hızlar</text><text x="152.0" y="57.4" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >eşitlenince sıvı miktarı sabit</text></g></svg></div>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:kavram Kavram</div>
+    <p style="margin:0">Sabit sıcaklıktaki kapalı kapta buharlaşma hızı ile yoğuşma hızı eşitlendiğinde sıvı ve buhar miktarları artık değişmez: <b>dinamik denge</b> kurulmuştur. Olaylar durmamıştır, yalnızca eşit hızda sürmektedir. Bu durumda buharın kabın çeperlerine yaptığı basınca <b>denge buhar basıncı</b> (kısaca buhar basıncı, P<sub>buhar</sub>) denir.</p>
+  </div>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1.25fr;align-items:start">
+    <div class="grafik-kutu" style="margin-bottom:0"><div class="gb">Buhar basıncını ölçmek</div><svg viewBox="0 0 120 80" class="grafik"><g font-family="Inter"><rect x="10.4" y="52" width="35.2" height="21.6" fill="#dbeafe"/><rect x="10" y="20" width="36" height="54" rx="2" fill="none" stroke="#94a3b8" stroke-width=".9"/><circle cx="15.0" cy="25.0" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="24.1" cy="32.0" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="33.2" cy="39.0" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="15.3" cy="46.0" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="24.4" cy="30.0" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="33.5" cy="37.0" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="15.6" cy="44.0" r="1.2" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><text x="28.0" y="64.0" font-size="3.6" text-anchor="middle" font-weight="700" fill="#1d4ed8" >Sıvı</text><text x="22.0" y="17.0" font-size="3.6" text-anchor="middle" font-weight="700" fill="#b45309" >Buhar</text><path d="M40 20 V8 H68 V70 A9 9 0 0 0 86 70 V12" fill="none" stroke="#e2e8f0" stroke-width="5.2" stroke-linejoin="round"/><path d="M28 20 V8 H68 V70 A9 9 0 0 0 86 70 V12" fill="none" stroke="#94a3b8" stroke-width=".35" stroke-dasharray="0" opacity=".0"/><path d="M68 52 V70 A9 9 0 0 0 86 70 V32" fill="none" stroke="#6b7280" stroke-width="4.2"/><rect x="83.2" y="10.6" width="5.6" height="1.6" fill="#94a3b8"/><text x="97.0" y="16.5" font-size="3.3" text-anchor="start" font-weight="700" fill="#5d6478" >vakum</text><line x1="89" y1="15.4" x2="96" y2="15.4" stroke="#5d6478" stroke-width=".3"/><path d="M92 32 H95 V52 H92" fill="none" stroke="#7c2d12" stroke-width=".5"/><line x1="62" y1="52" x2="95" y2="52" stroke="#7c2d12" stroke-width=".3" stroke-dasharray="1 .8"/><text x="97.0" y="43.5" font-size="4.4" text-anchor="start" font-weight="800" fill="#7c2d12" >h</text><text x="77.0" y="76.2" font-size="3.4" text-anchor="middle" font-weight="700" fill="#374151" >Hg</text><text x="60.0" y="4.4" font-size="3.2" text-anchor="middle" font-weight="400" fill="#5d6478" >Kap önce vakumlanır, sonra sıvı eklenir</text></g></svg><div class="ga">Kap ile kapalı koldaki vakum arasındaki cıva seviye farkı h, milimetre cinsinden buhar basıncını (mmHg) verir.</div></div>
+    <div>
+      <table class="tablo sik" style="font-size:8.8pt;margin-top:0">
+        <tr><th>Denge buhar basıncını değiştirir</th><th>Değiştirmez</th></tr>
+        <tr><td><b>Sıvının cinsi</b> (etkileşim güçlü → P<sub>buhar</sub> küçük)</td><td>Sıvının miktarı</td></tr>
+        <tr><td><b>Sıcaklık</b> (artınca P<sub>buhar</sub> artar)</td><td>Yüzey alanı, kabın şekli</td></tr>
+        <tr><td><b>Saflık</b> (uçucu olmayan madde çözünürse azalır)</td><td>Kabın hacmi (sıvı tükenmedikçe)</td></tr>
+        <tr><td></td><td>Dış basınç, kapta başka gaz bulunması</td></tr>
+      </table>
+      <div class="kutu dikkat" style="margin-bottom:0">
+        <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Geniş kaptaki su daha hızlı buharlaştığı için buhar basıncı da daha büyüktür.”</div>
+          <div class="dogru"><b class="d">✓</b> Yüzey alanı <b>hızı</b> değiştirir, <b>dengeyi</b> değiştirmez. Geniş yüzeyde yoğuşma da aynı oranda artar; aynı sıcaklıkta buhar basıncı eşittir.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu ornek" style="margin-top:3.5mm;margin-bottom:0">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 2</div>
+    <div class="soru" style="font-size:9.3pt">Havası boşaltılmış kapalı bir kapta 25 °C’de su, buharıyla dengededir; buhar basıncı 23,8 mmHg’dir. Her değişiklik ayrı ayrı yapılıp yeni denge kurulunca buhar basıncı ne olur? a) Kaba bir miktar daha 25 °C’de su eklenir. b) Sıvı tükenmeyecek biçimde kabın hacmi iki katına çıkarılır. c) Kap 50 °C’ye ısıtılır (suyun 50 °C’deki buhar basıncı 92,5 mmHg).</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">a</span><span>Miktar buhar basıncını etkilemez → <b>23,8 mmHg</b>.</span></div>
+      <div class="adim"><span class="n">b</span><span>Basınç önce düşer; bir miktar su daha buharlaşır ve denge aynı değerde yeniden kurulur → <b>23,8 mmHg</b>.</span></div>
+      <div class="adim"><span class="n">c</span><span>Buhar basıncı yalnızca sıcaklıkla değişir → <b>92,5 mmHg</b>.</span></div>
+      <span class="sonuc">23,8 · 23,8 · 92,5 mmHg</span>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · BUHAR BASINCI VE SICAKLIK
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Buhar basıncı ve sıcaklık</span></div>
+
+  <h2 class="konu"><span class="num">4</span>Buhar basıncı ve sıcaklık</h2>
+  <div class="alt-baslik">Isındıkça artar, ama düz bir çizgiyle değil.</div>
+
+  <p style="font-size:9.6pt">Sıcaklık arttıkça buhar fazına geçebilecek tanecik sayısı hızla artar; denge, daha fazla buhar içeren bir noktada kurulur. Bu yüzden her saf sıvının buhar basıncı sıcaklıkla <b>artar</b> ve eğri giderek dikleşir. Aynı sıcaklıkta tanecikler arası etkileşimi zayıf olan sıvının eğrisi daha yukarıdadır.</p>
+
+  <div class="grafik-kutu"><div class="gb">Üç saf sıvının buhar basıncı – sıcaklık eğrisi</div><svg viewBox="0 0 180 92" class="grafik"><g font-family="Inter"><line x1="20.0" y1="80" x2="20.0" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="20.0" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >0</text><line x1="33.8" y1="80" x2="33.8" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="33.8" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >10</text><line x1="47.6" y1="80" x2="47.6" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="47.6" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >20</text><line x1="61.5" y1="80" x2="61.5" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="61.5" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >30</text><line x1="75.3" y1="80" x2="75.3" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="75.3" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >40</text><line x1="89.1" y1="80" x2="89.1" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="89.1" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >50</text><line x1="102.9" y1="80" x2="102.9" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="102.9" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >60</text><line x1="116.7" y1="80" x2="116.7" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="116.7" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >70</text><line x1="130.5" y1="80" x2="130.5" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="130.5" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >80</text><line x1="144.4" y1="80" x2="144.4" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="144.4" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >90</text><line x1="158.2" y1="80" x2="158.2" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="158.2" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >100</text><line x1="172.0" y1="80" x2="172.0" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="172.0" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >110</text><line x1="20" y1="80.0" x2="172" y2="80.0" stroke="#eef0f5" stroke-width=".3"/><text x="18.4" y="81.2" font-size="3.3" text-anchor="end" font-weight="400" fill="#5d6478" >0</text><line x1="20" y1="65.2" x2="172" y2="65.2" stroke="#eef0f5" stroke-width=".3"/><text x="18.4" y="66.4" font-size="3.3" text-anchor="end" font-weight="400" fill="#5d6478" >200</text><line x1="20" y1="50.4" x2="172" y2="50.4" stroke="#eef0f5" stroke-width=".3"/><text x="18.4" y="51.6" font-size="3.3" text-anchor="end" font-weight="400" fill="#5d6478" >400</text><line x1="20" y1="35.6" x2="172" y2="35.6" stroke="#eef0f5" stroke-width=".3"/><text x="18.4" y="36.8" font-size="3.3" text-anchor="end" font-weight="400" fill="#5d6478" >600</text><line x1="20" y1="20.8" x2="172" y2="20.8" stroke="#eef0f5" stroke-width=".3"/><text x="18.4" y="22.0" font-size="3.3" text-anchor="end" font-weight="400" fill="#5d6478" >800</text><line x1="20" y1="6.0" x2="172" y2="6.0" stroke="#eef0f5" stroke-width=".3"/><text x="18.4" y="7.2" font-size="3.3" text-anchor="end" font-weight="400" fill="#5d6478" >1000</text><line x1="20" y1="80" x2="172" y2="80" stroke="#1d2133" stroke-width=".5"/><line x1="20" y1="80" x2="20" y2="6" stroke="#1d2133" stroke-width=".5"/><line x1="20" y1="23.8" x2="172" y2="23.8" stroke="#7c2d12" stroke-width=".55" stroke-dasharray="2 1.2"/><text x="78.0" y="22.3" font-size="3.3" text-anchor="start" font-weight="700" fill="#7c2d12" >1 atm = 760 mmHg</text><polyline fill="none" stroke="#d97706" stroke-width="1" points="20.0,66.2 20.7,65.9 21.4,65.6 22.1,65.2 22.8,64.9 23.5,64.5 24.1,64.2 24.8,63.8 25.5,63.4 26.2,63.1 26.9,62.7 27.6,62.3 28.3,61.9 29.0,61.5 29.7,61.1 30.4,60.7 31.1,60.2 31.7,59.8 32.4,59.4 33.1,58.9 33.8,58.4 34.5,58.0 35.2,57.5 35.9,57.0 36.6,56.5 37.3,56.0 38.0,55.5 38.7,55.0 39.3,54.5 40.0,53.9 40.7,53.4 41.4,52.8 42.1,52.3 42.8,51.7 43.5,51.1 44.2,50.5 44.9,49.9 45.6,49.3 46.3,48.7 46.9,48.1 47.6,47.4 48.3,46.8 49.0,46.1 49.7,45.5 50.4,44.8 51.1,44.1 51.8,43.4 52.5,42.7 53.2,41.9 53.9,41.2 54.5,40.5 55.2,39.7 55.9,38.9 56.6,38.2 57.3,37.4 58.0,36.6 58.7,35.7 59.4,34.9 60.1,34.1 60.8,33.2 61.5,32.4 62.1,31.5 62.8,30.6 63.5,29.7 64.2,28.8 64.9,27.8 65.6,26.9 66.3,25.9 67.0,25.0 67.7,24.0 68.4,23.0 69.1,22.0 69.7,21.0 70.4,19.9 71.1,18.9 71.8,17.8 72.5,16.7 73.2,15.6 73.9,14.5 74.6,13.4 75.3,12.2 76.0,11.1 76.7,9.9 77.3,8.7 78.0,7.5 78.7,6.3"/><polyline fill="none" stroke="#0f8f84" stroke-width="1" points="20.0,79.1 20.7,79.1 21.4,79.1 22.1,79.0 22.8,79.0 23.5,79.0 24.1,78.9 24.8,78.9 25.5,78.8 26.2,78.8 26.9,78.8 27.6,78.7 28.3,78.7 29.0,78.6 29.7,78.6 30.4,78.5 31.1,78.5 31.7,78.4 32.4,78.4 33.1,78.3 33.8,78.3 34.5,78.2 35.2,78.2 35.9,78.1 36.6,78.0 37.3,78.0 38.0,77.9 38.7,77.8 39.3,77.8 40.0,77.7 40.7,77.6 41.4,77.5 42.1,77.5 42.8,77.4 43.5,77.3 44.2,77.2 44.9,77.1 45.6,77.0 46.3,77.0 46.9,76.9 47.6,76.8 48.3,76.7 49.0,76.6 49.7,76.5 50.4,76.4 51.1,76.2 51.8,76.1 52.5,76.0 53.2,75.9 53.9,75.8 54.5,75.7 55.2,75.5 55.9,75.4 56.6,75.3 57.3,75.1 58.0,75.0 58.7,74.8 59.4,74.7 60.1,74.5 60.8,74.4 61.5,74.2 62.1,74.1 62.8,73.9 63.5,73.7 64.2,73.5 64.9,73.4 65.6,73.2 66.3,73.0 67.0,72.8 67.7,72.6 68.4,72.4 69.1,72.2 69.7,72.0 70.4,71.8 71.1,71.5 71.8,71.3 72.5,71.1 73.2,70.8 73.9,70.6 74.6,70.4 75.3,70.1 76.0,69.8 76.7,69.6 77.3,69.3 78.0,69.0 78.7,68.8 79.4,68.5 80.1,68.2 80.8,67.9 81.5,67.6 82.2,67.2 82.9,66.9 83.6,66.6 84.3,66.3 84.9,65.9 85.6,65.6 86.3,65.2 87.0,64.8 87.7,64.5 88.4,64.1 89.1,63.7 89.8,63.3 90.5,62.9 91.2,62.5 91.9,62.1 92.5,61.6 93.2,61.2 93.9,60.7 94.6,60.3 95.3,59.8 96.0,59.3 96.7,58.9 97.4,58.4 98.1,57.9 98.8,57.4 99.5,56.8 100.1,56.3 100.8,55.7 101.5,55.2 102.2,54.6 102.9,54.1 103.6,53.5 104.3,52.9 105.0,52.3 105.7,51.6 106.4,51.0 107.1,50.4 107.7,49.7 108.4,49.0 109.1,48.3 109.8,47.6 110.5,46.9 111.2,46.2 111.9,45.5 112.6,44.7 113.3,44.0 114.0,43.2 114.7,42.4 115.3,41.6 116.0,40.8 116.7,40.0 117.4,39.1 118.1,38.2 118.8,37.4 119.5,36.5 120.2,35.6 120.9,34.6 121.6,33.7 122.3,32.7 122.9,31.8 123.6,30.8 124.3,29.8 125.0,28.7 125.7,27.7 126.4,26.6 127.1,25.6 127.8,24.5 128.5,23.4 129.2,22.2 129.9,21.1 130.5,19.9 131.2,18.7 131.9,17.5 132.6,16.3 133.3,15.0 134.0,13.7 134.7,12.5 135.4,11.1 136.1,9.8 136.8,8.5 137.5,7.1"/><polyline fill="none" stroke="#3b82f6" stroke-width="1" points="20.0,79.7 20.7,79.7 21.4,79.6 22.1,79.6 22.8,79.6 23.5,79.6 24.1,79.6 24.8,79.6 25.5,79.6 26.2,79.5 26.9,79.5 27.6,79.5 28.3,79.5 29.0,79.5 29.7,79.4 30.4,79.4 31.1,79.4 31.7,79.4 32.4,79.4 33.1,79.3 33.8,79.3 34.5,79.3 35.2,79.3 35.9,79.3 36.6,79.2 37.3,79.2 38.0,79.2 38.7,79.1 39.3,79.1 40.0,79.1 40.7,79.1 41.4,79.0 42.1,79.0 42.8,79.0 43.5,78.9 44.2,78.9 44.9,78.9 45.6,78.8 46.3,78.8 46.9,78.7 47.6,78.7 48.3,78.7 49.0,78.6 49.7,78.6 50.4,78.5 51.1,78.5 51.8,78.4 52.5,78.4 53.2,78.3 53.9,78.3 54.5,78.2 55.2,78.2 55.9,78.1 56.6,78.1 57.3,78.0 58.0,78.0 58.7,77.9 59.4,77.8 60.1,77.8 60.8,77.7 61.5,77.7 62.1,77.6 62.8,77.5 63.5,77.4 64.2,77.4 64.9,77.3 65.6,77.2 66.3,77.1 67.0,77.1 67.7,77.0 68.4,76.9 69.1,76.8 69.7,76.7 70.4,76.6 71.1,76.5 71.8,76.4 72.5,76.3 73.2,76.2 73.9,76.1 74.6,76.0 75.3,75.9 76.0,75.8 76.7,75.7 77.3,75.6 78.0,75.5 78.7,75.3 79.4,75.2 80.1,75.1 80.8,75.0 81.5,74.8 82.2,74.7 82.9,74.6 83.6,74.4 84.3,74.3 84.9,74.1 85.6,74.0 86.3,73.8 87.0,73.7 87.7,73.5 88.4,73.3 89.1,73.2 89.8,73.0 90.5,72.8 91.2,72.6 91.9,72.5 92.5,72.3 93.2,72.1 93.9,71.9 94.6,71.7 95.3,71.5 96.0,71.3 96.7,71.1 97.4,70.9 98.1,70.6 98.8,70.4 99.5,70.2 100.1,70.0 100.8,69.7 101.5,69.5 102.2,69.2 102.9,69.0 103.6,68.7 104.3,68.5 105.0,68.2 105.7,67.9 106.4,67.6 107.1,67.3 107.7,67.1 108.4,66.8 109.1,66.5 109.8,66.2 110.5,65.8 111.2,65.5 111.9,65.2 112.6,64.9 113.3,64.5 114.0,64.2 114.7,63.8 115.3,63.5 116.0,63.1 116.7,62.7 117.4,62.4 118.1,62.0 118.8,61.6 119.5,61.2 120.2,60.8 120.9,60.4 121.6,60.0 122.3,59.5 122.9,59.1 123.6,58.7 124.3,58.2 125.0,57.7 125.7,57.3 126.4,56.8 127.1,56.3 127.8,55.8 128.5,55.3 129.2,54.8 129.9,54.3 130.5,53.8 131.2,53.2 131.9,52.7 132.6,52.1 133.3,51.6 134.0,51.0 134.7,50.4 135.4,49.8 136.1,49.2 136.8,48.6 137.5,48.0 138.1,47.3 138.8,46.7 139.5,46.0 140.2,45.4 140.9,44.7 141.6,44.0 142.3,43.3 143.0,42.6 143.7,41.9 144.4,41.1 145.1,40.4 145.7,39.6 146.4,38.9 147.1,38.1 147.8,37.3 148.5,36.5 149.2,35.6 149.9,34.8 150.6,34.0 151.3,33.1 152.0,32.2 152.7,31.4 153.3,30.5 154.0,29.5 154.7,28.6 155.4,27.7 156.1,26.7 156.8,25.7 157.5,24.8 158.2,23.8 158.9,22.4 159.6,21.4 160.3,20.4 160.9,19.4 161.6,18.3 162.3,17.2 163.0,16.1 163.7,15.0 164.4,13.9 165.1,12.8 165.8,11.6 166.5,10.4 167.2,9.2 167.9,8.0 168.5,6.8"/><line x1="67.8" y1="23.8" x2="67.8" y2="80" stroke="#d97706" stroke-width=".4" stroke-dasharray="1 .8"/><circle cx="67.8" cy="23.8" r="1.3" fill="#d97706"/><rect x="62.6" y="73.8" width="10.4" height="4.6" rx="1" fill="#fff" stroke="#d97706" stroke-width=".35"/><text x="67.8" y="77.3" font-size="3.1" text-anchor="middle" font-weight="800" fill="#d97706" >34,6</text><line x1="128.2" y1="23.8" x2="128.2" y2="80" stroke="#0f8f84" stroke-width=".4" stroke-dasharray="1 .8"/><circle cx="128.2" cy="23.8" r="1.3" fill="#0f8f84"/><rect x="123.0" y="73.8" width="10.4" height="4.6" rx="1" fill="#fff" stroke="#0f8f84" stroke-width=".35"/><text x="128.2" y="77.3" font-size="3.1" text-anchor="middle" font-weight="800" fill="#0f8f84" >78,3</text><line x1="158.2" y1="23.8" x2="158.2" y2="80" stroke="#3b82f6" stroke-width=".4" stroke-dasharray="1 .8"/><circle cx="158.2" cy="23.8" r="1.3" fill="#3b82f6"/><rect x="153.0" y="73.8" width="10.4" height="4.6" rx="1" fill="#fff" stroke="#3b82f6" stroke-width=".35"/><text x="158.2" y="77.3" font-size="3.1" text-anchor="middle" font-weight="800" fill="#3b82f6" >100</text><text x="77.3" y="11.2" font-size="3.6" text-anchor="start" font-weight="800" fill="#b45309" >Dietil eter</text><text x="138.8" y="28.2" font-size="3.6" text-anchor="start" font-weight="800" fill="#0f8f84" >Etanol</text><text x="147.1" y="55.6" font-size="3.6" text-anchor="end" font-weight="800" fill="#3b82f6" >Su</text><line x1="47.6" y1="80" x2="47.6" y2="38.6" stroke="#1d2133" stroke-width=".35" stroke-dasharray=".8 .8"/><circle cx="47.6" cy="47.4" r=".9" fill="#d97706"/><circle cx="47.6" cy="76.8" r=".9" fill="#0f8f84"/><circle cx="47.6" cy="78.7" r=".9" fill="#3b82f6"/><text x="46.2" y="35.6" font-size="3.1" text-anchor="middle" font-weight="700" fill="#1d2133" >20 °C</text><text x="21.4" y="45.4" font-size="2.9" text-anchor="start" font-weight="700" fill="#b45309" >≈ 440</text><text x="96.0" y="89.4" font-size="3.6" text-anchor="middle" font-weight="700" fill="#1d2133" >Sıcaklık (°C)</text><text x="3.0" y="43.0" font-size="3.6" text-anchor="middle" font-weight="700" fill="#1d2133" transform="rotate(-90 3 43.0)">Buhar basıncı (mmHg)</text></g></svg><div class="ga">Her eğrinin 760 mmHg çizgisini kestiği sıcaklık, o sıvının normal kaynama noktasıdır. Değerler ölçüm verilerine dayanan yaklaşık değerlerdir.</div></div>
+
+  <div class="iki-genis" style="grid-template-columns:1.1fr 1fr;align-items:start">
+    <div>
+      <h3 style="margin-top:0">Uçuculuk</h3>
+      <p style="font-size:9.3pt">Aynı sıcaklıkta buhar basıncı yüksek olan sıvıya <b>uçucu sıvı</b> denir. Uçucu sıvıların tanecikleri arasındaki etkileşimler zayıftır, kaynama noktaları düşüktür.</p>
+      <table class="tablo sik" style="font-size:8.5pt">
+        <tr><th>Sıvı (20 °C)</th><th>Etkin etkileşim</th><th class="on">P<sub>buhar</sub> (mmHg)</th></tr>
+        <tr><td>Dietil eter</td><td>dipol–dipol (zayıf)</td><td class="on">≈ 440</td></tr>
+        <tr><td>Aseton</td><td>dipol–dipol</td><td class="on">≈ 185</td></tr>
+        <tr><td>Etanol</td><td>hidrojen bağı</td><td class="on">≈ 44</td></tr>
+        <tr><td>Su</td><td>hidrojen bağı (daha çok)</td><td class="on">≈ 17,5</td></tr>
+      </table>
+    </div>
+    <div class="kutu kavram" style="margin-bottom:0">
+      <div class="etiket">@ikon:kavram Saflığın etkisi</div>
+      <p style="font-size:9.1pt">Suda tuz ya da şeker gibi <b>uçucu olmayan</b> bir madde çözündüğünde, çözünen tanecikler yüzeydeki su moleküllerinin bir kısmının yerini alır ve su moleküllerini kendine çeker. Birim zamanda kaçabilen su molekülü azalır: <b>buhar basıncı düşer</b>.</p>
+      <div class="denk" style="font-size:9.6pt">P<sub>buhar</sub>(saf su) &gt; P<sub>buhar</sub>(tuzlu su)<br><span class="kucuk">aynı sıcaklıkta</span></div>
+    </div>
+  </div>
+
+  <div class="kutu ornek" style="margin-top:3.5mm;margin-bottom:0">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 3 · Grafik okuma</div>
+    <div class="iki" style="gap:4mm">
+      <div class="soru" style="font-size:9.2pt;margin:0">Yukarıdaki grafiğe göre: a) 20 °C’de en uçucu sıvı hangisidir? b) Etanol 20 °C’den 60 °C’ye ısıtılınca buhar basıncı yaklaşık kaç katına çıkar (60 °C’de ≈ 350 mmHg)? c) Deniz seviyesinde ağzı açık kaplarda 50 °C’de tutulan sıvılardan hangisi sıvı hâlde kalamaz?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">a</span><span>Eğrisi en üstte olan: <b>dietil eter</b>.</span></div>
+        <div class="adim"><span class="n">b</span><span>350 / 44 ≈ 8. Sıcaklık 3 katına bile çıkmadan basınç ≈ <b>8 katına</b> çıkar: ilişki doğrusal değildir.</span></div>
+        <div class="adim"><span class="n">c</span><span>Eterin kaynama noktası 34,6 °C &lt; 50 °C: <b>eter</b> kaynayıp tükenir.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · KAYNAMA
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Kaynama</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Kaynama</h2>
+  <div class="alt-baslik">Buhar, dış basıncı itecek kadar güçlendiğinde sıvı her noktasından buharlaşır.</div>
+
+  <div class="iki-genis" style="grid-template-columns:1.2fr 1fr;align-items:start">
+    <div class="kutu kavram" style="margin-bottom:0">
+      <div class="etiket">@ikon:kavram Kavram</div>
+      <p>Isıtılan sıvının yalnızca yüzeyinden değil, <b>her noktasından</b> buharlaşmaya başlamasına <b>kaynama</b>, bu andaki sıcaklığa <b>kaynama noktası</b> (KN) denir.</p>
+      <div class="denk">Kaynama anında: P<sub>buhar</sub> = P<sub>dış</sub></div>
+      <p style="font-size:9.3pt">Sıvının içinde oluşan buhar kabarcığı, üzerine binen dış basınca karşı ancak buhar basıncı ona eşit olunca dayanabilir. Dış basınç 1 atm (760 mmHg) iken ölçülen kaynama noktasına <b>normal kaynama noktası</b> denir.</p>
+      <p style="font-size:9.3pt;margin:0">Saf bir sıvı kaynarken verilen ısı, tanecikleri birbirinden ayırmaya harcanır: <b>sıcaklık sabit kalır</b>. Ocağı açmak kaynamayı hızlandırır, sıcaklığı yükseltmez.</p>
+    </div>
+    <div class="grafik-kutu" style="margin-bottom:0"><div class="gb">Kabarcık neden ancak kaynama noktasında büyür?</div><svg viewBox="0 0 124 80" class="grafik"><defs><marker id="kb-u" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#7c2d12"/></marker><marker id="kb-s" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#1d4ed8"/></marker></defs><g font-family="Inter"><rect x="10.4" y="22" width="43.2" height="43.6" fill="#dbeafe"/><path d="M10 12 V62 Q10 66 14 66 H50 Q54 66 54 62 V12" fill="none" stroke="#94a3b8" stroke-width=".9"/><circle cx="18" cy="58" r="1.2" fill="#fff" stroke="#3b82f6" stroke-width=".4"/><circle cx="24" cy="47" r="2.0" fill="#fff" stroke="#3b82f6" stroke-width=".4"/><circle cx="33" cy="60" r="1.0" fill="#fff" stroke="#3b82f6" stroke-width=".4"/><circle cx="38" cy="38" r="2.6" fill="#fff" stroke="#3b82f6" stroke-width=".4"/><circle cx="45" cy="54" r="1.6" fill="#fff" stroke="#3b82f6" stroke-width=".4"/><circle cx="29" cy="30" r="3.0" fill="#fff" stroke="#3b82f6" stroke-width=".4"/><circle cx="46" cy="28" r="1.4" fill="#fff" stroke="#3b82f6" stroke-width=".4"/><circle cx="20" cy="36" r="1.1" fill="#fff" stroke="#3b82f6" stroke-width=".4"/><path d="M22 70 q3 -6 0 -9 q5 3 4 9z M32 70 q3 -7 0 -10 q6 4 4 10z M42 70 q3 -6 0 -9 q5 3 4 9z" fill="#f59e0b" opacity=".9"/><rect x="14" y="70" width="36" height="2" rx="1" fill="#5d6478"/><line x1="41" y1="36" x2="76" y2="24" stroke="#5d6478" stroke-width=".3" stroke-dasharray="1 .8"/><line x1="41" y1="40.5" x2="76" y2="58" stroke="#5d6478" stroke-width=".3" stroke-dasharray="1 .8"/><circle cx="95" cy="41" r="21" fill="#dbeafe" stroke="#94a3b8" stroke-width=".5"/><circle cx="95" cy="41" r="9.5" fill="#fff" stroke="#3b82f6" stroke-width=".6"/><circle cx="99.6" cy="41.0" r="1.1" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="96.2" cy="45.4" r="1.1" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="91.1" cy="43.4" r="1.1" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="91.7" cy="37.8" r="1.1" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="97.2" cy="36.9" r="1.1" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><path d="M101.2 41.0 L107.5 41.0" stroke="#7c2d12" stroke-width=".8" marker-end="url(#kb-u)"/><path d="M95.0 47.2 L95.0 53.5" stroke="#7c2d12" stroke-width=".8" marker-end="url(#kb-u)"/><path d="M88.8 41.0 L82.5 41.0" stroke="#7c2d12" stroke-width=".8" marker-end="url(#kb-u)"/><path d="M95.0 34.8 L95.0 28.5" stroke="#7c2d12" stroke-width=".8" marker-end="url(#kb-u)"/><path d="M108.4 54.4 L102.8 48.8" stroke="#1d4ed8" stroke-width=".8" marker-end="url(#kb-s)"/><path d="M81.6 54.4 L87.2 48.8" stroke="#1d4ed8" stroke-width=".8" marker-end="url(#kb-s)"/><path d="M81.6 27.6 L87.2 33.2" stroke="#1d4ed8" stroke-width=".8" marker-end="url(#kb-s)"/><path d="M108.4 27.6 L102.8 33.2" stroke="#1d4ed8" stroke-width=".8" marker-end="url(#kb-s)"/><text x="95.0" y="14.6" font-size="3.6" text-anchor="middle" font-weight="800" fill="#7c2d12" >P<tspan font-size="2.72" dy="1.00">buhar</tspan><tspan dy="-1.00"> </tspan>(dışa iter)</text><text x="95.0" y="69.6" font-size="3.6" text-anchor="middle" font-weight="800" fill="#1d4ed8" >P<tspan font-size="2.72" dy="1.00">dış</tspan><tspan dy="-1.00"> </tspan>(içe iter)</text><text x="32.0" y="7.5" font-size="3.3" text-anchor="middle" font-weight="700" fill="#4a1a0a" >Kabarcıklar her yerde</text><text x="62.0" y="78.0" font-size="3.1" text-anchor="middle" font-weight="400" fill="#5d6478" >Kabarcık ancak buhar basıncı dış basınca ulaşınca büyüyebilir.</text></g></svg></div>
+  </div>
+
+  <table class="tablo sik" style="font-size:8.9pt;margin-top:3.5mm">
+    <tr><th></th><th>Buharlaşma</th><th>Kaynama</th></tr>
+    <tr><td><b>Nerede?</b></td><td>Yalnızca yüzeyde</td><td>Sıvının her yerinde (kabarcıklarla)</td></tr>
+    <tr><td><b>Ne zaman?</b></td><td>Her sıcaklıkta</td><td>Belirli sıcaklıkta: P<sub>buhar</sub> = P<sub>dış</sub></td></tr>
+    <tr><td><b>Sıcaklık</b></td><td>Isı verilmezse sıvı soğur</td><td>Saf sıvıda kaynama boyunca sabit</td></tr>
+    <tr><td><b>Ortak yön</b></td><td colspan="2">İkisi de ısı alan (endotermik) hâl değişimidir.</td></tr>
+  </table>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1.1fr;align-items:start">
+    <div>
+      <h3 style="margin-top:0">Sıvının cinsi</h3>
+      <p style="font-size:9.3pt">Aynı dış basınçta tanecikler arası etkileşim güçlü olan sıvının buhar basıncı düşüktür; dış basınca ulaşması için daha çok ısıtılması gerekir: <b>kaynama noktası yüksektir</b>. Mol kütleleri neredeyse eşit üç sıvı bunu açıkça gösterir:</p>
+      <table class="tablo sik" style="font-size:8.5pt;margin-bottom:0">
+        <tr><th>Sıvı</th><th class="on">M<sub>A</sub></th><th>Etkileşim</th><th class="on">KN (°C)</th></tr>
+        <tr><td>n-pentan</td><td class="on">72</td><td>London</td><td class="on">36</td></tr>
+        <tr><td>Dietil eter</td><td class="on">74</td><td>dipol–dipol</td><td class="on">35</td></tr>
+        <tr><td>1-bütanol</td><td class="on">74</td><td>hidrojen bağı</td><td class="on">118</td></tr>
+      </table>
+      <p class="kucuk" style="margin:1mm 0 0">Pentan ile eterin kaynama noktaları neredeyse aynıdır; hidrojen bağı ise farkı yaklaşık 80 °C’ye çıkarır.</p>
+    </div>
+    <div>
+      <div class="kutu ornek">
+        <div class="etiket">@ikon:ornek Çözümlü Örnek 4</div>
+        <div class="soru" style="font-size:9.1pt">Deniz seviyesinde saf X, Y ve Z sıvılarının kaynama noktaları sırasıyla 56, 78 ve 118 °C’dir. a) Aynı sıcaklıkta buhar basınçlarını, b) etkileşim güçlerini sıralayınız. c) 70 °C’de ağzı açık kaplarda hangileri sıvı hâlde bulunabilir?</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">a</span><span>KN düşük olan daha uçucudur: <b>X &gt; Y &gt; Z</b></span></div>
+          <div class="adim"><span class="n">b</span><span>Ters sıra: <b>Z &gt; Y &gt; X</b></span></div>
+          <div class="adim"><span class="n">c</span><span>70 °C, X’in KN’sinin üstünde: X kaynar. <b>Y ve Z</b> sıvı kalır.</span></div>
+        </div>
+      </div>
+      <div class="kutu dikkat" style="margin-bottom:0">
+        <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Kaynayan sudaki kabarcıklar havadır.”</div>
+          <div class="dogru"><b class="d">✓</b> Kaynamadaki büyük kabarcıklar <b>su buharıdır</b>. Isıtmanın başında görülen küçük kabarcıklar ise suda çözünmüş havadır.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · KAYNAMA NOKTASINI DEĞİŞTİRMEK
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Dış basınç ve saflık</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Kaynama noktasını değiştirmek</h2>
+  <div class="alt-baslik">Aynı su; dağda, denizde ve düdüklü tencerede başka sıcaklıklarda kaynar.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:kavram Kavram · Dış basınç</div>
+    <p style="margin:0">Sıvının buhar basıncı yalnızca sıcaklığa bağlıdır; dış basınç onu değiştirmez. Ama kaynama için buhar basıncının <b>dış basınca ulaşması</b> gerekir. Dış basınç düşükse bu eşitliğe daha düşük sıcaklıkta varılır. <b>Dış basınç arttıkça kaynama noktası artar, azaldıkça azalır.</b> Yükseklere çıkıldıkça atmosfer basıncı azaldığı için su daha düşük sıcaklıkta kaynar.</p>
+  </div>
+
+  <div class="grafik-kutu"><div class="gb">Suyun buhar basıncı eğrisinden kaynama noktası okuma</div><svg viewBox="0 0 180 90" class="grafik"><g font-family="Inter"><line x1="22.0" y1="80" x2="22.0" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="22.0" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >60</text><line x1="38.0" y1="80" x2="38.0" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="38.0" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >70</text><line x1="54.0" y1="80" x2="54.0" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="54.0" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >80</text><line x1="70.0" y1="80" x2="70.0" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="70.0" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >90</text><line x1="86.0" y1="80" x2="86.0" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="86.0" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >100</text><line x1="102.0" y1="80" x2="102.0" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="102.0" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >110</text><line x1="118.0" y1="80" x2="118.0" y2="6" stroke="#eef0f5" stroke-width=".3"/><text x="118.0" y="84.2" font-size="3.3" text-anchor="middle" font-weight="400" fill="#5d6478" >120</text><line x1="22" y1="80.0" x2="126" y2="80.0" stroke="#eef0f5" stroke-width=".3"/><text x="20.4" y="81.2" font-size="3.3" text-anchor="end" font-weight="400" fill="#5d6478" >0</text><line x1="22" y1="62.6" x2="126" y2="62.6" stroke="#eef0f5" stroke-width=".3"/><text x="20.4" y="63.8" font-size="3.3" text-anchor="end" font-weight="400" fill="#5d6478" >400</text><line x1="22" y1="45.2" x2="126" y2="45.2" stroke="#eef0f5" stroke-width=".3"/><text x="20.4" y="46.4" font-size="3.3" text-anchor="end" font-weight="400" fill="#5d6478" >800</text><line x1="22" y1="27.8" x2="126" y2="27.8" stroke="#eef0f5" stroke-width=".3"/><text x="20.4" y="29.0" font-size="3.3" text-anchor="end" font-weight="400" fill="#5d6478" >1200</text><line x1="22" y1="10.4" x2="126" y2="10.4" stroke="#eef0f5" stroke-width=".3"/><text x="20.4" y="11.6" font-size="3.3" text-anchor="end" font-weight="400" fill="#5d6478" >1600</text><line x1="22" y1="80" x2="126" y2="80" stroke="#1d2133" stroke-width=".5"/><line x1="22" y1="80" x2="22" y2="6" stroke="#1d2133" stroke-width=".5"/><polyline fill="none" stroke="#3b82f6" stroke-width="1.1" points="22.0,73.5 22.8,73.4 23.6,73.2 24.4,73.0 25.2,72.9 26.0,72.7 26.8,72.6 27.6,72.4 28.4,72.2 29.2,72.0 30.0,71.9 30.8,71.7 31.6,71.5 32.4,71.3 33.2,71.1 34.0,70.9 34.8,70.7 35.6,70.5 36.4,70.3 37.2,70.1 38.0,69.9 38.8,69.6 39.6,69.4 40.4,69.2 41.2,68.9 42.0,68.7 42.8,68.5 43.6,68.2 44.4,68.0 45.2,67.7 46.0,67.4 46.8,67.2 47.6,66.9 48.4,66.6 49.2,66.4 50.0,66.1 50.8,65.8 51.6,65.5 52.4,65.2 53.2,64.9 54.0,64.6 54.8,64.3 55.6,63.9 56.4,63.6 57.2,63.3 58.0,62.9 58.8,62.6 59.6,62.2 60.4,61.9 61.2,61.5 62.0,61.2 62.8,60.8 63.6,60.4 64.4,60.0 65.2,59.6 66.0,59.2 66.8,58.8 67.6,58.4 68.4,58.0 69.2,57.6 70.0,57.1 70.8,56.7 71.6,56.3 72.4,55.8 73.2,55.3 74.0,54.9 74.8,54.4 75.6,53.9 76.4,53.4 77.2,52.9 78.0,52.4 78.8,51.9 79.6,51.4 80.4,50.9 81.2,50.3 82.0,49.8 82.8,49.2 83.6,48.7 84.4,48.1 85.2,47.5 86.0,46.9 86.8,46.1 87.6,45.5 88.4,44.9 89.2,44.3 90.0,43.7 90.8,43.1 91.6,42.4 92.4,41.8 93.2,41.1 94.0,40.4 94.8,39.8 95.6,39.1 96.4,38.4 97.2,37.7 98.0,36.9 98.8,36.2 99.6,35.5 100.4,34.7 101.2,34.0 102.0,33.2 102.8,32.4 103.6,31.6 104.4,30.8 105.2,30.0 106.0,29.2 106.8,28.3 107.6,27.5 108.4,26.6 109.2,25.8 110.0,24.9 110.8,24.0 111.6,23.1 112.4,22.1 113.2,21.2 114.0,20.3 114.8,19.3 115.6,18.3 116.4,17.4 117.2,16.4 118.0,15.4 118.8,14.3 119.6,13.3 120.4,12.3 121.2,11.2 122.0,10.1 122.8,9.0 123.6,7.9 124.4,6.8 125.2,5.7 126.0,4.5"/><line x1="22" y1="69.1" x2="126" y2="69.1" stroke="#64748b" stroke-width=".45" stroke-dasharray="1.6 1"/><line x1="40.6" y1="69.1" x2="40.6" y2="80" stroke="#64748b" stroke-width=".45" stroke-dasharray="1 .8"/><circle cx="40.6" cy="69.1" r="1.3" fill="#64748b"/><rect x="35.2" y="73.6" width="10.8" height="4.6" rx="1" fill="#fff" stroke="#64748b" stroke-width=".35"/><text x="40.6" y="77.1" font-size="3.1" text-anchor="middle" font-weight="800" fill="#64748b" >72</text><text x="128.4" y="68.9" font-size="3.3" text-anchor="start" font-weight="800" fill="#64748b" >Everest zirvesi</text><text x="128.4" y="72.7" font-size="3" text-anchor="start" font-weight="400" fill="#5d6478" >≈ 250 mmHg</text><line x1="22" y1="54.1" x2="126" y2="54.1" stroke="#0f8f84" stroke-width=".45" stroke-dasharray="1.6 1"/><line x1="75.4" y1="54.1" x2="75.4" y2="80" stroke="#0f8f84" stroke-width=".45" stroke-dasharray="1 .8"/><circle cx="75.4" cy="54.1" r="1.3" fill="#0f8f84"/><rect x="70.0" y="73.6" width="10.8" height="4.6" rx="1" fill="#fff" stroke="#0f8f84" stroke-width=".35"/><text x="75.4" y="77.1" font-size="3.1" text-anchor="middle" font-weight="800" fill="#0f8f84" >93</text><text x="128.4" y="53.9" font-size="3.3" text-anchor="start" font-weight="800" fill="#0f8f84" >≈ 2000 m yayla</text><text x="128.4" y="57.7" font-size="3" text-anchor="start" font-weight="400" fill="#5d6478" >≈ 600 mmHg</text><line x1="22" y1="46.9" x2="126" y2="46.9" stroke="#7c2d12" stroke-width=".45" stroke-dasharray="1.6 1"/><line x1="86.0" y1="46.9" x2="86.0" y2="80" stroke="#7c2d12" stroke-width=".45" stroke-dasharray="1 .8"/><circle cx="86.0" cy="46.9" r="1.3" fill="#7c2d12"/><rect x="80.6" y="73.6" width="10.8" height="4.6" rx="1" fill="#fff" stroke="#7c2d12" stroke-width=".35"/><text x="86.0" y="77.1" font-size="3.1" text-anchor="middle" font-weight="800" fill="#7c2d12" >100</text><text x="128.4" y="46.7" font-size="3.3" text-anchor="start" font-weight="800" fill="#7c2d12" >Deniz seviyesi</text><text x="128.4" y="50.5" font-size="3" text-anchor="start" font-weight="400" fill="#5d6478" >760 mmHg</text><line x1="22" y1="13.8" x2="126" y2="13.8" stroke="#b45309" stroke-width=".45" stroke-dasharray="1.6 1"/><line x1="119.2" y1="13.8" x2="119.2" y2="80" stroke="#b45309" stroke-width=".45" stroke-dasharray="1 .8"/><circle cx="119.2" cy="13.8" r="1.3" fill="#b45309"/><rect x="113.8" y="73.6" width="10.8" height="4.6" rx="1" fill="#fff" stroke="#b45309" stroke-width=".35"/><text x="119.2" y="77.1" font-size="3.1" text-anchor="middle" font-weight="800" fill="#b45309" >121</text><text x="128.4" y="13.6" font-size="3.3" text-anchor="start" font-weight="800" fill="#b45309" >Düdüklü tencere</text><text x="128.4" y="17.4" font-size="3" text-anchor="start" font-weight="400" fill="#5d6478" >≈ 1520 mmHg (2 atm)</text><text x="38.0" y="16.9" font-size="3.4" text-anchor="start" font-weight="800" fill="#3b82f6" >Suyun buhar basıncı</text><text x="74.0" y="89.0" font-size="3.6" text-anchor="middle" font-weight="700" fill="#1d2133" >Sıcaklık (°C)</text><text x="3.0" y="43.0" font-size="3.6" text-anchor="middle" font-weight="700" fill="#1d2133" transform="rotate(-90 3 43.0)">Basınç (mmHg)</text></g></svg><div class="ga">Yatay çizgi dış basınçtır; eğriyi kestiği sıcaklık kaynama noktasıdır. Yayla ve Everest için basınçlar ortalama değerdir; hava durumuna göre birkaç mmHg değişir.</div></div>
+
+  <div class="iki">
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket">@ikon:hayat Hayatın İçinden</div>
+      <p style="font-size:8.9pt;margin-bottom:1.2mm"><b>Düdüklü tencere:</b> Kapağı buharı içeride tutar; iç basınç yaklaşık 2 atm’ye çıkar ve su yaklaşık 120 °C’de kaynar. Yemek daha yüksek sıcaklıkta, daha kısa sürede pişer.</p>
+      <p style="font-size:8.9pt;margin-bottom:1.2mm"><b>Yüksek yerler:</b> Everest zirvesinde su yaklaşık 72 °C’de kaynar. Kaynayan su daha “soğuk” olduğu için yemek geç pişer.</p>
+      <p style="font-size:8.9pt;margin:0"><b>Vakumda buharlaştırma:</b> Gıda sanayisinde meyve suyu ve salça gibi ürünlerin suyu, basıncı düşürülmüş kaplarda daha düşük sıcaklıkta uzaklaştırılır; tat ve renk daha az bozulur.</p>
+    </div>
+    <div>
+      <div class="grafik-kutu" style="margin-bottom:2mm"><div class="gb">Saflığın etkisi · aynı dış basınçta ısıtma</div><svg viewBox="0 0 120 68" class="grafik"><defs><marker id="is-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#1d2133"/></marker></defs><g font-family="Inter"><line x1="16" y1="58" x2="118" y2="58" stroke="#1d2133" stroke-width=".5" marker-end="url(#is-o)"/><line x1="16" y1="58" x2="16" y2="5" stroke="#1d2133" stroke-width=".5" marker-end="url(#is-o)"/><line x1="16" y1="14.5" x2="116" y2="14.5" stroke="#5d6478" stroke-width=".3" stroke-dasharray="1 .8"/><text x="14.6" y="15.7" font-size="3.2" text-anchor="end" font-weight="700" fill="#1d2133" >100</text><text x="14.6" y="59.2" font-size="3.2" text-anchor="end" font-weight="400" fill="#5d6478" >20</text><polyline fill="none" stroke="#3b82f6" stroke-width="1" points="16.0,58.0 62.0,14.5 116.0,14.5"/><polyline fill="none" stroke="#7c2d12" stroke-width="1" points="16.0,58.0 65.0,13.2 66.0,13.1 67.0,13.1 68.0,13.1 69.0,13.1 70.0,13.1 71.0,13.0 72.0,13.0 73.0,13.0 74.0,12.9 75.0,12.9 76.0,12.9 77.0,12.8 78.0,12.8 79.0,12.7 80.0,12.7 81.0,12.7 82.0,12.6 83.0,12.6 84.0,12.5 85.0,12.5 86.0,12.4 87.0,12.4 88.0,12.4 89.0,12.3 90.0,12.3 91.0,12.2 92.0,12.2 93.0,12.1 94.0,12.1 95.0,12.0 96.0,12.0 97.0,11.9 98.0,11.9 99.0,11.8 100.0,11.8 101.0,11.7 102.0,11.7 103.0,11.6 104.0,11.6 105.0,11.5 106.0,11.4 107.0,11.4 108.0,11.3 109.0,11.3 110.0,11.2 111.0,11.2 112.0,11.1 113.0,11.1 114.0,11.0 115.0,10.9 116.0,10.9"/><text x="116.0" y="19.7" font-size="2.9" text-anchor="end" font-weight="700" fill="#1d4ed8" >Saf su: kaynarken sıcaklık sabit</text><text x="116.0" y="6.3" font-size="2.9" text-anchor="end" font-weight="700" fill="#7c2d12" >Tuzlu su: kaynarken sıcaklık artar</text><text x="66.0" y="63.4" font-size="3.4" text-anchor="middle" font-weight="700" fill="#1d2133" >Isıtma süresi</text><text x="4.0" y="33.0" font-size="3.4" text-anchor="middle" font-weight="700" fill="#1d2133" transform="rotate(-90 4 33.0)">Sıcaklık (°C)</text></g></svg></div>
+      <p style="font-size:8.9pt;margin:0">Uçucu olmayan madde çözünmüş suyun buhar basıncı düşüktür; dış basınca ulaşmak için daha çok ısınması gerekir: <b>kaynama noktası yükselir</b>. Kaynadıkça su azalır, çözelti derişikleşir ve kaynama sıcaklığı yavaşça artmaya devam eder.</p>
+    </div>
+  </div>
+
+  <div class="iki" style="margin-top:3.5mm">
+    <div class="kutu ornek" style="margin-bottom:0">
+      <div class="etiket">@ikon:ornek Çözümlü Örnek 5</div>
+      <div class="soru" style="font-size:9pt">Suyun buhar basınçları: 105 °C’de 909, 110 °C’de 1075, 115 °C’de 1266 mmHg. İç basıncı 1,5 atm olan bir tencerede su kaç °C dolayında kaynar?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>1,5 atm = 1,5 · 760 = 1140 mmHg</span></div>
+        <div class="adim"><span class="n">2</span><span>1075 &lt; 1140 &lt; 1266 → KN 110 ile 115 °C arasında, 110’a daha yakın.</span></div>
+        <span class="sonuc">≈ 112 °C</span>
+      </div>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Dağda su daha çabuk kaynadığı için yemek de daha çabuk pişer.”</div>
+        <div class="dogru"><b class="d">✓</b> Su daha <b>düşük sıcaklıkta</b> kaynar ve kaynarken bu sıcaklığın üstüne çıkamaz. Pişme daha düşük sıcaklıkta olur, <b>daha uzun sürer</b>.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · VİSKOZİTE
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Viskozite</span></div>
+
+  <h2 class="konu"><span class="num">7</span>Viskozite</h2>
+  <div class="alt-baslik">Bal ile suyu aynı bardaktan dökmeyi dene: fark, taneciklerin birbirine tutunmasındadır.</div>
+
+  <div class="iki-genis" style="grid-template-columns:1.15fr 1fr;align-items:start">
+    <div>
+      <div class="kutu kavram">
+        <div class="etiket">@ikon:kavram Kavram</div>
+        <p style="margin:0">Bir sıvının <b>akmaya karşı gösterdiği dirence viskozite</b> (akmazlık) denir. Viskozitenin tersi <b>akıcılıktır</b>: viskozitesi büyük olan sıvı yavaş akar. Akarken sıvının katmanları birbirinin üzerinden kayar; tanecikler birbirine ne kadar sıkı tutunursa bu kayma o kadar zorlaşır.</p>
+      </div>
+      <h3 style="margin-top:0">Neye bağlıdır?</h3>
+      <ul style="font-size:9.3pt">
+        <li><b>Tanecikler arası etkileşim:</b> Etkileşim güçlendikçe viskozite genellikle artar. Her molekülünde üç –OH grubu bulunan gliserin, çok sayıda hidrojen bağı kurar; sudan yaklaşık 1400 kat akmazdır.</li>
+        <li><b>Molekül büyüklüğü ve biçimi:</b> Uzun, birbirine dolanabilen moleküller de akışı zorlaştırır (yağlar).</li>
+        <li><b>Sıcaklık:</b> Sıcaklık arttıkça tanecikler hızlanır, etkileşimleri daha kolay yenilir: <b>viskozite azalır</b>, akıcılık artar.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="grafik-kutu"><div class="gb">Bilye deneyi: viskoziteyi gözle görmek</div><svg viewBox="0 0 120 74" class="grafik"><g font-family="Inter"><rect x="9.4" y="14" width="21.2" height="45.6" fill="#dbeafe"/><path d="M9 8 V58 Q9 60 11 60 H29 Q31 60 31 58 V8" fill="none" stroke="#94a3b8" stroke-width=".8"/><line x1="27" y1="22" x2="31" y2="22" stroke="#94a3b8" stroke-width=".3"/><line x1="27" y1="30" x2="31" y2="30" stroke="#94a3b8" stroke-width=".3"/><line x1="27" y1="38" x2="31" y2="38" stroke="#94a3b8" stroke-width=".3"/><line x1="27" y1="46" x2="31" y2="46" stroke="#94a3b8" stroke-width=".3"/><line x1="27" y1="54" x2="31" y2="54" stroke="#94a3b8" stroke-width=".3"/><circle cx="20" cy="11" r="2.4" fill="none" stroke="#5d6478" stroke-width=".35" stroke-dasharray=".8 .6"/><line x1="20" y1="13.6" x2="20" y2="51" stroke="#5d6478" stroke-width=".3" stroke-dasharray=".8 .8"/><circle cx="20" cy="54" r="2.6" fill="#6b7280" stroke="#374151" stroke-width=".4"/><text x="20.0" y="65.5" font-size="3.6" text-anchor="middle" font-weight="800" fill="#1d2133" >Su</text><text x="20.0" y="70.4" font-size="3.2" text-anchor="middle" font-weight="400" fill="#5d6478" >≈ 1 mPa·s</text><rect x="49.4" y="14" width="21.2" height="45.6" fill="#f3e3a0"/><path d="M49 8 V58 Q49 60 51 60 H69 Q71 60 71 58 V8" fill="none" stroke="#94a3b8" stroke-width=".8"/><line x1="67" y1="22" x2="71" y2="22" stroke="#94a3b8" stroke-width=".3"/><line x1="67" y1="30" x2="71" y2="30" stroke="#94a3b8" stroke-width=".3"/><line x1="67" y1="38" x2="71" y2="38" stroke="#94a3b8" stroke-width=".3"/><line x1="67" y1="46" x2="71" y2="46" stroke="#94a3b8" stroke-width=".3"/><line x1="67" y1="54" x2="71" y2="54" stroke="#94a3b8" stroke-width=".3"/><circle cx="60" cy="11" r="2.4" fill="none" stroke="#5d6478" stroke-width=".35" stroke-dasharray=".8 .6"/><line x1="60" y1="13.6" x2="60" y2="34" stroke="#5d6478" stroke-width=".3" stroke-dasharray=".8 .8"/><circle cx="60" cy="37" r="2.6" fill="#6b7280" stroke="#374151" stroke-width=".4"/><text x="60.0" y="65.5" font-size="3.6" text-anchor="middle" font-weight="800" fill="#1d2133" >Zeytinyağı</text><text x="60.0" y="70.4" font-size="3.2" text-anchor="middle" font-weight="400" fill="#5d6478" >≈ 80 mPa·s</text><rect x="89.4" y="14" width="21.2" height="45.6" fill="#efe9dc"/><path d="M89 8 V58 Q89 60 91 60 H109 Q111 60 111 58 V8" fill="none" stroke="#94a3b8" stroke-width=".8"/><line x1="107" y1="22" x2="111" y2="22" stroke="#94a3b8" stroke-width=".3"/><line x1="107" y1="30" x2="111" y2="30" stroke="#94a3b8" stroke-width=".3"/><line x1="107" y1="38" x2="111" y2="38" stroke="#94a3b8" stroke-width=".3"/><line x1="107" y1="46" x2="111" y2="46" stroke="#94a3b8" stroke-width=".3"/><line x1="107" y1="54" x2="111" y2="54" stroke="#94a3b8" stroke-width=".3"/><circle cx="100" cy="11" r="2.4" fill="none" stroke="#5d6478" stroke-width=".35" stroke-dasharray=".8 .6"/><line x1="100" y1="13.6" x2="100" y2="19" stroke="#5d6478" stroke-width=".3" stroke-dasharray=".8 .8"/><circle cx="100" cy="22" r="2.6" fill="#6b7280" stroke="#374151" stroke-width=".4"/><text x="100.0" y="65.5" font-size="3.6" text-anchor="middle" font-weight="800" fill="#1d2133" >Gliserin</text><text x="100.0" y="70.4" font-size="3.2" text-anchor="middle" font-weight="400" fill="#5d6478" >≈ 1400 mPa·s</text><text x="60.0" y="4.4" font-size="3.2" text-anchor="middle" font-weight="700" fill="#4a1a0a" >Aynı anda bırakılan özdeş bilyeler · aynı süre sonra · 20 °C</text></g></svg><div class="ga">Viskozite büyüdükçe bilye aynı sürede daha az yol alır. Değerler 20 °C için yaklaşıktır.</div></div>
+      <table class="tablo sik" style="font-size:8.5pt;margin-bottom:0">
+        <tr><th>Sıvı (20 °C)</th><th class="on">Viskozite (mPa·s)</th></tr>
+        <tr><td>Aseton</td><td class="on">0,32</td></tr>
+        <tr><td>Su</td><td class="on">1,00</td></tr>
+        <tr><td>Etanol</td><td class="on">1,2</td></tr>
+        <tr><td>Etilen glikol</td><td class="on">≈ 20</td></tr>
+        <tr><td>Gliserin</td><td class="on">≈ 1400</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="kutu kavram serit" style="margin-top:3.5mm">
+    <div class="etiket">@ikon:lab Ölçüm · Ostwald viskozimetresi</div>
+    <p style="font-size:9.1pt;margin:0">İnce bir cam borudan, eşit hacimde sıvının iki işaret çizgisi arasından akma süresi ölçülür. Aynı sıcaklıkta ve aynı düzenekte <b>akma süresi uzun olan sıvının viskozitesi büyüktür</b>. Viskozite sıcaklıkla değiştiği için ölçüm sırasında sıcaklık sabit tutulur.</p>
+  </div>
+
+  <div class="iki">
+    <div class="kutu ornek" style="margin-bottom:0">
+      <div class="etiket">@ikon:ornek Çözümlü Örnek 6</div>
+      <div class="soru" style="font-size:9pt">Aynı viskozimetrede 20 °C’de eşit hacimdeki A, B ve C sıvılarının akma süreleri 18 s, 6 s ve 140 s’dir. a) Viskozite sırası nedir? b) A 40 °C’ye ısıtılıp ölçüm tekrarlanırsa akma süresi nasıl değişir?</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">a</span><span>Süre uzadıkça viskozite artar: <b>C &gt; A &gt; B</b> (akıcılık: B &gt; A &gt; C).</span></div>
+        <div class="adim"><span class="n">b</span><span>Isınan sıvının viskozitesi azalır; süre <b>18 s’den kısa</b> olur.</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="kutu dikkat">
+        <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Yoğunluğu büyük olan sıvı daha akmazdır.”</div>
+          <div class="dogru"><b class="d">✓</b> Cıva sudan 13,6 kat yoğundur ama viskozitesi (≈ 1,5 mPa·s) suyunkine yakındır. Zeytinyağı sudan hafiftir ama çok daha akmazdır.</div>
+        </div>
+      </div>
+      <div class="kutu hayat" style="margin-bottom:0">
+        <div class="etiket">@ikon:hayat Hayatın İçinden</div>
+        <p style="font-size:8.9pt;margin:0">Motor yağlarının etiketindeki “5W-30” gibi kodlar viskozite sınıfıdır; “W” (winter) soğukta akabilme yeteneğini gösterir. Soğuk motorda yağın yeterince akıcı olması gerekir.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · YÜZEY GERİLİMİ VE KILCALLIK
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Yüzey gerilimi ve kılcallık</span></div>
+
+  <h2 class="konu"><span class="num">8</span>Yüzey gerilimi ve kılcallık</h2>
+  <div class="alt-baslik">Sıvının yüzeyi, gerilmiş ince bir zar gibi davranır.</div>
+
+  <div class="iki-genis" style="grid-template-columns:1.15fr 1fr;align-items:start">
+    <div class="kutu kavram" style="margin-bottom:0">
+      <div class="etiket">@ikon:kavram Kavram · Yüzey gerilimi</div>
+      <p>Sıvının içindeki bir tanecik her yönden eşit çekilir. Yüzeydeki tanecik ise yalnızca yanlardan ve alttan çekilir; üzerine <b>içe doğru net bir çekim</b> etki eder. Bu yüzden sıvı, yüzeyini olabildiğince küçültmeye çalışır.</p>
+      <p style="margin:0">Sıvı yüzeyini birim alan kadar genişletmek için gereken enerjiye <b>yüzey gerilimi</b> denir. Tanecikler arası etkileşim güçlendikçe yüzey gerilimi artar; sıcaklık arttıkça azalır.</p>
+    </div>
+    <div>
+      <div class="grafik-kutu" style="margin-bottom:2mm"><svg viewBox="0 0 100 58" class="grafik"><defs><marker id="yz-u" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#7c2d12"/></marker></defs><g font-family="Inter"><rect x="4" y="16" width="92" height="40" rx="2" fill="#dbeafe"/><line x1="4" y1="16" x2="96" y2="16" stroke="#3b82f6" stroke-width=".6"/><circle cx="8.0" cy="19.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="15.6" cy="19.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="23.2" cy="19.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="30.8" cy="19.5" r="2.1" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="38.4" cy="19.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="46.0" cy="19.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="53.6" cy="19.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="61.2" cy="19.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="68.8" cy="19.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="76.4" cy="19.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="84.0" cy="19.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="91.6" cy="19.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="11.8" cy="27.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="19.4" cy="27.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="27.0" cy="27.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="34.6" cy="27.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="42.2" cy="27.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="49.8" cy="27.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="57.4" cy="27.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="65.0" cy="27.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="72.6" cy="27.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="80.2" cy="27.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="87.8" cy="27.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="8.0" cy="34.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="15.6" cy="34.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="23.2" cy="34.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="30.8" cy="34.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="38.4" cy="34.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="46.0" cy="34.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="53.6" cy="34.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="61.2" cy="34.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="68.8" cy="34.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="76.4" cy="34.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="84.0" cy="34.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="91.6" cy="34.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="11.8" cy="42.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="19.4" cy="42.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="27.0" cy="42.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="34.6" cy="42.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="42.2" cy="42.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="49.8" cy="42.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="57.4" cy="42.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="65.0" cy="42.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="72.6" cy="42.0" r="2.1" fill="#fcd34d" stroke="#b45309" stroke-width=".35"/><circle cx="80.2" cy="42.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="87.8" cy="42.0" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="8.0" cy="49.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="15.6" cy="49.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="23.2" cy="49.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="30.8" cy="49.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="38.4" cy="49.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="46.0" cy="49.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="53.6" cy="49.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="61.2" cy="49.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="68.8" cy="49.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="76.4" cy="49.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="84.0" cy="49.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><circle cx="91.6" cy="49.5" r="2.1" fill="#93c5fd" stroke="#1d4ed8" stroke-width=".35"/><path d="M33.2 19.5 L37.4 19.5" stroke="#7c2d12" stroke-width=".55" marker-end="url(#yz-u)"/><path d="M28.4 19.5 L24.2 19.5" stroke="#7c2d12" stroke-width=".55" marker-end="url(#yz-u)"/><path d="M32.0 21.6 L34.1 25.2" stroke="#7c2d12" stroke-width=".55" marker-end="url(#yz-u)"/><path d="M29.6 21.6 L27.5 25.2" stroke="#7c2d12" stroke-width=".55" marker-end="url(#yz-u)"/><path d="M75.0 42.0 L79.2 42.0" stroke="#7c2d12" stroke-width=".55" marker-end="url(#yz-u)"/><path d="M73.8 44.1 L75.9 47.7" stroke="#7c2d12" stroke-width=".55" marker-end="url(#yz-u)"/><path d="M71.4 44.1 L69.3 47.7" stroke="#7c2d12" stroke-width=".55" marker-end="url(#yz-u)"/><path d="M70.2 42.0 L66.0 42.0" stroke="#7c2d12" stroke-width=".55" marker-end="url(#yz-u)"/><path d="M71.4 39.9 L69.3 36.3" stroke="#7c2d12" stroke-width=".55" marker-end="url(#yz-u)"/><path d="M73.8 39.9 L75.9 36.3" stroke="#7c2d12" stroke-width=".55" marker-end="url(#yz-u)"/><text x="30.8" y="6.4" font-size="3.4" text-anchor="middle" font-weight="800" fill="#4a1a0a" >Yüzeydeki tanecik</text><text x="30.8" y="11.2" font-size="3.1" text-anchor="middle" font-weight="400" fill="#5d6478" >net çekim içe doğru</text><text x="72.6" y="6.4" font-size="3.4" text-anchor="middle" font-weight="800" fill="#4a1a0a" >İçteki tanecik</text><text x="72.6" y="11.2" font-size="3.1" text-anchor="middle" font-weight="400" fill="#5d6478" >çekimler dengede</text></g></svg></div>
+      <table class="tablo sik" style="font-size:8.4pt;margin-bottom:0">
+        <tr><th>Sıvı (20 °C)</th><th class="on">Su</th><th class="on">Gliserin</th><th class="on">Etanol</th><th class="on">Cıva</th></tr>
+        <tr><td>Yüzey gerilimi (mN/m)</td><td class="on">73</td><td class="on">63</td><td class="on">22</td><td class="on">≈ 485</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <p style="font-size:9.2pt;margin-top:3mm">Yüzey gerilimi sayesinde yağmur damlaları küresele yakın biçim alır, su kayıcısı adlı böcekler suyun üzerinde yürür, dikkatle bırakılan çelik bir iğne suyun yüzeyinde durabilir. Sabun ve deterjan suyun yüzey gerilimini düşürür; su kumaşın liflerine daha kolay yayılır ve iyi ıslatır.</p>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:kavram Kavram · Kohezyon, adezyon, kılcallık</div>
+    <p style="margin:0"><b>Kohezyon:</b> Aynı türden tanecikler arasındaki çekim (su–su). <b>Adezyon:</b> Farklı türden tanecikler arasındaki çekim (su–cam). İnce bir boruya batırılan sıvının, bu iki kuvvetin yarışı sonucunda boruda yükselmesi ya da alçalmasına <b>kılcallık</b> denir. Boru daraldıkça etki büyür. Sıvının borudaki eğri yüzeyine <b>menisküs</b> denir.</p>
+  </div>
+
+  <div class="grafik-kutu"><div class="gb">Cam borularda su ve cıva</div><svg viewBox="0 0 180 70" class="grafik"><g font-family="Inter"><rect x="8" y="40" width="72" height="16" fill="#dbeafe"/><path d="M8 30 V56 H80 V30" fill="none" stroke="#94a3b8" stroke-width=".8"/><line x1="8" y1="40" x2="80" y2="40" stroke="#3b82f6" stroke-width=".4"/><rect x="25.5" y="6" width="9.0" height="46" fill="#fff"/><path d="M25.5 29.4 Q30.0 32.6 34.5 29.4 V52 H25.5Z" fill="#dbeafe"/><path d="M25.5 29.4 Q30.0 32.6 34.5 29.4" fill="none" stroke="#3b82f6" stroke-width=".5"/><line x1="25.1" y1="6" x2="25.1" y2="54" stroke="#94a3b8" stroke-width=".7"/><line x1="34.9" y1="6" x2="34.9" y2="54" stroke="#94a3b8" stroke-width=".7"/><rect x="54.0" y="6" width="4.0" height="46" fill="#fff"/><path d="M54.0 19.0 Q56.0 21.0 58.0 19.0 V52 H54.0Z" fill="#dbeafe"/><path d="M54.0 19.0 Q56.0 21.0 58.0 19.0" fill="none" stroke="#3b82f6" stroke-width=".5"/><line x1="53.6" y1="6" x2="53.6" y2="54" stroke="#94a3b8" stroke-width=".7"/><line x1="58.4" y1="6" x2="58.4" y2="54" stroke="#94a3b8" stroke-width=".7"/><line x1="20" y1="40" x2="66" y2="40" stroke="#3b82f6" stroke-width=".3" stroke-dasharray="1 .8"/><text x="30.0" y="3.6" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >geniş boru</text><text x="56.0" y="3.6" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >dar boru</text><text x="44.0" y="62.0" font-size="3.6" text-anchor="middle" font-weight="800" fill="#4a1a0a" >Su · cam</text><text x="44.0" y="67.0" font-size="3.2" text-anchor="middle" font-weight="700" fill="#7c2d12" >adezyon &gt; kohezyon · menisküs çukur</text><rect x="100" y="40" width="72" height="16" fill="#cbd5e1"/><path d="M100 30 V56 H172 V30" fill="none" stroke="#94a3b8" stroke-width=".8"/><line x1="100" y1="40" x2="172" y2="40" stroke="#475569" stroke-width=".4"/><rect x="117.5" y="6" width="9.0" height="46" fill="#fff"/><path d="M117.5 46.6 Q122.0 43.4 126.5 46.6 V52 H117.5Z" fill="#cbd5e1"/><path d="M117.5 46.6 Q122.0 43.4 126.5 46.6" fill="none" stroke="#475569" stroke-width=".5"/><line x1="117.1" y1="6" x2="117.1" y2="54" stroke="#94a3b8" stroke-width=".7"/><line x1="126.9" y1="6" x2="126.9" y2="54" stroke="#94a3b8" stroke-width=".7"/><rect x="146.0" y="6" width="4.0" height="46" fill="#fff"/><path d="M146.0 51.0 Q148.0 49.0 150.0 51.0 V52 H146.0Z" fill="#cbd5e1"/><path d="M146.0 51.0 Q148.0 49.0 150.0 51.0" fill="none" stroke="#475569" stroke-width=".5"/><line x1="145.6" y1="6" x2="145.6" y2="54" stroke="#94a3b8" stroke-width=".7"/><line x1="150.4" y1="6" x2="150.4" y2="54" stroke="#94a3b8" stroke-width=".7"/><line x1="112" y1="40" x2="158" y2="40" stroke="#475569" stroke-width=".3" stroke-dasharray="1 .8"/><text x="122.0" y="3.6" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >geniş boru</text><text x="148.0" y="3.6" font-size="3" text-anchor="middle" font-weight="400" fill="#5d6478" >dar boru</text><text x="136.0" y="62.0" font-size="3.6" text-anchor="middle" font-weight="800" fill="#4a1a0a" >Cıva · cam</text><text x="136.0" y="67.0" font-size="3.2" text-anchor="middle" font-weight="700" fill="#7c2d12" >kohezyon &gt; adezyon · menisküs tümsek</text></g></svg><div class="ga">Su camı ıslatır, cam boyunca tırmanır; dar boruda daha çok yükselir. Cıva taneciklerinin birbirini çekmesi camla çekiminden güçlüdür; cıva camı ıslatmaz ve boruda alçalır.</div></div>
+
+  <div class="iki">
+    <div class="kutu hayat" style="margin-bottom:0">
+      <div class="etiket">@ikon:hayat Hayatın İçinden</div>
+      <p style="font-size:8.9pt;margin:0">Kâğıt havlunun dökülen suyu çekmesi, gaz lambası fitilinde yakıtın yükselmesi ve topraktaki suyun ince gözeneklerde yukarı doğru ilerlemesi kılcallıkla ilgilidir. Bitkilerde suyun köklerden yapraklara taşınmasında da ince iletim borularındaki kılcallık rol oynar; ancak asıl itici güç yapraklardan suyun buharlaşmasıdır.</p>
+    </div>
+    <div class="kutu dikkat" style="margin-bottom:0">
+      <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+      <div class="yanilgi" style="grid-template-columns:1fr">
+        <div class="yanlis"><b class="y">✗</b> “Su yüzeyinde duran iğne sudan hafiftir.”</div>
+        <div class="dogru"><b class="d">✓</b> Çeliğin yoğunluğu (≈ 7,8 g/cm^3) sudan çok büyüktür. İğneyi taşıyan, yüzeyin “zar” gibi davranmasıdır. Suya biraz deterjan damlatılırsa iğne batar.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · ÖZET
+     ========================================================= -->
+<section class="sayfa cift ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada sıvılar</h2><p>Sınavdan önceki gece bu sayfaya bakman yeter. Her kutuyu kendi cümlelerinle bir arkadaşına anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket">@ikon:kavram Buharlaşma ve hızı</div>
+      <ul style="font-size:9pt">
+        <li>Her sıcaklıkta, yalnızca yüzeyde; endotermik</li>
+        <li>Hızı artıranlar: zayıf etkileşim, geniş yüzey, yüksek sıcaklık, rüzgâr</li>
+        <li>Hızı azaltanlar: nem, yüksek dış basınç, çözünmüş tuz</li>
+        <li>Sıvı miktarı hızı değil, tükenme süresini değiştirir</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket">@ikon:ornek Denge buhar basıncı</div>
+      <ul style="font-size:9pt">
+        <li>Kapalı kapta buharlaşma hızı = yoğuşma hızı</li>
+        <li>Bağlı: sıvının cinsi, sıcaklık, saflık</li>
+        <li>Bağlı değil: miktar, yüzey alanı, kap hacmi, dış basınç</li>
+        <li>Sıcaklıkla artar, eğri giderek dikleşir</li>
+        <li>Aynı sıcaklıkta P<sub>buhar</sub> büyük → uçucu</li>
+      </ul>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket">@ikon:kavram Kaynama</div>
+      <ul style="font-size:9pt">
+        <li>Koşul: P<sub>buhar</sub> = P<sub>dış</sub>; sıvının her yerinde</li>
+        <li>Normal KN: dış basınç 760 mmHg iken</li>
+        <li>Dış basınç ↑ → KN ↑ (düdüklü tencere ≈ 120 °C)</li>
+        <li>Dış basınç ↓ → KN ↓ (Everest ≈ 72 °C)</li>
+        <li>Saf sıvıda sıcaklık sabit; tuzlu suda KN yüksek ve artar</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket">@ikon:dikkat Viskozite ve yüzey</div>
+      <ul style="font-size:9pt">
+        <li>Viskozite: akmaya direnç; sıcaklık ↑ → viskozite ↓</li>
+        <li>Etkileşim güçlü, molekül büyük → genellikle viskoz</li>
+        <li>Yüzey gerilimi: yüzeydeki net içe çekim; deterjan düşürür</li>
+        <li>Su: adezyon &gt; kohezyon → çukur menisküs, yükselir</li>
+        <li>Cıva: kohezyon &gt; adezyon → tümsek menisküs, alçalır</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Buharlaşmanın neden endotermik olduğunu ve neden soğuttuğunu açıklayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Buharlaşma hızını etkileyen bir etkeni, değişkenleri doğru seçerek test edebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Denge buhar basıncının neye bağlı olup olmadığını gerekçesiyle söyleyebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Buhar basıncı–sıcaklık grafiğinden kaynama noktası ve uçuculuk okuyabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Dış basıncın ve safsızlığın kaynama noktasına etkisini günlük örneklerle açıklayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Viskozite, yüzey gerilimi ve kılcallığı tanecikler arası etkileşimlerle ilişkilendirebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:4mm;height:31mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Aşağıdaki çözümleri dört farklı öğrenci yazdı. Her birinde bir hata var. Hatayı bul, hangi satırda olduğunu yaz, doğrusunu kutuya çöz.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Deniz seviyesinde kaynayan bir tencere suyun altındaki ocak en yüksek ayara getiriliyor. Suyun sıcaklığı nasıl değişir?</p>
+      <div class="defter">
+        <div class="ogrenci">Defne’nin çözümü</div>
+        <div class="satir"><span class="sn">1</span>Ocak kısıkken su 100 °C’de kaynıyor.</div>
+        <div class="satir"><span class="sn">2</span>Alev büyüyünce suya birim zamanda daha çok ısı verilir.</div>
+        <div class="satir"><span class="sn">3</span>Bu yüzden su 100 °C’nin üstüne çıkar, makarna çabuk pişer.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> 25 °C’de birinde 1 L, diğerinde 5 L saf su bulunan iki kapalı kapta denge kurulmuştur. Buhar basınçlarını karşılaştırınız.</p>
+      <div class="defter">
+        <div class="ogrenci">Arda’nın çözümü</div>
+        <div class="satir"><span class="sn">1</span>Sıvı türü ve sıcaklık iki kapta da aynı.</div>
+        <div class="satir"><span class="sn">2</span>Denge buhar basıncı sıvının miktarıyla artar.</div>
+        <div class="satir"><span class="sn">3</span>5 L su bulunan kabın buhar basıncı daha büyüktür.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Buzdolabından çıkan bal ile tencerede ılıtılmış bal karşılaştırılıyor. Hangisi kaşıktan daha kolay akar?</p>
+      <div class="defter">
+        <div class="ogrenci">Zeynep’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>Isıtılan balın molekülleri daha hızlı hareket eder.</div>
+        <div class="satir"><span class="sn">2</span>Hızlanan moleküller daha çok sürtünür, viskozite artar.</div>
+        <div class="satir"><span class="sn">3</span>Soğuk bal daha kolay akar.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="margin-bottom:1.4mm"><b>Soru:</b> Suyun buhar basıncı 90 °C’de 526, 95 °C’de 634 mmHg’dir. Dış basıncın 600 mmHg olduğu bir yerde su kaç °C dolayında kaynar?</p>
+      <div class="defter">
+        <div class="ogrenci">Emir’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>Kaynamada buhar basıncı dış basınca eşittir.</div>
+        <div class="satir"><span class="sn">2</span>600 mmHg, 526 ile 634 mmHg arasındadır.</div>
+        <div class="satir"><span class="sn">3</span>O hâlde su 95 °C’nin üstünde bir sıcaklıkta kaynar.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Bu bölümde hataların çoğu iki kavramı karıştırmaktan doğar: <b>hız</b> ile <b>denge</b>, <b>ısı</b> ile <b>sıcaklık</b>. Bir niceliğin neye bağlı olduğunu söylemeden önce “bu, birim zamanda olan bir şey mi, yoksa ulaşılan son durum mu?” diye sor.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni ve görseli oku, sonra hangi bilginin işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:lab Laboratuvar</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p>Bir öğrenci çeker ocak altında, özdeş petri kaplarına 25 °C’de 10’ar mL sıvı koyuyor ve her birinin tamamen buharlaşma süresini ölçüyor.</p>
+          <table class="tablo sik" style="font-size:8.6pt">
+            <tr><th>Sıvı</th><th class="on">Aseton</th><th class="on">Etanol</th><th class="on">Su</th></tr>
+            <tr><td>Süre (dk)</td><td class="on">6</td><td class="on">15</td><td class="on">52</td></tr>
+          </table>
+          <div class="oncul" style="font-size:9.3pt"><div><b>I.</b><span>Tanecikler arası etkileşimi en güçlü olan sudur.</span></div><div><b>II.</b><span>25 °C’de buhar basıncı en büyük olan asetondur.</span></div><div><b>III.</b><span>Bu deneyde kontrol edilen değişken sıvının türüdür.</span></div></div>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Günlük hayat</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p>Bir dağcı, farklı yüksekliklerde suyun kaynama noktasını ölçmüş ve grafiği çizmiştir.</p>
+          <div class="grafik-kutu" style="margin:1mm 0 2mm"><svg viewBox="0 0 120 60" class="grafik"><g font-family="Inter"><line x1="16" y1="50.0" x2="114" y2="50.0" stroke="#eef0f5" stroke-width=".3"/><text x="14.6" y="51.2" font-size="3.1" text-anchor="end" font-weight="400" fill="#5d6478" >80</text><line x1="16" y1="40.0" x2="114" y2="40.0" stroke="#eef0f5" stroke-width=".3"/><text x="14.6" y="41.2" font-size="3.1" text-anchor="end" font-weight="400" fill="#5d6478" >85</text><line x1="16" y1="30.0" x2="114" y2="30.0" stroke="#eef0f5" stroke-width=".3"/><text x="14.6" y="31.2" font-size="3.1" text-anchor="end" font-weight="400" fill="#5d6478" >90</text><line x1="16" y1="20.0" x2="114" y2="20.0" stroke="#eef0f5" stroke-width=".3"/><text x="14.6" y="21.2" font-size="3.1" text-anchor="end" font-weight="400" fill="#5d6478" >95</text><line x1="16" y1="10.0" x2="114" y2="10.0" stroke="#eef0f5" stroke-width=".3"/><text x="14.6" y="11.2" font-size="3.1" text-anchor="end" font-weight="400" fill="#5d6478" >100</text><line x1="16" y1="50" x2="114" y2="50" stroke="#1d2133" stroke-width=".5"/><line x1="16" y1="50" x2="16" y2="6" stroke="#1d2133" stroke-width=".5"/><text x="16.0" y="54.2" font-size="3.1" text-anchor="middle" font-weight="400" fill="#5d6478" >0</text><text x="35.6" y="54.2" font-size="3.1" text-anchor="middle" font-weight="400" fill="#5d6478" >1000</text><text x="55.2" y="54.2" font-size="3.1" text-anchor="middle" font-weight="400" fill="#5d6478" >2000</text><text x="74.8" y="54.2" font-size="3.1" text-anchor="middle" font-weight="400" fill="#5d6478" >3000</text><text x="94.4" y="54.2" font-size="3.1" text-anchor="middle" font-weight="400" fill="#5d6478" >4000</text><text x="114.0" y="54.2" font-size="3.1" text-anchor="middle" font-weight="400" fill="#5d6478" >5000</text><polyline fill="none" stroke="#7c2d12" stroke-width="1" points="16.0,10.0 35.6,16.6 55.2,23.3 74.8,29.9 94.4,36.6 114.0,43.3"/><circle cx="16.0" cy="10.0" r="1.1" fill="#7c2d12"/><text x="17.6" y="7.8" font-size="3" text-anchor="start" font-weight="700" fill="#4a1a0a" >100</text><circle cx="35.6" cy="16.6" r="1.1" fill="#7c2d12"/><text x="37.2" y="14.4" font-size="3" text-anchor="start" font-weight="700" fill="#4a1a0a" >97</text><circle cx="55.2" cy="23.3" r="1.1" fill="#7c2d12"/><text x="56.8" y="21.1" font-size="3" text-anchor="start" font-weight="700" fill="#4a1a0a" >93</text><circle cx="74.8" cy="29.9" r="1.1" fill="#7c2d12"/><text x="76.4" y="27.7" font-size="3" text-anchor="start" font-weight="700" fill="#4a1a0a" >90</text><circle cx="94.4" cy="36.6" r="1.1" fill="#7c2d12"/><text x="96.0" y="34.4" font-size="3" text-anchor="start" font-weight="700" fill="#4a1a0a" >87</text><circle cx="114.0" cy="43.3" r="1.1" fill="#7c2d12"/><text x="112.4" y="41.1" font-size="3" text-anchor="end" font-weight="700" fill="#4a1a0a" >83</text><text x="65.0" y="58.6" font-size="3.3" text-anchor="middle" font-weight="700" fill="#1d2133" >Deniz seviyesinden yükseklik (m)</text><text x="3.0" y="28.0" font-size="3.3" text-anchor="middle" font-weight="700" fill="#1d2133" transform="rotate(-90 3 28.0)">KN (°C)</text></g></svg></div>
+          <p>Buna göre aşağıdakilerden hangisi doğrudur?</p>
+          <div class="secenek tek"><span><b>A)</b>Yükseldikçe suyun belirli bir sıcaklıktaki buhar basıncı azalır.</span><span><b>B)</b>3000 m’de su yaklaşık 90 °C’de kaynar; yemek daha geç pişer.</span><span><b>C)</b>2000 m’de ocağın alevi büyütülürse su 100 °C’de kaynar.</span><span><b>D)</b>Yükseldikçe dış basınç artar.</span><span><b>E)</b>Kaynama noktası yükseklikten bağımsızdır.</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Endüstri</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p>Gliserin; ilaç, kozmetik ve gıda sanayisinde kullanılır. Dolum tesislerinde koyu gliserinin borulardan kolay akması için gliserin ısıtılır. Saf gliserinin bazı sıcaklıklardaki viskozitesi aşağıdadır.</p>
+          <table class="tablo sik" style="font-size:8.6pt">
+            <tr><th>t (°C)</th><th class="on">0</th><th class="on">20</th><th class="on">40</th><th class="on">50</th></tr>
+            <tr><td>Viskozite (mPa·s)</td><td class="on">12 070</td><td class="on">1410</td><td class="on">284</td><td class="on">142</td></tr>
+          </table>
+          <p>Buna göre hangisi doğrudur?</p>
+          <div class="secenek tek"><span><b>A)</b>Sıcaklık arttıkça gliserinin akıcılığı azalır.</span><span><b>B)</b>20 °C’den 40 °C’ye ısıtılınca viskozite yaklaşık 5 kat azalır.</span><span><b>C)</b>Isıtılınca gliserin molekülleri arasındaki etkileşim güçlenir.</span><span><b>D)</b>Gliserin borudan en hızlı 0 °C’de akar.</span><span><b>E)</b>Viskozite, sıcaklıkla doğrusal (eşit adımlarla) azalır.</span></div>
+        </div></div>
+      </div>
+
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Çevre</div>
+        <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+          <p>Su kayıcısı denen böcekler, ince ve su itici bacaklarıyla göl yüzeyinde batmadan yürür. Göle deterjanlı atık su karıştığında bu böceklerin yüzeyde kalamayıp battığı gözlenir. Saf suyun yüzey gerilimi 20 °C’de yaklaşık 73 mN/m iken deterjanlı suda bu değer yaklaşık 30 mN/m’ye düşebilir.</p>
+          <p>Böceklerin batmasının temel nedeni hangisidir?</p>
+          <div class="secenek tek"><span><b>A)</b>Deterjan suyun yüzey gerilimini azaltır.</span><span><b>B)</b>Deterjan suyun viskozitesini artırır.</span><span><b>C)</b>Deterjan suyun buhar basıncını artırır.</span><span><b>D)</b>Deterjan su molekülleri arasındaki kohezyonu artırır.</span><span><b>E)</b>Deterjan suyun kaynama noktasını düşürür.</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, sadece o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p>Havası boşaltılmış kapalı bir kaba 20 °C’de etanol konuyor. Denge kurulduğunda manometredeki cıva seviye farkı 44 mm oluyor. Seviye farkı ne olur? a) Sıcaklık sabitken kaba biraz daha etanol eklenirse b) Kap 30 °C’ye ısıtılırsa (etanolün 30 °C’deki buhar basıncı ≈ 78 mmHg) c) Aynı deney etanol yerine 20 °C’de su ile yapılsaydı (P<sub>buhar</sub> ≈ 17,5 mmHg)</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Seviye farkı (mm), buhar basıncına (mmHg) eşittir. Soru aslında “buhar basıncı nasıl değişir?” diye soruyor.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Buhar basıncını değiştiren üç etkeni hatırla: sıvının cinsi, sıcaklık, saflık. Miktar bunlardan biri mi?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">a’da hiçbir etken değişmedi; b’de sıcaklık, c’de sıvının cinsi değişti. Verilen değerleri yerine koy.</div></div>
+      </div>
+      <div class="cevap-alani" style="height:16mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p>Suyun buhar basıncı 80 °C’de 355, 90 °C’de 526, 100 °C’de 760, 110 °C’de 1075, 120 °C’de 1489 mmHg’dir. a) Bir dağ evinde su 90 °C’de kaynıyor. Buradaki dış basınç kaç mmHg’dir? b) Düdüklü tencerede su 120 °C’de kaynıyorsa tencerenin iç basıncı yaklaşık kaç atm’dir?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Kaynama anında hangi iki basınç birbirine eşittir?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Kaynama sıcaklığındaki buhar basıncını tablodan oku: o değer, sıvının üzerindeki basınçtır.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">mmHg’yi atm’ye çevirmek için 760’a böl.</div></div>
+      </div>
+      <div class="cevap-alani" style="height:16mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p>Bir öğrenci “Rüzgâr ıslak çamaşırların kurumasını hızlandırır mı?” sorusunu deneyle yanıtlamak istiyor. Elinde iki özdeş ıslak bez, bir vantilatör ve bir terazi var. Deneyini tasarlayıp bağımsız, bağımlı ve kontrol edilen değişkenleri yazınız.</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Öğrencinin bilerek değiştireceği tek şey nedir? Bir bezde var, ötekinde yok.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">“Kuruma hızını” nasıl ölçersin? Terazi ne işe yarar: belirli sürede bezlerin kaybettiği kütle.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Buharlaşma hızını etkileyen öteki etkenleri say: sıcaklık, yüzey alanı (bezin seriliş biçimi), sıvı türü ve miktarı, ortamın nemi. Bunlar iki bezde aynı olmalı.</div></div>
+      </div>
+      <div class="cevap-alani" style="height:16mm">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · TEST (1–6)
+     ========================================================= -->
+<section class="sayfa cift test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 25 dakika. Aksi belirtilmedikçe sıvılar saftır ve 1 atm = 760 mmHg alınır.</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>Buharlaşma ile ilgili aşağıdaki ifadelerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Her sıcaklıkta gerçekleşebilir.</span><span><b>B)</b>Yalnızca sıvının yüzeyinde gerçekleşir.</span><span><b>C)</b>Isı veren (ekzotermik) bir olaydır.</span><span><b>D)</b>Dışarıdan ısı verilmezse geride kalan sıvı soğur.</span><span><b>E)</b>Çekim kuvvetlerini yenecek enerjideki yüzey tanecikleri buhar fazına geçer.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>Aynı ortamda bulunan dört açık kapla ilgili bilgiler tabloda verilmiştir.</p>
+        <table class="tablo sik" style="font-size:8.5pt"><tr><th>Kap</th><th class="on">I</th><th class="on">II</th><th class="on">III</th><th class="on">IV</th></tr><tr><td>Sıvı</td><td class="on">su</td><td class="on">su</td><td class="on">su</td><td class="on">aseton</td></tr><tr><td>Sıcaklık</td><td class="on">20 °C</td><td class="on">20 °C</td><td class="on">40 °C</td><td class="on">20 °C</td></tr><tr><td>Yüzey</td><td class="on">S</td><td class="on">2S</td><td class="on">2S</td><td class="on">2S</td></tr></table>
+        <p>Yüzey alanının buharlaşma hızına etkisini incelemek için hangi iki kap karşılaştırılmalıdır?</p>
+        <div class="secenek bes"><span><b>A)</b>I, III</span><span><b>B)</b>II, III</span><span><b>C)</b>II, IV</span><span><b>D)</b>III, IV</span><span><b>E)</b>I, II</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p>Kapalı bir kapta sıvısıyla dengede olan suyun denge buhar basıncı;</p>
+        <div class="oncul"><div><b>I.</b><span>sıcaklık,</span></div><div><b>II.</b><span>sıvının miktarı,</span></div><div><b>III.</b><span>kabın hacmi,</span></div><div><b>IV.</b><span>sıvının yüzey alanı</span></div></div>
+        <p>niceliklerinden hangilerine bağlıdır?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>I ve II</span><span><b>C)</b>I ve IV</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, III ve IV</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p>X, Y ve Z sıvılarının buhar basıncı – sıcaklık grafiği verilmiştir.</p>
+        <div class="grafik-kutu" style="margin:1mm 0 1.6mm;padding:1.4mm 2mm 1mm"><svg viewBox="0 0 120 62" class="grafik"><defs><marker id="tb-o" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#1d2133"/></marker></defs><g font-family="Inter"><line x1="14" y1="52" x2="114" y2="52" stroke="#1d2133" stroke-width=".5" marker-end="url(#tb-o)"/><line x1="14" y1="52" x2="14" y2="3" stroke="#1d2133" stroke-width=".5" marker-end="url(#tb-o)"/><line x1="14" y1="17.0" x2="112" y2="17.0" stroke="#7c2d12" stroke-width=".4" stroke-dasharray="1.4 1"/><text x="12.6" y="18.2" font-size="3.2" text-anchor="end" font-weight="700" fill="#7c2d12" >760</text><polyline fill="none" stroke="#d97706" stroke-width=".9" points="14.0,47.1 14.4,47.0 14.8,46.8 15.1,46.7 15.5,46.5 15.9,46.4 16.3,46.2 16.6,46.1 17.0,45.9 17.4,45.7 17.8,45.5 18.1,45.4 18.5,45.2 18.9,45.0 19.3,44.8 19.7,44.6 20.0,44.4 20.4,44.2 20.8,44.0 21.2,43.8 21.5,43.6 21.9,43.3 22.3,43.1 22.7,42.9 23.0,42.6 23.4,42.4 23.8,42.2 24.2,41.9 24.6,41.6 24.9,41.4 25.3,41.1 25.7,40.8 26.1,40.5 26.4,40.2 26.8,39.9 27.2,39.6 27.6,39.3 27.9,39.0 28.3,38.7 28.7,38.3 29.1,38.0 29.5,37.7 29.8,37.3 30.2,37.0 30.6,36.6 31.0,36.2 31.3,35.8 31.7,35.4 32.1,35.0 32.5,34.6 32.8,34.2 33.2,33.8 33.6,33.3 34.0,32.9 34.4,32.5 34.7,32.0 35.1,31.5 35.5,31.0 35.9,30.6 36.2,30.1 36.6,29.5 37.0,29.0 37.4,28.5 37.7,28.0 38.1,27.4 38.5,26.9 38.9,26.3 39.3,25.7 39.6,25.1 40.0,24.5 40.4,23.9 40.8,23.3 41.1,22.6 41.5,22.0 41.9,21.3 42.3,20.6 42.6,19.9 43.0,19.2 43.4,18.5 43.8,17.8 44.2,17.0 44.5,16.3 44.9,15.5 45.3,14.7 45.7,13.9 46.0,13.1 46.4,12.3 46.8,11.4 47.2,10.6 47.5,9.7 47.9,8.8 48.3,7.9 48.7,7.0 49.1,6.1"/><text x="50.6" y="9.1" font-size="3.8" text-anchor="start" font-weight="800" fill="#d97706" >X</text><line x1="44.2" y1="17.0" x2="44.2" y2="52" stroke="#d97706" stroke-width=".35" stroke-dasharray="1 .8"/><text x="44.2" y="56.2" font-size="3.2" text-anchor="middle" font-weight="700" fill="#d97706" >40</text><polyline fill="none" stroke="#0f8f84" stroke-width=".9" points="14.0,50.5 14.4,50.4 14.8,50.4 15.1,50.4 15.5,50.3 15.9,50.3 16.3,50.2 16.6,50.2 17.0,50.1 17.4,50.1 17.8,50.0 18.1,49.9 18.5,49.9 18.9,49.8 19.3,49.8 19.7,49.7 20.0,49.7 20.4,49.6 20.8,49.5 21.2,49.5 21.5,49.4 21.9,49.3 22.3,49.3 22.7,49.2 23.0,49.1 23.4,49.0 23.8,49.0 24.2,48.9 24.6,48.8 24.9,48.7 25.3,48.6 25.7,48.5 26.1,48.5 26.4,48.4 26.8,48.3 27.2,48.2 27.6,48.1 27.9,48.0 28.3,47.9 28.7,47.8 29.1,47.7 29.5,47.6 29.8,47.5 30.2,47.3 30.6,47.2 31.0,47.1 31.3,47.0 31.7,46.9 32.1,46.8 32.5,46.6 32.8,46.5 33.2,46.4 33.6,46.2 34.0,46.1 34.4,46.0 34.7,45.8 35.1,45.7 35.5,45.5 35.9,45.4 36.2,45.2 36.6,45.1 37.0,44.9 37.4,44.7 37.7,44.6 38.1,44.4 38.5,44.2 38.9,44.0 39.3,43.9 39.6,43.7 40.0,43.5 40.4,43.3 40.8,43.1 41.1,42.9 41.5,42.7 41.9,42.5 42.3,42.3 42.6,42.1 43.0,41.9 43.4,41.6 43.8,41.4 44.2,41.2 44.5,41.0 44.9,40.7 45.3,40.5 45.7,40.2 46.0,40.0 46.4,39.7 46.8,39.5 47.2,39.2 47.5,38.9 47.9,38.6 48.3,38.4 48.7,38.1 49.1,37.8 49.4,37.5 49.8,37.2 50.2,36.9 50.6,36.6 50.9,36.3 51.3,35.9 51.7,35.6 52.1,35.3 52.4,35.0 52.8,34.6 53.2,34.3 53.6,33.9 54.0,33.5 54.3,33.2 54.7,32.8 55.1,32.4 55.5,32.0 55.8,31.6 56.2,31.2 56.6,30.8 57.0,30.4 57.3,30.0 57.7,29.6 58.1,29.1 58.5,28.7 58.9,28.3 59.2,27.8 59.6,27.3 60.0,26.9 60.4,26.4 60.7,25.9 61.1,25.4 61.5,24.9 61.9,24.4 62.2,23.9 62.6,23.4 63.0,22.8 63.4,22.3 63.8,21.7 64.1,21.2 64.5,20.6 64.9,20.0 65.3,19.5 65.6,18.9 66.0,18.3 66.4,17.7 66.8,17.0 67.1,16.4 67.5,15.8 67.9,15.1 68.3,14.5 68.7,13.8 69.0,13.1 69.4,12.4 69.8,11.7 70.2,11.0 70.5,10.3 70.9,9.6 71.3,8.8 71.7,8.1 72.0,7.3 72.4,6.6"/><text x="73.9" y="9.6" font-size="3.8" text-anchor="start" font-weight="800" fill="#0f8f84" >Y</text><line x1="66.8" y1="17.0" x2="66.8" y2="52" stroke="#0f8f84" stroke-width=".35" stroke-dasharray="1 .8"/><text x="66.8" y="56.2" font-size="3.2" text-anchor="middle" font-weight="700" fill="#0f8f84" >70</text><polyline fill="none" stroke="#3b82f6" stroke-width=".9" points="14.0,51.6 14.4,51.6 14.8,51.6 15.1,51.5 15.5,51.5 15.9,51.5 16.3,51.5 16.6,51.5 17.0,51.5 17.4,51.5 17.8,51.4 18.1,51.4 18.5,51.4 18.9,51.4 19.3,51.4 19.7,51.4 20.0,51.3 20.4,51.3 20.8,51.3 21.2,51.3 21.5,51.3 21.9,51.3 22.3,51.2 22.7,51.2 23.0,51.2 23.4,51.2 23.8,51.2 24.2,51.1 24.6,51.1 24.9,51.1 25.3,51.1 25.7,51.0 26.1,51.0 26.4,51.0 26.8,51.0 27.2,50.9 27.6,50.9 27.9,50.9 28.3,50.9 28.7,50.8 29.1,50.8 29.5,50.8 29.8,50.7 30.2,50.7 30.6,50.7 31.0,50.6 31.3,50.6 31.7,50.6 32.1,50.5 32.5,50.5 32.8,50.5 33.2,50.4 33.6,50.4 34.0,50.4 34.4,50.3 34.7,50.3 35.1,50.2 35.5,50.2 35.9,50.2 36.2,50.1 36.6,50.1 37.0,50.0 37.4,50.0 37.7,49.9 38.1,49.9 38.5,49.8 38.9,49.8 39.3,49.7 39.6,49.7 40.0,49.6 40.4,49.6 40.8,49.5 41.1,49.5 41.5,49.4 41.9,49.4 42.3,49.3 42.6,49.2 43.0,49.2 43.4,49.1 43.8,49.1 44.2,49.0 44.5,48.9 44.9,48.9 45.3,48.8 45.7,48.7 46.0,48.7 46.4,48.6 46.8,48.5 47.2,48.4 47.5,48.4 47.9,48.3 48.3,48.2 48.7,48.1 49.1,48.0 49.4,48.0 49.8,47.9 50.2,47.8 50.6,47.7 50.9,47.6 51.3,47.5 51.7,47.4 52.1,47.3 52.4,47.3 52.8,47.2 53.2,47.1 53.6,47.0 54.0,46.9 54.3,46.8 54.7,46.7 55.1,46.5 55.5,46.4 55.8,46.3 56.2,46.2 56.6,46.1 57.0,46.0 57.3,45.9 57.7,45.8 58.1,45.6 58.5,45.5 58.9,45.4 59.2,45.3 59.6,45.1 60.0,45.0 60.4,44.9 60.7,44.7 61.1,44.6 61.5,44.5 61.9,44.3 62.2,44.2 62.6,44.0 63.0,43.9 63.4,43.7 63.8,43.6 64.1,43.4 64.5,43.3 64.9,43.1 65.3,42.9 65.6,42.8 66.0,42.6 66.4,42.4 66.8,42.3 67.1,42.1 67.5,41.9 67.9,41.7 68.3,41.6 68.7,41.4 69.0,41.2 69.4,41.0 69.8,40.8 70.2,40.6 70.5,40.4 70.9,40.2 71.3,40.0 71.7,39.8 72.0,39.6 72.4,39.4 72.8,39.1 73.2,38.9 73.6,38.7 73.9,38.5 74.3,38.2 74.7,38.0 75.1,37.8 75.4,37.5 75.8,37.3 76.2,37.0 76.6,36.8 76.9,36.5 77.3,36.3 77.7,36.0 78.1,35.7 78.5,35.5 78.8,35.2 79.2,34.9 79.6,34.6 80.0,34.4 80.3,34.1 80.7,33.8 81.1,33.5 81.5,33.2 81.8,32.9 82.2,32.6 82.6,32.3 83.0,32.0 83.4,31.6 83.7,31.3 84.1,31.0 84.5,30.7 84.9,30.3 85.2,30.0 85.6,29.6 86.0,29.3 86.4,28.9 86.7,28.6 87.1,28.2 87.5,27.9 87.9,27.5 88.3,27.1 88.6,26.7 89.0,26.3 89.4,25.9 89.8,25.5 90.1,25.1 90.5,24.7 90.9,24.3 91.3,23.9 91.6,23.5 92.0,23.1 92.4,22.6 92.8,22.2 93.2,21.8 93.5,21.3 93.9,20.9 94.3,20.4 94.7,19.9 95.0,19.5 95.4,19.0 95.8,18.5 96.2,18.0 96.5,17.5 96.9,17.0 97.3,16.5 97.7,16.0 98.1,15.5 98.4,15.0 98.8,14.5 99.2,13.9 99.6,13.4 99.9,12.8 100.3,12.3 100.7,11.7 101.1,11.2 101.4,10.6 101.8,10.0 102.2,9.4 102.6,8.8 103.0,8.2 103.3,7.6 103.7,7.0 104.1,6.4"/><text x="105.6" y="9.4" font-size="3.8" text-anchor="start" font-weight="800" fill="#3b82f6" >Z</text><line x1="96.9" y1="17.0" x2="96.9" y2="52" stroke="#3b82f6" stroke-width=".35" stroke-dasharray="1 .8"/><text x="96.9" y="56.2" font-size="3.2" text-anchor="middle" font-weight="700" fill="#3b82f6" >110</text><text x="112.0" y="60.6" font-size="3.2" text-anchor="end" font-weight="700" fill="#1d2133" >Sıcaklık (°C)</text><text x="15.5" y="5.4" font-size="3.2" text-anchor="start" font-weight="700" fill="#1d2133" >Buhar basıncı (mmHg)</text></g></svg></div>
+        <p>Buna göre hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Aynı sıcaklıkta buhar basıncı en büyük olan X’tir.</span><span><b>B)</b>Tanecikler arası etkileşimi en güçlü olan Z’dir.</span><span><b>C)</b>X’in 40 °C’deki buhar basıncı 760 mmHg’dir.</span><span><b>D)</b>Dış basınç 1 atm’den düşükse Z, 110 °C’den yüksek sıcaklıkta kaynar.</span><span><b>E)</b>Uçuculuğu en az olan Z’dir.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p>Deniz seviyesinde 100 °C’de kaynayan saf su, yüksek bir yaylada 93 °C’de kaynamaktadır. Bunun nedeni aşağıdakilerden hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>Yaylada suyun buhar basıncı daha hızlı artar.</span><span><b>B)</b>Yaylada dış basınç düşüktür; buhar basıncı ona daha düşük sıcaklıkta eşitlenir.</span><span><b>C)</b>Yaylada su molekülleri arasındaki hidrojen bağları kopar.</span><span><b>D)</b>Yaylanın havası soğuk olduğu için su çabuk ısınır.</span><span><b>E)</b>Yaylada suyun yoğunluğu azaldığı için kaynama noktası düşer.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p>Düdüklü tencerede yemeklerin daha kısa sürede pişmesiyle ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>Tencerenin iç basıncı dış basınçtan büyüktür.</span></div><div><b>II.</b><span>Su, 100 °C’nin üzerinde kaynar.</span></div><div><b>III.</b><span>Suyun belirli bir sıcaklıktaki buhar basıncı artar.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I ve II</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">14</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 15 · TEST (7–12)
+     ========================================================= -->
+<section class="sayfa test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>Aynı ortamda bulunan saf su ve tuzlu su ile ilgili aşağıdakilerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Aynı sıcaklıkta saf suyun buhar basıncı daha büyüktür.</span><span><b>B)</b>Tuzlu su kaynarken sıcaklığı sabit kalır.</span><span><b>C)</b>Tuzlu suyun kaynama noktası daha yüksektir.</span><span><b>D)</b>Aynı koşullarda saf su daha hızlı buharlaşır.</span><span><b>E)</b>Kaynama anında ikisinin de buhar basıncı dış basınca eşittir.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p>Bazı maddelerin 1 atm’deki kaynama noktaları verilmiştir.</p>
+        <table class="tablo sik" style="font-size:8.5pt"><tr><th>Madde</th><th class="on">{H2O}</th><th class="on">HF</th><th class="on">{NH3}</th><th class="on">{CH4}</th></tr><tr><td>KN (°C)</td><td class="on">100</td><td class="on">20</td><td class="on">−33</td><td class="on">−161</td></tr></table>
+        <p>Buna göre aşağıdakilerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>{CH4} molekülleri arasında hidrojen bağı yoktur.</span><span><b>B)</b>0 °C ve 1 atm’de {NH3} gaz hâlindedir.</span><span><b>C)</b>Aynı sıcaklıkta buhar basıncı en büyük olan {CH4}’tür.</span><span><b>D)</b>25 °C ve 1 atm’de HF sıvı hâldedir.</span><span><b>E)</b>Farkların temel nedeni, moleküller arası etkileşimlerin gücüdür.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>Viskozite ile ilgili;</p>
+        <div class="oncul"><div><b>I.</b><span>Sıvının sıcaklığı artırılırsa viskozitesi azalır.</span></div><div><b>II.</b><span>Tanecikler arası etkileşimi güçlü olan sıvının akıcılığı genellikle azdır.</span></div><div><b>III.</b><span>Viskozitesi büyük olan sıvı, özdeş bir huniden daha kısa sürede akar.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p>Aynı viskozimetrede 20 °C’de eşit hacimdeki K, L ve M sıvılarının akma süreleri sırasıyla 12 s, 95 s ve 4 s ölçülmüştür. Bu sıvıların viskoziteleri arasındaki ilişki hangisidir?</p>
+        <div class="secenek tek"><span><b>A)</b>L &gt; K &gt; M</span><span><b>B)</b>M &gt; K &gt; L</span><span><b>C)</b>L &gt; M &gt; K</span><span><b>D)</b>K &gt; L &gt; M</span><span><b>E)</b>M &gt; L &gt; K</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <p>Cam kılcal borulara batırılan su ve cıva ile ilgili aşağıdakilerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Suyun boru içindeki menisküsü çukurdur.</span><span><b>B)</b>Cıva, kılcal boruda kaptaki seviyenin altında kalır.</span><span><b>C)</b>Su için adezyon kuvvetleri kohezyondan büyüktür.</span><span><b>D)</b>Cıvada kohezyon kuvvetleri adezyondan büyüktür.</span><span><b>E)</b>Boru daraldıkça suyun yükselme miktarı azalır.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <p>Aşağıdakilerden hangisi <b>yüzey gerilimiyle açıklanamaz</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Su kayıcısı böceklerin su yüzeyinde yürüyebilmesi</span><span><b>B)</b>Yağmur damlalarının küresele yakın biçim alması</span><span><b>C)</b>Kolonyanın cildi serinletmesi</span><span><b>D)</b>Dikkatle bırakılan çelik iğnenin su yüzeyinde durması</span><span><b>E)</b>Deterjan eklenen suyun kumaşı daha iyi ıslatması</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fffaf7;margin-top:0">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 3. ve 5. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">15</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 16 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Sıvılar ve Özellikleri</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>C</span></div><div><b>2</b><span>E</span></div><div><b>3</b><span>A</span></div><div><b>4</b><span>D</span></div>
+    <div><b>5</b><span>B</span></div><div><b>6</b><span>E</span></div><div><b>7</b><span>B</span></div><div><b>8</b><span>D</span></div>
+    <div><b>9</b><span>C</span></div><div><b>10</b><span>A</span></div><div><b>11</b><span>E</span></div><div><b>12</b><span>C</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · C</b> Tanecikleri birbirinden ayırmak enerji ister: buharlaşma ısı alan (endotermik) bir olaydır. Diğer ifadeler doğrudur.</div>
+    <div class="c"><b>2 · E</b> Yalnızca yüzey alanı farklı, sıvı ve sıcaklık aynı olan kaplar I (S) ve II (2S)’dir. II–III sıcaklığın, II–IV sıvı cinsinin etkisini gösterir.</div>
+    <div class="c"><b>3 · A</b> Denge buhar basıncı, aynı sıvı için yalnızca sıcaklığa bağlıdır. Miktar, hacim ve yüzey alanı denge değerini değiştirmez.</div>
+    <div class="c"><b>4 · D</b> Dış basınç düşerse buhar basıncı ona daha düşük sıcaklıkta eşitlenir; Z 110 °C’nin <b>altında</b> kaynar. A, B, C, E grafikten doğrudur.</div>
+    <div class="c"><b>5 · B</b> Buhar basıncı yalnızca sıcaklığa bağlıdır; yaylada dış basınç düşük olduğu için eşitlik 93 °C’de sağlanır.</div>
+    <div class="c"><b>6 · E</b> Kapak buharı tutar, iç basınç artar (I ✓) ve su yaklaşık 120 °C’de kaynar (II ✓). Belirli sıcaklıktaki buhar basıncı değişmez (III ✗).</div>
+    <div class="c"><b>7 · B</b> Kaynadıkça su azalır, tuz derişimi artar; tuzlu suyun kaynama sıcaklığı yavaşça yükselir. Saf sıvıda sıcaklık sabittir.</div>
+    <div class="c"><b>8 · D</b> HF’nin KN’si 20 °C’dir; 25 °C ve 1 atm’de gazdır. {CH4}’ün KN’si en düşük, buhar basıncı en büyüktür; {NH3} −33 °C’de kaynadığı için 0 °C’de gazdır.</div>
+    <div class="c"><b>9 · C</b> I ✓, II ✓. Viskozitesi büyük sıvı yavaş akar; aynı huniden <b>daha uzun</b> sürede boşalır (III ✗).</div>
+    <div class="c"><b>10 · A</b> Akma süresi uzadıkça viskozite artar: L (95 s) &gt; K (12 s) &gt; M (4 s).</div>
+    <div class="c"><b>11 · E</b> Kılcallık dar boruda daha belirgindir: boru daraldıkça su <b>daha çok</b> yükselir.</div>
+    <div class="c"><b>12 · C</b> Kolonyanın serinletmesi alkolün buharlaşırken ısı almasıyla (endotermik buharlaşma) açıklanır.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> En yavaş buharlaşan su: etkileşimi en güçlü (I ✓). En hızlı buharlaşan aseton: en uçucu, buhar basıncı en büyük (II ✓). Sıvının türü bilerek değiştirilmiştir; bağımsız değişkendir (III ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · B</b> Grafikte 3000 m ≈ 90 °C. Buhar basıncı yalnızca sıcaklığa bağlıdır (A ✗); kaynayan suyun sıcaklığı alevle artmaz (C ✗); yükseldikçe dış basınç azalır (D ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · B</b> 1410 / 284 ≈ 5. Isınınca etkileşimler daha kolay yenilir, akıcılık artar (A, C ✗). 0 °C’de viskozite en büyüktür (D ✗). Her 20 °C’lik adımda azalma oranı farklıdır (E ✗).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · A</b> Böceği taşıyan, yüzeyin zar gibi davranmasıdır. Deterjan yüzey gerilimini yaklaşık yarıdan fazla düşürür; yüzey böceği taşıyamaz.</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1 · 44 · ≈ 78 · ≈ 17,5 mm</b> Miktar buhar basıncını değiştirmez. Sıcaklık artınca buhar basıncı artar. Hidrojen bağları daha çok olan suyun buhar basıncı etanolünkinden küçüktür.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2 · 526 mmHg · ≈ 2 atm</b> Kaynamada P<sub>buhar</sub> = P<sub>dış</sub>. 90 °C’de P<sub>buhar</sub> = 526 mmHg. 120 °C’de 1489 mmHg; 1489 / 760 ≈ 1,96 ≈ 2 atm.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3 · Deney tasarımı</b> Bağımsız: rüzgâr (vantilatör açık / yok). Bağımlı: kuruma (buharlaşma) hızı, yani belirli sürede bezin kütle kaybı. Kontrol: bezlerin türü ve boyutu, ıslatma miktarı, seriliş biçimi, sıcaklık, ortam nemi, ölçüm süresi.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 3</b> Kaynayan saf suyun sıcaklığı dış basınçla belirlenir. Fazla ısı daha hızlı kaynamaya harcanır; sıcaklık 100 °C’de kalır.</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 2</b> Denge buhar basıncı sıvı miktarına bağlı değildir. İki kapta da 25 °C’deki değer (≈ 23,8 mmHg) aynıdır.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 2</b> Hızlanan moleküller aralarındaki etkileşimleri daha kolay yener; viskozite <b>azalır</b>. Ilık bal daha kolay akar.</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 3</b> 600 mmHg, 90 °C (526) ile 95 °C (634) değerleri arasındadır; kaynama noktası 90 ile 95 °C arasında, yaklaşık 93–94 °C’dir.</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Sıvılar</span><span class="no">16</span></div>
+</section>
+
+</body>
+</html>

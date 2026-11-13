@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Kimyasal Etkileşimler · Kimya Rotası 9</title>
+<style>
+/*KITAP_CSS*/
+
+/* ---- Bu üniteye özel ---- */
+:root { --unite: #15803d; --unite-acik: #ecf8f0; --unite-koyu: #0d4f26; }
+.kapak { padding: 0; background: #052e16; color: #fff; }
+.kapak .desen { position: absolute; inset: 0; }
+.kapak .ic { position: absolute; inset: 0; padding: 20mm 18mm 16mm; display: flex; flex-direction: column; }
+.kapak .ust { display: flex; justify-content: space-between; font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.kapak .bolum { margin-top: 30mm; font-size: 11pt; font-weight: 700; color: #fbbf24; letter-spacing: .12em; text-transform: uppercase; }
+.kapak h1 { font-size: 58pt; font-weight: 900; letter-spacing: -.02em; line-height: .95; margin-top: 3mm; }
+.kapak .slogan { font-size: 15pt; font-weight: 400; opacity: .9; margin-top: 4mm; }
+.kapak .avo { margin-top: 10mm; display: inline-flex; align-items: center; gap: 4mm; background: rgba(255,255,255,.08); border: .3mm solid rgba(255,255,255,.25); border-radius: 3mm; padding: 3mm 5mm; align-self: flex-start; }
+.kapak .avo b { font-size: 26pt; font-weight: 800; color: #fbbf24; white-space: nowrap; }
+.kapak .avo span { font-size: 9pt; opacity: .85; max-width: 66mm; line-height: 1.35; }
+.kapak .alt { margin-top: auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 6mm; }
+.kapak .panel { background: rgba(255,255,255,.95); color: var(--metin); border-radius: 4mm; padding: 4.5mm 5mm; }
+.kapak .panel h4 { font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--unite); margin-bottom: 2mm; }
+.icindekiler { list-style: none; padding: 0; margin: 0; font-size: 9.4pt; }
+.icindekiler li { display: flex; justify-content: space-between; gap: 2mm; border-bottom: .3mm dotted #c6dccd; padding: .9mm 0; margin: 0; }
+.icindekiler li span:last-child { font-weight: 700; color: var(--unite); }
+.lejant { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; font-size: 8.4pt; }
+.lejant div { display: flex; align-items: center; gap: 1.6mm; }
+.lejant i { width: 5.6mm; height: 5.6mm; border-radius: 1.4mm; background: var(--renk); color: #fff; display: grid; place-items: center; flex: none; }
+.lejant i svg { width: 3.6mm; height: 3.6mm; }
+
+.grafik { width: 100%; height: auto; display: block; }
+.grafik-kutu { border: .3mm solid var(--cizgi); border-radius: 3mm; padding: 2mm 2.4mm 1.4mm; background: #fff; margin-bottom: 3.5mm; }
+.grafik-kutu .gb { font-size: 8pt; font-weight: 700; color: var(--unite-koyu); letter-spacing: .04em; margin-bottom: .6mm; }
+.grafik-kutu .ga { font-size: 7.8pt; color: var(--soluk); line-height: 1.3; margin-top: .6mm; }
+.lw { height: auto; display: block; margin: 0 auto; }
+.lw-sira { display: flex; justify-content: space-around; align-items: center; gap: 3mm; flex-wrap: wrap; }
+.lw-sira > div { text-align: center; font-size: 8pt; color: var(--soluk); }
+table.tablo td.lwh { padding: .6mm 2mm; }
+table.tablo td.on, table.tablo th.on { text-align: center; }
+table.tablo.sik td, table.tablo.sik th { padding: .9mm 2mm; }
+.hatirlat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4mm; margin: 1mm 0 3.5mm; }
+.hatirlat div { background: var(--unite-acik); border-radius: 2.4mm; padding: 2mm 2.4mm; font-size: 8.4pt; line-height: 1.35; }
+.hatirlat b { display: block; color: var(--unite-koyu); font-size: 9pt; }
+.adimlar { counter-reset: a; list-style: none; padding: 0; margin: 0 0 2.4mm; }
+.adimlar li { counter-increment: a; display: grid; grid-template-columns: 6mm 1fr; gap: 1.4mm; font-size: 9.3pt; margin-bottom: 1.2mm; }
+.adimlar li::before { content: counter(a); width: 4.8mm; height: 4.8mm; border-radius: 50%; background: var(--unite); color: #fff; font-size: 7.2pt; font-weight: 800; display: grid; place-items: center; margin-top: .3mm; }
+.pos { color: #4f46e5; font-weight: 700; }
+.neg { color: #e11d48; font-weight: 700; }
+
+.ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.test .iki { min-height: 196mm; }
+.test.devam .iki { min-height: 212mm; }
+.test .iki > div { display: flex; flex-direction: column; justify-content: space-between; padding-bottom: 6mm; }
+.test .iki > div + div { border-left: .3mm solid var(--cizgi); padding-left: 6mm; }
+.cizgili { height: 44mm; border-radius: 3mm; border: .3mm solid #f4e3a1; padding: 2mm 4mm;
+  background: repeating-linear-gradient(transparent 0 7.4mm, #eadfae 7.4mm 7.7mm), #fffbea; }
+.cizgili b { font-size: 8pt; letter-spacing: .1em; color: #a07a06; }
+.not-kagidi { background: #fffbea; border: .3mm solid #f4e3a1; border-radius: 3mm; padding: 3mm 4mm; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     SAYFA 1 · BÖLÜM KAPAĞI
+     ========================================================= -->
+<section class="sayfa kapak">
+  <svg class="desen" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="kg1" cx="80%" cy="18%" r="80%"><stop offset="0" stop-color="#22c55e"/><stop offset=".45" stop-color="#15803d"/><stop offset="1" stop-color="#052e16"/></radialGradient>
+    </defs>
+    <rect width="210" height="297" fill="url(#kg1)"/>
+    <!-- elektron denizi: katyon ızgarası ve serbest elektronlar -->
+    <g fill="none" stroke="#ffffff" stroke-opacity=".18" stroke-width=".35">
+      <circle cx="122" cy="26" r="6"/><circle cx="142" cy="26" r="6"/><circle cx="162" cy="26" r="6"/><circle cx="182" cy="26" r="6"/><circle cx="202" cy="26" r="6"/>
+      <circle cx="132" cy="44" r="6"/><circle cx="152" cy="44" r="6"/><circle cx="172" cy="44" r="6"/><circle cx="192" cy="44" r="6"/>
+      <circle cx="142" cy="62" r="6"/><circle cx="162" cy="62" r="6"/><circle cx="182" cy="62" r="6"/><circle cx="202" cy="62" r="6"/>
+    </g>
+    <g fill="#ffffff" fill-opacity=".22" font-family="Inter" font-size="5" font-weight="800" text-anchor="middle">
+      <text x="122" y="27.8">+</text><text x="142" y="27.8">+</text><text x="162" y="27.8">+</text><text x="182" y="27.8">+</text><text x="202" y="27.8">+</text>
+      <text x="132" y="45.8">+</text><text x="152" y="45.8">+</text><text x="172" y="45.8">+</text><text x="192" y="45.8">+</text>
+      <text x="142" y="63.8">+</text><text x="162" y="63.8">+</text><text x="182" y="63.8">+</text><text x="202" y="63.8">+</text>
+    </g>
+    <g fill="#fbbf24" fill-opacity=".8">
+      <circle cx="131" cy="31" r=".9"/><circle cx="151" cy="20" r=".9"/><circle cx="169" cy="35" r=".9"/><circle cx="188" cy="18" r=".9"/>
+      <circle cx="141" cy="52" r=".9"/><circle cx="160" cy="53" r=".9"/><circle cx="181" cy="51" r=".9"/><circle cx="198" cy="37" r=".9"/>
+      <circle cx="151" cy="70" r=".9"/><circle cx="172" cy="68" r=".9"/><circle cx="193" cy="71" r=".9"/><circle cx="126" cy="38" r=".9"/>
+    </g>
+    <!-- iki atomun ortak elektron bulutu -->
+    <g transform="translate(168 132)">
+      <ellipse rx="30" ry="15" fill="#ffffff" fill-opacity=".07"/>
+      <circle cx="-13" r="2.2" fill="#ffffff" fill-opacity=".6"/><circle cx="13" r="2.2" fill="#ffffff" fill-opacity=".6"/>
+      <circle cx="0" cy="-1.6" r="1" fill="#fbbf24"/><circle cx="0" cy="1.6" r="1" fill="#fbbf24"/>
+    </g>
+    <g font-family="Inter Display" font-weight="800" fill="#ffffff" fill-opacity=".06" font-size="13">
+      <text x="-6" y="176">Na⁺Cl⁻ · H–H · O=O · N≡N · δ+ δ−</text>
+      <text x="-30" y="193">H–Cl · Mg²⁺O²⁻ · C=O · Na⁺Cl⁻ · H–H</text>
+      <text x="-14" y="210">N≡N · δ+ δ− · K⁺Br⁻ · O=O · H–F</text>
+    </g>
+  </svg>
+  <div class="ic">
+    <div class="ust"><span>Kimya Rotası · 9. Sınıf</span><span>Tema 2 · Bölüm 1</span></div>
+    <div class="bolum">Bölüm 1 · Etkileşimler</div>
+    <h1>Kimyasal<br>Etkileşimler</h1>
+    <div class="slogan">Atomları bir arada tutan güçlü bağlar</div>
+    <div class="avo"><b>8 e⁻</b><span>Oktet: Bağ kuran baş grup atomlarının çoğu son katmanındaki elektron sayısını sekize tamamlar.</span></div>
+
+    <div class="alt">
+      <div class="panel">
+        <h4>Bu bölümde</h4>
+        <ul class="icindekiler">
+          <li><span>1 · Kimyasal bağ ve metalik bağ</span><span>2</span></li>
+          <li><span>2 · İyonik bağın oluşumu</span><span>3</span></li>
+          <li><span>3 · İyonik bileşikler: formül ve özellikler</span><span>4</span></li>
+          <li><span>4 · Kovalent bağ</span><span>5</span></li>
+          <li><span>5 · Lewis yapıları</span><span>6</span></li>
+          <li><span>6 · Molekül polarlığı</span><span>7</span></li>
+          <li><span>Tek sayfada kimyasal bağlar</span><span>8</span></li>
+          <li><span>Hata Avcısı</span><span>9</span></li>
+          <li><span>Bağlam temelli sorular</span><span>10</span></li>
+          <li><span>İpucu Merdiveni</span><span>11</span></li>
+          <li><span>Bölüm testi</span><span>12</span></li>
+          <li><span>Cevap anahtarı ve çözümler</span><span>14</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Kutuları tanı</h4>
+        <div class="lejant">
+          <div style="--renk:var(--kavram)"><i>@ikon:kavram</i>Kavram</div>
+          <div style="--renk:var(--hayat)"><i>@ikon:hayat</i>Hayatın İçinden</div>
+          <div style="--renk:var(--dikkat)"><i>@ikon:dikkat</i>Kavram Yanılgısı</div>
+          <div style="--renk:var(--ornek)"><i>@ikon:ornek</i>Çözümlü Örnek</div>
+          <div style="--renk:var(--hata)"><i>@ikon:hata</i>Hata Avcısı</div>
+          <div style="--renk:var(--ipucu)"><i>@ikon:ipucu</i>İpucu Merdiveni</div>
+        </div>
+        <h4 style="margin-top:4mm">Bu bölümün sonunda…</h4>
+        <ul style="font-size:8.6pt;margin:0;padding-left:4mm;line-height:1.4">
+          <li>Metalik, iyonik ve kovalent bağı oluşumlarıyla ayırt edeceksin.</li>
+          <li>İyonik bileşiklerin formülünü yüklerden yazacaksın.</li>
+          <li>Lewis yapısı çizip molekülün polar mı apolar mı olduğuna karar vereceksin.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SAYFA 2 · KİMYASAL BAĞ VE METALİK BAĞ
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Etkileşimler</span><span>Metalik bağ</span></div>
+
+  <h2 class="konu"><span class="num">1</span>Kimyasal bağ ve metalik bağ</h2>
+  <div class="alt-baslik">Tanecikleri bir arada tutan çekim kuvvetlerinin en güçlüleri</div>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1.05fr;align-items:center">
+    <div>
+      <p style="font-size:9.6pt">Maddeyi oluşturan tanecikler arasındaki çekim kuvvetlerine <b class="k">etkileşim</b> denir. Atomları birbirine bağlayan <b>güçlü etkileşimler</b> kimyasal bağlardır. Molekülleri birbirine yaklaştıran <b>zayıf etkileşimleri</b> Bölüm 3’te göreceksin.</p>
+      <p style="font-size:9.6pt;margin:0">Kimyasal bağ oluşurken atomlar <b>değerlik elektronlarını</b> verir, alır ya da ortaklaşa kullanır. Bağ oluşurken enerji açığa çıkar. Bağı koparmak için de enerji gerekir.</p>
+    </div>
+    <div class="grafik-kutu" style="margin:0"><!--SVG:agac--></div>
+  </div>
+
+  <div class="kutu hayat serit" style="margin-top:3.5mm;padding:2.4mm 3.4mm">
+    <p style="margin:0;font-size:9.2pt"><b style="color:var(--hayat)">Güçlü mü, zayıf mı?</b> 1 mol suyu 100 °C’de buhara çevirmek için yaklaşık <b>41 kJ</b> yeter. Bu sırada yalnızca moleküller birbirinden uzaklaşır. 1 mol su molekülündeki O–H bağlarını koparıp atomları ayırmak ise yaklaşık <b>925 kJ</b> ister. Kimyasal bağ, moleküller arası etkileşimden çok daha güçlüdür.</p>
+  </div>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1fr;align-items:start">
+    <div class="kutu kavram" style="margin-bottom:0">
+      <div class="etiket">@ikon:kavram Kavram</div>
+      <p style="font-size:9.4pt"><b>Metalik bağ:</b> Metal atomlarının değerlik elektronları kendi atomlarından ayrılıp bütün kristal içinde serbestçe dolaşır. Bu elektronlar bir <b>elektron denizi</b> oluşturur. Geride kalan pozitif yüklü metal iyonları (katyonlar) ile elektron denizi arasındaki elektrostatik çekime <b>metalik bağ</b> denir.</p>
+      <p style="font-size:9.4pt">Metalik bağ saf metallerde ve <b>alaşımlarda</b> (metallerin eritilip karıştırılmasıyla elde edilen homojen karışımlar) görülür.</p>
+    </div>
+    <div class="grafik-kutu" style="margin:0"><div class="gb">Elektron denizi modeli</div><!--SVG:deniz--><div class="ga">Metallerin iyonlaşma enerjisi ve elektronegatifliği düşüktür. Bu yüzden değerlik elektronları çekirdeğe zayıf bağlıdır ve kolayca serbest kalır.</div></div>
+  </div>
+
+  <h3>Metalik bağın kuvveti</h3>
+  <div class="iki-genis" style="grid-template-columns:1fr 1fr;align-items:start">
+    <div>
+      <p style="font-size:9.4pt">Katyonun yükü ve serbest kalan değerlik elektronu sayısı <b>arttıkça</b> çekim artar, bağ güçlenir. Atom yarıçapı <b>büyüdükçe</b> elektronlar çekirdekten uzaklaşır, bağ zayıflar. Bağ güçlendikçe metalin erime ve kaynama noktası genellikle yükselir.</p>
+      <ul style="font-size:9.2pt">
+        <li><b>Periyotta</b> (1A → 3A): metalik bağ genellikle güçlenir.</li>
+        <li><b>Grupta</b> yukarıdan aşağıya: metalik bağ genellikle zayıflar.</li>
+      </ul>
+      <div class="kutu ornek" style="margin:0">
+        <div class="etiket">@ikon:ornek Çözümlü Örnek 1</div>
+        <div class="soru" style="font-size:9.3pt">{11}Na, {12}Mg ve {19}K metallerini metalik bağ kuvvetine göre sıralayınız.</div>
+        <div class="cozum">
+          <div class="adim"><span class="n">1</span><span>Na (2-8-1) ve Mg (2-8-2) aynı periyotta. Mg 2 elektron verir, katyonu 2+ → Mg &gt; Na</span></div>
+          <div class="adim"><span class="n">2</span><span>Na ve K (2-8-8-1) aynı grupta. K’nin yarıçapı büyük → Na &gt; K</span></div>
+          <span class="sonuc">Mg &gt; Na &gt; K</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="grafik-kutu"><div class="gb">Gerçek erime noktaları (°C)</div><!--SVG:erime--></div>
+      <div class="kutu dikkat" style="margin:0">
+        <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Metalik bağ, metal katyonları ile anyonlar arasındaki çekimdir.”</div>
+          <div class="dogru"><b class="d">✓</b> Metalde anyon yoktur. Katyonları bir arada tutan, aralarında dolaşan <b>serbest elektronlardır</b>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Etkileşimler</span><span class="no">2</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 3 · İYONİK BAĞIN OLUŞUMU
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Etkileşimler</span><span>İyonik bağ</span></div>
+
+  <h2 class="konu"><span class="num">2</span>İyonik bağın oluşumu</h2>
+  <div class="alt-baslik">Biri verir, öteki alır: zıt yüklü iyonlar birbirini çeker.</div>
+
+  <h3 style="margin-top:0">Önce: metalik bağ metallere neler kazandırır?</h3>
+  <div class="hatirlat">
+    <div><b>İletkenlik</b>Serbest elektronlar elektrik akımını ve ısıyı iletir: bakır kablo, alüminyum tencere.</div>
+    <div><b>İşlenebilirlik</b>Katyon katmanları kayınca elektron denizi onları yine bağlar: metal tel ve levha hâline gelir.</div>
+    <div><b>Parlaklık</b>Serbest elektronlar ışığı yansıtır: yeni kesilmiş metal yüzeyi parlar.</div>
+  </div>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1.2fr;align-items:start">
+    <div class="kutu kavram" style="margin-bottom:0">
+      <div class="etiket">@ikon:kavram Kavram</div>
+      <p style="font-size:9.3pt"><b>Oktet kuralı:</b> Atomların bağ yaparken son katmanlarındaki elektron sayısını <b>8’e</b> tamamlama eğilimidir. Böylece bir soy gazın elektron dizilimine ulaşırlar.</p>
+      <p style="font-size:9.3pt"><b>Dublet kuralı:</b> H, Li ve Be gibi küçük atomlar He gibi <b>2 elektronlu</b> dizilime ulaşır. Li<sup>+</sup>: 2 elektron.</p>
+      <p style="font-size:9.3pt"><b>İyonik bağ:</b> Elektron alışverişiyle oluşan zıt yüklü iyonlar arasındaki güçlü elektrostatik çekimdir. Genellikle <b>metal</b> ile <b>ametal</b> arasında oluşur.</p>
+    </div>
+    <div>
+      <div class="grafik-kutu"><div class="gb">Sodyum ile klorun elektron alışverişi (katman modeli)</div><!--SVG:nacl_aktarim--><div class="ga">Na’nın tek değerlik elektronu (turuncu) Cl’ye geçer. Na<sup>+</sup> neonun, Cl<sup>−</sup> argonun dizilimine ulaşır.</div></div>
+      <table class="tablo sik" style="font-size:8.7pt;margin-bottom:0">
+        <tr><th>Değerlik e⁻</th><th class="on">1</th><th class="on">2</th><th class="on">3</th><th class="on">5</th><th class="on">6</th><th class="on">7</th></tr>
+        <tr><td>Kararlı iyon</td><td class="on">1+</td><td class="on">2+</td><td class="on">3+</td><td class="on">3−</td><td class="on">2−</td><td class="on">1−</td></tr>
+        <tr><td>Örnek</td><td class="on">Na<sup>+</sup></td><td class="on">Mg<sup>2+</sup></td><td class="on">Al<sup>3+</sup></td><td class="on">N<sup>3−</sup></td><td class="on">O<sup>2−</sup></td><td class="on">F<sup>−</sup></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="iki" style="margin-top:3.5mm">
+    <div>
+      <h3 style="margin-top:0">Neden metal verir, ametal alır?</h3>
+      <p style="font-size:9.3pt">Metallerin iyonlaşma enerjisi ve elektronegatifliği <b>düşüktür</b>, elektron vermeleri kolaydır. Ametallerinki <b>yüksektir</b>, elektron çekme eğilimleri fazladır.</p>
+      <p style="font-size:9.3pt">İyon oluşurken tanecik boyutu da değişir (Bölüm 5’i hatırla):</p>
+      <ul style="font-size:9.2pt">
+        <li><b>Katyon:</b> elektron sayısı azalır, elektron başına düşen çekim artar, tanecik <b>küçülür</b>.</li>
+        <li><b>Anyon:</b> elektron sayısı artar, elektron başına düşen çekim azalır, tanecik <b>büyür</b>.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="kutu duz serit" style="--bg:#f6fbf8;padding:2.4mm 3.4mm">
+        <p style="margin:0;font-size:9.2pt"><b class="k">Elektronegatiflik farkı (ΔEN):</b> İki atomun elektronegatiflik farkı yaklaşık <b>1,7’den büyükse</b> aralarındaki bağ genellikle iyoniktir. NaCl: 3,2 − 0,9 = 2,3 → iyonik.</p>
+      </div>
+      <div class="kutu dikkat" style="margin:0">
+        <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “ΔEN 1,7’yi geçtiyse bağ kesinlikle iyoniktir.”</div>
+          <div class="dogru"><b class="d">✓</b> 1,7 yalnızca bir yol göstericidir. HF’de fark 4,0 − 2,2 = 1,8’dir ama iki ametal elektronlarını <b>ortaklaşa</b> kullanır, bağ kovalenttir.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kutu ornek" style="margin-top:1mm">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 2</div>
+    <div class="soru">{20}Ca ile {9}F atomları arasında oluşan bileşiğin oluşumunu elektron dizilimleri ve Lewis gösterimiyle açıklayınız.</div>
+    <div class="iki-genis" style="grid-template-columns:1fr 1.05fr;gap:4mm;align-items:center">
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Ca: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup> → 2 elektron verir, Ca<sup>2+</sup> (Ar dizilimi)</span></div>
+        <div class="adim"><span class="n">2</span><span>F: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>5</sup> → 1 elektron alır, F<sup>−</sup> (Ne dizilimi)</span></div>
+        <div class="adim"><span class="n">3</span><span>Bir Ca’nın verdiği 2 elektronu almak için <b>iki</b> F gerekir.</span></div>
+        <span class="sonuc">CaF<sub>2</sub> · iyonik bağ</span>
+      </div>
+      <div class="grafik-kutu" style="margin:0"><!--SVG:caf2--></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Etkileşimler</span><span class="no">3</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 4 · İYONİK BİLEŞİKLER
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Etkileşimler</span><span>İyonik bileşikler</span></div>
+
+  <h2 class="konu"><span class="num">3</span>İyonik bileşikler: formül ve özellikler</h2>
+  <div class="alt-baslik">Pozitif ve negatif yükler toplamı her zaman sıfırdır.</div>
+
+  <div class="iki-genis" style="grid-template-columns:1.05fr 1fr;align-items:start">
+    <div>
+      <div class="kutu kavram">
+        <div class="etiket">@ikon:kavram Kavram</div>
+        <p style="font-size:9.3pt">İyonik bileşiğin formülü iyonların <b>en küçük tam sayılı oranını</b> gösterir. Katyon önce, anyon sonra yazılır. Toplam yük <b>sıfır</b> olmalıdır.</p>
+      </div>
+      <h3 style="margin-top:0">Yükleri çaprazlama yolu</h3>
+      <ol class="adimlar">
+        <li><span>Katyonu ve anyonu yükleriyle yaz: Al<sup>3+</sup> O<sup>2−</sup></span></li>
+        <li><span>Yüklerin sayı değerini çaprazla, işaretleri yazma: Al<sub>2</sub>O<sub>3</sub></span></li>
+        <li><span>Sayılar sadeleşiyorsa sadeleştir: Ca<sup>2+</sup> O<sup>2−</sup> → Ca<sub>2</sub>O<sub>2</sub> → {CaO}</span></li>
+        <li><span>Çok atomlu iyon (kök) birden fazla gerekiyorsa paranteze al: Ca<sup>2+</sup> OH<sup>−</sup> → {Ca(OH)2}</span></li>
+      </ol>
+      <table class="tablo sik" style="font-size:8.6pt">
+        <tr><th>Çok atomlu iyon (kök)</th><th class="on">Yük</th><th>Çok atomlu iyon (kök)</th><th class="on">Yük</th></tr>
+        <tr><td><span class="f">NH<sub>4</sub><sup>+</sup></span></td><td class="on">1+</td><td><span class="f">CO<sub>3</sub><sup>2−</sup></span></td><td class="on">2−</td></tr>
+        <tr><td><span class="f">OH<sup>−</sup></span> · <span class="f">CN<sup>−</sup></span></td><td class="on">1−</td><td><span class="f">SO<sub>4</sub><sup>2−</sup></span></td><td class="on">2−</td></tr>
+        <tr><td><span class="f">NO<sub>3</sub><sup>−</sup></span></td><td class="on">1−</td><td><span class="f">PO<sub>4</sub><sup>3−</sup></span></td><td class="on">3−</td></tr>
+      </table>
+      <p class="kucuk" style="margin:-1mm 0 0">İyonların adlarını Bölüm 2’de (bileşiklerin adlandırılması) öğreneceksin.</p>
+    </div>
+    <div>
+      <div class="kutu ornek">
+        <div class="etiket">@ikon:ornek Çözümlü Örnek 3</div>
+        <div class="soru" style="font-size:9.3pt">Verilen iyon çiftlerinin oluşturduğu bileşiklerin formüllerini ve katyon : anyon oranlarını yazınız.</div>
+        <table class="tablo sik" style="font-size:8.8pt;margin:0;background:#fff">
+          <tr><th>İyonlar</th><th>Formül</th><th class="on">Oran</th></tr>
+          <tr><td>K<sup>+</sup> · <span class="f">NO<sub>3</sub><sup>−</sup></span></td><td>{KNO3}</td><td class="on">1 : 1</td></tr>
+          <tr><td>Mg<sup>2+</sup> · N<sup>3−</sup></td><td>{Mg3N2}</td><td class="on">3 : 2</td></tr>
+          <tr><td>Al<sup>3+</sup> · OH<sup>−</sup></td><td>{Al(OH)3}</td><td class="on">1 : 3</td></tr>
+          <tr><td><span class="f">NH<sub>4</sub><sup>+</sup></span> · <span class="f">SO<sub>4</sub><sup>2−</sup></span></td><td>{(NH4)2SO4}</td><td class="on">2 : 1</td></tr>
+        </table>
+      </div>
+      <div class="kutu duz serit" style="--bg:#f6fbf8;padding:2.4mm 3.4mm">
+        <p style="margin:0;font-size:9.1pt"><b class="k">İki bağ birden:</b> Kök içeren iyonik bileşiklerde iyonlar arasında <b>iyonik</b>, kökün kendi atomları arasında <b>kovalent</b> bağ vardır. {KNO3}: K<sup>+</sup> ile <span class="f">NO<sub>3</sub><sup>−</sup></span> arası iyonik, N ile O arası kovalent.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>İyonik bileşiklerin ortak özellikleri</h3>
+  <div class="iki-genis" style="grid-template-columns:1.25fr .75fr;align-items:start">
+    <div>
+      <ul style="font-size:9.2pt">
+        <li>Oda koşullarında <b>katıdır</b>. İyonlar, düzenli bir <b>kristal örgü</b> içinde dizilir. Örgünün kendini tekrar eden en küçük parçası <b>birim hücredir</b>.</li>
+        <li>Erime noktaları <b>yüksektir</b> (NaCl: 801 °C).</li>
+        <li><b>Kırılgandır</b>, tel ve levha hâline getirilemez.</li>
+        <li>Katı hâlde iyonlar yerinde sabit olduğu için elektriği <b>iletmez</b>. Sıvı (erimiş) hâlde ve suda çözündüğünde iyonlar hareket eder, elektriği <b>iletir</b>.</li>
+      </ul>
+      <div class="iki" style="gap:3mm">
+        <div class="kutu dikkat" style="margin:0">
+          <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+          <div class="yanilgi" style="grid-template-columns:1fr">
+            <div class="yanlis"><b class="y">✗</b> “Tuz kristali NaCl moleküllerinden oluşur.”</div>
+            <div class="dogru"><b class="d">✓</b> İyonik bileşikte <b>molekül yoktur</b>. {NaCl} formülü yalnızca Na<sup>+</sup> : Cl<sup>−</sup> = 1 : 1 oranını gösterir.</div>
+          </div>
+        </div>
+        <div class="kutu hayat" style="margin:0">
+          <div class="etiket">@ikon:hayat Hayatın İçinden</div>
+          <p style="font-size:9pt">Kışın yollara serpilen sodyum klorür ya da kalsiyum klorür, buz üzerindeki ince su tabakasında iyonlarına ayrışarak çözünür. Oluşan tuzlu su daha düşük sıcaklıkta donar, buzlanma azalır.</p>
+        </div>
+      </div>
+    </div>
+    <div class="grafik-kutu" style="margin:0"><div class="gb">NaCl kristal örgüsünden bir parça</div><!--SVG:nacl_kristal--><div class="ga">Her Na<sup>+</sup> iyonunu 6 Cl<sup>−</sup> iyonu, her Cl<sup>−</sup> iyonunu 6 Na<sup>+</sup> iyonu sarar. Ölçek yaklaşık; Cl<sup>−</sup> iyonu Na<sup>+</sup> iyonundan büyüktür.</div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Etkileşimler</span><span class="no">4</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 5 · KOVALENT BAĞ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Etkileşimler</span><span>Kovalent bağ</span></div>
+
+  <h2 class="konu"><span class="num">4</span>Kovalent bağ</h2>
+  <div class="alt-baslik">Ametaller elektron vermez, elektronlarını paylaşır.</div>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1fr;align-items:start">
+    <div class="kutu kavram" style="margin-bottom:0">
+      <div class="etiket">@ikon:kavram Kavram</div>
+      <p style="font-size:9.3pt"><b>Kovalent bağ:</b> Ametal atomlarının değerlik elektronlarını <b>ortaklaşa kullanmasıyla</b> oluşan bağdır. Ortak kullanılan her elektron çifti iki çekirdek tarafından da çekilir. <b>Bir ortak çift = bir kovalent bağ.</b></p>
+      <p style="font-size:9.3pt">Kovalent bağlarla oluşan nötr ve bağımsız atom gruplarına <b>molekül</b> denir. {H2}, {O2} element molekülü; {H2O}, {CO2} bileşik molekülüdür.</p>
+    </div>
+    <div>
+      <div class="grafik-kutu" style="margin-bottom:2.4mm"><!--SVG:bulut--></div>
+      <table class="tablo sik" style="font-size:8.7pt;margin:0">
+        <tr><th>Tür</th><th>Nerede oluşur?</th><th>Örnek</th></tr>
+        <tr><td><b>Apolar</b> kovalent</td><td>Aynı tür ametal atomları arasında. Elektronlar eşit çekilir.</td><td>H–H, Cl–Cl</td></tr>
+        <tr><td><b>Polar</b> kovalent</td><td>Farklı ametal atomları arasında. Elektronegatif atom <span class="neg">δ−</span>, diğeri <span class="pos">δ+</span> olur.</td><td>H–Cl, O–H</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>Tekli, ikili, üçlü bağ</h3>
+  <div class="iki-genis" style="grid-template-columns:1.15fr .85fr;align-items:center">
+    <div class="lw-sira" style="--lk:.5mm"><!--SVG:cl2--><!--SVG:o2--><!--SVG:n2--></div>
+    <table class="tablo sik" style="font-size:8.6pt;margin:0">
+      <tr><th>Bağ</th><th class="on">Ortak e⁻</th><th class="on">Uzunluk</th><th class="on">Enerji</th></tr>
+      <tr><td>C–C</td><td class="on">2</td><td class="on">154 pm</td><td class="on">≈ 347 kJ/mol</td></tr>
+      <tr><td>C=C</td><td class="on">4</td><td class="on">134 pm</td><td class="on">≈ 614 kJ/mol</td></tr>
+      <tr><td>C≡C</td><td class="on">6</td><td class="on">120 pm</td><td class="on">≈ 839 kJ/mol</td></tr>
+    </table>
+  </div>
+  <p style="font-size:9.2pt;margin-top:2mm">Bir çizgi bir ortak elektron çiftini gösterir. İki atom arasındaki ortak çift sayısı arttıkça bağ <b>kısalır</b> ve <b>güçlenir</b> (tablodaki değerler ortalamadır). Noktalar, bağa katılmayan elektron çiftleridir.</p>
+
+  <div class="iki">
+    <div class="kutu ornek" style="margin:0">
+      <div class="etiket">@ikon:ornek Çözümlü Örnek 4</div>
+      <div class="soru" style="font-size:9.3pt">Lewis yapısı verilen etil alkol ({C2H6O}) molekülünde kaç polar, kaç apolar kovalent bağ vardır?</div>
+      <div style="--lk:.36mm;margin:1mm 0 1.6mm"><!--SVG:c2h5oh--></div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>Aynı atomlar arası: C–C → <b>1 apolar</b></span></div>
+        <div class="adim"><span class="n">2</span><span>Farklı atomlar arası: 5 C–H + 1 C–O + 1 O–H → <b>7 polar</b></span></div>
+        <span class="sonuc">7 polar · 1 apolar · toplam 8 bağ</span>
+      </div>
+    </div>
+    <div>
+      <div class="kutu kavram" style="margin-bottom:3mm">
+        <div class="etiket">@ikon:kavram Moleküllü maddeler</div>
+        <ul style="font-size:9pt;margin:0">
+          <li>Bağımsız moleküllerden oluşur, iyon içermez.</li>
+          <li>Erime ve kaynama noktaları genellikle düşüktür; oda koşullarında katı, sıvı ya da gaz olabilir.</li>
+          <li>Saf hâlde elektriği iletmez. Şeker, alkol gibi suda molekül olarak çözünenlerin çözeltisi de iletmez.</li>
+        </ul>
+      </div>
+      <div class="kutu dikkat" style="margin:0">
+        <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Bir molekülde ya yalnız polar ya yalnız apolar bağ olur.”</div>
+          <div class="dogru"><b class="d">✓</b> Hidrojen peroksitte iki polar O–H ve bir apolar O–O bağı birlikte bulunur.</div>
+        </div>
+        <div style="--lk:.36mm;margin-top:1.4mm"><!--SVG:h2o2--></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Etkileşimler</span><span class="no">5</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 6 · LEWIS YAPILARI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Etkileşimler</span><span>Lewis yapıları</span></div>
+
+  <h2 class="konu"><span class="num">5</span>Lewis yapıları</h2>
+  <div class="alt-baslik">Değerlik elektronlarını nokta olarak çizersen bağları sayabilirsin.</div>
+
+  <div class="kutu kavram">
+    <div class="etiket">@ikon:kavram Kavram</div>
+    <p style="font-size:9.3pt"><b>Lewis (elektron nokta) yapısı:</b> Element sembolünün çevresine değerlik elektronlarının nokta olarak yazılmasıdır. Sembol, çekirdeği ve iç katman elektronlarını temsil eder. Noktalar sembolün dört yanına önce <b>birer birer</b>, sonra <b>ikişer</b> yerleştirilir. Baş grup elementlerinde değerlik elektronu sayısı grup numarasına (A) eşittir. <b>Tek nokta sayısı</b>, atomun genellikle yapabileceği kovalent bağ sayısını verir.</p>
+  </div>
+  <div class="grafik-kutu"><div class="gb">2. periyot atomlarının Lewis yapıları</div><!--SVG:atomlar--><div class="ga">Ne’de tek nokta yoktur; soy gazlar genellikle bağ yapmaz.</div></div>
+
+  <div class="iki-genis" style="grid-template-columns:.85fr 1.15fr;align-items:start">
+    <div>
+      <h3 style="margin-top:0">Molekülde iki tür elektron çifti</h3>
+      <div style="--lk:.62mm;margin:1mm 0 2mm"><!--SVG:hcl_nokta--></div>
+      <ul style="font-size:9.2pt">
+        <li><b style="color:#b45309">Bağlayıcı (ortaklanmış) elektron çifti:</b> iki atom arasında paylaşılan çift. HCl’de 1 çift.</li>
+        <li><b style="color:var(--unite)">Ortaklanmamış elektron çifti:</b> bağa katılmayan değerlik elektronları. HCl’de Cl üzerinde 3 çift (6 elektron).</li>
+      </ul>
+      <div class="kutu dikkat" style="margin:0">
+        <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “{NH3}’te ortaklanmamış elektron sayısı 1’dir.”</div>
+          <div class="dogru"><b class="d">✓</b> N üzerinde 1 <b>çift</b>, yani <b>2 elektron</b> vardır. Soruda “çift” mi “elektron” mu istendiğine bak.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-top:0">Molekülün Lewis yapısını çizme</h3>
+      <ol class="adimlar">
+        <li><span>Her atomun değerlik elektronunu bul ve Lewis yapısını yaz.</span></li>
+        <li><span>Tek nokta (bağ) sayısı en fazla olan atomu <b>merkeze</b>, diğerlerini çevresine koy. H daima uçtadır.</span></li>
+        <li><span>Tek elektronları eşleştirerek bağları çiz.</span></li>
+        <li><span>Her atomun oktet (H için dublet) aldığını kontrol et. Eksik kalırsa ikili ya da üçlü bağ kur.</span></li>
+      </ol>
+      <div class="kutu ornek" style="margin:0">
+        <div class="etiket">@ikon:ornek Çözümlü Örnek 5</div>
+        <div class="soru" style="font-size:9.3pt">{15}P ve {17}Cl atomlarının oluşturduğu {PCl3} molekülünün Lewis yapısını çizip elektron çiftlerini sayınız.</div>
+        <div class="iki-genis" style="grid-template-columns:1.35fr .65fr;gap:3mm;align-items:center">
+          <div class="cozum">
+            <div class="adim"><span class="n">1</span><span>P: 2-8-5 → 3 tek nokta, merkez. Cl: 2-8-7 → 1 tek nokta.</span></div>
+            <div class="adim"><span class="n">2</span><span>3 P–Cl bağı → <b>3 bağlayıcı çift</b></span></div>
+            <div class="adim"><span class="n">3</span><span>P’de 1, her Cl’de 3 çift → 1 + 3·3 = <b>10 ortaklanmamış çift</b> (20 e⁻)</span></div>
+          </div>
+          <div style="--lk:.44mm"><!--SVG:pcl3--></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="tablo sik" style="margin-top:3.5mm;font-size:8.8pt">
+    <tr><th>Molekül</th><th class="on">{H2O}</th><th class="on">{NH3}</th><th class="on">{CH4}</th><th class="on">{CO2}</th><th class="on">{HCN}</th><th class="on">{C2H4}</th></tr>
+    <tr><td>Lewis yapısı</td>
+      <td class="lwh" style="--lk:.3mm"><!--SVG:h2o--></td><td class="lwh" style="--lk:.3mm"><!--SVG:nh3--></td><td class="lwh" style="--lk:.3mm"><!--SVG:ch4--></td>
+      <td class="lwh" style="--lk:.3mm"><!--SVG:co2--></td><td class="lwh" style="--lk:.3mm"><!--SVG:hcn--></td><td class="lwh" style="--lk:.3mm"><!--SVG:c2h4--></td></tr>
+    <tr><td>Bağlayıcı çift</td><td class="on">2</td><td class="on">3</td><td class="on">4</td><td class="on">4</td><td class="on">4</td><td class="on">6</td></tr>
+    <tr><td>Ortaklanmamış çift</td><td class="on">2</td><td class="on">1</td><td class="on">0</td><td class="on">4</td><td class="on">1</td><td class="on">0</td></tr>
+  </table>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Etkileşimler</span><span class="no">6</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 7 · MOLEKÜL POLARLIĞI
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Etkileşimler</span><span>Molekül polarlığı</span></div>
+
+  <h2 class="konu"><span class="num">6</span>Molekül polarlığı</h2>
+  <div class="alt-baslik">Bağın polar olması yetmez; molekülün yük dağılımına bakılır.</div>
+
+  <div class="iki-genis" style="grid-template-columns:1fr 1fr;align-items:start">
+    <div>
+      <div class="kutu kavram">
+        <div class="etiket">@ikon:kavram Kavram</div>
+        <p style="font-size:9.3pt"><b>Polar molekül:</b> Yük dağılımı simetrik değildir. Molekülün bir ucu <span class="neg">δ−</span>, öbür ucu <span class="pos">δ+</span> olur; <b>kalıcı dipol</b> oluşur. Dipol momenti (μ) sıfırdan farklıdır.</p>
+        <p style="font-size:9.3pt"><b>Apolar molekül:</b> Yük dağılımı dengeli ve simetriktir. Bağ polarlıkları birbirini yok eder, μ = 0 olur. Yalnızca anlık (geçici) kutuplanma görülür.</p>
+      </div>
+      <p style="font-size:9.3pt">Aşağıdaki şekillerde mavi oklar bağ polarlığını gösterir; ok, elektronların kaydığı (<span class="neg">δ−</span>) uca bakar. Kırmızı ok molekülün toplam dipolüdür. Apolar moleküllerde oklar birbirini dengeler.</p>
+      <div class="kutu dikkat" style="margin:0">
+        <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+        <div class="yanilgi" style="grid-template-columns:1fr">
+          <div class="yanlis"><b class="y">✗</b> “Polar bağ içeren her molekül polardır.”</div>
+          <div class="dogru"><b class="d">✓</b> {CO2}, {BF3} ve {CCl4} polar bağ içerir ama simetrik oldukları için <b>apolardır</b>.</div>
+        </div>
+      </div>
+    </div>
+    <div class="grafik-kutu" style="margin:0"><div class="gb">Karar şeması</div><!--SVG:karar--></div>
+  </div>
+
+  <div class="grafik-kutu" style="margin-top:3.5mm"><div class="gb">Polar bağlar, farklı sonuçlar</div><!--SVG:polarlik--><div class="ga">Moleküller düzlemde basitleştirilerek çizilmiştir. {H2O} ve {NH3}’te merkez atomdaki ortaklanmamış çiftler (yeşil noktalar) yük dağılımını bozar.</div></div>
+
+  <div class="iki">
+    <div class="kutu ornek" style="margin:0">
+      <div class="etiket">@ikon:ornek Çözümlü Örnek 6</div>
+      <div class="soru" style="font-size:9.2pt">{CS2}, {PCl3}, {CH2Cl2}, {N2} ve {HBr} moleküllerini polar ve apolar olarak sınıflandırınız.</div>
+      <div class="cozum">
+        <div class="adim"><span class="n">1</span><span>{N2}: aynı iki atom → apolar · {HBr}: farklı iki atom → polar</span></div>
+        <div class="adim"><span class="n">2</span><span>{CS2} (S=C=S): merkezde çift yok, çevre aynı → apolar</span></div>
+        <div class="adim"><span class="n">3</span><span>{PCl3}: P’de 1 ortaklanmamış çift → polar · {CH2Cl2}: çevrede H ve Cl → polar</span></div>
+        <span class="sonuc">Polar: PCl₃, CH₂Cl₂, HBr · Apolar: CS₂, N₂</span>
+      </div>
+    </div>
+    <div class="kutu hayat" style="margin:0">
+      <div class="etiket">@ikon:hayat Hayatın İçinden</div>
+      <p style="font-size:9.2pt">Mikrodalga fırın, yönü saniyede milyarlarca kez değişen bir elektrik alanı oluşturur. Polar su molekülleri bu alana uyup sürekli dönmeye çalışır. Komşu moleküllere çarparak enerjilerini aktarırlar ve yiyecek ısınır. Su içeren yiyecekler bu yüzden kolay ısınır.</p>
+      <p style="font-size:9.2pt;margin:0"><b>Düşün:</b> Mikrodalgada boş ve kuru bir cam kap neden pek ısınmaz?</p>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Etkileşimler</span><span class="no">7</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 8 · ÖZET
+     ========================================================= -->
+<section class="sayfa cift ozet-sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Etkileşimler</span><span>Özet</span></div>
+  <div class="bant"><h2>Tek sayfada kimyasal bağlar</h2><p>Sınavdan önce bu sayfaya bak. Her kutuyu bir arkadaşına kendi cümlelerinle anlatabiliyor musun?</p></div>
+
+  <div class="bloklar">
+    <div class="kutu kavram">
+      <div class="etiket">@ikon:kavram Metalik bağ</div>
+      <ul style="font-size:9.1pt">
+        <li>Metal katyonları ile <b>elektron denizi</b> arasındaki çekim</li>
+        <li>Katyon yükü ↑, yarıçap ↓ → bağ güçlenir, erime noktası ↑</li>
+        <li>Periyotta (1A→3A) güçlenir, grupta aşağı zayıflar</li>
+        <li>İletkenlik, işlenebilirlik ve parlaklık bu bağdan gelir</li>
+      </ul>
+    </div>
+    <div class="kutu ornek">
+      <div class="etiket">@ikon:ornek İyonik bağ</div>
+      <ul style="font-size:9.1pt">
+        <li>Metal elektron verir (katyon, küçülür); ametal alır (anyon, büyür)</li>
+        <li>Zıt yüklü iyonların elektrostatik çekimi; ΔEN genellikle &gt; 1,7</li>
+        <li>Formül: yükleri çaprazla, sadeleştir, kökü paranteze al</li>
+        <li>Katı, kırılgan, erime noktası yüksek; erimiş ya da çözünmüş hâlde iletken</li>
+      </ul>
+    </div>
+    <div class="kutu hayat">
+      <div class="etiket">@ikon:kavram Kovalent bağ ve Lewis</div>
+      <ul style="font-size:9.1pt">
+        <li>Ametaller elektronlarını ortaklaşa kullanır; 1 ortak çift = 1 bağ</li>
+        <li>Aynı atomlar: apolar · farklı atomlar: polar (δ+ / δ−)</li>
+        <li>Tekli &lt; ikili &lt; üçlü: bağ kısalır, güçlenir</li>
+        <li>Tek nokta sayısı = bağ sayısı; bağlayıcı ve ortaklanmamış çiftleri ayrı say</li>
+      </ul>
+    </div>
+    <div class="kutu dikkat">
+      <div class="etiket">@ikon:dikkat Molekül polarlığı</div>
+      <ul style="font-size:9.1pt">
+        <li>Merkezde ortaklanmamış çift varsa polar: {H2O}, {NH3}, {PCl3}</li>
+        <li>Merkezde çift yok, çevre aynı: apolar ({CO2}, {BF3}, {CCl4})</li>
+        <li>Çevrede farklı atomlar varsa polar: {CH3Cl}, {HCN}</li>
+        <li>Polar bağ ≠ polar molekül; hidrokarbonlar apolar kabul edilir</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Kendimi değerlendiriyorum</h3>
+  <ul class="kontrol">
+    <li><span class="kare"></span><span>Metalik, iyonik ve kovalent bağın nasıl oluştuğunu açıklayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Metalleri metalik bağ kuvvetine göre gerekçesiyle sıralayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>İyon yüklerinden iyonik bileşiğin formülünü yazabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bir bağın polar mı apolar mı olduğunu söyleyebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Lewis yapısı çizip bağlayıcı ve ortaklanmamış çiftleri sayabilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+    <li><span class="kare"></span><span>Bir molekülün polar mı apolar mı olduğuna gerekçesiyle karar verebilirim.</span><span class="yuz"><span>Eminim</span><span>Kısmen</span><span>Tekrar</span></span></li>
+  </ul>
+
+  <div class="cizgili" style="margin-top:5mm"><b>KENDİME NOT · Bu bölümde en çok neye dikkat etmeliyim?</b></div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Etkileşimler</span><span class="no">8</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 9 · HATA AVCISI
+     ========================================================= -->
+<section class="sayfa" style="--renk:var(--hata)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Etkileşimler</span><span>Hata Avcısı</span></div>
+  <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Aşağıdaki çözümleri dört farklı öğrenci yazdı. Her birinde bir hata var. Hatayı bul, hangi satırda olduğunu yaz, doğrusunu kutuya yaz.</p></div>
+
+  <div class="iki">
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 1 <span class="zorluk"><i class="d"></i><i></i><i></i></span></div>
+      <p style="font-size:9.3pt;margin-bottom:1.4mm">{11}Na ve {19}K metallerinden hangisinin metalik bağı daha güçlüdür?</p>
+      <div class="defter">
+        <div class="ogrenci">Elif’in çözümü</div>
+        <div class="satir"><span class="sn">1</span>İkisi de 1A grubunda, birer elektron verir.</div>
+        <div class="satir"><span class="sn">2</span>K’de katman fazla, çekirdek elektronu daha sıkı tutar.</div>
+        <div class="satir"><span class="sn">3</span>Bu yüzden K’nin metalik bağı daha güçlüdür.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 2 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="font-size:9.3pt;margin-bottom:1.4mm">Mg<sup>2+</sup> ve <span class="f">PO<sub>4</sub><sup>3−</sup></span> iyonlarının oluşturduğu bileşiğin formülünü yazınız.</p>
+      <div class="defter">
+        <div class="ogrenci">Arda’nın çözümü</div>
+        <div class="satir"><span class="sn">1</span>Yükler: Mg için 2+, fosfat için 3−.</div>
+        <div class="satir"><span class="sn">2</span>Her iyonun yükünü kendi altına yazarım.</div>
+        <div class="satir"><span class="sn">3</span>Formül: Mg<sub>2</sub>(PO<sub>4</sub>)<sub>3</sub></div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 3 <span class="zorluk"><i class="d"></i><i class="d"></i><i></i></span></div>
+      <p style="font-size:9.3pt;margin-bottom:1.4mm">{NH3} molekülünde N atomu üzerinde kaç ortaklanmamış elektron çifti vardır? ({1}H, {7}N)</p>
+      <div class="defter">
+        <div class="ogrenci">Zehra’nın çözümü</div>
+        <div class="satir"><span class="sn">1</span>Değerlik e⁻: N 5, H’ler 3 → toplam 8</div>
+        <div class="satir"><span class="sn">2</span>3 N–H bağında 6 elektron ortak kullanılır.</div>
+        <div class="satir"><span class="sn">3</span>Kalan 2 e⁻ H’lerde kalır; N’de çift yoktur.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+    <div class="soru-blok">
+      <div class="etiket-soru hata" style="--renk:var(--hata);--bg:var(--hata-bg)">Hata 4 <span class="zorluk"><i class="d"></i><i class="d"></i><i class="d"></i></span></div>
+      <p style="font-size:9.3pt;margin-bottom:1.4mm">{CO2} molekülü polar mıdır? ({6}C, {8}O)</p>
+      <div class="defter">
+        <div class="ogrenci">Burak’ın çözümü</div>
+        <div class="satir"><span class="sn">1</span>C ve O farklı ametal, iki C=O bağı da polar.</div>
+        <div class="satir"><span class="sn">2</span>Yapı O=C=O; C’de ortaklanmamış çift yok.</div>
+        <div class="satir"><span class="sn">3</span>Polar bağ içerdiği için molekül polardır.</div>
+      </div>
+      <div class="sorgu"><span>Hangi satır?</span><span>Neden yanlış?</span></div>
+      <div class="duzelt">Doğru çözüm:</div>
+    </div>
+  </div>
+
+  <div class="kutu hata serit" style="margin-top:1mm">
+    <p style="margin:0"><b style="color:var(--hata)">Avcı notu:</b> Bağ sorularında önce <b>kimin elektron verdiğine, kimin aldığına ya da paylaştığına</b> bak. Lewis sorularında çizdiğin noktaları say: toplam, değerlik elektronlarının toplamına eşit olmalı.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Etkileşimler</span><span class="no">9</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 10 · BAĞLAM TEMELLİ SORULAR
+     ========================================================= -->
+<section class="sayfa cift" style="--renk:var(--hayat)">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Etkileşimler</span><span>Bağlam temelli sorular</span></div>
+  <div class="bant" style="--renk:#c26a06"><h2>Hayatın içinden sorular</h2><p>Her soru gerçek bir durumla başlar. Önce metni, tabloyu ya da grafiği oku; sonra hangi bilginin işine yarayacağını seç.</p></div>
+
+  <div class="iki">
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Teknoloji</div>
+        <div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+          <p style="font-size:9.4pt">Uluslararası birim sisteminde saniye, sezyum atomlarının yaydığı ışınıma göre tanımlanır ve atom saatlerinde sezyum kullanılır. Grafikte sezyumun da bulunduğu 1A grubu metallerinin erime noktaları verilmiştir.</p>
+          <div class="grafik-kutu" style="margin-bottom:2mm"><!--SVG:alkali--></div>
+          <p style="font-size:9.4pt;margin-bottom:1mm">Buna göre,</p>
+          <div class="oncul"><div><b>I.</b><span>Grupta aşağı inildikçe metalik bağ zayıflar.</span></div><div><b>II.</b><span>Rubidyum 25 °C’de katıdır.</span></div><div><b>III.</b><span>Sezyum 25 °C’de sıvıdır.</span></div></div>
+          <p style="font-size:9.4pt;margin:0">yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>I ve II</span><span><b>C)</b>I ve III</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Sağlık</div>
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+          <p style="font-size:9.4pt">Kemik ve dişlerin sert mineral kısmı büyük ölçüde kalsiyum fosfat türü bileşiklerden oluşur. Bunların en basiti Ca<sup>2+</sup> ve <span class="f">PO<sub>4</sub><sup>3−</sup></span> iyonlarından oluşan bileşiktir.</p>
+          <p style="font-size:9.4pt;margin-bottom:1mm">Bu bileşik ile ilgili,</p>
+          <div class="oncul"><div><b>I.</b><span>Formülü {Ca3(PO4)2} şeklindedir.</span></div><div><b>II.</b><span>Katyon : anyon sayıca oranı 3 : 2’dir.</span></div><div><b>III.</b><span>Yapısında yalnızca iyonik bağ bulunur.</span></div></div>
+          <p style="font-size:9.4pt;margin:0">yargılarından hangileri doğrudur?</p>
+          <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve III</span><span><b>D)</b>I ve II</span><span><b>E)</b>I, II ve III</span></div>
+        </div></div>
+      </div>
+    </div>
+    <div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:lab Laboratuvar</div>
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+          <p style="font-size:9.4pt">Etiketi silinmiş üç katı örnek (X, Y, Z) üzerinde yapılan testlerin sonuçları tabloda verilmiştir.</p>
+          <table class="tablo sik" style="font-size:8.4pt">
+            <tr><th></th><th class="on">X</th><th class="on">Y</th><th class="on">Z</th></tr>
+            <tr><td>Erime noktası</td><td class="on">801 °C</td><td class="on">1085 °C</td><td class="on">146 °C</td></tr>
+            <tr><td>Katısı elektriği iletir mi?</td><td class="on">Hayır</td><td class="on">Evet</td><td class="on">Hayır</td></tr>
+            <tr><td>Sulu çözeltisi ya da sıvısı iletir mi?</td><td class="on">Evet</td><td class="on">(suda çözünmez)</td><td class="on">Hayır</td></tr>
+            <tr><td>Çekiçle vurulunca</td><td class="on">Kırılır</td><td class="on">Yassılır</td><td class="on">Ufalanır</td></tr>
+          </table>
+          <p style="font-size:9.4pt;margin-bottom:1mm">Buna göre X, Y ve Z’nin taneciklerini bir arada tutan bağ türleri aşağıdakilerin hangisinde doğru verilmiştir? <span class="veri">(Z’de molekülleri oluşturan bağ sorulmaktadır.)</span></p>
+          <table class="tablo sik" style="font-size:8.6pt;margin:0">
+            <tr><th></th><th>X</th><th>Y</th><th>Z</th></tr>
+            <tr><td><b style="color:var(--unite)">A)</b></td><td>Metalik</td><td>İyonik</td><td>Kovalent</td></tr>
+            <tr><td><b style="color:var(--unite)">B)</b></td><td>İyonik</td><td>Kovalent</td><td>Metalik</td></tr>
+            <tr><td><b style="color:var(--unite)">C)</b></td><td>Kovalent</td><td>Metalik</td><td>İyonik</td></tr>
+            <tr><td><b style="color:var(--unite)">D)</b></td><td>İyonik</td><td>Metalik</td><td>İyonik</td></tr>
+            <tr><td><b style="color:var(--unite)">E)</b></td><td>İyonik</td><td>Metalik</td><td>Kovalent</td></tr>
+          </table>
+        </div></div>
+      </div>
+      <div class="soru-blok">
+        <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Çevre</div>
+        <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+          <p style="font-size:9.4pt">Kuru havanın hacimce yaklaşık %78’i {N2}, %21’i {O2}’dir. Havada az miktarda bulunan {CO2}, {CH4} ve su buharı ({H2O}) ise sera etkisine katkı yapan gazlardır.</p>
+          <p style="font-size:9.4pt;margin-bottom:1mm">Bu beş molekülden hangileri <b>polar kovalent bağ içerdiği hâlde apolardır</b>? <span class="veri">({1}H, {6}C, {7}N, {8}O)</span></p>
+          <div class="secenek"><span><b>A)</b>Yalnız {N2}</span><span><b>B)</b>Yalnız {H2O}</span><span><b>C)</b>{CO2} ve {CH4}</span><span><b>D)</b>{N2} ve {O2}</span><span><b>E)</b>{CO2}, {CH4} ve {H2O}</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Etkileşimler</span><span class="no">10</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 11 · İPUCU MERDİVENİ
+     ========================================================= -->
+<section class="sayfa">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Etkileşimler</span><span>İpucu Merdiveni</span></div>
+  <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, yalnızca o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">1</span><div class="soru-metin">
+      <p>X elementi 3. periyot 2A grubunda, Y elementi 2. periyot 5A grubundadır. X ile Y arasında oluşan iyonik bileşiğin formülünü X ve Y sembolleriyle yazınız. Bileşikteki iyonlar izoelektronik midir?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Katman dağılımlarını yaz: X 2-8-2, Y 2-5. Hangisi elektron verir, hangisi alır?</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">X 2 elektron vererek X<sup>2+</sup>, Y 3 elektron alarak Y<sup>3−</sup> olur. Yükleri çaprazla.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">İzoelektronik: elektron sayıları eşit. X<sup>2+</sup>’nin (12 − 2) ve Y<sup>3−</sup>’ün (7 + 3) elektronlarını karşılaştır.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">2</span><div class="soru-metin">
+      <p>Hidrazin ({N2H4}) bazı uyduların yön değiştirme iticilerinde yakıt olarak kullanılır. Molekülde iki N atomu birbirine bağlıdır ve her N’ye iki H bağlanır. Lewis yapısını çizerek bağlayıcı ve ortaklanmamış elektron çifti sayılarını, polar ve apolar bağ sayılarını bulunuz. <span class="veri">({1}H, {7}N)</span></p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">N’nin 5 değerlik elektronu var, 3 tek nokta → 3 bağ yapar. H 1 bağ yapar. Önce N–N bağını çiz.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Her N’ye iki H bağla. Her N’de kaç elektron bağa katılmadan kalır? (5 − 3 = ?)</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Bağları say: aynı atomlar (N–N) apolar, farklı atomlar (N–H) polar.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="soru-blok">
+    <div class="soru-ust"><span class="soru-no" style="background:var(--ipucu)">3</span><div class="soru-metin">
+      <p>Temel hâl elektron dizilimleri A: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>1</sup>, D: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>3</sup> ve F: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>5</sup> olan atomlar <b>AF<sub>3</sub></b> ve <b>DF<sub>3</sub></b> moleküllerini oluşturuyor. Bu moleküllerin polar mı apolar mı olduğunu gerekçesiyle belirleyiniz. Her birinde kaç ortaklanmamış elektron çifti vardır?</p>
+      <div class="merdiven">
+        <div class="basamak"><div class="bas">BASAMAK<br>1</div><div class="ic">Değerlik elektronları: A 3, D 5, F 7. A ve D merkez atomdur, F’ler çevrede.</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>2</div><div class="ic">Merkez atom 3 bağ yaptıktan sonra elektronu kalıyor mu? A: 3 − 3 = 0, D: 5 − 3 = 2 (bir çift).</div></div>
+        <div class="basamak"><div class="bas">BASAMAK<br>3</div><div class="ic">Karar şemasını kullan: merkezde çift varsa polar; yoksa ve çevre aynıysa apolar. Her F’de 3 çift olduğunu unutma.</div></div>
+      </div>
+      <div class="cevap-alani">ÇÖZÜMÜM · Kaç basamak kullandım? ○ 0 ○ 1 ○ 2 ○ 3</div>
+    </div></div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Etkileşimler</span><span class="no">11</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 12 · BÖLÜM TESTİ (1)
+     ========================================================= -->
+<section class="sayfa cift test">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Etkileşimler</span><span>Bölüm testi</span></div>
+  <div class="bant"><h2>Bölüm testi</h2><p>12 soru · önerilen süre 25 dakika. Atom numaraları sorularda verilmiştir.</p></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">1</span><div class="soru-metin">
+        <p>Metalik bağ ile ilgili,</p>
+        <div class="oncul"><div><b>I.</b><span>Pozitif metal iyonları ile serbest dolaşan değerlik elektronları arasındaki çekimdir.</span></div><div><b>II.</b><span>Yalnızca saf metallerde görülür, alaşımlarda görülmez.</span></div><div><b>III.</b><span>Metallerin elektriği iletmesi bu bağdaki serbest elektronlardan kaynaklanır.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız II</span><span><b>C)</b>I ve II</span><span><b>D)</b>I ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <p>Aynı koşullarda aşağıdaki metallerden hangisinin metalik bağı en güçlüdür?</p>
+        <div class="secenek"><span><b>A)</b>{13}Al</span><span><b>B)</b>{12}Mg</span><span><b>C)</b>{11}Na</span><span><b>D)</b>{19}K</span><span><b>E)</b>{37}Rb</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <p>Aşağıdaki atom çiftlerinden hangisi arasında iyonik bağ oluşur?</p>
+        <div class="secenek"><span><b>A)</b>{6}C – {8}O</span><span><b>B)</b>{1}H – {17}Cl</span><span><b>C)</b>{7}N – {1}H</span><span><b>D)</b>{12}Mg – {11}Na</span><span><b>E)</b>{19}K – {35}Br</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
+        <p>Al<sup>3+</sup> ve <span class="f">SO<sub>4</sub><sup>2−</sup></span> iyonlarından oluşan bileşiğin formülü aşağıdakilerden hangisidir?</p>
+        <div class="secenek"><span><b>A)</b>{AlSO4}</span><span><b>B)</b>{Al2(SO4)3}</span><span><b>C)</b>{Al3(SO4)2}</span><span><b>D)</b>{Al2SO4}</span><span><b>E)</b>{Al(SO4)3}</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">5</span><div class="soru-metin">
+        <p>{20}Ca ve {17}Cl atomları arasında oluşan kararlı bileşik ile ilgili aşağıdaki ifadelerden hangisi <b>yanlıştır</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Cl atomunun çapı iyonuna dönüşürken küçülür.</span><span><b>B)</b>Ca atomu 2 elektron vererek Ca<sup>2+</sup> iyonuna dönüşür.</span><span><b>C)</b>Bileşiğin formülü {CaCl2}’dir.</span><span><b>D)</b>Ca<sup>2+</sup> ve Cl<sup>−</sup> iyonlarının elektron sayıları eşittir.</span><span><b>E)</b>Katı hâlde elektrik akımını iletmez.</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">6</span><div class="soru-metin">
+        <p>Aşağıdaki maddelerden hangisinin yapısında hem iyonik hem kovalent bağ bulunur?</p>
+        <div class="secenek"><span><b>A)</b>{MgO}</span><span><b>B)</b>{CH4}</span><span><b>C)</b>{Cl2}</span><span><b>D)</b>{KNO3}</span><span><b>E)</b>{NaF}</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Etkileşimler</span><span class="no">12</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 13 · BÖLÜM TESTİ (2)
+     ========================================================= -->
+<section class="sayfa test devam">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Etkileşimler</span><span>Bölüm testi</span></div>
+
+  <div class="iki" style="gap:7mm">
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">7</span><div class="soru-metin">
+        <p>Lewis yapısı aşağıda verilen metanal ({CH2O}) molekülü ile ilgili,</p>
+        <div style="--lk:.48mm;margin:1mm 0 2mm"><!--SVG:ch2o--></div>
+        <div class="oncul"><div><b>I.</b><span>4 bağlayıcı elektron çifti vardır.</span></div><div><b>II.</b><span>Ortaklanmamış elektron sayısı 4’tür.</span></div><div><b>III.</b><span>Apolar kovalent bağ içerir.</span></div></div>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="secenek"><span><b>A)</b>Yalnız I</span><span><b>B)</b>Yalnız III</span><span><b>C)</b>I ve II</span><span><b>D)</b>II ve III</span><span><b>E)</b>I, II ve III</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">8</span><div class="soru-metin">
+        <p>Aşağıdaki moleküllerden hangisi polar kovalent bağ içerdiği hâlde apolardır? <span class="veri">({1}H, {6}C, {7}N, {8}O, {9}F, {17}Cl)</span></p>
+        <div class="secenek"><span><b>A)</b>{CCl4}</span><span><b>B)</b>{HF}</span><span><b>C)</b>{NH3}</span><span><b>D)</b>{H2O}</span><span><b>E)</b>{N2}</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">9</span><div class="soru-metin">
+        <p>Aşağıdaki moleküllerden hangisinin bir molekülündeki bağlayıcı elektron çifti sayısı en fazladır? <span class="veri">({1}H, {6}C, {7}N, {8}O, {9}F)</span></p>
+        <div class="secenek"><span><b>A)</b>{F2}</span><span><b>B)</b>{H2O}</span><span><b>C)</b>{NH3}</span><span><b>D)</b>{HCN}</span><span><b>E)</b>{C2H4}</span></div>
+      </div></div></div>
+    </div>
+    <div>
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">10</span><div class="soru-metin">
+        <p>Aşağıdakilerden hangisi metalik bağın metallere kazandırdığı özelliklerden biri <b>değildir</b>?</p>
+        <div class="secenek tek"><span><b>A)</b>Bakırın ince tel hâline getirilebilmesi</span><span><b>B)</b>Demirin nemli havada paslanması</span><span><b>C)</b>Alüminyumdan folyo yapılabilmesi</span><span><b>D)</b>Gümüşün yeni kesilen yüzeyinin parlak olması</span><span><b>E)</b>Metal tencerenin ısıyı iyi iletmesi</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">11</span><div class="soru-metin">
+        <div class="oncul"><div><b>I.</b><span>{CS2}</span></div><div><b>II.</b><span>{PCl3}</span></div><div><b>III.</b><span>{CH2Cl2}</span></div><div><b>IV.</b><span>{BF3}</span></div></div>
+        <p>Yukarıdaki moleküllerden hangileri polardır? <span class="veri">({1}H, {5}B, {6}C, {9}F, {15}P, {16}S, {17}Cl)</span></p>
+        <div class="secenek"><span><b>A)</b>I ve II</span><span><b>B)</b>I ve IV</span><span><b>C)</b>II ve III</span><span><b>D)</b>III ve IV</span><span><b>E)</b>II, III ve IV</span></div>
+      </div></div></div>
+
+      <div class="soru-blok"><div class="soru-ust"><span class="soru-no">12</span><div class="soru-metin">
+        <table class="tablo sik" style="font-size:8.6pt">
+          <tr><th>Element</th><th class="on">H</th><th class="on">C</th><th class="on">N</th><th class="on">O</th><th class="on">F</th></tr>
+          <tr><td>Elektronegatiflik</td><td class="on">2,2</td><td class="on">2,6</td><td class="on">3,0</td><td class="on">3,4</td><td class="on">4,0</td></tr>
+        </table>
+        <p>Tablodaki değerlere göre aşağıdaki kovalent bağlardan hangisi en polardır?</p>
+        <div class="secenek"><span><b>A)</b>C–H</span><span><b>B)</b>N–H</span><span><b>C)</b>O–H</span><span><b>D)</b>F–H</span><span><b>E)</b>C–F</span></div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#f6fbf8;margin-top:2mm">
+    <p style="margin:0"><b class="k">Kendi puanını hesapla:</b> Doğru sayın × 8,33 ≈ puanın. 10 ve üzeri doğru: harika · 7–9: Hata Avcısı sayfasını tekrar et · 6 ve altı: 5. ve 6. konuları yeniden çalış.</p>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Etkileşimler</span><span class="no">13</span></div>
+</section>
+
+<!-- =========================================================
+     SAYFA 14 · CEVAP ANAHTARI
+     ========================================================= -->
+<section class="sayfa cift">
+  <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Kimyasal Etkileşimler</span><span>Cevap anahtarı</span></div>
+  <h2 class="konu" style="margin-bottom:4mm">Cevap anahtarı ve çözümler</h2>
+
+  <div class="anahtar">
+    <div><b>1</b><span>D</span></div><div><b>2</b><span>A</span></div><div><b>3</b><span>E</span></div><div><b>4</b><span>B</span></div>
+    <div><b>5</b><span>A</span></div><div><b>6</b><span>D</span></div><div><b>7</b><span>C</span></div><div><b>8</b><span>A</span></div>
+    <div><b>9</b><span>E</span></div><div><b>10</b><span>B</span></div><div><b>11</b><span>C</span></div><div><b>12</b><span>D</span></div>
+  </div>
+
+  <div class="coz-liste">
+    <div class="coz-baslik">Bölüm testi</div>
+    <div class="c"><b>1 · D</b> II yanlış: alaşımlarda da atomları metalik bağ bir arada tutar.</div>
+    <div class="c"><b>2 · A</b> Aynı periyotta Al (3+) &gt; Mg (2+) &gt; Na (1+); aynı grupta Na &gt; K &gt; Rb. En güçlü Al.</div>
+    <div class="c"><b>3 · E</b> K metal (1A), Br ametal (7A): K<sup>+</sup> ve Br<sup>−</sup> → {KBr}. A, B, C ametal–ametal (kovalent); D metal–metal.</div>
+    <div class="c"><b>4 · B</b> Yükler çaprazlanır: Al’nin altına 2, kökün altına 3 → {Al2(SO4)3}. Toplam yük 2·(+3) + 3·(−2) = 0.</div>
+    <div class="c"><b>5 · A</b> Cl elektron alıp Cl<sup>−</sup> olurken elektron başına çekim azalır, çapı <b>büyür</b>. Ca<sup>2+</sup> ve Cl<sup>−</sup>’nin ikisi de 18 elektronludur.</div>
+    <div class="c"><b>6 · D</b> K<sup>+</sup> ile <span class="f">NO<sub>3</sub><sup>−</sup></span> arası iyonik, kökteki N–O bağları kovalent.</div>
+    <div class="c"><b>7 · C</b> 2 C–H + C=O (2 çift) = 4 bağlayıcı çift (I). O’da 2 çift = 4 elektron (II). Tüm bağlar farklı atomlar arasında, apolar bağ yok (III yanlış).</div>
+    <div class="c"><b>8 · A</b> {CCl4}: C–Cl bağları polar, merkezde çift yok, çevre aynı → apolar. HF, {NH3}, {H2O} polar; {N2}’de polar bağ yok.</div>
+    <div class="c"><b>9 · E</b> Bağlayıcı çiftler: {F2} 1 · {H2O} 2 · {NH3} 3 · {HCN} 4 · {C2H4} 6 (4 C–H + C=C).</div>
+    <div class="c"><b>10 · B</b> Paslanma bir kimyasal tepkimedir (metalin oksijen ve suyla tepkimesi); metalik bağın kazandırdığı fiziksel bir özellik değildir.</div>
+    <div class="c"><b>11 · C</b> {CS2} (S=C=S) ve {BF3} simetrik, merkezde çift yok → apolar. {PCl3}’te P’de 1 çift; {CH2Cl2}’de çevre farklı → polar.</div>
+    <div class="c"><b>12 · D</b> ΔEN: C–H 0,4 · N–H 0,8 · O–H 1,2 · F–H 1,8 · C–F 1,4. Fark büyük olan en polardır.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
+    <div class="c" style="--renk:var(--hayat)"><b>1 · B</b> Erime noktası Li’den Cs’ye düşer: bağ zayıflar (I). Rb 39 °C’de erir, 25 °C’de katıdır (II). Cs 28 °C’de erir; 25 °C’de henüz katıdır (III yanlış).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · E</b> X: katısı iletmez, çözeltisi iletir, kırılgan → iyonik. Y: katısı iletir, dövülebilir → metalik. Z: düşük erime noktası, hiç iletmez → moleküllü (kovalent).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · D</b> Ca<sup>2+</sup> ve <span class="f">PO<sub>4</sub><sup>3−</sup></span> çaprazlanır: {Ca3(PO4)2}, oran 3 : 2. Fosfat kökünde P–O kovalent bağları da vardır (III yanlış).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>4 · C</b> {CO2} ve {CH4}: polar bağlar, simetrik yapı → apolar. {H2O} polar. {N2} ve {O2}’de polar bağ yoktur.</div>
+
+    <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>1 · X<sub>3</sub>Y<sub>2</sub>, evet</b> X (Mg) → X<sup>2+</sup>, Y (N) → Y<sup>3−</sup>. Çaprazlama: X<sub>3</sub>Y<sub>2</sub>. İki iyon da 10 elektronludur (Ne dizilimi), izoelektroniktir.</div>
+    <div class="c" style="--renk:var(--ipucu)"><b>2 · 5 bağlayıcı, 2 ortaklanmamış çift</b> 1 N–N + 4 N–H = 5 bağ; her N’de 1 çift. Polar bağ 4 (N–H), apolar bağ 1 (N–N). <span style="--lk:.3mm;display:inline-block;vertical-align:middle"><!--SVG:n2h4--></span></div>
+    <div class="c" style="--renk:var(--ipucu)"><b>3 · AF<sub>3</sub> apolar, DF<sub>3</sub> polar</b> A (B) 3 bağ yapar, merkezde çift kalmaz, çevre aynı → apolar; 9 ortaklanmamış çift. D (N) merkezde 1 çift taşır → polar; 1 + 9 = 10 çift.</div>
+
+    <div class="coz-baslik" style="--renk:var(--hata)">Hata Avcısı</div>
+    <div class="c" style="--renk:var(--hata)"><b>1 · Satır 2</b> Katman sayısı arttıkça değerlik elektronu çekirdekten uzaklaşır, daha <b>zayıf</b> çekilir. Na’nın metalik bağı daha güçlüdür (erime: Na 98 °C, K 64 °C).</div>
+    <div class="c" style="--renk:var(--hata)"><b>2 · Satır 2</b> Yükler <b>çaprazlanır</b>: Mg’nin altına 3, kökün altına 2. Doğru formül {Mg3(PO4)2}: 3·(+2) + 2·(−3) = 0.</div>
+    <div class="c" style="--renk:var(--hata)"><b>3 · Satır 3</b> H dubletini 1 bağla tamamlar, fazla elektron alamaz. Kalan 2 elektron N üzerinde <b>1 ortaklanmamış çifttir</b>.</div>
+    <div class="c" style="--renk:var(--hata)"><b>4 · Satır 3</b> İki C=O bağının polarlığı zıt yönlüdür ve birbirini yok eder. Doğrusal ve simetrik {CO2} <b>apolardır</b> (μ = 0).</div>
+  </div>
+
+  <div class="alt-bilgi"><span>Kimya Rotası 9 · Kimyasal Etkileşimler</span><span class="no">14</span></div>
+</section>
+
+</body>
+</html>
