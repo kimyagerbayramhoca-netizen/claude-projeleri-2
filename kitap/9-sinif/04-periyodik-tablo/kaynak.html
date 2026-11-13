@@ -42,6 +42,10 @@
 .grup-bas { display: flex; align-items: baseline; gap: 2mm; margin-bottom: 1.2mm; }
 .grup-bas b { font-size: 11.5pt; color: var(--unite-koyu); font-family: "Inter Display"; font-weight: 800; }
 .grup-bas span { font-size: 8pt; color: var(--soluk); }
+.uyeler { font-size: 8pt; color: var(--soluk); margin: -.4mm 0 1.2mm; }
+.grup-bas .rozet { color: #fff; font-size: 7.4pt; }
+.hata-sayfa .duzelt { min-height: 34mm; }
+.ipucu-sayfa .cevap-alani { height: 22mm; }
 .rozet { display: inline-block; font-size: 7.4pt; font-weight: 800; color: #fff; background: var(--unite); border-radius: 1.2mm; padding: .2mm 1.6mm; }
 
 .ozet-sayfa .bloklar { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
@@ -248,9 +252,9 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
   <h2 class="konu"><span class="num">1</span>Periyodik tablonun hikâyesi</h2>
   <div class="alt-baslik">Dağınık bir element listesinden düzenli bir haritaya yaklaşık yüz yıllık yolculuk</div>
 
-  <p>1869’a gelindiğinde bilinen element sayısı 60’ı geçmişti. Bilim insanları şu soruyu sordu: <b>Elementlerin özellikleri arasında bir düzen var mı?</b> Bu soruya verilen cevaplar adım adım bugünkü tabloyu oluşturdu.</p>
+  <p>1869’da bilinen element sayısı 60’ı geçmişti. Bilim insanları şunu sordu: <b>Elementlerin özellikleri arasında bir düzen var mı?</b> Verilen cevaplar adım adım bugünkü tabloyu oluşturdu.</p>
 
-  <svg viewBox="0 0 178 44" style="width:100%;height:auto;margin:1mm 0 3mm">
+  <svg viewBox="0 0 178 37" style="width:100%;height:auto;margin:0 0 2mm">
     <g font-family="Inter" text-anchor="middle">
       <line x1="4" y1="17" x2="174" y2="17" stroke="#be185d" stroke-width=".8"/>
       <path d="M174 15 L178 17 L174 19 Z" fill="#be185d"/>
@@ -276,7 +280,6 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
         <text x="135" y="31">atom numarası</text><text x="135" y="34.6">ölçüldü</text>
         <text x="161" y="31">7. periyot</text><text x="161" y="34.6">tamamlandı</text>
       </g>
-      <text x="89" y="42" font-size="2.8" fill="#9aa3b8">Sıralama ölçütü: 1913’e kadar atom kütlesi → 1913’ten sonra atom numarası</text>
     </g>
   </svg>
 
@@ -284,7 +287,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
     <tr><th style="width:19%">Bilim insanı</th><th>Katkısı</th><th style="width:29%">Eksik kalan yönü</th></tr>
     <tr><td><b>Döbereiner</b><br><span class="kucuk">atom kütlesi</span></td><td>Benzer elementleri üçlü gruplara ayırdı; ortadakinin kütlesi diğer ikisinin ortalamasına yakındır.</td><td>Az sayıda üçlüde işe yaradı.</td></tr>
     <tr><td><b>Newlands</b><br><span class="kucuk">artan atom kütlesi</span></td><td>Elementleri sıralayınca her sekizincinin birinciye benzediğini gördü (oktavlar kuralı).</td><td>Kalsiyumdan sonraki ağır elementlerde bozuldu.</td></tr>
-    <tr><td><b>Mendeleyev</b><br><span class="kucuk">atom kütlesi + benzerlik</span></td><td>Benzerleri aynı sütuna koydu; bilinmeyen elementler için <b>boşluk bıraktı</b> ve özelliklerini önceden tahmin etti.</td><td>Birkaç yerde kütle sırasını bozmak zorunda kaldı.</td></tr>
+    <tr><td><b>Mendeleyev</b><br><span class="kucuk">atom kütlesi</span></td><td>Benzerleri aynı sütuna koydu; bilinmeyen elementler için <b>boşluk bıraktı</b> ve özelliklerini önceden tahmin etti.</td><td>Birkaç yerde kütle sırasını bozmak zorunda kaldı.</td></tr>
     <tr><td><b>Lothar Meyer</b><br><span class="kucuk">atom kütlesi</span></td><td>Atom hacminin kütleyle birlikte dalgalanarak tekrar ettiğini grafikle gösterdi.</td><td>Yeni element tahmini yapmadı.</td></tr>
     <tr><td><b>Moseley</b><br><span class="kucuk">atom numarası</span></td><td>X ışınlarıyla atom numaralarını belirledi; sıralamanın atom numarasına göre yapılmasını önerdi.</td><td>Bugünkü tablonun temeli oldu.</td></tr>
   </table>
@@ -301,7 +304,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
     </div>
     <div class="kutu ornek">
       <div class="etiket">@ikon:ornek Çözümlü Örnek 1</div>
-      <div class="soru" style="font-size:9.4pt">Lityum (6,9) ve potasyum (39,1) ile bir üçlü oluşturan sodyumun atom kütlesini Döbereiner’in yaklaşımıyla tahmin ediniz.</div>
+      <div class="soru" style="font-size:9.3pt">Li (6,9), Na, K (39,1) üçlüsünde sodyumun atom kütlesini Döbereiner’e göre tahmin ediniz.</div>
       <div class="cozum">
         <div class="adim"><span class="n">1</span><span>Ortadaki = uçtakilerin ortalaması: (6,9 + 39,1) / 2</span></div>
         <div class="adim"><span class="n">2</span><span>46,0 / 2 = 23,0. Gerçek değer de 23,0’tür.</span></div>
@@ -312,10 +315,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
 
   <div class="kutu dikkat">
     <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
-    <div class="yanilgi">
-      <div class="yanlis"><b class="y">✗</b> “Mendeleyev elementleri atom numarasına göre sıraladı.”</div>
-      <div class="dogru"><b class="d">✓</b> 1869’da atom numarası bilinmiyordu; Mendeleyev <b>atom kütlesini</b> kullandı. Tellürü (127,6) iyottan (126,9) önceye koyması, ancak atom numarasıyla açıklandı.</div>
-    </div>
+    <p style="font-size:9.2pt;margin:0"><b style="color:var(--dikkat)">✗</b> “Mendeleyev elementleri atom numarasına göre sıraladı.” <b style="color:var(--ornek)">✓</b> 1869’da atom numarası bilinmiyordu; Mendeleyev <b>atom kütlesini</b> kullandı. Tellürü (127,6) iyottan (126,9) önceye koyması ancak atom numarasıyla açıklandı.</p>
   </div>
 
   <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">2</span></div>
@@ -335,422 +335,424 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
 <!--BAS:buyuk-->
 <svg viewBox="0 0 186 113" style="width:100%;height:auto">
 <g font-family="Inter" text-anchor="middle">
-<text x="11.80" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">1</text>
-<text x="11.80" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">1A</text>
-<text x="21.90" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">2</text>
-<text x="21.90" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">2A</text>
-<text x="32.00" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">3</text>
-<text x="32.00" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">3B</text>
-<text x="42.10" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">4</text>
-<text x="42.10" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">4B</text>
-<text x="52.20" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">5</text>
-<text x="52.20" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">5B</text>
-<text x="62.30" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">6</text>
-<text x="62.30" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">6B</text>
-<text x="72.40" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">7</text>
-<text x="72.40" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">7B</text>
-<text x="82.50" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">8</text>
-<text x="82.50" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">8B</text>
-<text x="92.60" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">9</text>
-<text x="92.60" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">8B</text>
-<text x="102.70" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">10</text>
-<text x="102.70" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">8B</text>
-<text x="112.80" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">11</text>
-<text x="112.80" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">1B</text>
-<text x="122.90" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">12</text>
-<text x="122.90" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">2B</text>
-<text x="133.00" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">13</text>
-<text x="133.00" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">3A</text>
-<text x="143.10" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">14</text>
-<text x="143.10" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">4A</text>
-<text x="153.20" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">15</text>
-<text x="153.20" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">5A</text>
-<text x="163.30" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">16</text>
-<text x="163.30" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">6A</text>
-<text x="173.40" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">17</text>
-<text x="173.40" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">7A</text>
-<text x="183.50" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">18</text>
-<text x="183.50" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">8A</text>
+<text x="12.70" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">1</text>
+<text x="12.70" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">1A</text>
+<text x="22.55" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">2</text>
+<text x="22.55" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">2A</text>
+<text x="32.40" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">3</text>
+<text x="32.40" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">3B</text>
+<text x="42.25" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">4</text>
+<text x="42.25" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">4B</text>
+<text x="52.10" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">5</text>
+<text x="52.10" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">5B</text>
+<text x="61.95" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">6</text>
+<text x="61.95" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">6B</text>
+<text x="71.80" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">7</text>
+<text x="71.80" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">7B</text>
+<text x="81.65" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">8</text>
+<text x="81.65" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">8B</text>
+<text x="91.50" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">9</text>
+<text x="91.50" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">8B</text>
+<text x="101.35" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">10</text>
+<text x="101.35" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">8B</text>
+<text x="111.20" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">11</text>
+<text x="111.20" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">1B</text>
+<text x="121.05" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">12</text>
+<text x="121.05" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">2B</text>
+<text x="130.90" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">13</text>
+<text x="130.90" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">3A</text>
+<text x="140.75" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">14</text>
+<text x="140.75" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">4A</text>
+<text x="150.60" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">15</text>
+<text x="150.60" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">5A</text>
+<text x="160.45" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">16</text>
+<text x="160.45" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">6A</text>
+<text x="170.30" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">17</text>
+<text x="170.30" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">7A</text>
+<text x="180.15" y="3.6" font-size="3.3" font-weight="800" fill="#7a0f3c">18</text>
+<text x="180.15" y="7.4" font-size="2.9" font-weight="700" fill="#5d6478">8A</text>
 <text x="3" y="15.10" font-size="3.4" font-weight="800" fill="#7a0f3c">1</text>
-<text x="3" y="25.40" font-size="3.4" font-weight="800" fill="#7a0f3c">2</text>
-<text x="3" y="35.70" font-size="3.4" font-weight="800" fill="#7a0f3c">3</text>
-<text x="3" y="46.00" font-size="3.4" font-weight="800" fill="#7a0f3c">4</text>
-<text x="3" y="56.30" font-size="3.4" font-weight="800" fill="#7a0f3c">5</text>
-<text x="3" y="66.60" font-size="3.4" font-weight="800" fill="#7a0f3c">6</text>
-<text x="3" y="76.90" font-size="3.4" font-weight="800" fill="#7a0f3c">7</text>
-<rect x="7.00" y="9.00" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="8.00" y="11.70" font-size="2.3" text-anchor="start" fill="#3b4256">1</text>
-<text x="11.80" y="16.60" font-size="4.1" font-weight="800" fill="#1d2133">H</text>
-<rect x="178.70" y="9.00" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="179.70" y="11.70" font-size="2.3" text-anchor="start" fill="#3b4256">2</text>
-<text x="183.50" y="16.60" font-size="4.1" font-weight="800" fill="#1d2133">He</text>
-<rect x="7.00" y="19.30" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="8.00" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">3</text>
-<text x="11.80" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">Li</text>
-<rect x="17.10" y="19.30" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="18.10" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">4</text>
-<text x="21.90" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">Be</text>
-<rect x="128.20" y="19.30" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="129.20" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">5</text>
-<text x="133.00" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">B</text>
-<rect x="138.30" y="19.30" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="139.30" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">6</text>
-<text x="143.10" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">C</text>
-<rect x="148.40" y="19.30" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="149.40" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">7</text>
-<text x="153.20" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">N</text>
-<rect x="158.50" y="19.30" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="159.50" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">8</text>
-<text x="163.30" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">O</text>
-<rect x="168.60" y="19.30" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="169.60" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">9</text>
-<text x="173.40" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">F</text>
-<rect x="178.70" y="19.30" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="179.70" y="22.00" font-size="2.3" text-anchor="start" fill="#3b4256">10</text>
-<text x="183.50" y="26.90" font-size="4.1" font-weight="800" fill="#1d2133">Ne</text>
-<rect x="7.00" y="29.60" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="8.00" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">11</text>
-<text x="11.80" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">Na</text>
-<rect x="17.10" y="29.60" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="18.10" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">12</text>
-<text x="21.90" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">Mg</text>
-<rect x="128.20" y="29.60" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="129.20" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">13</text>
-<text x="133.00" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">Al</text>
-<rect x="138.30" y="29.60" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="139.30" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">14</text>
-<text x="143.10" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">Si</text>
-<rect x="148.40" y="29.60" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="149.40" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">15</text>
-<text x="153.20" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">P</text>
-<rect x="158.50" y="29.60" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="159.50" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">16</text>
-<text x="163.30" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">S</text>
-<rect x="168.60" y="29.60" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="169.60" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">17</text>
-<text x="173.40" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">Cl</text>
-<rect x="178.70" y="29.60" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="179.70" y="32.30" font-size="2.3" text-anchor="start" fill="#3b4256">18</text>
-<text x="183.50" y="37.20" font-size="4.1" font-weight="800" fill="#1d2133">Ar</text>
-<rect x="7.00" y="39.90" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="8.00" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">19</text>
-<text x="11.80" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">K</text>
-<rect x="17.10" y="39.90" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="18.10" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">20</text>
-<text x="21.90" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Ca</text>
-<rect x="27.20" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="28.20" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">21</text>
-<text x="32.00" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Sc</text>
-<rect x="37.30" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="38.30" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">22</text>
-<text x="42.10" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Ti</text>
-<rect x="47.40" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="48.40" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">23</text>
-<text x="52.20" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">V</text>
-<rect x="57.50" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="58.50" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">24</text>
-<text x="62.30" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Cr</text>
-<rect x="67.60" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="68.60" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">25</text>
-<text x="72.40" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Mn</text>
-<rect x="77.70" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="78.70" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">26</text>
-<text x="82.50" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Fe</text>
-<rect x="87.80" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="88.80" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">27</text>
-<text x="92.60" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Co</text>
-<rect x="97.90" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="98.90" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">28</text>
-<text x="102.70" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Ni</text>
-<rect x="108.00" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="109.00" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">29</text>
-<text x="112.80" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Cu</text>
-<rect x="118.10" y="39.90" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="119.10" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">30</text>
-<text x="122.90" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Zn</text>
-<rect x="128.20" y="39.90" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="129.20" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">31</text>
-<text x="133.00" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Ga</text>
-<rect x="138.30" y="39.90" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="139.30" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">32</text>
-<text x="143.10" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Ge</text>
-<rect x="148.40" y="39.90" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="149.40" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">33</text>
-<text x="153.20" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">As</text>
-<rect x="158.50" y="39.90" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="159.50" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">34</text>
-<text x="163.30" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Se</text>
-<rect x="168.60" y="39.90" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="169.60" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">35</text>
-<text x="173.40" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Br</text>
-<rect x="178.70" y="39.90" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="179.70" y="42.60" font-size="2.3" text-anchor="start" fill="#3b4256">36</text>
-<text x="183.50" y="47.50" font-size="4.1" font-weight="800" fill="#1d2133">Kr</text>
-<rect x="7.00" y="50.20" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="8.00" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">37</text>
-<text x="11.80" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Rb</text>
-<rect x="17.10" y="50.20" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="18.10" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">38</text>
-<text x="21.90" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Sr</text>
-<rect x="27.20" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="28.20" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">39</text>
-<text x="32.00" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Y</text>
-<rect x="37.30" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="38.30" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">40</text>
-<text x="42.10" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Zr</text>
-<rect x="47.40" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="48.40" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">41</text>
-<text x="52.20" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Nb</text>
-<rect x="57.50" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="58.50" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">42</text>
-<text x="62.30" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Mo</text>
-<rect x="67.60" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="68.60" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">43</text>
-<text x="72.40" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Tc</text>
-<rect x="77.70" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="78.70" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">44</text>
-<text x="82.50" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Ru</text>
-<rect x="87.80" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="88.80" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">45</text>
-<text x="92.60" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Rh</text>
-<rect x="97.90" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="98.90" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">46</text>
-<text x="102.70" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Pd</text>
-<rect x="108.00" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="109.00" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">47</text>
-<text x="112.80" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Ag</text>
-<rect x="118.10" y="50.20" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="119.10" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">48</text>
-<text x="122.90" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Cd</text>
-<rect x="128.20" y="50.20" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="129.20" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">49</text>
-<text x="133.00" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">In</text>
-<rect x="138.30" y="50.20" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="139.30" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">50</text>
-<text x="143.10" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Sn</text>
-<rect x="148.40" y="50.20" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="149.40" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">51</text>
-<text x="153.20" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Sb</text>
-<rect x="158.50" y="50.20" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="159.50" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">52</text>
-<text x="163.30" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Te</text>
-<rect x="168.60" y="50.20" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="169.60" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">53</text>
-<text x="173.40" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">I</text>
-<rect x="178.70" y="50.20" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="179.70" y="52.90" font-size="2.3" text-anchor="start" fill="#3b4256">54</text>
-<text x="183.50" y="57.80" font-size="4.1" font-weight="800" fill="#1d2133">Xe</text>
-<rect x="7.00" y="60.50" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="8.00" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">55</text>
-<text x="11.80" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Cs</text>
-<rect x="17.10" y="60.50" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="18.10" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">56</text>
-<text x="21.90" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Ba</text>
-<rect x="37.30" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="38.30" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">72</text>
-<text x="42.10" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Hf</text>
-<rect x="47.40" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="48.40" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">73</text>
-<text x="52.20" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Ta</text>
-<rect x="57.50" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="58.50" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">74</text>
-<text x="62.30" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">W</text>
-<rect x="67.60" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="68.60" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">75</text>
-<text x="72.40" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Re</text>
-<rect x="77.70" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="78.70" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">76</text>
-<text x="82.50" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Os</text>
-<rect x="87.80" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="88.80" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">77</text>
-<text x="92.60" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Ir</text>
-<rect x="97.90" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="98.90" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">78</text>
-<text x="102.70" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Pt</text>
-<rect x="108.00" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="109.00" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">79</text>
-<text x="112.80" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Au</text>
-<rect x="118.10" y="60.50" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="119.10" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">80</text>
-<text x="122.90" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Hg</text>
-<rect x="128.20" y="60.50" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="129.20" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">81</text>
-<text x="133.00" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Tl</text>
-<rect x="138.30" y="60.50" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="139.30" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">82</text>
-<text x="143.10" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Pb</text>
-<rect x="148.40" y="60.50" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="149.40" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">83</text>
-<text x="153.20" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Bi</text>
-<rect x="158.50" y="60.50" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="159.50" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">84</text>
-<text x="163.30" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Po</text>
-<rect x="168.60" y="60.50" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="169.60" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">85</text>
-<text x="173.40" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">At</text>
-<rect x="178.70" y="60.50" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="179.70" y="63.20" font-size="2.3" text-anchor="start" fill="#3b4256">86</text>
-<text x="183.50" y="68.10" font-size="4.1" font-weight="800" fill="#1d2133">Rn</text>
-<rect x="7.00" y="70.80" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="8.00" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">87</text>
-<text x="11.80" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Fr</text>
-<rect x="17.10" y="70.80" width="9.6" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
-<text x="18.10" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">88</text>
-<text x="21.90" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Ra</text>
-<rect x="37.30" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="38.30" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">104</text>
-<text x="42.10" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Rf</text>
-<rect x="47.40" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="48.40" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">105</text>
-<text x="52.20" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Db</text>
-<rect x="57.50" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="58.50" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">106</text>
-<text x="62.30" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Sg</text>
-<rect x="67.60" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="68.60" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">107</text>
-<text x="72.40" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Bh</text>
-<rect x="77.70" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="78.70" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">108</text>
-<text x="82.50" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Hs</text>
-<rect x="87.80" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="88.80" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">109</text>
-<text x="92.60" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Mt</text>
-<rect x="97.90" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="98.90" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">110</text>
-<text x="102.70" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Ds</text>
-<rect x="108.00" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="109.00" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">111</text>
-<text x="112.80" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Rg</text>
-<rect x="118.10" y="70.80" width="9.6" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
-<text x="119.10" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">112</text>
-<text x="122.90" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Cn</text>
-<rect x="128.20" y="70.80" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="129.20" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">113</text>
-<text x="133.00" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Nh</text>
-<rect x="138.30" y="70.80" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="139.30" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">114</text>
-<text x="143.10" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Fl</text>
-<rect x="148.40" y="70.80" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="149.40" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">115</text>
-<text x="153.20" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Mc</text>
-<rect x="158.50" y="70.80" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="159.50" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">116</text>
-<text x="163.30" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Lv</text>
-<rect x="168.60" y="70.80" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="169.60" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">117</text>
-<text x="173.40" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Ts</text>
-<rect x="178.70" y="70.80" width="9.6" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
-<text x="179.70" y="73.50" font-size="2.3" text-anchor="start" fill="#3b4256">118</text>
-<text x="183.50" y="78.40" font-size="4.1" font-weight="800" fill="#1d2133">Og</text>
-<rect x="27.20" y="60.50" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25" stroke-dasharray="1 .6"/>
-<text x="32.00" y="65.10" font-size="2.3" font-weight="700" fill="#15803d">57–71</text>
-<text x="32.00" y="68.10" font-size="2.3" fill="#15803d">f bloku</text>
-<rect x="27.20" y="70.80" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25" stroke-dasharray="1 .6"/>
-<text x="32.00" y="75.40" font-size="2.3" font-weight="700" fill="#15803d">89–103</text>
-<text x="32.00" y="78.40" font-size="2.3" fill="#15803d">f bloku</text>
-<text x="26.00" y="90.30" font-size="3" font-weight="700" text-anchor="end" fill="#15803d">Lantanitler (6. periyot)</text>
-<rect x="27.20" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="28.20" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">57</text>
-<text x="32.00" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">La</text>
-<rect x="37.30" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="38.30" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">58</text>
-<text x="42.10" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Ce</text>
-<rect x="47.40" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="48.40" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">59</text>
-<text x="52.20" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Pr</text>
-<rect x="57.50" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="58.50" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">60</text>
-<text x="62.30" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Nd</text>
-<rect x="67.60" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="68.60" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">61</text>
-<text x="72.40" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Pm</text>
-<rect x="77.70" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="78.70" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">62</text>
-<text x="82.50" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Sm</text>
-<rect x="87.80" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="88.80" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">63</text>
-<text x="92.60" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Eu</text>
-<rect x="97.90" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="98.90" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">64</text>
-<text x="102.70" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Gd</text>
-<rect x="108.00" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="109.00" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">65</text>
-<text x="112.80" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Tb</text>
-<rect x="118.10" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="119.10" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">66</text>
-<text x="122.90" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Dy</text>
-<rect x="128.20" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="129.20" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">67</text>
-<text x="133.00" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Ho</text>
-<rect x="138.30" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="139.30" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">68</text>
-<text x="143.10" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Er</text>
-<rect x="148.40" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="149.40" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">69</text>
-<text x="153.20" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Tm</text>
-<rect x="158.50" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="159.50" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">70</text>
-<text x="163.30" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Yb</text>
-<rect x="168.60" y="84.30" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="169.60" y="87.00" font-size="2.3" text-anchor="start" fill="#3b4256">71</text>
-<text x="173.40" y="91.90" font-size="4.1" font-weight="800" fill="#1d2133">Lu</text>
-<text x="26.00" y="100.60" font-size="3" font-weight="700" text-anchor="end" fill="#15803d">Aktinitler (7. periyot)</text>
-<rect x="27.20" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="28.20" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">89</text>
-<text x="32.00" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Ac</text>
-<rect x="37.30" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="38.30" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">90</text>
-<text x="42.10" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Th</text>
-<rect x="47.40" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="48.40" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">91</text>
-<text x="52.20" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Pa</text>
-<rect x="57.50" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="58.50" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">92</text>
-<text x="62.30" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">U</text>
-<rect x="67.60" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="68.60" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">93</text>
-<text x="72.40" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Np</text>
-<rect x="77.70" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="78.70" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">94</text>
-<text x="82.50" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Pu</text>
-<rect x="87.80" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="88.80" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">95</text>
-<text x="92.60" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Am</text>
-<rect x="97.90" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="98.90" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">96</text>
-<text x="102.70" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Cm</text>
-<rect x="108.00" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="109.00" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">97</text>
-<text x="112.80" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Bk</text>
-<rect x="118.10" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="119.10" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">98</text>
-<text x="122.90" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Cf</text>
-<rect x="128.20" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="129.20" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">99</text>
-<text x="133.00" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Es</text>
-<rect x="138.30" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="139.30" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">100</text>
-<text x="143.10" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Fm</text>
-<rect x="148.40" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="149.40" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">101</text>
-<text x="153.20" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Md</text>
-<rect x="158.50" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="159.50" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">102</text>
-<text x="163.30" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">No</text>
-<rect x="168.60" y="94.60" width="9.6" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
-<text x="169.60" y="97.30" font-size="2.3" text-anchor="start" fill="#3b4256">103</text>
-<text x="173.40" y="102.20" font-size="4.1" font-weight="800" fill="#1d2133">Lr</text>
-<text x="77.70" y="13.40" font-size="2.9" fill="#5d6478">1–3. periyotlarda geçiş elementi yoktur:</text>
-<text x="77.70" y="17.40" font-size="2.9" fill="#5d6478">2A’dan sonra doğrudan 3A gelir.</text>
-<rect x="7" y="107.30000000000001" width="5" height="3.6" rx=".8" fill="#fbcfe8" stroke="#be185d" stroke-width=".3"/>
-<text x="13.2" y="110.20000000000002" font-size="3.1" text-anchor="start" font-weight="700" fill="#be185d">s bloku</text>
-<rect x="39" y="107.30000000000001" width="5" height="3.6" rx=".8" fill="#fde7a8" stroke="#b45309" stroke-width=".3"/>
-<text x="45.2" y="110.20000000000002" font-size="3.1" text-anchor="start" font-weight="700" fill="#b45309">d bloku</text>
-<rect x="71" y="107.30000000000001" width="5" height="3.6" rx=".8" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".3"/>
-<text x="77.2" y="110.20000000000002" font-size="3.1" text-anchor="start" font-weight="700" fill="#1d4ed8">p bloku</text>
-<rect x="101" y="107.30000000000001" width="5" height="3.6" rx=".8" fill="#c9f2d6" stroke="#15803d" stroke-width=".3"/>
-<text x="107.2" y="110.20000000000002" font-size="3.1" text-anchor="start" font-weight="700" fill="#15803d">f bloku (iç geçiş)</text>
-<text x="183" y="110.20000000000002" font-size="2.8" text-anchor="end" fill="#5d6478">Üst satır: IUPAC grup no · alt satır: A/B adı</text>
+<text x="3" y="25.35" font-size="3.4" font-weight="800" fill="#7a0f3c">2</text>
+<text x="3" y="35.60" font-size="3.4" font-weight="800" fill="#7a0f3c">3</text>
+<text x="3" y="45.85" font-size="3.4" font-weight="800" fill="#7a0f3c">4</text>
+<text x="3" y="56.10" font-size="3.4" font-weight="800" fill="#7a0f3c">5</text>
+<text x="3" y="66.35" font-size="3.4" font-weight="800" fill="#7a0f3c">6</text>
+<text x="3" y="76.60" font-size="3.4" font-weight="800" fill="#7a0f3c">7</text>
+<rect x="8.00" y="9.00" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="9.00" y="11.70" font-size="2.3" text-anchor="start" fill="#3b4256">1</text>
+<text x="12.70" y="16.60" font-size="4.1" font-weight="800" fill="#1d2133">H</text>
+<rect x="175.45" y="9.00" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="176.45" y="11.70" font-size="2.3" text-anchor="start" fill="#3b4256">2</text>
+<text x="180.15" y="16.60" font-size="4.1" font-weight="800" fill="#1d2133">He</text>
+<rect x="8.00" y="19.25" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="9.00" y="21.95" font-size="2.3" text-anchor="start" fill="#3b4256">3</text>
+<text x="12.70" y="26.85" font-size="4.1" font-weight="800" fill="#1d2133">Li</text>
+<rect x="17.85" y="19.25" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="18.85" y="21.95" font-size="2.3" text-anchor="start" fill="#3b4256">4</text>
+<text x="22.55" y="26.85" font-size="4.1" font-weight="800" fill="#1d2133">Be</text>
+<rect x="126.20" y="19.25" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="127.20" y="21.95" font-size="2.3" text-anchor="start" fill="#3b4256">5</text>
+<text x="130.90" y="26.85" font-size="4.1" font-weight="800" fill="#1d2133">B</text>
+<rect x="136.05" y="19.25" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="137.05" y="21.95" font-size="2.3" text-anchor="start" fill="#3b4256">6</text>
+<text x="140.75" y="26.85" font-size="4.1" font-weight="800" fill="#1d2133">C</text>
+<rect x="145.90" y="19.25" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="146.90" y="21.95" font-size="2.3" text-anchor="start" fill="#3b4256">7</text>
+<text x="150.60" y="26.85" font-size="4.1" font-weight="800" fill="#1d2133">N</text>
+<rect x="155.75" y="19.25" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="156.75" y="21.95" font-size="2.3" text-anchor="start" fill="#3b4256">8</text>
+<text x="160.45" y="26.85" font-size="4.1" font-weight="800" fill="#1d2133">O</text>
+<rect x="165.60" y="19.25" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="166.60" y="21.95" font-size="2.3" text-anchor="start" fill="#3b4256">9</text>
+<text x="170.30" y="26.85" font-size="4.1" font-weight="800" fill="#1d2133">F</text>
+<rect x="175.45" y="19.25" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="176.45" y="21.95" font-size="2.3" text-anchor="start" fill="#3b4256">10</text>
+<text x="180.15" y="26.85" font-size="4.1" font-weight="800" fill="#1d2133">Ne</text>
+<rect x="8.00" y="29.50" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="9.00" y="32.20" font-size="2.3" text-anchor="start" fill="#3b4256">11</text>
+<text x="12.70" y="37.10" font-size="4.1" font-weight="800" fill="#1d2133">Na</text>
+<rect x="17.85" y="29.50" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="18.85" y="32.20" font-size="2.3" text-anchor="start" fill="#3b4256">12</text>
+<text x="22.55" y="37.10" font-size="4.1" font-weight="800" fill="#1d2133">Mg</text>
+<rect x="126.20" y="29.50" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="127.20" y="32.20" font-size="2.3" text-anchor="start" fill="#3b4256">13</text>
+<text x="130.90" y="37.10" font-size="4.1" font-weight="800" fill="#1d2133">Al</text>
+<rect x="136.05" y="29.50" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="137.05" y="32.20" font-size="2.3" text-anchor="start" fill="#3b4256">14</text>
+<text x="140.75" y="37.10" font-size="4.1" font-weight="800" fill="#1d2133">Si</text>
+<rect x="145.90" y="29.50" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="146.90" y="32.20" font-size="2.3" text-anchor="start" fill="#3b4256">15</text>
+<text x="150.60" y="37.10" font-size="4.1" font-weight="800" fill="#1d2133">P</text>
+<rect x="155.75" y="29.50" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="156.75" y="32.20" font-size="2.3" text-anchor="start" fill="#3b4256">16</text>
+<text x="160.45" y="37.10" font-size="4.1" font-weight="800" fill="#1d2133">S</text>
+<rect x="165.60" y="29.50" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="166.60" y="32.20" font-size="2.3" text-anchor="start" fill="#3b4256">17</text>
+<text x="170.30" y="37.10" font-size="4.1" font-weight="800" fill="#1d2133">Cl</text>
+<rect x="175.45" y="29.50" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="176.45" y="32.20" font-size="2.3" text-anchor="start" fill="#3b4256">18</text>
+<text x="180.15" y="37.10" font-size="4.1" font-weight="800" fill="#1d2133">Ar</text>
+<rect x="8.00" y="39.75" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="9.00" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">19</text>
+<text x="12.70" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">K</text>
+<rect x="17.85" y="39.75" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="18.85" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">20</text>
+<text x="22.55" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Ca</text>
+<rect x="27.70" y="39.75" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="28.70" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">21</text>
+<text x="32.40" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Sc</text>
+<rect x="37.55" y="39.75" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="38.55" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">22</text>
+<text x="42.25" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Ti</text>
+<rect x="47.40" y="39.75" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="48.40" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">23</text>
+<text x="52.10" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">V</text>
+<rect x="57.25" y="39.75" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="58.25" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">24</text>
+<text x="61.95" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Cr</text>
+<rect x="67.10" y="39.75" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="68.10" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">25</text>
+<text x="71.80" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Mn</text>
+<rect x="76.95" y="39.75" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="77.95" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">26</text>
+<text x="81.65" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Fe</text>
+<rect x="86.80" y="39.75" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="87.80" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">27</text>
+<text x="91.50" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Co</text>
+<rect x="96.65" y="39.75" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="97.65" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">28</text>
+<text x="101.35" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Ni</text>
+<rect x="106.50" y="39.75" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="107.50" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">29</text>
+<text x="111.20" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Cu</text>
+<rect x="116.35" y="39.75" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="117.35" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">30</text>
+<text x="121.05" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Zn</text>
+<rect x="126.20" y="39.75" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="127.20" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">31</text>
+<text x="130.90" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Ga</text>
+<rect x="136.05" y="39.75" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="137.05" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">32</text>
+<text x="140.75" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Ge</text>
+<rect x="145.90" y="39.75" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="146.90" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">33</text>
+<text x="150.60" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">As</text>
+<rect x="155.75" y="39.75" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="156.75" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">34</text>
+<text x="160.45" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Se</text>
+<rect x="165.60" y="39.75" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="166.60" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">35</text>
+<text x="170.30" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Br</text>
+<rect x="175.45" y="39.75" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="176.45" y="42.45" font-size="2.3" text-anchor="start" fill="#3b4256">36</text>
+<text x="180.15" y="47.35" font-size="4.1" font-weight="800" fill="#1d2133">Kr</text>
+<rect x="8.00" y="50.00" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="9.00" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">37</text>
+<text x="12.70" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Rb</text>
+<rect x="17.85" y="50.00" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="18.85" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">38</text>
+<text x="22.55" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Sr</text>
+<rect x="27.70" y="50.00" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="28.70" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">39</text>
+<text x="32.40" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Y</text>
+<rect x="37.55" y="50.00" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="38.55" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">40</text>
+<text x="42.25" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Zr</text>
+<rect x="47.40" y="50.00" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="48.40" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">41</text>
+<text x="52.10" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Nb</text>
+<rect x="57.25" y="50.00" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="58.25" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">42</text>
+<text x="61.95" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Mo</text>
+<rect x="67.10" y="50.00" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="68.10" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">43</text>
+<text x="71.80" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Tc</text>
+<rect x="76.95" y="50.00" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="77.95" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">44</text>
+<text x="81.65" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Ru</text>
+<rect x="86.80" y="50.00" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="87.80" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">45</text>
+<text x="91.50" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Rh</text>
+<rect x="96.65" y="50.00" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="97.65" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">46</text>
+<text x="101.35" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Pd</text>
+<rect x="106.50" y="50.00" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="107.50" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">47</text>
+<text x="111.20" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Ag</text>
+<rect x="116.35" y="50.00" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="117.35" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">48</text>
+<text x="121.05" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Cd</text>
+<rect x="126.20" y="50.00" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="127.20" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">49</text>
+<text x="130.90" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">In</text>
+<rect x="136.05" y="50.00" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="137.05" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">50</text>
+<text x="140.75" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Sn</text>
+<rect x="145.90" y="50.00" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="146.90" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">51</text>
+<text x="150.60" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Sb</text>
+<rect x="155.75" y="50.00" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="156.75" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">52</text>
+<text x="160.45" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Te</text>
+<rect x="165.60" y="50.00" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="166.60" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">53</text>
+<text x="170.30" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">I</text>
+<rect x="175.45" y="50.00" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="176.45" y="52.70" font-size="2.3" text-anchor="start" fill="#3b4256">54</text>
+<text x="180.15" y="57.60" font-size="4.1" font-weight="800" fill="#1d2133">Xe</text>
+<rect x="8.00" y="60.25" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="9.00" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">55</text>
+<text x="12.70" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Cs</text>
+<rect x="17.85" y="60.25" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="18.85" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">56</text>
+<text x="22.55" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Ba</text>
+<rect x="37.55" y="60.25" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="38.55" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">72</text>
+<text x="42.25" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Hf</text>
+<rect x="47.40" y="60.25" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="48.40" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">73</text>
+<text x="52.10" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Ta</text>
+<rect x="57.25" y="60.25" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="58.25" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">74</text>
+<text x="61.95" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">W</text>
+<rect x="67.10" y="60.25" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="68.10" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">75</text>
+<text x="71.80" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Re</text>
+<rect x="76.95" y="60.25" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="77.95" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">76</text>
+<text x="81.65" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Os</text>
+<rect x="86.80" y="60.25" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="87.80" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">77</text>
+<text x="91.50" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Ir</text>
+<rect x="96.65" y="60.25" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="97.65" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">78</text>
+<text x="101.35" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Pt</text>
+<rect x="106.50" y="60.25" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="107.50" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">79</text>
+<text x="111.20" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Au</text>
+<rect x="116.35" y="60.25" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="117.35" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">80</text>
+<text x="121.05" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Hg</text>
+<rect x="126.20" y="60.25" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="127.20" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">81</text>
+<text x="130.90" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Tl</text>
+<rect x="136.05" y="60.25" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="137.05" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">82</text>
+<text x="140.75" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Pb</text>
+<rect x="145.90" y="60.25" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="146.90" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">83</text>
+<text x="150.60" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Bi</text>
+<rect x="155.75" y="60.25" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="156.75" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">84</text>
+<text x="160.45" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Po</text>
+<rect x="165.60" y="60.25" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="166.60" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">85</text>
+<text x="170.30" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">At</text>
+<rect x="175.45" y="60.25" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="176.45" y="62.95" font-size="2.3" text-anchor="start" fill="#3b4256">86</text>
+<text x="180.15" y="67.85" font-size="4.1" font-weight="800" fill="#1d2133">Rn</text>
+<rect x="8.00" y="70.50" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="9.00" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">87</text>
+<text x="12.70" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Fr</text>
+<rect x="17.85" y="70.50" width="9.4" height="9.8" rx="1" fill="#fbcfe8" stroke="#be185d" stroke-width=".25"/>
+<text x="18.85" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">88</text>
+<text x="22.55" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Ra</text>
+<rect x="37.55" y="70.50" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="38.55" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">104</text>
+<text x="42.25" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Rf</text>
+<rect x="47.40" y="70.50" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="48.40" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">105</text>
+<text x="52.10" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Db</text>
+<rect x="57.25" y="70.50" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="58.25" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">106</text>
+<text x="61.95" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Sg</text>
+<rect x="67.10" y="70.50" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="68.10" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">107</text>
+<text x="71.80" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Bh</text>
+<rect x="76.95" y="70.50" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="77.95" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">108</text>
+<text x="81.65" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Hs</text>
+<rect x="86.80" y="70.50" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="87.80" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">109</text>
+<text x="91.50" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Mt</text>
+<rect x="96.65" y="70.50" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="97.65" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">110</text>
+<text x="101.35" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Ds</text>
+<rect x="106.50" y="70.50" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="107.50" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">111</text>
+<text x="111.20" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Rg</text>
+<rect x="116.35" y="70.50" width="9.4" height="9.8" rx="1" fill="#fde7a8" stroke="#b45309" stroke-width=".25"/>
+<text x="117.35" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">112</text>
+<text x="121.05" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Cn</text>
+<rect x="126.20" y="70.50" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="127.20" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">113</text>
+<text x="130.90" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Nh</text>
+<rect x="136.05" y="70.50" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="137.05" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">114</text>
+<text x="140.75" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Fl</text>
+<rect x="145.90" y="70.50" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="146.90" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">115</text>
+<text x="150.60" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Mc</text>
+<rect x="155.75" y="70.50" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="156.75" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">116</text>
+<text x="160.45" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Lv</text>
+<rect x="165.60" y="70.50" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="166.60" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">117</text>
+<text x="170.30" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Ts</text>
+<rect x="175.45" y="70.50" width="9.4" height="9.8" rx="1" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".25"/>
+<text x="176.45" y="73.20" font-size="2.3" text-anchor="start" fill="#3b4256">118</text>
+<text x="180.15" y="78.10" font-size="4.1" font-weight="800" fill="#1d2133">Og</text>
+<rect x="27.70" y="60.25" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25" stroke-dasharray="1 .6"/>
+<text x="32.40" y="64.85" font-size="2.3" font-weight="700" fill="#15803d">57–71</text>
+<text x="32.40" y="67.85" font-size="2.3" fill="#15803d">f bloku</text>
+<rect x="27.70" y="70.50" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25" stroke-dasharray="1 .6"/>
+<text x="32.40" y="75.10" font-size="2.3" font-weight="700" fill="#15803d">89–103</text>
+<text x="32.40" y="78.10" font-size="2.3" fill="#15803d">f bloku</text>
+<text x="26.50" y="88.45" font-size="2.9" font-weight="800" text-anchor="end" fill="#15803d">Lantanitler</text>
+<text x="26.50" y="91.95" font-size="2.6" text-anchor="end" fill="#15803d">6. periyot</text>
+<rect x="27.70" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="28.70" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">57</text>
+<text x="32.40" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">La</text>
+<rect x="37.55" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="38.55" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">58</text>
+<text x="42.25" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Ce</text>
+<rect x="47.40" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="48.40" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">59</text>
+<text x="52.10" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Pr</text>
+<rect x="57.25" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="58.25" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">60</text>
+<text x="61.95" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Nd</text>
+<rect x="67.10" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="68.10" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">61</text>
+<text x="71.80" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Pm</text>
+<rect x="76.95" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="77.95" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">62</text>
+<text x="81.65" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Sm</text>
+<rect x="86.80" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="87.80" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">63</text>
+<text x="91.50" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Eu</text>
+<rect x="96.65" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="97.65" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">64</text>
+<text x="101.35" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Gd</text>
+<rect x="106.50" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="107.50" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">65</text>
+<text x="111.20" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Tb</text>
+<rect x="116.35" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="117.35" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">66</text>
+<text x="121.05" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Dy</text>
+<rect x="126.20" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="127.20" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">67</text>
+<text x="130.90" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Ho</text>
+<rect x="136.05" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="137.05" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">68</text>
+<text x="140.75" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Er</text>
+<rect x="145.90" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="146.90" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">69</text>
+<text x="150.60" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Tm</text>
+<rect x="155.75" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="156.75" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">70</text>
+<text x="160.45" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Yb</text>
+<rect x="165.60" y="83.95" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="166.60" y="86.65" font-size="2.3" text-anchor="start" fill="#3b4256">71</text>
+<text x="170.30" y="91.55" font-size="4.1" font-weight="800" fill="#1d2133">Lu</text>
+<text x="26.50" y="98.70" font-size="2.9" font-weight="800" text-anchor="end" fill="#15803d">Aktinitler</text>
+<text x="26.50" y="102.20" font-size="2.6" text-anchor="end" fill="#15803d">7. periyot</text>
+<rect x="27.70" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="28.70" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">89</text>
+<text x="32.40" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">Ac</text>
+<rect x="37.55" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="38.55" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">90</text>
+<text x="42.25" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">Th</text>
+<rect x="47.40" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="48.40" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">91</text>
+<text x="52.10" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">Pa</text>
+<rect x="57.25" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="58.25" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">92</text>
+<text x="61.95" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">U</text>
+<rect x="67.10" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="68.10" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">93</text>
+<text x="71.80" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">Np</text>
+<rect x="76.95" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="77.95" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">94</text>
+<text x="81.65" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">Pu</text>
+<rect x="86.80" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="87.80" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">95</text>
+<text x="91.50" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">Am</text>
+<rect x="96.65" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="97.65" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">96</text>
+<text x="101.35" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">Cm</text>
+<rect x="106.50" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="107.50" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">97</text>
+<text x="111.20" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">Bk</text>
+<rect x="116.35" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="117.35" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">98</text>
+<text x="121.05" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">Cf</text>
+<rect x="126.20" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="127.20" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">99</text>
+<text x="130.90" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">Es</text>
+<rect x="136.05" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="137.05" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">100</text>
+<text x="140.75" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">Fm</text>
+<rect x="145.90" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="146.90" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">101</text>
+<text x="150.60" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">Md</text>
+<rect x="155.75" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="156.75" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">102</text>
+<text x="160.45" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">No</text>
+<rect x="165.60" y="94.20" width="9.4" height="9.8" rx="1" fill="#c9f2d6" stroke="#15803d" stroke-width=".25"/>
+<text x="166.60" y="96.90" font-size="2.3" text-anchor="start" fill="#3b4256">103</text>
+<text x="170.30" y="101.80" font-size="4.1" font-weight="800" fill="#1d2133">Lr</text>
+<text x="76.95" y="13.40" font-size="2.9" fill="#5d6478">1–3. periyotlarda geçiş elementi yoktur:</text>
+<text x="76.95" y="17.40" font-size="2.9" fill="#5d6478">2A’dan sonra doğrudan 3A gelir.</text>
+<rect x="8" y="106.85000000000001" width="5" height="3.6" rx=".8" fill="#fbcfe8" stroke="#be185d" stroke-width=".3"/>
+<text x="14.2" y="109.75000000000001" font-size="3.1" text-anchor="start" font-weight="700" fill="#be185d">s bloku</text>
+<rect x="34" y="106.85000000000001" width="5" height="3.6" rx=".8" fill="#fde7a8" stroke="#b45309" stroke-width=".3"/>
+<text x="40.2" y="109.75000000000001" font-size="3.1" text-anchor="start" font-weight="700" fill="#b45309">d bloku</text>
+<rect x="60" y="106.85000000000001" width="5" height="3.6" rx=".8" fill="#cfe3ff" stroke="#1d4ed8" stroke-width=".3"/>
+<text x="66.2" y="109.75000000000001" font-size="3.1" text-anchor="start" font-weight="700" fill="#1d4ed8">p bloku</text>
+<rect x="86" y="106.85000000000001" width="5" height="3.6" rx=".8" fill="#c9f2d6" stroke="#15803d" stroke-width=".3"/>
+<text x="92.2" y="109.75000000000001" font-size="3.1" text-anchor="start" font-weight="700" fill="#15803d">f bloku (iç geçiş)</text>
+<text x="183" y="109.75000000000001" font-size="2.8" text-anchor="end" fill="#5d6478">Üst: IUPAC no · Alt: A/B adı</text>
 </g></svg>
 <!--SON:buyuk-->
 
@@ -763,7 +765,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
     <div class="kutu kavram">
       <div class="etiket">@ikon:kavram İki adlandırma</div>
       <p style="font-size:9.2pt"><b>A/B sistemi:</b> 8 tane A grubu (baş grup) ve 8 tane B grubu (geçiş elementleri) vardır. 8B grubu <b>üç sütunu</b> birlikte kapsar.</p>
-      <p style="font-size:9.2pt"><b>IUPAC sistemi:</b> Sütunlar soldan sağa 1’den 18’e numaralanır.</p>
+      <p style="font-size:9.2pt"><b>IUPAC sistemi:</b> Sütunlar soldan sağa 1–18 numaralanır.</p>
       <p style="font-size:9.2pt;margin:0">Dönüşüm: 1A, 2A → 1, 2 · 3B–7B → 3–7 · 8B → 8, 9, 10 · 1B, 2B → 11, 12 · 3A–8A → 13–18</p>
     </div>
     <div>
@@ -780,6 +782,10 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
         <p style="font-size:9pt;margin:0"><b class="y" style="color:var(--dikkat)">✗</b> “18 sütun olduğuna göre her periyotta 18 element vardır.” <b style="color:var(--ornek)">✓</b> Periyotlardaki element sayıları 2, 8, 8, 18, 18, 32, 32’dir.</p>
       </div>
     </div>
+  </div>
+
+  <div class="kutu duz serit" style="--bg:#fdf6fa;margin:2mm 0 0;padding:2mm 3.4mm">
+    <p style="margin:0;font-size:9.4pt"><b class="k">Kendini yokla:</b> IUPAC 10. grup A/B sisteminde hangi gruptur? 4A’nın IUPAC numarası kaçtır? <span class="kucuk">(Cevap: 8B’nin 3. sütunu · 14)</span></p>
   </div>
 
   <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">3</span></div>
@@ -800,7 +806,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
     <p><b>Değerlik (valans) elektronları:</b> Kimyasal tepkimelere katılan en dış elektronlardır. A grubunda <b>ns + np</b>, B grubunda <b>ns + (n−1)d</b> orbitallerindeki elektronlar sayılır (n: en büyük enerji düzeyi).</p>
   </div>
 
-  <svg viewBox="0 0 178 38" style="width:100%;height:auto;margin:0 0 3mm">
+  <svg viewBox="0 0 178 38" style="width:100%;height:auto;margin:0 0 2mm">
     <defs><marker id="ok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10z" fill="#be185d"/></marker></defs>
     <g font-family="Inter" text-anchor="middle">
       <rect x="1" y="9" width="30" height="20" rx="3" fill="#fdeef5" stroke="#be185d" stroke-width=".5"/>
@@ -861,6 +867,14 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
       <tr><td><span class="dizilim">s^2 d^10</span></td><td>2B</td><td>12</td></tr>
       <tr><td colspan="3" class="kucuk" style="line-height:1.35">p ile biten 4. periyot ve sonrası elementlerde dolu d orbitali de sayılırsa IUPAC numarası doğrudan çıkar: <span class="dizilim">4s^2 3d^10 4p^4</span> → 2 + 10 + 4 = 16.</td></tr>
     </table>
+  </div>
+
+  <div class="kutu dikkat" style="margin:1.5mm 0 0;padding-bottom:2.4mm">
+    <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
+    <div class="yanilgi">
+      <div class="yanlis"><b class="y">✗</b> “<sub>15</sub>P’nin son terimi <span class="dizilim">3p^3</span>; o hâlde 3A grubundadır.”</div>
+      <div class="dogru"><b class="d">✓</b> Grup, yalnız son orbitaldeki elektronlarla değil <b>en dış katmandaki tüm elektronlarla</b> bulunur: <span class="dizilim">3s^2 3p^3</span> → 2 + 3 = 5 → 5A.</div>
+    </div>
   </div>
 
   <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">4</span></div>
@@ -1236,31 +1250,38 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
 
   <table class="tablo sik" style="margin-top:2.5mm">
     <tr><th style="width:17%">Özellik</th><th>Metal</th><th>Ametal</th><th>Yarı metal</th><th>Soy gaz</th></tr>
-    <tr><td><b>Görünüş</b></td><td>Parlak</td><td>Çoğu mat</td><td>Parlak</td><td>Renksiz gaz</td></tr>
+    <tr><td><b>Görünüş</b></td><td>Parlak</td><td>Çoğu mat</td><td>Parlak</td><td>Renksiz</td></tr>
     <tr><td><b>İletkenlik</b></td><td>Isı ve elektriği iyi iletir</td><td>İletmez (grafit hariç)</td><td>Yarı iletken</td><td>İletmez</td></tr>
     <tr><td><b>İşlenebilirlik</b></td><td>Tel ve levha olur</td><td>Katıları kırılgan</td><td>Kırılgan</td><td>—</td></tr>
-    <tr><td><b>Oda koşulu</b></td><td>Katı (cıva sıvı)</td><td>Katı, sıvı (brom) veya gaz</td><td>Katı</td><td>Gaz</td></tr>
-    <tr><td><b>Tanecik</b></td><td>Atomlar (metalik kristal)</td><td>Çoğu molekül: {O2}, {N2}, {S8}</td><td>Ağ örgü (Si)</td><td>Tek atom</td></tr>
-    <tr><td><b>Tepkimede</b></td><td>e⁻ verir, katyon olur; bileşiklerinde yalnız + değer</td><td>Metalle e⁻ alır, anyon olur; + ve − değer (F yalnız 1−)</td><td>Koşula göre metale ya da ametale benzer</td><td>Tepkimeye çok isteksiz</td></tr>
+    <tr><td><b>Oda koşulu</b></td><td>Katı (cıva sıvı)</td><td>Katı, sıvı (Br) ya da gaz</td><td>Katı</td><td>Gaz</td></tr>
+    <tr><td><b>Tepkimede</b></td><td>e⁻ verir; yalnız + değer alır</td><td>+ ve − değer alır (F yalnız 1−)</td><td>Metale ya da ametale benzer</td><td>Çok isteksiz</td></tr>
+    <tr><td><b>Tanecik</b></td><td>Atom (metalik kristal)</td><td>Çoğu molekül: {O2}, {S8}</td><td>Ağ örgü (Si)</td><td>Tek atom</td></tr>
   </table>
 
   <div class="iki">
     <div class="kutu hayat">
       <div class="etiket">@ikon:hayat Hayatın İçinden</div>
-      <p style="font-size:9.2pt">Bilgisayar ve telefon çipleri çok saf <b>silisyumdan</b> üretilir. Silisyum yarı iletken olduğu için içine çok az miktarda bor ya da fosfor katılarak iletkenliği istenen düzeye ayarlanır. Metal kadar iyi, ametal kadar kötü iletmeyen bu “ara” davranış, transistörün temelidir.</p>
+      <p style="font-size:9.2pt">Bilgisayar ve telefon çipleri çok saf <b>silisyumdan</b> üretilir. Yarı iletken silisyuma çok az bor ya da fosfor katılarak iletkenliği istenen düzeye ayarlanır; transistörler bu “ara” davranışa dayanır.</p>
     </div>
     <div class="kutu dikkat">
       <div class="etiket">@ikon:dikkat Kavram Yanılgısı</div>
-      <div class="yanilgi" style="grid-template-columns:1fr">
-        <div class="yanlis"><b class="y">✗</b> “Hidrojen 1A grubunda olduğu için metaldir.”</div>
-        <div class="dogru"><b class="d">✓</b> Hidrojen tek değerlik elektronu yüzünden 1A’dadır ama bir <b>ametaldir</b>; oda koşulunda {H2} molekülleri hâlinde gazdır ve elektrik iletmez.</div>
-      </div>
+      <p style="font-size:9.2pt;margin:0"><b style="color:var(--dikkat)">✗</b> “Hidrojen 1A grubunda olduğu için metaldir.” <b style="color:var(--ornek)">✓</b> H, tek değerlik elektronu yüzünden 1A’dadır ama bir <b>ametaldir</b>: oda koşulunda {H2} molekülleri hâlinde gazdır, elektrik iletmez.</p>
     </div>
   </div>
 
   <div class="kutu kavram">
     <div class="etiket">@ikon:kavram Bağ türüne kısa bakış</div>
-    <p style="font-size:9.2pt">Metal ile ametal atomları arasında elektron alışverişi olur ve <b>iyonik</b> bileşik oluşur ({NaCl}, {MgO}). Ametal atomları kendi aralarında elektronlarını <b>ortaklaşa</b> kullanır ({H2O}, {CO2}). Bağların ayrıntısı “Etkileşimler” temasında işlenecektir.</p>
+    <p style="font-size:9.2pt">Metal ile ametal arasında elektron alışverişiyle <b>iyonik</b> bileşik oluşur ({NaCl}, {MgO}); ametaller kendi aralarında elektronlarını <b>ortaklaşa</b> kullanır ({H2O}, {CO2}). Ayrıntılar “Etkileşimler” temasında.</p>
+  </div>
+
+  <div class="kutu ornek">
+    <div class="etiket">@ikon:ornek Çözümlü Örnek 5</div>
+    <div class="soru">Atom numaraları 12, 14, 17 ve 18 olan K, L, M ve N elementlerini metal, ametal, yarı metal ve soy gaz olarak sınıflandırınız.</div>
+    <div class="cozum">
+      <div class="adim"><span class="n">1</span><span>K 2·8·2 → 2A · L 2·8·4 → 4A · M 2·8·7 → 7A · N 2·8·8 → 8A (hepsi 3. periyot)</span></div>
+      <div class="adim"><span class="n">2</span><span>Haritada yerlerine bak: Mg metal, Si yarı metal, Cl ametal, Ar soy gaz.</span></div>
+      <span class="sonuc">K metal · L yarı metal · M ametal · N soy gaz</span>
+    </div>
   </div>
 
   <div class="alt-bilgi"><span>Kimya Rotası 9 · Periyodik Tablo</span><span class="no">6</span></div>
@@ -1277,7 +1298,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
 
   <div class="kart-izgara">
     <div class="kutu duz">
-      <div class="grup-bas"><span class="rozet">1A · 1</span><b>Alkali metaller</b><span>Li, Na, K, Rb, Cs, Fr</span></div>
+      <div class="grup-bas"><span class="rozet">1A · 1</span><b>Alkali metaller</b></div><div class="uyeler">Li, Na, K, Rb, Cs, Fr</div>
       <ul>
         <li>Değerlik elektronu 1; bileşiklerinde yalnız <b>1+</b> yüklüdür.</li>
         <li>En aktif metallerdir; doğada serbest bulunmaz, gazyağı altında saklanır.</li>
@@ -1286,7 +1307,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
       </ul>
     </div>
     <div class="kutu duz">
-      <div class="grup-bas"><span class="rozet">2A · 2</span><b>Toprak alkali metaller</b><span>Be, Mg, Ca, Sr, Ba, Ra</span></div>
+      <div class="grup-bas"><span class="rozet">2A · 2</span><b>Toprak alkali metaller</b></div><div class="uyeler">Be, Mg, Ca, Sr, Ba, Ra</div>
       <ul>
         <li>Değerlik elektronu 2; bileşiklerinde <b>2+</b> yüklüdür.</li>
         <li>Aynı periyottaki alkali metalden daha sert ve daha az aktiftir.</li>
@@ -1295,7 +1316,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
       </ul>
     </div>
     <div class="kutu duz">
-      <div class="grup-bas"><span class="rozet">3A · 13</span><b>Toprak metalleri</b><span>B, Al, Ga, In, Tl</span></div>
+      <div class="grup-bas"><span class="rozet">3A · 13</span><b>Toprak metalleri</b></div><div class="uyeler">B, Al, Ga, In, Tl</div>
       <ul>
         <li>Değerlik elektronu 3. <b>Bor yarı metal</b>, diğerleri metaldir.</li>
         <li>Alüminyum bileşiklerinde 3+ yüklüdür; oksidi {Al2O3} hem asitle hem bazla tepkimeye girer (<b>amfoter</b>).</li>
@@ -1311,7 +1332,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
       </ul>
     </div>
     <div class="kutu duz">
-      <div class="grup-bas"><span class="rozet">7A · 17</span><b>Halojenler</b><span>F, Cl, Br, I, At, Ts</span></div>
+      <div class="grup-bas"><span class="rozet">7A · 17</span><b>Halojenler</b></div><div class="uyeler">F, Cl, Br, I, At, Ts</div>
       <ul>
         <li>Değerlik elektronu 7; F, Cl, Br ve I <b>iki atomlu</b> moleküllerdir: {F2}, {Cl2}, {Br2}, {I2}.</li>
         <li>Bulundukları periyodun en aktif ametalleridir; metallerle tuz oluşturur (“halojen”: tuz yapan).</li>
@@ -1319,7 +1340,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
       </ul>
     </div>
     <div class="kutu duz">
-      <div class="grup-bas"><span class="rozet">8A · 18</span><b>Soy (asal) gazlar</b><span>He, Ne, Ar, Kr, Xe, Rn, Og</span></div>
+      <div class="grup-bas"><span class="rozet">8A · 18</span><b>Soy (asal) gazlar</b></div><div class="uyeler">He, Ne, Ar, Kr, Xe, Rn, Og</div>
       <ul>
         <li>Değerlik elektronu 8 (He: 2). Orbitalleri tam dolu olduğu için çok kararlıdır.</li>
         <li>Oda koşulunda tek atomlu gazdır; erime ve kaynama noktaları çok düşüktür.</li>
@@ -1419,7 +1440,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
       </table>
     </div>
     <div class="kutu ornek" style="margin:0">
-      <div class="etiket">@ikon:ornek Çözümlü Örnek 5</div>
+      <div class="etiket">@ikon:ornek Çözümlü Örnek 6</div>
       <div class="soru"><sub>16</sub>S<sup>2−</sup> iyonunun elektron sayısını ve dizilimini bulunuz. Hangi soy gaza benzer?</div>
       <div class="cozum">
         <div class="adim"><span class="n">1</span><span>Yük = p − e → −2 = 16 − e → e = 18</span></div>
@@ -1436,7 +1457,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
 
   <div class="iki">
     <div class="kutu ornek">
-      <div class="etiket">@ikon:ornek Çözümlü Örnek 6</div>
+      <div class="etiket">@ikon:ornek Çözümlü Örnek 7</div>
       <div class="soru">X<sup>3−</sup> iyonu 18 elektronludur. X’in periyodik tablodaki yeri nedir?</div>
       <div class="cozum">
         <div class="adim"><span class="n">1</span><span>−3 = p − 18 → p = 15. Nötr X atomu 15 elektronludur.</span></div>
@@ -1523,7 +1544,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
 <!-- =========================================================
      SAYFA 10 · HATA AVCISI
      ========================================================= -->
-<section class="sayfa cift" style="--renk:var(--hata)">
+<section class="sayfa cift hata-sayfa" style="--renk:var(--hata)">
   <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>Hata Avcısı</span></div>
   <div class="bant" style="--renk:#ea580c"><h2>Hata Avcısı</h2><p>Dört öğrenci elementlerin yerini buldu ama her çözümde bir hata var. Hatalı satırı bul, nedenini yaz, doğru çözümü kutuya yap.</p></div>
 
@@ -1619,7 +1640,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
 
       <div class="soru-blok">
         <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Enerji</div>
-        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
+        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
           <p>İnce film güneş pillerinin bir türü bakır (<sub>29</sub>Cu), indiyum (<sub>49</sub>In), galyum (<sub>31</sub>Ga) ve selenyum (<sub>34</sub>Se) içerir. Bu elementlerle ilgili;</p>
           <div class="oncul"><div><b>I.</b><span>Ga ve In aynı gruptadır.</span></div><div><b>II.</b><span>Cu, d bloku elementidir.</span></div><div><b>III.</b><span>Se bir ametaldir.</span></div></div>
           <p>yargılarından hangileri doğrudur?</p>
@@ -1631,7 +1652,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
     <div>
       <div class="soru-blok">
         <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:hayat Bilim tarihi</div>
-        <div class="soru-ust"><span class="soru-no">2</span><div class="soru-metin">
+        <div class="soru-ust"><span class="soru-no">3</span><div class="soru-metin">
           <p>Kükürt (S), selenyum (Se) ve tellür (Te) benzer özellikler gösteren bir üçlüdür. Grafikte S ve Te’nin atom kütleleri verilmiş, Se’nin değeri silinmiştir.</p>
           <svg viewBox="0 0 110 62" style="width:100%;margin:1mm 0 2mm">
             <g font-family="Inter" font-size="4" fill="#5d6478">
@@ -1644,8 +1665,8 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
               <text x="13" y="21.4" text-anchor="end">90</text><text x="13" y="11.4" text-anchor="end">120</text>
               <!-- ölçek: 30 birim = 10 -->
               <rect x="28" y="39.3" width="14" height="10.7" fill="#c26a06"/>
-              <rect x="53" y="20" width="14" height="30" fill="none" stroke="#c26a06" stroke-width=".5" stroke-dasharray="1.5 1"/>
-              <text x="60" y="36" text-anchor="middle" font-size="7" font-weight="800" fill="#c26a06">?</text>
+              <rect x="53" y="8" width="14" height="42" fill="none" stroke="#c26a06" stroke-width=".5" stroke-dasharray="1.5 1"/>
+              <text x="60" y="31" text-anchor="middle" font-size="7" font-weight="800" fill="#c26a06">?</text>
               <rect x="78" y="7.47" width="14" height="42.53" fill="#c26a06"/>
               <text x="35" y="37.5" text-anchor="middle" fill="#1d2133" font-weight="700">32,1</text>
               <text x="85" y="5.8" text-anchor="middle" fill="#1d2133" font-weight="700">127,6</text>
@@ -1661,12 +1682,12 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
       <div class="soru-blok">
         <div class="etiket-soru" style="--renk:var(--hayat);--bg:var(--hayat-bg)">@ikon:lab Laboratuvar</div>
         <div class="soru-ust"><span class="soru-no">4</span><div class="soru-metin">
-          <p>Bir öğrenci oda koşulunda katı olan üç element örneğini inceleyip gözlemlerini tabloya yazıyor.</p>
+          <p>Bir öğrenci oda koşulunda katı üç elementi inceliyor.</p>
           <table class="tablo sik" style="font-size:8.6pt">
-            <tr><th>Örnek</th><th>Görünüş</th><th>Elektrik iletkenliği</th><th>Çekiçle vurulunca</th></tr>
-            <tr><td><b>X</b></td><td>Parlak, gri</td><td>Çok iyi</td><td>Yassılaşır</td></tr>
+            <tr><th>Örnek</th><th>Görünüş</th><th>İletkenlik</th><th>Çekiçle vurulunca</th></tr>
+            <tr><td><b>X</b></td><td>Parlak gri</td><td>Çok iyi</td><td>Yassılaşır</td></tr>
             <tr><td><b>Y</b></td><td>Mat, sarı</td><td>İletmez</td><td>Toz olur</td></tr>
-            <tr><td><b>Z</b></td><td>Parlak, gri</td><td>Zayıf (yarı iletken)</td><td>Kırılır</td></tr>
+            <tr><td><b>Z</b></td><td>Parlak gri</td><td>Zayıf</td><td>Kırılır</td></tr>
           </table>
           <p>Buna göre X, Y ve Z’nin sınıfları hangi seçenekte doğru verilmiştir?</p>
           <div class="secenek tek"><span><b>A)</b>X metal · Y ametal · Z yarı metal</span><span><b>B)</b>X metal · Y yarı metal · Z ametal</span><span><b>C)</b>X yarı metal · Y ametal · Z metal</span><span><b>D)</b>X metal · Y ametal · Z metal</span><span><b>E)</b>X ametal · Y metal · Z yarı metal</span></div>
@@ -1681,7 +1702,7 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
 <!-- =========================================================
      SAYFA 12 · İPUCU MERDİVENİ
      ========================================================= -->
-<section class="sayfa cift">
+<section class="sayfa cift ipucu-sayfa">
   <div class="ust-serit"><span class="baslik-k"><span class="nokta"></span>Periyodik Tablo</span><span>İpucu Merdiveni</span></div>
   <div class="bant" style="--renk:#7c3aed"><h2>İpucu Merdiveni</h2><p>Önce ipucusuz dene. Takılırsan bir basamak in, yalnızca o ipucunu oku ve yeniden dene. Ne kadar az basamak inersen o kadar ustasın.</p></div>
 
@@ -1911,8 +1932,8 @@ table.tablo.sik td, table.tablo.sik th { padding: 1.1mm 1.8mm; }
 
     <div class="coz-baslik" style="--renk:var(--hayat)">Bağlam temelli sorular</div>
     <div class="c" style="--renk:var(--hayat)"><b>1 · C</b> Ca (4. periyot) ve Mg (3. periyot) 2A’dadır (I ✓). Fe <span class="dizilim">4s^2 3d^6</span>, Zn <span class="dizilim">4s^2 3d^10</span> → d bloku (II ✓). Se 4., I 5. periyotta (III ✗).</div>
-    <div class="c" style="--renk:var(--hayat)"><b>2 · B</b> (32,1 + 127,6) / 2 ≈ 79,9. Selenyumun gerçek atom kütlesi 79,0’dur; tahmin oldukça yakındır.</div>
-    <div class="c" style="--renk:var(--hayat)"><b>3 · E</b> Ga (31) ve In (49) 3A’dadır (I ✓). Cu <span class="dizilim">4s^1 3d^10</span> → d bloku, 1B (II ✓). Se 6A’da bir ametaldir (III ✓).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>2 · E</b> Ga (31) ve In (49) 3A’dadır (I ✓). Cu <span class="dizilim">4s^1 3d^10</span> → d bloku, 1B (II ✓). Se 6A’da bir ametaldir (III ✓).</div>
+    <div class="c" style="--renk:var(--hayat)"><b>3 · B</b> (32,1 + 127,6) / 2 ≈ 79,9. Selenyumun gerçek atom kütlesi 79,0’dur; tahmin oldukça yakındır.</div>
     <div class="c" style="--renk:var(--hayat)"><b>4 · A</b> X parlak, iletken ve dövülebilir → metal. Y mat, iletmez, kırılgan → ametal. Z parlak ama kırılgan ve yarı iletken → yarı metal.</div>
 
     <div class="coz-baslik" style="--renk:var(--ipucu)">İpucu Merdiveni</div>
