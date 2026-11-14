@@ -604,7 +604,7 @@ ul.yargi li b { font-family: var(--baslik); color: var(--gol-k); }
 .muh-satir { display: grid; grid-template-columns: 1fr auto; gap: 2mm; align-items: center; font-size: 9.5pt; padding: .35mm 0; border-bottom: .25mm dashed #E8CF94; line-height: 1.2; }
 .muh-satir:last-child { border-bottom: 0; }
 .bardaklar { display: flex; gap: 1.6mm; }
-.bardaklar svg { width: 4.2mm; height: 5.4mm; }
+.bardaklar svg { width: 4.6mm; height: 5.6mm; }
 .toplam-kutu { border-left: .3mm dashed var(--keh-k); padding-left: 3mm; display: flex; flex-direction: column; justify-content: center; gap: .9mm; }
 .toplam-kutu .sat { display: flex; justify-content: space-between; align-items: center; font-size: 9.2pt; font-weight: 800; }
 .toplam-kutu .sat > span:last-child { display: flex; align-items: center; gap: 1mm; }
