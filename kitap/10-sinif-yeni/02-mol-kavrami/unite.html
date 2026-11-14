@@ -1,0 +1,1605 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Mol Kavramı · Kimya Rotası 10 · Dünya 2</title>
+<link rel="stylesheet" href="stil.css">
+<style>
+/* ---- Bu üniteye özel küçük ayarlar (yeni bileşen değil) ---- */
+.paket-satir{display:grid;grid-template-columns:20mm 1fr;gap:2.4mm;align-items:center;padding:.9mm 0;border-bottom:var(--cz-ince) dashed var(--cizgi)}
+.paket-satir:last-child{border-bottom:0}
+.paket-satir .n{font-family:var(--f-dev);font-weight:900;font-size:17pt;line-height:1;letter-spacing:-.03em}
+.paket-satir small{display:block;font-family:var(--f-mono);font-size:7pt;color:var(--soluk);text-transform:uppercase;letter-spacing:.06em}
+.paket-satir.mol{background:var(--sari);margin:0 -3.6mm;padding:1.6mm 3.6mm;border-top:var(--cz-ince) solid var(--murekkep)}
+</style>
+</head>
+<body>
+
+<!-- =====================================================================
+     ORTAK SİMGELER (karakterler, ikonlar, rozet çerçevesi, piller)
+     ===================================================================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="kirp-daire"><circle cx="20" cy="20" r="19"/></clipPath>
+
+    <!-- AVO: kişileşmiş Avogadro sayısı. Altıgen gövde, yörünge anten, göğsünde "n" -->
+    <symbol id="avo" viewBox="0 0 60 66">
+      <ellipse cx="30" cy="9" rx="15" ry="4.6" fill="none" stroke="#13132B" stroke-width="1.8" transform="rotate(-12 30 9)"/>
+      <circle cx="44.2" cy="5.8" r="2.7" fill="#8CD11E" stroke="#13132B" stroke-width="1.3"/>
+      <line x1="30" y1="12" x2="30" y2="20" stroke="#13132B" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="30" cy="9.5" r="2.5" fill="#FFC21A" stroke="#13132B" stroke-width="1.3"/>
+      <path d="M12 46 L5 52" stroke="#13132B" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M48 44 L56 37" stroke="#13132B" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="56" cy="36" r="2.5" fill="#fff" stroke="#13132B" stroke-width="1.5"/>
+      <polygon points="32.5,22.5 50.5,33 50.5,54 32.5,64.5 14.5,54 14.5,33" fill="#13132B"/>
+      <polygon points="30,20 48,30.5 48,51.5 30,62 12,51.5 12,30.5" fill="#5A2DFF" stroke="#13132B" stroke-width="2.2" stroke-linejoin="round"/>
+      <polygon points="30,23 45,31.8 45,34 30,25.3 15,34 15,31.8" fill="#8466FF"/>
+      <rect x="17.5" y="32" width="25" height="16" rx="5" fill="#fff" stroke="#13132B" stroke-width="1.7"/>
+      <circle cx="25" cy="39" r="2.4" fill="#13132B"/><circle cx="25.8" cy="38.2" r=".75" fill="#fff"/>
+      <circle cx="35" cy="39" r="2.4" fill="#13132B"/><circle cx="35.8" cy="38.2" r=".75" fill="#fff"/>
+      <path d="M26.5 43.2 Q30 46.4 33.5 43.2" fill="none" stroke="#13132B" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="21" cy="43.5" r="1.6" fill="#FF4A36" opacity=".6"/><circle cx="39" cy="43.5" r="1.6" fill="#FF4A36" opacity=".6"/>
+      <text x="30" y="57.4" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5.4" fill="#fff">n</text>
+    </symbol>
+
+    <!-- Sohbet avatarları (40×40, daire) -->
+    <symbol id="av-avo" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="19" fill="#ECE6FF"/>
+      <ellipse cx="20" cy="8.6" rx="8.4" ry="2.6" fill="none" stroke="#13132B" stroke-width="1.1" transform="rotate(-12 20 8.6)"/>
+      <circle cx="28" cy="6.8" r="1.6" fill="#8CD11E" stroke="#13132B" stroke-width=".8"/>
+      <line x1="20" y1="9.5" x2="20" y2="13" stroke="#13132B" stroke-width="1.3"/>
+      <polygon points="20,12.6 30.5,18.6 30.5,30.6 20,36.6 9.5,30.6 9.5,18.6" fill="#5A2DFF" stroke="#13132B" stroke-width="1.5" stroke-linejoin="round"/>
+      <rect x="12.8" y="19.4" width="14.4" height="9.6" rx="3" fill="#fff" stroke="#13132B" stroke-width="1.1"/>
+      <circle cx="17.2" cy="23.4" r="1.45" fill="#13132B"/><circle cx="22.8" cy="23.4" r="1.45" fill="#13132B"/>
+      <path d="M18 26.2 Q20 27.9 22 26.2" fill="none" stroke="#13132B" stroke-width="1" stroke-linecap="round"/>
+      <circle cx="20" cy="20" r="19" fill="none" stroke="#13132B" stroke-width="1.8"/>
+    </symbol>
+    <symbol id="av-ece" viewBox="0 0 40 40">
+      <g clip-path="url(#kirp-daire)">
+        <circle cx="20" cy="20" r="20" fill="#FF4A36"/>
+        <circle cx="20" cy="9.4" r="5" fill="#3b2420"/>
+        <path d="M7 41c0-8 5.5-12.5 13-12.5S33 33 33 41z" fill="#fff" stroke="#13132B" stroke-width="1"/>
+        <circle cx="20" cy="20.4" r="9" fill="#F7CFB2" stroke="#13132B" stroke-width=".9"/>
+        <path d="M11 19.4c0-6 4-9.5 9-9.5s9 3.5 9 9.5c-2-3-5-4.6-9-4.6s-7 1.6-9 4.6z" fill="#3b2420"/>
+        <circle cx="16.8" cy="21.4" r="1.2" fill="#13132B"/><circle cx="23.2" cy="21.4" r="1.2" fill="#13132B"/>
+        <path d="M17.5 24.8q2.5 2 5 0" stroke="#13132B" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      </g>
+      <circle cx="20" cy="20" r="19" fill="none" stroke="#13132B" stroke-width="1.8"/>
+      <circle cx="31.6" cy="8.6" r="4.4" fill="#FFC21A" stroke="#13132B" stroke-width="1.1"/>
+      <text x="31.6" y="11.1" font-family="Inter" font-weight="900" font-size="6.6" text-anchor="middle" fill="#13132B">?</text>
+    </symbol>
+    <symbol id="av-deniz" viewBox="0 0 40 40">
+      <g clip-path="url(#kirp-daire)">
+        <circle cx="20" cy="20" r="20" fill="#00A3B4"/>
+        <path d="M7 41c0-8 5.5-12.5 13-12.5S33 33 33 41z" fill="#fff" stroke="#13132B" stroke-width="1"/>
+        <circle cx="20" cy="20.4" r="9" fill="#D9A77F" stroke="#13132B" stroke-width=".9"/>
+        <path d="M11 19c0-5.6 4-8.8 9-8.8s9 3.2 9 8.8c-1-1.4-2.4-2.6-4.4-3.2-1.6 1.2-4 1.8-6.6 1.6-2.6-.2-5 .2-7 1.6z" fill="#20323a"/>
+        <circle cx="16.6" cy="21.4" r="2.7" fill="none" stroke="#13132B" stroke-width="1.15"/><circle cx="23.4" cy="21.4" r="2.7" fill="none" stroke="#13132B" stroke-width="1.15"/>
+        <path d="M19.3 21.4h1.4" stroke="#13132B" stroke-width="1.1"/>
+        <circle cx="16.6" cy="21.4" r=".95" fill="#13132B"/><circle cx="23.4" cy="21.4" r=".95" fill="#13132B"/>
+        <path d="M17.8 25.4q2.2 1.4 4.4 0" stroke="#13132B" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      </g>
+      <circle cx="20" cy="20" r="19" fill="none" stroke="#13132B" stroke-width="1.8"/>
+    </symbol>
+
+    <!-- BOSS: Dev Sayı -->
+    <symbol id="boss" viewBox="0 0 40 40">
+      <polygon points="21.5,3.5 37.5,12.5 37.5,30.5 21.5,39.5 5.5,30.5 5.5,12.5" fill="#13132B"/>
+      <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#FF4A36" stroke="#13132B" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M9 9 L6 3 L13 7 M31 9 L34 3 L27 7" fill="#FFC21A" stroke="#13132B" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M11.5 16 L17.5 18.5 M28.5 16 L22.5 18.5" stroke="#13132B" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="15" cy="21" r="2.5" fill="#fff" stroke="#13132B" stroke-width="1.3"/><circle cx="15.4" cy="21.4" r="1.05" fill="#13132B"/>
+      <circle cx="25" cy="21" r="2.5" fill="#fff" stroke="#13132B" stroke-width="1.3"/><circle cx="24.6" cy="21.4" r="1.05" fill="#13132B"/>
+      <path d="M14 29 L16.5 27 L19 29 L21.5 27 L24 29 L26 27.5" fill="none" stroke="#13132B" stroke-width="1.5" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- İkonlar (24×24) -->
+    <symbol id="i-hedef" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FFF2CC" stroke="#13132B" stroke-width="2"/><circle cx="12" cy="12" r="6" fill="none" stroke="#13132B" stroke-width="2"/><circle cx="12" cy="12" r="2.3" fill="#FF4A36"/></symbol>
+    <symbol id="i-kilit" viewBox="0 0 24 24"><path d="M7.5 10.5 V7.5 a4.5 4.5 0 0 1 9 0 V10.5" fill="none" stroke="#13132B" stroke-width="2.2"/><rect x="4.5" y="10.5" width="15" height="11" rx="2.5" fill="#ECE6FF" stroke="#13132B" stroke-width="2"/><circle cx="12" cy="15.4" r="1.7" fill="#5A2DFF"/><path d="M12 16.5 V18.6" stroke="#5A2DFF" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-tuzak" viewBox="0 0 24 24"><path d="M12 2.5 L22.5 20.5 H1.5 Z" fill="#FFE5E0" stroke="#13132B" stroke-width="2" stroke-linejoin="round"/><path d="M12 9 V14" stroke="#FF4A36" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.5" fill="#FF4A36"/></symbol>
+    <symbol id="i-tuzak-b" viewBox="0 0 24 24"><path d="M12 2.5 L22.5 20.5 H1.5 Z" fill="#fff" stroke="#13132B" stroke-width="2" stroke-linejoin="round"/><path d="M12 9 V14" stroke="#13132B" stroke-width="2.5" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.5" fill="#13132B"/></symbol>
+    <symbol id="i-xp" viewBox="0 0 24 24"><path d="M12 1.8 L14.8 8.6 L22 9.2 L16.5 14 L18.2 21.2 L12 17.4 L5.8 21.2 L7.5 14 L2 9.2 L9.2 8.6 Z" fill="#8CD11E" stroke="#13132B" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bayrak" viewBox="0 0 24 24"><path d="M6 22 V2.5" stroke="#13132B" stroke-width="2.2" stroke-linecap="round"/><path d="M6.5 3 H19 L16 7.5 L19 12 H6.5 Z" fill="#8CD11E" stroke="#13132B" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-hata" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.2" fill="#FFF2CC" stroke="#13132B" stroke-width="2"/><path d="M15.8 15.8 L21.5 21.5" stroke="#13132B" stroke-width="2.8" stroke-linecap="round"/><path d="M7.6 7.6 L13.4 13.4 M13.4 7.6 L7.6 13.4" stroke="#FF4A36" stroke-width="2.1" stroke-linecap="round"/></symbol>
+    <symbol id="i-ipucu" viewBox="0 0 24 24"><path d="M5 21 H19 M7 21 V16 H12 V11 H17 V6 H20" fill="none" stroke="#13132B" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="20" cy="4" r="2.5" fill="#5A2DFF" stroke="#13132B" stroke-width="1.3"/></symbol>
+    <symbol id="i-hikaye" viewBox="0 0 24 24"><path d="M3 4.5 H10 Q12 4.5 12 6.5 V20 Q12 18.5 10 18.5 H3 Z M21 4.5 H14 Q12 4.5 12 6.5 V20 Q12 18.5 14 18.5 H21 Z" fill="#D8F4F6" stroke="#13132B" stroke-width="1.8" stroke-linejoin="round"/><path d="M5.5 8.5 H9.5 M5.5 11.5 H9.5 M14.5 8.5 H18.5 M14.5 11.5 H18.5" stroke="#00A3B4" stroke-width="1.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-sohbet" viewBox="0 0 24 24"><path d="M3 4 H17 Q19 4 19 6 V13 Q19 15 17 15 H10 L5.5 19 V15 H5 Q3 15 3 13 Z" fill="#FFE5E0" stroke="#13132B" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 9 H21 V17 H19 V20.5 L15.5 17 H9 Z" fill="#D8F4F6" stroke="#13132B" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-makas" viewBox="0 0 24 24"><circle cx="6" cy="7" r="3.2" fill="none" stroke="#13132B" stroke-width="1.9"/><circle cx="6" cy="17" r="3.2" fill="none" stroke="#13132B" stroke-width="1.9"/><path d="M8.6 8.8 L21 17.5 M8.6 15.2 L21 6.5" stroke="#13132B" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-yetenek" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="#fff" stroke="#13132B" stroke-width="1.8" stroke-dasharray="3 2"/><path d="M15 3 H19 V10 L17 8.4 L15 10 Z" fill="#FFC21A" stroke="#13132B" stroke-width="1.3" stroke-linejoin="round"/><text x="10" y="17" text-anchor="middle" font-family="Inter" font-weight="900" font-size="8" fill="#5A2DFF">ƒ</text></symbol>
+    <symbol id="i-dogru" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#8CD11E" stroke="#13132B" stroke-width="1.8"/><path d="M7 12.4 L10.6 16 L17.4 8.6" fill="none" stroke="#13132B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+    <!-- Şarj pilleri (durum güncellemesi) -->
+    <symbol id="pil-tam" viewBox="0 0 34 18"><rect x="1" y="1.5" width="28" height="15" rx="3" fill="#fff" stroke="#13132B" stroke-width="1.8"/><rect x="29.5" y="6" width="3.2" height="6" rx="1" fill="#13132B"/><rect x="4" y="4.5" width="6.5" height="9" rx="1" fill="none" stroke="#3D6A00" stroke-width="1.4"/><rect x="11.8" y="4.5" width="6.5" height="9" rx="1" fill="none" stroke="#3D6A00" stroke-width="1.4"/><rect x="19.6" y="4.5" width="6.5" height="9" rx="1" fill="none" stroke="#3D6A00" stroke-width="1.4"/></symbol>
+    <symbol id="pil-yari" viewBox="0 0 34 18"><rect x="1" y="1.5" width="28" height="15" rx="3" fill="#fff" stroke="#13132B" stroke-width="1.8"/><rect x="29.5" y="6" width="3.2" height="6" rx="1" fill="#13132B"/><rect x="4" y="4.5" width="6.5" height="9" rx="1" fill="none" stroke="#8F5E00" stroke-width="1.4"/><rect x="11.8" y="4.5" width="6.5" height="9" rx="1" fill="none" stroke="#8F5E00" stroke-width="1.4"/></symbol>
+    <symbol id="pil-bos" viewBox="0 0 34 18"><rect x="1" y="1.5" width="28" height="15" rx="3" fill="#fff" stroke="#13132B" stroke-width="1.8"/><rect x="29.5" y="6" width="3.2" height="6" rx="1" fill="#13132B"/><rect x="4" y="4.5" width="6.5" height="9" rx="1" fill="none" stroke="#B31F0E" stroke-width="1.4"/></symbol>
+
+    <!-- Rozet çerçevesi (boyanacak altıgen) -->
+    <symbol id="rozet-cerceve" viewBox="0 0 40 44">
+      <polygon points="21.4,3 38.9,13 38.9,34 21.4,44 3.9,34 3.9,13" fill="#13132B"/>
+      <polygon points="20,1.5 37.5,11.5 37.5,32.5 20,42.5 2.5,32.5 2.5,11.5" fill="#fff" stroke="#13132B" stroke-width="2" stroke-linejoin="round"/>
+      <polygon points="20,5.6 34,13.7 34,30.3 20,38.4 6,30.3 6,13.7" fill="none" stroke="#B4AECB" stroke-width=".9" stroke-dasharray="1.6 1.4"/>
+    </symbol>
+
+    <!-- Ok uçları -->
+    <marker id="ok" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="3.6" markerHeight="3.6" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#13132B"/></marker>
+    <marker id="ok-m" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="3.6" markerHeight="3.6" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#5A2DFF"/></marker>
+    <marker id="ok-t" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="3.6" markerHeight="3.6" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#006C78"/></marker>
+    <marker id="ok-g" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="3.6" markerHeight="3.6" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#B4AECB"/></marker>
+  </defs>
+</svg>
+
+<!-- =====================================================================
+     SAYFA 1 · DÜNYA 2 AÇILIŞI
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b>Başlangıç</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="boss"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:0%"></i></span></span>
+  </div>
+
+  <div class="acilis-ust">
+    <div>
+      <div class="ciplar"><span class="cip koyu buyuk">DÜNYA 2</span><span class="cip buyuk">10. sınıf · Tema 1 · Bölüm 2</span></div>
+      <h1 class="dev-baslik"><span class="mor">Mol</span><br><em>Kavramı</em></h1>
+      <p class="slogan">Görünmeyeni saymanın kimyacı yolu.</p>
+      <div class="ciplar" style="margin-top:2.6mm">
+        <span class="cip">5 kontrol noktası</span><span class="cip">3 yan görev</span><span class="cip mercan">1 boss</span><span class="cip xp">1400 XP</span>
+      </div>
+    </div>
+    <div class="avo-sahne">
+      <div class="balon-avo"><span class="ad">AVO · ROTA REHBERİN</span>Selam! Bu dünyada <b>6,02·10<sup>23</sup></b> tane şeyi saymayı öğreneceğiz. Tek tek değil, <b>paketle</b>.</div>
+      <svg class="avo"><use href="#avo"/></svg>
+    </div>
+  </div>
+
+  <!-- ROTA HARİTASI (yılan biçimli) -->
+  <div class="kart rota" style="margin-top:4mm">
+    <div class="kart-bas"><span class="dev" style="font-weight:900;font-size:15pt;letter-spacing:-.02em">Rota haritası</span><span class="etiket soluk">Durak · sayfa · XP &nbsp;<span class="cip koyu">Final: cevaplar s.13 · unvan s.14</span></span></div>
+    <svg viewBox="0 0 184 77" font-family="Inter">
+      <!-- yol: kalın mürekkep kenar + açık dolgu + kesik orta çizgi -->
+      <path d="M12 62 L150 62 C170 62 170 37 150 37 L34 37 C14 37 14 12 34 12 L160 12" fill="none" stroke="#13132B" stroke-width="9.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 62 L150 62 C170 62 170 37 150 37 L34 37 C14 37 14 12 34 12 L160 12" fill="none" stroke="#ECE6FF" stroke-width="7.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 62 L150 62 C170 62 170 37 150 37 L34 37 C14 37 14 12 34 12 L160 12" fill="none" stroke="#5A2DFF" stroke-width=".9" stroke-dasharray="2.4 2" stroke-linecap="round"/>
+      <path d="M82 60.4 l2.4 1.6 l-2.4 1.6" fill="none" stroke="#5A2DFF" stroke-width=".9"/>
+      <path d="M76 35.4 l-2.4 1.6 l2.4 1.6" fill="none" stroke="#5A2DFF" stroke-width=".9"/>
+      <!-- süsler -->
+      <circle cx="76" cy="50" r="1.9" fill="#D8F4F6" stroke="#006C78" stroke-width=".45"/><circle cx="79.6" cy="50" r="1.25" fill="#fff" stroke="#006C78" stroke-width=".45"/><circle cx="72.6" cy="50" r="1.25" fill="#fff" stroke="#006C78" stroke-width=".45"/>
+      <path d="M113 51 l3 -5 l3 5 z" fill="#EDF9D4" stroke="#3D6A00" stroke-width=".5"/><path d="M118 51 l2.4 -3.8 l2.4 3.8 z" fill="#EDF9D4" stroke="#3D6A00" stroke-width=".5"/>
+      <text x="26" y="51" font-family="JetBrains Mono" font-size="2.8" fill="#B4AECB" font-weight="800">×N<tspan font-size="1.9" dy=".6">A</tspan></text>
+      <!-- başla -->
+      <circle cx="12" cy="62" r="5.4" fill="#13132B"/><path d="M10 59.6 L14.8 62 L10 64.4 Z" fill="#8CD11E"/>
+      <rect x="1.5" y="49.6" width="21" height="5.2" rx="2.6" fill="#8CD11E" stroke="#13132B" stroke-width=".55"/>
+      <text x="12" y="53.2" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="2.7" fill="#13132B">BURADASIN</text>
+      <text x="12" y="72" text-anchor="middle" font-weight="800" font-size="3.4" fill="#13132B">Başla · s.1</text>
+      <!-- KN1–KN5 -->
+      <circle cx="56" cy="62" r="6" fill="#5A2DFF" stroke="#13132B" stroke-width=".8"/>
+      <text x="56" y="64.1" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="5.8" fill="#fff">1</text>
+      <text x="56" y="72" text-anchor="middle" font-weight="800" font-size="3.4" fill="#13132B">Neden mol?</text>
+      <text x="56" y="75.6" text-anchor="middle" font-family="JetBrains Mono" font-weight="600" font-size="2.7" fill="#565A7C">s.2 · <tspan fill="#3D6A00" font-weight="800">+100 XP</tspan></text>
+      <circle cx="106" cy="62" r="6" fill="#5A2DFF" stroke="#13132B" stroke-width=".8"/>
+      <text x="106" y="64.1" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="5.8" fill="#fff">2</text>
+      <text x="106" y="72" text-anchor="middle" font-weight="800" font-size="3.4" fill="#13132B">Atomun kütlesi</text>
+      <text x="106" y="75.6" text-anchor="middle" font-family="JetBrains Mono" font-weight="600" font-size="2.7" fill="#565A7C">s.3 · <tspan fill="#3D6A00" font-weight="800">+150 XP</tspan></text>
+      <circle cx="140" cy="37" r="6" fill="#5A2DFF" stroke="#13132B" stroke-width=".8"/>
+      <text x="140" y="39.1" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="5.8" fill="#fff">3</text>
+      <text x="140" y="47" text-anchor="middle" font-weight="800" font-size="3.4" fill="#13132B">Mol ile tanecik</text>
+      <text x="140" y="50.6" text-anchor="middle" font-family="JetBrains Mono" font-weight="600" font-size="2.7" fill="#565A7C">s.4 · <tspan fill="#3D6A00" font-weight="800">+150 XP</tspan></text>
+      <circle cx="96" cy="37" r="6" fill="#5A2DFF" stroke="#13132B" stroke-width=".8"/>
+      <text x="96" y="39.1" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="5.8" fill="#fff">4</text>
+      <text x="96" y="47" text-anchor="middle" font-weight="800" font-size="3.4" fill="#13132B">Mol ile kütle</text>
+      <text x="96" y="50.6" text-anchor="middle" font-family="JetBrains Mono" font-weight="600" font-size="2.7" fill="#565A7C">s.5 · <tspan fill="#3D6A00" font-weight="800">+150 XP</tspan></text>
+      <circle cx="52" cy="37" r="6" fill="#5A2DFF" stroke="#13132B" stroke-width=".8"/>
+      <text x="52" y="39.1" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="5.8" fill="#fff">5</text>
+      <text x="52" y="47" text-anchor="middle" font-weight="800" font-size="3.4" fill="#13132B">Karışımlar</text>
+      <text x="52" y="50.6" text-anchor="middle" font-family="JetBrains Mono" font-weight="600" font-size="2.7" fill="#565A7C">s.6 · <tspan fill="#3D6A00" font-weight="800">+150 XP</tspan></text>
+      <!-- kayıt noktası -->
+      <rect x="30" y="6" width="12" height="12" rx="2.4" fill="#EDF9D4" stroke="#13132B" stroke-width=".8"/>
+      <use href="#i-bayrak" x="31.8" y="7.8" width="8.4" height="8.4"/>
+      <text x="36" y="23.8" text-anchor="middle" font-weight="800" font-size="3.4" fill="#13132B">Kayıt noktası</text>
+      <text x="36" y="27.4" text-anchor="middle" font-family="JetBrains Mono" font-weight="600" font-size="2.7" fill="#565A7C">s.7 · <tspan fill="#3D6A00" font-weight="800">+40 XP</tspan></text>
+      <!-- yan görevler -->
+      <rect x="61.0" y="6.5" width="11" height="11" rx="1.8" transform="rotate(45 66.5 12)" fill="#FFF2CC" stroke="#13132B" stroke-width=".8"/>
+      <use href="#i-sohbet" x="62.6" y="8.1" width="7.8" height="7.8"/>
+      <text x="66.5" y="23.8" text-anchor="middle" font-weight="800" font-size="3.4" fill="#13132B">Kim haklı?</text>
+      <text x="66.5" y="27.4" text-anchor="middle" font-family="JetBrains Mono" font-weight="600" font-size="2.7" fill="#565A7C">s.8 · <tspan fill="#3D6A00" font-weight="800">+120 XP</tspan></text>
+      <rect x="91.0" y="6.5" width="11" height="11" rx="1.8" transform="rotate(45 96.5 12)" fill="#D8F4F6" stroke="#13132B" stroke-width=".8"/>
+      <use href="#i-hikaye" x="92.6" y="8.1" width="7.8" height="7.8"/>
+      <text x="96.5" y="23.8" text-anchor="middle" font-weight="800" font-size="3.4" fill="#13132B">Hikâye kartları</text>
+      <text x="96.5" y="27.4" text-anchor="middle" font-family="JetBrains Mono" font-weight="600" font-size="2.7" fill="#565A7C">s.9 · <tspan fill="#3D6A00" font-weight="800">+120 XP</tspan></text>
+      <rect x="121.0" y="6.5" width="11" height="11" rx="1.8" transform="rotate(45 126.5 12)" fill="#ECE6FF" stroke="#13132B" stroke-width=".8"/>
+      <use href="#i-ipucu" x="122.6" y="8.1" width="7.8" height="7.8"/>
+      <text x="126.5" y="23.8" text-anchor="middle" font-weight="800" font-size="3.4" fill="#13132B">İpucu merdiveni</text>
+      <text x="126.5" y="27.4" text-anchor="middle" font-family="JetBrains Mono" font-weight="600" font-size="2.7" fill="#565A7C">s.10 · <tspan fill="#3D6A00" font-weight="800">+120 XP</tspan></text>
+      <!-- boss -->
+      <circle cx="162" cy="12" r="11" fill="#FFE5E0" stroke="#FF4A36" stroke-width=".7" stroke-dasharray="1.4 1"/>
+      <use href="#boss" x="152.5" y="2.5" width="19" height="19"/>
+      <text x="162" y="27.6" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="3.9" fill="#13132B">BOSS · Bölüm testi</text>
+      <text x="162" y="31.2" text-anchor="middle" font-family="JetBrains Mono" font-weight="600" font-size="2.7" fill="#565A7C">s.11–12 · <tspan fill="#B31F0E" font-weight="800">+300 XP</tspan></text>
+    </svg>
+  </div>
+
+  <!-- ROZETLER -->
+  <div style="margin-top:3.6mm">
+    <div class="ara-bas"><h3>Kazanılacak rozetler</h3><p>Kontrol noktasını bitirince rozeti kendin boya. Kalem senden, rozet bizden.</p></div>
+    <div class="rozetler">
+      <div class="rozet">
+        <svg viewBox="0 0 40 44"><use href="#rozet-cerceve"/>
+          <path d="M12 19 L20 15 L28 19 L28 28 L20 32 L12 28 Z M12 19 L20 23 L28 19 M20 23 V32" fill="#FFF2CC" stroke="#13132B" stroke-width="1.5" stroke-linejoin="round"/>
+          <text x="20" y="21" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="4" fill="#8F5E00">N</text></svg>
+        <b>Paketçi</b><span>KN1 · paketi aç</span>
+      </div>
+      <div class="rozet">
+        <svg viewBox="0 0 40 44"><use href="#rozet-cerceve"/>
+          <circle cx="18" cy="20" r="6.5" fill="#D8F4F6" stroke="#13132B" stroke-width="1.6"/>
+          <path d="M22.8 24.8 L28.5 30.5" stroke="#13132B" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="16.5" cy="19" r="1.5" fill="#00A3B4"/><circle cx="19.6" cy="21.5" r="1.5" fill="#5A2DFF"/></svg>
+        <b>İzotop Dedektifi</b><span>KN2 · ortalama kütleyi bul</span>
+      </div>
+      <div class="rozet">
+        <svg viewBox="0 0 40 44"><use href="#rozet-cerceve"/>
+          <path d="M11 18.5 H27 M24 15.5 L27.5 18.5 L24 21.5 M29 26 H13 M16 23 L12.5 26 L16 29" fill="none" stroke="#5A2DFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <b>Işınlayıcı</b><span>KN3 · tanecik ⇄ mol</span>
+      </div>
+      <div class="rozet">
+        <svg viewBox="0 0 40 44"><use href="#rozet-cerceve"/>
+          <path d="M20 13 V30 M14 30 H26 M11 17 H29" stroke="#13132B" stroke-width="1.7" stroke-linecap="round"/>
+          <path d="M11 17 L8 24 H14 Z M29 17 L26 24 H32 Z" fill="#EDF9D4" stroke="#13132B" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        <b>Terazi Ustası</b><span>KN4 · kütle ⇄ mol</span>
+      </div>
+      <div class="rozet">
+        <svg viewBox="0 0 40 44"><use href="#rozet-cerceve"/>
+          <path d="M13 13 V19 L9.5 28.5 Q9 30 10.6 30 H18.4 Q20 30 19.5 28.5 L16 19 V13" fill="#ECE6FF" stroke="#13132B" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M24 13 V19 L20.5 28.5 Q20 30 21.6 30 H29.4 Q31 30 30.5 28.5 L27 19 V13" fill="#FFE5E0" stroke="#13132B" stroke-width="1.4" stroke-linejoin="round"/>
+          <text x="20.5" y="11" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="4.6" fill="#13132B">x</text></svg>
+        <b>Karışım Kaşifi</b><span>KN5 · tek bilinmeyen</span>
+      </div>
+      <div class="rozet">
+        <svg viewBox="0 0 40 44"><use href="#rozet-cerceve"/>
+          <path d="M11 28 L10 16 L15.5 21 L20 13.5 L24.5 21 L30 16 L29 28 Z" fill="#FFC21A" stroke="#13132B" stroke-width="1.5" stroke-linejoin="round"/>
+          <circle cx="20" cy="24" r="1.7" fill="#FF4A36"/></svg>
+        <b>Boss Avcısı</b><span>Testte 10+ doğru</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALT SIRA: karakterler · hedefler + unvan · işaret şeridi -->
+  <div class="bento" style="grid-template-columns:1fr 1fr;margin-top:3.6mm">
+    <div class="kart">
+      <span class="etiket" style="color:var(--mercan-k)"><svg class="ikon"><use href="#i-sohbet"/></svg>Sohbettekiler</span>
+      <div class="karakterler" style="margin-top:1.8mm">
+        <div class="karakter"><svg><use href="#av-ece"/></svg><div><b>Ece<i>10. sınıf</i></b><p>Meraklı; “Neden?” demeden geçmez.</p></div></div>
+        <div class="karakter"><svg><use href="#av-deniz"/></svg><div><b>Deniz<i>kimya kulübü</i></b><p>Sakin; adım adım, örnekle anlatır.</p></div></div>
+        <div class="karakter"><svg><use href="#av-avo"/></svg><div><b>Avo<i>N<sub>A</sub> = 6,02·10<sup>23</sup></i></b><p>Kişileşmiş Avogadro sayısı; hep sayıyla.</p></div></div>
+      </div>
+    </div>
+    <div class="kart">
+      <span class="etiket" style="color:var(--mor)"><svg class="ikon"><use href="#i-hedef"/></svg>Ana görevler · dünyanın sonunda</span>
+      <ol class="hedefler">
+        <li>Mol, tanecik sayısı ve kütle arasında rahatça geçiş yapacaksın.</li>
+        <li>İzotop ve ortalama atom kütlesini yorumlayacaksın.</li>
+        <li>Karışım problemlerini tek bilinmeyenle çözeceksin.</li>
+      </ol>
+      <div style="margin-top:1.8mm;padding-top:1.6mm;border-top:var(--cz-ince) dashed var(--cizgi)">
+        <span class="etiket">Unvan merdiveni · toplam XP’ne göre</span>
+        <div class="unvan-bar"><i style="background:#fff"></i><i style="background:var(--lime-a)"></i><i style="background:#CFEFA0"></i><i style="background:var(--lime)"></i></div>
+        <div class="unvan-ad"><span><b>Çaylak</b> 0+</span><span><b>Kaşif</b> 400+</span><span><b>Usta</b> 800+</span><span><b>Mol Efsanesi</b> 1150+</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="kart duz" style="margin-top:3.6mm;padding:2mm 3.2mm;display:flex;gap:3mm;align-items:center;background:var(--mor-a)">
+    <span class="etiket" style="color:var(--mor-k);flex:none">İşaretler</span>
+    <ul class="isaretler" style="grid-template-columns:repeat(6,1fr);margin:0;flex:1">
+      <li><svg><use href="#i-hedef"/></svg><span><b>Görev</b>Kapat, dene.</span></li>
+      <li><svg><use href="#i-kilit"/></svg><span><b>Kilit</b>Açarsan −10.</span></li>
+      <li><svg><use href="#i-tuzak"/></svg><span><b>Tuzak!</b>En sık hata.</span></li>
+      <li><svg><use href="#i-yetenek"/></svg><span><b>Yetenek</b>Kes, yapıştır.</span></li>
+      <li><svg><use href="#i-bayrak"/></svg><span><b>Kayıt</b>Tek sayfa.</span></li>
+      <li><svg><use href="#boss"/></svg><span><b>Boss</b>Bölüm testi.</span></li>
+    </ul>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Dünya 2 · Rota açılışı</span><span class="no">1</span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 2 · KN1 · NEDEN MOL?
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b>KN 1/5</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i class="simdi"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="boss"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:0%"></i></span></span>
+  </div>
+
+  <div class="kn-bas">
+    <svg class="kn-hex" viewBox="0 0 46 50">
+      <polygon points="24.5,4 43.5,15 43.5,37 24.5,48 5.5,37 5.5,15" fill="#13132B"/>
+      <polygon points="22,2 41,13 41,35 22,46 3,35 3,13" fill="#5A2DFF" stroke="#13132B" stroke-width="2.2" stroke-linejoin="round"/>
+      <polygon points="22,2 41,13 41,17 22,6 3,17 3,13" fill="#8466FF"/>
+      <text x="22" y="20.5" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5.2" fill="#D6CCFF">KN</text>
+      <text x="22" y="36" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="18" fill="#fff">1</text>
+    </svg>
+    <div>
+      <span class="ust etiket">Kontrol noktası 1 · Dünya 2</span>
+      <h1>Neden <em>mol?</em></h1>
+      <p class="alt-bas">Kimyanın sayma birimi: paket.</p>
+    </div>
+    <div class="kart ana-gorev">
+      <span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Ana görev</span>
+      <p>Mol ve Avogadro sayısını kendi cümlelerinle tanımla.</p>
+      <div class="oduller"><span class="cip xp">+100 XP</span><span class="cip">Paketçi rozeti</span></div>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:100mm 1fr;margin-top:4.4mm">
+    <div class="kart sohbet">
+      <div class="sohbet-bas"><span class="kanal"><i>#</i>mol-sohbeti</span><span class="kisiler"><svg><use href="#av-ece"/></svg><svg><use href="#av-deniz"/></svg><svg><use href="#av-avo"/></svg></span></div>
+            <div class="mesaj ece sag"><svg class="av"><use href="#av-ece"/></svg><div class="balon"><div class="kim">Ece</div>Bir damla suda kaç molekül var? Tek tek saysam ömrüm yeter mi?</div></div>
+      <div class="mesaj deniz"><svg class="av"><use href="#av-deniz"/></svg><div class="balon"><div class="kim">Deniz</div>Yetmez! Manav yumurtayı düzineyle (12), kırtasiyeci kâğıdı topla (500) satar. Kimyacılar da <span class="vurgu">paketle sayar</span>.</div></div>
+      <div class="mesaj avo"><svg class="av"><use href="#av-avo"/></svg><div class="balon"><div class="kim">Avo <i>@NA</i></div>O paketin adı <b>mol</b>, içindeki sayı da benim: <b>6,02·10<sup>23</sup></b>. Atom, molekül, iyon fark etmez.<span class="tepki">+23</span></div></div>
+      <div class="mesaj ece sag"><svg class="av"><use href="#av-ece"/></svg><div class="balon"><div class="kim">Ece</div>Peki mol bir kütle mi, bir sayı mı?</div></div>
+      <div class="mesaj deniz"><svg class="av"><use href="#av-deniz"/></svg><div class="balon"><div class="kim">Deniz</div>Sayı paketi! 1 mol demir ile 1 mol su <b>aynı sayıda</b> tanecik içerir; kütleleri farklıdır.</div></div>
+    </div>
+
+    <div class="dikey">
+      <div class="kart" style="padding-bottom:0;overflow:hidden">
+        <span class="etiket" style="color:var(--sari-k)">Paketler · kaç tane?</span>
+        <div class="paket-satir"><span class="n">12</span><div><b>1 düzine</b><small>yumurta, kalem</small></div></div>
+        <div class="paket-satir"><span class="n">500</span><div><b>1 top</b><small>fotokopi kâğıdı</small></div></div>
+        <div class="paket-satir mol"><span class="n" style="font-size:13pt">6,02·10<sup>23</sup></span><div><b>1 mol</b><small style="color:var(--murekkep)">atom, molekül, iyon (tanecik)</small></div></div>
+      </div>
+      <div class="kart kavram mor-z" style="flex:1">
+        <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-xp"/></svg>Kavram</span><span class="cip xp">+30 XP</span></div>
+        <p><b>Mol:</b> 6,02·10<sup>23</sup> tane tanecik içeren madde miktarı. SI’da madde miktarının birimidir, <b>mol</b> ile gösterilir.</p>
+        <p><b>Avogadro sayısı:</b> 6,02·10<sup>23</sup>; N<sub>A</sub> ile gösterilir. “1 mol” demek, “N<sub>A</sub> tane” demektir.</p>
+        <p class="yaz-alan" style="margin-top:2mm">Görev: molü tek cümlede anlat</p>
+        <div class="satir" style="background:transparent"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KAHRAMAN SAYI -->
+  <div class="dev-sayi-blok" style="margin-top:4.4mm;display:grid;grid-template-columns:auto 1fr;gap:6mm;align-items:end">
+    <div>
+      <span class="etiket">Bölümün kahramanı · Avogadro sayısı · N<sub>A</sub></span>
+      <div class="dev-sayi">6<span class="virgul">,</span>02·10<sup>23</sup></div>
+    </div>
+    <p style="font-size:10.4pt;line-height:1.38;padding-bottom:3mm"><b>1 mol = 6,02·10<sup>23</sup> tane tanecik.</b> Bir dolu kaşık suda, bir gram hidrojende, bir avuç tuzda saklı olan sayı.</p>
+    <span class="cetvel"></span>
+  </div>
+
+  <div class="bento yakin" style="grid-template-columns:repeat(4,1fr);margin-top:4.4mm">
+    <div class="sayi-kart" style="background:var(--sari-a)"><span class="etiket">Süre</span><span class="n">≈19<small>katrilyon yıl</small></span><p>Saniyede bir sayarak 1 molü sayma süresi.</p></div>
+    <div class="sayi-kart" style="background:var(--mor-a)"><span class="etiket">Kıyas</span><span class="n">≈1,4<small>milyon kat</small></span><p>Evrenin yaşından (13,8 milyar yıl) uzun.</p></div>
+    <div class="sayi-kart" style="background:var(--turkuaz-a)"><span class="etiket">Su</span><span class="n">18<small>g</small></span><p>1 mol su ≈ 18 mL, bir kaşık kadar.</p></div>
+    <div class="sayi-kart" style="background:var(--mercan-a)"><span class="etiket">Grafit</span><span class="n">5,5<small>cm³</small></span><p>1 mol grafit 12 g; hacmi bu kadar.</p></div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:1fr 1fr 1fr;margin-top:4.4mm">
+    <div class="tuzak">
+      <div class="tuzak-ust"><svg><use href="#i-tuzak-b"/></svg><b>Tuzak!</b> <span class="cip xp">+20 XP</span></div>
+      <div class="tuzak-iddia"><small>Doğruluk kontrolü · dolaşan iddia</small><p>“Mol bir kütle birimidir.”</p><span class="damga">YANLIŞ</span></div>
+      <div class="tuzak-dogru"><span class="bas">✓ Doğrusu</span><p>Mol bir <b>sayı paketidir</b>. 1 mol demir ile 1 mol su aynı sayıda tanecik içerir, kütleleri farklıdır.</p></div>
+    </div>
+    <div class="dikey yakin">
+      <div class="yetenek">
+        <span class="yno sari">Y1</span>
+        <div><div class="yad">Yetenek · paketi aç</div><div class="yf">1 mol = N<sub>A</sub> tane</div><div class="yac">N<sub>A</sub> = 6,02·10<sup>23</sup> · <b style="color:var(--lime-k)">+10 XP</b></div></div>
+      </div>
+      <div class="kart hayat sari-z" style="flex:1;padding:2.4mm 3mm">
+        <span class="etiket"><svg class="ikon"><use href="#i-hikaye"/></svg>Hayatın içinden</span>
+        <p style="margin-top:1mm;font-size:9.5pt;line-height:1.34">Eczacı etkin maddeyi miligramla tartar ama vücutta etki eden <b>molekül sayısıdır</b>. Aynı kütlede iki ilaç çok farklı sayıda molekül içerebilir.</p>
+      </div>
+    </div>
+    <div class="kart hizli">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-xp"/></svg>Hızlı görev</span><span class="cip xp">+40 XP</span></div>
+      <p class="soru">1 düzine bisiklette 24 tekerlek varsa 1 mol H<sub>2</sub>O molekülünde kaç mol H atomu vardır?</p>
+      <div class="kilit"><svg><use href="#i-kilit"/></svg><span>İpucu <b>(−10 XP)</b>: <span class="ters">Molekül bisiklet, atom tekerlek.</span></span></div>
+      <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:</div><span class="ters-cevap"><span class="ters">Cevap: 2 mol H</span></span></div>
+    </div>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>KN 1 · Neden mol?</span><span class="no">2</span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 3 · KN2 · ATOMUN KÜTLESİ
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b>KN 2/5</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i class="tam"></i><i class="simdi"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="boss"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:7%"></i></span></span>
+  </div>
+
+  <div class="kn-bas">
+    <svg class="kn-hex" viewBox="0 0 46 50">
+      <polygon points="24.5,4 43.5,15 43.5,37 24.5,48 5.5,37 5.5,15" fill="#13132B"/>
+      <polygon points="22,2 41,13 41,35 22,46 3,35 3,13" fill="#5A2DFF" stroke="#13132B" stroke-width="2.2" stroke-linejoin="round"/>
+      <polygon points="22,2 41,13 41,17 22,6 3,17 3,13" fill="#8466FF"/>
+      <text x="22" y="20.5" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5.2" fill="#D6CCFF">KN</text>
+      <text x="22" y="36" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="18" fill="#fff">2</text>
+    </svg>
+    <div>
+      <span class="ust etiket">Kontrol noktası 2 · Dünya 2</span>
+      <h1>Atomun <em>kütlesi</em></h1>
+      <p class="alt-bas">İzotop, akb ve ortalama atom kütlesi.</p>
+    </div>
+    <div class="kart ana-gorev">
+      <span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Ana görev</span>
+      <p>İzotopları tanı; bolluk yüzdesinden ortalama atom kütlesini hesapla.</p>
+      <div class="oduller"><span class="cip xp">+150 XP</span><span class="cip">İzotop Dedektifi</span></div>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:94mm 1fr;margin-top:4.4mm">
+    <div class="kart sohbet">
+      <div class="sohbet-bas"><span class="kanal"><i>#</i>mol-sohbeti</span><span class="kisiler"><svg><use href="#av-ece"/></svg><svg><use href="#av-deniz"/></svg><svg><use href="#av-avo"/></svg></span></div>
+      <div class="mesaj ece sag"><svg class="av"><use href="#av-ece"/></svg><div class="balon"><div class="kim">Ece</div>Periyodik tabloda bor 10,8 yazıyor. Atomun 0,8 nötronu mu var?</div></div>
+      <div class="mesaj deniz"><svg class="av"><use href="#av-deniz"/></svg><div class="balon"><div class="kim">Deniz</div>Hayır! Doğada iki çeşit bor atomu var: <sup>10</sup>B ve <sup>11</sup>B. Proton sayısı aynı, nötron sayısı farklı: <span class="vurgu">izotop</span>.</div></div>
+      <div class="mesaj avo"><svg class="av"><use href="#av-avo"/></svg><div class="balon"><div class="kim">Avo <i>@NA</i></div>10,8 bir <b>ortalama</b>. Bir avuç bor al, ortalaması hep 10,8 akb çıkar.</div></div>
+      <div class="mesaj deniz"><svg class="av"><use href="#av-deniz"/></svg><div class="balon"><div class="kim">Deniz</div>Atomu gramla tartmak zor; cetvelimiz <sup>12</sup>C. Kütlesinin <b>1/12’si = 1 akb</b>.</div></div>
+    </div>
+
+    <div class="kart kavram">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-xp"/></svg>Kavram · izotop atomlar</span></div>
+      <p>Proton sayıları (atom numaraları) <b>aynı</b>, nötron sayıları dolayısıyla kütle numaraları <b>farklı</b> atomlar. Aynı elementin atomlarıdır, aynı sembolle yazılır.</p>
+      <svg viewBox="0 0 120 40" style="width:74%;display:block;margin:1mm auto .4mm" font-family="Inter">
+        <!-- 12C 13C 14C çekirdekleri -->
+        <g>
+          <circle cx="20" cy="17" r="12" fill="#fff" stroke="#13132B" stroke-width=".7" stroke-dasharray="1.2 1"/>
+          <g stroke="#13132B" stroke-width=".4">
+            <circle cx="16" cy="14" r="2.6" fill="#FF4A36"/><circle cx="20.6" cy="12.4" r="2.6" fill="#DCD7EC"/><circle cx="24.4" cy="15.2" r="2.6" fill="#FF4A36"/>
+            <circle cx="15.2" cy="18.6" r="2.6" fill="#DCD7EC"/><circle cx="19.8" cy="17.2" r="2.6" fill="#FF4A36"/><circle cx="24.2" cy="19.8" r="2.6" fill="#DCD7EC"/>
+            <circle cx="17.6" cy="22.2" r="2.6" fill="#FF4A36"/><circle cx="22" cy="23" r="2.6" fill="#DCD7EC"/><circle cx="12.6" cy="15.6" r="2.6" fill="#DCD7EC"/>
+            <circle cx="27.2" cy="17.6" r="2.6" fill="#FF4A36"/><circle cx="20.4" cy="8.2" r="2.6" fill="#FF4A36"/><circle cx="13.2" cy="21.6" r="2.6" fill="#DCD7EC"/>
+          </g>
+          <text x="20" y="37" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="3.6" fill="#13132B">¹²C · 6p 6n</text>
+        </g>
+        <g>
+          <circle cx="60" cy="17" r="12" fill="#fff" stroke="#13132B" stroke-width=".7" stroke-dasharray="1.2 1"/>
+          <g stroke="#13132B" stroke-width=".4">
+            <circle cx="56" cy="14" r="2.6" fill="#FF4A36"/><circle cx="60.6" cy="12.4" r="2.6" fill="#DCD7EC"/><circle cx="64.4" cy="15.2" r="2.6" fill="#FF4A36"/>
+            <circle cx="55.2" cy="18.6" r="2.6" fill="#DCD7EC"/><circle cx="59.8" cy="17.2" r="2.6" fill="#FF4A36"/><circle cx="64.2" cy="19.8" r="2.6" fill="#DCD7EC"/>
+            <circle cx="57.6" cy="22.2" r="2.6" fill="#FF4A36"/><circle cx="62" cy="23" r="2.6" fill="#DCD7EC"/><circle cx="52.6" cy="15.6" r="2.6" fill="#DCD7EC"/>
+            <circle cx="67.2" cy="17.6" r="2.6" fill="#FF4A36"/><circle cx="60.4" cy="8.2" r="2.6" fill="#FF4A36"/><circle cx="53.2" cy="21.6" r="2.6" fill="#DCD7EC"/>
+            <circle cx="66" cy="11.6" r="2.6" fill="#00A3B4"/>
+          </g>
+          <text x="60" y="37" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="3.6" fill="#13132B">¹³C · 6p 7n</text>
+        </g>
+        <g>
+          <circle cx="100" cy="17" r="12" fill="#fff" stroke="#13132B" stroke-width=".7" stroke-dasharray="1.2 1"/>
+          <g stroke="#13132B" stroke-width=".4">
+            <circle cx="96" cy="14" r="2.6" fill="#FF4A36"/><circle cx="100.6" cy="12.4" r="2.6" fill="#DCD7EC"/><circle cx="104.4" cy="15.2" r="2.6" fill="#FF4A36"/>
+            <circle cx="95.2" cy="18.6" r="2.6" fill="#DCD7EC"/><circle cx="99.8" cy="17.2" r="2.6" fill="#FF4A36"/><circle cx="104.2" cy="19.8" r="2.6" fill="#DCD7EC"/>
+            <circle cx="97.6" cy="22.2" r="2.6" fill="#FF4A36"/><circle cx="102" cy="23" r="2.6" fill="#DCD7EC"/><circle cx="92.6" cy="15.6" r="2.6" fill="#DCD7EC"/>
+            <circle cx="107.2" cy="17.6" r="2.6" fill="#FF4A36"/><circle cx="100.4" cy="8.2" r="2.6" fill="#FF4A36"/><circle cx="93.2" cy="21.6" r="2.6" fill="#DCD7EC"/>
+            <circle cx="106" cy="11.6" r="2.6" fill="#00A3B4"/><circle cx="96.4" cy="25.2" r="2.6" fill="#00A3B4"/>
+          </g>
+          <text x="100" y="37" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="3.6" fill="#13132B">¹⁴C · 6p 8n</text>
+        </g>
+      </svg>
+      <p style="font-size:9.4pt"><b>Hidrojenin izotopları</b> özel ad alır:
+        <span class="izo"><span><b>1</b><b>1</b></span>H</span> hidrojen,
+        <span class="izo"><span><b>2</b><b>1</b></span>D</span> döteryum,
+        <span class="izo"><span><b>3</b><b>1</b></span>T</span> trityum.</p>
+      <div style="display:flex;gap:1.4mm;margin-top:1.4mm;flex-wrap:nowrap">
+        <span class="cip" style="background:var(--lime-a)">Kimyasal: AYNI</span>
+        <span class="cip" style="background:var(--mercan-a)">Fiziksel: FARKLI (yoğunluk)</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:2mm;margin-top:2mm;padding-top:1.8mm;border-top:var(--cz-ince) dashed var(--cizgi);font-size:9.5pt">
+        <span class="cip xp">+20 XP</span><span><b>Hızlı kontrol:</b> ¹⁴C’de proton <span style="display:inline-block;width:8mm;border-bottom:.35mm dotted var(--soluk)"></span> nötron <span style="display:inline-block;width:8mm;border-bottom:.35mm dotted var(--soluk)"></span></span>
+        <span class="ters mono" style="font-size:7.4pt;color:var(--soluk);margin-left:auto;white-space:nowrap">6 ve 8</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bento yakin" style="grid-template-columns:repeat(3,1fr);margin-top:4.4mm">
+    <div class="sayi-kart" style="background:var(--mor-a)"><span class="etiket" style="color:var(--mor-k)">Kavram · akb</span><span class="n" style="font-size:16pt">1/12 · ¹²C</span><p>¹²C kütlesinin 1/12’si: <b>1 atomik kütle birimi</b> (Dalton).</p></div>
+    <div class="sayi-kart" style="background:var(--turkuaz-a)"><span class="etiket" style="color:var(--turkuaz-k)">Kavram · bağıl kütle</span><span class="n" style="font-size:16pt">³²S = 32 akb</span><p>¹²C’ye göre kütle. 1 tane ²⁰Ne atomu 20 akb.</p></div>
+    <div class="sayi-kart" style="background:var(--sari-a)"><span class="etiket" style="color:var(--sari-k)">Kavram · ortalama kütle</span><span class="n" style="font-size:16pt">B = 10,8</span><p>Bolluğa göre <b>ağırlıklı ortalama</b>; tablodaki değer.</p></div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:1fr 70mm;margin-top:4.4mm">
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Görev 1 · çözümlü</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip xp">+50 XP</span></span></div>
+      <p class="soru">Bor elementinin doğada iki izotopu vardır: <sup>10</sup>B (%20) ve <sup>11</sup>B (%80). Borun ortalama atom kütlesi kaçtır?</p>
+      <div style="display:grid;grid-template-columns:1fr 42mm;gap:3mm;align-items:start">
+          <ol class="akis">
+            <li><i>1</i><span>Kütleyi bolluk oranıyla çarp: 10·0,20 = 2,0 ve 11·0,80 = 8,8</span></li>
+            <li><i>2</i><span>Topla: 2,0 + 8,8 = 10,8</span></li>
+          </ol>
+          <svg viewBox="0 0 60 30" font-family="JetBrains Mono" style="width:100%;display:block">
+          <rect x="1" y="2" width="58" height="8" rx="2" fill="#5A2DFF" stroke="#13132B" stroke-width=".6"/>
+          <rect x="1" y="2" width="11.6" height="8" rx="2" fill="#FF4A36" stroke="#13132B" stroke-width=".6"/>
+          <text x="6.8" y="7.3" text-anchor="middle" font-size="2.8" font-weight="800" fill="#fff">¹⁰B</text>
+          <text x="36" y="7.3" text-anchor="middle" font-size="2.8" font-weight="800" fill="#fff">¹¹B · %80</text>
+          <line x1="4" y1="20" x2="56" y2="20" stroke="#13132B" stroke-width=".6"/>
+          <g stroke="#13132B" stroke-width=".4"><line x1="4" y1="18.6" x2="4" y2="21.4"/><line x1="56" y1="18.6" x2="56" y2="21.4"/><line x1="45.6" y1="17" x2="45.6" y2="23"/></g>
+          <text x="4" y="26.4" text-anchor="middle" font-size="2.8" font-weight="700" fill="#565A7C">10</text>
+          <text x="56" y="26.4" text-anchor="middle" font-size="2.8" font-weight="700" fill="#565A7C">11</text>
+          <path d="M45.6 16.6 l-1.8 -2.6 h3.6z" fill="#FFC21A" stroke="#13132B" stroke-width=".4"/>
+          <text x="45.6" y="27.4" text-anchor="middle" font-size="3.4" font-weight="800" fill="#13132B">10,8</text>
+        </svg>
+        </div>
+        <div class="sonuc"><span>SONUÇ</span><b>Ortalama atom kütlesi = 10,8 akb</b></div>
+    </div>
+    <div class="dikey yakin">
+      <div class="yetenek">
+        <span class="yno">Y2</span>
+        <div><div class="yad">Yetenek · ortalama kütle</div><div class="yf" style="font-size:12.5pt">Σ (kütle × oran)</div><div class="yac">%80 → 0,80 yaz · <b style="color:var(--lime-k)">+10 XP</b></div></div>
+      </div>
+      <div class="yetenek">
+        <span class="yno turkuaz">Y3</span>
+        <div><div class="yad">Yetenek · akb ↔ gram</div><div class="yf" style="font-size:12.5pt">1 g = N<sub>A</sub> akb</div><div class="yac">1 akb = ¹²C’nin 1/12’si · <b style="color:var(--lime-k)">+10 XP</b></div></div>
+      </div>
+      <span class="kes-not"><svg><use href="#i-makas"/></svg>kes · defterine yapıştır</span>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:1fr 1fr;margin-top:4.4mm">
+    <div class="tuzak">
+      <div class="tuzak-ust"><svg><use href="#i-tuzak-b"/></svg><b>Tuzak!</b> <span class="cip xp">+20 XP</span></div>
+      <div class="tuzak-iddia"><small>Doğruluk kontrolü · dolaşan iddia</small><p>“Doğada kütlesi 10,8 akb olan bir bor atomu vardır.”</p><span class="damga">YANLIŞ</span></div>
+      <div class="tuzak-dogru"><span class="bas">✓ Doğrusu</span><p>10,8 bir <b>ortalamadır</b>. Tek tek bakıldığında her bor atomu ya 10 ya da 11 akb’dir.</p></div>
+    </div>
+    <div class="kart hizli">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-xp"/></svg>Hızlı görev</span><span class="cip xp">+40 XP</span></div>
+      <p class="soru">Klorun doğada iki izotopu vardır: <sup>35</sup>Cl (%75) ve <sup>37</sup>Cl (%25). Klorun ortalama atom kütlesi kaçtır?</p>
+      <div class="kilit"><svg><use href="#i-kilit"/></svg><span>İpucu <b>(−10 XP)</b>: <span class="ters">35·0,75 + 37·0,25 işlemini yap.</span></span></div>
+      <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:</div><span class="ters-cevap"><span class="ters">Cevap: 35,5 akb</span></span></div>
+    </div>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>KN 2 · Atomun kütlesi</span><span class="no">3</span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 4 · KN3 · MOL İLE TANECİK SAYISI
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b>KN 3/5</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i class="tam"></i><i class="tam"></i><i class="simdi"></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="boss"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:18%"></i></span></span>
+  </div>
+
+  <div class="kn-bas">
+    <svg class="kn-hex" viewBox="0 0 46 50">
+      <polygon points="24.5,4 43.5,15 43.5,37 24.5,48 5.5,37 5.5,15" fill="#13132B"/>
+      <polygon points="22,2 41,13 41,35 22,46 3,35 3,13" fill="#5A2DFF" stroke="#13132B" stroke-width="2.2" stroke-linejoin="round"/>
+      <polygon points="22,2 41,13 41,17 22,6 3,17 3,13" fill="#8466FF"/>
+      <text x="22" y="20.5" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5.2" fill="#D6CCFF">KN</text>
+      <text x="22" y="36" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="18" fill="#fff">3</text>
+    </svg>
+    <div>
+      <span class="ust etiket">Kontrol noktası 3 · Dünya 2</span>
+      <h1>Mol ile <em>tanecik</em></h1>
+      <p class="alt-bas">Bütün hesaplar haritadaki kutular arasında gidip gelir.</p>
+    </div>
+    <div class="kart ana-gorev">
+      <span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Ana görev</span>
+      <p>Tanecik ⇄ mol, iki yönde; molekülden atoma in.</p>
+      <div class="oduller"><span class="cip xp">+150 XP</span><span class="cip">Işınlayıcı</span></div>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:92mm 1fr;margin-top:4.4mm">
+    <div class="kart sohbet">
+      <div class="sohbet-bas"><span class="kanal"><i>#</i>mol-sohbeti</span><span class="kisiler"><svg><use href="#av-ece"/></svg><svg><use href="#av-deniz"/></svg><svg><use href="#av-avo"/></svg></span></div>
+      <div class="mesaj ece sag"><svg class="av"><use href="#av-ece"/></svg><div class="balon"><div class="kim">Ece</div>1 mol CO<sub>2</sub> dedik. Peki içinde kaç tane <u>atom</u> var?</div></div>
+      <div class="mesaj deniz"><svg class="av"><use href="#av-deniz"/></svg><div class="balon"><div class="kim">Deniz</div>Alt simgelere bak: bir CO<sub>2</sub>’de 1 C, 2 O var. Molekülü <b>bisiklet</b>, atomları <b>tekerlek</b> gibi düşün.</div></div>
+      <div class="mesaj avo"><svg class="av"><use href="#av-avo"/></svg><div class="balon"><div class="kim">Avo <i>@NA</i></div>1 mol CO<sub>2</sub> = N<sub>A</sub> molekül = 1 mol C + 2 mol O = <span class="vurgu">3 mol atom</span>.</div></div>
+      <div class="mesaj ece sag"><svg class="av"><use href="#av-ece"/></svg><div class="balon"><div class="kim">Ece</div>Anladım: önce <b>neyin molü</b> olduğuna bakacağım!</div></div>
+    </div>
+
+    <div class="dikey">
+      <div class="kart" style="padding-bottom:1.6mm">
+        <span class="etiket" style="color:var(--mor)">Mol haritası · sen buradasın: sol yarı</span>
+        <svg viewBox="0 0 104 56" font-family="Inter" style="width:100%;display:block;margin-top:1mm">
+          <rect x="1" y="4" width="28" height="22" rx="3" fill="#FFF2CC" stroke="#13132B" stroke-width=".8"/>
+          <g fill="#FFC21A" stroke="#13132B" stroke-width=".35"><circle cx="7" cy="9" r="1.4"/><circle cx="11" cy="8" r="1.4"/><circle cx="15" cy="9.4" r="1.4"/><circle cx="19" cy="8.2" r="1.4"/><circle cx="23" cy="9" r="1.4"/></g>
+          <text x="15" y="17.6" text-anchor="middle" font-weight="900" font-size="3.6" fill="#13132B">TANECİK</text>
+          <text x="15" y="22.4" text-anchor="middle" font-size="3.1" fill="#565A7C">sayısı · <tspan font-family="Caladea" font-style="italic" font-weight="700" fill="#13132B">N</tspan></text>
+          <circle cx="52" cy="15" r="11.5" fill="#5A2DFF" stroke="#13132B" stroke-width=".9"/>
+          <circle cx="52" cy="15" r="14" fill="none" stroke="#5A2DFF" stroke-width=".4" stroke-dasharray="1.2 1"/>
+          <text x="52" y="15.4" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="5.4" fill="#fff">MOL</text>
+          <text x="52" y="20.6" text-anchor="middle" font-family="Caladea" font-style="italic" font-weight="700" font-size="4" fill="#D6CCFF">n</text>
+          <rect x="75" y="4" width="28" height="22" rx="3" fill="#F6F5FA" stroke="#B4AECB" stroke-width=".7" stroke-dasharray="1.6 1.2"/>
+          <use href="#i-kilit" x="85" y="6.4" width="8" height="8" opacity=".65"/>
+          <text x="89" y="18.6" text-anchor="middle" font-weight="800" font-size="3.6" fill="#9C99B0">KÜTLE · <tspan font-family="Caladea" font-style="italic">m</tspan></text>
+          <text x="89" y="23" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="2.5" fill="#9C99B0">KN4’te açılır</text>
+          <path d="M30.5 11 L37.2 11" stroke="#13132B" stroke-width=".8" marker-end="url(#ok)"/>
+          <text x="34" y="8.6" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="3" fill="#13132B">÷N<tspan font-size="2" dy=".7">A</tspan></text>
+          <path d="M37.6 20 L30.8 20" stroke="#13132B" stroke-width=".8" marker-end="url(#ok)"/>
+          <text x="34" y="24.4" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="3" fill="#13132B">×N<tspan font-size="2" dy=".7">A</tspan></text>
+          <path d="M66.6 11 L73.6 11" stroke="#B4AECB" stroke-width=".7" marker-end="url(#ok-g)"/>
+          <path d="M73.6 20 L66.6 20" stroke="#B4AECB" stroke-width=".7" marker-end="url(#ok-g)"/>
+          <path d="M52 29.5 L52 37.4" stroke="#5A2DFF" stroke-width=".9" marker-end="url(#ok-m)"/>
+          <text x="54" y="34.6" font-family="JetBrains Mono" font-weight="800" font-size="3" fill="#5A2DFF">× (a+b)</text>
+          <rect x="33" y="39" width="38" height="14" rx="3" fill="#ECE6FF" stroke="#13132B" stroke-width=".8"/>
+          <text x="52" y="45" text-anchor="middle" font-weight="900" font-size="3.5" fill="#3414C4">ATOM MOLÜ</text>
+          <text x="52" y="49.8" text-anchor="middle" font-size="3" fill="#3414C4">X<tspan font-size="2.1" dy=".7">a</tspan><tspan dy="-.7">Y</tspan><tspan font-size="2.1" dy=".7">b</tspan><tspan dy="-.7"> molekülü için</tspan></text>
+          <text x="1" y="40" font-family="JetBrains Mono" font-weight="800" font-size="2.7" fill="#565A7C">N<tspan font-size="1.9" dy=".6">A</tspan><tspan dy="-.6"> = 6,02·10</tspan><tspan font-size="1.9" dy="-1.2">23</tspan></text>
+          <text x="1" y="44.6" font-size="2.9" fill="#565A7C">1 mol = N<tspan font-size="2" dy=".6">A</tspan><tspan dy="-.6"> tane</tspan></text>
+          <text x="75" y="44" font-size="2.9" fill="#565A7C">Ne verilirse verilsin</text>
+          <text x="75" y="48.2" font-size="2.9" fill="#565A7C">önce <tspan font-weight="900" fill="#5A2DFF">mole</tspan> git.</text>
+        </svg>
+      </div>
+      <div class="kart kavram mor-z" style="flex:1;display:grid;grid-template-columns:24mm 1fr;gap:2.6mm;align-items:center">
+        <svg viewBox="0 0 88 44" style="width:100%">
+          <line x1="20" y1="18" x2="68" y2="18" stroke="#13132B" stroke-width="1.6"/><line x1="20" y1="21.4" x2="68" y2="21.4" stroke="#13132B" stroke-width="1.6"/>
+          <circle cx="20" cy="19.7" r="11" fill="#FF4A36" stroke="#13132B" stroke-width="1.6"/><circle cx="44" cy="19.7" r="9.5" fill="#3B3F5C" stroke="#13132B" stroke-width="1.6"/><circle cx="68" cy="19.7" r="11" fill="#FF4A36" stroke="#13132B" stroke-width="1.6"/>
+          <text x="20" y="24" text-anchor="middle" font-family="Inter" font-weight="900" font-size="11" fill="#fff">O</text><text x="44" y="23.6" text-anchor="middle" font-family="Inter" font-weight="900" font-size="10" fill="#fff">C</text><text x="68" y="24" text-anchor="middle" font-family="Inter" font-weight="900" font-size="11" fill="#fff">O</text>
+          <text x="44" y="41" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="6" fill="#3414C4">1 molekül = 3 atom</text>
+        </svg>
+        <div>
+          <span class="etiket"><svg class="ikon"><use href="#i-xp"/></svg>Kavram · molekül ve atom</span>
+          <p style="font-size:9.5pt;margin-top:.8mm">Formüldeki küçük rakamlar, <b>bir molekülde</b> o atomdan kaç tane olduğunu gösterir: 1 mol CO<sub>2</sub> = 3·N<sub>A</sub> tane atom.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="bento" style="grid-template-columns:repeat(3,1fr);margin-top:4mm">
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Görev 2</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip xp">+25 XP</span></span></div>
+      <p class="soru">0,25 mol NH<sub>3</sub> için molekül sayısını, toplam atom molünü ve H atomu molünü bulunuz.</p>
+      <ol class="akis">
+        <li><i>1</i><span><b>Y5:</b> N = 0,25·6,02·10<sup>23</sup> = 1,505·10<sup>23</sup> tane</span></li>
+        <li><i>2</i><span>1 + 3 = 4 atom → 0,25·4 = 1 mol atom</span></li>
+        <li><i>3</i><span>H atomu: 0,25·3 = 0,75 mol H</span></li>
+      </ol>
+      <div class="sonuc" style="white-space:nowrap"><span>SONUÇ</span><b style="font-size:10pt">1,505·10<sup>23</sup> · 1 · 0,75</b></div>
+    </div>
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Görev 3</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip xp">+25 XP</span></span></div>
+      <p class="soru">3,01·10<sup>23</sup> tane CO<sub>2</sub> molekülü kaç mol O atomu içerir?</p>
+      <ol class="akis">
+        <li><i>1</i><span><b>Y4:</b> n = <span class="kesir"><span>3,01·10<sup>23</sup></span><span>6,02·10<sup>23</sup></span></span> = 0,5 mol CO<sub>2</sub></span></li>
+        <li><i>2</i><span>Her molekülde 2 O → 0,5·2</span></li>
+      </ol>
+      <div class="sonuc"><span>SONUÇ</span><b>1 mol O atomu</b></div>
+    </div>
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Görev 4</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip xp">+30 XP</span></span></div>
+      <p class="soru">1,2 mol atom içeren C<sub>2</sub>H<sub>6</sub> gazı kaç moldür?</p>
+      <ol class="akis">
+        <li><i>1</i><span>Bir C<sub>2</sub>H<sub>6</sub> molekülünde 2 + 6 = 8 atom</span></li>
+        <li><i>2</i><span><b>Y6’yı ters çevir:</b> atom molünü böl: 1,2 / 8</span></li>
+      </ol>
+      <div class="sonuc"><span>SONUÇ</span><b>0,15 mol C<sub>2</sub>H<sub>6</sub></b></div>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:62mm 1fr 1fr;margin-top:4mm">
+    <div class="dikey yakin">
+      <div class="yetenek"><span class="yno sari">Y4</span><div><div class="yad">Tanecikten mole</div><div class="yf" style="font-size:13pt"><span class="var">n</span> = <span class="kesir"><span class="var">N</span><span><span class="var">N</span><sub>A</sub></span></span></div></div></div>
+      <div class="yetenek"><span class="yno">Y5</span><div><div class="yad">Molden taneciğe</div><div class="yf" style="font-size:13pt"><span class="var">N</span> = <span class="var">n</span> · <span class="var">N</span><sub>A</sub></div></div></div>
+      <div class="yetenek"><span class="yno turkuaz">Y6</span><div><div class="yad">X<sub>a</sub>Y<sub>b</sub> → atom molü</div><div class="yf" style="font-size:13pt"><span class="var">n</span><sub>atom</sub> = <span class="var">n</span>·(a+b)</div></div></div>
+      <span class="kes-not"><svg><use href="#i-makas"/></svg>kes · yapıştır · her kart <b style="color:var(--lime-k)">+10 XP</b></span>
+    </div>
+    <div class="tuzak">
+      <div class="tuzak-ust"><svg><use href="#i-tuzak-b"/></svg><b>Tuzak!</b> <span class="cip xp">+10 XP</span></div>
+      <div class="tuzak-iddia"><small>Dolaşan iddia</small><p>“1 mol CO<sub>2</sub>’de 1 mol atom vardır.”</p><span class="damga">YANLIŞ</span></div>
+      <div class="tuzak-dogru"><span class="bas">✓ Doğrusu</span><p>“1 mol” <b>neyin</b> molü? 1 mol CO<sub>2</sub> = 1 mol C + 2 mol O = <b>3 mol atom</b> ≈ 1,806·10<sup>24</sup> atom. Eşitlik yalnızca He gibi tek atomlularda.</p></div>
+    </div>
+    <div class="kart hizli">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-xp"/></svg>Hızlı görev</span><span class="cip xp">+30 XP</span></div>
+      <p class="soru">1,204·10<sup>24</sup> tane H<sub>2</sub>O molekülü kaç mol H atomu içerir?</p>
+      <div class="kilit"><svg><use href="#i-kilit"/></svg><span>İpucu <b>(−10)</b>: <span class="ters">N’yi N<sub>A</sub>’ya böl, sonra ×2.</span></span></div>
+      <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:</div><span class="ters-cevap"><span class="ters">Cevap: 4 mol H</span></span></div>
+    </div>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>KN 3 · Mol ile tanecik sayısı</span><span class="no">4</span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 5 · KN4 · MOL İLE KÜTLE
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b>KN 4/5</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="simdi"></i><i></i><i></i><i></i><i></i><i></i><i class="boss"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:29%"></i></span></span>
+  </div>
+
+  <div class="kn-bas">
+    <svg class="kn-hex" viewBox="0 0 46 50">
+      <polygon points="24.5,4 43.5,15 43.5,37 24.5,48 5.5,37 5.5,15" fill="#13132B"/>
+      <polygon points="22,2 41,13 41,35 22,46 3,35 3,13" fill="#5A2DFF" stroke="#13132B" stroke-width="2.2" stroke-linejoin="round"/>
+      <polygon points="22,2 41,13 41,17 22,6 3,17 3,13" fill="#8466FF"/>
+      <text x="22" y="20.5" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5.2" fill="#D6CCFF">KN</text>
+      <text x="22" y="36" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="18" fill="#fff">4</text>
+    </svg>
+    <div>
+      <span class="ust etiket">Kontrol noktası 4 · Dünya 2</span>
+      <h1>Mol ile <em>kütle</em></h1>
+      <p class="alt-bas">Terazi kütle ölçer; mol kütlesi köprüyü kurar.</p>
+    </div>
+    <div class="kart ana-gorev">
+      <span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Ana görev</span>
+      <p>Kütle ⇄ mol geçişini yap; haritada iki adımlı yolları yürü.</p>
+      <div class="oduller"><span class="cip xp">+150 XP</span><span class="cip">Terazi Ustası</span></div>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:92mm 1fr;margin-top:4.4mm">
+    <div class="kart sohbet">
+      <div class="sohbet-bas"><span class="kanal"><i>#</i>mol-sohbeti</span><span class="kisiler"><svg><use href="#av-ece"/></svg><svg><use href="#av-deniz"/></svg><svg><use href="#av-avo"/></svg></span></div>
+      <div class="mesaj ece sag"><svg class="av"><use href="#av-ece"/></svg><div class="balon"><div class="kim">Ece</div>18 g su neden 1 mol?</div></div>
+      <div class="mesaj deniz"><svg class="av"><use href="#av-deniz"/></svg><div class="balon"><div class="kim">Deniz</div><b>Mol kütlesinden.</b> H<sub>2</sub>O için 2·1 + 16 = <span class="vurgu">18 g/mol</span>: 1 mol su 18 gramdır.</div></div>
+      <div class="mesaj avo"><svg class="av"><use href="#av-avo"/></svg><div class="balon"><div class="kim">Avo <i>@NA</i></div>18 g suda tam 6,02·10<sup>23</sup> molekül. Saymadım, hesapladım!</div></div>
+      <div class="mesaj ece sag"><svg class="av"><use href="#av-ece"/></svg><div class="balon"><div class="kim">Ece</div>O zaman 1 tane su molekülü de 18 gram mı? <span class="soluk">(Cevap aşağıdaki Tuzak’ta.)</span></div></div>
+    </div>
+
+    <div class="kart kavram">
+      <span class="etiket"><svg class="ikon"><use href="#i-xp"/></svg>Kavram · mol kütlesi (M<sub>A</sub>)</span>
+      <p style="margin-top:1mm">1 mol taneciğin gram cinsinden kütlesi (<b>g/mol</b>). Atomsa <b>atom kütlesi</b>, molekülse <b>molekül kütlesi</b>. Bileşikte formüldeki atomların mol kütleleri toplanır.</p>
+      <div class="bento yakin" style="grid-template-columns:repeat(3,1fr);margin-top:2.2mm;gap:2.2mm">
+        <div class="sayi-kart" style="background:var(--mor-a);padding:1.8mm 2.2mm"><span class="etiket">H<sub>2</sub>SO<sub>4</sub></span><span class="n" style="font-size:18pt">98</span><p style="font-size:8.6pt" class="mono">2·1+32+4·16</p></div>
+        <div class="sayi-kart" style="background:var(--turkuaz-a);padding:1.8mm 2.2mm"><span class="etiket">CaCO<sub>3</sub></span><span class="n" style="font-size:18pt">100</span><p style="font-size:8.6pt" class="mono">40+12+3·16</p></div>
+        <div class="sayi-kart" style="background:var(--sari-a);padding:1.8mm 2.2mm"><span class="etiket">Mg(OH)<sub>2</sub></span><span class="n" style="font-size:18pt">58</span><p style="font-size:8.6pt" class="mono">24+2·(16+1)</p></div>
+      </div>
+      <p class="yaz-alan" style="margin-top:2mm">Bu ünitenin mol kütleleri (g/mol)</p>
+      <div style="display:flex;flex-wrap:wrap;gap:1.2mm;margin-top:1mm">
+        <span class="cip">H 1</span><span class="cip">He 4</span><span class="cip">C 12</span><span class="cip">N 14</span><span class="cip">O 16</span><span class="cip">Na 23</span><span class="cip">Mg 24</span><span class="cip">S 32</span><span class="cip">Ca 40</span>
+      </div>
+          </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:1fr 62mm;margin-top:4mm">
+    <div class="kart" style="padding-bottom:1.6mm">
+      <span class="etiket" style="color:var(--mor)">Mol haritası · kütle kilidi açıldı!</span>
+      <svg viewBox="0 0 150 40" font-family="Inter" style="width:100%;display:block;margin-top:.6mm">
+        <rect x="1" y="3" width="30" height="20" rx="3" fill="#FFF2CC" stroke="#13132B" stroke-width=".8"/>
+        <text x="16" y="12" text-anchor="middle" font-weight="900" font-size="3.6" fill="#13132B">TANECİK</text>
+        <text x="16" y="18" text-anchor="middle" font-family="Caladea" font-style="italic" font-weight="700" font-size="4.2" fill="#13132B">N</text>
+        <circle cx="75" cy="13" r="10.5" fill="#5A2DFF" stroke="#13132B" stroke-width=".9"/>
+        <text x="75" y="13.4" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="5.2" fill="#fff">MOL</text>
+        <text x="75" y="18.4" text-anchor="middle" font-family="Caladea" font-style="italic" font-weight="700" font-size="4" fill="#D6CCFF">n</text>
+        <rect x="119" y="3" width="30" height="20" rx="3" fill="#EDF9D4" stroke="#13132B" stroke-width=".8"/>
+        <text x="134" y="12" text-anchor="middle" font-weight="900" font-size="3.6" fill="#13132B">KÜTLE (g)</text>
+        <text x="134" y="18" text-anchor="middle" font-family="Caladea" font-style="italic" font-weight="700" font-size="4.2" fill="#13132B">m</text>
+        <path d="M33 9.5 L62 9.5" stroke="#13132B" stroke-width=".8" marker-end="url(#ok)"/>
+        <text x="47.5" y="7.4" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="3" fill="#13132B">÷N<tspan font-size="2" dy=".7">A</tspan></text>
+        <path d="M62.4 17 L33.4 17" stroke="#13132B" stroke-width=".8" marker-end="url(#ok)"/>
+        <text x="47.5" y="21.6" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="3" fill="#13132B">×N<tspan font-size="2" dy=".7">A</tspan></text>
+        <path d="M117 9.5 L88 9.5" stroke="#3D6A00" stroke-width=".9" marker-end="url(#ok)"/>
+        <text x="102.5" y="7.4" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="3" fill="#3D6A00">÷M<tspan font-size="2" dy=".7">A</tspan></text>
+        <path d="M87.6 17 L116.6 17" stroke="#3D6A00" stroke-width=".9" marker-end="url(#ok)"/>
+        <text x="102.5" y="21.6" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="3" fill="#3D6A00">×M<tspan font-size="2" dy=".7">A</tspan></text>
+        <path d="M75 24.6 L75 29.4" stroke="#5A2DFF" stroke-width=".9" marker-end="url(#ok-m)"/>
+        <rect x="58" y="30.4" width="34" height="8.6" rx="2.4" fill="#ECE6FF" stroke="#13132B" stroke-width=".8"/>
+        <text x="75" y="35.9" text-anchor="middle" font-weight="900" font-size="3.2" fill="#3414C4">ATOM MOLÜ · ×(a+b)</text>
+        <text x="1" y="34" font-family="JetBrains Mono" font-weight="700" font-size="2.8" fill="#565A7C">N<tspan font-size="1.9" dy=".6">A</tspan><tspan dy="-.6"> = 6,02·10</tspan><tspan font-size="1.9" dy="-1.2">23</tspan></text>
+        <text x="149" y="34" text-anchor="end" font-family="JetBrains Mono" font-weight="700" font-size="2.8" fill="#565A7C">M<tspan font-size="1.9" dy=".6">A</tspan><tspan dy="-.6">: g/mol</tspan></text>
+      </svg>
+    </div>
+    <div class="dikey yakin">
+      <div class="yetenek"><span class="yno lime">Y7</span><div><div class="yad">Kütleden mole</div><div class="yf" style="font-size:13pt"><span class="var">n</span> = <span class="kesir"><span class="var">m</span><span><span class="var">M</span><sub>A</sub></span></span></div></div></div>
+      <div class="yetenek"><span class="yno mercan">Y8</span><div><div class="yad">Molden kütleye</div><div class="yf" style="font-size:13pt"><span class="var">m</span> = <span class="var">n</span> · <span class="var">M</span><sub>A</sub></div><div class="yac">kes, yapıştır · her kart <b style="color:var(--lime-k)">+10 XP</b></div></div></div>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:1fr 1fr;margin-top:4mm">
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Görev 5 · A ve B</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip xp">+25 +25 XP</span></span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;flex:1">
+        <div style="display:flex;flex-direction:column;padding-right:3mm;border-right:var(--cz-ince) dashed var(--cizgi)">
+          <p class="soru"><b class="mono" style="color:var(--turkuaz-k)">A</b> 0,4 mol CaCO<sub>3</sub> kaç g?</p>
+          <ol class="akis">
+            <li><i>1</i><span>M<sub>A</sub> = 100</span></li>
+            <li><i>2</i><span><b>Y8:</b> 0,4·100</span></li>
+          </ol>
+          <div class="sonuc"><span>SONUÇ</span><b>40 g</b></div>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <p class="soru"><b class="mono" style="color:var(--turkuaz-k)">B</b> 9 g H<sub>2</sub>O kaç tane molekül, kaç mol atom içerir?</p>
+          <ol class="akis">
+            <li><i>1</i><span><b>Y7:</b> n = 9/18 = 0,5 mol</span></li>
+            <li><i>2</i><span>N = 0,5·N<sub>A</sub> = 3,01·10<sup>23</sup></span></li>
+            <li><i>3</i><span>Atom: 0,5·3 = 1,5 mol</span></li>
+          </ol>
+          <div class="sonuc" style="white-space:nowrap"><span>SONUÇ</span><b style="font-size:10pt">3,01·10<sup>23</sup> · 1,5 mol</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Görev 6</span><span class="sag"><span class="yildiz">★★★</span><span class="cip xp">+40 XP</span></span></div>
+      <p class="soru">6,4 g SO<sub>2</sub> gazındaki O atomlarının toplam kütlesi kaç gramdır? <span class="soluk">(iki adım)</span></p>
+      <ol class="akis">
+        <li><i>1</i><span>M<sub>A</sub> = 32 + 2·16 = 64 → n = 6,4/64 = 0,1 mol</span></li>
+        <li><i>2</i><span>0,1 · 2 = 0,2 mol O atomu</span></li>
+        <li><i>3</i><span>0,2 · 16 = 3,2 g <span class="soluk">(S: 3,2 g; toplam 6,4 ✓)</span></span></li>
+      </ol>
+      <div class="sonuc"><span>SONUÇ</span><b>3,2 g oksijen</b></div>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:1fr 1fr 1fr;margin-top:4mm">
+    <div class="tuzak">
+      <div class="tuzak-ust"><svg><use href="#i-tuzak-b"/></svg><b>Tuzak!</b> <span class="cip xp">+10 XP</span></div>
+      <div class="tuzak-iddia"><small>Dolaşan iddia</small><p>“Mol kütlesi maddeyi tanıtır.”</p><span class="damga">YANLIŞ</span></div>
+      <div class="tuzak-dogru"><span class="bas">✓ Doğrusu</span><p>CO ve N<sub>2</sub>’nin ikisi de <b>28 g/mol</b>. Mol kütlesi tek başına ayırt edici değildir.</p></div>
+    </div>
+    <div class="tuzak">
+      <div class="tuzak-ust"><svg><use href="#i-tuzak-b"/></svg><b>Tuzak!</b> <span class="cip xp">+10 XP</span></div>
+      <div class="tuzak-iddia"><small>Ece’nin sorusu</small><p>“1 tane H<sub>2</sub>O 18 gramdır.”</p><span class="damga">YANLIŞ</span></div>
+      <div class="tuzak-dogru"><span class="bas">✓ Doğrusu</span><p>1 tane molekül <b>18 akb</b>; 1 <b>mol</b> molekül 18 g. 1 tanesi 18/N<sub>A</sub> gramdır.</p></div>
+    </div>
+    
+    <div class="kart hizli">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-xp"/></svg>Hızlı görev</span><span class="cip xp">+20 XP</span></div>
+      <p class="soru">0,25 mol CH<sub>4</sub> kaç gramdır, kaç mol H atomu içerir?</p>
+      <div class="kilit"><svg><use href="#i-kilit"/></svg><span>İpucu <b>(−10)</b>: <span class="ters">M<sub>A</sub> = 12 + 4·1</span></span></div>
+      <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:</div><span class="ters-cevap"><span class="ters">4 g · 1 mol H</span></span></div>
+    </div>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>KN 4 · Mol ile kütle</span><span class="no">5</span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 6 · KN5 · KARIŞIM PROBLEMLERİ
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b>KN 5/5</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="simdi"></i><i></i><i></i><i></i><i></i><i class="boss"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:39%"></i></span></span>
+  </div>
+
+  <div class="kn-bas">
+    <svg class="kn-hex" viewBox="0 0 46 50">
+      <polygon points="24.5,4 43.5,15 43.5,37 24.5,48 5.5,37 5.5,15" fill="#13132B"/>
+      <polygon points="22,2 41,13 41,35 22,46 3,35 3,13" fill="#5A2DFF" stroke="#13132B" stroke-width="2.2" stroke-linejoin="round"/>
+      <polygon points="22,2 41,13 41,17 22,6 3,17 3,13" fill="#8466FF"/>
+      <text x="22" y="20.5" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5.2" fill="#D6CCFF">KN</text>
+      <text x="22" y="36" text-anchor="middle" font-family="Inter Display" font-weight="900" font-size="18" fill="#fff">5</text>
+    </svg>
+    <div>
+      <span class="ust etiket">Kontrol noktası 5 · Dünya 2</span>
+      <h1>Karışım <em>problemleri</em></h1>
+      <p class="alt-bas">İki madde, bir toplam: tek bilinmeyenle çöz.</p>
+    </div>
+    <div class="kart ana-gorev">
+      <span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Ana görev</span>
+      <p>İki bileşenli karışımı x ile çöz; eşit kütle tuzağına düşme.</p>
+      <div class="oduller"><span class="cip xp">+150 XP</span><span class="cip">Karışım Kaşifi</span></div>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:92mm 1fr;margin-top:4.4mm">
+    <div class="kart sohbet">
+      <div class="sohbet-bas"><span class="kanal"><i>#</i>mol-sohbeti</span><span class="kisiler"><svg><use href="#av-ece"/></svg><svg><use href="#av-deniz"/></svg><svg><use href="#av-avo"/></svg></span></div>
+      <div class="mesaj ece sag"><svg class="av"><use href="#av-ece"/></svg><div class="balon"><div class="kim">Ece</div>Kapta CH<sub>4</sub> ile C<sub>2</sub>H<sub>6</sub> var. Toplam mol belli, ayrı ayrı belli değil. Şimdi?</div></div>
+      <div class="mesaj deniz"><svg class="av"><use href="#av-deniz"/></svg><div class="balon"><div class="kim">Deniz</div>Birine <b>x</b>, ötekine <b>(toplam − x)</b> de. Sonra soruda verilen ortak niceliği topla.</div></div>
+      <div class="mesaj avo"><svg class="av"><use href="#av-avo"/></svg><div class="balon"><div class="kim">Avo <i>@NA</i></div>İki madde, bir toplam, <span class="vurgu">tek bilinmeyen</span>. Tek denklem yeter.</div></div>
+      <div class="mesaj ece sag"><svg class="av"><use href="#av-ece"/></svg><div class="balon"><div class="kim">Ece</div>Eşit kütlede O<sub>2</sub> ve SO<sub>2</sub> alırsam molekül sayıları da eşit olur, değil mi?</div></div>
+      <div class="mesaj deniz"><svg class="av"><use href="#av-deniz"/></svg><div class="balon"><div class="kim">Deniz</div>Olmaz! Eşit kütle ≠ eşit mol. <b>Görev 8</b>’e bak.</div></div>
+    </div>
+
+    <div class="kart" style="padding:2.6mm 3.2mm">
+      <div class="kart-bas"><span class="etiket" style="color:var(--mor)"><svg class="ikon"><use href="#i-yetenek"/></svg>Y9 · 3 adımlık strateji</span><span class="cip xp">+10 XP</span></div>
+      <div class="dikey yakin" style="gap:2.2mm">
+        <div style="display:grid;grid-template-columns:13mm 1fr;gap:2.4mm;align-items:start"><span class="dev" style="font-weight:900;font-size:26pt;line-height:.9;color:var(--mor)">01</span><p><b>Bilinmeyeni koy.</b> Toplam mol biliniyorsa birine <b>x</b>, diğerine <b>(toplam − x)</b> de.</p></div>
+        <div style="display:grid;grid-template-columns:13mm 1fr;gap:2.4mm;align-items:start"><span class="dev" style="font-weight:900;font-size:26pt;line-height:.9;color:var(--turkuaz)">02</span><p><b>Ortak niceliği topla.</b> Verilen toplam (kütle, H molü, C molü…) her bileşen için ayrı yazılıp toplanır.</p></div>
+        <div style="display:grid;grid-template-columns:13mm 1fr;gap:2.4mm;align-items:start"><span class="dev" style="font-weight:900;font-size:26pt;line-height:.9;color:var(--mercan)">03</span><p><b>Çöz ve kontrol et.</b> x’i bul, isteneni hesapla, sonucu toplam değere geri koyup doğrula.</p></div>
+      </div>
+      <div style="margin-top:2.6mm"><div class="yetenek"><span class="yno sari">Y10</span><div><div class="yad">Akıllı kütle / mol seç</div><div class="yf" style="font-size:12pt">Hepsini bölen kütleyi seç</div><div class="yac">32 ve 64 → 64 g · <b style="color:var(--lime-k)">+10 XP</b></div></div></div></div>
+      <span class="kes-not" style="margin-top:1.6mm"><svg><use href="#i-makas"/></svg>kes · defterine yapıştır · <b style="color:var(--lime-k)">Avo:</b>&nbsp;kontrol adımını atlama!</span>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:1.15fr 1fr;margin-top:4mm">
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Görev 7 · karışım</span><span class="sag"><span class="yildiz">★★★</span><span class="cip xp">+50 XP</span></span></div>
+      <p class="soru">CH<sub>4</sub> ve C<sub>2</sub>H<sub>6</sub> gazlarından oluşan 0,5 mollük karışım toplam 2,4 mol H atomu içeriyor. Karışım kaç gramdır?</p>
+      <table class="gorev-tablo">
+        <tr><th></th><th>CH<sub>4</sub></th><th>C<sub>2</sub>H<sub>6</sub></th><th>Toplam</th></tr>
+        <tr><td>Mol</td><td>x</td><td>0,5 − x</td><td>0,5</td></tr>
+        <tr><td>H atomu (mol)</td><td>4x</td><td>6(0,5 − x)</td><td>2,4</td></tr>
+      </table>
+      <ol class="akis">
+        <li><i>1</i><span>4x + 3 − 6x = 2,4 → 2x = 0,6 → <b>x = 0,3</b>: 0,3 mol CH<sub>4</sub>, 0,2 mol C<sub>2</sub>H<sub>6</sub></span></li>
+        <li><i>2</i><span>Kütle: 0,3·16 + 0,2·30 = 4,8 + 6,0</span></li>
+        <li><i>3</i><span>Kontrol: H = 0,3·4 + 0,2·6 = 1,2 + 1,2 = 2,4 ✓</span></li>
+      </ol>
+      <div class="sonuc"><span>SONUÇ</span><b>10,8 g</b></div>
+    </div>
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Görev 8 · eşit kütle</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip xp">+40 XP</span></span></div>
+      <p class="soru">Eşit kütlelerde O<sub>2</sub> ve SO<sub>2</sub> alınıyor. Molekül sayıları oranını ve atom sayıları oranını bulunuz.</p>
+      <ol class="akis">
+        <li><i>1</i><span><b>Akıllı kütle seç:</b> 32 ve 64’ü bölen: 64 g</span></li>
+        <li><i>2</i><span>O<sub>2</sub>: 64/32 = 2 mol · SO<sub>2</sub>: 64/64 = 1 mol</span></li>
+        <li><i>3</i><span>Atom: O<sub>2</sub> 2·2 = 4 mol · SO<sub>2</sub> 1·3 = 3 mol</span></li>
+      </ol>
+      <svg viewBox="0 0 90 22" font-family="JetBrains Mono" style="width:100%;display:block;margin:0 0 2mm">
+        <text x="0" y="6.6" font-size="3.6" font-weight="800" fill="#13132B">64 g O<tspan font-size="2.4" dy=".8">2</tspan></text>
+        <rect x="22" y="1.5" width="66" height="7" rx="2" fill="#FF4A36" stroke="#13132B" stroke-width=".6"/>
+        <text x="25" y="6.6" font-size="3.4" font-weight="800" fill="#fff">2 mol molekül · 4 mol atom</text>
+        <text x="0" y="17.6" font-size="3.6" font-weight="800" fill="#13132B">64 g SO<tspan font-size="2.4" dy=".8">2</tspan></text>
+        <rect x="22" y="12.5" width="33" height="7" rx="2" fill="#13132B"/>
+        <text x="25" y="17.6" font-size="3.4" font-weight="800" fill="#fff">1 mol · 3 mol</text>
+      </svg>
+      <div class="sonuc"><span>SONUÇ</span><b>molekül 2/1 · atom 4/3</b></div>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:1fr 1fr;margin-top:4mm">
+    <div class="tuzak">
+      <div class="tuzak-ust"><svg><use href="#i-tuzak-b"/></svg><b>Tuzak!</b> <span class="cip xp">+10 XP</span></div>
+      <div class="tuzak-iddia"><small>Ece’nin iddiası</small><p>“Kütleleri eşitse tanecik sayıları da eşittir.”</p><span class="damga">YANLIŞ</span></div>
+      <div class="tuzak-dogru"><span class="bas">✓ Doğrusu</span><p>Eşit kütlede, mol kütlesi <b>küçük</b> olanın mol sayısı <b>büyüktür</b>: n = m / M<sub>A</sub>.</p></div>
+    </div>
+    <div class="kart hizli">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-xp"/></svg>Hızlı görev</span><span class="cip xp">+30 XP</span></div>
+      <p class="soru">Eşit kütlelerde CH<sub>4</sub> ve O<sub>2</sub> alınıyor. Molekül sayıları oranı N<sub>CH₄</sub>/N<sub>O₂</sub> kaçtır?</p>
+      <div class="kilit"><svg><use href="#i-kilit"/></svg><span>İpucu <b>(−10)</b>: <span class="ters">İkisini de bölen 32 g al.</span></span></div>
+      <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:</div><span class="ters-cevap"><span class="ters">Cevap: 2</span></span></div>
+    </div>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>KN 5 · Karışım problemleri</span><span class="no">6</span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 7 · KAYIT NOKTASI · MOL ÖZETİ
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b>Kayıt noktası</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="simdi"></i><i></i><i></i><i></i><i class="boss"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:50%"></i></span></span>
+  </div>
+
+  <div style="display:grid;grid-template-columns:auto 1fr auto;gap:5mm;align-items:end">
+    <div>
+      <span class="etiket" style="color:var(--lime-k)"><svg class="ikon"><use href="#i-bayrak"/></svg>Kayıt noktası · oyunu kaydet</span>
+      <h1 class="dev" style="font-weight:900;font-size:46pt;line-height:.9;letter-spacing:-.045em;margin:1.4mm 0 0">Mol Özeti<span style="color:var(--mercan)">.</span></h1>
+    </div>
+    <p style="font-size:10.4pt;color:var(--soluk);padding-bottom:1.4mm">Dünyanın 6 kartı. Sınavdan önceki gece bu sayfa yeter. Her kartı bir arkadaşına kendi cümlelerinle anlatabiliyor musun?</p>
+    <span class="cip xp buyuk" style="margin-bottom:2mm">+40 XP</span>
+  </div>
+
+  <div class="bento" style="grid-template-columns:repeat(3,1fr);grid-auto-rows:minmax(72mm,auto);margin-top:4.4mm">
+    <div class="ozet-kart koyu">
+      <span class="sira">01/06</span>
+      <span class="etiket">Bölümün sayısı</span>
+      <div class="dev" style="font-weight:900;font-size:40pt;line-height:1;letter-spacing:-.05em;margin:4mm 0 auto">6<span style="color:var(--sari)">,</span>02<br>·10<sup style="color:var(--sari)">23</sup></div>
+      <p style="font-size:9.6pt;margin-top:3mm"><b>1 mol = N<sub>A</sub> tane.</b> Atom, molekül ya da iyon fark etmez.</p>
+    </div>
+    <div class="ozet-kart mor">
+      <span class="sira">02/06</span>
+      <span class="etiket">Tek kural</span>
+      <div class="dev" style="font-weight:900;font-size:30pt;line-height:.95;letter-spacing:-.035em">Önce<br>mole git.</div>
+      <div class="dev" style="font-weight:800;font-size:19pt;margin-top:auto;padding-top:2mm"><span class="var">n</span> = <span class="kesir"><span class="var">N</span><span><span class="var">N</span><sub>A</sub></span></span> = <span class="kesir"><span class="var">m</span><span><span class="var">M</span><sub>A</sub></span></span></div>
+      <p style="font-size:9.4pt;margin-top:1.4mm">Tanecik ⇄ mol ⇄ kütle; sonra istenene dön.</p>
+    </div>
+    <div class="ozet-kart lime">
+      <span class="sira">03/06</span>
+      <span class="etiket" style="color:var(--lime-k)">Formül okuma</span>
+      <div class="dev" style="font-weight:900;font-size:17pt;line-height:1">1 mol X<sub>a</sub>Y<sub>b</sub></div>
+      <ul class="ozet-liste" style="margin-top:1.4mm">
+        <li>N<sub>A</sub> tane molekül</li>
+        <li>a mol X, b mol Y atomu</li>
+        <li>(a + b) mol atom = (a + b)·N<sub>A</sub> tane</li>
+        <li>Kütlesi M<sub>A</sub> = (a·X + b·Y) g</li>
+        <li>1 tanesi M<sub>A</sub>/N<sub>A</sub> g (= M<sub>A</sub> akb)</li>
+      </ul>
+    </div>
+    <div class="ozet-kart sari">
+      <span class="sira">04/06</span>
+      <span class="etiket" style="color:var(--sari-k)">İzotop · ortalama</span>
+      <div style="display:flex;align-items:baseline;gap:2mm"><span class="dev" style="font-weight:900;font-size:30pt;line-height:1;letter-spacing:-.04em">10,8</span><b>akb · bor</b></div>
+      <svg viewBox="0 0 100 8" style="width:100%;display:block;margin:1.4mm 0" font-family="JetBrains Mono"><rect x=".5" y=".5" width="99" height="7" rx="2" fill="#13132B"/><rect x=".5" y=".5" width="20" height="7" rx="2" fill="#FF4A36" stroke="#13132B" stroke-width=".5"/><text x="10.5" y="5.4" text-anchor="middle" font-size="3.6" font-weight="800" fill="#fff">¹⁰B</text><text x="60" y="5.4" text-anchor="middle" font-size="3.6" font-weight="800" fill="#fff">¹¹B %80</text></svg>
+      <ul class="ozet-liste">
+        <li>İzotop: proton aynı, nötron farklı</li>
+        <li>Kimyasal özellik aynı, fiziksel farklı</li>
+        <li>Ortalama = Σ (kütle × bolluk oranı)</li>
+        <li>1 akb = ¹²C’nin 1/12’si; 1 g = N<sub>A</sub> akb</li>
+      </ul>
+    </div>
+    <div class="ozet-kart mercan">
+      <span class="sira">05/06</span>
+      <span class="etiket" style="color:var(--mercan-k)">Eşit kütle ≠ eşit sayı</span>
+      <p style="font-size:9.6pt">64’er gram alınırsa:</p>
+      <svg viewBox="0 0 100 24" style="width:100%;display:block;margin:2mm 0" font-family="JetBrains Mono">
+        <text x="0" y="7" font-size="4.4" font-weight="800" fill="#13132B">O<tspan font-size="3" dy="1">2</tspan></text>
+        <rect x="16" y="1" width="82" height="8" rx="2" fill="#FF4A36" stroke="#13132B" stroke-width=".6"/><text x="19" y="6.8" font-size="4" font-weight="800" fill="#fff">2 mol</text>
+        <text x="0" y="20" font-size="4.4" font-weight="800" fill="#13132B">SO<tspan font-size="3" dy="1">2</tspan></text>
+        <rect x="16" y="14" width="41" height="8" rx="2" fill="#13132B"/><text x="19" y="19.8" font-size="4" font-weight="800" fill="#fff">1 mol</text>
+      </svg>
+      <p style="font-size:9.6pt">16’şar gram: CH<sub>4</sub> 1 mol, O<sub>2</sub> 0,5 mol.</p>
+      <p style="font-size:9.6pt;margin-top:auto">M<sub>A</sub> küçükse mol büyük: <b>n = m / M<sub>A</sub></b>.</p>
+    </div>
+    <div class="ozet-kart">
+      <span class="sira">06/06</span>
+      <span class="etiket" style="color:var(--mercan-k)"><svg class="ikon"><use href="#i-tuzak"/></svg>En sık 4 hata</span>
+      <ul class="ozet-liste no">
+        <li>Atom yerine element çeşidi saymak</li>
+        <li>Alt simgeyi unutmak (CO<sub>2</sub> ≠ 28)</li>
+        <li>1 tane molekülü 1 mol gibi tartmak</li>
+        <li>Eşit kütle = eşit tanecik sanmak</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:1fr 56mm;margin-top:4.4mm">
+    <div class="kart">
+      <div class="kart-bas">
+        <span style="display:flex;align-items:center;gap:2mm"><span class="cip koyu">DURUM GÜNCELLEMESİ</span><span class="etiket soluk">Şarjını boya</span></span>
+        <span class="pil-baslik"><span>tam</span><span>yarım</span><span>tekrar</span></span>
+      </div>
+      <div class="durum-satir"><span>Mol ve Avogadro sayısını kendi cümlelerimle tanımlayabilirim.</span><span class="piller"><svg><use href="#pil-tam"/></svg><svg><use href="#pil-yari"/></svg><svg><use href="#pil-bos"/></svg></span></div>
+      <div class="durum-satir"><span>İzotop atomların benzer ve farklı yönlerini söyleyebilirim.</span><span class="piller"><svg><use href="#pil-tam"/></svg><svg><use href="#pil-yari"/></svg><svg><use href="#pil-bos"/></svg></span></div>
+      <div class="durum-satir"><span>Bolluk yüzdelerinden ortalama atom kütlesini hesaplayabilirim.</span><span class="piller"><svg><use href="#pil-tam"/></svg><svg><use href="#pil-yari"/></svg><svg><use href="#pil-bos"/></svg></span></div>
+      <div class="durum-satir"><span>Mol, tanecik sayısı ve kütle arasında her yönde geçiş yapabilirim.</span><span class="piller"><svg><use href="#pil-tam"/></svg><svg><use href="#pil-yari"/></svg><svg><use href="#pil-bos"/></svg></span></div>
+      <div class="durum-satir"><span>Molekül molünden atom molünü bulabilirim.</span><span class="piller"><svg><use href="#pil-tam"/></svg><svg><use href="#pil-yari"/></svg><svg><use href="#pil-bos"/></svg></span></div>
+      <div class="durum-satir"><span>İki bileşenli karışım problemini tek bilinmeyenle çözebilirim.</span><span class="piller"><svg><use href="#pil-tam"/></svg><svg><use href="#pil-yari"/></svg><svg><use href="#pil-bos"/></svg></span></div>
+    </div>
+    <div class="dikey">
+      <div class="kart sari-z" style="flex:1">
+        <span class="etiket" style="color:var(--sari-k)">Kendime not</span>
+        <p style="font-size:9.5pt;margin-top:1mm">Bu dünyada en çok neye dikkat etmeliyim?</p>
+        <div class="satir"></div><div class="satir"></div><div class="satir"></div>
+      </div>
+      <div class="kart lime-z" style="padding:2.4mm 3mm">
+        <p style="font-size:9.5pt;line-height:1.32"><b style="color:var(--lime-k)">Kaydedildi!</b> Altı satırı da doldurduysan <b style="color:var(--lime-k)">+40 XP</b>. “Tekrar” dediğin konunun KN sayfasına dön.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Kayıt noktası · Mol Özeti</span><span class="no">7</span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 8 · YAN GÖREV 1 · YORUMLARDA KİM HAKLI? (HATA AVCISI)
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b>Yan görev 1/3</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="simdi"></i><i></i><i></i><i class="boss"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:53%"></i></span></span>
+  </div>
+  <div class="kn-bas" style="grid-template-columns:20mm 1fr 62mm">
+    <svg class="kn-hex" viewBox="0 0 46 50">
+      <rect x="11" y="13" width="28" height="28" rx="4" transform="rotate(45 25 27)" fill="#13132B"/>
+      <rect x="9" y="11" width="28" height="28" rx="4" transform="rotate(45 23 25)" fill="#FFF2CC" stroke="#13132B" stroke-width="2.2"/>
+      <use href="#i-sohbet" x="12" y="14" width="22" height="22"/>
+    </svg>
+    <div>
+      <span class="ust etiket">Yan görev 1 · Hata avcısı · yorumlarda kim haklı?</span>
+      <h1>Kim <em>haklı?</em></h1>
+      <p class="alt-bas">Dört çözüm paylaşıldı, her birinde tek hata var. Yorumları oku.</p>
+    </div>
+    <div class="kart ana-gorev">
+      <span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Görev kuralı</span>
+      <p>Her paylaşımda: doğru kişiyi seç <b>+10</b>, nedenini yaz <b>+10</b>, doğrusunu çöz <b>+10</b>.</p>
+      <div class="oduller"><span class="cip xp">+120 XP</span></div>
+    </div>
+  </div>
+  <div class="bento" style="grid-template-columns:1fr 1fr;margin-top:4.4mm">
+    <div class="kart paylasim">
+      <div class="paylasim-bas"><span class="harf" style="background:var(--mercan)">D</span><div><b>Defne</b><small>çözümünü paylaştı · Hata 1</small></div><span class="cip xp">+30 XP</span></div>
+      <p class="psoru">Soru: 0,5 mol H<sub>2</sub>SO<sub>4</sub> kaç mol atom içerir?</p>
+      <div class="cozum-satir"><div><i>1</i><span>H<sub>2</sub>SO<sub>4</sub>’te H, S ve O var.</span></div><div><i>2</i><span>Yani bir molekülde 3 atom bulunur.</span></div><div><i>3</i><span>0,5 · 3 = 1,5 mol atom</span></div></div>
+      <div class="yorumlar"><div class="yorum"><svg><use href="#av-deniz"/></svg><span><b>Deniz</b>Bence sorun 2. satırda.</span><span class="kutucuk"><i></i>haklı</span></div><div class="yorum"><svg><use href="#av-ece"/></svg><span><b>Ece</b>Hata 3. satırda; 0,5·3 yanlış çarpılmış.</span><span class="kutucuk"><i></i>haklı</span></div></div>
+      <div class="senin">
+        <div class="yaz-alan" style="display:flex;gap:2mm;align-items:center;white-space:nowrap">Kim haklı? <span class="kutucuk"><i></i>Deniz</span> <span class="kutucuk"><i></i>Ece</span> <span style="margin-left:auto">Satır</span> <span class="kutucuk"><i></i>1</span> <span class="kutucuk"><i></i>2</span> <span class="kutucuk"><i></i>3</span></div>
+        <div class="yaz-alan" style="margin-top:1.4mm">Neden?</div><div class="satir" style="height:5mm"></div>
+        <div class="yaz-alan" style="margin-top:1.4mm">Doğrusu</div><div class="satir" style="height:5mm"></div>
+      </div>
+    </div>
+    <div class="kart paylasim">
+      <div class="paylasim-bas"><span class="harf" style="background:var(--turkuaz)">E</span><div><b>Emir</b><small>çözümünü paylaştı · Hata 2</small></div><span class="cip xp">+30 XP</span></div>
+      <p class="psoru">Soru: 11 g CO<sub>2</sub> kaç moldür?</p>
+      <div class="cozum-satir"><div><i>1</i><span>M<sub>A</sub>(CO<sub>2</sub>) = 12 + 16 = 28 g/mol</span></div><div><i>2</i><span>n = m / M<sub>A</sub> = 11 / 28</span></div><div><i>3</i><span>n ≈ 0,39 mol</span></div></div>
+      <div class="yorumlar"><div class="yorum"><svg><use href="#av-avo"/></svg><span><b>Avo</b>3. satırda yuvarlama hatası var.</span><span class="kutucuk"><i></i>haklı</span></div><div class="yorum"><svg><use href="#av-ece"/></svg><span><b>Ece</b>1. satırda bir şey eksik.</span><span class="kutucuk"><i></i>haklı</span></div></div>
+      <div class="senin">
+        <div class="yaz-alan" style="display:flex;gap:2mm;align-items:center;white-space:nowrap">Kim haklı? <span class="kutucuk"><i></i>Avo</span> <span class="kutucuk"><i></i>Ece</span> <span style="margin-left:auto">Satır</span> <span class="kutucuk"><i></i>1</span> <span class="kutucuk"><i></i>2</span> <span class="kutucuk"><i></i>3</span></div>
+        <div class="yaz-alan" style="margin-top:1.4mm">Neden?</div><div class="satir" style="height:5mm"></div>
+        <div class="yaz-alan" style="margin-top:1.4mm">Doğrusu</div><div class="satir" style="height:5mm"></div>
+      </div>
+    </div>
+    <div class="kart paylasim">
+      <div class="paylasim-bas"><span class="harf" style="background:var(--sari-k)">Z</span><div><b>Zeynep</b><small>çözümünü paylaştı · Hata 3</small></div><span class="cip xp">+30 XP</span></div>
+      <p class="psoru">Soru: 1 tane SO<sub>3</sub> molekülü kaç gramdır? (N<sub>A</sub> = 6,02·10<sup>23</sup>)</p>
+      <div class="cozum-satir"><div><i>1</i><span>M<sub>A</sub>(SO<sub>3</sub>) = 32 + 3·16 = 80 g/mol</span></div><div><i>2</i><span>Mol kütlesi molekülün kütlesidir.</span></div><div><i>3</i><span>Cevap: 80 gram</span></div></div>
+      <div class="yorumlar"><div class="yorum"><svg><use href="#av-ece"/></svg><span><b>Ece</b>1. satırda mol kütlesi yanlış hesaplanmış.</span><span class="kutucuk"><i></i>haklı</span></div><div class="yorum"><svg><use href="#av-deniz"/></svg><span><b>Deniz</b>Hata 2. satırdaki cümlede.</span><span class="kutucuk"><i></i>haklı</span></div></div>
+      <div class="senin">
+        <div class="yaz-alan" style="display:flex;gap:2mm;align-items:center;white-space:nowrap">Kim haklı? <span class="kutucuk"><i></i>Ece</span> <span class="kutucuk"><i></i>Deniz</span> <span style="margin-left:auto">Satır</span> <span class="kutucuk"><i></i>1</span> <span class="kutucuk"><i></i>2</span> <span class="kutucuk"><i></i>3</span></div>
+        <div class="yaz-alan" style="margin-top:1.4mm">Neden?</div><div class="satir" style="height:5mm"></div>
+        <div class="yaz-alan" style="margin-top:1.4mm">Doğrusu</div><div class="satir" style="height:5mm"></div>
+      </div>
+    </div>
+    <div class="kart paylasim">
+      <div class="paylasim-bas"><span class="harf" style="background:var(--mor)">K</span><div><b>Kerem</b><small>çözümünü paylaştı · Hata 4</small></div><span class="cip xp">+30 XP</span></div>
+      <p class="psoru">Soru: 16’şar gram CH<sub>4</sub> ve O<sub>2</sub> alınıyor. Hangisi daha çok molekül içerir?</p>
+      <div class="cozum-satir"><div><i>1</i><span>İki gazın kütlesi de 16 g.</span></div><div><i>2</i><span>Kütleleri eşit olduğu için mol sayıları eşit.</span></div><div><i>3</i><span>Molekül sayıları eşittir.</span></div></div>
+      <div class="yorumlar"><div class="yorum"><svg><use href="#av-ece"/></svg><span><b>Ece</b>Hata yok, Kerem haklı.</span><span class="kutucuk"><i></i>haklı</span></div><div class="yorum"><svg><use href="#av-avo"/></svg><span><b>Avo</b>2. satırdaki çıkarım yanlış.</span><span class="kutucuk"><i></i>haklı</span></div></div>
+      <div class="senin">
+        <div class="yaz-alan" style="display:flex;gap:2mm;align-items:center;white-space:nowrap">Kim haklı? <span class="kutucuk"><i></i>Ece</span> <span class="kutucuk"><i></i>Avo</span> <span style="margin-left:auto">Satır</span> <span class="kutucuk"><i></i>1</span> <span class="kutucuk"><i></i>2</span> <span class="kutucuk"><i></i>3</span></div>
+        <div class="yaz-alan" style="margin-top:1.4mm">Neden?</div><div class="satir" style="height:5mm"></div>
+        <div class="yaz-alan" style="margin-top:1.4mm">Doğrusu</div><div class="satir" style="height:5mm"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kart lime-z" style="margin-top:4.4mm;display:grid;grid-template-columns:12mm 1fr auto;gap:3mm;align-items:center;padding:2.4mm 3.4mm">
+    <svg viewBox="0 0 40 40" style="width:12mm;height:12mm"><use href="#av-avo"/></svg>
+    <p style="font-size:9.8pt"><b>Avcı notu (Avo):</b> Bir çözümü kontrol etmenin en hızlı yolu <b>birimlere</b> bakmaktır. “mol”, “tane”, “gram” ve “akb” birbirine karışıyorsa hata büyük ihtimalle oradadır.</p>
+    <span class="cip koyu">Cevaplar s.13</span>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Yan görev 1 · Yorumlarda kim haklı?</span><span class="no">8</span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 9 · YAN GÖREV 2 · HİKÂYE KARTLARI (BAĞLAM SORULARI)
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b>Yan görev 2/3</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="simdi"></i><i></i><i class="boss"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:61%"></i></span></span>
+  </div>
+  <div class="kn-bas" style="grid-template-columns:20mm 1fr 62mm">
+    <svg class="kn-hex" viewBox="0 0 46 50">
+      <rect x="11" y="13" width="28" height="28" rx="4" transform="rotate(45 25 27)" fill="#13132B"/>
+      <rect x="9" y="11" width="28" height="28" rx="4" transform="rotate(45 23 25)" fill="#D8F4F6" stroke="#13132B" stroke-width="2.2"/>
+      <use href="#i-hikaye" x="12" y="14" width="22" height="22"/>
+    </svg>
+    <div>
+      <span class="ust etiket">Yan görev 2 · Hayatın içinden</span>
+      <h1>Hikâye <em>kartları</em></h1>
+      <p class="alt-bas">Gerçek bir durum, bir soru. Önce oku, sonra gereken bilgiyi seç.</p>
+    </div>
+    <div class="kart ana-gorev">
+      <span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Görev kuralı</span>
+      <p>Her kart <b>+30 XP</b>. Çözümünü kartın boş yerine yaz; şıkkı sonra işaretle.</p>
+      <div class="oduller"><span class="cip xp">+120 XP</span></div>
+    </div>
+  </div>
+  <div class="bento" style="grid-template-columns:1fr 1fr;margin-top:4.4mm">
+    <div class="kart hikaye">
+      <div class="hikaye-bas" style="background:var(--turkuaz-a)"><span class="etiket"><svg class="ikon"><use href="#i-hikaye"/></svg>Hikâye kartı 1 · sağlık</span><span class="cip xp">+30 XP</span></div>
+      <div class="hikaye-ic">
+        <div style="display:grid;grid-template-columns:1fr 17mm;gap:2.4mm;align-items:start">
+          <p>Bir sporcunun günlük C vitamini ihtiyacı için diyetisyeni <b>0,88 g</b> askorbik asit (C<sub>6</sub>H<sub>8</sub>O<sub>6</sub>) öneriyor. Askorbik asidin mol kütlesi <b>176 g/mol</b>’dür.</p>
+          <svg viewBox="0 0 40 40" style="width:17mm"><rect x="6" y="13" width="28" height="14" rx="7" transform="rotate(-30 20 20)" fill="#FFC21A" stroke="#13132B" stroke-width="1.8"/><path d="M20 12 L20 28" transform="rotate(-30 20 20)" stroke="#13132B" stroke-width="1.6"/><rect x="6" y="13" width="14" height="14" rx="7" transform="rotate(-30 20 20)" fill="#FF4A36" stroke="#13132B" stroke-width="1.8"/><text x="31" y="9" font-family="Inter Display" font-weight="900" font-size="8" fill="#13132B">C</text></svg>
+        </div>
+        <p>Buna göre sporcunun günlük aldığı askorbik asit için;</p>
+        <ul class="yargi"><li><b>I.</b><span>5·10<sup>−3</sup> moldür.</span></li><li><b>II.</b><span>3,01·10<sup>21</sup> tane molekül içerir.</span></li><li><b>III.</b><span>0,005 mol O atomu içerir.</span></li></ul>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="siklar" style="grid-template-columns:repeat(3,1fr)"><div class="sik"><b>A</b><span>Yalnız I</span></div><div class="sik"><b>B</b><span>Yalnız III</span></div><div class="sik"><b>C</b><span>I ve II</span></div><div class="sik"><b>D</b><span>II ve III</span></div><div class="sik"><b>E</b><span>I, II ve III</span></div></div>
+      </div>
+    </div>
+    <div class="kart hikaye">
+      <div class="hikaye-bas" style="background:var(--sari-a)"><span class="etiket"><svg class="ikon"><use href="#i-hikaye"/></svg>Hikâye kartı 2 · kuyumculuk</span><span class="cip xp">+30 XP</span></div>
+      <div class="hikaye-ic">
+        <div style="display:grid;grid-template-columns:1fr 20mm;gap:2.4mm;align-items:start">
+          <p>Kuyumcular elmasın kütlesini <b>karat</b> ile ölçer; <b>1 karat 0,2 gramdır</b>. Elmas yalnızca karbon (C) atomlarından oluşur.</p>
+          <svg viewBox="0 0 40 36" style="width:20mm"><path d="M8 12 L14 4 H26 L32 12 L20 33 Z" fill="#D8F4F6" stroke="#13132B" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 12 H32 M14 4 L17 12 L20 33 L23 12 L26 4 M17 12 L20 4 L23 12" fill="none" stroke="#13132B" stroke-width="1.1"/><rect x="24" y="25" width="15" height="8" rx="2" fill="#13132B"/><text x="31.5" y="31" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="5" fill="#8CD11E">3 ct</text><path d="M5 4 l1.4 3 l3 1.4 l-3 1.4 l-1.4 3 l-1.4 -3 l-3 -1.4 l3 -1.4z" fill="#FFC21A"/></svg>
+        </div>
+        <div class="yol">yol: <span>KARAT</span>→<span>GRAM</span>→<span class="on">MOL</span>→<span>TANE</span></div>
+        <p>Buna göre <b>3 karatlık</b> bir elmas yaklaşık kaç tane karbon atomu içerir? <span class="soluk">(C: 12 g/mol, N<sub>A</sub> = 6,02·10<sup>23</sup>)</span></p>
+        <div class="karalama"><span>çözüm</span></div>
+        <div class="siklar" style="grid-template-columns:repeat(3,1fr)"><div class="sik"><b>A</b><span>3,01·10<sup>21</sup></span></div><div class="sik"><b>B</b><span>1,505·10<sup>22</sup></span></div><div class="sik"><b>C</b><span>3,01·10<sup>22</sup></span></div><div class="sik"><b>D</b><span>6,02·10<sup>22</sup></span></div><div class="sik"><b>E</b><span>1,806·10<sup>23</sup></span></div></div>
+      </div>
+    </div>
+    <div class="kart hikaye">
+      <div class="hikaye-bas" style="background:var(--mor-a)"><span class="etiket"><svg class="ikon"><use href="#i-hikaye"/></svg>Hikâye kartı 3 · laboratuvar</span><span class="cip xp">+30 XP</span></div>
+      <div class="hikaye-ic">
+        <p>Bir öğrenci X ve Y elementlerinden farklı kütlelerde örnekler tartıp mol sayılarını hesaplıyor ve grafiği çiziyor. Grafikte X için (12 g; 0,5 mol), Y için (16 g; 0,5 mol) işaretlidir.</p>
+        <svg viewBox="0 0 100 56" font-family="JetBrains Mono" style="width:100%;display:block">
+          <rect x="0" y="0" width="100" height="56" rx="3" fill="#fff"/>
+          <g stroke="#E3DDEF" stroke-width=".35"><line x1="16" y1="8" x2="96" y2="8"/><line x1="16" y1="20" x2="96" y2="20"/><line x1="16" y1="32" x2="96" y2="32"/><line x1="36" y1="4" x2="36" y2="44"/><line x1="56" y1="4" x2="56" y2="44"/><line x1="76" y1="4" x2="76" y2="44"/><line x1="96" y1="4" x2="96" y2="44"/></g>
+          <path d="M16 44 H97 M16 44 V3" stroke="#13132B" stroke-width=".7" fill="none"/>
+          <g font-size="3.2" fill="#565A7C" font-weight="700"><text x="14" y="9.2" text-anchor="end">0,75</text><text x="14" y="21.2" text-anchor="end">0,50</text><text x="14" y="33.2" text-anchor="end">0,25</text><text x="14" y="45.2" text-anchor="end">0</text>
+          <text x="36" y="49" text-anchor="middle">6</text><text x="56" y="49" text-anchor="middle">12</text><text x="76" y="49" text-anchor="middle">18</text><text x="96" y="49" text-anchor="middle">24</text></g>
+          <text x="56" y="54.6" text-anchor="middle" font-size="3.4" font-weight="800" fill="#13132B">Kütle (g)</text>
+          <text x="18" y="3.6" font-size="3.4" font-weight="800" fill="#13132B">Mol</text>
+          <line x1="16" y1="44" x2="76" y2="8" stroke="#5A2DFF" stroke-width="1.3"/>
+          <line x1="16" y1="44" x2="96" y2="8" stroke="#FF4A36" stroke-width="1.3"/>
+          <line x1="16" y1="20" x2="69.3" y2="20" stroke="#13132B" stroke-width=".45" stroke-dasharray="1.4 1"/>
+          <line x1="56" y1="20" x2="56" y2="44" stroke="#13132B" stroke-width=".45" stroke-dasharray="1.4 1"/>
+          <line x1="69.3" y1="20" x2="69.3" y2="44" stroke="#13132B" stroke-width=".45" stroke-dasharray="1.4 1"/>
+          <circle cx="56" cy="20" r="1.4" fill="#5A2DFF" stroke="#13132B" stroke-width=".4"/><circle cx="69.3" cy="20" r="1.4" fill="#FF4A36" stroke="#13132B" stroke-width=".4"/>
+          <text x="69.3" y="49" text-anchor="middle" font-size="3" font-weight="800" fill="#B31F0E">16</text>
+          <text x="74" y="7" font-size="4" font-weight="800" fill="#5A2DFF">X</text><text x="91" y="13.4" font-size="4" font-weight="800" fill="#B31F0E">Y</text>
+        </svg>
+        <ul class="yargi"><li><b>I.</b><span>X’in mol kütlesi 24 g/mol’dür.</span></li><li><b>II.</b><span>Eşit kütlede X ve Y’nin atom sayıları oranı N<sub>X</sub>/N<sub>Y</sub> = 4/3’tür.</span></li><li><b>III.</b><span>1 mol Y, 1 mol X’ten 8 g ağırdır.</span></li></ul>
+        <p>yargılarından hangileri doğrudur?</p>
+        <div class="siklar" style="grid-template-columns:repeat(3,1fr)"><div class="sik"><b>A</b><span>Yalnız I</span></div><div class="sik"><b>B</b><span>I ve II</span></div><div class="sik"><b>C</b><span>I ve III</span></div><div class="sik"><b>D</b><span>II ve III</span></div><div class="sik"><b>E</b><span>I, II ve III</span></div></div>
+      </div>
+    </div>
+    <div class="kart hikaye">
+      <div class="hikaye-bas" style="background:var(--lime-a)"><span class="etiket"><svg class="ikon"><use href="#i-hikaye"/></svg>Hikâye kartı 4 · dolap</span><span class="cip xp">+30 XP</span></div>
+      <div class="hikaye-ic">
+        <p>Laboratuvar sorumlusu üç kaptaki örneklerin etiketlerini yazmıştır. <span class="soluk">(H: 1, C: 12, N: 14, O: 16 g/mol; N<sub>A</sub> = 6,02·10<sup>23</sup>)</span></p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2mm;text-align:center">
+          <div class="kart duz" style="padding:1.6mm 1.4mm"><svg viewBox="0 0 28 30" style="width:10mm;display:block;margin:0 auto"><g transform="translate(0 0)"><rect x="6" y="1" width="16" height="4" rx="1" fill="#13132B"/><rect x="4" y="5" width="20" height="24" rx="3" fill="#fff" stroke="#13132B" stroke-width="1.2"/><rect x="5.2" y="16" width="17.6" height="12" rx="2" fill="#ECE6FF"/><text x="14" y="13" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="4.2" fill="#13132B">I</text></g></svg><b style="font-size:9.6pt">4,4 g CO<sub>2</sub></b></div>
+          <div class="kart duz" style="padding:1.6mm 1.4mm"><svg viewBox="0 0 28 30" style="width:10mm;display:block;margin:0 auto"><g transform="translate(0 0)"><rect x="6" y="1" width="16" height="4" rx="1" fill="#13132B"/><rect x="4" y="5" width="20" height="24" rx="3" fill="#fff" stroke="#13132B" stroke-width="1.2"/><rect x="5.2" y="16" width="17.6" height="12" rx="2" fill="#D8F4F6"/><text x="14" y="13" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="4.2" fill="#13132B">II</text></g></svg><b style="font-size:9.6pt">1,204·10<sup>23</sup> tane H<sub>2</sub>O</b></div>
+          <div class="kart duz" style="padding:1.6mm 1.4mm"><svg viewBox="0 0 28 30" style="width:10mm;display:block;margin:0 auto"><g transform="translate(0 0)"><rect x="6" y="1" width="16" height="4" rx="1" fill="#13132B"/><rect x="4" y="5" width="20" height="24" rx="3" fill="#fff" stroke="#13132B" stroke-width="1.2"/><rect x="5.2" y="16" width="17.6" height="12" rx="2" fill="#EDF9D4"/><text x="14" y="13" text-anchor="middle" font-family="JetBrains Mono" font-weight="800" font-size="4.2" fill="#13132B">III</text></g></svg><b style="font-size:9.6pt">0,1 mol NH<sub>3</sub></b></div>
+        </div>
+        <p>Buna göre kaplardaki <b>toplam atom sayılarının</b> büyükten küçüğe sıralanışı hangisidir?</p>
+        <div class="karalama"><span>çözüm</span></div>
+        <div class="siklar" style="grid-template-columns:repeat(3,1fr)"><div class="sik"><b>A</b><span>I > II > III</span></div><div class="sik"><b>B</b><span>II > III > I</span></div><div class="sik"><b>C</b><span>III > II > I</span></div><div class="sik"><b>D</b><span>II > I > III</span></div><div class="sik"><b>E</b><span>I = II > III</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Yan görev 2 · Hikâye kartları</span><span class="no">9</span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 10 · YAN GÖREV 3 · İPUCU MERDİVENİ
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b>Yan görev 3/3</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="simdi"></i><i class="boss"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:70%"></i></span></span>
+  </div>
+  <div class="kn-bas" style="grid-template-columns:20mm 1fr 62mm">
+    <svg class="kn-hex" viewBox="0 0 46 50">
+      <rect x="11" y="13" width="28" height="28" rx="4" transform="rotate(45 25 27)" fill="#13132B"/>
+      <rect x="9" y="11" width="28" height="28" rx="4" transform="rotate(45 23 25)" fill="#ECE6FF" stroke="#13132B" stroke-width="2.2"/>
+      <use href="#i-ipucu" x="12" y="14" width="22" height="22"/>
+    </svg>
+    <div>
+      <span class="ust etiket">Yan görev 3 · Kilitli ipuçları</span>
+      <h1>İpucu <em>merdiveni</em></h1>
+      <p class="alt-bas">Önce ipucusuz dene. Takılırsan bir basamak in, yeniden dene.</p>
+    </div>
+    <div class="kart ana-gorev">
+      <span class="etiket"><svg class="ikon"><use href="#i-hedef"/></svg>Görev kuralı</span>
+      <p>Her problem <b>+40 XP</b>. Açtığın her basamak <b>−10 XP</b>. Ne kadar az inersen o kadar ustasın.</p>
+      <div class="oduller"><span class="cip xp">+120 XP</span></div>
+    </div>
+  </div>
+  <div class="dikey" style="margin-top:4.4mm">
+  <div class="kart merdiven">
+    <div style="display:flex;flex-direction:column;gap:1.6mm">
+      <div style="display:grid;grid-template-columns:12mm 1fr auto;gap:2.4mm;align-items:start">
+        <span class="no-buyuk">1</span>
+        <p style="font-weight:650;font-size:10pt;line-height:1.36">X<sub>2</sub>O<sub>3</sub> bileşiğinin 0,2 molü 32 gramdır. Buna göre X elementinin mol kütlesi kaç g/mol’dür? <span class="soluk">(O: 16 g/mol)</span></p>
+        <span class="cip xp">+40 XP</span>
+      </div>
+      <span class="yaz-alan">Çözümüm</span>
+      <div class="satir"></div><div class="satir"></div><div class="satir"></div>
+      <div class="xp-hesap" style="margin-top:auto;flex-wrap:nowrap;white-space:nowrap">İndiğim: <span class="kutucuk"><i></i>0</span><span class="kutucuk"><i></i>1</span><span class="kutucuk"><i></i>2</span><span class="kutucuk"><i></i>3</span>
+        <span style="margin-left:auto">XP 40 − (<span class="kutu"></span>×10) = <span class="kutu"></span></span></div>
+    </div>
+    <div class="basamaklar">
+      <span class="etiket" style="color:var(--mor-k)"><svg class="ikon"><use href="#i-ipucu"/></svg>Takılırsan bir basamak in</span>
+      <div class="basamak"><svg><use href="#i-kilit"/></svg><span><span class="bas-ad">BASAMAK 1</span>Kütle ve mol verilmiş: bileşiğin mol kütlesini M<sub>A</sub> = m / n ile bul.</span><span class="bedel">−10 XP</span></div><div class="basamak"><svg><use href="#i-kilit"/></svg><span><span class="bas-ad">BASAMAK 2</span>M<sub>A</sub>, formüldeki atomların toplamıdır: 2·X + 3·16 olarak yaz.</span><span class="bedel">−10 XP</span></div><div class="basamak"><svg><use href="#i-kilit"/></svg><span><span class="bas-ad">BASAMAK 3</span>160 = 2X + 48 denklemini çöz. Bulduğun değer hangi elemente ait olabilir?</span><span class="bedel">−10 XP</span></div>
+    </div>
+  </div>
+  <div class="kart merdiven">
+    <div style="display:flex;flex-direction:column;gap:1.6mm">
+      <div style="display:grid;grid-template-columns:12mm 1fr auto;gap:2.4mm;align-items:start">
+        <span class="no-buyuk">2</span>
+        <p style="font-weight:650;font-size:10pt;line-height:1.36">C<sub>2</sub>H<sub>4</sub> ve C<sub>3</sub>H<sub>8</sub> gazlarından oluşan 0,4 mollük karışım 14,4 gramdır. Karışımda toplam kaç mol H atomu vardır? <span class="soluk">(H: 1, C: 12 g/mol)</span></p>
+        <span class="cip xp">+40 XP</span>
+      </div>
+      <span class="yaz-alan">Çözümüm</span>
+      <div class="satir"></div><div class="satir"></div><div class="satir"></div>
+      <div class="xp-hesap" style="margin-top:auto;flex-wrap:nowrap;white-space:nowrap">İndiğim: <span class="kutucuk"><i></i>0</span><span class="kutucuk"><i></i>1</span><span class="kutucuk"><i></i>2</span><span class="kutucuk"><i></i>3</span>
+        <span style="margin-left:auto">XP 40 − (<span class="kutu"></span>×10) = <span class="kutu"></span></span></div>
+    </div>
+    <div class="basamaklar">
+      <span class="etiket" style="color:var(--mor-k)"><svg class="ikon"><use href="#i-ipucu"/></svg>Takılırsan bir basamak in</span>
+      <div class="basamak"><svg><use href="#i-kilit"/></svg><span><span class="bas-ad">BASAMAK 1</span>C<sub>2</sub>H<sub>4</sub> için x, C<sub>3</sub>H<sub>8</sub> için (0,4 − x) mol de. Mol kütleleri: 28 ve 44 g/mol.</span><span class="bedel">−10 XP</span></div><div class="basamak"><svg><use href="#i-kilit"/></svg><span><span class="bas-ad">BASAMAK 2</span>Kütleler toplamını yaz: 28x + 44(0,4 − x) = 14,4</span><span class="bedel">−10 XP</span></div><div class="basamak"><svg><use href="#i-kilit"/></svg><span><span class="bas-ad">BASAMAK 3</span>x’i bulunca H’leri say: C<sub>2</sub>H<sub>4</sub>’te 4, C<sub>3</sub>H<sub>8</sub>’de 8 H var.</span><span class="bedel">−10 XP</span></div>
+    </div>
+  </div>
+  <div class="kart merdiven">
+    <div style="display:flex;flex-direction:column;gap:1.6mm">
+      <div style="display:grid;grid-template-columns:12mm 1fr auto;gap:2.4mm;align-items:start">
+        <span class="no-buyuk">3</span>
+        <p style="font-weight:650;font-size:10pt;line-height:1.36">Eşit sayıda atom içeren SO<sub>3</sub> ve CH<sub>4</sub> örneklerinin kütleleri oranı m<sub>SO₃</sub> / m<sub>CH₄</sub> kaçtır? <span class="soluk">(H: 1, C: 12, O: 16, S: 32 g/mol)</span></p>
+        <span class="cip xp">+40 XP</span>
+      </div>
+      <span class="yaz-alan">Çözümüm</span>
+      <div class="satir"></div><div class="satir"></div><div class="satir"></div>
+      <div class="xp-hesap" style="margin-top:auto;flex-wrap:nowrap;white-space:nowrap">İndiğim: <span class="kutucuk"><i></i>0</span><span class="kutucuk"><i></i>1</span><span class="kutucuk"><i></i>2</span><span class="kutucuk"><i></i>3</span>
+        <span style="margin-left:auto">XP 40 − (<span class="kutu"></span>×10) = <span class="kutu"></span></span></div>
+    </div>
+    <div class="basamaklar">
+      <span class="etiket" style="color:var(--mor-k)"><svg class="ikon"><use href="#i-ipucu"/></svg>Takılırsan bir basamak in</span>
+      <div class="basamak"><svg><use href="#i-kilit"/></svg><span><span class="bas-ad">BASAMAK 1</span>SO<sub>3</sub>’te 4, CH<sub>4</sub>’te 5 atom var. İkisine de bölünen bir atom molü seç (ör. 20 mol atom).</span><span class="bedel">−10 XP</span></div><div class="basamak"><svg><use href="#i-kilit"/></svg><span><span class="bas-ad">BASAMAK 2</span>20 mol atom için: SO<sub>3</sub> → 20/4 = 5 mol, CH<sub>4</sub> → 20/5 = 4 mol.</span><span class="bedel">−10 XP</span></div><div class="basamak"><svg><use href="#i-kilit"/></svg><span><span class="bas-ad">BASAMAK 3</span>Mollerini kütleye çevir (M<sub>A</sub>: 80 ve 16) ve oranı sadeleştir.</span><span class="bedel">−10 XP</span></div>
+    </div>
+  </div>
+  </div>
+  <div class="kart duz" style="margin-top:4.4mm;display:grid;grid-template-columns:auto 1fr auto;gap:4mm;align-items:center;padding:2.4mm 3.4mm;background:var(--mor-a)">
+    <span class="etiket" style="color:var(--mor-k)">Yan görev XP</span>
+    <div class="xp-hesap" style="white-space:nowrap;flex-wrap:nowrap">Kim haklı <span class="kutu"></span> + Hikâye <span class="kutu"></span> + Merdiven <span class="kutu"></span> = <span class="kutu" style="width:12mm"></span> <span class="soluk" style="font-weight:600">/ 360</span></div>
+    <span class="cip mercan">Sırada: BOSS →</span>
+  </div>
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Yan görev 3 · İpucu merdiveni</span><span class="no">10</span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 11 · BOSS · BÖLÜM TESTİ (1/2)
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b><span style="color:var(--mercan)">BOSS</span> · faz 1/2</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="boss simdi"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:79%"></i></span></span>
+  </div>
+  <div class="boss-bas">
+    <svg viewBox="0 0 40 40"><use href="#boss"/></svg>
+    <div>
+      <span class="etiket" style="color:var(--mercan-k)">Boss savaşı · Bölüm testi · 12 soru · 25 dakika</span>
+      <h1>Dev Sayı <span>uyandı!</span></h1>
+      <p style="color:var(--soluk);font-size:10.4pt">Her doğru cevap Boss’tan <b style="color:var(--murekkep)">25 XP</b> koparır. 10 ve üzeri doğru: <b style="color:var(--murekkep)">Boss Avcısı</b> rozeti.</p>
+    </div>
+    <div class="kart mercan-z" style="width:56mm;padding:2.2mm 3mm">
+      <span class="etiket" style="color:var(--mercan-k)">Ekipman (g/mol)</span>
+      <p style="font-size:9.5pt;margin-top:.8mm" class="mono"><b>H 1 · He 4 · C 12<br>O 16 · Mg 24</b></p>
+      <p style="font-size:9pt;margin-top:.6mm">N<sub>A</sub> = 6,02·10<sup>23</sup></p>
+    </div>
+  </div>
+  <div class="kart duz" style="margin-top:3.4mm;padding:1.8mm 3.2mm;background:var(--sari-a);display:flex;gap:3mm;align-items:center">
+    <span class="cip koyu">ANKET MODU</span>
+    <p style="font-size:9.5pt">İsteğe bağlı: sınıfça oylayın, her şıkkın yanına tahmin yüzdesini (<span class="mono">%__</span>) yazın. Sonra çözün: tahmininiz tuttu mu?</p>
+  </div>
+  <div class="bento" style="grid-template-columns:1fr 1fr;grid-auto-rows:1fr;height:200mm;margin-top:4mm">
+    <div class="kart anket">
+      <div class="anket-bas"><span class="sno">1</span><span class="etiket">Anket · önce tahmin et</span><span class="cip xp">+25 XP</span></div>
+      <p class="soru">0,3 mol C<sub>3</sub>H<sub>8</sub> gazı toplam kaç mol atom içerir?</p>
+      
+      <div class="karalama"><span>karalama</span></div>
+      <div class="oy yatay"><div><b>A</b><span>0,3</span><em>%__</em></div><div><b>B</b><span>1,1</span><em>%__</em></div><div><b>C</b><span>2,4</span><em>%__</em></div><div><b>D</b><span>3,3</span><em>%__</em></div><div><b>E</b><span>3,6</span><em>%__</em></div></div>
+    </div>
+    <div class="kart anket">
+      <div class="anket-bas"><span class="sno">2</span><span class="etiket">Anket · önce tahmin et</span><span class="cip xp">+25 XP</span></div>
+      <p class="soru">1,204·10<sup>24</sup> tane He atomu kaç moldür?</p>
+      
+      <div class="karalama"><span>karalama</span></div>
+      <div class="oy yatay"><div><b>A</b><span>0,5</span><em>%__</em></div><div><b>B</b><span>1</span><em>%__</em></div><div><b>C</b><span>2</span><em>%__</em></div><div><b>D</b><span>4</span><em>%__</em></div><div><b>E</b><span>12</span><em>%__</em></div></div>
+    </div>
+    <div class="kart anket">
+      <div class="anket-bas"><span class="sno">3</span><span class="etiket">Anket · önce tahmin et</span><span class="cip xp">+25 XP</span></div>
+      <p class="soru">0,5 mol Mg(OH)<sub>2</sub> bileşiği kaç gramdır?</p>
+      
+      <div class="karalama"><span>karalama</span></div>
+      <div class="oy yatay"><div><b>A</b><span>20,5</span><em>%__</em></div><div><b>B</b><span>29</span><em>%__</em></div><div><b>C</b><span>41</span><em>%__</em></div><div><b>D</b><span>58</span><em>%__</em></div><div><b>E</b><span>116</span><em>%__</em></div></div>
+    </div>
+    <div class="kart anket">
+      <div class="anket-bas"><span class="sno">4</span><span class="etiket">Anket · önce tahmin et</span><span class="cip xp">+25 XP</span></div>
+      <p class="soru">6,4 g O<sub>2</sub> gazı ile ilgili;</p>
+      <ul class="yargi"><li><b>I.</b><span>0,2 moldür.</span></li><li><b>II.</b><span>1,204·10<sup>23</sup> tane molekül içerir.</span></li><li><b>III.</b><span>0,4 mol O atomu içerir.</span></li></ul><p style="font-size:9.6pt;margin:-.6mm 0 1.4mm">yargılarından hangileri doğrudur?</p>
+      <div class="karalama"><span>karalama</span></div>
+      <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
+    </div>
+    <div class="kart anket">
+      <div class="anket-bas"><span class="sno">5</span><span class="etiket">Anket · önce tahmin et</span><span class="cip xp">+25 XP</span></div>
+      <p class="soru">Aşağıdaki madde çiftlerinden hangisinin mol kütleleri birbirine eşittir? <span class="soluk">(N: 14, S: 32 g/mol)</span></p>
+      
+      <div class="karalama"><span>karalama</span></div>
+      <div class="oy"><div><b>A</b><span>CO – N<sub>2</sub></span><em>%__</em></div><div><b>B</b><span>CO<sub>2</sub> – SO<sub>2</sub></span><em>%__</em></div><div><b>C</b><span>H<sub>2</sub>O – NH<sub>3</sub></span><em>%__</em></div><div><b>D</b><span>CH<sub>4</sub> – O<sub>2</sub></span><em>%__</em></div><div><b>E</b><span>NO – O<sub>2</sub></span><em>%__</em></div></div>
+    </div>
+    <div class="kart anket">
+      <div class="anket-bas"><span class="sno">6</span><span class="etiket">Anket · önce tahmin et</span><span class="cip xp">+25 XP</span></div>
+      <p class="soru">1 tane karbon atomunun kütlesi kaç gramdır? <span class="soluk">(C: 12 g/mol)</span></p>
+      
+      <div class="karalama"><span>karalama</span></div>
+      <div class="oy yatay"><div><b>A</b><span>12</span><em>%__</em></div><div><b>B</b><span>12·N<sub>A</sub></span><em>%__</em></div><div><b>C</b><span>12/N<sub>A</sub></span><em>%__</em></div><div><b>D</b><span>N<sub>A</sub>/12</span><em>%__</em></div><div><b>E</b><span>1/12</span><em>%__</em></div></div>
+    </div>
+  </div>
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Boss · bölüm testi · faz 1</span><span class="no boss">11</span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 12 · BOSS · BÖLÜM TESTİ (2/2)
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b><span style="color:var(--mercan)">BOSS</span> · faz 2/2</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="boss simdi"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:89%"></i></span></span>
+  </div>
+  <div style="display:flex;align-items:center;gap:3mm">
+    <svg viewBox="0 0 40 40" style="width:12mm;height:12mm"><use href="#boss"/></svg>
+    <h2 class="dev" style="font-weight:900;font-size:22pt;letter-spacing:-.03em;margin:0">Faz 2 · <span style="color:var(--mercan)">Boss öfkelendi</span></h2>
+    <span class="cip mercan" style="margin-left:auto">Sorular 7–12</span>
+  </div>
+  <div class="bento" style="grid-template-columns:1fr 1fr;grid-auto-rows:1fr;height:212mm;margin-top:4mm">
+    <div class="kart anket">
+      <div class="anket-bas"><span class="sno">7</span><span class="etiket">Anket · önce tahmin et</span><span class="cip xp">+25 XP</span></div>
+      <p class="soru">Aşağıdakilerden hangisi en fazla sayıda atom içerir?</p>
+      
+      <div class="karalama"><span>karalama</span></div>
+      <div class="oy"><div><b>A</b><span>1 mol He</span><em>%__</em></div><div><b>B</b><span>0,5 mol H<sub>2</sub>O</span><em>%__</em></div><div><b>C</b><span>8 g CH<sub>4</sub></span><em>%__</em></div><div><b>D</b><span>3,01·10<sup>23</sup> tane CO<sub>2</sub> molekülü</span><em>%__</em></div><div><b>E</b><span>4,4 g CO<sub>2</sub></span><em>%__</em></div></div>
+    </div>
+    <div class="kart anket">
+      <div class="anket-bas"><span class="sno">8</span><span class="etiket">Anket · önce tahmin et</span><span class="cip xp">+25 XP</span></div>
+      <p class="soru">X elementinin 0,25 molü 10 gramdır. Buna göre X’in mol kütlesi kaç g/mol’dür?</p>
+      
+      <div class="karalama"><span>karalama</span></div>
+      <div class="oy yatay"><div><b>A</b><span>10</span><em>%__</em></div><div><b>B</b><span>20</span><em>%__</em></div><div><b>C</b><span>25</span><em>%__</em></div><div><b>D</b><span>40</span><em>%__</em></div><div><b>E</b><span>80</span><em>%__</em></div></div>
+    </div>
+    <div class="kart anket">
+      <div class="anket-bas"><span class="sno">9</span><span class="etiket">Anket · önce tahmin et</span><span class="cip xp">+25 XP</span></div>
+      <p class="soru">Bir X elementinin doğada iki izotopu bulunur: <sup>63</sup>X (%70) ve <sup>65</sup>X (%30). X’in ortalama atom kütlesi kaçtır?</p>
+      
+      <div class="karalama"><span>karalama</span></div>
+      <div class="oy yatay"><div><b>A</b><span>63,0</span><em>%__</em></div><div><b>B</b><span>63,6</span><em>%__</em></div><div><b>C</b><span>64,0</span><em>%__</em></div><div><b>D</b><span>64,4</span><em>%__</em></div><div><b>E</b><span>65,0</span><em>%__</em></div></div>
+    </div>
+    <div class="kart anket">
+      <div class="anket-bas"><span class="sno">10</span><span class="etiket">Anket · önce tahmin et</span><span class="cip xp">+25 XP</span></div>
+      <p class="soru">Nötr izotop atomlarla ilgili aşağıdaki ifadelerden hangisi <u><b>yanlıştır</b></u>?</p>
+      
+      <div class="karalama"><span>karalama</span></div>
+      <div class="oy"><div><b>A</b><span>Proton sayıları aynıdır.</span><em>%__</em></div><div><b>B</b><span>Nötron sayıları farklıdır.</span><em>%__</em></div><div><b>C</b><span>Kütle numaraları farklıdır.</span><em>%__</em></div><div><b>D</b><span>Kimyasal özellikleri aynıdır.</span><em>%__</em></div><div><b>E</b><span>Fiziksel özellikleri aynıdır.</span><em>%__</em></div></div>
+    </div>
+    <div class="kart anket">
+      <div class="anket-bas"><span class="sno">11</span><span class="etiket">Anket · önce tahmin et</span><span class="cip xp">+25 XP</span></div>
+      <p class="soru">CH<sub>4</sub> ve C<sub>2</sub>H<sub>4</sub> gazlarından oluşan 0,5 mollük karışım 0,7 mol C atomu içermektedir. Buna göre karışım kaç gramdır?</p>
+      
+      <div class="karalama"><span>karalama</span></div>
+      <div class="oy yatay"><div><b>A</b><span>8,0</span><em>%__</em></div><div><b>B</b><span>9,6</span><em>%__</em></div><div><b>C</b><span>10,4</span><em>%__</em></div><div><b>D</b><span>11,2</span><em>%__</em></div><div><b>E</b><span>12,8</span><em>%__</em></div></div>
+    </div>
+    <div class="kart anket">
+      <div class="anket-bas"><span class="sno">12</span><span class="etiket">Anket · önce tahmin et</span><span class="cip xp">+25 XP</span></div>
+      <p class="soru">Eşit kütlelerde CH<sub>4</sub> ve SO<sub>2</sub> gazları için;</p>
+      <ul class="yargi"><li><b>I.</b><span>Molekül sayıları oranı N<sub>CH₄</sub>/N<sub>SO₂</sub> = 4’tür.</span></li><li><b>II.</b><span>Toplam atom sayıları eşittir.</span></li><li><b>III.</b><span>CH<sub>4</sub>’teki H sayısı, SO<sub>2</sub>’deki O sayısının 8 katıdır.</span></li></ul><p style="font-size:9.6pt;margin:-.6mm 0 1.4mm">yargılarından hangileri doğrudur? <span class="soluk">(S: 32 g/mol)</span></p>
+      <div class="karalama"><span>karalama</span></div>
+      <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>I ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
+    </div>
+  </div>
+  <div class="kart" style="margin-top:4.4mm;display:grid;grid-template-columns:auto 1fr auto;gap:4mm;align-items:center;background:var(--mercan-a)">
+    <svg viewBox="0 0 40 40" style="width:14mm;height:14mm"><use href="#boss"/></svg>
+    <div>
+      <span class="etiket" style="color:var(--mercan-k)">Boss skoru</span>
+      <p style="font-size:9.5pt;margin-top:.6mm"><b>10+ doğru:</b> Boss Avcısı rozetini boya · <b>7–9:</b> Kim haklı? sayfasını tekrar et · <b>6 ve altı:</b> KN3 ve KN4’e dön.</p>
+    </div>
+    <div class="xp-hesap" style="white-space:nowrap">Doğru <span class="kutu"></span> × 25 = <span class="kutu" style="width:12mm"></span> XP</div>
+  </div>
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Boss · bölüm testi · faz 2 · cevaplar s.13</span><span class="no boss">12</span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 13 · CEVAPLAR VE ÇÖZÜMLER
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b>Cevaplar</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="boss tam"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:100%"></i></span></span>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr auto;gap:4mm;align-items:end">
+    <div>
+      <span class="etiket" style="color:var(--mor)"><svg class="ikon"><use href="#i-dogru"/></svg>Rotanın sonu · kontrol et, XP’ni say</span>
+      <h1 class="dev" style="font-weight:900;font-size:36pt;line-height:.92;letter-spacing:-.04em;margin:1.2mm 0 0">Cevaplar <span style="color:var(--mor)">&amp; çözümler</span></h1>
+    </div>
+    <span class="cip koyu buyuk" style="margin-bottom:1.6mm">Boss anahtarı ↓</span>
+  </div>
+  <div style="margin-top:4mm"><div class="anahtar"><div><i>1</i><b>D</b><small>KN3</small></div><div><i>2</i><b>C</b><small>KN3</small></div><div><i>3</i><b>B</b><small>KN4</small></div><div><i>4</i><b>E</b><small>KN4</small></div><div><i>5</i><b>A</b><small>KN4</small></div><div><i>6</i><b>C</b><small>KN4</small></div><div><i>7</i><b>C</b><small>KN3</small></div><div><i>8</i><b>D</b><small>KN4</small></div><div><i>9</i><b>B</b><small>KN2</small></div><div><i>10</i><b>E</b><small>KN2</small></div><div><i>11</i><b>C</b><small>KN5</small></div><div><i>12</i><b>D</b><small>KN5</small></div></div></div>
+  <div class="kart" style="margin-top:4.4mm">
+    <div class="cozumler">
+<div class="grup"><h4 style="background:var(--mercan)">Boss · bölüm testi</h4><p class="c"><b>1 · D</b> Bir C<sub>3</sub>H<sub>8</sub>’de 3 + 8 = 11 atom; 0,3·11 = 3,3 mol atom.</p><p class="c"><b>2 · C</b> n = 1,204·10<sup>24</sup> / 6,02·10<sup>23</sup> = 2 mol.</p><p class="c"><b>3 · B</b> M<sub>A</sub> = 24 + 2·17 = 58; 0,5·58 = 29 g.</p><p class="c"><b>4 · E</b> 6,4/32 = 0,2 mol (I); 0,2·N<sub>A</sub> = 1,204·10<sup>23</sup> (II); 0,2·2 = 0,4 mol O (III).</p><p class="c"><b>5 · A</b> CO = 12 + 16 = 28, N<sub>2</sub> = 28. Diğerleri: 44–64, 18–17, 16–32, 30–32.</p><p class="c"><b>6 · C</b> 1 mol C (N<sub>A</sub> tane) 12 g → 1 tanesi 12/N<sub>A</sub> ≈ 2·10<sup>−23</sup> g.</p><p class="c"><b>7 · C</b> Atom molleri: A 1 · B 1,5 · C 8/16 = 0,5 mol CH<sub>4</sub> → 2,5 · D 1,5 · E 0,1·3 = 0,3.</p><p class="c"><b>8 · D</b> M<sub>A</sub> = m/n = 10/0,25 = 40 g/mol.</p><p class="c"><b>9 · B</b> 63·0,70 + 65·0,30 = 44,1 + 19,5 = 63,6.</p><p class="c"><b>10 · E</b> Nötron sayısı, dolayısıyla kütle farklı → yoğunluk gibi fiziksel özellikler farklı.</p><p class="c"><b>11 · C</b> x + 2(0,5 − x) = 0,7 → x = 0,3 mol CH<sub>4</sub>, 0,2 mol C<sub>2</sub>H<sub>4</sub>; 4,8 + 5,6 = 10,4 g.</p><p class="c"><b>12 · D</b> 64 g al: CH<sub>4</sub> 4 mol, SO<sub>2</sub> 1 mol → 4 (I ✓). Atom 20 ve 3 mol (II ✗). H 16 mol, O 2 mol → 8 kat (III ✓).</p></div><div class="grup"><h4 style="background:var(--turkuaz-k)">Hikâye kartları</h4><p class="c"><b>1 · C</b> n = 0,88/176 = 5·10<sup>−3</sup> (I ✓); N = 0,005·N<sub>A</sub> = 3,01·10<sup>21</sup> (II ✓); O: 0,005·6 = 0,03 mol (III ✗).</p><p class="c"><b>2 · C</b> 3·0,2 = 0,6 g C; 0,6/12 = 0,05 mol; 0,05·6,02·10<sup>23</sup> = 3,01·10<sup>22</sup> atom.</p><p class="c"><b>3 · E</b> X: 12/0,5 = 24, Y: 16/0,5 = 32 (I ✓). 96 g: 4 mol X, 3 mol Y → 4/3 (II ✓). 32 − 24 = 8 g (III ✓).</p><p class="c"><b>4 · B</b> I: 0,1 mol CO<sub>2</sub> → 0,3 mol atom · II: 0,2 mol H<sub>2</sub>O → 0,6 · III: 0,1 mol NH<sub>3</sub> → 0,4. Sıra II > III > I.</p></div><div class="grup"><h4 style="background:var(--sari-k)">Yorumlarda kim haklı?</h4><p class="c"><b>1 · Deniz</b> Satır 2: element çeşidi sayılmış. 2 + 1 + 4 = 7 atom → 0,5·7 = 3,5 mol atom.</p><p class="c"><b>2 · Ece</b> Satır 1: O’nun alt simgesi unutulmuş. M<sub>A</sub> = 12 + 2·16 = 44 → 11/44 = 0,25 mol. (11/28 ≈ 0,39 yuvarlaması doğruydu.)</p><p class="c"><b>3 · Deniz</b> Satır 2: 80 g, 1 <b>mol</b> SO<sub>3</sub>’ün kütlesi. 1 tanesi 80/N<sub>A</sub> ≈ 1,33·10<sup>−22</sup> g (80 akb). Satır 1 doğru.</p><p class="c"><b>4 · Avo</b> Satır 2: eşit kütle eşit mol değildir. CH<sub>4</sub> 16/16 = 1 mol, O<sub>2</sub> 16/32 = 0,5 mol → CH<sub>4</sub> 2 kat fazla.</p></div><div class="grup"><h4 style="background:var(--mor)">İpucu merdiveni</h4><p class="c"><b>1 · 56</b> M<sub>A</sub> = 32/0,2 = 160; 2X + 48 = 160 → X = 56 g/mol (demir, Fe).</p><p class="c"><b>2 · 2,4 mol H</b> 28x + 17,6 − 44x = 14,4 → x = 0,2. 0,2 mol C<sub>2</sub>H<sub>4</sub> (0,8 mol H) + 0,2 mol C<sub>3</sub>H<sub>8</sub> (1,6 mol H).</p><p class="c"><b>3 · 25/4</b> 5 mol SO<sub>3</sub> = 400 g, 4 mol CH<sub>4</sub> = 64 g → 400/64 = 25/4.</p></div><div class="grup"><h4 style="background:var(--lime-k)">Hızlı görevler</h4><p class="c"><b>KN1</b> 2 mol H (molekül = bisiklet, atom = tekerlek).</p><p class="c"><b>KN2</b> 35·0,75 + 37·0,25 = 35,5 akb · Hızlı kontrol: ¹⁴C’de 6 p, 8 n.</p><p class="c"><b>KN3</b> 1,204·10<sup>24</sup>/N<sub>A</sub> = 2 mol H<sub>2</sub>O → 4 mol H.</p><p class="c"><b>KN4</b> M<sub>A</sub> = 16 → 0,25·16 = 4 g; 0,25·4 = 1 mol H.</p><p class="c"><b>KN5</b> 32 g al: CH<sub>4</sub> 2 mol, O<sub>2</sub> 1 mol → oran 2.</p></div>
+    </div>
+  </div>
+    <div class="bento" style="grid-template-columns:1fr 1fr;margin-top:4.4mm">
+    <div class="kart sari-z">
+      <span class="etiket" style="color:var(--sari-k)"><svg class="ikon"><use href="#i-xp"/></svg>Puanını hesapla</span>
+      <p style="font-size:9.6pt;margin-top:1mm">Boss: doğru sayın × 8,33 ≈ puanın. Her doğru <b>+25 XP</b>.</p>
+      <div class="xp-hesap" style="margin-top:2mm">Doğru <span class="kutu"></span> × 8,33 ≈ <span class="kutu" style="width:12mm"></span> puan · <span class="kutu"></span> × 25 = <span class="kutu" style="width:12mm"></span> XP</div>
+    </div>
+    <div class="kart mor-z">
+      <span class="etiket" style="color:var(--mor-k)"><svg class="ikon"><use href="#i-ipucu"/></svg>Tekrar rotası · yanlışın nereden?</span>
+      <ul class="ozet-liste" style="margin-top:1mm">
+        <li><b>KN2 (s.3)</b> · izotop, ortalama kütle → soru 9, 10</li>
+        <li><b>KN3 (s.4)</b> · tanecik ⇄ mol, atom molü → soru 1, 2, 7</li>
+        <li><b>KN4 (s.5)</b> · kütle ⇄ mol, mol kütlesi → soru 3, 4, 5, 6, 8</li>
+        <li><b>KN5 (s.6)</b> · karışım, eşit kütle → soru 11, 12</li>
+      </ul>
+    </div>
+  </div>
+<div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Cevaplar ve çözümler</span><span class="no">13</span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 14 · FİNAL · XP RAYI VE UNVAN
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><i></i>Kimya Rotası 10</span>
+    <span class="yer">Dünya 2 · <b>Final</b></span>
+    <span class="bosluk"></span>
+    <span class="noktalar"><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="boss tam"></i></span>
+    <span class="xp">XP <span class="yaz"></span>/1400 <span class="xpbar"><i style="width:100%"></i></span></span>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 64mm;gap:4mm;align-items:center">
+    <div>
+      <span class="etiket" style="color:var(--lime-k)"><svg class="ikon"><use href="#i-bayrak"/></svg>Dünya 2 · final</span>
+      <h1 class="dev-baslik" style="font-size:46pt;margin:1.6mm 0 1.4mm">Dünya 2<br><em>tamamlandı!</em></h1>
+      <p class="slogan" style="font-size:11.5pt">XP’ni topla, unvanını al, rozetlerini say.</p>
+    </div>
+    <div class="avo-sahne" style="height:46mm">
+      <div class="balon-avo" style="width:44mm"><span class="ad">AVO</span>Artık <b>6,02·10<sup>23</sup></b> tanesini tek kelimeyle sayabiliyorsun: <b>mol</b>.</div>
+      <svg class="avo"><use href="#avo"/></svg>
+    </div>
+  </div>
+
+  <div class="kart b" style="margin-top:4mm">
+    <div class="kart-bas"><span class="dev" style="font-weight:900;font-size:15pt;letter-spacing:-.02em">XP rayı</span><span class="etiket soluk">Toplamını raya işaretle · unvanını yuvarlak içine al</span></div>
+    <div class="ray">
+      <div class="hat"></div>
+      <span class="esik" style="left:0%;transform:none">ÇAYLAK · 0</span>
+      <span class="esik" style="left:28.57%">KAŞİF · 400</span>
+      <span class="esik" style="left:57.14%">USTA · 800</span>
+      <span class="esik" style="left:82.14%">MOL EFSANESİ · 1150</span>
+      <span class="esik" style="left:100%;transform:translateX(-100%)">1400</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-top:3mm">
+      <div class="sayi-kart" style="background:#fff"><span class="etiket">0–399</span><span class="n" style="font-size:16pt">Çaylak</span><p>Rotaya çıktın. KN sayfalarındaki görevleri tekrar dene.</p></div>
+      <div class="sayi-kart" style="background:var(--lime-a)"><span class="etiket">400–799</span><span class="n" style="font-size:16pt">Kaşif</span><p>Haritayı biliyorsun. Yan görevlerle güçlen.</p></div>
+      <div class="sayi-kart" style="background:#CFEFA0"><span class="etiket">800–1149</span><span class="n" style="font-size:16pt">Usta</span><p>Her yönde geçiş yapıyorsun. Tuzaklara dikkat.</p></div>
+      <div class="sayi-kart" style="background:var(--lime)"><span class="etiket">1150–1400</span><span class="n" style="font-size:16pt">Mol Efsanesi</span><p>Dev Sayı’yı yendin. Dünya 3 seni bekliyor.</p></div>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:1.25fr 1fr;margin-top:4.4mm">
+    <div class="kart">
+      <span class="etiket" style="color:var(--mor)"><svg class="ikon"><use href="#i-xp"/></svg>XP defteri</span>
+      <table class="xp-tablo genis"><tr><th>Durak</th><th style="text-align:right">En çok</th><th>Senin XP</th></tr><tr><td>KN1 · Neden mol?</td><td class="m">100</td><td class="k"><i></i></td></tr><tr><td>KN2 · Atomun kütlesi</td><td class="m">150</td><td class="k"><i></i></td></tr><tr><td>KN3 · Mol ile tanecik</td><td class="m">150</td><td class="k"><i></i></td></tr><tr><td>KN4 · Mol ile kütle</td><td class="m">150</td><td class="k"><i></i></td></tr><tr><td>KN5 · Karışımlar</td><td class="m">150</td><td class="k"><i></i></td></tr><tr><td>Kayıt noktası · durum güncellemesi</td><td class="m">40</td><td class="k"><i></i></td></tr><tr><td>Yan görev · Kim haklı?</td><td class="m">120</td><td class="k"><i></i></td></tr><tr><td>Yan görev · Hikâye kartları</td><td class="m">120</td><td class="k"><i></i></td></tr><tr><td>Yan görev · İpucu merdiveni</td><td class="m">120</td><td class="k"><i></i></td></tr><tr><td>BOSS · bölüm testi</td><td class="m">300</td><td class="k"><i></i></td></tr><tr class="top"><td>TOPLAM</td><td class="m">1400</td><td class="k"><i style="height:7mm"></i></td></tr></table>
+    </div>
+    <div class="dikey">
+      <div class="kart sari-z">
+        <span class="etiket" style="color:var(--sari-k)">Rozet sayımı · boyadıklarını işaretle</span>
+        <div class="dikey yakin" style="gap:1.6mm;margin-top:2mm"><div style="display:flex;gap:1.6mm;align-items:center;font-size:9.5pt"><span class="kutucuk"><i></i></span><b>Paketçi</b><span class="soluk mono" style="font-size:7.4pt;margin-left:auto">KN1</span></div><div style="display:flex;gap:1.6mm;align-items:center;font-size:9.5pt"><span class="kutucuk"><i></i></span><b>İzotop Dedektifi</b><span class="soluk mono" style="font-size:7.4pt;margin-left:auto">KN2</span></div><div style="display:flex;gap:1.6mm;align-items:center;font-size:9.5pt"><span class="kutucuk"><i></i></span><b>Işınlayıcı</b><span class="soluk mono" style="font-size:7.4pt;margin-left:auto">KN3</span></div><div style="display:flex;gap:1.6mm;align-items:center;font-size:9.5pt"><span class="kutucuk"><i></i></span><b>Terazi Ustası</b><span class="soluk mono" style="font-size:7.4pt;margin-left:auto">KN4</span></div><div style="display:flex;gap:1.6mm;align-items:center;font-size:9.5pt"><span class="kutucuk"><i></i></span><b>Karışım Kaşifi</b><span class="soluk mono" style="font-size:7.4pt;margin-left:auto">KN5</span></div><div style="display:flex;gap:1.6mm;align-items:center;font-size:9.5pt"><span class="kutucuk"><i></i></span><b>Boss Avcısı</b><span class="soluk mono" style="font-size:7.4pt;margin-left:auto">10+ doğru</span></div></div>
+      </div>
+      <div class="kart mor-z" style="flex:1;display:flex;flex-direction:column">
+        <span class="etiket" style="color:var(--mor-k)">Unvan kartım</span>
+        <p style="font-size:9.6pt;margin-top:1mm">Adım: <span style="display:inline-block;width:36mm;border-bottom:.35mm dotted var(--soluk)"></span></p>
+        <p style="font-size:9.6pt;margin-top:2mm">Unvanım: <span style="display:inline-block;width:32mm;border-bottom:.35mm dotted var(--soluk)"></span></p>
+        <p style="font-size:9.6pt;margin-top:2mm">Toplam XP: <span style="display:inline-block;width:28mm;border-bottom:.35mm dotted var(--soluk)"></span></p>
+        <div class="karalama" style="margin:2.4mm 0 0;min-height:16mm;background-color:#fff"><span>unvan rozetini çiz</span></div>
+      </div>
+      <div class="kart duz" style="background:var(--murekkep);color:#fff;padding:2.4mm 3.2mm">
+        <span class="etiket" style="color:var(--sari)">Sıradaki dünya →</span>
+        <p class="dev" style="font-weight:900;font-size:16pt;letter-spacing:-.02em;margin-top:.6mm">Dünya 3 · Stokiyometri</p>
+        <p style="font-size:9.5pt;opacity:.9">Mol haritası yanında geliyor: tepkimelerde ne kadar madde gerekir?</p>
+      </div>
+    </div>
+  </div>
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Final · XP rayı ve unvan</span><span class="no">14</span></div>
+</section>
+
+</body>
+</html>
