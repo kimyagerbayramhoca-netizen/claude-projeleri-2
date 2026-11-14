@@ -287,7 +287,7 @@ ROW|Caydırıcılık|Müslümanların vurma gücünü göstermek; Medine çevres
 ROW|Kureyş'in itibarını kırmak|Evlakî'ye göre Arabistan'da Kureyş'e duyulan derin saygıyı kırmak ve bölgede rakip bir gücün varlığını ilan etmek.
 ROW|İttifak|Kabilelerle dostluk ve ittifak kurmak.
 ROW|Ekonomik baskı|Kureyş kervanlarının yolunu keserek ekonomik damarını baskı altına almak ve Bedir'e giden yolu açmak.
-ROW|Askerî okul (en önemlisi)|Otuz-altmış kişilik gruplarla keşif yapmayı, pusu kurmayı, bölgeyi ve kabileleri tanımayı öğretmek; Sallâbî'ye göre Ebû Ubeyde, Sa'd b. Ebî Vakkâs, Hâlid b. Velîd ve Amr b. Âs gibi fetih komutanları böyle yetişti.
+ROW|Askerî okul|Otuz-altmış kişilik gruplarla keşif yapmayı, pusu kurmayı, bölgeyi ve kabileleri tanımayı öğretmek; Sallâbî'ye göre Ebû Ubeyde, Sa'd b. Ebî Vakkâs, Hâlid b. Velîd ve Amr b. Âs gibi fetih komutanları böyle yetişti.
 ENDTABLE
 B1|Seriyye komutanlarına verilen talimatlar bu ordunun ahlâkını belirledi.
 B2|Allah'ın adıyla gitmeleri, yaşlıları, küçük çocukları ve kadınları öldürmemeleri, ganimete hıyanet etmeyip onu bir araya toplamaları, ıslah edip iyilik yapmaları emredildi; çünkü Allah iyilik yapanları sever (Ebû Dâvûd, 2614; Beyhakî, *es-Sünenü'l-Kübrâ*, 9/90).

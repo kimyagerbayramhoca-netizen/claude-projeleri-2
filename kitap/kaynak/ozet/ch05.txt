@@ -9,7 +9,7 @@ B1|"Allah, peygamberliğini kime vereceğini çok iyi bilir" (En'âm 6/124) âye
 B1|Sallâbî'nin ısrarla vurguladığı gibi yetimlik, çöl, çobanlık ve ticaret yolu ilâhî bir hazırlık programının basamaklarıdır; hiçbirinde insan eli yoktur.
 H2|Seçilmişlerin Seçilmişi: Nesep
 INTRO|Rasûlullah'ın (s.a.v.) nesebi hem şerefli hem temizdir.
-B1|Sallâbî'ye göre Rasûlullah soy, yaratılış ve ahlâk bakımından insanların en şereflisidir; soyunun şerefine dair sahih hadislerin en meşhuru seçilmişlik zincirini halka halka sayar.
+B1|Sallâbî'ye göre Rasûlullah soy, yaratılış ve ahlâk bakımından insanların en şereflisidir; soyunun şerefine dair sahih hadislerden biri seçilmişlik zincirini halka halka sayar.
 QUOTE|ch05-24
 B1|Evlakî bu silsileyi bir merdiven gibi okuyup Hâşimoğulları ile Peygamber arasına Abdülmuttalib ailesini koyarak beş aşamalı bir seçilme tablosu kurar (Evlakî'nin kaydıyla Müslim, Fezâil, 1; Tirmizî, Menâkıb, 1).
 B1|Evlakî'nin naklettiği bir rivayete göre insanlar onu "büyükçe bir çölün ortasında yetişen yeşil bir ağaç", yani kabilesinin en iyisi diye anıyordu.
@@ -118,7 +118,7 @@ H2|Bereketin Görünmesi
 INTRO|Bereket ilk akşamdan itibaren kendini gösterdi.
 B1|Halîme'nin göğsü sütle doldu; önce Muhammed'i, sonra kendi oğlunu doyasıya emzirdi.
 B2|Hâris'in sağdığı yaşlı deve de sütle dolmuştu; kana kana içip nice uykusuz geceden sonra tok karnına deliksiz uyudular.
-B2|Sabah Hâris, "Ey Halîme, bize bereketli bir can getirdin" dedi.
+B2|Hâris, "Ey Halîme, bize bereketli bir can getirdin" dedi.
 B1|Dönüşte kafileyi yavaşlatan zayıf merkep herkesin önüne geçti; "Bu, gelirken bindiğin hayvan değil mi?" diye şaşıran kadınlara Halîme ona bereketli bir çocuk bindirdiğini söyledi.
 B1|Kıtlık içindeki Benî Sa'd yurdunda kabilenin sürüleri akşamları aç, Halîme'nin koyunları tok ve bol sütlü dönüyordu.
 B2|İnsanlar sürülerini Hâris'in çobanının otlattığı yerde otlattırdı; ama aynı merada otlayan sürüler yine aç, Halîme'ninkiler yine tok döndü.
@@ -228,7 +228,7 @@ H2|Ficâr Savaşı ve Erdemliler Yemini
 INTRO|Gençlik yıllarının iki büyük toplumsal olayı Ficâr Savaşı ve Hilfu'l-Fudûl'du.
 B1|Hevâzin'den Urve er-Rahhâl, Ukâz panayırına mal taşıyan Nu'mân b. Münzir'in kervanını himayesine almış, Kinâneli Berrâd b. Kays onu pusuya düşürüp öldürmüştü.
 B2|Hevâzin, Harem'e sığınmalarından önce Kinâne'ye yetişti ve savaş akşama kadar sürdü; birkaç gün sonraki karşılaşmada Kureyş de Kinâne'nin yanında yer aldı.
-KAVRAM|💡 KAVRAM · FİCÂR|Mukaddes kabul edilen ayların ve Harem'in hürmeti çiğnendiği için bu savaşa verilen addır.
+KAVRAM|💡 KAVRAM · FİCÂR|Mukaddes kabul edilen Harem'in hürmeti çiğnendiği için bu savaşa verilen addır.
 B1|Amcaları onu da götürmüştü; kendisi "Amcalarıma ok toplayıp veriyordum" der (İbn Hişâm, *es-Sîre*, 1/197; *es-Sîretü'l-Halebiyye*, 1/127-129).
 B2|Sallâbî yaşının on dört-on beş, bir görüşe göre yirmi olduğunu, ok toplamasının ise küçük yaşta olduğunu destekleyen bir karine olduğunu söyler.
 B1|Ficâr'dan sonra Âs b. Vâil, Yemen'in Zebîd şehrinden ticaret malıyla gelen bir adamın malını alıp parasını vermedi; Evlakî'nin anlatımında Âs, malları satıp bedelini ödemeyi üstlenen bir vekildir.

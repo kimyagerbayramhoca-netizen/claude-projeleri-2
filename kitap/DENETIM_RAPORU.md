@@ -16,7 +16,7 @@ Bu rapor, kitabın Geniş Özet metni üzerinde yapılan iki çalışmanın sonu
   3. Hiçbir kaynakta karşılığı olmayan iddialar
   4. Anlam kayması
 - Kaynak açıkça başka bir şey söylüyorsa metin en küçük değişiklikle düzeltildi.
-- Kaynakta bulunamayan ama kaynakla çelişmeyen ifadeler silinmedi; aşağıda listelendi.
+- Kaynakta bulunamayan ama kaynakla çelişmeyen ifadeler önce olduğu gibi bırakılıp listelendi. Bunlardan 14 somut ayrıntı, kullanıcının onayıyla sonradan kaynağa uygun hâle getirildi.
 - Âyet ve hadis kutuları bu denetimin dışında tutuldu. Bunlar Arapça asıllarıyla birlikte daha önce ayrıca doğrulanmıştı.
 - Editör olarak her düzeltmeyi kaynak satırıyla yeniden karşılaştırdım ve işaretlenen şüpheli noktaları kaynakta ayrıca aradım. Bütün düzeltmeleri düzyazı kaynağa da (`kaynak/bolumler/`) işledim.
 
@@ -24,37 +24,39 @@ Bu rapor, kitabın Geniş Özet metni üzerinde yapılan iki çalışmanın sonu
 
 - **Kontrol edilenler:** 832 tablo satırı, 1.726 atıflı madde ve bunların içindeki isim, sayı ve künyeler.
 - **39 düzeltme yapıldı:** 33'ünü denetçiler, 6'sını editör yaptı. 17 bölümde değişiklik oldu, 8 bölüm kaynakla tam uyumlu çıktı.
+- **14 somut ayrıntı onayla düzeltildi:** Kaynakta karşılığı bulunmayan bu ayrıntılar kullanıcının onayıyla kaynağa uygun hâle getirildi. Böylece toplam değişiklik 53'e çıktı.
+- **20 yorum ve anlatı cümlesine dokunulmadı:** Bunlar kaynakla çelişmeyen değerlendirme ya da anlatı cümleleridir.
 - **Ters atıf:** Sallâbî–Evlakî karşılaştırma tablolarında iki müellifin görüşlerinin yer değiştirdiği hiçbir yer çıkmadı. Yalnız ch16'daki bir hücrede Evlakî'nin görüşü eksik aktarılmıştı.
 - **Yanlış kişiye bağlanan ya da eksik aktarılan görüşler:** Altı yer çıktı (ch14, ch16, ch18'de iki, ch21'de iki); hepsi düzeltildi ve aşağıda listelendi.
 
-| Bölüm | Düzeltme | Kaynakta bulunamayan (dokunulmadı) |
-|---|---|---|
-| 1 | 0 | 1 |
-| 2 | 1 | 3 |
-| 3 | 2 | 0 |
-| 4 | 0 | 3 |
-| 5 | 3 | 4 |
-| 6 | 1 | 3 |
-| 7 | 6 | 0 |
-| 8 | 0 | 4 |
-| 9 | 2 | 2 |
-| 10 | 1 | 0 |
-| 11 | 0 | 0 |
-| 12 | 2 | 1 |
-| 13 | 0 | 0 |
-| 14 | 1 | 3 |
-| 15 | 1 | 0 |
-| 16 | 2 | 2 |
-| 17 | 0 | 1 |
-| 18 | 2 | 1 |
-| 19 | 0 | 0 |
-| 20 | 0 | 1 |
-| 21 | 2 | 0 |
-| 22 | 4 | 2 |
-| 23 | 2 | 0 |
-| 24 | 3 | 1 |
-| 25 | 4 | 2 |
-| **Toplam** | **39** | **34** |
+| Bölüm | Düzeltme | Onayla düzeltilen ayrıntı | Dokunulmayan yorum/anlatı |
+|---|---|---|---|
+| 1 | 0 | 0 | 1 |
+| 2 | 1 | 1 | 2 |
+| 3 | 2 | 0 | 0 |
+| 4 | 0 | 0 | 3 |
+| 5 | 3 | 3 | 1 |
+| 6 | 1 | 1 | 2 |
+| 7 | 6 | 0 | 0 |
+| 8 | 0 | 0 | 4 |
+| 9 | 2 | 1 | 1 |
+| 10 | 1 | 0 | 0 |
+| 11 | 0 | 0 | 0 |
+| 12 | 2 | 0 | 1 |
+| 13 | 0 | 0 | 0 |
+| 14 | 1 | 0 | 3 |
+| 15 | 1 | 0 | 0 |
+| 16 | 2 | 1 | 1 |
+| 17 | 0 | 1 | 0 |
+| 18 | 2 | 1 | 0 |
+| 19 | 0 | 0 | 0 |
+| 20 | 0 | 1 | 0 |
+| 21 | 2 | 0 | 0 |
+| 22 | 4 | 2 | 0 |
+| 23 | 2 | 0 | 0 |
+| 24 | 3 | 1 | 0 |
+| 25 | 4 | 1 | 1 |
+| **Toplam** | **39** | **14** | **20** |
 
 Her bölümün ayrıntılı raporu `kaynak/denetim/chNN.md` dosyasındadır. Raporlarda her düzeltmenin önceki ve sonraki hâli kaynak satırıyla birlikte verilir.
 
@@ -115,23 +117,23 @@ Raporlardaki adlandırma:
   - "Esâs b. Kays" yerine "Şâs b. Kays" yazıldı (bkz. 2. bölüm).
   - Haham "Finhâs" adıyla tekleştirildi.
 
-### Karar bekleyenler: kaynakta karşılığı olmayan somut ayrıntılar (14)
+### Onayla düzeltilenler: kaynakta karşılığı olmayan somut ayrıntılar (14)
 
-Bu ifadeler kaynakla çelişmiyor ve çoğu tarihî olarak da bilinen bilgiler. Ancak iki kaynakta da geçmiyorlar. Önsöz "kaynaklarda bulunmayan bilgi eklenmedi" dediği için tutarlılık açısından en küçük değişiklikle düzeltilmeleri önerilir.
+Bu ifadeler kaynakla çelişmiyordu ve çoğu tarihî olarak da bilinen bilgilerdi. Ancak iki kaynakta da geçmiyorlardı. Önsöz "kaynaklarda bulunmayan bilgi eklenmedi" dediği için, kullanıcının onayıyla en küçük değişiklikle kaynağa uygun hâle getirildiler. Değişiklikler düzyazıya da işlendi.
 
-| # | Yer | Metindeki ifade | Kaynakta olan | Önerilen değişiklik |
+| # | Yer | Önceki ifade | Kaynakta olan | Yapılan değişiklik |
 |---|---|---|---|---|
 | 1 | ch02 | "Hâkim din Mecûsîlikti" | Ülkede çok sayıda din vardı; en köklü inanç Zerdüştîlikti (S1_1) | "Ülkede pek çok din bir arada bulunuyordu" |
 | 2 | ch05 | soyuna dair "sahih hadislerin en meşhuru" | "çok sayıda sahih hadis" (S1_5) | "sahih hadislerden biri" |
-| 3 | ch05 | "Sabah Hâris…" dedi | zaman kaydı yok | "Sabah" kelimesini çıkarmak |
-| 4 | ch05 | Ficâr: "mukaddes ayların ve Harem'in hürmeti" | yalnız Harem'in hürmeti (S1_5) | "ayların ve" kısmını çıkarmak |
-| 5 | ch06 | Kâsım "ilk oğuldur", Abdullah "ikinci oğuldur" | doğum sırası verilmez | sıra bilgisini çıkarmak |
+| 3 | ch05 | "Sabah Hâris…" dedi | zaman kaydı yok | "Sabah" çıkarıldı |
+| 4 | ch05 | Ficâr: "mukaddes ayların ve Harem'in hürmeti" | yalnız Harem'in hürmeti (S1_5) | "ayların ve" çıkarıldı |
+| 5 | ch06 | Kâsım "ilk oğuldur", Abdullah "ikinci oğuldur" | doğum sırası verilmez | sıra bilgisi çıkarıldı |
 | 6 | ch09 | Gizli davet: "tarihçilerin verdiği ad" | adı kimin koyduğu söylenmez | "döneme verilen ad" |
-| 7 | ch16 | "Belki en belirleyici etken Yahudi komşuluğuydu" | Sallâbî bu etkeni üçüncü sırada sayar | "Etkenlerden biri de Yahudi komşuluğuydu" |
+| 7 | ch16 | "Belki en belirleyici etken Yahudi komşuluğuydu" | Sallâbî bu etkeni üçüncü sırada sayar | "Etkenlerden biri de Yahudi komşuluğuydu" (düzyazıda "Üçüncü etken") |
 | 8 | ch17 | Beyhare görüşmesi Akabe'den "bir yıl önce" | süre verilmez | "daha önce" |
-| 9 | ch18 | Ümmü Ma'bed'in ailesi "yıllar sonra" Medine'ye geldi | süre verilmez | "sonra" |
-| 10 | ch20 | "Askerî okul (en önemlisi)" | dört sebep derece verilmeden sayılır (E16) | "(en önemlisi)" kısmını çıkarmak |
-| 11 | ch22 | istişare "ertesi gün" yapıldı | "ertesi gün" yalnız ağlama sahnesi için geçer | "ertesi gün" kısmını çıkarmak |
+| 9 | ch18 | Ümmü Ma'bed'in ailesi "yıllar sonra" Medine'ye geldi | süre verilmez | "sonradan" |
+| 10 | ch20 | "Askerî okul (en önemlisi)" | dört sebep derece verilmeden sayılır (E16) | "(en önemlisi)" çıkarıldı; düzyazıda "Hepsinden önemlisi" yerine "Ayrıca" |
+| 11 | ch22 | istişare "ertesi gün" yapıldı | "ertesi gün" yalnız ağlama sahnesi için geçer | "ertesi gün" çıkarıldı |
 | 12 | ch22 | Hz. Sevde "taziyeden" dönüyordu | "yanındaydım" (S8_5) | "yanından dönünce" |
 | 13 | ch24 | "kervan ortaklarından" yardım istediler | muhatap "Ey Kureyşliler!" (S9_1) | "Kureyşlilerden" |
 | 14 | ch25 | Amr b. Cemûh için "topal bir ihtiyar" | yalnız topal olduğu ve dört oğlu yazılı | "topal bir sahâbî" |

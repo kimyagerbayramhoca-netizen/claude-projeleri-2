@@ -13,7 +13,7 @@ Ali Muhammed Sallâbî'nin *Siyer-i Nebî* (1. cilt) ve Enver el-Evlakî'nin *Ra
 |---|---|
 | `Alemlere_Rahmet_Siyer-i_Nebi.docx` | Word sürümü (A4, 448 sayfa). İlk açılışta içindekiler tablosunu güncellemek için "Evet" deyin. |
 | `Alemlere_Rahmet_Siyer-i_Nebi.pdf` | PDF sürümü. |
-| `DENETIM_RAPORU.md` | Kaynağa sadakat denetiminin ve yazım birliğinin sonuçları; karar bekleyen 14 madde. |
+| `DENETIM_RAPORU.md` | Kaynağa sadakat denetiminin ve yazım birliğinin sonuçları; onayla düzeltilen 14 ayrıntının listesi. |
 | `kaynak/denetim/` | Bölüm bölüm denetim raporları (`ch01.md` … `ch25.md`) ve denetim kılavuzu. |
 | `kaynak/ozet/` | Kitabın Geniş Özet satırları: `onsoz.txt`, `ch01.txt` … `ch25.txt`, `sonsoz.txt`. |
 | `kaynak/bolumler/`, `kaynak/on-arka/` | Maddeleştirmenin dayandığı düzyazı metin (25 bölüm, Önsöz, Sonsöz, Kronoloji). |
@@ -47,7 +47,7 @@ Ali Muhammed Sallâbî'nin *Siyer-i Nebî* (1. cilt) ve Enver el-Evlakî'nin *Ra
 
 - 25 bölümün bütün madde, tablo ve kutu satırları iki kaynağın metniyle tek tek karşılaştırıldı: 832 tablo satırı ve 1.726 atıflı madde.
 - Toplam 39 düzeltme yapıldı ve hepsi düzyazı kaynağa da işlendi. Bunlar arasında anlamı tersine dönmüş cümleler, yanlış kişiye bağlanmış görüşler ve yanlış maddeye bağlanmış künyeler var.
-- Kaynakta karşılığı bulunamayan 14 küçük somut ayrıntı karar için listelendi.
+- Kaynakta karşılığı bulunamayan 14 küçük somut ayrıntı da onayla kaynağa uygun hâle getirildi.
 - Ayrıntılar `DENETIM_RAPORU.md` ve `kaynak/denetim/` içindedir.
 
 ## Yeniden üretmek

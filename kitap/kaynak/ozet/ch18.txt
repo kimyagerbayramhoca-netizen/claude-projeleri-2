@@ -119,7 +119,7 @@ B1|Ebû Ma'bed, "Vallahi bu, Kureyş'in aradığı o adamdır" dedi.
 B1|Sallâbî, Mekke'de sesi duyulup kendisi görülmeyen birinin "Ümmü Ma'bed'in çadırına konan iki yoldaşa insanların Rabbi en güzel mükâfatı versin" diye başlayan beyitler okuduğunu da nakleder.
 TABLE|Konu|Sallâbî|Evlakî
 ROW|Sağılan cılız hayvan|Koyun|Keçi
-ROW|Ailenin sonraki hâli|Sürü Rasûlullah'ın bereketiyle çoğaldı; yıllar sonra Medine'ye mal satmaya geldiğinde oğlu, Ebû Bekir'i tanıdı ve Ebû Bekir onu Rasûlullah'a götürdü; Ümmü Ma'bed Müslüman olup kocasıyla birlikte hicret etti.|Aile bu hadiseden sonra Müslüman oldu; ara ara Medine'ye gelip hediye getirdiler, Rasûlullah da onlara ikramda bulundu.
+ROW|Ailenin sonraki hâli|Sürü Rasûlullah'ın bereketiyle çoğaldı; sonradan Medine'ye mal satmaya geldiğinde oğlu, Ebû Bekir'i tanıdı ve Ebû Bekir onu Rasûlullah'a götürdü; Ümmü Ma'bed Müslüman olup kocasıyla birlikte hicret etti.|Aile bu hadiseden sonra Müslüman oldu; ara ara Medine'ye gelip hediye getirdiler, Rasûlullah da onlara ikramda bulundu.
 ENDTABLE
 H2|Sürâka: Takipçiden Muhafıza
 INTRO|Ödül peşinde yola çıkan Sürâka b. Mâlik, atı sürçüp kuma gömülünce eman diledi; sabah takipçi olduğu yolcuların akşam muhafızı oldu.

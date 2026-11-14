@@ -34,8 +34,8 @@ B1|Rasûlullah kabul edip amcalarına açtı; onların muvafakatiyle amcası Ham
 B1|Damat yirmi beş, gelin kırk yaşındaydı; Evlakî'ye göre Hatice iki kez evlenmiş bir duldu, Rasûlullah ise bekârdı.
 B1|Hatice onun ilk eşiydi; o hayattayken Rasûlullah başka bir kadınla evlenmedi ve hayatta kalan bütün çocukları ondandı.
 TABLE|Çocuk|Hayatı
-ROW|Kâsım|İlk oğuldur; Rasûlullah onunla künyelendi, Kâsım ata binecek yaşa gelince vefat etti.
-ROW|Abdullah|Tâhir ve Tayyib lakaplı ikinci oğuldur; bi'setten önce çok küçükken öldü.
+ROW|Kâsım|Rasûlullah onunla künyelendi; Kâsım ata binecek yaşa gelince vefat etti.
+ROW|Abdullah|Tâhir ve Tayyib lakaplarıyla anılır; bi'setten önce çok küçükken öldü.
 ROW|Zeyneb, Rukiyye, Ümmü Gülsüm ve Fâtıma (r.anhünne)|Müslüman oldular, Medine'ye hicret ettiler ve evlendiler.
 ENDTABLE
 B1|Evlakî'ye göre Rasûlullah'ın nesli yalnızca Hz. Fâtıma ile Hz. Ali'nin (r.a.) evliliğinden, Hasan ve Hüseyin (r.anhümâ) üzerinden sürmüştür.
