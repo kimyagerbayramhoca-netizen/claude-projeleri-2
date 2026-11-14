@@ -93,7 +93,7 @@ b, strong { font-weight: 800; }
 .hud .akce .bar i { display: block; height: 100%; background: var(--altin); }
 
 /* ---------- ALTBİLGİ ---------- */
-.alt { position: absolute; left: 13mm; right: 13mm; bottom: 8.6mm; display: flex; justify-content: space-between; align-items: center;
+.alt { position: absolute; left: 13mm; right: 13mm; bottom: 7.8mm; display: flex; justify-content: space-between; align-items: center;
   font-family: var(--f-kufi); font-size: 7.6pt; letter-spacing: .08em; text-transform: uppercase; color: var(--soluk); }
 .alt .no { position: relative; width: 9mm; height: 9mm; display: grid; place-items: center; color: #fff; font-size: 10pt; font-weight: 700; letter-spacing: 0; }
 .alt .no svg { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -194,8 +194,8 @@ b, strong { font-weight: 800; }
 .isaretler .is span { display: block; white-space: nowrap; font-size: 8.6pt; line-height: 1.1; color: var(--soluk); }
 
 /* ---------- DURAK BAŞLIĞI ---------- */
-.durak-bas { display: grid; grid-template-columns: 24mm 1fr 64mm; gap: 3.6mm; align-items: center; }
-.durak-bas svg.madalyon { width: 24mm; height: 24mm; }
+.durak-bas { display: grid; grid-template-columns: 22mm 1fr 64mm; gap: 3.6mm; align-items: center; }
+.durak-bas svg.madalyon { width: 22mm; height: 22mm; }
 .durak-bas .ust { font-family: var(--f-kufi); font-weight: 600; font-size: 8.4pt; letter-spacing: .08em; color: var(--altin-k); text-transform: uppercase; }
 .durak-bas h1 { font-family: var(--f-kufi); font-weight: 700; font-size: 30pt; line-height: 1.02; color: var(--lacivert-k); margin: .6mm 0 .8mm; }
 .durak-bas h1 em { font-style: normal; color: var(--bordo); }
@@ -230,7 +230,9 @@ b, strong { font-weight: 800; }
   border-radius: 4mm; padding: .7mm 3.6mm .9mm; font-family: var(--f-kufi); font-weight: 700; font-size: 9pt; letter-spacing: .12em; color: var(--bordo); white-space: nowrap;
   display: flex; align-items: center; gap: 1.4mm; }
 .medeniyet .bas svg { width: 3.6mm; height: 3.6mm; }
-.medeniyet .ic { padding: 1.8mm 3.4mm 1.6mm; display: grid; grid-template-columns: 10mm 1fr; gap: 2.4mm; }
+.medeniyet .ic { padding: 1.8mm 3.4mm 1.2mm; }
+.medeniyet .zh { font-family: var(--f-kufi); font-size: 8pt; letter-spacing: .05em; color: var(--altin-k); text-transform: uppercase; }
+.medeniyet .zh svg { width: 6.6mm; height: 6.6mm; vertical-align: -2mm; margin-right: 1mm; }
 .medeniyet .ic > svg { width: 10mm; height: 10mm; }
 .medeniyet .sunan { font-family: var(--f-kufi); font-size: 8pt; letter-spacing: .05em; color: var(--altin-k); text-transform: uppercase; }
 .medeniyet .metin { font-family: var(--f-amiri); font-size: 10.6pt; line-height: 1.22; }
@@ -253,7 +255,7 @@ ol.akis li:not(:last-child)::before { content: ""; position: absolute; left: 2.6
 .sonuc b { font-size: 11pt; font-weight: 800; }
 
 /* ---------- MOL HARİTASI ---------- */
-.mol-harita svg { width: 90%; display: block; margin: .6mm auto 0; }
+.mol-harita svg { width: 86%; display: block; margin: .6mm auto 0; }
 
 /* ---------- HAZİNE KARTI ---------- */
 .hazine { position: relative; display: grid; grid-template-columns: 10.5mm 1fr; gap: 2.6mm; align-items: center; background: var(--beyaz);
@@ -295,6 +297,7 @@ ol.akis li:not(:last-child)::before { content: ""; position: absolute; left: 2.6
 /* ---------- SORU SAYFASI: başlık ---------- */
 .yan-bas { display: grid; grid-template-columns: 20mm 1fr 70mm; gap: 3.6mm; align-items: center; }
 .yan-bas svg.madalyon { width: 20mm; height: 20mm; }
+.yan-bas .hedef-kart p { font-size: 10pt !important; line-height: 1.15; }
 
 /* ---------- MECLİS: KİM HAKLI? ---------- */
 .meclis { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
@@ -350,7 +353,7 @@ ul.yargi li b { font-family: var(--f-kufi); color: var(--lacivert); font-weight:
 .merdiven .sol { display: flex; flex-direction: column; gap: 1.6mm; }
 .merdiven .no-soru { display: grid; grid-template-columns: 9mm 1fr; gap: 2mm; align-items: start; }
 .merdiven .no-soru > span { font-family: var(--f-kufi); font-weight: 700; font-size: 22pt; line-height: .9; color: var(--lacivert); }
-.cozum-satir { border-bottom: .3mm dotted var(--soluk); height: 6.6mm; }
+.cozum-satir { border-bottom: .3mm dotted var(--soluk); height: 5.8mm; }
 .cozum-bas { font-family: var(--f-kufi); font-size: 7.6pt; letter-spacing: .08em; color: var(--soluk); }
 .akce-hesap { display: flex; align-items: center; gap: 1.4mm; flex-wrap: wrap; font-family: var(--f-kufi); font-size: 8.6pt; margin-top: auto; }
 .akce-hesap .k { width: 8mm; height: 6mm; border: .35mm solid var(--murekkep); border-radius: 1mm; background: var(--beyaz); display: inline-block; }
@@ -366,8 +369,14 @@ ul.yargi li b { font-family: var(--f-kufi); color: var(--lacivert); font-weight:
 /* ---------- MUHASEBE ---------- */
 .muhasebe .satir { display: grid; grid-template-columns: 1fr 7.6mm 7.6mm 7.6mm; gap: .8mm; align-items: center; padding: .9mm 0; border-bottom: .25mm dashed var(--cizgi); font-size: 9.8pt; line-height: 1.12; }
 .muhasebe .satir.bas { border-bottom: .3mm solid var(--murekkep); padding-top: 0; }
-.muhasebe .satir.bas span { font-family: var(--f-kufi); font-size: 7.2pt; letter-spacing: .03em; text-align: center; color: var(--soluk); line-height: 1.05; }
+.muhasebe .satir.bas span { font-family: var(--f-kufi); font-size: 6.6pt; letter-spacing: 0; text-align: center; color: var(--soluk); line-height: 1.05; }
 .muhasebe .satir svg { width: 4.6mm; height: 4.6mm; justify-self: center; }
 .muhasebe .toplam { display: flex; align-items: center; gap: 1mm; flex-wrap: wrap; margin-top: 1.6mm; font-family: var(--f-kufi); font-size: 8.2pt; line-height: 1.6; }
 .muhasebe .toplam .k { width: 8mm; height: 6mm; border: .35mm solid var(--murekkep); border-radius: 1mm; background: var(--beyaz); display: inline-block; }
 .muhasebe .toplam .k.g { width: 12mm; border-color: var(--altin-k); background: var(--altin-a); }
+
+.sohbet-not { margin-top: auto; display: grid; grid-template-columns: 5mm 1fr; gap: 1.6mm; align-items: center; border-top: .3mm dashed var(--cizgi); padding-top: 1.6mm;
+  font-family: var(--f-markazi); font-size: 12pt; line-height: 1.05; color: var(--soluk); }
+.sohbet-not svg { width: 5mm; height: 5mm; }
+.muhur-yeri { position: absolute; right: 2.6mm; top: 1.6mm; width: 12mm; height: 12mm; }
+.muhur-yeri svg { width: 12mm; height: 12mm; transform: rotate(-10deg); opacity: .9; }
