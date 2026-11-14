@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Kimya Rotası 10 · Konsept A · Selçuklu Kervan Yolu</title>
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+
+<!-- =====================================================================
+     ORTAK SVG SEMBOLLERİ
+     ===================================================================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- 8 köşeli Selçuklu yıldızı (iki kare): viewBox -10 -10 20 20, r = 9.6 -->
+    <symbol id="yildiz8" viewBox="-10 -10 20 20" overflow="visible">
+      <polygon points="0,-9.6 -2.81,-6.79 -6.79,-6.79 -6.79,-2.81 -9.6,0 -6.79,2.81 -6.79,6.79 -2.81,6.79 0,9.6 2.81,6.79 6.79,6.79 6.79,2.81 9.6,0 6.79,-2.81 6.79,-6.79 2.81,-6.79" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Kervansaray taç kapısı (Han) -->
+    <symbol id="han-kapi" viewBox="0 0 24 28">
+      <rect x="1" y="2.6" width="22" height="24.6" rx=".8" fill="#F2E3D2" stroke="#1D2440" stroke-width="1.2"/>
+      <rect x="1" y="2.6" width="22" height="4.2" fill="#1F4FA3" stroke="#1D2440" stroke-width="1.2"/>
+      <path d="M2.4 5.9 l1.3 -2 l1.3 2 l1.3 -2 l1.3 2 l1.3 -2 l1.3 2 l1.3 -2 l1.3 2 l1.3 -2 l1.3 2 l1.3 -2 l1.3 2 l1.3 -2 l1.3 2 l1.3 -2" fill="none" stroke="#E0A126" stroke-width=".55"/>
+      <rect x="3.4" y="8.6" width="17.2" height="18.6" fill="none" stroke="#A2643C" stroke-width=".5"/>
+      <path d="M6.2 27.2 L6.2 16.6 Q6.2 11.6 12 9.6 Q17.8 11.6 17.8 16.6 L17.8 27.2 Z" fill="#159A9C" stroke="#1D2440" stroke-width="1"/>
+      <path d="M7.6 15.4 q1.1 -1.7 2.2 0 q1.1 -1.7 2.2 0 q1.1 -1.7 2.2 0 q1.1 -1.7 2.2 0" fill="none" stroke="#DCF1EE" stroke-width=".55"/>
+    </symbol>
+
+    <!-- Kale (Büyük İmtihan) -->
+    <symbol id="kale" viewBox="0 0 40 36">
+      <path d="M20 3.2 L20 9.4" stroke="#1D2440" stroke-width=".9"/>
+      <path d="M20 3.2 L26 4.8 L20 6.4 Z" fill="#D2463A" stroke="#1D2440" stroke-width=".6" stroke-linejoin="round"/>
+      <path d="M11 35 L11 15 L13 15 L13 12.6 L15.6 12.6 L15.6 15 L18.6 15 L18.6 12.6 L21.4 12.6 L21.4 15 L24.4 15 L24.4 12.6 L27 12.6 L27 15 L29 15 L29 35 Z" fill="#F7DDD5" stroke="#1D2440" stroke-width="1.1" stroke-linejoin="round"/>
+      <path d="M2 35 L2 10.6 L3.8 10.6 L3.8 8 L6.2 8 L6.2 10.6 L7.8 10.6 L7.8 8 L10.2 8 L10.2 10.6 L12 10.6 L12 35 Z" fill="#F2C3B7" stroke="#1D2440" stroke-width="1.1" stroke-linejoin="round"/>
+      <path d="M28 35 L28 10.6 L29.8 10.6 L29.8 8 L32.2 8 L32.2 10.6 L33.8 10.6 L33.8 8 L36.2 8 L36.2 10.6 L38 10.6 L38 35 Z" fill="#F2C3B7" stroke="#1D2440" stroke-width="1.1" stroke-linejoin="round"/>
+      <path d="M15.4 35 L15.4 26 Q15.4 21 20 19.4 Q24.6 21 24.6 26 L24.6 35 Z" fill="#9A2A20" stroke="#1D2440" stroke-width="1"/>
+      <path d="M5.6 16 l1.4 -1.6 l1.4 1.6 v3 h-2.8 Z M31.6 16 l1.4 -1.6 l1.4 1.6 v3 h-2.8 Z" fill="#1D2440"/>
+      <path d="M2 23.6 H12 M28 23.6 H38" stroke="#D2463A" stroke-width=".6"/>
+    </symbol>
+
+    <!-- Deve (kervan) -->
+    <symbol id="deve" viewBox="0 0 24 16">
+      <path d="M4 9 Q4 5.6 7 5 Q8.6 1.8 10.6 4.6 Q12.6 1.8 14.6 5 Q16.6 5.4 17 7.4 L18.1 3.8 Q18.7 2.1 20.5 2.4 L21.8 3.1 L21.3 4.1 L20 4.1 L18.9 9 Q18.1 10.6 16.4 10.6 L6 10.6 Q4 10.6 4 9 Z" fill="#A2643C"/>
+      <path d="M6.2 10 V15.4 M8.2 10 V15.4 M14.4 10 V15.4 M16.4 10 V15.4" stroke="#A2643C" stroke-width="1.1" stroke-linecap="round"/>
+      <path d="M4.3 7.6 Q2.6 8.4 3.1 10.8" fill="none" stroke="#A2643C" stroke-width=".7" stroke-linecap="round"/>
+      <path d="M8.4 5.4 h4.6 v3.2 h-4.6 Z" fill="#D2463A" opacity=".85"/>
+    </symbol>
+
+    <!-- Akçe (sikke) -->
+    <symbol id="akce" viewBox="0 0 20 20">
+      <circle cx="10" cy="10" r="8.8" fill="#E0A126" stroke="#87580A" stroke-width="1.2"/>
+      <circle cx="10" cy="10" r="6.4" fill="none" stroke="#FBEFD3" stroke-width=".8"/>
+      <use href="#yildiz8" x="6.4" y="6.4" width="7.2" height="7.2" fill="#FBEFD3"/>
+    </symbol>
+    <symbol id="sikke-bos" viewBox="0 0 20 20">
+      <circle cx="10" cy="10" r="8.6" fill="#fff" stroke="#87580A" stroke-width="1.1"/>
+      <circle cx="10" cy="10" r="6.2" fill="none" stroke="#E0A126" stroke-width=".6" stroke-dasharray="1.2 1"/>
+    </symbol>
+    <symbol id="sikke-yari" viewBox="0 0 20 20">
+      <circle cx="10" cy="10" r="8.6" fill="#fff" stroke="#87580A" stroke-width="1.1"/>
+      <path d="M10 1.4 A8.6 8.6 0 0 0 10 18.6 Z" fill="#E0A126"/>
+      <circle cx="10" cy="10" r="8.6" fill="none" stroke="#87580A" stroke-width="1.1"/>
+    </symbol>
+
+    <!-- Nişan çerçevesi -->
+    <symbol id="nisan-cerceve" viewBox="0 0 40 40">
+      <use href="#yildiz8" x="1" y="1" width="38" height="38" fill="#FFFDF8" stroke="#1D2440" stroke-width=".72"/>
+      <circle cx="20" cy="20" r="11.6" fill="none" stroke="#E0A126" stroke-width=".7" stroke-dasharray="1.6 1.2"/>
+    </symbol>
+
+    <!-- YANLIŞ mührü -->
+    <symbol id="muhur-yanlis" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="18.2" fill="rgba(255,255,255,.55)" stroke="#D2463A" stroke-width="1.8"/>
+      <circle cx="20" cy="20" r="14.8" fill="none" stroke="#D2463A" stroke-width=".7"/>
+      <use href="#yildiz8" x="17.4" y="6.2" width="5.2" height="5.2" fill="#D2463A"/>
+      <use href="#yildiz8" x="17.4" y="28.6" width="5.2" height="5.2" fill="#D2463A"/>
+      <text x="20" y="23" text-anchor="middle" font-family="El Messiri, DejaVu Sans" font-weight="700" font-size="7" fill="#D2463A" letter-spacing=".2">YANLIŞ</text>
+    </symbol>
+
+    <!-- İkonlar (24×24) -->
+    <symbol id="i-gorev" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.6" fill="#fff" stroke="#1D2440" stroke-width="1.8"/><path d="M12 4.6 L14.4 12 L12 19.4 L9.6 12 Z" fill="#D2463A" stroke="#1D2440" stroke-width="1.1" stroke-linejoin="round"/><path d="M12 12 L14.4 12 L12 19.4 Z" fill="#1F4FA3"/><circle cx="12" cy="12" r="1.3" fill="#fff" stroke="#1D2440" stroke-width=".8"/></symbol>
+    <symbol id="i-anahtar" viewBox="0 0 24 24"><circle cx="7.4" cy="12" r="4.4" fill="#E0A126" stroke="#1D2440" stroke-width="1.7"/><circle cx="7.4" cy="12" r="1.5" fill="#fff" stroke="#1D2440" stroke-width="1"/><path d="M11.8 12 H21.6 M18 12 V15.6 M20.6 12 V14.6" stroke="#1D2440" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-kilit" viewBox="0 0 24 24"><path d="M7.6 10.6 V7.8 a4.4 4.4 0 0 1 8.8 0 V10.6" fill="none" stroke="#1D2440" stroke-width="1.9"/><rect x="5" y="10.6" width="14" height="10.2" rx="2" fill="#E3EAF7" stroke="#1D2440" stroke-width="1.8"/><circle cx="12" cy="15" r="1.5" fill="#1F4FA3"/><path d="M12 15.6 V18" stroke="#1F4FA3" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-tuzak" viewBox="0 0 24 24"><path d="M12 3 L22 20.4 H2 Z" fill="#D2463A" stroke="#1D2440" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 9.2 V14.4" stroke="#fff" stroke-width="2.1" stroke-linecap="round"/><circle cx="12" cy="17.4" r="1.2" fill="#fff"/></symbol>
+    <symbol id="i-tuzak-b" viewBox="0 0 24 24"><path d="M12 3 L22 20.4 H2 Z" fill="#fff" stroke="#1D2440" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 9.2 V14.4" stroke="#D2463A" stroke-width="2.1" stroke-linecap="round"/><circle cx="12" cy="17.4" r="1.2" fill="#D2463A"/></symbol>
+    <symbol id="i-hazine" viewBox="0 0 24 24"><path d="M3.4 11 V8.6 Q3.4 4.6 12 4.6 Q20.6 4.6 20.6 8.6 V11 Z" fill="#E0A126" stroke="#1D2440" stroke-width="1.6" stroke-linejoin="round"/><rect x="3.4" y="11" width="17.2" height="8.6" rx="1" fill="#A2643C" stroke="#1D2440" stroke-width="1.6"/><rect x="10.2" y="9.4" width="3.6" height="4.4" rx=".8" fill="#FBEFD3" stroke="#1D2440" stroke-width="1"/><path d="M7.2 11 V19.6 M16.8 11 V19.6" stroke="#E0A126" stroke-width="1"/></symbol>
+    <symbol id="i-hulasa" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="16" rx="1" fill="#DCF1EE" stroke="#1D2440" stroke-width="1.6"/><path d="M3 5.6 a2 2 0 0 1 4 0 V18.4 a2 2 0 0 1 -4 0 Z M17 5.6 a2 2 0 0 1 4 0 V18.4 a2 2 0 0 1 -4 0 Z" fill="#159A9C" stroke="#1D2440" stroke-width="1.3"/><path d="M8.6 8.6 H15.4 M8.6 11.6 H15.4 M8.6 14.6 H13" stroke="#1D2440" stroke-width="1.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-meclis" viewBox="0 0 24 24"><path d="M2.6 4.4 H14.6 V12.6 H8 L4.6 15.4 V12.6 H2.6 Z" fill="#FBE4DE" stroke="#1D2440" stroke-width="1.5" stroke-linejoin="round"/><path d="M9.4 9.4 H21.4 V17.6 H19.4 V20.4 L16 17.6 H9.4 Z" fill="#DCF1EE" stroke="#1D2440" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12.6" cy="13.6" r=".9" fill="#1D2440"/><circle cx="15.4" cy="13.6" r=".9" fill="#1D2440"/><circle cx="18.2" cy="13.6" r=".9" fill="#1D2440"/></symbol>
+    <symbol id="i-kissa" viewBox="0 0 24 24"><path d="M12 6.4 Q7.6 4 2.6 5 V19 Q7.6 18 12 20.2 Q16.4 18 21.4 19 V5 Q16.4 4 12 6.4 Z" fill="#E3EAF7" stroke="#1D2440" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 6.4 V20.2" stroke="#1D2440" stroke-width="1.3"/><path d="M5 9 Q7.4 8.6 9.6 9.6 M5 12 Q7.4 11.6 9.6 12.6 M14.4 9.6 Q16.6 8.6 19 9 M14.4 12.6 Q16.6 11.6 19 12" stroke="#1F4FA3" stroke-width="1" fill="none"/></symbol>
+    <symbol id="i-medeniyet" viewBox="0 0 24 24"><use href="#yildiz8" x="1.2" y="1.2" width="21.6" height="21.6" fill="#FBEFD3" stroke="#87580A" stroke-width="1.2"/><circle cx="12" cy="12" r="4.4" fill="#E0A126" stroke="#87580A" stroke-width="1"/><use href="#yildiz8" x="9.6" y="9.6" width="4.8" height="4.8" fill="#FFFBF1"/></symbol>
+    <symbol id="i-makas" viewBox="0 0 24 24"><circle cx="6" cy="7" r="3" fill="none" stroke="#5B6079" stroke-width="1.6"/><circle cx="6" cy="17" r="3" fill="none" stroke="#5B6079" stroke-width="1.6"/><path d="M8.4 8.6 L21 17 M8.4 15.4 L21 7" stroke="#5B6079" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-terazi" viewBox="0 0 24 24"><path d="M12 3.6 V20 M7.4 20.4 H16.6 M4 6.6 H20" stroke="#1D2440" stroke-width="1.6" stroke-linecap="round"/><path d="M4 6.6 L1.6 13 H6.4 Z M20 6.6 L17.6 13 H22.4 Z" fill="#E0A126" stroke="#1D2440" stroke-width="1.2" stroke-linejoin="round"/><circle cx="12" cy="3.6" r="1.4" fill="#1F4FA3"/></symbol>
+
+    <!-- Avatarlar (40×40) -->
+    <clipPath id="kirp"><circle cx="20" cy="20" r="18.3"/></clipPath>
+    <symbol id="av-elif" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="19" fill="#D2463A" stroke="#1D2440" stroke-width="1.4"/>
+      <g clip-path="url(#kirp)">
+        <path d="M9.4 24 Q8 9 20 8.4 Q32 9 30.6 24 L31.4 33 Q20 35 8.6 33 Z" fill="#3A2420"/>
+        <path d="M7 40 Q8.6 30.4 20 30 Q31.4 30.4 33 40 Z" fill="#FBEFD3" stroke="#1D2440" stroke-width="1"/>
+        <path d="M17.6 30.2 L20 33 L22.4 30.2" fill="none" stroke="#1D2440" stroke-width=".8"/>
+      </g>
+      <rect x="17.4" y="26.6" width="5.2" height="4.4" fill="#F2C8A6"/>
+      <ellipse cx="20" cy="20.8" rx="7.8" ry="8.4" fill="#F5D3B5" stroke="#1D2440" stroke-width="1"/>
+      <path d="M12.2 19 Q13.4 11.2 20 11 Q27 11.2 28 19 Q24.4 14.8 20.6 15.6 Q15.4 15 12.2 19 Z" fill="#3A2420"/>
+      <circle cx="17" cy="21.4" r="1" fill="#1D2440"/><circle cx="23" cy="21.4" r="1" fill="#1D2440"/>
+      <circle cx="15.2" cy="24.2" r="1.3" fill="#F2A08E" opacity=".8"/><circle cx="24.8" cy="24.2" r="1.3" fill="#F2A08E" opacity=".8"/>
+      <path d="M17.6 25 Q20 27 22.4 25" fill="none" stroke="#1D2440" stroke-width=".9" stroke-linecap="round"/>
+      <circle cx="32" cy="8" r="4.6" fill="#E0A126" stroke="#1D2440" stroke-width="1"/>
+      <text x="32" y="10.4" text-anchor="middle" font-family="El Messiri, DejaVu Sans" font-weight="700" font-size="6.4" fill="#1D2440">?</text>
+    </symbol>
+    <symbol id="av-yusuf" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="19" fill="#159A9C" stroke="#1D2440" stroke-width="1.4"/>
+      <g clip-path="url(#kirp)">
+        <path d="M7 40 Q8.6 30.4 20 30 Q31.4 30.4 33 40 Z" fill="#1F4FA3" stroke="#1D2440" stroke-width="1"/>
+        <path d="M16.4 30.4 Q20 33.4 23.6 30.4" fill="none" stroke="#FBEFD3" stroke-width="1"/>
+      </g>
+      <rect x="17.4" y="26.6" width="5.2" height="4" fill="#D9A47E"/>
+      <ellipse cx="20" cy="20.8" rx="7.8" ry="8.4" fill="#E8B892" stroke="#1D2440" stroke-width="1"/>
+      <path d="M11.8 19.6 Q11 10.2 20 10.2 Q29 10.2 28.2 19.6 Q26.6 14.6 20 15 Q13.4 14.6 11.8 19.6 Z" fill="#2A1C18"/>
+      <circle cx="16.8" cy="21.4" r="2.7" fill="#fff" fill-opacity=".35" stroke="#1D2440" stroke-width=".9"/>
+      <circle cx="23.2" cy="21.4" r="2.7" fill="#fff" fill-opacity=".35" stroke="#1D2440" stroke-width=".9"/>
+      <path d="M19.5 21.2 H20.5" stroke="#1D2440" stroke-width=".9"/>
+      <circle cx="16.8" cy="21.6" r=".9" fill="#1D2440"/><circle cx="23.2" cy="21.6" r=".9" fill="#1D2440"/>
+      <path d="M17.8 25.4 Q20 26.6 22.2 25.4" fill="none" stroke="#1D2440" stroke-width=".9" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="av-pamuk" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="19" fill="#E3EAF7" stroke="#1D2440" stroke-width="1.4"/>
+      <path d="M9.6 17 L8.8 6.6 L16.4 12.4 Z M30.4 17 L31.2 6.6 L23.6 12.4 Z" fill="#fff" stroke="#1D2440" stroke-width="1.1" stroke-linejoin="round"/>
+      <path d="M10.6 14.6 L10.2 9.4 L14 12.4 Z M29.4 14.6 L29.8 9.4 L26 12.4 Z" fill="#F4B6AE"/>
+      <ellipse cx="20" cy="22" rx="12" ry="10.4" fill="#fff" stroke="#1D2440" stroke-width="1.1"/>
+      <path d="M14.6 13.4 Q20 9.6 25.4 13.4 Q23 17 20 16.6 Q17 17 14.6 13.4 Z" fill="#C9773A"/>
+      <circle cx="15.4" cy="21.4" r="2.6" fill="#3C8DD9" stroke="#1D2440" stroke-width=".7"/>
+      <circle cx="24.6" cy="21.4" r="2.6" fill="#E0A126" stroke="#1D2440" stroke-width=".7"/>
+      <ellipse cx="15.4" cy="21.6" rx=".9" ry="1.6" fill="#1D2440"/><ellipse cx="24.6" cy="21.6" rx=".9" ry="1.6" fill="#1D2440"/>
+      <circle cx="16.2" cy="20.6" r=".6" fill="#fff"/><circle cx="25.4" cy="20.6" r=".6" fill="#fff"/>
+      <path d="M18.8 25 H21.2 L20 26.4 Z" fill="#E98A8A" stroke="#1D2440" stroke-width=".5" stroke-linejoin="round"/>
+      <path d="M17.8 27.6 Q19 28.8 20 27.4 Q21 28.8 22.2 27.6" fill="none" stroke="#1D2440" stroke-width=".7" stroke-linecap="round"/>
+      <path d="M6.6 24.4 L13 25.4 M6.8 27.6 L13 26.8 M33.4 24.4 L27 25.4 M33.2 27.6 L27 26.8" stroke="#5B6079" stroke-width=".5" stroke-linecap="round"/>
+    </symbol>
+
+    <marker id="ok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#1D2440"/></marker>
+    <marker id="ok-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#1F4FA3"/></marker>
+    <marker id="ok-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#B9AE98"/></marker>
+  </defs>
+</svg>
+
+<!-- =====================================================================
+     SAYFA 1 · YOL AÇILIŞI
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#E0A126"/><circle r="3" fill="#15377A"/></svg>Kimya Rotası 10</span>
+    <span class="yer">Kervan Yolu 2 · <b>Yola çıkış</b></span>
+    <span class="bosluk"></span>
+    <span class="duraklar">
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="0 0 40 36" style="width:4.6mm;height:4.2mm"><use href="#kale"/></svg>
+    </span>
+    <span class="akce"><svg><use href="#akce"/></svg>Akçe <span class="yaz"></span>/1400 <span class="bar"><i style="width:0%"></i></span></span>
+  </div>
+
+  <div class="acilis">
+    <div>
+      <div class="cipler"><span class="cip koyu buyuk">Kervan Yolu 2</span><span class="cip buyuk">10. sınıf · Tema 1 · Bölüm 2</span></div>
+      <h1 class="dev-baslik"><span class="k">Mol</span> <em>Kavramı</em></h1>
+      <p class="slogan">“Damlaya damlaya göl olur”: tek tek taneciklerden mole.</p>
+      <div class="cipler">
+        <span class="cip">5 han</span><span class="cip">3 yan yol</span><span class="cip mercan">1 kale</span><span class="cip akce">1400 akçe</span>
+      </div>
+    </div>
+    <div class="pamuk-sahne">
+      <div class="balon-p"><div class="kim">Pamuk · yol rehberin</div>Miyav! Bu yolda <b>6,02·10<sup>23</sup></b> tane şeyi saymayı öğreneceğiz. Tek tek değil, <b>denk denk</b>.</div>
+      <svg class="pamuk" viewBox="0 0 120 100">
+        <!-- kuyruk (Van kedisine özgü kızıl halkalı) -->
+        <path d="M80 88 Q104 86 104 66 Q104 52 94 50" fill="none" stroke="#1D2440" stroke-width="10.4" stroke-linecap="round"/>
+        <path d="M80 88 Q104 86 104 66 Q104 52 94 50" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+        <path d="M102.6 74 L95.4 72.4 M104 63 L96.2 63.4 M100.6 54 L94.2 57.6" stroke="#C9773A" stroke-width="3.6"/>
+        <!-- gövde -->
+        <path d="M36 97 Q30 64 60 56 Q90 64 84 97 Z" fill="#fff" stroke="#1D2440" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M48 70 Q60 76 72 70" fill="none" stroke="#E3EAF7" stroke-width="3"/>
+        <ellipse cx="50" cy="95" rx="7" ry="4" fill="#fff" stroke="#1D2440" stroke-width="1.6"/>
+        <ellipse cx="70" cy="95" rx="7" ry="4" fill="#fff" stroke="#1D2440" stroke-width="1.6"/>
+        <!-- tasma + akçe -->
+        <path d="M42 59 Q60 66 78 59" fill="none" stroke="#1F4FA3" stroke-width="3.4" stroke-linecap="round"/>
+        <use href="#akce" x="55" y="60" width="10" height="10"/>
+        <!-- kulaklar -->
+        <path d="M36 32 L33 6 L52 20 Z M84 32 L87 6 L68 20 Z" fill="#fff" stroke="#1D2440" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M38.4 26 L37 12.4 L47 20 Z M81.6 26 L83 12.4 L73 20 Z" fill="#F4B6AE"/>
+        <!-- kafa -->
+        <ellipse cx="60" cy="38" rx="28" ry="22.6" fill="#fff" stroke="#1D2440" stroke-width="1.8"/>
+        <path d="M47 19.6 Q60 12 73 19.6 Q68 27.6 60 26.6 Q52 27.6 47 19.6 Z" fill="#C9773A"/>
+        <!-- gözler: biri mavi, biri kehribar -->
+        <circle cx="48.6" cy="37" r="5.8" fill="#3C8DD9" stroke="#1D2440" stroke-width="1.2"/>
+        <circle cx="71.4" cy="37" r="5.8" fill="#E0A126" stroke="#1D2440" stroke-width="1.2"/>
+        <ellipse cx="48.6" cy="37.4" rx="2" ry="3.8" fill="#1D2440"/><ellipse cx="71.4" cy="37.4" rx="2" ry="3.8" fill="#1D2440"/>
+        <circle cx="50.4" cy="35" r="1.3" fill="#fff"/><circle cx="73.2" cy="35" r="1.3" fill="#fff"/>
+        <circle cx="42" cy="46" r="3" fill="#F4B6AE" opacity=".7"/><circle cx="78" cy="46" r="3" fill="#F4B6AE" opacity=".7"/>
+        <path d="M57 44.6 H63 L60 47.8 Z" fill="#E98A8A" stroke="#1D2440" stroke-width=".9" stroke-linejoin="round"/>
+        <path d="M54.6 50.6 Q57.4 53.4 60 50.2 Q62.6 53.4 65.4 50.6" fill="none" stroke="#1D2440" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M26 44 L40 46 M26.6 50.6 L40 48.6 M94 44 L80 46 M93.4 50.6 L80 48.6" stroke="#5B6079" stroke-width=".9" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- KERVAN YOLU HARİTASI -->
+  <div class="kart harita">
+    <div class="harita-bas">
+      <h2>Kervan yolu haritası</h2>
+      <span class="lej">Durak · sayfa · akçe <span class="cip koyu">Hülasa s.7 · cevaplar s.13 · unvan s.14</span></span>
+    </div>
+    <svg class="yol" viewBox="0 1 178 88" font-family="Alegreya Sans, DejaVu Sans">
+      <!-- zemin: Süphan ve dağlar, göl -->
+      <path d="M0 22 L9 10 L13 13 L20 3.4 L27 12 L31 9.4 L40 20 Z" fill="#F2E3D2"/>
+      <path d="M17.4 6.8 L20 3.4 L22.8 6.8 L21.4 6.2 L20 7.4 L18.6 6.2 Z" fill="#fff" stroke="#D9CDB4" stroke-width=".3"/>
+      <text x="20" y="16.6" text-anchor="middle" font-size="2.6" font-weight="700" fill="#A2643C" letter-spacing=".2">SÜPHAN</text>
+      <path d="M150 8 L156 2.8 L160 5.6 L165 1.6 L172 8 Z" fill="#F2E3D2"/>
+      <ellipse cx="166" cy="84" rx="11" ry="3.8" fill="#DCF1EE"/>
+      <path d="M158 84 q1.4 -1 2.8 0 q1.4 1 2.8 0 M166 85.4 q1.4 -1 2.8 0 q1.4 1 2.8 0" fill="none" stroke="#159A9C" stroke-width=".4"/>
+      <text x="166" y="79" text-anchor="middle" font-size="2.6" font-weight="700" fill="#0C6668" letter-spacing=".2">VAN GÖLÜ</text>
+
+      <!-- yol: kerpiç kenar + krem dolgu + kesik kervan izi -->
+      <path id="yolhat" d="M12 74 L148 74 A12 12 0 0 0 148 50 L32 50 A12 12 0 0 1 32 26 L150 26" fill="none" stroke="#1D2440" stroke-width="7.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M12 74 L148 74 A12 12 0 0 0 148 50 L32 50 A12 12 0 0 1 32 26 L150 26" fill="none" stroke="#F4EAD4" stroke-width="6" stroke-linecap="round"/>
+      <path d="M12 74 L148 74 A12 12 0 0 0 148 50 L32 50 A12 12 0 0 1 32 26 L150 26" fill="none" stroke="#A2643C" stroke-width=".6" stroke-dasharray="2 1.6"/>
+      <!-- yön okları -->
+      <path d="M98 72.6 L100.2 74 L98 75.4 M108 48.6 L105.8 50 L108 51.4 M56 24.6 L58.2 26 L56 27.4 M136 24.6 L138.2 26 L136 27.4" fill="none" stroke="#1F4FA3" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- kervan -->
+      <use href="#deve" x="28" y="66.4" width="10" height="6.7"/>
+      <use href="#deve" x="38.6" y="66.4" width="10" height="6.7"/>
+      <use href="#deve" x="49.2" y="66.4" width="10" height="6.7"/>
+
+      <!-- başlangıç -->
+      <use href="#yildiz8" x="5.4" y="67.4" width="13.2" height="13.2" fill="#1F4FA3" stroke="#1D2440" stroke-width="1.1"/>
+      <path d="M10.4 70.8 L15 74 L10.4 77.2 Z" fill="#fff"/>
+      <rect x="2" y="59.4" width="20" height="5" rx="2.5" fill="#E0A126" stroke="#1D2440" stroke-width=".5"/>
+      <text x="12" y="62.9" text-anchor="middle" font-size="2.7" font-weight="800" fill="#1D2440" letter-spacing=".2">BURADASIN</text>
+      <text x="12" y="84.2" text-anchor="middle" font-family="El Messiri, DejaVu Sans" font-size="3.5" font-weight="700" fill="#1D2440">Yola çık</text>
+      <text x="12" y="87.6" text-anchor="middle" font-size="3.05" fill="#5B6079">s.1</text>
+
+      <!-- 1. ve 2. Han -->
+      <g font-family="El Messiri, DejaVu Sans" font-weight="700">
+        <use href="#han-kapi" x="64.5" y="64" width="11" height="12.8"/><text x="70" y="75.6" text-anchor="middle" font-size="4.6" fill="#fff">1</text>
+        <use href="#han-kapi" x="120.5" y="64" width="11" height="12.8"/><text x="126" y="75.6" text-anchor="middle" font-size="4.6" fill="#fff">2</text>
+        <use href="#han-kapi" x="122.5" y="40" width="11" height="12.8"/><text x="128" y="51.6" text-anchor="middle" font-size="4.6" fill="#fff">3</text>
+        <use href="#han-kapi" x="86.5" y="40" width="11" height="12.8"/><text x="92" y="51.6" text-anchor="middle" font-size="4.6" fill="#fff">4</text>
+        <use href="#han-kapi" x="50.5" y="40" width="11" height="12.8"/><text x="56" y="51.6" text-anchor="middle" font-size="4.6" fill="#fff">5</text>
+      </g>
+      <g text-anchor="middle">
+        <text x="70" y="83.2" font-family="El Messiri, DejaVu Sans" font-size="3.5" font-weight="700" fill="#1D2440">1. Han · Neden mol?</text>
+        <text x="70" y="86.8" font-size="3.05" fill="#5B6079">s.2 · <tspan font-weight="800" fill="#87580A">+100 akçe</tspan></text>
+        <text x="126" y="83.2" font-family="El Messiri, DejaVu Sans" font-size="3.5" font-weight="700" fill="#1D2440">2. Han · Atomun kütlesi</text>
+        <text x="126" y="86.8" font-size="3.05" fill="#5B6079">s.3 · <tspan font-weight="800" fill="#87580A">+150 akçe</tspan></text>
+        <text x="128" y="59.2" font-family="El Messiri, DejaVu Sans" font-size="3.5" font-weight="700" fill="#1D2440">3. Han · Mol ile tanecik</text>
+        <text x="128" y="62.8" font-size="3.05" fill="#5B6079">s.4 · <tspan font-weight="800" fill="#87580A">+150 akçe</tspan></text>
+        <text x="92" y="59.2" font-family="El Messiri, DejaVu Sans" font-size="3.5" font-weight="700" fill="#1D2440">4. Han · Mol ile kütle</text>
+        <text x="92" y="62.8" font-size="3.05" fill="#5B6079">s.5 · <tspan font-weight="800" fill="#87580A">+150 akçe</tspan></text>
+        <text x="56" y="59.2" font-family="El Messiri, DejaVu Sans" font-size="3.5" font-weight="700" fill="#1D2440">5. Han · Karışımlar</text>
+        <text x="56" y="62.8" font-size="3.05" fill="#5B6079">s.6 · <tspan font-weight="800" fill="#87580A">+150 akçe</tspan></text>
+      </g>
+
+      <!-- Hülasa + yan yollar -->
+      <use href="#yildiz8" x="38" y="20" width="12" height="12" fill="#DCF1EE" stroke="#1D2440" stroke-width="1.1"/>
+      <use href="#i-hulasa" x="40.6" y="22.6" width="6.8" height="6.8"/>
+      <use href="#yildiz8" x="64" y="20" width="12" height="12" fill="#fff" stroke="#1D2440" stroke-width="1.1"/>
+      <use href="#i-meclis" x="66.6" y="22.6" width="6.8" height="6.8"/>
+      <use href="#yildiz8" x="90" y="20" width="12" height="12" fill="#fff" stroke="#1D2440" stroke-width="1.1"/>
+      <use href="#i-kissa" x="92.6" y="22.6" width="6.8" height="6.8"/>
+      <use href="#yildiz8" x="116" y="20" width="12" height="12" fill="#fff" stroke="#1D2440" stroke-width="1.1"/>
+      <use href="#i-anahtar" x="118.6" y="22.6" width="6.8" height="6.8"/>
+      <g text-anchor="middle">
+        <text x="44" y="36.2" font-family="El Messiri, DejaVu Sans" font-size="3.5" font-weight="700" fill="#1D2440">Hülasa</text>
+        <text x="44" y="39.8" font-size="3.05" fill="#5B6079">s.7 · <tspan font-weight="800" fill="#87580A">+40</tspan></text>
+        <text x="70" y="36.2" font-family="El Messiri, DejaVu Sans" font-size="3.5" font-weight="700" fill="#1D2440">Meclis</text>
+        <text x="70" y="39.8" font-size="3.05" fill="#5B6079">s.8 · <tspan font-weight="800" fill="#87580A">+120</tspan></text>
+        <text x="96" y="36.2" font-family="El Messiri, DejaVu Sans" font-size="3.5" font-weight="700" fill="#1D2440">Kıssalar</text>
+        <text x="96" y="39.8" font-size="3.05" fill="#5B6079">s.9 · <tspan font-weight="800" fill="#87580A">+120</tspan></text>
+        <text x="122" y="36.2" font-family="El Messiri, DejaVu Sans" font-size="3.5" font-weight="700" fill="#1D2440">Anahtar merdiveni</text>
+        <text x="122" y="39.8" font-size="3.05" fill="#5B6079">s.10 · <tspan font-weight="800" fill="#87580A">+120</tspan></text>
+      </g>
+
+      <!-- Kale -->
+      <circle cx="160" cy="21" r="13" fill="#FBE4DE" stroke="#D2463A" stroke-width=".6" stroke-dasharray="1.4 1"/>
+      <use href="#kale" x="147" y="8.4" width="26" height="23.4"/>
+      <text x="160" y="38.2" text-anchor="middle" font-family="El Messiri, DejaVu Sans" font-size="3.7" font-weight="700" fill="#9A2A20">Kale · Büyük İmtihan</text>
+      <text x="160" y="41.8" text-anchor="middle" font-size="3.05" fill="#5B6079">s.11–12 · <tspan font-weight="800" fill="#9A2A20">+300 akçe</tspan></text>
+    </svg>
+  </div>
+
+  <div class="ara-bas"><h2>Kazanılacak nişanlar</h2><p>Hanı geçince nişanını kendin boya. Kalem senden, nişan bizden.</p></div>
+  <div class="nisanlar">
+    <div class="nisan"><svg viewBox="0 0 40 40"><use href="#nisan-cerceve"/>
+      <rect x="13" y="14" width="14" height="12" rx="1.4" fill="#F3C96B" stroke="#1D2440" stroke-width="1"/><path d="M13 20 H27 M20 14 V26" stroke="#A2643C" stroke-width="1.2"/></svg>
+      <b>Denkçi</b><small>1. Han · paketi çöz</small></div>
+    <div class="nisan"><svg viewBox="0 0 40 40"><use href="#nisan-cerceve"/>
+      <circle cx="18" cy="18" r="5.2" fill="#DCF1EE" stroke="#1D2440" stroke-width="1.2"/><circle cx="16.6" cy="17" r="1.1" fill="#1F4FA3"/><circle cx="19.4" cy="19" r="1.1" fill="#D2463A"/><path d="M21.8 21.8 L26.6 26.6" stroke="#1D2440" stroke-width="2" stroke-linecap="round"/></svg>
+      <b>İzotop İzcisi</b><small>2. Han · ortalama kütle</small></div>
+    <div class="nisan"><svg viewBox="0 0 40 40"><use href="#nisan-cerceve"/>
+      <path d="M13 17 H26 M23.4 14.4 L26.4 17 L23.4 19.6 M27 23 H14 M16.6 20.4 L13.6 23 L16.6 25.6" fill="none" stroke="#1F4FA3" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <b>Kervan Sayıcısı</b><small>3. Han · tanecik ⇄ mol</small></div>
+    <div class="nisan"><svg viewBox="0 0 40 40"><use href="#nisan-cerceve"/><use href="#i-terazi" x="12" y="12" width="16" height="16"/></svg>
+      <b>Mizan Ustası</b><small>4. Han · kütle ⇄ mol</small></div>
+    <div class="nisan"><svg viewBox="0 0 40 40"><use href="#nisan-cerceve"/>
+      <path d="M15 13 H19 M16 13 V18 L13 26 H22 L19 18 V13" fill="#DCF1EE" stroke="#1D2440" stroke-width="1.1" stroke-linejoin="round"/><path d="M21 15 H25 M22 15 V19 L20.4 26 H27.6 L26 19 V15" fill="#FBE4DE" stroke="#1D2440" stroke-width="1.1" stroke-linejoin="round"/></svg>
+      <b>Harman Bilgini</b><small>5. Han · karışımlar</small></div>
+    <div class="nisan"><svg viewBox="0 0 40 40"><use href="#nisan-cerceve"/><use href="#kale" x="12" y="12.6" width="16" height="14.4"/></svg>
+      <b>Kale Anahtarı</b><small>İmtihanda 10+ doğru</small></div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:84mm 1fr;margin-top:4.6mm">
+    <div class="kart">
+      <span class="etiket" style="color:var(--mercan-k)"><svg class="ikon"><use href="#i-meclis"/></svg>Yol arkadaşların</span>
+      <div class="karakterler">
+        <div class="karakter"><svg><use href="#av-elif"/></svg><div><b>Elif</b><i>10. sınıf · Edremit</i><p>Meraklı; “Neden?” demeden geçmez.</p></div></div>
+        <div class="karakter"><svg><use href="#av-yusuf"/></svg><div><b>Yusuf</b><i>kimya kulübü · Erciş</i><p>Sakin; adım adım, örnekle anlatır.</p></div></div>
+        <div class="karakter"><svg><use href="#av-pamuk"/></svg><div><b>Pamuk</b><i>Van kedisi</i><p>Gözleri iki renk; hep sayıyla konuşur.</p></div></div>
+      </div>
+      <p class="karakter-not"><b>Zeynep Hoca</b> da arada bir uğrar: “Medeniyetimizden” kutularında bilim mirasımızı anlatır.</p>
+    </div>
+    <div class="kart">
+      <span class="etiket"><svg class="ikon"><use href="#i-gorev"/></svg>Yolun sonunda hedefler</span>
+      <ul class="hedefler">
+        <li><i><svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#1F4FA3"/></svg><span>1</span></i>Mol, tanecik sayısı ve kütle arasında rahatça geçiş yapacaksın.</li>
+        <li><i><svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#1F4FA3"/></svg><span>2</span></i>İzotop ve ortalama atom kütlesini yorumlayacaksın.</li>
+        <li><i><svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#1F4FA3"/></svg><span>3</span></i>Karışım problemlerini tek bilinmeyenle çözeceksin.</li>
+      </ul>
+      <div class="ahilik">
+        <span class="etiket" style="color:var(--kehribar-k)">Ahilik basamakları · toplam akçene göre</span>
+        <div class="basamaklar-a">
+          <div><b>Çırak</b><small>0+</small></div>
+          <div><b>Kalfa</b><small>400+</small></div>
+          <div><b>Usta</b><small>800+</small></div>
+          <div><b>Mol Üstadı</b><small>1150+</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kart duz isaretler">
+    <span class="etiket">İşaretler</span>
+    <div class="isaret"><svg><use href="#i-gorev"/></svg><div><b>Görev</b><span>Kapat, dene.</span></div></div>
+    <div class="isaret"><svg><use href="#i-anahtar"/></svg><div><b>Anahtar</b><span>Açarsan −10.</span></div></div>
+    <div class="isaret"><svg><use href="#i-tuzak"/></svg><div><b>Tuzak!</b><span>Yanlış bilinen.</span></div></div>
+    <div class="isaret"><svg><use href="#i-hazine"/></svg><div><b>Hazine</b><span>Kes, yapıştır.</span></div></div>
+    <div class="isaret"><svg><use href="#i-medeniyet"/></svg><div><b>Medeniyet</b><span>Bilim mirası.</span></div></div>
+    <div class="isaret"><svg viewBox="0 0 40 36"><use href="#kale"/></svg><div><b>Kale</b><span>İmtihan.</span></div></div>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Kervan Yolu 2 · Yol açılışı</span>
+    <span class="no"><svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#1F4FA3"/></svg><span>1</span></span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 2 · 3. HAN · MOL İLE TANECİK SAYISI
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#E0A126"/><circle r="3" fill="#15377A"/></svg>Kimya Rotası 10</span>
+    <span class="yer">Kervan Yolu 2 · <b>3. Han · 3/5</b></span>
+    <span class="bosluk"></span>
+    <span class="duraklar">
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#E0A126"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#E0A126"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#fff" stroke="#E0A126" stroke-width="3"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="0 0 40 36" style="width:4.6mm;height:4.2mm"><use href="#kale"/></svg>
+    </span>
+    <span class="akce"><svg><use href="#akce"/></svg>Akçe <span class="yaz"></span>/1400 <span class="bar"><i style="width:18%"></i></span></span>
+  </div>
+
+  <div class="han-bas">
+    <svg class="tac" viewBox="0 0 24 28"><use href="#han-kapi"/>
+      <text x="12" y="5.9" text-anchor="middle" font-family="Alegreya Sans, DejaVu Sans" font-weight="800" font-size="2.7" fill="#fff" stroke="#1F4FA3" stroke-width="1.4" paint-order="stroke" letter-spacing=".5">HAN</text>
+      <text x="12" y="25" text-anchor="middle" font-family="El Messiri, DejaVu Sans" font-weight="700" font-size="10" fill="#fff">3</text></svg>
+    <div>
+      <span class="ust etiket">3. Han · Kervan Yolu 2</span>
+      <h1>Mol ile <em>tanecik</em></h1>
+      <p class="alt-bas">Bütün hesaplar haritadaki kutular arasında gidip gelir.</p>
+    </div>
+    <div class="kart ana-gorev">
+      <span class="etiket" style="color:var(--kehribar-k)"><svg class="ikon"><use href="#i-gorev"/></svg>Hanın görevi</span>
+      <p>Tanecik ⇄ mol, iki yönde; molekülden atoma in.</p>
+      <div class="oduller"><span class="cip akce">+150 akçe</span><span class="cip">Nişan: Kervan Sayıcısı</span></div>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:96mm 1fr;margin-top:4.4mm">
+    <div class="kart sohbet">
+      <div class="sohbet-bas"><span class="kanal"><i>#</i>han-sohbeti</span>
+        <span class="kisiler"><svg><use href="#av-elif"/></svg><svg><use href="#av-yusuf"/></svg><svg><use href="#av-pamuk"/></svg></span></div>
+      <div class="mesaj elif sag"><svg class="av"><use href="#av-elif"/></svg><div class="balon"><div class="kim">Elif</div>Semaverde kaynayan su H<sub>2</sub>O. 1 mol H<sub>2</sub>O dedik; peki içinde kaç tane <u>atom</u> var?</div></div>
+      <div class="mesaj yusuf"><svg class="av"><use href="#av-yusuf"/></svg><div class="balon"><div class="kim">Yusuf</div>Alt simgelere bak: bir H<sub>2</sub>O’da 2 H, 1 O var. Molekülü bir <b>deve</b>, atomları sırtındaki <b>denkler</b> gibi düşün: 1 deve, 3 denk.</div></div>
+      <div class="mesaj pamuk"><svg class="av"><use href="#av-pamuk"/></svg><div class="balon"><div class="kim">Pamuk <i>yol rehberi</i></div>1 mol H<sub>2</sub>O = N<sub>A</sub> molekül = 2 mol H + 1 mol O = <span class="vurgu">3 mol atom</span>. Miyav!</div></div>
+      <div class="mesaj elif sag"><svg class="av"><use href="#av-elif"/></svg><div class="balon"><div class="kim">Elif</div>Anladım: önce <b>neyin molü</b> olduğuna bakacağım. Kervanı değil, denkleri sayıyorum!</div></div>
+    </div>
+
+    <div class="dikey">
+      <div class="kart mol-harita" style="padding-bottom:1.8mm">
+        <span class="etiket">Mol haritası · bu handa: sol yarı</span>
+        <svg viewBox="0 0 104 54" font-family="Alegreya Sans, DejaVu Sans">
+          <rect x="1" y="4" width="28" height="22" rx="2.4" fill="#FBEFD3" stroke="#1D2440" stroke-width=".8"/>
+          <g fill="#E0A126" stroke="#1D2440" stroke-width=".35"><circle cx="7" cy="9" r="1.4"/><circle cx="11" cy="8" r="1.4"/><circle cx="15" cy="9.4" r="1.4"/><circle cx="19" cy="8.2" r="1.4"/><circle cx="23" cy="9" r="1.4"/></g>
+          <text x="15" y="17.8" text-anchor="middle" font-family="El Messiri, DejaVu Sans" font-weight="700" font-size="4" fill="#1D2440">TANECİK</text>
+          <text x="15" y="22.8" text-anchor="middle" font-size="3.5" fill="#5B6079">sayısı · <tspan font-family="Alegreya, DejaVu Serif" font-style="italic" font-weight="700" fill="#1D2440">N</tspan></text>
+          <use href="#yildiz8" x="37.6" y="0.6" width="28.8" height="28.8" fill="#1F4FA3" stroke="#1D2440" stroke-width=".55"/>
+          <text x="52" y="15.6" text-anchor="middle" font-family="El Messiri, DejaVu Sans" font-weight="700" font-size="5.6" fill="#fff">MOL</text>
+          <text x="52" y="20.8" text-anchor="middle" font-family="Alegreya, DejaVu Serif" font-style="italic" font-weight="700" font-size="4.2" fill="#E3EAF7">n</text>
+          <rect x="75" y="4" width="28" height="22" rx="2.4" fill="#F7F3EA" stroke="#B9AE98" stroke-width=".7" stroke-dasharray="1.6 1.2"/>
+          <use href="#i-kilit" x="85" y="5.6" width="8" height="8" opacity=".6"/>
+          <text x="89" y="18.6" text-anchor="middle" font-family="El Messiri, DejaVu Sans" font-weight="700" font-size="3.8" fill="#9C927C">KÜTLE · <tspan font-family="Alegreya, DejaVu Serif" font-style="italic">m</tspan></text>
+          <text x="89" y="23.2" text-anchor="middle" font-weight="700" font-size="3.3" fill="#9C927C">4. Han’da açılır</text>
+          <path d="M30.5 11 L37 11" stroke="#1D2440" stroke-width=".8" marker-end="url(#ok)"/>
+          <text x="33.8" y="8.6" text-anchor="middle" font-weight="800" font-size="3.1" fill="#1D2440">÷N<tspan font-size="2.1" dy=".7">A</tspan></text>
+          <path d="M37 20 L30.8 20" stroke="#1D2440" stroke-width=".8" marker-end="url(#ok)"/>
+          <text x="33.8" y="24.6" text-anchor="middle" font-weight="800" font-size="3.1" fill="#1D2440">×N<tspan font-size="2.1" dy=".7">A</tspan></text>
+          <path d="M67 11 L73.6 11" stroke="#B9AE98" stroke-width=".7" marker-end="url(#ok-g)"/>
+          <path d="M73.6 20 L67 20" stroke="#B9AE98" stroke-width=".7" marker-end="url(#ok-g)"/>
+          <path d="M52 30 L52 37.6" stroke="#1F4FA3" stroke-width=".9" marker-end="url(#ok-k)"/>
+          <text x="54.2" y="35" font-weight="800" font-size="3.1" fill="#1F4FA3">× (a+b)</text>
+          <rect x="33" y="39.2" width="38" height="14" rx="2.4" fill="#DCF1EE" stroke="#1D2440" stroke-width=".8"/>
+          <text x="52" y="45.2" text-anchor="middle" font-family="El Messiri, DejaVu Sans" font-weight="700" font-size="3.8" fill="#0C6668">ATOM MOLÜ</text>
+          <text x="52" y="50.2" text-anchor="middle" font-size="3.1" fill="#0C6668">X<tspan font-size="2.1" dy=".7">a</tspan><tspan dy="-.7">Y</tspan><tspan font-size="2.1" dy=".7">b</tspan><tspan dy="-.7"> molekülü için</tspan></text>
+          <text x="1" y="40.4" font-weight="800" font-size="3.5" fill="#5B6079">N<tspan font-size="2.1" dy=".6">A</tspan><tspan dy="-.6"> = 6,02·10</tspan><tspan font-size="2.1" dy="-1.2">23</tspan></text>
+          <text x="1" y="46" font-size="3.5" fill="#5B6079">1 mol = N<tspan font-size="2.1" dy=".6">A</tspan><tspan dy="-.6"> tane</tspan></text>
+          <text x="74" y="42.6" font-size="3.5" fill="#5B6079">Ne verilirse</text>
+          <text x="74" y="47" font-size="3.5" fill="#5B6079">verilsin, önce</text>
+          <text x="74" y="51.4" font-size="3.5" fill="#5B6079"><tspan font-weight="800" fill="#1F4FA3">mole</tspan> uğra.</text>
+        </svg>
+      </div>
+
+      <div class="medeniyet" style="flex:1">
+        <svg class="kose s1"><use href="#yildiz8" x="0" y="0" width="100%" height="100%" fill="#E0A126"/></svg>
+        <div class="m-bas"><svg><use href="#i-medeniyet"/></svg><div><small>Medeniyetimizden · Zeynep Hoca</small><h3>Saymak yetmez, tartmak gerek</h3></div></div>
+        <p>Tanecikleri tek tek sayamayız; onları <b>tartarak</b> sayarız. <b>el-Bîrûnî</b> (973–1048) birçok maddenin özgül ağırlığını hassas biçimde ölçtü; <b>el-Hâzinî</b> 1121’de <i>Mîzânü’l-Hikme</i>’de (“hikmetin terazisi”) hassas terazileri anlattı. 4. Han’da biz de mol ile kütle arasına bir <b>mizan</b> kuracağız.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:repeat(3,1fr);margin-top:4mm">
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-gorev"/></svg>Görev 2</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+25</span></span></div>
+      <p class="soru">0,25 mol NH<sub>3</sub> için molekül sayısını, toplam atom molünü ve H atomu molünü bulunuz.</p>
+      <ol class="akis">
+        <li><i>1</i><span><b>H5:</b> N = 0,25·6,02·10<sup>23</sup> = 1,505·10<sup>23</sup> tane</span></li>
+        <li><i>2</i><span>1 + 3 = 4 atom → 0,25·4 = 1 mol atom</span></li>
+        <li><i>3</i><span>H atomu: 0,25·3 = 0,75 mol H</span></li>
+      </ol>
+      <div class="sonuc"><span>SONUÇ</span><b>1,505·10<sup>23</sup> · 1 · 0,75</b></div>
+    </div>
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-gorev"/></svg>Görev 3</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+25</span></span></div>
+      <p class="soru">Van kahvaltısındaki balda glikoz (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>) bulunur. 3,01·10<sup>23</sup> tane glikoz molekülü kaç mol O atomu içerir?</p>
+      <ol class="akis">
+        <li><i>1</i><span><b>H4:</b> n = <span class="kesir"><span>3,01·10<sup>23</sup></span><span>6,02·10<sup>23</sup></span></span> = 0,5 mol glikoz</span></li>
+        <li><i>2</i><span>Her molekülde 6 O → 0,5·6</span></li>
+      </ol>
+      <div class="sonuc"><span>SONUÇ</span><b>3 mol O atomu</b></div>
+    </div>
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="etiket"><svg class="ikon"><use href="#i-gorev"/></svg>Görev 4</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
+      <p class="soru">Tandırı ısıtan doğal gazın büyük kısmı metandır (CH<sub>4</sub>). 1,5 mol atom içeren CH<sub>4</sub> kaç moldür?</p>
+      <ol class="akis">
+        <li><i>1</i><span>Bir CH<sub>4</sub> molekülünde 1 + 4 = 5 atom</span></li>
+        <li><i>2</i><span><b>H6’yı ters çevir:</b> atom molünü böl: 1,5 / 5</span></li>
+      </ol>
+      <div class="sonuc"><span>SONUÇ</span><b>0,3 mol CH<sub>4</sub></b></div>
+    </div>
+  </div>
+
+  <div class="bento" style="grid-template-columns:60mm 1fr 1fr;margin-top:4mm">
+    <div class="dikey yakin">
+      <div class="hazine"><span class="hno"><svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#F3C96B" stroke="#87580A" stroke-width="1"/></svg><span>H4</span></span><div><div class="had">Tanecikten mole</div><div class="hf"><span class="var">n</span> = <span class="kesir"><span class="var">N</span><span><span class="var">N</span><sub>A</sub></span></span></div></div></div>
+      <div class="hazine"><span class="hno"><svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#B9CBEB" stroke="#15377A" stroke-width="1"/></svg><span>H5</span></span><div><div class="had">Molden taneciğe</div><div class="hf"><span class="var">N</span> = <span class="var">n</span> · <span class="var">N</span><sub>A</sub></div></div></div>
+      <div class="hazine"><span class="hno"><svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#A9DED9" stroke="#0C6668" stroke-width="1"/></svg><span>H6</span></span><div><div class="had">X<sub>a</sub>Y<sub>b</sub> → atom molü</div><div class="hf"><span class="var">n</span><sub>atom</sub> = <span class="var">n</span>·(a+b)</div></div></div>
+      <span class="kes-not"><svg class="ikon"><use href="#i-makas"/></svg>Kes · yapıştır · kart başı <b style="color:var(--kehribar-k)">+10</b></span>
+    </div>
+    <div class="tuzak">
+      <div class="tuzak-ust"><b><svg class="ikon"><use href="#i-tuzak-b"/></svg>Tuzak!</b><span class="cip akce">+10</span></div>
+      <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“1 mol H<sub>2</sub>O’da 1 mol atom vardır.”</p><svg class="muhur"><use href="#muhur-yanlis"/></svg></div>
+      <div class="tuzak-dogru"><span class="bas">✓ Doğrusu</span><p>“1 mol” <b>neyin</b> molü? 1 mol H<sub>2</sub>O = 2 mol H + 1 mol O = <b>3 mol atom</b> ≈ 1,806·10<sup>24</sup> atom. Eşitlik yalnızca He gibi tek atomlularda geçerli.</p></div>
+    </div>
+    <div class="kart hizli">
+      <div class="kart-bas"><span class="etiket" style="color:var(--kehribar-k)"><svg class="ikon"><use href="#i-gorev"/></svg>Hızlı görev</span><span class="cip akce">+30</span></div>
+      <p class="soru">Semaverdeki suda 1,204·10<sup>24</sup> tane H<sub>2</sub>O molekülü var. Bu su kaç mol H atomu içerir?</p>
+      <div class="anahtar-kilit"><svg><use href="#i-anahtar"/></svg><span>Anahtar <b>(−10)</b>: <span class="ters">N’yi N<sub>A</sub>’ya böl, sonra ×2.</span></span></div>
+      <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:</div><span class="ters-cevap"><span class="ters">Cevap: 4 mol H</span></span></div>
+    </div>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>3. Han · Mol ile tanecik sayısı</span>
+    <span class="no"><svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#1F4FA3"/></svg><span>4</span></span></div>
+</section>
+
+<!-- =====================================================================
+     SAYFA 3 · HAN AVLUSU · MECLİS, KISSA, ANAHTAR, MUHASEBE
+     ===================================================================== -->
+<section class="sayfa">
+  <div class="hud">
+    <span class="logo"><svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#E0A126"/><circle r="3" fill="#15377A"/></svg>Kimya Rotası 10</span>
+    <span class="yer">Kervan Yolu 2 · <b>Yan yollar</b></span>
+    <span class="bosluk"></span>
+    <span class="duraklar">
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#E0A126"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#E0A126"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#E0A126"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#E0A126"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#E0A126"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#E0A126"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#fff" stroke="#E0A126" stroke-width="3"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6"/></svg>
+      <svg viewBox="0 0 40 36" style="width:4.6mm;height:4.2mm"><use href="#kale"/></svg>
+    </span>
+    <span class="akce"><svg><use href="#akce"/></svg>Akçe <span class="yaz"></span>/1400 <span class="bar"><i style="width:53%"></i></span></span>
+  </div>
+
+  <div class="yan-bas">
+    <svg viewBox="0 0 40 40"><use href="#yildiz8" x="1" y="1" width="38" height="38" fill="#FFFDF8" stroke="#1D2440" stroke-width=".75"/><use href="#i-meclis" x="10" y="10" width="20" height="20"/></svg>
+    <div>
+      <span class="ust etiket">Yan yollar · kervansaray avlusu</span>
+      <h1>Meclis, kıssa, <em>anahtar</em></h1>
+      <p class="alt-bas">Avluda soluklan: tartış, kıssayı çöz, gerekirse anahtar al.</p>
+    </div>
+    <div class="kart kural">
+      <span class="etiket"><svg class="ikon"><use href="#i-gorev"/></svg>Avlunun kuralı</span>
+      <p><b>Meclis:</b> doğru kişi +10, nedeni +10, doğrusu +10. <b>Kıssa:</b> +30. <b>Merdiven:</b> +40; açtığın her anahtar −10.</p>
+    </div>
+  </div>
+
+  <!-- MECLİS -->
+  <div class="bento" style="grid-template-columns:1fr 1fr;margin-top:4mm">
+    <div class="kart meclis">
+      <div class="meclis-bas"><span class="harf" style="background:var(--mercan)">R</span><span class="ad"><b>Meclis 1 · Rabia</b><small>çözümünü meclise getirdi · tek hata var</small></span><span class="cip akce">+30</span></div>
+      <div class="meclis-ic">
+        <p class="psoru">Soru: 0,5 mol H<sub>2</sub>SO<sub>4</sub> kaç mol atom içerir?</p>
+        <div class="cozum-satir">
+          <div><i>1</i><span>H<sub>2</sub>SO<sub>4</sub>’te H, S ve O var.</span></div>
+          <div><i>2</i><span>Yani bir molekülde 3 atom bulunur.</span></div>
+          <div><i>3</i><span>0,5 · 3 = 1,5 mol atom</span></div>
+        </div>
+        <div class="yorum"><svg><use href="#av-yusuf"/></svg><span><b>Yusuf:</b> Bence sorun 2. satırda.</span><span class="kutucuk"><i></i>haklı</span></div>
+        <div class="yorum"><svg><use href="#av-elif"/></svg><span><b>Elif:</b> Hata 3. satırda; 0,5·3 yanlış çarpılmış.</span><span class="kutucuk"><i></i>haklı</span></div>
+        <div class="senin">
+          <div class="sat">Kim haklı? <span class="kutu"></span> Yusuf <span class="kutu"></span> Elif · Satır <span class="kutu"></span>1 <span class="kutu"></span>2 <span class="kutu"></span>3</div>
+          <div class="sat">Neden? <span class="cizgi"></span></div>
+          <div class="sat">Doğrusu <span class="cizgi"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="kart meclis">
+      <div class="meclis-bas"><span class="harf" style="background:var(--turkuaz)">Ö</span><span class="ad"><b>Meclis 2 · Ömer</b><small>çözümünü meclise getirdi · tek hata var</small></span><span class="cip akce">+30</span></div>
+      <div class="meclis-ic">
+        <p class="psoru">Soru: 0,2 mol glikoz (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>) kaç tane H atomu içerir?</p>
+        <div class="cozum-satir">
+          <div><i>1</i><span>Bir glikoz molekülünde 12 H atomu var.</span></div>
+          <div><i>2</i><span>n(H) = 0,2 · 12 = 2,4 mol</span></div>
+          <div><i>3</i><span>N = 2,4 / 6,02·10<sup>23</sup> tane</span></div>
+        </div>
+        <div class="yorum"><svg><use href="#av-pamuk"/></svg><span><b>Pamuk:</b> 1. satır yanlış; glikozda 6 H var.</span><span class="kutucuk"><i></i>haklı</span></div>
+        <div class="yorum"><svg><use href="#av-elif"/></svg><span><b>Elif:</b> 3. satırda N<sub>A</sub>’ya bölünmez, çarpılır.</span><span class="kutucuk"><i></i>haklı</span></div>
+        <div class="senin">
+          <div class="sat">Kim haklı? <span class="kutu"></span> Pamuk <span class="kutu"></span> Elif · Satır <span class="kutu"></span>1 <span class="kutu"></span>2 <span class="kutu"></span>3</div>
+          <div class="sat">Neden? <span class="cizgi"></span></div>
+          <div class="sat">Doğrusu <span class="cizgi"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KISSA -->
+  <div class="bento" style="grid-template-columns:1fr 1fr;margin-top:4mm">
+    <div class="kart kissa">
+      <div class="kissa-bas van"><span class="etiket" style="color:var(--turkuaz-k)"><svg class="ikon"><use href="#i-kissa"/></svg>Kıssa 1 · Van Gölü</span><span class="cip akce">+30</span></div>
+      <div class="kissa-ic">
+        <div>
+          <svg class="gorsel" viewBox="0 0 44 34">
+            <path d="M0 14 L8 6 L12 9 L18 2 L26 10 L30 7 L38 14 Z" fill="#F2E3D2"/>
+            <ellipse cx="22" cy="24" rx="21" ry="9" fill="#9FD9D3" stroke="#1D2440" stroke-width=".7"/>
+            <path d="M8 22 q2 -1.4 4 0 q2 1.4 4 0 M24 27 q2 -1.4 4 0 q2 1.4 4 0" fill="none" stroke="#0C6668" stroke-width=".6"/>
+            <path d="M20 22 Q25 18.6 31 22 Q25 25.4 20 22 Z M31 22 L34 19.8 L34 24.2 Z" fill="#C9D3DC" stroke="#1D2440" stroke-width=".6" stroke-linejoin="round"/>
+            <circle cx="22.6" cy="21.6" r=".6" fill="#1D2440"/>
+          </svg>
+          <p>Van Gölü dünyanın en büyük sodalı göllerinden biridir; eskiden suyu çamaşır yıkamada kullanılırdı. Elif, göl suyundan elde edilmiş <b>0,2 mol Na<sub>2</sub>CO<sub>3</sub></b> (soda) örneğini inceliyor.</p>
+        </div>
+        <ul class="yargi">
+          <li><b>I.</b><span>0,4 mol Na<sup>+</sup> iyonu içerir.</span></li>
+          <li><b>II.</b><span>Toplam 1,2 mol atom içerir.</span></li>
+          <li><b>III.</b><span>1,204·10<sup>23</sup> tane O atomu içerir.</span></li>
+        </ul>
+        <p>yargılarından hangileri doğrudur? <span class="soluk">(N<sub>A</sub> = 6,02·10<sup>23</sup>)</span></p>
+        <div class="siklar" style="grid-template-columns:repeat(3,1fr)">
+          <span class="sik"><b>A</b><span>Yalnız I</span></span><span class="sik"><b>B</b><span>Yalnız II</span></span><span class="sik"><b>C</b><span>I ve II</span></span><span class="sik"><b>D</b><span>II ve III</span></span><span class="sik"><b>E</b><span>I, II ve III</span></span>
+        </div>
+        <p class="hisse"><b>Kıssadan hisse:</b> Alt simge, bir birimdeki “denk” sayısıdır.</p>
+      </div>
+    </div>
+    <div class="kart kissa">
+      <div class="kissa-bas bor"><span class="etiket"><svg class="ikon"><use href="#i-kissa"/></svg>Kıssa 2 · Anadolu’nun boru</span><span class="cip akce">+30</span></div>
+      <div class="kissa-ic">
+        <div>
+          <svg class="gorsel" viewBox="0 0 44 34" font-family="Alegreya, DejaVu Serif">
+            <circle cx="12" cy="17" r="10" fill="#E3EAF7" stroke="#1D2440" stroke-width=".8"/>
+            <circle cx="32" cy="17" r="11" fill="#1F4FA3" stroke="#1D2440" stroke-width=".8"/>
+            <text x="12" y="19.6" text-anchor="middle" font-weight="700" font-size="7" fill="#15377A"><tspan font-size="4" dy="-2.6">10</tspan><tspan dy="2.6">B</tspan></text>
+            <text x="32" y="19.6" text-anchor="middle" font-weight="700" font-size="7" fill="#fff"><tspan font-size="4" dy="-2.6">11</tspan><tspan dy="2.6">B</tspan></text>
+            <text x="12" y="33" text-anchor="middle" font-family="Alegreya Sans, DejaVu Sans" font-weight="800" font-size="4" fill="#15377A">≈%20</text>
+            <text x="32" y="33" text-anchor="middle" font-family="Alegreya Sans, DejaVu Sans" font-weight="800" font-size="4" fill="#15377A">≈%80</text>
+          </svg>
+          <p>Türkiye, dünya bor rezervlerinin yaklaşık %70’ine sahiptir. Doğal bor atomlarının yaklaşık %20’si <sup>10</sup>B, %80’i <sup>11</sup>B izotopudur. Bir saf bor örneğinde <b>0,5 mol bor atomu</b> var.</p>
+        </div>
+        <div class="yol-cip">yol: <span>MOL</span>→<span>%20</span>→<span class="on">MOL <sup>10</sup>B</span>→<span>TANE</span></div>
+        <p>Buna göre örnekte yaklaşık kaç tane <sup>10</sup>B atomu vardır? <span class="soluk">(N<sub>A</sub> = 6,02·10<sup>23</sup>)</span></p>
+        <div class="siklar" style="grid-template-columns:repeat(3,1fr)">
+          <span class="sik"><b>A</b><span>3,01·10<sup>22</sup></span></span><span class="sik"><b>B</b><span>6,02·10<sup>22</sup></span></span><span class="sik"><b>C</b><span>1,204·10<sup>23</sup></span></span>
+          <span class="sik"><b>D</b><span>2,408·10<sup>23</sup></span></span><span class="sik"><b>E</b><span>3,01·10<sup>23</sup></span></span>
+        </div>
+        <p class="hisse"><b>Kıssadan hisse:</b> Önce mol, sonra pay; yüzde bir paylaştırmadır.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANAHTAR MERDİVENİ -->
+  <div class="kart merdiven" style="margin-top:3.6mm">
+    <div class="yazi">
+      <div><span class="no">1</span><p class="soru">Tandırdaki doğal gazın çoğu metandır (CH<sub>4</sub>). 0,3 mol CH<sub>4</sub> ile <u>aynı sayıda H atomu</u> içeren etan (C<sub>2</sub>H<sub>6</sub>) örneği kaç tane molekül içerir? <span class="soluk">(N<sub>A</sub> = 6,02·10<sup>23</sup>)</span> <span class="cip akce" style="font-size:8.4pt">+40</span></p></div>
+      <div class="cizgiler"><i></i></div>
+      <div class="akce-hesap">Anahtar: <span class="kutu"></span>0 <span class="kutu"></span>1 <span class="kutu"></span>2 <span class="kutu"></span>3 <span style="margin-left:2mm">→ 40 − (<span class="k"></span>×10) = <span class="k"></span></span></div>
+    </div>
+    <div class="basamaklar">
+      <span class="bb"><svg class="ikon"><use href="#i-anahtar"/></svg>Takılırsan bir basamak in</span>
+      <div class="basamak"><svg><use href="#i-kilit"/></svg><div><small>BASAMAK 1</small>CH<sub>4</sub>’teki H molünü bul: 0,3 · 4</div><em>−10</em></div>
+      <div class="basamak"><svg><use href="#i-kilit"/></svg><div><small>BASAMAK 2</small>Etanın her molekülünde 6 H var: n = n(H) / 6</div><em>−10</em></div>
+      <div class="basamak"><svg><use href="#i-kilit"/></svg><div><small>BASAMAK 3</small>Molü taneciğe çevir: <b>H5</b>, N = n · N<sub>A</sub></div><em>−10</em></div>
+    </div>
+  </div>
+
+  <!-- MUHASEBE -->
+  <div class="kart muhasebe kobalt-z" style="margin-top:3.6mm">
+    <div class="m-bas"><h3>Muhasebe</h3><small>Kendimi hesaba çekiyorum.</small></div>
+    <div class="muh">Molden taneciğe geçebiliyorum.<div class="sikkeler"><span><svg><use href="#sikke-bos"/></svg>tamam</span><span><svg><use href="#sikke-bos"/></svg>yarım</span><span><svg><use href="#sikke-bos"/></svg>tekrar</span></div></div>
+    <div class="muh">Tanecikten mole dönebiliyorum.<div class="sikkeler"><span><svg><use href="#sikke-bos"/></svg>tamam</span><span><svg><use href="#sikke-bos"/></svg>yarım</span><span><svg><use href="#sikke-bos"/></svg>tekrar</span></div></div>
+    <div class="muh">“Neyin molü?” diye soruyorum.<div class="sikkeler"><span><svg><use href="#sikke-bos"/></svg>tamam</span><span><svg><use href="#sikke-bos"/></svg>yarım</span><span><svg><use href="#sikke-bos"/></svg>tekrar</span></div></div>
+    <div class="toplam">Sayfa akçen<br><span class="k"></span>/ 160</div>
+  </div>
+
+  <div class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Yan yollar · örnek derleme</span>
+    <span class="no"><svg viewBox="-10 -10 20 20"><use href="#yildiz8" x="-10" y="-10" width="20" height="20" fill="#1F4FA3"/></svg><span>8</span></span></div>
+</section>
+
+</body>
+</html>

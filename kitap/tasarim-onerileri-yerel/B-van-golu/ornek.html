@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Kimya Rotası · Van Gölü konsepti · Mol Kavramı (örnek)</title>
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+
+<!-- ================================================================ SVG kütüphanesi -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+  <!-- Selçuklu yıldızı (8 köşe, iki kare) -->
+  <symbol id="yildiz8" viewBox="0 0 100 100">
+    <polygon points="50.0,1.0 64.4,15.4 84.6,15.4 84.6,35.6 99.0,50.0 84.6,64.4 84.6,84.6 64.4,84.6 50.0,99.0 35.6,84.6 15.4,84.6 15.4,64.4 1.0,50.0 15.4,35.6 15.4,15.4 35.6,15.4"/>
+  </symbol>
+
+  <!-- ===== Pamuk: Van kedisi (bir gözü mavi, bir gözü kehribar) ===== -->
+  <symbol id="pamuk-bas" viewBox="10 4 80 64">
+    <g stroke="#1B1D26" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M21 36 L19 7 L43 22 Z" fill="#fff"/>
+      <path d="M79 36 L81 7 L57 22 Z" fill="#fff"/>
+      <path d="M24.5 28 L23.5 13.5 L36 22 Z" fill="#F7B6C0" stroke="none"/>
+      <path d="M75.5 28 L76.5 13.5 L64 22 Z" fill="#F7B6C0" stroke="none"/>
+      <path d="M50 17 C73 17 85 29 85 43 C85 51 81 57 74 60 L77 63 L69 62 C63 64 57 65 50 65 C43 65 37 64 31 62 L23 63 L26 60 C19 57 15 51 15 43 C15 29 27 17 50 17 Z" fill="#fff"/>
+      <path d="M44 18.5 L47 23 L50 18 L53 23 L56 18.5" fill="none" stroke-width="1.6" stroke="#B9C6CE"/>
+    </g>
+    <ellipse cx="29" cy="51" rx="5" ry="3" fill="#FBC6CE"/>
+    <ellipse cx="71" cy="51" rx="5" ry="3" fill="#FBC6CE"/>
+    <!-- mavi göz -->
+    <ellipse cx="37.5" cy="40" rx="6.2" ry="6.8" fill="#3A8CF2" stroke="#1B1D26" stroke-width="1.8"/>
+    <ellipse cx="37.8" cy="41" rx="2.5" ry="4.3" fill="#1B1D26"/>
+    <circle cx="35.6" cy="37.4" r="1.8" fill="#fff"/>
+    <!-- kehribar göz -->
+    <ellipse cx="62.5" cy="40" rx="6.2" ry="6.8" fill="#F0A21A" stroke="#1B1D26" stroke-width="1.8"/>
+    <ellipse cx="62.2" cy="41" rx="2.5" ry="4.3" fill="#1B1D26"/>
+    <circle cx="60.3" cy="37.4" r="1.8" fill="#fff"/>
+    <path d="M46.6 48.2 H53.4 L50 52 Z" fill="#F2879C" stroke="#1B1D26" stroke-width="1.3" stroke-linejoin="round"/>
+    <path d="M50 52 Q48.6 56 45 54.6 M50 52 Q51.4 56 55 54.6" fill="none" stroke="#1B1D26" stroke-width="1.7" stroke-linecap="round"/>
+    <g stroke="#1B1D26" stroke-width="1.2" stroke-linecap="round">
+      <path d="M25 47 L10 44.5"/><path d="M25 50.5 L10 52"/>
+      <path d="M75 47 L90 44.5"/><path d="M75 50.5 L90 52"/>
+    </g>
+  </symbol>
+
+  <!-- büyük poz: el sallıyor, boynunda akçe -->
+  <symbol id="pamuk-b" viewBox="0 0 100 114">
+    <g stroke="#1B1D26" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M27 104 C9 104 5 86 13 78 C18 73 25 77 22 82 C19 86 18 95 30 97" fill="#fff"/>
+      <path d="M29 110 C23 93 27 75 38 66 L62 66 C73 75 77 93 71 110 Z" fill="#fff"/>
+    </g>
+    <path d="M41 106 C39 95 43 84 50 82 C57 84 61 95 59 106 Z" fill="#EEF3F6"/>
+    <g stroke="#1B1D26" stroke-width="2.4" stroke-linejoin="round">
+      <ellipse cx="40" cy="110" rx="8.5" ry="3.8" fill="#fff"/>
+      <ellipse cx="60" cy="110" rx="8.5" ry="3.8" fill="#fff"/>
+    </g>
+    <!-- sallanan pati -->
+    <path d="M65 76 C74 70 80 60 83 49" fill="none" stroke="#1B1D26" stroke-width="10" stroke-linecap="round"/>
+    <path d="M65 76 C74 70 80 60 83 49" fill="none" stroke="#fff" stroke-width="5.6" stroke-linecap="round"/>
+    <circle cx="84" cy="45" r="6.6" fill="#fff" stroke="#1B1D26" stroke-width="2.4"/>
+    <path d="M81 41 v3 M84.5 40 v3.2 M88 41.4 v3" stroke="#1B1D26" stroke-width="1.3" stroke-linecap="round"/>
+    <path d="M92 36 q3 -3 2 -7 M95 42 q4 -1 5 -4" fill="none" stroke="#13A3A6" stroke-width="1.8" stroke-linecap="round"/>
+    <!-- tasma + akçe -->
+    <path d="M34 66 Q50 74 66 66" fill="none" stroke="#1B1D26" stroke-width="7.4" stroke-linecap="round"/>
+    <path d="M34 66 Q50 74 66 66" fill="none" stroke="#13A3A6" stroke-width="4.4" stroke-linecap="round"/>
+    <circle cx="50" cy="76" r="5.4" fill="#E9EFF3" stroke="#1B1D26" stroke-width="1.8"/>
+    <circle cx="50" cy="76" r="3.2" fill="none" stroke="#586874" stroke-width=".9" stroke-dasharray="1 .8"/>
+    <use href="#pamuk-bas" x="10" y="2" width="80" height="64"/>
+  </symbol>
+
+  <!-- düşünen poz -->
+  <symbol id="pamuk-dusun" viewBox="0 0 60 60">
+    <circle cx="30" cy="30" r="28.5" fill="#FFF0CF" stroke="#1B1D26" stroke-width="1.6"/>
+    <g transform="rotate(-8 30 30)"><use href="#pamuk-bas" x="6" y="8" width="44" height="35.2"/></g>
+    <path d="M10 60 C10 48 18 44 30 44 C42 44 50 48 50 60" fill="#fff" stroke="#1B1D26" stroke-width="1.8"/>
+    <circle cx="36" cy="45.5" r="4.2" fill="#fff" stroke="#1B1D26" stroke-width="1.6"/>
+    <text x="49" y="18" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="13" fill="#0A6C74">?</text>
+  </symbol>
+
+  <!-- yüzen poz (haritada) -->
+  <symbol id="pamuk-yuzer" viewBox="0 0 64 40">
+    <use href="#pamuk-bas" x="10" y="0" width="42" height="33.6"/>
+    <path d="M0 29 Q5.3 25 10.6 29 T21.3 29 T32 29 T42.6 29 T53.3 29 T64 29 V40 H0 Z" fill="#BFE7E3" stroke="#0A6C74" stroke-width="1.2"/>
+    <path d="M6 35 Q11 32 16 35 M44 35 Q49 32 54 35" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+    <circle cx="57" cy="22" r="1.6" fill="none" stroke="#0A6C74" stroke-width=".9"/>
+    <circle cx="60.5" cy="17" r="1.1" fill="none" stroke="#0A6C74" stroke-width=".9"/>
+  </symbol>
+
+  <!-- avatarlar -->
+  <clipPath id="kirp"><circle cx="20" cy="20" r="18.6"/></clipPath>
+  <symbol id="av-pamuk" viewBox="0 0 40 40">
+    <circle cx="20" cy="20" r="19" fill="#FFF0CF" stroke="#1B1D26" stroke-width="1.4"/>
+    <use href="#pamuk-bas" x="4" y="7" width="32" height="25.6"/>
+  </symbol>
+  <symbol id="av-elif" viewBox="0 0 40 40">
+    <circle cx="20" cy="20" r="19" fill="#FDE7E1"/>
+    <g clip-path="url(#kirp)">
+      <path d="M27 14 C35 16 35 30 31 34 C29 28 29 22 27 18 Z" fill="#4A2C22" stroke="#1B1D26" stroke-width="1"/>
+      <path d="M6 42 C6 33 12 30 20 30 C28 30 34 33 34 42 Z" fill="#E2533D" stroke="#1B1D26" stroke-width="1.2"/>
+      <path d="M17 27 h6 v4 h-6 z" fill="#F4CBAA"/>
+      <circle cx="20" cy="20" r="9" fill="#F7D3B6" stroke="#1B1D26" stroke-width="1.2"/>
+      <path d="M11 20 C10 11 16 8.5 21 9 C26 9.5 30 13 29 20 C27 16 23 14.5 19 15 C16 15.5 13 17 11 20 Z" fill="#4A2C22" stroke="#1B1D26" stroke-width="1"/>
+      <path d="M12.5 15.5 Q20 10.5 27.5 15.5" fill="none" stroke="#F0A21A" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="16.6" cy="21" r="1.1" fill="#1B1D26"/><circle cx="23.4" cy="21" r="1.1" fill="#1B1D26"/>
+      <path d="M17.6 24.4 Q20 26.4 22.4 24.4" fill="none" stroke="#1B1D26" stroke-width="1" stroke-linecap="round"/>
+      <ellipse cx="14.6" cy="23.6" rx="1.6" ry="1" fill="#F5A3A3"/><ellipse cx="25.4" cy="23.6" rx="1.6" ry="1" fill="#F5A3A3"/>
+    </g>
+    <circle cx="20" cy="20" r="19" fill="none" stroke="#1B1D26" stroke-width="1.4"/>
+    <circle cx="33" cy="8" r="5" fill="#F0A21A" stroke="#1B1D26" stroke-width="1"/>
+    <text x="33" y="10.6" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="7.4" fill="#1B1D26">?</text>
+  </symbol>
+  <symbol id="av-yusuf" viewBox="0 0 40 40">
+    <circle cx="20" cy="20" r="19" fill="#DCF3F1"/>
+    <g clip-path="url(#kirp)">
+      <path d="M6 42 C6 33 12 30 20 30 C28 30 34 33 34 42 Z" fill="#13A3A6" stroke="#1B1D26" stroke-width="1.2"/>
+      <path d="M16 30 L20 34 L24 30" fill="none" stroke="#fff" stroke-width="1.2"/>
+      <path d="M17 26.5 h6 v4 h-6 z" fill="#D9A983"/>
+      <circle cx="20" cy="20" r="9" fill="#E3B48F" stroke="#1B1D26" stroke-width="1.2"/>
+      <path d="M11 18 C11 10 16 9 20.5 9 C26 9 29.5 11.5 29 18 C27 15 24 14.6 21 15.4 C17 16.4 14 15.4 11 18 Z" fill="#1E1B1A" stroke="#1B1D26" stroke-width="1"/>
+      <circle cx="16.4" cy="20.6" r="2.9" fill="#fff" stroke="#1B1D26" stroke-width="1"/>
+      <circle cx="23.6" cy="20.6" r="2.9" fill="#fff" stroke="#1B1D26" stroke-width="1"/>
+      <path d="M19.3 20.4 h1.4" stroke="#1B1D26" stroke-width="1"/>
+      <circle cx="16.6" cy="20.8" r="1" fill="#1B1D26"/><circle cx="23.8" cy="20.8" r="1" fill="#1B1D26"/>
+      <path d="M17.8 25 Q20 26.4 22.2 25" fill="none" stroke="#1B1D26" stroke-width="1" stroke-linecap="round"/>
+    </g>
+    <circle cx="20" cy="20" r="19" fill="none" stroke="#1B1D26" stroke-width="1.4"/>
+  </symbol>
+  <symbol id="av-zeynep" viewBox="0 0 40 40">
+    <circle cx="20" cy="20" r="19" fill="#E6ECFB"/>
+    <g clip-path="url(#kirp)">
+      <path d="M6 42 C6 33 12 30 20 30 C28 30 34 33 34 42 Z" fill="#fff" stroke="#1B1D26" stroke-width="1.2"/>
+      <path d="M20 31 V42" stroke="#1B1D26" stroke-width="1"/>
+      <path d="M17 26.5 h6 v4 h-6 z" fill="#EBC3A2"/>
+      <circle cx="20" cy="7.6" r="4.4" fill="#5A3B2C" stroke="#1B1D26" stroke-width="1"/>
+      <circle cx="20" cy="20" r="9" fill="#F2CFB2" stroke="#1B1D26" stroke-width="1.2"/>
+      <path d="M11 19 C10.5 11.5 15 10 20 10 C25 10 29.5 11.5 29 19 C26 14.5 23 13.6 20 13.6 C17 13.6 14 14.5 11 19 Z" fill="#5A3B2C" stroke="#1B1D26" stroke-width="1"/>
+      <rect x="13.4" y="18.6" width="5.6" height="4" rx="1.4" fill="none" stroke="#2B50B5" stroke-width="1"/>
+      <rect x="21" y="18.6" width="5.6" height="4" rx="1.4" fill="none" stroke="#2B50B5" stroke-width="1"/>
+      <path d="M17.8 25 Q20 26.6 22.2 25" fill="none" stroke="#1B1D26" stroke-width="1" stroke-linecap="round"/>
+    </g>
+    <circle cx="20" cy="20" r="19" fill="none" stroke="#1B1D26" stroke-width="1.4"/>
+  </symbol>
+
+  <!-- ===== ikonlar (24×24) ===== -->
+  <symbol id="i-logo" viewBox="0 0 100 100">
+    <use href="#yildiz8" fill="#13A3A6"/>
+    <circle cx="50" cy="50" r="17" fill="#1B1D26"/>
+    <circle cx="50" cy="50" r="8" fill="#F0A21A"/>
+  </symbol>
+  <symbol id="i-akce" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" fill="#E9EFF3" stroke="#1B1D26" stroke-width="1.6"/>
+    <circle cx="12" cy="12" r="7" fill="none" stroke="#586874" stroke-width="1" stroke-dasharray="1.4 1.1"/>
+    <g transform="translate(7.2 7.2) scale(.096)"><use href="#yildiz8" fill="#F0A21A"/></g>
+  </symbol>
+  <symbol id="i-hedef" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" fill="#fff" stroke="#1B1D26" stroke-width="1.8"/>
+    <circle cx="12" cy="12" r="6" fill="#DCF3F1" stroke="#0A6C74" stroke-width="1.8"/>
+    <circle cx="12" cy="12" r="2.4" fill="#E2533D"/>
+  </symbol>
+  <symbol id="i-anahtar" viewBox="0 0 24 24">
+    <g fill="none" stroke="#1B1D26" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="7.5" cy="12" r="4.6" fill="#FFF0CF"/>
+      <path d="M12.1 12 H21.5 M18.2 12 V15.6 M21.2 12 V14.8"/>
+    </g>
+    <circle cx="7.5" cy="12" r="1.4" fill="#1B1D26"/>
+  </symbol>
+  <symbol id="i-kilit" viewBox="0 0 24 24">
+    <path d="M8 10.5 V8 a4 4 0 0 1 8 0 v2.5" fill="none" stroke="#1B1D26" stroke-width="1.9"/>
+    <rect x="5" y="10.5" width="14" height="10.5" rx="2.4" fill="#FFF0CF" stroke="#1B1D26" stroke-width="1.9"/>
+    <circle cx="12" cy="15" r="1.5" fill="#1B1D26"/><path d="M12 15.5 v2.6" stroke="#1B1D26" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-tuzak" viewBox="0 0 24 24">
+    <path d="M12 2.6 L22.4 20.6 H1.6 Z" fill="#E2533D" stroke="#1B1D26" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M12 8.6 V14.2" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.3" fill="#fff"/>
+  </symbol>
+  <symbol id="i-tuzak-b" viewBox="0 0 24 24">
+    <path d="M12 2.6 L22.4 20.6 H1.6 Z" fill="#fff" stroke="#1B1D26" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M12 8.6 V14.2" stroke="#E2533D" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.3" r="1.3" fill="#E2533D"/>
+  </symbol>
+  <symbol id="i-hazine" viewBox="0 0 24 24">
+    <g stroke="#1B1D26" stroke-width="1.7" stroke-linejoin="round">
+      <path d="M3 10.5 C3 5 21 5 21 10.5 Z" fill="#F0A21A"/>
+      <rect x="3" y="10.5" width="18" height="10" rx="1.4" fill="#FFF0CF"/>
+      <path d="M3 14 H21" fill="none"/>
+      <rect x="10" y="12" width="4" height="4.4" rx="1" fill="#E9EFF3"/>
+    </g>
+  </symbol>
+  <symbol id="i-hulasa" viewBox="0 0 24 24">
+    <g stroke="#1B1D26" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M6 3 H19 V18 a3 3 0 0 1 -3 3 H5 a3 3 0 0 1 -3 -3 V17 H15 V18 a3 3 0 0 0 3 3" fill="#DCF3F1"/>
+      <path d="M6 3 V17" fill="none"/>
+      <path d="M9 8 H16 M9 11.5 H16" fill="none" stroke="#0A6C74"/>
+    </g>
+  </symbol>
+  <symbol id="i-kale" viewBox="0 0 24 24">
+    <path d="M3 21.5 V8.5 H6 V11 H8.6 V8.5 H10.6 V4 H13.4 V8.5 H15.4 V11 H18 V8.5 H21 V21.5 Z" fill="#FDE7E1" stroke="#1B1D26" stroke-width="1.7" stroke-linejoin="round"/>
+    <path d="M9.6 21.5 V17.4 a2.4 2.4 0 0 1 4.8 0 V21.5" fill="#1B1D26"/>
+    <path d="M12 4 V1.2 L15.6 2.2 L12 3.2" fill="#E2533D" stroke="#1B1D26" stroke-width=".9" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-kale-hud" viewBox="0 0 24 24">
+    <path d="M3 21.5 V8.5 H6 V11 H8.6 V8.5 H10.6 V4 H13.4 V8.5 H15.4 V11 H18 V8.5 H21 V21.5 Z" fill="none" stroke="#E2533D" stroke-width="2.2" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-meclis" viewBox="0 0 24 24">
+    <g stroke="#1B1D26" stroke-width="1.7" stroke-linejoin="round">
+      <path d="M2.5 4 H14.5 V12.5 H8 L4.6 15.4 V12.5 H2.5 Z" fill="#DCF3F1"/>
+      <path d="M9.5 9 H21.5 V17.5 H19.4 V20.4 L16 17.5 H9.5 Z" fill="#FFF0CF"/>
+    </g>
+    <path d="M12.6 13.2 h6 M12.6 15 h4" stroke="#1B1D26" stroke-width="1.2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-kissa" viewBox="0 0 24 24">
+    <g stroke="#1B1D26" stroke-width="1.7" stroke-linejoin="round">
+      <path d="M12 6 C9 4 5 4 2 5 V19.5 C5 18.5 9 18.5 12 20.5 Z" fill="#fff"/>
+      <path d="M12 6 C15 4 19 4 22 5 V19.5 C19 18.5 15 18.5 12 20.5 Z" fill="#DCF3F1"/>
+    </g>
+    <path d="M4.6 9 H9.6 M4.6 12 H9.6 M14.4 9 H19.4 M14.4 12 H19.4" stroke="#0A6C74" stroke-width="1.2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-dogru" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" fill="#13A3A6" stroke="#1B1D26" stroke-width="1.6"/>
+    <path d="M7 12.4 L10.6 16 L17.2 8.6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-makas" viewBox="0 0 24 24">
+    <g fill="none" stroke="#56636E" stroke-width="1.8" stroke-linecap="round">
+      <circle cx="5.5" cy="6.5" r="3"/><circle cx="5.5" cy="17.5" r="3"/>
+      <path d="M8 8 L21 17.5 M8 16 L21 6.5"/>
+    </g>
+  </symbol>
+  <symbol id="i-gorev" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" fill="#fff" stroke="#1B1D26" stroke-width="1.8"/>
+    <circle cx="12" cy="12" r="6" fill="#DCF3F1" stroke="#0A6C74" stroke-width="1.8"/>
+    <circle cx="12" cy="12" r="2.4" fill="#E2533D"/>
+  </symbol>
+  <symbol id="i-medeniyet" viewBox="0 0 24 24">
+    <!-- damıtma imbiği (anbik) -->
+    <g stroke="#1B1D26" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M3 21 C1.5 16 4 12 8 12 C12 12 14.5 16 13 21 Z" fill="#E6ECFB"/>
+      <path d="M6.4 12.2 V8.6 C6.4 6 9.6 6 9.6 8.6 V12.2" fill="#fff"/>
+      <path d="M9.4 8 L20.5 13.5" fill="none"/>
+      <path d="M18 15.5 h4.6 v5.6 h-4.6 z" fill="#fff"/>
+    </g>
+    <path d="M4.2 18 C6 17 10 17 11.8 18" fill="none" stroke="#2B50B5" stroke-width="1.2"/>
+    <circle cx="20.3" cy="15" r=".9" fill="#2B50B5"/>
+  </symbol>
+  <!-- çay bardakları: muhasebe -->
+  <clipPath id="bardak-kirp"><path d="M4 2 H20 C20 7 15 9.5 15 13.5 C15 17.5 19.6 19.5 19 25 H5 C4.4 19.5 9 17.5 9 13.5 C9 9.5 4 7 4 2 Z"/></clipPath>
+  <symbol id="cay-dolu" viewBox="0 0 24 30">
+    <rect x="0" y="5" width="24" height="22" fill="#C2410C" clip-path="url(#bardak-kirp)"/>
+    <path d="M4 2 H20 C20 7 15 9.5 15 13.5 C15 17.5 19.6 19.5 19 25 H5 C4.4 19.5 9 17.5 9 13.5 C9 9.5 4 7 4 2 Z" fill="none" stroke="#1B1D26" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M1.5 28 H22.5" stroke="#1B1D26" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="cay-yari" viewBox="0 0 24 30">
+    <rect x="0" y="15" width="24" height="12" fill="#C2410C" clip-path="url(#bardak-kirp)"/>
+    <path d="M4 2 H20 C20 7 15 9.5 15 13.5 C15 17.5 19.6 19.5 19 25 H5 C4.4 19.5 9 17.5 9 13.5 C9 9.5 4 7 4 2 Z" fill="none" stroke="#1B1D26" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M1.5 28 H22.5" stroke="#1B1D26" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="cay-bos" viewBox="0 0 24 30">
+    <path d="M4 2 H20 C20 7 15 9.5 15 13.5 C15 17.5 19.6 19.5 19 25 H5 C4.4 19.5 9 17.5 9 13.5 C9 9.5 4 7 4 2 Z" fill="#fff" stroke="#1B1D26" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M1.5 28 H22.5" stroke="#1B1D26" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- YANLIŞ mührü -->
+  <symbol id="muhur-yanlis" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="46" fill="rgba(253,231,225,.85)" stroke="#E2533D" stroke-width="4.5"/>
+    <circle cx="50" cy="50" r="38" fill="none" stroke="#E2533D" stroke-width="1.6" stroke-dasharray="3.2 2.4"/>
+    <g transform="translate(43 15) scale(.14)"><use href="#yildiz8" fill="#E2533D"/></g>
+    <g transform="translate(43 71) scale(.14)"><use href="#yildiz8" fill="#E2533D"/></g>
+    <text x="50" y="58.5" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="22" fill="#A12817" letter-spacing=".5">YANLIŞ</text>
+  </symbol>
+
+  <!-- nişan çerçevesi (Selçuklu yıldızı) -->
+  <symbol id="nisan-cerceve" viewBox="0 0 100 100">
+    <polygon points="50.0,1.0 64.4,15.4 84.6,15.4 84.6,35.6 99.0,50.0 84.6,64.4 84.6,84.6 64.4,84.6 50.0,99.0 35.6,84.6 15.4,84.6 15.4,64.4 1.0,50.0 15.4,35.6 15.4,15.4 35.6,15.4" fill="#fff" stroke="#1B1D26" stroke-width="2.6" stroke-linejoin="round"/>
+    <polygon points="50.0,10.0 61.7,21.7 78.3,21.7 78.3,38.3 90.0,50.0 78.3,61.7 78.3,78.3 61.7,78.3 50.0,90.0 38.3,78.3 21.7,78.3 21.7,61.7 10.0,50.0 21.7,38.3 21.7,21.7 38.3,21.7" fill="none" stroke="#A3B3BE" stroke-width="1.4" stroke-dasharray="2.6 2"/>
+    <circle cx="50" cy="50" r="25" fill="#fff" stroke="#1B1D26" stroke-width="2"/>
+  </symbol>
+  <!-- nişan ikonları -->
+  <symbol id="n-deste" viewBox="0 0 24 24">
+    <g stroke="#1B1D26" stroke-width="1.5" stroke-linejoin="round" fill="none">
+      <rect x="3" y="13" width="8" height="7" rx="1"/><rect x="13" y="13" width="8" height="7" rx="1"/><rect x="8" y="5" width="8" height="7" rx="1"/>
+      <path d="M5.5 16.5 h3 M15.5 16.5 h3 M10.5 8.5 h3"/>
+    </g>
+  </symbol>
+  <symbol id="n-izotop" viewBox="0 0 24 24">
+    <g stroke="#1B1D26" stroke-width="1.6" fill="none" stroke-linecap="round">
+      <circle cx="10" cy="10" r="6.4"/><path d="M14.6 14.6 L21 21"/>
+    </g>
+    <circle cx="8.4" cy="9" r="1.7" fill="none" stroke="#1B1D26" stroke-width="1.2"/><circle cx="11.6" cy="11" r="1.7" fill="none" stroke="#1B1D26" stroke-width="1.2"/>
+  </symbol>
+  <symbol id="n-kefal" viewBox="0 0 24 24">
+    <g stroke="#1B1D26" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M2.5 9 C6 5 12 5 15 9 L19.5 6 V12 L15 9"/>
+      <path d="M4.5 18 C8 14 14 14 17 18 L21.5 15 V21 L17 18"/>
+    </g>
+    <circle cx="5.6" cy="8.4" r=".9" fill="#1B1D26"/><circle cx="7.6" cy="17.4" r=".9" fill="#1B1D26"/>
+  </symbol>
+  <symbol id="n-terazi" viewBox="0 0 24 24">
+    <g stroke="#1B1D26" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M12 3 V20 M7 20.5 H17 M4 6.5 H20"/>
+      <path d="M4 6.5 L1.5 13 H6.5 Z M20 6.5 L17.5 13 H22.5 Z"/>
+    </g>
+  </symbol>
+  <symbol id="n-karisim" viewBox="0 0 24 24">
+    <g stroke="#1B1D26" stroke-width="1.5" fill="none" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M5 3 V9 L1.6 20 H11.4 L8 9 V3 M4 3 H9"/>
+      <path d="M16 3 V9 L12.6 20 H22.4 L19 9 V3 M15 3 H20"/>
+    </g>
+  </symbol>
+  <symbol id="n-kale" viewBox="0 0 24 24">
+    <path d="M3 21.5 V8.5 H6 V11 H8.6 V8.5 H10.6 V4 H13.4 V8.5 H15.4 V11 H18 V8.5 H21 V21.5 Z" fill="none" stroke="#1B1D26" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M9.6 21.5 V17.4 a2.4 2.4 0 0 1 4.8 0 V21.5" fill="none" stroke="#1B1D26" stroke-width="1.5"/>
+  </symbol>
+
+  <!-- inci kefali -->
+  <symbol id="kefal" viewBox="0 0 30 14">
+    <path d="M1 7 C6 1 16 1 21 6 L28.5 1.6 L26.6 7 L28.5 12.4 L21 8 C16 13 6 13 1 7 Z" fill="#E9EFF3" stroke="#586874" stroke-width="1.1" stroke-linejoin="round"/>
+    <path d="M9 4.4 Q11 7 9 9.6" fill="none" stroke="#A3B3BE" stroke-width=".9"/>
+    <circle cx="5" cy="6.2" r="1" fill="#1B1D26"/>
+  </symbol>
+
+  <path id="yol" d="M31.8,87.6 C24.9,76.1 31.8,60.0 41.0,50.8 C50.2,41.6 64.0,37.0 77.8,37.0 C96.2,37.0 110.0,25.5 128.3,18.6 C139.8,14.0 146.8,20.9 144.4,32.4 C142.2,41.6 158.2,48.5 160.6,57.7 C162.8,66.9 158.2,76.1 149.1,78.4 C132.9,83.0 119.2,87.6 100.8,87.6 C77.8,87.6 50.2,94.5 31.8,87.6 Z"/>
+  <!-- dalga altbilgi -->
+  <symbol id="dalga" viewBox="0 0 210 15" preserveAspectRatio="none">
+    <path d="M0 6 Q13 2 26 6 T52 6 T78 6 T104 6 T130 6 T156 6 T182 6 T210 6 V15 H0 Z" fill="#E6F5F4"/>
+    <path d="M0 9.5 Q13 6 26 9.5 T52 9.5 T78 9.5 T104 9.5 T130 9.5 T156 9.5 T182 9.5 T210 9.5 V15 H0 Z" fill="#D3EFEC"/>
+  </symbol>
+</defs>
+</svg>
+
+<!-- ================================================================ SAYFA 1 · YOL AÇILIŞI -->
+<section class="sayfa">
+  <header class="hud">
+    <div class="logo"><svg><use href="#i-logo"/></svg>KİMYA ROTASI 10</div>
+    <div class="yer">VAN GÖLÜ TURU · <b>YOLA ÇIKIŞ</b></div>
+    <div class="noktalar">
+      <i></i><i></i><i></i><i></i><i></i><i class="yan"></i><i class="yan"></i><i class="yan"></i><i class="yan"></i>
+      <i class="kale"><svg><use href="#i-kale-hud"/></svg></i>
+    </div>
+    <div class="akce"><svg><use href="#i-akce"/></svg>AKÇE <span class="yaz"></span>/1400 <span class="bar"><i style="width:0"></i></span></div>
+  </header>
+
+  <div class="ic">
+    <div class="acilis">
+      <div>
+        <div class="ciplerust">
+          <span class="cip koyu buyuk">YOL 2 · VAN GÖLÜ TURU</span>
+          <span class="cip buyuk">10. sınıf · Tema 1 · Bölüm 2</span>
+        </div>
+        <h1 class="dev-baslik"><span class="mol">Mol</span> <span class="kav"><span>Kavramı</span><svg viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 6 Q6.25 1 12.5 6 T25 6 T37.5 6 T50 6 T62.5 6 T75 6 T87.5 6 T100 6 V10 H0 Z" fill="#F0A21A"/></svg></span></h1>
+        <p class="alt-bas">Damlaya damlaya göl olur; <b>tane tane de mol.</b></p>
+        <div class="ciplerara">
+          <span class="cip">5 durak</span>
+          <span class="cip">3 yan yol</span>
+          <span class="cip mer">1 kale</span>
+          <span class="cip akce"><svg><use href="#i-akce"/></svg>1400 akçe</span>
+        </div>
+      </div>
+      <div class="pamuk-sahne">
+        <svg class="suphan" viewBox="0 0 82 30" preserveAspectRatio="xMaxYMax meet">
+          <path d="M0 30 L22 12 Q26 9 30 11 L38 6 Q41 4 44 6 L58 15 L64 13 L82 26 V30 Z" fill="#EDF2F5" stroke="#A3B3BE" stroke-width=".5"/>
+          <path d="M30 11 L38 6 Q41 4 44 6 L50 10 L46 12 L43 10 L40 13 L36 11 L33 13 Z" fill="#fff" stroke="#A3B3BE" stroke-width=".4"/>
+        </svg>
+        <div class="balon-pamuk">
+          <div class="kim et keh">Pamuk · tur rehberin</div>
+          Miyav, hoş geldin! Bu turda <b>6,02·10<sup>23</sup></b> tane şeyi saymayı öğreneceğiz. Tek tek değil, <b>destesiyle!</b>
+        </div>
+        <svg class="pamuk-b"><use href="#pamuk-b"/></svg>
+      </div>
+    </div>
+
+    <!-- Van Gölü tur haritası -->
+    <div class="kart harita">
+      <svg class="zemin" viewBox="0 0 187 103" preserveAspectRatio="none">
+        <rect width="187" height="103" fill="#FCFDF9"/>
+        <!-- Nemrut (obsidyen) -->
+        <g transform="translate(0 -3)">
+          <path d="M2 74 L10 61 Q12 58.6 14 60.4 L15.4 61.6 L17 60.2 Q19 58.6 20.8 61 L29 74 Z" fill="#3A3F4B" stroke="#1B1D26" stroke-width=".5" stroke-linejoin="round"/>
+          <path d="M14 60.4 Q15.4 62.6 17 60.2" fill="none" stroke="#F0A21A" stroke-width=".6"/>
+          <path d="M8.4 70 l2.4 -3 l1.6 2 M19 68.6 l2 -2.4 l1.8 2.2" fill="none" stroke="#6A7180" stroke-width=".45"/>
+          <text x="15.5" y="78" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="2.7" letter-spacing=".25" fill="#586874">NEMRUT</text>
+          <!-- Süphan -->
+          <path d="M80 30 L93 15 Q96 12 99 13.6 L103 9 Q106 6 109 9 L122 23 L126 21.6 L134 30 Z" fill="#EDF2F5" stroke="#A3B3BE" stroke-width=".5" stroke-linejoin="round"/>
+          <path d="M99 13.6 L103 9 Q106 6 109 9 L113.4 13.8 L110.6 15 L108 12.8 L105.4 15.6 L102.6 13.4 L100.6 15.4 Z" fill="#fff" stroke="#A3B3BE" stroke-width=".4" stroke-linejoin="round"/>
+          <text x="86" y="22" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="2.7" letter-spacing=".25" fill="#586874">SÜPHAN</text>
+          <!-- göl -->
+          <path d="M40,84 C34,74 40,60 48,52 C56,44 68,40 80,40 C96,40 108,30 124,24 C134,20 140,26 138,36 C136,44 150,50 152,58 C154,66 150,74 142,76 C128,80 116,84 100,84 C80,84 56,90 40,84 Z" fill="#CFEFEB" stroke="#0A6C74" stroke-width=".6"/>
+          <path d="M48,80 C44,72 48,62 55,56 C62,50 72,47 82,47 C98,47 110,38 124,32 C130,30 131,35 130,40 C130,48 142,54 144,60 C145,66 141,70 134,71 C122,74 112,78 98,78 C80,78 60,83 48,80 Z" fill="#B9E6E1" opacity=".6"/>
+          <g fill="none" stroke="#fff" stroke-width=".5" stroke-linecap="round" opacity=".9">
+            <path d="M58 70 q2.4 -1.6 4.8 0 t4.8 0"/><path d="M110 50 q2.4 -1.6 4.8 0 t4.8 0"/><path d="M122 70 q2.4 -1.6 4.8 0 t4.8 0"/><path d="M76 56 q2.4 -1.6 4.8 0 t4.8 0"/>
+          </g>
+          <!-- kıyı yolu -->
+          <use href="#yol" fill="none" stroke="#1B1D26" stroke-width="5.2" stroke-linejoin="round"/>
+          <use href="#yol" fill="none" stroke="#FFF0CF" stroke-width="3.8" stroke-linejoin="round"/>
+          <use href="#yol" fill="none" stroke="#C98200" stroke-width=".5" stroke-dasharray="1.8 1.4"/>
+          <!-- kale yolu -->
+          <path d="M160.6 57.7 L171 58" stroke="#1B1D26" stroke-width="5.2" stroke-linecap="round"/>
+          <path d="M160.6 57.7 L171 58" stroke="#FFF0CF" stroke-width="3.8" stroke-linecap="round"/>
+          <!-- yön okları -->
+          <g fill="#C98200">
+            <path d="M126 88.6 l-3 -1.8 l0 3.6 z" transform="rotate(5 124 88)"/>
+            <path d="M58 89.2 l-3 -1.8 l0 3.6 z"/>
+            <path d="M30.6 66 l-1.8 3 l3.6 0 z"/>
+            <path d="M61 39.6 l3 -1.8 l0 3.6 z" transform="rotate(170 62 39.6)"/>
+            <path d="M153 47 l1.8 3 l-3.6 0 z" transform="rotate(180 153 48.6)"/>
+          </g>
+          <!-- göl içi: yüzen Pamuk, inci kefalleri -->
+          <use href="#pamuk-yuzer" x="55" y="57.5" width="21" height="13.1"/>
+          <use href="#kefal" x="118" y="60" width="9" height="4.2"/>
+          <use href="#kefal" x="124" y="65" width="7" height="3.3"/>
+          <use href="#kefal" x="113" y="66.4" width="6" height="2.8"/>
+          <text x="96" y="65" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="7.4" fill="#0A6C74">Van Gölü</text>
+          <text x="96" y="70.4" text-anchor="middle" font-family="Nunito" font-weight="800" font-size="2.9" fill="#0A6C74">sodalı göl · pH ≈ 9,5–10</text>
+          <text x="122" y="73.4" text-anchor="middle" font-family="Nunito" font-weight="800" font-size="2.6" fill="#586874">inci kefali</text>
+
+          <!-- duraklar -->
+          <g font-family="Baloo Bhaijaan 2" font-weight="800" font-size="6" text-anchor="middle" fill="#fff">
+            <g><circle cx="149.1" cy="78.4" r="4.4" fill="#13A3A6" stroke="#1B1D26" stroke-width=".6"/><text x="149.1" y="80.6">1</text></g>
+            <g><circle cx="100.8" cy="87.6" r="4.4" fill="#13A3A6" stroke="#1B1D26" stroke-width=".6"/><text x="100.8" y="89.8">2</text></g>
+            <g><circle cx="31.8" cy="87.6" r="4.4" fill="#13A3A6" stroke="#1B1D26" stroke-width=".6"/><text x="31.8" y="89.8">3</text></g>
+            <g><circle cx="41" cy="50.8" r="4.4" fill="#13A3A6" stroke="#1B1D26" stroke-width=".6"/><text x="41" y="53">4</text></g>
+            <g><circle cx="77.8" cy="37" r="4.4" fill="#13A3A6" stroke="#1B1D26" stroke-width=".6"/><text x="77.8" y="39.2">5</text></g>
+          </g>
+          <!-- yan duraklar: kehribar yıldız -->
+          <g>
+            <g transform="translate(98.6 25.9) scale(.09)"><use href="#yildiz8" fill="#F0A21A" stroke="#1B1D26" stroke-width="6"/></g>
+            <g transform="translate(123.8 14.1) scale(.09)"><use href="#yildiz8" fill="#F0A21A" stroke="#1B1D26" stroke-width="6"/></g>
+            <g transform="translate(139.9 27.9) scale(.09)"><use href="#yildiz8" fill="#F0A21A" stroke="#1B1D26" stroke-width="6"/></g>
+            <g transform="translate(156.1 53.2) scale(.09)"><use href="#yildiz8" fill="#F0A21A" stroke="#1B1D26" stroke-width="6"/></g>
+            <g font-family="Baloo Bhaijaan 2" font-weight="800" font-size="4" text-anchor="middle" fill="#1B1D26">
+              <text x="103.1" y="32.2">H</text><text x="128.3" y="20.4">M</text><text x="144.4" y="34.2">K</text><text x="160.6" y="59.5">A</text>
+            </g>
+          </g>
+          <!-- Van Kalesi -->
+          <use href="#i-kale" x="169.6" y="49" width="14" height="14"/>
+          <!-- başlangıç: iskele + kayık -->
+          <g transform="translate(160 82.6)">
+            <path d="M0 4 H12 L10 7 H2 Z" fill="#fff" stroke="#1B1D26" stroke-width=".5" stroke-linejoin="round"/>
+            <path d="M6 4 V-3 L10.6 2.4 H6" fill="#F0A21A" stroke="#1B1D26" stroke-width=".45" stroke-linejoin="round"/>
+            <path d="M-1 8.4 q1.5 -1 3 0 t3 0 t3 0 t3 0 t3 0" fill="none" stroke="#0A6C74" stroke-width=".45"/>
+          </g>
+        </g>
+      </svg>
+
+      <div class="h-bas"><h2>Tur haritası</h2><p>Edremit'ten başla, gölü saat yönünde dolaş, kaleye çık.</p></div>
+
+      <!-- durak etiketleri (mm, kart içi) -->
+      <div class="durak-et orta" style="left:141mm; top:79.4mm"><span class="yer">1. Durak · Edremit</span><b>Neden mol?</b><i>s.2 · <em>+100</em></i></div>
+      <div class="durak-et orta" style="left:100.8mm; top:89.4mm"><span class="yer">2. Durak · Gevaş</span><b>Atomun kütlesi</b><i>s.3 · <em>+150</em></i></div>
+      <div class="durak-et" style="left:4mm; top:89mm"><span class="yer">3. Durak · Tatvan</span><b>Mol ile tanecik</b><i>s.4 · <em>+150</em></i></div>
+      <div class="durak-et sag" style="right:150mm; top:35.4mm"><span class="yer">4. Durak · Ahlat</span><b>Mol ile kütle</b><i>s.5 · <em>+150</em></i></div>
+      <div class="durak-et orta" style="left:64mm; top:19.4mm"><span class="yer">5. Durak · Adilcevaz</span><b>Karışımlar</b><i>s.6 · <em>+150</em></i></div>
+      <div class="durak-et yan orta" style="left:103mm; top:30.6mm"><span class="yer">Süphan eteği</span><b>Hülasa</b><i>s.7 · <em>+40</em></i></div>
+      <div class="durak-et yan" style="left:133mm; top:10.4mm"><span class="yer">Yan yol · Erciş</span><b>Meclis: Kim haklı?</b><i>s.8 · <em>+120</em></i></div>
+      <div class="durak-et yan" style="left:149.6mm; top:24.8mm"><span class="yer">Yan yol · Muradiye</span><b>Kıssa</b><i>s.9 · <em>+120</em></i></div>
+      <div class="durak-et yan sag" style="right:3.4mm; top:62.4mm"><span class="yer">Van iskelesi</span><b>Anahtar</b><i>s.10 · <em>+120</em></i></div>
+      <div class="durak-et kale sag" style="right:3.4mm; top:36mm"><span class="yer">Van Kalesi</span><b>Büyük İmtihan</b><i>s.11–12 · <em>+300</em></i></div>
+      <div class="durak-et" style="left:158mm; top:89.4mm"><span class="cip koyu">BAŞLA · s.1</span></div>
+      <div class="h-lejant" style="top:auto; bottom:3.4mm"><span class="cip"><svg><use href="#i-akce"/></svg>durak · sayfa · akçe</span></div>
+    </div>
+
+    <!-- nişanlar -->
+    <div>
+      <div class="nisan-bas"><h2 class="ara-bas">Kazanılacak nişanlar</h2><span class="ara-bas-not">Durağı bitirince nişanını kendin boya. Kalem senden, nişan bizden.</span></div>
+      <div class="nisanlar">
+        <div class="nisan"><svg viewBox="0 0 100 100"><use href="#nisan-cerceve"/><use href="#n-deste" x="32" y="32" width="36" height="36"/></svg><b>Deste Ustası</b><span>1. Durak · paketi aç</span></div>
+        <div class="nisan"><svg viewBox="0 0 100 100"><use href="#nisan-cerceve"/><use href="#n-izotop" x="32" y="32" width="36" height="36"/></svg><b>İzotop İzcisi</b><span>2. Durak · ortalama kütle</span></div>
+        <div class="nisan"><svg viewBox="0 0 100 100"><use href="#nisan-cerceve"/><use href="#n-kefal" x="32" y="32" width="36" height="36"/></svg><b>Kefal Sayıcı</b><span>3. Durak · tanecik ⇄ mol</span></div>
+        <div class="nisan"><svg viewBox="0 0 100 100"><use href="#nisan-cerceve"/><use href="#n-terazi" x="32" y="32" width="36" height="36"/></svg><b>Mizan Ehli</b><span>4. Durak · kütle ⇄ mol</span></div>
+        <div class="nisan"><svg viewBox="0 0 100 100"><use href="#nisan-cerceve"/><use href="#n-karisim" x="32" y="32" width="36" height="36"/></svg><b>Karışım Kâşifi</b><span>5. Durak · tek bilinmeyen</span></div>
+        <div class="nisan"><svg viewBox="0 0 100 100"><use href="#nisan-cerceve"/><use href="#n-kale" x="32" y="32" width="36" height="36"/></svg><b>Kale Kapısı</b><span>İmtihanda 10+ doğru</span></div>
+      </div>
+    </div>
+
+    <!-- karakterler + hedefler -->
+    <div class="ikili">
+      <div class="kart">
+        <span class="et mer"><svg><use href="#i-meclis"/></svg>Yol arkadaşların</span>
+        <div class="karakter"><svg><use href="#av-elif"/></svg><div><b>Elif</b><small>10. sınıf · Edremit</small><p>Meraklı; “Neden?” demeden geçmez.</p></div></div>
+        <div class="karakter"><svg><use href="#av-yusuf"/></svg><div><b>Yusuf</b><small>kimya kulübü · Erciş</small><p>Sakin; adım adım, örnekle anlatır.</p></div></div>
+        <div class="karakter"><svg><use href="#av-pamuk"/></svg><div><b>Pamuk</b><small>Van kedisi · N<sub>A</sub> = 6,02·10<sup>23</sup></small><p>Bir gözü mavi, bir gözü kehribar; hep sayıyla konuşur.</p></div></div>
+      </div>
+      <div class="kart">
+        <span class="et"><svg><use href="#i-hedef"/></svg>Yolun sonunda · hedefler</span>
+        <ol class="hedefler">
+          <li><i>1</i><span>Mol, tanecik sayısı ve kütle arasında rahatça geçiş yapacaksın.</span></li>
+          <li><i>2</i><span>İzotop ve ortalama atom kütlesini yorumlayacaksın.</span></li>
+          <li><i>3</i><span>Karışım problemlerini tek bilinmeyenle çözeceksin.</span></li>
+        </ol>
+        <div class="ahilik">
+          <span class="et keh">Ahilik basamakları · toplam akçene göre</span>
+          <div class="basamaklar">
+            <div class="b1"><b>Çırak</b><span>0+</span></div>
+            <div class="b2"><b>Kalfa</b><span>400+</span></div>
+            <div class="b3"><b>Usta</b><span>800+</span></div>
+            <div class="b4"><b>Mol Üstadı</b><span>1150+</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- işaretler -->
+    <div class="isaretler">
+      <span class="et obs">İşaretler</span>
+      <div class="isaret"><svg><use href="#i-gorev"/></svg><div><b>Görev</b><span>Çözümü kapat, dene.</span></div></div>
+      <div class="isaret"><svg><use href="#i-anahtar"/></svg><div><b>Anahtar</b><span>Açarsan −10 akçe.</span></div></div>
+      <div class="isaret"><svg><use href="#i-tuzak"/></svg><div><b>Tuzak!</b><span>Yanlış bilinen.</span></div></div>
+      <div class="isaret"><svg><use href="#i-hazine"/></svg><div><b>Hazine</b><span>Kes, deftere yapıştır.</span></div></div>
+      <div class="isaret"><svg><use href="#i-hulasa"/></svg><div><b>Hülasa</b><span>Tek sayfada özet.</span></div></div>
+      <div class="isaret"><svg><use href="#i-kale"/></svg><div><b>Kale</b><span>Büyük İmtihan.</span></div></div>
+    </div>
+  </div>
+
+  <svg class="dalga-alt"><use href="#dalga"/></svg>
+  <footer class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Van Gölü Turu · Yola çıkış</span><span class="no"><svg viewBox="0 0 100 100"><use href="#yildiz8" fill="#13A3A6" stroke="#1B1D26" stroke-width="4"/></svg><b>1</b></span></footer>
+</section>
+
+<!-- ================================================================ SAYFA 2 · 3. DURAK -->
+<section class="sayfa">
+  <header class="hud">
+    <div class="logo"><svg><use href="#i-logo"/></svg>KİMYA ROTASI 10</div>
+    <div class="yer">VAN GÖLÜ TURU · <b>3. DURAK · TATVAN</b></div>
+    <div class="noktalar">
+      <i class="tam"></i><i class="tam"></i><i class="simdi"></i><i></i><i></i><i class="yan"></i><i class="yan"></i><i class="yan"></i><i class="yan"></i>
+      <i class="kale"><svg><use href="#i-kale-hud"/></svg></i>
+    </div>
+    <div class="akce"><svg><use href="#i-akce"/></svg>AKÇE <span class="yaz"></span>/1400 <span class="bar"><i style="width:18%"></i></span></div>
+  </header>
+
+  <div class="ic">
+    <div class="durak-bas">
+      <div class="durak-rozet">
+        <svg viewBox="0 0 100 100">
+          <use href="#yildiz8" fill="#13A3A6" stroke="#1B1D26" stroke-width="3"/>
+          <circle cx="50" cy="50" r="27" fill="#fff" stroke="#1B1D26" stroke-width="2.4"/>
+          <text x="50" y="40" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="9" letter-spacing="1" fill="#0A6C74">DURAK</text>
+          <text x="50" y="69" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="34" fill="#1B1D26">3</text>
+        </svg>
+      </div>
+      <div>
+        <span class="et">3. Durak · Tatvan · Nemrut eteği</span>
+        <h1>Mol ile <em>tanecik</em></h1>
+        <p class="alt-bas">Gölün kefallerini tek tek sayamazsın; tanecikleri de. Molle <b>deste deste</b> sayarız.</p>
+      </div>
+      <div class="kart keh-z ana-hedef">
+        <span class="et keh"><svg><use href="#i-hedef"/></svg>Durağın hedefi</span>
+        <p>Tanecik ⇄ mol, iki yönde; formülden atoma in.</p>
+        <div class="cipler"><span class="cip akce"><svg><use href="#i-akce"/></svg>+150 akçe</span><span class="cip">Nişan: Kefal Sayıcı</span></div>
+      </div>
+    </div>
+
+    <div class="bento" style="grid-template-columns: 1fr 87mm;">
+      <!-- sohbet -->
+      <div class="kart sohbet">
+        <div class="sohbet-bas">
+          <span class="kanal">#kıyı-sohbeti</span>
+          <span class="yigin"><svg><use href="#av-elif"/></svg><svg><use href="#av-yusuf"/></svg><svg><use href="#av-pamuk"/></svg></span>
+        </div>
+        <div class="mesajlar">
+          <div class="mesaj elif sag"><svg class="av"><use href="#av-elif"/></svg><div class="balon"><span class="kim">Elif</span>Göl suyunda soda varmış: Na<sub>2</sub>CO<sub>3</sub>. Peki 1 mol Na<sub>2</sub>CO<sub>3</sub>’te kaç tane <u>atom</u> var?</div></div>
+          <div class="mesaj yusuf"><svg class="av"><use href="#av-yusuf"/></svg><div class="balon"><span class="kim">Yusuf</span>Alt simgelere bak: bir Na<sub>2</sub>CO<sub>3</sub> biriminde 2 Na, 1 C, 3 O var. Birimi bir <b>kahvaltı tabağı</b>, atomları içindeki <b>lokmalar</b> gibi düşün. <i>(İyonik bileşikte bu birime formül birimi denir.)</i></div></div>
+          <div class="mesaj pamuk"><svg class="av"><use href="#av-pamuk"/></svg><div class="balon"><span class="kim">Pamuk <small>@N<sub>A</sub></small></span>1 mol Na<sub>2</sub>CO<sub>3</sub> = N<sub>A</sub> birim = 2 + 1 + 3 = <span class="vurgu"><b>6 mol atom</b></span>. Miyav!</div></div>
+          <div class="mesaj elif sag"><svg class="av"><use href="#av-elif"/></svg><div class="balon"><span class="kim">Elif</span>Anladım: önce <b>neyin molü</b> olduğuna bakacağım! <span class="tepki">Yusuf +1</span></div></div>
+        </div>
+      </div>
+
+      <div class="dikey">
+        <!-- mol haritası -->
+        <div class="kart molharita">
+          <span class="et">Mol haritası · sen buradasın: sol yarı</span>
+          <svg class="harita-svg" viewBox="0 0 86 37">
+            <defs>
+              <marker id="ok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#1B1D26"/></marker>
+              <marker id="ok-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#A3B3BE"/></marker>
+              <marker id="ok-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#0A6C74"/></marker>
+            </defs>
+            <!-- tanecik kutusu: kefal sürüsü -->
+            <rect x="1" y="2" width="24" height="21" rx="3" fill="#FFF0CF" stroke="#1B1D26" stroke-width=".55"/>
+            <use href="#kefal" x="3.4" y="4.4" width="8" height="3.7"/><use href="#kefal" x="13" y="4" width="8" height="3.7"/>
+            <use href="#kefal" x="8" y="8.4" width="8" height="3.7"/>
+            <text x="13" y="17" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="4" fill="#1B1D26">TANECİK</text>
+            <text x="13" y="20.8" text-anchor="middle" font-family="Nunito" font-weight="800" font-size="2.9" fill="#56636E">sayısı · <tspan font-style="italic">N</tspan></text>
+            <!-- oklar -->
+            <path d="M26.5 9 H34.6" stroke="#1B1D26" stroke-width=".7" marker-end="url(#ok)"/>
+            <path d="M35.4 16 H27.3" stroke="#1B1D26" stroke-width=".7" marker-end="url(#ok)"/>
+            <text x="30.8" y="7.4" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="2.8" fill="#0A6C74">÷ N<tspan font-size="2" dy=".6">A</tspan></text>
+            <text x="30.8" y="20.6" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="2.8" fill="#0A6C74">× N<tspan font-size="2" dy=".6">A</tspan></text>
+            <!-- MOL -->
+            <circle cx="46" cy="12.5" r="12.6" fill="none" stroke="#13A3A6" stroke-width=".5" stroke-dasharray="1.4 1"/>
+            <circle cx="46" cy="12.5" r="10.2" fill="#13A3A6" stroke="#1B1D26" stroke-width=".7"/>
+            <path d="M37.6 15.6 q2.1 -1.4 4.2 0 t4.2 0 t4.2 0 t4.2 0" fill="none" stroke="#fff" stroke-width=".5" opacity=".7"/>
+            <text x="46" y="13.4" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="6.4" fill="#fff">MOL</text>
+            <text x="46" y="19.4" text-anchor="middle" font-family="Nunito" font-weight="800" font-style="italic" font-size="3.4" fill="#fff">n</text>
+            <!-- kütle (kilitli) -->
+            <path d="M58.6 9.6 H65" stroke="#A3B3BE" stroke-width=".6" marker-end="url(#ok-g)"/>
+            <path d="M65.6 15.4 H59.2" stroke="#A3B3BE" stroke-width=".6" marker-end="url(#ok-g)"/>
+            <rect x="66" y="2" width="19" height="21" rx="3" fill="#F6F9FA" stroke="#A3B3BE" stroke-width=".55" stroke-dasharray="1.4 1"/>
+            <use href="#i-kilit" x="72" y="3.6" width="7" height="7" opacity=".7"/>
+            <text x="75.5" y="15.4" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="3.6" fill="#586874">KÜTLE · <tspan font-style="italic">m</tspan></text>
+            <text x="75.5" y="19.4" text-anchor="middle" font-family="Nunito" font-weight="800" font-size="2.6" fill="#586874">Ahlat’ta açılır</text>
+            <!-- atom molü -->
+            <path d="M46 25.4 V28.2" stroke="#0A6C74" stroke-width=".7" marker-end="url(#ok-t)"/>
+            <text x="48" y="27.6" font-family="Nunito" font-weight="900" font-size="2.8" fill="#0A6C74">× (a + b + …)</text>
+            <rect x="28" y="29" width="36" height="7.6" rx="2.4" fill="#DCF3F1" stroke="#1B1D26" stroke-width=".55"/>
+            <text x="46" y="34.1" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="3.8" fill="#0A6C74">ATOM MOLÜ</text>
+            <text x="1" y="31.4" font-family="Nunito" font-weight="800" font-size="2.7" fill="#56636E">N<tspan font-size="1.9" dy=".6">A</tspan><tspan dy="-.6"> = 6,02·10</tspan><tspan font-size="1.9" dy="-1.2">23</tspan></text>
+            <text x="1" y="35.2" font-family="Nunito" font-weight="800" font-size="2.7" fill="#56636E">1 mol = N<tspan font-size="1.9" dy=".6">A</tspan><tspan dy="-.6"> tane</tspan></text>
+            <text x="85" y="31.4" text-anchor="end" font-family="Nunito" font-weight="800" font-size="2.7" fill="#56636E">Ne verilirse</text>
+            <text x="85" y="35.2" text-anchor="end" font-family="Nunito" font-weight="800" font-size="2.7" fill="#56636E">önce <tspan fill="#0A6C74" font-weight="900">mole</tspan> git.</text>
+          </svg>
+        </div>
+        <!-- Medeniyetimizden -->
+        <div class="medeniyet">
+          <div class="ust">
+            <span class="et kob"><svg><use href="#i-medeniyet"/></svg>Medeniyetimizden</span>
+            <span class="imza"><svg><use href="#av-zeynep"/></svg>Zeynep Hoca</span>
+          </div>
+          <p><b>Câbir bin Hayyân</b> (8. yy), damıtma, kristallendirme ve süzme gibi işlemleri sistemli kullanan, deneysel kimyanın öncülerindendir. “Kimya” kelimesi de Arapça <i>el-kîmyâ</i> üzerinden dillere geçti. Saymak da ölçmek de bu deneysel yolun mirası.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- görevler -->
+    <div class="bento" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et"><svg><use href="#i-gorev"/></svg>Görev 2</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+25</span></span></div>
+        <p class="soru"><small>Çaydanlıktaki kireç</small>0,5 mol CaCO<sub>3</sub> kaç tane formül birimi ve kaç mol O atomu içerir?</p>
+        <ol class="akis">
+          <li><i>1</i><span><b>H5:</b> N = 0,5 · 6,02·10<sup>23</sup> = 3,01·10<sup>23</sup> birim</span></li>
+          <li><i>2</i><span>Bir CaCO<sub>3</sub>’te 3 O → 0,5 · 3</span></li>
+        </ol>
+        <div class="sonuc"><span>SONUÇ</span>3,01·10<sup>23</sup> · 1,5 mol O</div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et"><svg><use href="#i-gorev"/></svg>Görev 3</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+25</span></span></div>
+        <p class="soru"><small>Sodaya sirke damlatınca köpüren gaz CO<sub>2</sub>’dir.</small>3,01·10<sup>23</sup> tane CO<sub>2</sub> molekülü kaç mol O atomu içerir?</p>
+        <ol class="akis">
+          <li><i>1</i><span><b>H4:</b> n = <span class="kesir"><span>3,01·10<sup>23</sup></span><span>6,02·10<sup>23</sup></span></span> = 0,5 mol</span></li>
+          <li><i>2</i><span>Her molekülde 2 O → 0,5 · 2</span></li>
+        </ol>
+        <div class="sonuc"><span>SONUÇ</span>1 mol O atomu</div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et"><svg><use href="#i-gorev"/></svg>Görev 4</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+30</span></span></div>
+        <p class="soru"><small>Van kahvaltısının balı</small>Baldaki şekerlerden biri glikozdur: C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>. 4,8 mol atom içeren glikoz kaç moldür?</p>
+        <ol class="akis">
+          <li><i>1</i><span>Bir molekülde 6 + 12 + 6 = 24 atom</span></li>
+          <li><i>2</i><span><b>H6’yı ters çevir:</b> 4,8 / 24</span></li>
+        </ol>
+        <div class="sonuc"><span>SONUÇ</span>0,2 mol C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></div>
+      </div>
+    </div>
+
+    <!-- hazine · tuzak · hızlı görev -->
+    <div class="bento" style="grid-template-columns: 1fr 1fr 1fr; flex: 1; min-height: 0;">
+      <div class="dikey" style="gap:2.6mm">
+        <div class="hazine"><div class="hno"><svg viewBox="0 0 100 100"><use href="#yildiz8" fill="#F0A21A" stroke="#1B1D26" stroke-width="4"/></svg><b>H4</b></div><div><div class="had">Tanecikten mole</div><div class="hf"><span class="var">n</span> = <span class="kesir"><span class="var">N</span><span><span class="var">N</span><sub>A</sub></span></span></div></div><svg class="sikke"><use href="#i-akce"/></svg></div>
+        <div class="hazine"><div class="hno"><svg viewBox="0 0 100 100"><use href="#yildiz8" fill="#13A3A6" stroke="#1B1D26" stroke-width="4"/></svg><b>H5</b></div><div><div class="had">Molden taneciğe</div><div class="hf"><span class="var">N</span> = <span class="var">n</span> · <span class="var">N</span><sub>A</sub></div></div><svg class="sikke"><use href="#i-akce"/></svg></div>
+        <div class="hazine"><div class="hno"><svg viewBox="0 0 100 100"><use href="#yildiz8" fill="#A3B3BE" stroke="#1B1D26" stroke-width="4"/></svg><b>H6</b></div><div><div class="had">X<sub>a</sub>Y<sub>b</sub> → atom molü</div><div class="hf"><span class="var">n</span><sub>atom</sub> = <span class="var">n</span>·(a + b)</div></div><svg class="sikke"><use href="#i-akce"/></svg></div>
+        <div class="kes-not"><svg><use href="#i-makas"/></svg>Kes · yapıştır · her kart <b>+10 akçe</b></div>
+      </div>
+
+      <div class="kart tuzak">
+        <div class="tuzak-ust"><span class="baslik-f"><svg><use href="#i-tuzak-b"/></svg>Tuzak!</span><span class="cip akce">+10</span></div>
+        <div class="tuzak-iddia">
+          <small>Yanlış bilinen</small>
+          <p>“1 mol NaCl’de 6,02·10<sup>23</sup> tane atom vardır.”</p>
+          <svg class="muhur"><use href="#muhur-yanlis"/></svg>
+        </div>
+        <div class="tuzak-dogru">
+          <div class="bas"><svg><use href="#i-dogru"/></svg>Doğrusu</div>
+          <p>Otlu peynirin tuzu NaCl’nin 1 molü <b>N<sub>A</sub> tane formül birimidir</b>. Her birimde 1 Na<sup>+</sup> + 1 Cl<sup>−</sup> var: 2 mol iyon ≈ <b>1,204·10<sup>24</sup></b> tanecik.</p>
+        </div>
+      </div>
+
+      <div class="kart keh-z hizli">
+        <div class="kart-bas"><span class="et keh"><svg><use href="#i-hazine"/></svg>Hızlı görev</span><span class="cip akce">+30</span></div>
+        <p class="soru">Semaverdeki suyun bir kısmında 1,204·10<sup>24</sup> tane H<sub>2</sub>O molekülü var. Bu su kaç mol H atomu içerir?</p>
+        <div class="kilit"><svg><use href="#i-anahtar"/></svg><div><b>Anahtar <em>(−10)</em>:</b><span class="ters">N’yi N<sub>A</sub>’ya böl, sonra ×2.</span></div></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:</div><span class="ters">Cevap: 4 mol H</span></div>
+        <div class="pamuk-not"><svg><use href="#pamuk-dusun"/></svg><p>Önce sor: <b>neyin</b> tanesi? Molekül mü, atom mu?</p></div>
+      </div>
+    </div>
+  </div>
+
+  <svg class="dalga-alt"><use href="#dalga"/></svg>
+  <footer class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>3. Durak · Mol ile tanecik sayısı</span><span class="no"><svg viewBox="0 0 100 100"><use href="#yildiz8" fill="#13A3A6" stroke="#1B1D26" stroke-width="4"/></svg><b>4</b></span></footer>
+</section>
+
+<!-- ================================================================ SAYFA 3 · YAN YOLLAR -->
+<section class="sayfa">
+  <header class="hud">
+    <div class="logo"><svg><use href="#i-logo"/></svg>KİMYA ROTASI 10</div>
+    <div class="yer">VAN GÖLÜ TURU · <b>YAN YOL · ERCİŞ</b></div>
+    <div class="noktalar">
+      <i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="tam"></i><i class="yan tam"></i><i class="yan simdi"></i><i class="yan"></i><i class="yan"></i>
+      <i class="kale"><svg><use href="#i-kale-hud"/></svg></i>
+    </div>
+    <div class="akce"><svg><use href="#i-akce"/></svg>AKÇE <span class="yaz"></span>/1400 <span class="bar"><i style="width:53%"></i></span></div>
+  </header>
+
+  <div class="ic">
+    <div class="yan-bas">
+      <svg class="rozet" viewBox="0 0 100 100">
+        <use href="#yildiz8" fill="#F0A21A" stroke="#1B1D26" stroke-width="3"/>
+        <circle cx="50" cy="50" r="27" fill="#fff" stroke="#1B1D26" stroke-width="2.4"/>
+        <use href="#i-meclis" x="33" y="33" width="34" height="34"/>
+      </svg>
+      <div>
+        <span class="et keh">Yan yollar · Erciş · Muradiye · Van iskelesi</span>
+        <h1>Meclis, Kıssa, <em>Anahtar</em></h1>
+        <p class="alt-bas">Kıyıda bir mola: önce kim haklı, sonra kıssadan hisse, en son anahtarlı merdiven.</p>
+      </div>
+      <div class="kart keh-z kural">
+        <span class="et keh"><svg><use href="#i-akce"/></svg>Yol kuralı</span>
+        <ul>
+          <li><span>Meclis: kişi · neden · doğrusu</span><b>+10 · +10 · +10</b></li>
+          <li><span>Her kıssa</span><b>+30</b></li>
+          <li><span>Anahtar problemi · her anahtar</span><b>+40 · −10</b></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MECLİS -->
+    <div class="bolum-bas"><svg width="7mm" height="7mm" style="width:7mm;height:7mm"><use href="#i-meclis"/></svg><h2 class="ara-bas">Meclis: Kim haklı?</h2><span class="cizgi"></span><span class="ara-bas-not">Erciş · her paylaşımda tek hata var</span></div>
+    <div class="bento" style="grid-template-columns: 1fr 1fr;">
+      <div class="kart paylasim">
+        <div class="paylasim-bas"><span class="harf" style="background:var(--gol)">Ö</span><div><b>Ömer</b><small>çözümünü paylaştı · Hata 1</small></div><span class="cip akce">+30</span></div>
+        <div class="p-ic">
+          <p class="psoru">Türkiye’nin bor minerallerinden boraks Na<sub>2</sub>B<sub>4</sub>O<sub>7</sub> ile gösterilir. 0,5 mol boraks kaç mol atom içerir?</p>
+          <div class="cozum-satir">
+            <div><i>1</i><span>Na<sub>2</sub>B<sub>4</sub>O<sub>7</sub>’de Na, B ve O var.</span></div>
+            <div><i>2</i><span>Yani bir birimde 3 atom bulunur.</span></div>
+            <div><i>3</i><span>0,5 · 3 = 1,5 mol atom</span></div>
+          </div>
+          <div class="yorum"><svg><use href="#av-yusuf"/></svg><span><b>Yusuf</b> Bence sorun 2. satırda.</span><span class="kutucuk">haklı</span></div>
+          <div class="yorum"><svg><use href="#av-elif"/></svg><span><b>Elif</b> Hata 3. satırda; çarpım yanlış.</span><span class="kutucuk">haklı</span></div>
+          <div class="senin">
+            <div class="sat">Kim haklı? <span class="kutucuk">YUSUF</span><span class="kutucuk">ELİF</span> · Satır <span class="kutucuk">1</span><span class="kutucuk">2</span><span class="kutucuk">3</span></div>
+            <div class="yaz-sat">NEDEN?</div>
+            <div class="yaz-sat">DOĞRUSU</div>
+          </div>
+        </div>
+      </div>
+      <div class="kart paylasim">
+        <div class="paylasim-bas"><span class="harf" style="background:var(--mer)">Z</span><div><b>Zehra</b><small>çözümünü paylaştı · Hata 2</small></div><span class="cip akce">+30</span></div>
+        <div class="p-ic">
+          <p class="psoru">16’şar gram CH<sub>4</sub> ve O<sub>2</sub> alınıyor. Hangisi daha çok molekül içerir? (H: 1, C: 12, O: 16)</p>
+          <div class="cozum-satir">
+            <div><i>1</i><span>İki gazın kütlesi de 16 g.</span></div>
+            <div><i>2</i><span>Kütleler eşitse mol sayıları da eşittir.</span></div>
+            <div><i>3</i><span>Molekül sayıları eşittir.</span></div>
+          </div>
+          <div class="yorum"><svg><use href="#av-elif"/></svg><span><b>Elif</b> Hata yok, Zehra haklı.</span><span class="kutucuk">haklı</span></div>
+          <div class="yorum"><svg><use href="#av-pamuk"/></svg><span><b>Pamuk</b> 2. satırdaki çıkarım yanlış. Miyav!</span><span class="kutucuk">haklı</span></div>
+          <div class="senin">
+            <div class="sat">Kim haklı? <span class="kutucuk">ELİF</span><span class="kutucuk">PAMUK</span> · Satır <span class="kutucuk">1</span><span class="kutucuk">2</span><span class="kutucuk">3</span></div>
+            <div class="yaz-sat">NEDEN?</div>
+            <div class="yaz-sat">DOĞRUSU</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KISSA -->
+    <div class="bolum-bas"><svg style="width:7mm;height:7mm"><use href="#i-kissa"/></svg><h2 class="ara-bas">Kıssa</h2><span class="cizgi"></span><span class="ara-bas-not">Muradiye · önce oku, sonra gereken bilgiyi seç</span></div>
+    <div class="bento" style="grid-template-columns: 1fr 1fr;">
+      <div class="kart kissa">
+        <div class="kissa-bas gol"><span class="et"><svg><use href="#i-kissa"/></svg>Kıssa 1 · Van Gölü</span><span class="cip akce">+30</span></div>
+        <div class="k-ic">
+          <p>
+            <svg class="gorsel" viewBox="0 0 52 42">
+              <path d="M0 34 Q6.5 30 13 34 T26 34 T39 34 T52 34 V42 H0 Z" fill="#CFEFEB" stroke="#0A6C74" stroke-width=".8"/>
+              <path d="M10 18 H42 Q40 28 26 28 Q12 28 10 18 Z" fill="#fff" stroke="#1B1D26" stroke-width="1.1" stroke-linejoin="round"/>
+              <path d="M15 21 l2 -2 l2 2 l2 -2.4 l2 2.4 l2 -2 l2 2 l2 -2.4 l2 2.4 l2 -2 l2 2 l2 -2 l2 2" fill="none" stroke="#A3B3BE" stroke-width=".9"/>
+              <path d="M18 14 q-2 -3 0 -6 t0 -6 M26 14 q-2 -3 0 -6 t0 -6 M34 14 q-2 -3 0 -6 t0 -6" fill="none" stroke="#13A3A6" stroke-width="1" stroke-linecap="round"/>
+              <path d="M20 28 L18 32 M32 28 L34 32" stroke="#1B1D26" stroke-width="1.1"/>
+            </svg>
+            Van Gölü dünyanın en büyük sodalı göllerinden biridir; suyu baziktir. Eskiden kıyı köylerinde çamaşır göl suyuyla yıkanırdı. Elif kıyıdan aldığı suyu buharlaştırıyor; kalan katının <b>10,6 g Na<sub>2</sub>CO<sub>3</sub></b> olduğunu varsayalım. <span style="color:var(--gol-k)">(Na<sub>2</sub>CO<sub>3</sub>: 106 g/mol)</span>
+          </p>
+          <ul class="yargi">
+            <li><b>I.</b><span>0,1 moldür.</span></li>
+            <li><b>II.</b><span>6,02·10<sup>22</sup> tane formül birimi içerir.</span></li>
+            <li><b>III.</b><span>0,2 mol O atomu içerir.</span></li>
+          </ul>
+          <p>yargılarından hangileri doğrudur?</p>
+          <div class="siklar">
+            <span class="sik"><b>A</b>Yalnız I</span><span class="sik"><b>B</b>Yalnız III</span><span class="sik"><b>C</b>I ve II</span>
+            <span class="sik"><b>D</b>II ve III</span><span class="sik"><b>E</b>I, II ve III</span>
+          </div>
+          <p class="hisse"><b>Kıssadan hisse:</b> Gram ya da tane, önce mole çevir.</p>
+        </div>
+      </div>
+      <div class="kart kissa">
+        <div class="kissa-bas keh"><span class="et keh"><svg><use href="#i-kissa"/></svg>Kıssa 2 · Anadolu’nun boru</span><span class="cip akce">+30</span></div>
+        <div class="k-ic">
+          <p>
+            <svg class="gorsel-b" viewBox="0 0 44 38">
+              <path d="M4 30 L10 14 L22 6 L36 12 L41 26 L30 35 L12 35 Z" fill="#EDF2F5" stroke="#1B1D26" stroke-width="1.1" stroke-linejoin="round"/>
+              <path d="M10 14 L20 20 L22 6 M20 20 L36 12 M20 20 L30 35 M20 20 L12 35" fill="none" stroke="#A3B3BE" stroke-width=".8"/>
+              <rect x="25" y="18.5" width="15" height="15" rx="2.4" fill="#FFF0CF" stroke="#1B1D26" stroke-width="1"/>
+              <text x="27" y="23.6" font-family="Nunito" font-weight="900" font-size="4.4" fill="#56636E">5</text>
+              <text x="32.5" y="31" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="10" fill="#1B1D26">B</text>
+            </svg>
+            Türkiye, dünya bor rezervlerinin yaklaşık <b>%70</b>’ine sahiptir. Laboratuvarda tartılan saf bor örneği <b>2,16 gramdır</b>.
+          </p>
+          <div class="yol-cip">YOL: <span class="cip">GRAM</span>→<span class="cip gol">MOL</span>→<span class="cip">TANE</span></div>
+          <p>Bu örnekte kaç tane B atomu vardır? <span style="color:var(--gol-k)">(B: 10,8 g/mol; N<sub>A</sub> = 6,02·10<sup>23</sup>)</span></p>
+          <div class="karalama" style="flex:1"></div>
+          <div class="siklar">
+            <span class="sik"><b>A</b>6,02·10<sup>22</sup></span><span class="sik"><b>B</b>1,204·10<sup>23</sup></span><span class="sik"><b>C</b>1,806·10<sup>23</sup></span>
+            <span class="sik"><b>D</b>2,408·10<sup>23</sup></span><span class="sik"><b>E</b>1,204·10<sup>24</sup></span>
+          </div>
+          <p class="hisse"><b>Kıssadan hisse:</b> Gramdan taneye köprü moldür.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANAHTAR MERDİVENİ -->
+    <div class="bolum-bas"><svg style="width:7mm;height:7mm"><use href="#i-anahtar"/></svg><h2 class="ara-bas">Anahtar merdiveni</h2><span class="cizgi"></span><span class="ara-bas-not">Van iskelesi · önce anahtarsız dene</span></div>
+    <div class="kart merdiven">
+      <div>
+        <div class="soru-s">
+          <span class="no">1</span>
+          <p class="soru">Kızıl toprak boyasına rengini veren X<sub>2</sub>O<sub>3</sub> bileşiğinin 0,2 molü 32 gramdır. X’in mol kütlesi kaç g/mol’dür? <em>(O: 16 g/mol)</em></p>
+        </div>
+        <div class="satirlar"><i></i><i></i><i></i></div>
+        <div class="akce-hesap">İndiğim: <span class="kk"></span>0 <span class="kk"></span>1 <span class="kk"></span>2 <span class="kk"></span>3 &nbsp;· Akçe: 40 − (<span class="k"></span> × 10) = <span class="k"></span></div>
+      </div>
+      <div class="basamak-l">
+        <div class="basamak"><svg><use href="#i-kilit"/></svg><div><small>Basamak 1</small><p>Kütle ve mol verilmiş: bileşiğin mol kütlesi M = m / n.</p></div><span class="ek">−10</span></div>
+        <div class="basamak"><svg><use href="#i-kilit"/></svg><div><small>Basamak 2</small><p>M, atomların toplamıdır: 2·X + 3·16 diye yaz.</p></div><span class="ek">−10</span></div>
+        <div class="basamak"><svg><use href="#i-kilit"/></svg><div><small>Basamak 3</small><p>160 = 2X + 48’i çöz. Bu değer hangi elementin?</p></div><span class="ek">−10</span></div>
+      </div>
+    </div>
+
+    <!-- MUHASEBE -->
+    <div class="kart muhasebe">
+      <div>
+        <div class="muh-bas">
+          <span class="et keh"><svg><use href="#i-hulasa"/></svg>Muhasebe · kendimi muhasebe ediyorum</span>
+          <span class="lej"><span><svg><use href="#cay-dolu"/></svg>Tamam</span><span><svg><use href="#cay-yari"/></svg>Yarım</span><span><svg><use href="#cay-bos"/></svg>Tekrar</span></span>
+        </div>
+        <div class="muh-satir"><span>Molekülden ya da formül biriminden atom molüne inebilirim.</span><span class="bardaklar"><svg><use href="#cay-dolu"/></svg><svg><use href="#cay-yari"/></svg><svg><use href="#cay-bos"/></svg></span></div>
+        <div class="muh-satir"><span>Bir çözümdeki hatalı satırı bulup nedenini söyleyebilirim.</span><span class="bardaklar"><svg><use href="#cay-dolu"/></svg><svg><use href="#cay-yari"/></svg><svg><use href="#cay-bos"/></svg></span></div>
+        <div class="muh-satir"><span>Bağlamlı bir soruda gereken bilgiyi seçebilirim.</span><span class="bardaklar"><svg><use href="#cay-dolu"/></svg><svg><use href="#cay-yari"/></svg><svg><use href="#cay-bos"/></svg></span></div>
+      </div>
+      <div class="toplam-kutu">
+        <div class="sat"><span>Meclis</span><span><span class="k"></span> /60</span></div>
+        <div class="sat"><span>Kıssa</span><span><span class="k"></span> /60</span></div>
+        <div class="sat"><span>Anahtar</span><span><span class="k"></span> /40</span></div>
+        <div class="sat top"><b>Bu sayfa</b><span><span class="k"></span> /160</span></div>
+      </div>
+    </div>
+  </div>
+
+  <svg class="dalga-alt"><use href="#dalga"/></svg>
+  <footer class="alt"><span>Kimya Rotası 10 · Mol Kavramı</span><span>Yan yollar · Meclis · Kıssa · Anahtar</span><span class="no"><svg viewBox="0 0 100 100"><use href="#yildiz8" fill="#F0A21A" stroke="#1B1D26" stroke-width="4"/></svg><b>8</b></span></footer>
+</section>
+
+</body>
+</html>
