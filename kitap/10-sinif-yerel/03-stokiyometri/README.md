@@ -72,7 +72,8 @@ node ../../yerel-ortak/render.js . --hepsi --onizleme                      # be�
 | 16 | Final | akçe rayı, unvanlar, akçe defteri, nişan sayımı, unvan kartı | `final_dicle` |
 
 Bilgi grafikleri: `korunum_semasi`, `iki_yaka`, `oran_koprusu`, `mol_zaman` (durak/kıssa), `sinirlayici_tanecik`, `verim_saati`,
-`saflik_tasi`, `lpg_tupu`, `bakir_zinciri`, `mg_denemeleri`, `ustad_grafik`, `cezeri_duzenek` (temsilî), `hazini_kart`, `imbik`.
+`saflik_tasi`, `lpg_tupu`, `bakir_zinciri`, `mg_denemeleri`, `ustad_grafik`, `cezeri_duzenek` (temsilî); ortak kütüphaneden
+`hazini_kart`, `imbik`, `akce_rayi`, `merdiven_akce`, `unvan_rozeti`.
 
 ## Cevap anahtarı (dogrula.py ile ve sayfadaki işaretlerle denetlenir)
 

@@ -362,9 +362,9 @@ def tren_ici():
     for k in range(8):
         a = k * math.pi / 4
         s += f'<circle cx="{f(1590 + 26 * math.cos(a))}" cy="{f(282 + 7 * math.sin(a))}" r="2" fill="#F4E2B8"/>'
-    s += '<use href="#elif-soru" x="1180" y="190" width="250" height="262"/>'
+    s += '<use href="#elif-soru" x="1275" y="190" width="250" height="262"/>'
     s += '<use href="#yusuf-anlatan" x="1820" y="190" width="250" height="262"/>'
-    s += '<use href="#pamuk-dusunen" x="1530" y="214" width="150" height="172"/>'
+    s += '<use href="#pamuk-dusunen" x="1570" y="214" width="150" height="172"/>'
     s += _cerceve(s)
     return _bitir(s)
 
