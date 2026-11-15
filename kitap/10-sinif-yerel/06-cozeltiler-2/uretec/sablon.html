@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Kimya Rotası 10 · Derişim Birimleri · Göller Yolu</title>
+<link rel="stylesheet" href="../../yerel-ortak/stil.css">
+<style>
+/* Derişim Birimleri · üniteye özel küçük kurallar (ortak stil.css değişmez; açık zemin, fotokopiye uygun) */
+.kavram svg.info, .kart svg.info.genis { width: 100%; height: auto; display: block; }
+.kavram svg.info { margin: 1mm 0 .4mm; }
+.kavram ul.ozet-liste { font-size: 9.6pt; margin-top: .6mm; }
+.kavram p + p { margin-top: .9mm; }
+.kucuk-p { font-size: 9.5pt; line-height: 1.25; }
+.kiyidan .kucuk-p { margin-top: .8mm; }
+.hucre-ic { display: grid; grid-template-columns: 1fr 30mm; gap: 2mm; align-items: center; margin-top: .6mm; }
+.hucre-ic svg.info { width: 100%; height: auto; display: block; }
+table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.1mm; font-size: 9.2pt; }
+table.gorev-tablo.tanecik td:first-child { text-align: left; }
+.mini-tablo { display: grid; grid-template-columns: auto 1fr; gap: .3mm 2mm; font-size: 9.5pt; line-height: 1.22; margin-top: .8mm; }
+.mini-tablo b { color: var(--mer-k); }
+.kissa-ic .ust-satir svg.info.grafik { width: 34mm; }
+.ustad-sekil svg.info { width: 33mm; height: auto; }
+.yol-seridi { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8mm 1.6mm; margin-top: 1.2mm; font-size: 8.6pt; font-weight: 800; line-height: 1.15; }
+.yol-seridi span { border: .3mm solid var(--gol-k); border-radius: 1.4mm; padding: .5mm 1mm; background: #fff; white-space: nowrap; }
+.yol-seridi span.son { background: var(--keh-a); border-color: var(--keh-k); }
+.yol-seridi i { font-style: normal; color: var(--gol-k); font-weight: 900; margin-right: .6mm; }
+.siradaki-yol p.kucuk-p { margin-top: .6mm; }
+</style>
+</head>
+<body>
+<!-- Bu dosyadan uretec/kur.py ile unite.html üretilir. Düzeltmeyi burada yap, sonra kur.py'yi çalıştır.
+     Yer tutucular ve bileşenler: yerel-ortak/TASARIM-SISTEMI.md (§5 bileşenler, §8 yer tutucular, §10 cevap işaretleme, §11 Üstad).
+     Bütün sayılar uretec/dogrula.py'de yeniden hesaplanır. -->
+{{defs}}
+
+<!-- ================================================================ SAYFA 1 · YOLA ÇIKIŞ -->
+<section class="sayfa s1">
+  {{zemin}}
+  {{hud|1}}
+  {{cini}}
+  <div class="acilis">
+    <div>
+      <div class="cipler"><span class="cip koyu buyuk">Yol 6 · Göller Yolu</span><span class="cip buyuk">10. sınıf · {{meta|tema}}</span></div>
+      <h1 class="dev-baslik" style="font-size:37pt"><span class="mol">Derişim</span> <span class="kav"><svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12 C40 2 70 2 100 11 S160 20 200 10 S270 2 296 10" fill="none" stroke="#F0A21A" stroke-width="9" stroke-linecap="round"/></svg>Birimleri</span></h1>
+      <p class="slogan">Az olsun, öz olsun: <b>tıpkı gül yağı gibi.</b></p>
+      <div class="cipler" style="margin-top:2.6mm"><span class="cip">5 durak</span><span class="cip">3 yan yol</span><span class="cip mer">1 kale</span><span class="cip akce">{{sikke|}} {{meta|akce_toplam}} akçe</span></div>
+    </div>
+    <div class="pamuk-sahne">
+      <div class="balon-buyuk"><span class="et keh">Pamuk · tur rehberin</span><br>Miyav! 10. sınıfın <b>son yolu</b> bu. Göl göl dolaşıp “ne kadar çözünmüş?” sorusunu <b>%, ppm ve molarite</b> ile cevaplayacağız.</div>
+      {{poz|pamuk-selam|pamuk-buyuk}}
+    </div>
+  </div>
+  <div class="panorama-kutu" data-serbest>
+    {{sahne|panorama_goller}}
+    <div class="panorama-bas"><h2>Tur haritası</h2><p>Eğirdir’den batıya, göl göl Salda’ya; kışın Davraz’dan dönüp Eğirdir Kalesi’ne çık.</p></div>
+    {{panorama-etiket}}
+  </div>
+  <main class="ic" style="top:173mm">
+    <div class="ara-bas">Kazanılacak nişanlar <small>Durağı bitirince nişanını kendin boya. Kalem senden, nişan bizden.</small></div>
+    {{nisan-izgara}}
+    <div class="bento" style="grid-template-columns:1fr 1fr">
+      <div class="kart karakterler">
+        <span class="et mer">{{ikon|meclis}}Yol arkadaşların</span>
+        <div class="kisiler"><div class="kisi">{{av|elif}}<div><b>Elif<small>10. sınıf · Edremit</small></b><p>Meraklı; “Neden?” demeden geçmez.</p></div></div>
+        <div class="kisi">{{av|yusuf}}<div><b>Yusuf<small>kimya kulübü · Erciş</small></b><p>Sakin; adım adım, örnekle anlatır.</p></div></div>
+        <div class="kisi">{{av|pamuk}}<div><b>Pamuk<small>Van kedisi · ppm</small></b><p>Bir gözü mavi, bir gözü kehribar; hep sayıyla konuşur.</p></div></div>
+        <div class="kisi">{{av|zeynep}}<div><b>Zeynep Hoca<small>kimya öğretmeni</small></b><p>“Medeniyetimizden” köşelerini o anlatır.</p></div></div></div>
+      </div>
+      <div class="kart">
+        <span class="et">{{ikon|hedef}}Yolun sonunda · hedefler</span>
+        <ol class="hedefler">
+          <li>Derişimi yüzde, ppm ve molariteyle hesaplayıp birbirine çevireceksin.</li>
+          <li>Seyreltme, deriştirme ve karıştırmadan sonra yeni derişimi bulacaksın.</li>
+          <li>Tanecik sayısının donma ve kaynama sıcaklığını nasıl değiştirdiğini açıklayacaksın.</li>
+        </ol>
+        <div class="et keh" style="margin-top:2.4mm">Ahilik basamakları · toplam akçene göre</div>
+        <div class="basamak-unvan" style="margin-top:3mm">
+          <div><b>Çırak</b><small>0+</small></div><div><b>Kalfa</b><small>400+</small></div><div><b>Usta</b><small>800+</small></div><div><b>Derişim Üstadı</b><small>1150+</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="kart gol-z isaretler">
+      <span class="et">İşaretler</span>
+      <div class="is">{{ikon|hedef}}<div><b>Görev</b>Çözümü kapat, dene.</div></div>
+      <div class="is">{{ikon|anahtar}}<div><b>Anahtar</b>Açarsan −10 akçe.</div></div>
+      <div class="is">{{ikon|tuzak}}<div><b>Tuzak!</b>Yanlış bilinen.</div></div>
+      <div class="is">{{ikon|hazine}}<div><b>Hazine</b>Kes, deftere yapıştır.</div></div>
+      <div class="is">{{ikon|medeniyet}}<div><b>Medeniyet</b>Bilim mirasımız.</div></div>
+      <div class="is">{{ikon|kale}}<div><b>Kale</b>Büyük İmtihan.</div></div>
+    </div>
+  </main>
+  {{alt|1}}
+</section>
+
+<!-- ================================================================ SAYFA 2 · 1. DURAK · EĞİRDİR GÖLÜ · DERİŞİM VE YÜZDE -->
+<section class="sayfa s2">
+  {{zemin}}
+  {{hud|2}}
+  {{cini}}
+  <div class="bant" data-serbest>{{sahne|egirdir_golu}}
+    <div class="levha">{{rozet|1}}<div><div class="ust">1. durak · Eğirdir Gölü · öğle</div><h1>Ne kadar <em>çözünmüş?</em></h1><p class="alt-bas">Aynı tuz, farklı su: <b>derişim bir orandır.</b></p><div class="hedef"><b>Hedef</b>Derişik ile seyreltiği ayır; kütlece ve hacimce yüzdeyi hesapla.<span class="cip akce">+100 akçe</span><span class="cip">Nişan: Yüzde Ehli</span></div></div></div>
+  </div>
+  <main class="ic" style="top:60mm">
+    <div class="bento" style="grid-template-columns:1.04fr .96fr">
+      <div class="kart sohbet">
+        <div class="sohbet-bas"><b>#göl-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Eğirdir’in suyu tatlı; Burdur Gölü’nünki tuzluymuş. “Daha tuzlu” nasıl ölçülür?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Tuzu tek başına değil, <span class="vurgu">suya oranlayarak</span> söyleriz: buna <b>derişim</b> denir. Aynı miktar suda çok tuz varsa çözelti <b>derişik</b>, az tuz varsa <b>seyreltik</b>tir.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Bir bardağa 1 kaşık tuz, bir kovaya 1 kaşık tuz: aynı şey değil! Önemli olan oran. Miyav.</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Peki derişik çözelti, doymuş çözelti mi demek? (Cevap aşağıdaki Tuzak’ta.)</div></div>
+      </div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · derişim</span><span class="cip akce">+20 akçe</span></div>
+        <p><b>Derişim (konsantrasyon):</b> belirli miktardaki çözeltide çözünmüş madde miktarı. Bir <b>orandır</b>; çözünen kadar çözelti miktarına da bağlıdır.</p>
+        {{info|derisim_bardaklari}}
+        <p><b>Derişik / seyreltik:</b> birim miktarda daha çok / daha az çözünen. <b>Göreli</b> kavramlardır: bir çözelti birine göre derişik, diğerine göre seyreltik olabilir.</p>
+        <p><b>Yüzde derişim:</b> 100 birim çözeltideki çözünen miktarı (kütlece ya da hacimce).</p>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1fr 1fr .86fr">
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+15</span></span></div>
+        <div class="baglam">Kıyı lokantasında balık için salamura (tuzlu su) hazırlanıyor.</div>
+        <p class="soru">Kütlece %15’lik 300 g salamura için kaç gram tuz ve kaç gram su gerekir?</p>
+        <ol class="akis"><li><i>1</i><span><b>H1:</b> tuz = 300 · <span class="kesir"><span>15</span><span>100</span></span> = 45 g</span></li><li><i>2</i><span>su = 300 − 45 = 255 g</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>45 g tuz + 255 g su</div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 2</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+15</span></span></div>
+        <div class="baglam">Çantadaki Isparta gül kolonyasının etiketinde “80 derece” yazıyor.</div>
+        <p class="soru">250 mL’lik şişedeki kolonyada kaç mL etil alkol vardır?</p>
+        <ol class="akis"><li><i>1</i><span><b>H2:</b> 80 derece → her 100 mL’de 80 mL alkol</span></li><li><i>2</i><span>250 · <span class="kesir"><span>80</span><span>100</span></span> = 200 mL</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>200 mL etil alkol</div>
+      </div>
+      <div class="bento dikey">
+        {{hazine|H1}}
+        {{hazine|H2}}
+        <div class="kes-not">{{ikon|makas}}Kes · yapıştır · kart başı +10</div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:.95fr 1.1fr .95fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Derişik çözelti, doymuş çözelti demektir.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p><b>Doymuş</b> çözelti, o sıcaklıkta çözebileceği kadar çözünen içerir. Az çözünen bir maddenin doymuş çözeltisi bile <b>seyreltik</b> olabilir.</p></div>
+      </div>
+      <div class="kart kiyidan">
+        <span class="et">{{ikon|dalga}}Kıyıdan · hücrenin iki yanı</span>
+        <div class="hucre-ic"><p class="kucuk-p"><b>İzotonik:</b> derişimi karşılaştırılanla eşit · <b>hipertonik:</b> ondan yüksek · <b>hipotonik:</b> ondan düşük. Serum fizyolojik kanla izotoniktir; alyuvar saf suda su alıp şişer, çok tuzlu suda su kaybedip büzüşür.</p>{{info|alyuvarlar}}</div>
+      </div>
+      <div class="kart hizli">
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+20 akçe</span></div>
+        <p class="soru">Göl kıyısında 40 g şeker 160 g suda çözülüyor. Çözelti kütlece yüzde kaçlıktır?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Payda çözeltidir: 40 + 160 = 200 g.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">%20</span></div><span class="ters-cevap"><span class="ters">Cevap: %20</span></span></div>
+      </div>
+    </div>
+  </main>
+  {{alt|2}}
+</section>
+
+<!-- ================================================================ SAYFA 3 · 2. DURAK · ISPARTA · PPM -->
+<section class="sayfa s3">
+  {{zemin}}
+  {{hud|3}}
+  {{cini}}
+  <div class="bant" data-serbest>{{sahne|isparta_gul}}
+    <div class="levha">{{rozet|2}}<div><div class="ust">2. durak · Isparta gül bahçeleri · şafak</div><h1>Milyonda <em>bir</em></h1><p class="alt-bas">Çok az ama çok değerli: eser miktarı <b>ppm</b> ile sayarız.</p><div class="hedef"><b>Hedef</b>ppm’i hesapla; mg/L ile ilişkilendir; içme suyu sınırlarını yorumla.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Gül Damlası</span></div></div></div>
+  </div>
+  <main class="ic" style="top:60mm">
+    <div class="bento" style="grid-template-columns:1.04fr .96fr">
+      <div class="kart sohbet">
+        <div class="sohbet-bas"><b>#gül-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Gün ağarırken gül toplanıyor, çuvallar hemen imbikhaneye gidiyor. Bu kadar gülden ne kadar yağ çıkar?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Yaklaşık <b>3–4 ton</b> taze gülden yalnızca <b>1 kg</b> gül yağı. Oran yüzdeyle yazılamayacak kadar küçük; <span class="vurgu">milyonda kaç</span> diye söyleriz: <b>ppm</b>.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @ppm</span>3500 kg gülde 1 kg yağ: milyonda yaklaşık <b>286</b>! Az olsun, öz olsun. Miyav.</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Demek ppm, yüzdenin küçük kardeşi: %1’in içinde 10 000 ppm var!</div></div>
+      </div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · ppm</span><span class="cip akce">+20 akçe</span></div>
+        <p><b>ppm</b> (<i>parts per million</i>): <b>milyonda bir kısım</b>. Çözünen çok azsa kullanılır: ppm = m<sub>çözünen</sub> / m<sub>çözelti</sub> · 10<sup>6</sup> (iki kütle aynı birimde).</p>
+        {{info|ppm_zoom}}
+        <p><b>1 ppm</b> = 1 mg çözünen / 1 kg çözelti. Çok seyreltik sulu çözeltide 1 L ≈ 1 kg olduğundan <b>1 ppm ≈ 1 mg/L</b>.</p>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1fr 1fr .86fr">
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 3</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+25</span></span></div>
+        <div class="baglam">İmbik kazanında kireç birikmesin diye suyun sertliği ölçülür.</div>
+        <p class="soru">Kazana konacak suyun 4 L’lik örneğinde 0,32 g Ca<sup>2+</sup> iyonu var. Ca<sup>2+</sup> derişimi kaç ppm’dir?</p>
+        <ol class="akis"><li><i>1</i><span>Birimleri eşitle: 0,32 g = 320 mg</span></li><li><i>2</i><span><b>H4:</b> 320 mg / 4 L = 80 mg/L</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>≈ 80 ppm Ca<sup>2+</sup></div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 4</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+25</span></span></div>
+        <div class="baglam">Bir imbikhanenin günlük defteri</div>
+        <p class="soru">3200 kg taze gülden 0,8 kg gül yağı elde ediliyor. Yağın gül kütlesine oranı kaç ppm’dir? Yüzde kaçtır?</p>
+        <ol class="akis"><li><i>1</i><span><b>H3:</b> <span class="kesir"><span>0,8</span><span>3200</span></span> · 10<sup>6</sup> = 250 ppm</span></li><li><i>2</i><span>250 / 10 000 = %0,025</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>250 ppm · %0,025</div>
+      </div>
+      <div class="bento dikey">
+        {{hazine|H3}}
+        {{hazine|H4}}
+        <div class="kes-not">{{ikon|makas}}Kes · yapıştır · kart başı +10</div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:.9fr 1.2fr .9fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“ppm değeri küçükse madde zararsızdır.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Zarar <b>maddenin türüne</b> bağlıdır. Dünya Sağlık Örgütü içme suyu için nitrata 50 mg/L, arseniğe <b>0,01 mg/L</b> üst sınır önerir.</p></div>
+      </div>
+      <div class="medeniyet">{{kose}}
+        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
+        <div class="haz-ic sag"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><p class="metin"><b>el-Kindî</b> (9. yüzyıl) koku ve damıtma üzerine yazdığı kitabında (<i>Kitâbü Kîmyâi’l-ıtr</i>) <b>gül suyu</b> gibi kokulu suların <b>damıtılmasını</b> tarif etti.</p></div>{{info|imbik}}</div>
+        <p class="not">Isparta’nın imbiklerinde de buharla ayrılan yağ çok azdır: <b>ppm’i küçük, değeri büyük.</b></p>
+      </div>
+      <div class="kart hizli">
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+40 akçe</span></div>
+        <p class="soru">Bir kuyunun 2,5 L suyunda 0,15 mg arsenik var. Su, 0,01 ppm sınırını aşıyor mu?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Önce 1 L’ye düşen miktarı bul.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Aşıyor: 0,06 ppm</span></div><span class="ters-cevap"><span class="ters">Cevap: Aşıyor: 0,06 ppm</span></span></div>
+      </div>
+    </div>
+  </main>
+  {{alt|3}}
+</section>
+
+<!-- ================================================================ SAYFA 4 · 3. DURAK · BURDUR GÖLÜ · MOLARİTE -->
+<section class="sayfa s4">
+  {{zemin}}
+  {{hud|4}}
+  {{cini}}
+  <div class="bant" data-serbest>{{sahne|burdur_golu}}
+    <div class="levha">{{rozet|3}}<div><div class="ust">3. durak · Burdur Gölü · ikindi</div><h1>Litrede kaç <em>mol?</em></h1><p class="alt-bas">Kimyacı tanecik sayar: derişimin dili <b>mol/L</b>.</p><div class="hedef"><b>Hedef</b>Molariteyi hesapla; iyonik çözeltide iyon derişimlerini bul.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Molar Kaptan</span></div></div></div>
+  </div>
+  <main class="ic" style="top:60mm">
+    <div class="bento" style="grid-template-columns:1.04fr .96fr">
+      <div class="kart sohbet">
+        <div class="sohbet-bas"><b>#kıyı-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Burdur Gölü’nün suyu acı ve tuzlu. Bu tuzlar nereden geliyor?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Göl <b>kapalı havzalı</b>: suyu dışarı akmaz, buharlaşarak azalır; tuzlar birikir. Suyunda <b>sodyum sülfat</b> gibi tuzlar bol. Kimyacı bunu <span class="vurgu">litrede kaç mol</span> diye anlatır.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>1 Na<sub>2</sub>SO<sub>4</sub> suda 3 iyona ayrılır: 2 Na<sup>+</sup> + 1 SO<sub>4</sub><sup>2−</sup>. İyonları da sayarım! Miyav.</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kışın nesli tehlikedeki dikkuyruk ördekleri de buraya geliyormuş. Önce derişimi çözelim!</div></div>
+      </div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · molarite</span></div>
+        <div class="resim-sag" style="width:30mm">{{info|molarite_balonu}}</div>
+        <p><b>Molarite (M):</b> 1 litre <b>çözeltide</b> çözünmüş maddenin mol sayısı. Birimi mol/L; kısaca <b>M</b> (molar): <b>M = n / V</b>.</p>
+        <p>Kütle verilirse önce n = m / M<sub>A</sub>; hacim mL ise 1000’e bölüp litreye çevir.</p>
+        <p><b>İyon derişimi:</b> iyonik bileşik suda iyonlarına ayrışır. X<sub>a</sub>Y<sub>b</sub>’nin c M çözeltisinde [X] = a·c, [Y] = b·c. Köşeli parantez [ ] molar derişim demektir.</p>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 5</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+25</span></span></div>
+        <div class="baglam">Kıyıda kurduğumuz seyyar laboratuvar</div>
+        <p class="soru">14,2 g Na<sub>2</sub>SO<sub>4</sub> ile 500 mL çözelti hazırlanıyor. Molar derişim kaçtır? (Na: 23, S: 32, O: 16)</p>
+        <ol class="akis"><li><i>1</i><span>M<sub>A</sub> = 46 + 32 + 64 = 142 g/mol → n = 0,1 mol</span></li><li><i>2</i><span><b>H5:</b> M = 0,1 / 0,5</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>0,2 M Na<sub>2</sub>SO<sub>4</sub></div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 6</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+25</span></span></div>
+        <div class="baglam">Aynı çözelti, iyon iyon</div>
+        <p class="soru">0,2 M Na<sub>2</sub>SO<sub>4</sub> çözeltisinde [Na<sup>+</sup>], [SO<sub>4</sub><sup>2−</sup>] ve toplam iyon derişimi kaçtır?</p>
+        <ol class="akis"><li><i>1</i><span>Na<sub>2</sub>SO<sub>4</sub> → 2Na<sup>+</sup> + SO<sub>4</sub><sup>2−</sup></span></li><li><i>2</i><span><b>H6:</b> 2 · 0,2 = 0,4 M · 1 · 0,2 = 0,2 M</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>0,4 M · 0,2 M · toplam 0,6 M</div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 7</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+30</span></span></div>
+        <div class="baglam">Dolaptaki derişik sodyum hidroksit</div>
+        <p class="soru">Kütlece %40’lık NaOH çözeltisinin yoğunluğu 1,43 g/mL’dir. Molar derişimi kaçtır? (NaOH: 40 g/mol)</p>
+        <ol class="akis"><li><i>1</i><span>1 L = 1430 g; NaOH: 1430 · 0,40 = 572 g</span></li><li><i>2</i><span>572 / 40 = 14,3 mol · <b>H7:</b> 10·1,43·40/40</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>14,3 M NaOH</div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:.95fr 1.05fr 1fr">
+      <div class="bento dikey">
+        {{hazine|H5}}
+        {{hazine|H6}}
+        {{hazine|H7}}
+        <div class="kes-not">{{ikon|makas}}Kes · yapıştır · kart başı +10</div>
+      </div>
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“1 mol NaCl’yi 1 L suya atarsam 1 M çözelti olur.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Molarite <b>çözelti</b> hacmine göre tanımlıdır. 1 mol NaCl’yi az suda çöz, sonra hacmi <b>1 L’ye tamamla</b> (balon joje).</p></div>
+      </div>
+      <div class="kart hizli">
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
+        <p class="soru">0,25 M 400 mL MgSO<sub>4</sub> çözeltisi hazırlamak için kaç gram MgSO<sub>4</sub> gerekir? (Mg: 24, S: 32, O: 16)</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">n = M·V; sonra m = n·M<sub>A</sub>.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">12 g</span></div><span class="ters-cevap"><span class="ters">Cevap: 12 g</span></span></div>
+      </div>
+    </div>
+  </main>
+  {{alt|4}}
+</section>
+
+<!-- ================================================================ SAYFA 5 · 4. DURAK · SALDA GÖLÜ · SEYRELTME, DERİŞTİRME, KARIŞTIRMA -->
+<section class="sayfa s5">
+  {{zemin}}
+  {{hud|5}}
+  {{cini}}
+  <div class="bant" data-serbest>{{sahne|salda_golu}}
+    <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Salda Gölü · öğle</div><h1>Su ekle, <em>karıştır</em></h1><p class="alt-bas">Çözünenin molü değişmedikçe hesap <b>tek satır.</b></p><div class="hedef"><b>Hedef</b>Seyreltme, deriştirme ve karıştırmadan sonra derişimi bul.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Seyreltme Ustası</span></div></div></div>
+  </div>
+  <main class="ic" style="top:60mm">
+    <div class="bento" style="grid-template-columns:1.04fr .96fr">
+      <div class="kart sohbet">
+        <div class="sohbet-bas"><b>#kıyı-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Salda’nın kıyısı bembeyaz! Kum mu bu?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span><b>Hidromanyezit</b> denen beyaz bir karbonat minerali. Göl suyu magnezyumca zengin ve bazik. NASA, Mars’taki <b>Jezero</b> kraterini anlamak için bu gölü inceledi.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Bir bardak çözeltiye bir bardak saf su katarsam iyonlar aynı kalır, hacim iki katına çıkar: derişim yarıya iner. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Demek seyreltince <span class="vurgu">mol değişmiyor</span>, yalnız hacim değişiyor.</div></div>
+      </div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · mol korunur</span></div>
+        <p><b>Seyreltme:</b> çözücü eklemek. <b>Deriştirme:</b> çökme olmadan çözücüyü buharlaştırmak. İkisinde de çözünenin molü değişmez: n<sub>1</sub> = n<sub>2</sub> → <b>M<sub>1</sub>V<sub>1</sub> = M<sub>2</sub>V<sub>2</sub></b>.</p>
+        {{info|seyreltme_karistirma}}
+        <p><b>Karıştırma:</b> aynı çözünenin iki çözeltisi tepkimesiz karışırsa <b>moller ve hacimler toplanır</b>; sonuç iki derişimin arasındadır.</p>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 8</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+25</span></span></div>
+        <div class="baglam">Magnezyumlu bir çözeltiyi seyreltiyoruz.</div>
+        <p class="soru">0,8 M 150 mL MgCl<sub>2</sub> çözeltisine su eklenerek hacim 600 mL’ye tamamlanıyor. Yeni derişim kaç M? Kaç mL su eklendi?</p>
+        <ol class="akis"><li><i>1</i><span><b>H8:</b> 0,8 · 150 = M<sub>2</sub> · 600 → M<sub>2</sub> = 0,2 M</span></li><li><i>2</i><span>Eklenen su: 600 − 150 = 450 mL</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>0,2 M · 450 mL su</div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 9</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+25</span></span></div>
+        <div class="baglam">Yaz güneşinde buharlaşma (çökme yok)</div>
+        <p class="soru">0,3 M 500 mL NaCl çözeltisinin derişimini 0,75 M yapmak için kaç mL su buharlaştırılmalıdır?</p>
+        <ol class="akis"><li><i>1</i><span>0,3 · 500 = 0,75 · V<sub>2</sub> → V<sub>2</sub> = 200 mL</span></li><li><i>2</i><span>Buharlaşan su: 500 − 200</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>300 mL su</div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 10</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+30</span></span></div>
+        <div class="baglam">İki şişe, tek kap</div>
+        <p class="soru">0,5 M 200 mL ve 0,2 M 300 mL KCl çözeltileri karıştırılıyor (hacimler toplanır). Karışım kaç M’dir?</p>
+        <ol class="akis"><li><i>1</i><span>Moller: 0,5·0,2 + 0,2·0,3 = 0,16 mol</span></li><li><i>2</i><span><b>H9:</b> 0,16 / 0,5 L</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>0,32 M KCl</div>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:.95fr 1.05fr 1fr">
+      <div class="bento dikey">
+        {{hazine|H8}}
+        {{hazine|H9}}
+        <div class="kes-not">{{ikon|makas}}Kes · yapıştır · kart başı +10</div>
+      </div>
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“0,6 M ile 0,2 M karışırsa her zaman 0,4 M olur.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Yalnız <b>hacimler eşitse</b> doğrudur. Derişimler değil, <b>mol sayıları</b> toplanır; sonuç hacmi büyük olana yakın çıkar.</p></div>
+      </div>
+      <div class="kart hizli">
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
+        <p class="soru">0,4 M 250 mL glikoz çözeltisine 750 mL su eklenirse yeni derişim kaç M olur?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">V<sub>2</sub> son hacimdir: 250 + 750.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">0,1 M</span></div><span class="ters-cevap"><span class="ters">Cevap: 0,1 M</span></span></div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1.25fr .75fr">
+      <div class="medeniyet">{{kose}}
+        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
+        <div class="haz-ic sag"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><p class="metin"><b>Câbir bin Hayyân</b> (8. yüzyıl): adıyla anılan eserler <b>damıtma, kristallendirme ve süzme</b> gibi işlemleri sistemli biçimde anlatır.</p><p class="not">Deriştirmenin sonu kristaldir: su uçtukça çözelti <b>doyar</b>, fazlası katı olarak ayrılır.</p></div>{{info|kristal_kabi}}</div>
+      </div>
+      <div class="kart kiyidan">
+        <span class="et">{{ikon|dalga}}Laboratuvar güvenliği</span>
+        <p class="kucuk-p">Derişik asit seyreltilirken çok ısı açığa çıkar. Bu yüzden <b>asit suya</b>, yavaş yavaş ve karıştırarak eklenir; asidin üstüne su dökülmez. Gözlük ve eldiven tak.</p>
+      </div>
+    </div>
+  </main>
+  {{alt|5}}
+</section>
+
+<!-- ================================================================ SAYFA 6 · 5. DURAK · DAVRAZ · KOLİGATİF ÖZELLİKLER -->
+<section class="sayfa s6">
+  {{zemin}}
+  {{hud|6}}
+  {{cini}}
+  <div class="bant" data-serbest>{{sahne|davraz_kis}}
+    <div class="levha">{{rozet|5}}<div><div class="ust">5. durak · Davraz yolu · kış sabahı</div><h1>Tuz, buzu <em>neden</em> eritir?</h1><p class="alt-bas">Kim olduğun değil, <b>kaç tane</b> olduğun önemli.</p><div class="hedef"><b>Hedef</b>Tanecik sayısıyla donma ve kaynama sıcaklıklarını karşılaştır.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Buz Kırıcı</span></div></div></div>
+  </div>
+  <main class="ic" style="top:60mm">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
+      <div class="kart sohbet">
+        <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kış geldi; Davraz yolunda bir araç yola tuz serpiyor. Tuz buzu nasıl eritiyor?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Tuz suda iyonlarına ayrılır; tanecikler suyun düzenli buz kristali kurmasını zorlaştırır. Tuzlu su 0 °C’de donmaz, daha soğukta donar: <span class="vurgu">donma noktası alçalması</span>.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>NaCl → Na<sup>+</sup> + Cl<sup>−</sup>: 1 mol tuz, 2 mol tanecik. CaCl<sub>2</sub> 3 mol verir! Miyav.</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yani önemli olan maddenin cinsi değil, <b>kaç tanecik</b> olduğu.</div></div>
+      </div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · koligatif özellikler</span><span class="cip akce">+20 akçe</span></div>
+        <p><b>Koligatif özellik:</b> çözünenin cinsine değil, yalnız çözünen <b>taneciklerin derişimine</b> bağlı özellik. Suya uçucu olmayan bir madde çözülünce aynı dış basınçta:</p>
+        <ul class="ozet-liste"><li><b>Buhar basıncı düşer:</b> yüzeyden kaçan su molekülü azalır.</li><li><b>Kaynama noktası yükselir</b> (ΔT<sub>k</sub>).</li><li><b>Donma noktası alçalır</b> (ΔT<sub>d</sub>).</li></ul>
+        {{info|donma_termometreleri}}
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1fr 1fr .86fr">
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 11</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+30</span></span></div>
+        <div class="baglam">Tuzlama aracının deposu (ideal kabul)</div>
+        <p class="soru">1 kg suda 117 g NaCl çözülmüş. Çözelti yaklaşık kaç °C’ta donmaya, kaç °C’ta kaynamaya başlar? (Na: 23, Cl: 35,5 · K<sub>d</sub> = 1,86 · K<sub>k</sub> = 0,52 °C)</p>
+        <ol class="akis"><li><i>1</i><span>117 / 58,5 = 2 mol NaCl → 4 mol tanecik</span></li><li><i>2</i><span><b>H10:</b> ΔT<sub>d</sub> = 1,86·4 = 7,44 · ΔT<sub>k</sub> = 0,52·4 = 2,08</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>≈ −7,44 °C · ≈ 102,08 °C</div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 12</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
+        <div class="baglam">Üç kova, üç çözelti</div>
+        <p class="soru">Birer kg suda I. 0,4 mol sakaroz, II. 0,15 mol MgCl<sub>2</sub>, III. 0,25 mol KNO<sub>3</sub> çözülüyor. Donmaya başlama sıcaklıklarını büyükten küçüğe sırala.</p>
+        <ol class="akis"><li><i>1</i><span>Tanecik: I 0,4 · II 0,15·3 = 0,45 · III 0,25·2 = 0,5</span></li><li><i>2</i><span>Tanecik arttıkça donma sıcaklığı düşer</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>I &gt; II &gt; III</div>
+      </div>
+      <div class="bento dikey">
+        {{hazine|H10}}
+        <div class="kes-not">{{ikon|makas}}Kes · yapıştır · +10</div>
+        <div class="kart mer-z mini" style="flex:1">
+          <span class="et mer">Tanecik sayacı · 1 mol için</span>
+          <div class="mini-tablo"><span>C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>, sakaroz</span><b>1 mol</b><span>NaCl, KNO<sub>3</sub></span><b>2 mol</b><span>CaCl<sub>2</sub>, MgCl<sub>2</sub>, Na<sub>2</sub>SO<sub>4</sub></span><b>3 mol</b><span>AlCl<sub>3</sub>, Al(NO<sub>3</sub>)<sub>3</sub></span><b>4 mol</b><span>Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub></span><b>5 mol</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:.95fr 1.1fr .95fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Tuz, buzu ısıtarak eritir.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Tuz ısı vermez; suyun <b>donma noktasını düşürür</b>. Tuzlu su 0 °C’nin altında da sıvı kalabildiği için buz erir.</p></div>
+      </div>
+      <div class="kart kiyidan">
+        <span class="et">{{ikon|dalga}}Yoldan · antifriz</span>
+        <p class="kucuk-p">Radyatöre konan <b>antifriz</b> (etilen glikol) de suyun donmasını aynı yolla önler. Tencerede tuzlu su biraz daha yüksek sıcaklıkta kaynar; ama yemekteki tuz için bu fark çok küçüktür.</p>
+        <p class="kucuk-p">Not: Etil alkol gibi <b>uçucu</b> bir çözünen buhar basıncını artırır; kuralımız uçucu olmayan çözünenler içindir.</p>
+      </div>
+      <div class="kart hizli">
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+40 akçe</span></div>
+        <p class="soru">1 kg suda 0,1 mol Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> çözülüyor. Kaç mol tanecik oluşur, çözelti yaklaşık kaç °C’ta donmaya başlar? (K<sub>d</sub> = 1,86)</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">2Al<sup>3+</sup> + 3SO<sub>4</sub><sup>2−</sup> → 5 tanecik.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">0,5 mol · −0,93 °C</span></div><span class="ters-cevap"><span class="ters">Cevap: 0,5 mol · −0,93 °C</span></span></div>
+      </div>
+    </div>
+  </main>
+  {{alt|6}}
+</section>
+
+<!-- ================================================================ SAYFA 7 · HÜLASA · KOVADA GÖLÜ -->
+<section class="sayfa s7">
+  {{zemin}}
+  {{hud|7}}
+  {{cini}}
+  <div class="bant b40" data-serbest>{{sahne|kovada}}
+    <div class="levha kob">{{rozet|H|-|erg}}<div><div class="ust" style="color:var(--erguvan)">Hülasa · Kovada Gölü’nde konaklama</div><h1>Derişim <em style="color:var(--erguvan)">Hülasası</em></h1><p class="alt-bas">Yolun altı kartı. Sınavdan önceki gece bu sayfa yeter.</p></div></div>
+  </div>
+  <main class="ic" style="top:52.2mm">
+    <div class="ozetler" data-tasma-yatay>
+      <div class="ozet-kart koyu"><span class="sira">01/06</span><span class="et">Yolun cümlesi</span><div class="dev-sayi acik">n = M·V</div><p>Molü bul, gerisi gelir: seyreltmede, karıştırmada, iyonda hep <b>molü</b> sayarız.</p>{{info|ozet_joje}}</div>
+      <div class="ozet-kart gol"><span class="sira">02/06</span><span class="et">Dört birim</span><h3>Ne kadar çözünmüş?</h3><ul class="ozet-liste"><li>Kütlece % = m<sub>çözünen</sub>/m<sub>çözelti</sub> · 100</li><li>Hacimce % = V/V · 100 (kolonya derecesi)</li><li>ppm = m/m · 10<sup>6</sup> ≈ mg/L</li><li>M = n / V (mol/L, çözelti hacmi)</li></ul></div>
+      <div class="ozet-kart"><span class="sira">03/06</span><span class="et">Çevir</span><h3>Birimden birime</h3><ul class="ozet-liste"><li>%1 = 10 000 ppm</li><li>1 ppm ≈ 1 mg/L (seyreltik sulu)</li><li>M = 10·d·% / M<sub>A</sub></li><li>mL → L: 1000’e böl</li></ul></div>
+      <div class="ozet-kart keh"><span class="sira">04/06</span><span class="et keh">Seyrelt · karıştır</span><h3>Mol korunur</h3><ul class="ozet-liste"><li>Su ekle / uçur: M<sub>1</sub>V<sub>1</sub> = M<sub>2</sub>V<sub>2</sub></li><li>Katı ekle: yeni n, sonra M = n / V</li><li>Karıştır: Σn / ΣV</li><li>Dibinde katısı olan doymuş çözelti (sabit T): derişim değişmez</li></ul></div>
+      <div class="ozet-kart mer"><span class="sira">05/06</span><span class="et mer">Tanecik say</span><h3>Koligatif üçlü</h3><ul class="ozet-liste"><li>X<sub>a</sub>Y<sub>b</sub>, c M → (a + b)·c M iyon</li><li>Tanecik ↑ → buhar basıncı ↓</li><li>Kaynama ↑, donma ↓ (ΔT = K·n)</li><li>Kıyasta çözücüyü eşitle (1 kg)</li></ul></div>
+      <div class="ozet-kart"><span class="sira">06/06</span><span class="et mer">{{ikon|tuzak}}En sık 4 hata</span>
+        <ul class="ozet-liste no"><li>Yüzdede paydaya çözücüyü yazmak</li><li>Molaritede mL’yi litreye çevirmemek</li><li>Seyreltmede V<sub>2</sub> yerine eklenen suyu yazmak</li><li>Koligatifte iyonları saymamak</li></ul>
+        <div class="muhur-kose">{{muhur|yanlis}}</div></div>
+    </div>
+    <div class="kart keh-z sandik">
+      <div class="kart-bas"><span class="et keh">{{ikon|hazine}}Hazine sandığın · {{meta|hazine_sayisi}} kart</span><span class="kes-not">{{ikon|makas}}Hepsini kesip defterine yapıştırdın mı?</span></div>
+      <div class="sandik-izgara">{{sandik}}</div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1.5fr .5fr">
+      <div class="kart muhasebe">
+        <div class="kart-bas"><span class="et keh">{{ikon|cay}}Muhasebe · kendimi muhasebe ediyorum</span><span class="cip akce">6 satır = +40 akçe</span></div>
+        <div class="satir bas"><span>Bardağını ne kadar doldurabilirsin?</span><span>{{cay|1}}Tamam</span><span>{{cay|.5}}Yarım</span><span>{{cay|0}}Tekrar</span></div>
+        <div class="satir"><span>Derişik–seyreltik ve izotonik–hipertonik–hipotonik kavramlarını ayırt edebilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Kütlece ve hacimce yüzde derişimi hesaplayabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Eser miktardaki maddeleri ppm ile anlatabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Molariteyi ve iyon derişimlerini hesaplayabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Seyreltme, deriştirme ve karıştırmadan sonra derişimi bulabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Tanecik sayısıyla donma ve kaynama sıcaklıklarını karşılaştırabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+      </div>
+      <div class="kart not-kart">
+        <span class="et">{{ikon|kitap}}Kendime not</span>
+        <p class="kucuk">Bu yolda en çok neye dikkat etmeliyim?</p>
+        <div class="cizgiler"><div></div><div></div><div></div><div></div></div>
+        {{poz|pamuk-kitap|pamuk-oku}}
+        <p class="kucuk"><b>Kaydedildi!</b> “Tekrar” dediğin konunun durağına dön.</p>
+      </div>
+    </div>
+  </main>
+  {{alt|7}}
+</section>
+
+<!-- ================================================================ SAYFA 8 · YAN YOL 1 · EĞİRDİR · MECLİS -->
+<section class="sayfa s8">
+  {{zemin}}
+  {{hud|8}}
+  {{cini}}
+  <div class="bant" data-serbest>{{sahne|koy_odasi}}
+    <div class="levha keh">{{rozet|M|-|keh}}<div><div class="ust">Yan yol 1 · Eğirdir · göl manzaralı köy odası</div><h1>Meclis: <em>kim haklı?</em></h1><p class="alt-bas">Dört çözüm meclise geldi; her birinde <b>tek hata</b> var.</p><div class="hedef"><b>Usul</b>Doğru kişi +10, neden +10, doğrusu +10.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
+  </div>
+  <main class="ic" style="top:60mm">
+    <!-- Cevap işaretleme: haklı yorumda <div class="yorum" data-dogru>, hatalı satırın kutucuğunda <span class="kutucuk" data-dogru>,
+         neden ve doğrusu <span class="ogr">…</span> içinde (öğrenci baskısında görünmez). -->
+    <div class="bento" style="grid-template-columns:1fr 1fr">
+      <div class="kart meclis" data-soru="M1">
+        <div class="meclis-bas"><span class="harf" style="background:var(--gol)">A</span><div><b>Ahmet</b> <small>çözümünü meclise getirdi · Hata 1</small></div><span class="cip akce">+30</span></div>
+        <div class="ic2">
+          <p class="psoru">Turşu suyu için 24 g tuz 136 g suda çözülüyor. Çözelti kütlece yüzde kaçlıktır?</p>
+          <div class="cozum-defter"><div><i>1</i>Çözelti kütlesi 136 g alınır.</div><div><i>2</i>% = (24 / 136) · 100</div><div><i>3</i>Çözelti yaklaşık %17,6’lıktır.</div></div>
+          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Hata 1. satırda; 136 g suyun kütlesi.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Bence 3. satırda yuvarlama yanlış.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk" data-dogru></span>1 <span class="kutucuk"></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">su alınmış</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">24 / (24 + 136) · 100 = %15</span></span></div></div>
+        </div>
+      </div>
+      <div class="kart meclis" data-soru="M2">
+        <div class="meclis-bas mer"><span class="harf" style="background:var(--mer)">Z</span><div><b>Zehra</b> <small>çözümünü meclise getirdi · Hata 2</small></div><span class="cip akce">+30</span></div>
+        <div class="ic2">
+          <p class="psoru">11,7 g NaCl ile 250 mL çözelti hazırlanıyor. Derişim kaç M’dir? (Na: 23, Cl: 35,5)</p>
+          <div class="cozum-defter"><div><i>1</i>n = 11,7 / 58,5 = 0,2 mol</div><div><i>2</i>M = n / V = 0,2 / 250</div><div><i>3</i>M = 8·10<sup>−4</sup> mol/L</div></div>
+          <div class="yorum">{{av|yusuf}}<span><b>Yusuf:</b> 1. satırda mol kütlesi yanlış.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum" data-dogru>{{av|pamuk}}<span><b>Pamuk:</b> 2. satırda hacim mL kalmış. Miyav!</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">mL kalmış</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">M = 0,2 / 0,25 = 0,8 M</span></span></div></div>
+        </div>
+      </div>
+      <div class="kart meclis" data-soru="M3">
+        <div class="meclis-bas kob"><span class="harf" style="background:var(--kob)">M</span><div><b>Mehmet Emin</b> <small>çözümünü meclise getirdi · Hata 3</small></div><span class="cip akce">+30</span></div>
+        <div class="ic2">
+          <p class="psoru">1,2 M 250 mL HCl çözeltisine 350 mL su ekleniyor. Yeni derişim kaç M’dir?</p>
+          <div class="cozum-defter"><div><i>1</i>Seyreltmede M<sub>1</sub>·V<sub>1</sub> = M<sub>2</sub>·V<sub>2</sub> kullanılır.</div><div><i>2</i>1,2 · 250 = M<sub>2</sub> · 350</div><div><i>3</i>M<sub>2</sub> ≈ 0,86 M</div></div>
+          <div class="yorum" data-dogru>{{av|elif}}<span><b>Elif:</b> V<sub>2</sub> son hacim: 250 + 350 = 600 mL.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum">{{av|pamuk}}<span><b>Pamuk:</b> 1. satır yanlış; bu formül burada geçmez.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">V₂ yanlış</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">1,2 · 250 = M₂ · 600 → 0,5 M</span></span></div></div>
+        </div>
+      </div>
+      <div class="kart meclis" data-soru="M4">
+        <div class="meclis-bas keh"><span class="harf" style="background:var(--keh)">R</span><div><b>Rabia</b> <small>çözümünü meclise getirdi · Hata 4</small></div><span class="cip akce">+30</span></div>
+        <div class="ic2">
+          <p class="psoru">Birer kg suda 0,2’şer mol KCl ve sakaroz çözülüyor. Hangisi daha düşük sıcaklıkta donmaya başlar?</p>
+          <div class="cozum-defter"><div><i>1</i>KCl: 0,4 mol tanecik; sakaroz: 0,2 mol.</div><div><i>2</i>Taneciği çok olanın donma noktası çok düşer.</div><div><i>3</i>Sakaroz çözeltisi daha düşük sıcaklıkta donar.</div></div>
+          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 1. satırda; KCl iyonlaşmaz.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Hata 3. satırda; sonuç ters yazılmış.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk"></span>2 <span class="kutucuk" data-dogru></span>3 · NEDEN?<span class="cizgili"><span class="ogr">sonuç ters</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">KCl çözeltisi daha düşükte donar</span></span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1.08fr .92fr">
+      <div class="medeniyet">{{kose}}
+        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
+        <div class="haz-ic sag"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><p class="metin"><b>el-Bîrûnî</b> (973–1048) birçok metal ve değerli taşın <b>özgül ağırlığını</b> hassas biçimde ölçtü: maddenin, aynı hacimdeki suya göre kaç kat ağır olduğunu.</p></div>{{info|ozgul_agirlik}}</div>
+        <p class="not">Yoğunluğu bilinen çözeltide yüzde molariteye döner: <b>M = 10·d·% / M<sub>A</sub></b> (H7).</p>
+      </div>
+      <div class="kart keh-z meclis-not">
+        {{poz|pamuk-dusunen|pn}}
+        <p><b>Meclis notu (Pamuk):</b> Sonucu mantıkla sına: su eklenen çözeltinin derişimi <b>artamaz</b>; molarite 10<sup>−4</sup> gibi tuhaf çıktıysa <b>birimlere</b> bak; iyonik madde görünce <b>tanecikleri say</b>. Hükmünü verince cevapları <b>s.{{sayfa|14}}</b>’{{ek|14|de}} kontrol et.</p>
+        <div class="muhur-yer">{{muhur|dogru}}</div>
+      </div>
+    </div>
+  </main>
+  {{alt|8}}
+</section>
+
+<!-- ================================================================ SAYFA 9 · YAN YOL 2 · YEŞİLADA · KISSALAR -->
+<section class="sayfa s9">
+  {{zemin}}
+  {{hud|9}}
+  {{cini}}
+  <div class="bant" data-serbest>{{sahne|yesilada}}
+    <div class="levha keh">{{rozet|K|-|keh}}<div><div class="ust">Yan yol 2 · Yeşilada · sabah</div><h1><em>Kıssalar</em></h1><p class="alt-bas">Önce oku, sonra gereken bilgiyi seç. <b>Kıssadan hisse!</b></p><div class="hedef"><b>Usul</b>Çözümünü kartın boş yerine yaz; şıkkı sonra işaretle.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
+  </div>
+  <main class="ic" style="top:60mm">
+    <div class="bento kissa-izgara esnek" style="grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
+      <div class="kart kissa" data-soru="K1">
+        <div class="kissa-bas"><span class="et">{{ikon|kissa}}Kıssa 1 · Sağlık · serum</span><span class="cip akce">+30</span></div>
+        <div class="kissa-ic">
+          <p class="metin">Hastanede damar yoluyla verilen bir <b>glikoz serumunun</b> her 100 mL’sinde <b>5 g glikoz</b> (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>: 180 g/mol) çözünmüştür. Bu serumla ilgili;</p>
+          <ul class="yargi"><li><b>I.</b>1 L’sinde 50 g glikoz bulunur.</li><li><b>II.</b>Glikoz derişimi yaklaşık 0,28 M’dir.</li><li><b>III.</b>500 mL’lik şişesinde 0,5 mol glikoz vardır.</li></ul>
+          <p class="soru">yargılarından hangileri doğrudur?</p>
+          <div class="karalama"><span class="ogr">I ✓ 50 g/L · II ✓ 0,28 M · III ✗ 0,14 mol</span></div>
+          <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız II</div><div class="sik" data-dogru><b>C</b>I ve II</div><div class="sik"><b>D</b>II ve III</div><div class="sik"><b>E</b>I, II ve III</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Etiketteki oranı önce litreye, sonra mole çevir.</div>
+        </div>
+      </div>
+      <div class="kart kissa" data-soru="K2">
+        <div class="kissa-bas keh"><span class="et keh">{{ikon|kissa}}Kıssa 2 · Çevre · su sertliği</span><span class="cip akce">+30</span></div>
+        <div class="kissa-ic">
+          <p class="metin">Kimya kulübü yol boyunca dört kaynaktan su örneği aldı. Bu çalışmada Ca<sup>2+</sup> derişimi <b>100 mg/L’yi aşan</b> su “sert” sayılıyor.</p>
+          <table class="gorev-tablo dar"><tr><th>Örnek</th><th>P</th><th>R</th><th>S</th><th>T</th></tr><tr><td>Hacim (L)</td><td>2</td><td>5</td><td>0,5</td><td>4</td></tr><tr><td>Ca<sup>2+</sup> (mg)</td><td>180</td><td>650</td><td>40</td><td>440</td></tr></table>
+          <p class="soru">Buna göre hangi örnekler “sert” sayılır?</p>
+          <div class="karalama"><span class="ogr">P 90 · R 130 · S 80 · T 110 mg/L</span></div>
+          <div class="siklar"><div class="sik"><b>A</b>P ve R</div><div class="sik"><b>B</b>R ve S</div><div class="sik"><b>C</b>Yalnız R</div><div class="sik" data-dogru><b>D</b>R ve T</div><div class="sik"><b>E</b>S ve T</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Önce aynı hacme (1 L) indir, sonra karşılaştır.</div>
+        </div>
+      </div>
+      <div class="kart kissa" data-soru="K3">
+        <div class="kissa-bas kob"><span class="et kob">{{ikon|kissa}}Kıssa 3 · Laboratuvar · grafik</span><span class="cip akce">+30</span></div>
+        <div class="kissa-ic">
+          <div class="ust-satir"><p class="metin">Kayak merkezinin bakım ekibi X, Y ve Z maddelerini birer kg suda <b>0,5’er mol</b> çözüp donmaya başlama sıcaklıklarını ölçüyor (iyonik olanlar tam iyonlaşıyor).</p>{{info|kissa_donma}}</div>
+          <p class="soru">X, Y ve Z sırasıyla hangileri olabilir? (K<sub>d</sub> = 1,86 °C)</p>
+          <div class="karalama"><span class="ogr">X 1,5 · Y 0,5 · Z 1,0 mol tanecik</span></div>
+          <div class="siklar iki"><div class="sik"><b>A</b>NaCl – glikoz – CaCl<sub>2</sub></div><div class="sik"><b>B</b>CaCl<sub>2</sub> – NaCl – glikoz</div><div class="sik"><b>C</b>glikoz – NaCl – CaCl<sub>2</sub></div><div class="sik"><b>D</b>AlCl<sub>3</sub> – glikoz – NaCl</div><div class="sik" data-dogru><b>E</b>CaCl<sub>2</sub> – glikoz – NaCl</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Tanecik arttıkça donma noktası düşer.</div>
+        </div>
+      </div>
+      <div class="kart kissa" data-soru="K4">
+        <div class="kissa-bas mer"><span class="et mer">{{ikon|kissa}}Kıssa 4 · Tarım · gübre tankı</span><span class="cip akce">+30</span></div>
+        <div class="kissa-ic">
+          <p class="metin">Eğirdir’deki bir elma bahçesinde teknisyen, <b>0,05 M’lik 200 L</b> Ca(NO<sub>3</sub>)<sub>2</sub> çözeltisini <b>0,01 M’lik 800 L</b> Ca(NO<sub>3</sub>)<sub>2</sub> çözeltisiyle karıştırıyor (tepkime yok, hacimler toplanıyor). Hedef: NO<sub>3</sub><sup>−</sup> derişimi <b>0,030–0,040 M</b>.</p>
+          <p class="soru">Tanktaki NO<sub>3</sub><sup>−</sup> derişimi ve hedefe uygunluğu için hangisi doğrudur?</p>
+          <div class="karalama"><span class="ogr">18 mol / 1000 L = 0,018 M → ×2 = 0,036 M</span></div>
+          <div class="siklar iki"><div class="sik"><b>A</b>0,018 M; hedefin altında</div><div class="sik" data-dogru><b>B</b>0,036 M; hedefte</div><div class="sik"><b>C</b>0,060 M; hedefin üstünde</div><div class="sik"><b>D</b>0,030 M; tam alt sınırda</div><div class="sik"><b>E</b>0,072 M; hedefin üstünde</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Önce molleri topla, sonra iyon sayısıyla çarp.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  {{alt|9}}
+</section>
+
+<!-- ================================================================ SAYFA 10 · YAN YOL 3 · EĞİRDİR İSKELESİ · ANAHTAR MERDİVENİ -->
+<section class="sayfa s10">
+  {{zemin}}
+  {{hud|10}}
+  {{cini}}
+  <div class="bant" data-serbest>{{sahne|egirdir_iskele}}
+    <div class="levha keh">{{rozet|A|-|keh}}<div><div class="ust">Yan yol 3 · Eğirdir iskelesi · gün batımı</div><h1>Anahtar <em>merdiveni</em></h1><p class="alt-bas">Önce anahtarsız dene. Takılırsan <b>bir basamak in</b>, yeniden dene.</p><div class="hedef"><b>Usul</b>Her problem +40 akçe; açtığın her anahtar −10.<span class="cip akce">3 × 40 = +120 akçe</span></div></div></div>
+  </div>
+  <main class="ic" style="top:60mm">
+    <div class="kart merdiven">
+      <div>
+        <div class="bas-satir"><span class="no">1</span><p class="soru">Laboratuvardaki derişik sülfürik asidin etiketi: kütlece %98 H<sub>2</sub>SO<sub>4</sub>, yoğunluk 1,84 g/mL. Bu çözeltinin molar derişimi kaçtır? (H<sub>2</sub>SO<sub>4</sub>: 98 g/mol)</p></div>
+        <div class="cozum-alani"><div><span class="ogr">1 L çözelti → 1840 g</span></div><div><span class="ogr">1840 · 0,98 = 1803,2 g → 18,4 mol</span></div><div><span class="ogr"><b>18,4 M</b> (10 · 1,84 · 98 / 98)</span></div></div>
+        <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
+      </div>
+      <div class="basamaklar">
+        <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>İşi kolaylaştır: 1 L çözelti al; kütlesi m = d · V.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Kütlenin %98’i H<sub>2</sub>SO<sub>4</sub>; bu kütleyi mole çevir.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>O mol 1 L’dedir: doğrudan molarite. H7 ile kontrol et.</span><span class="eksi">−10</span></div>
+      </div>
+    </div>
+    <div class="kart merdiven">
+      <div>
+        <div class="bas-satir"><span class="no">2</span><p class="soru">0,2 M 300 mL MgCl<sub>2</sub> çözeltisi ile 0,3 M 200 mL NaCl çözeltisi karıştırılıyor. Karışımda Cl<sup>−</sup> derişimi kaç M’dir? (Tepkime yok, hacimler toplanır.)</p></div>
+        <div class="cozum-alani"><div><span class="ogr">MgCl₂: 0,06 mol → 0,12 mol Cl⁻</span></div><div><span class="ogr">NaCl: 0,06 mol Cl⁻ → toplam 0,18 mol</span></div><div><span class="ogr"><b>0,18 / 0,5 L = 0,36 M Cl⁻</b></span></div></div>
+        <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
+      </div>
+      <div class="basamaklar">
+        <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Her çözeltideki çözünen molünü bul: n = M · V (L).</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>MgCl<sub>2</sub> 2, NaCl 1 Cl<sup>−</sup> verir: klorür mollerini topla.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Toplam Cl<sup>−</sup> molünü toplam hacme (0,5 L) böl.</span><span class="eksi">−10</span></div>
+      </div>
+    </div>
+    <div class="kart merdiven">
+      <div>
+        <div class="bas-satir"><span class="no">3</span><p class="soru">250 g suda 0,1 mol Na<sub>2</sub>SO<sub>4</sub> çözülüyor. Aynı ortamda, aynı sıcaklıkta donmaya başlayan bir çözelti için 1 kg suda kaç gram glikoz çözülmelidir? (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>: 180 g/mol)</p></div>
+        <div class="cozum-alani"><div><span class="ogr">0,1 · 3 = 0,3 mol tanecik / 250 g su</span></div><div><span class="ogr">1 kg suya göre: 0,3 · 4 = 1,2 mol</span></div><div><span class="ogr"><b>1,2 · 180 = 216 g glikoz</b></span></div></div>
+        <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
+      </div>
+      <div class="basamaklar">
+        <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Na<sub>2</sub>SO<sub>4</sub> kaç taneciğe ayrışır? 2Na<sup>+</sup> + SO<sub>4</sub><sup>2−</sup> → 3.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Çözücüleri eşitle: 250 g sudaki tanecik molünü 1 kg suya göre yaz (× 4).</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Glikoz ayrışmaz: o kadar mol glikoz al, kütleye çevir.</span><span class="eksi">−10</span></div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1fr .62fr .7fr">
+      <div class="kart keh-z mrd-kart">{{info|merdiven_akce}}</div>
+      <div class="kart keh-z yan-toplam">
+        <span class="et keh">{{ikon|akce}}Yan yollar</span>
+        <div class="tablo"><span>Meclis</span><span class="kk"></span><span>Kıssa</span><span class="kk"></span><span>Anahtar</span><span class="kk"></span><span class="top">Toplam / 360</span><span class="kk top"></span></div>
+      </div>
+      <div class="kart mer-z siradaki">{{poz|pamuk-sasiran|ps}}<div><span class="et mer">{{ikon|kale}}Sırada</span><b>Eğirdir Kalesi · Büyük İmtihan</b><p>12 soru · 25 dakika</p></div></div>
+    </div>
+  </main>
+  {{alt|10}}
+</section>
+
+<!-- ================================================================ SAYFA 11 · BÜYÜK İMTİHAN 1/2 · EĞİRDİR KALESİ -->
+<section class="sayfa s11">
+  {{zemin}}
+  {{hud|11}}
+  {{cini}}
+  <div class="bant b62" data-serbest>{{sahne|egirdir_kalesi}}
+    <div class="levha mer">{{rozet|K|-|mer}}<div><div class="ust">Eğirdir Kalesi · Büyük İmtihan · 1. bölüm</div><h1>Kale <em>kapısı</em></h1><p class="alt-bas">12 soru · 25 dakika. Her doğru <b>+25 akçe</b>; 10+ doğru: <b>Kale Kapısı</b> nişanı.</p>
+      <div class="hedef"><b>Azık</b>H 1 · C 12 · O 16 · Na 23 · Mg 24 · S 32 · Cl 35,5 · K 39 · Al 27 (g/mol)</div>
+      <div class="hedef"><b>Meşveret</b>Sınıfça oylayın, şıklara tahmin yüzdesi (%__) yazın, sonra çözün.</div></div></div>
+  </div>
+  <main class="ic" style="top:76.5mm">
+    <div class="mesveret-izgara esnek">
+      <div class="kart mesveret" data-soru="I1">
+        <div class="mesveret-bas">{{sno|1}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
+        <p class="soru">Kütlece %12’lik 350 g tuzlu suda kaç gram su vardır?</p>
+        <div class="karalama"><span class="ogr">Tuz 42 g → su 350 − 42 = 308 g</span></div>
+        <div class="oy uc"><div><b>A</b><span>42</span><em>%__</em></div><div><b>B</b><span>300</span><em>%__</em></div><div data-dogru><b>C</b><span>308</span><em>%__</em></div><div><b>D</b><span>312</span><em>%__</em></div><div><b>E</b><span>338</span><em>%__</em></div></div>
+      </div>
+      <div class="kart mesveret" data-soru="I2">
+        <div class="mesveret-bas">{{sno|2}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
+        <p class="soru">70 derecelik 400 mL kolonyaya 160 mL saf su ekleniyor. Hacimler toplanırsa yeni kolonya kaç derecedir?</p>
+        <div class="karalama"><span class="ogr">Alkol 280 mL / 560 mL → 50 derece</span></div>
+        <div class="oy uc"><div><b>A</b><span>35</span><em>%__</em></div><div><b>B</b><span>40</span><em>%__</em></div><div><b>C</b><span>45</span><em>%__</em></div><div data-dogru><b>D</b><span>50</span><em>%__</em></div><div><b>E</b><span>56</span><em>%__</em></div></div>
+      </div>
+      <div class="kart mesveret" data-soru="I3">
+        <div class="mesveret-bas">{{sno|3}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
+        <p class="soru">Bir derenin 5 kg’lık su örneğinde 1,5 mg kurşun bulunuyor. Kurşun derişimi kaç ppm’dir?</p>
+        <div class="karalama"><span class="ogr">1,5 mg / 5 kg = 0,3 mg/kg</span></div>
+        <div class="oy uc"><div><b>A</b><span>0,03</span><em>%__</em></div><div data-dogru><b>B</b><span>0,3</span><em>%__</em></div><div><b>C</b><span>1,5</span><em>%__</em></div><div><b>D</b><span>3</span><em>%__</em></div><div><b>E</b><span>7,5</span><em>%__</em></div></div>
+      </div>
+      <div class="kart mesveret" data-soru="I4">
+        <div class="mesveret-bas">{{sno|4}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
+        <p class="soru">Bir göl suyunda nitrat derişimi 36 ppm’dir. Bu sudan alınan 2,5 L’de kaç mg nitrat vardır? (1 L ≈ 1 kg)</p>
+        <div class="karalama"><span class="ogr">36 mg/L · 2,5 L = 90 mg</span></div>
+        <div class="oy uc"><div><b>A</b><span>9</span><em>%__</em></div><div><b>B</b><span>14,4</span><em>%__</em></div><div><b>C</b><span>36</span><em>%__</em></div><div data-dogru><b>D</b><span>90</span><em>%__</em></div><div><b>E</b><span>900</span><em>%__</em></div></div>
+      </div>
+      <div class="kart mesveret" data-soru="I5">
+        <div class="mesveret-bas">{{sno|5}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
+        <p class="soru">22,4 g KOH suda çözülerek 2 L çözelti hazırlanıyor. Çözeltinin derişimi kaç M’dir?</p>
+        <div class="karalama"><span class="ogr">n = 22,4 / 56 = 0,4 mol → 0,2 M</span></div>
+        <div class="oy uc"><div data-dogru><b>A</b><span>0,2</span><em>%__</em></div><div><b>B</b><span>0,4</span><em>%__</em></div><div><b>C</b><span>0,8</span><em>%__</em></div><div><b>D</b><span>11,2</span><em>%__</em></div><div><b>E</b><span>44,8</span><em>%__</em></div></div>
+      </div>
+      <div class="kart mesveret" data-soru="I6">
+        <div class="mesveret-bas">{{sno|6}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
+        <p class="soru">0,3 M Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> çözeltisi için (tam iyonlaşma) I. [Al<sup>3+</sup>] = 0,6 M, II. [SO<sub>4</sub><sup>2−</sup>] = 0,9 M, III. toplam iyon derişimi 1,2 M yargılarından hangileri doğrudur?</p>
+        <div class="karalama"><span class="ogr">0,6 ✓ · 0,9 ✓ · toplam 1,5 (III ✗)</span></div>
+        <div class="oy"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div data-dogru><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
+      </div>
+    </div>
+  </main>
+  {{alt|11}}
+</section>
+
+<!-- ================================================================ SAYFA 12 · BÜYÜK İMTİHAN 2/2 · SUR DİBİ -->
+<section class="sayfa s12">
+  {{zemin}}
+  {{hud|12}}
+  {{cini}}
+  <div class="bant b30" data-serbest>{{sahne|sur_dibi}}
+    <div class="levha mer kucuk">{{rozet|K|-|mer}}<div><div class="ust">Büyük İmtihan · 2. bölüm</div><h1>Kapı <em>aralandı</em></h1><p class="alt-bas">Sorular 7–12 · sabrın sonu selamettir.</p></div></div>
+  </div>
+  <main class="ic" style="top:44.5mm">
+    <div class="mesveret-izgara esnek">
+      <div class="kart mesveret" data-soru="I7">
+        <div class="mesveret-bas">{{sno|7}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
+        <p class="soru">0,15 M 400 mL MgSO<sub>4</sub> çözeltisinde kaç gram MgSO<sub>4</sub> çözünmüştür?</p>
+        <div class="karalama"><span class="ogr">0,06 mol · 120 g/mol = 7,2 g</span></div>
+        <div class="oy uc"><div><b>A</b><span>1,8</span><em>%__</em></div><div><b>B</b><span>4,8</span><em>%__</em></div><div><b>C</b><span>6</span><em>%__</em></div><div data-dogru><b>D</b><span>7,2</span><em>%__</em></div><div><b>E</b><span>72</span><em>%__</em></div></div>
+      </div>
+      <div class="kart mesveret" data-soru="I8">
+        <div class="mesveret-bas">{{sno|8}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
+        <p class="soru">0,9 M 200 mL NaOH çözeltisinin derişimini 0,3 M’ye düşürmek için aynı sıcaklıkta kaç mL su eklenmelidir?</p>
+        <div class="karalama"><span class="ogr">V₂ = 600 mL → eklenen 400 mL</span></div>
+        <div class="oy uc"><div><b>A</b><span>200</span><em>%__</em></div><div data-dogru><b>B</b><span>400</span><em>%__</em></div><div><b>C</b><span>600</span><em>%__</em></div><div><b>D</b><span>800</span><em>%__</em></div><div><b>E</b><span>1000</span><em>%__</em></div></div>
+      </div>
+      <div class="kart mesveret" data-soru="I9">
+        <div class="mesveret-bas">{{sno|9}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
+        <p class="soru">0,6 M 150 mL ve 0,1 M 350 mL HNO<sub>3</sub> çözeltileri karıştırılıyor. Hacimler toplanırsa karışım kaç M olur?</p>
+        <div class="karalama"><span class="ogr">(0,09 + 0,035) / 0,5 = 0,25 M</span></div>
+        <div class="oy uc"><div><b>A</b><span>0,175</span><em>%__</em></div><div data-dogru><b>B</b><span>0,25</span><em>%__</em></div><div><b>C</b><span>0,35</span><em>%__</em></div><div><b>D</b><span>0,5</span><em>%__</em></div><div><b>E</b><span>0,7</span><em>%__</em></div></div>
+      </div>
+      <div class="kart mesveret" data-soru="I10">
+        <div class="mesveret-bas">{{sno|10}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
+        <p class="soru">Dibinde katısı olan doymuş KNO<sub>3</sub> çözeltisinden sabit sıcaklıkta bir miktar su buharlaşıyor, bir miktar katı çöküyor. I. Derişim değişmez. II. Çözünmüş KNO<sub>3</sub> kütlesi azalır. III. Dipteki katı kütlesi artar. Hangileri doğrudur?</p>
+        <div class="karalama"><span class="ogr">Doymuş kalır (I ✓); çöken artar (II, III ✓)</span></div>
+        <div class="oy"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div data-dogru><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
+      </div>
+      <div class="kart mesveret" data-soru="I11">
+        <div class="mesveret-bas">{{sno|11}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
+        <p class="soru">Birer kg suda ayrı ayrı I. 0,2 mol NaCl, II. 0,1 mol Al(NO<sub>3</sub>)<sub>3</sub>, III. 0,5 mol glikoz çözülüyor. Donmaya başlama sıcaklıkları arasındaki ilişki hangisidir?</p>
+        <div class="karalama"><span class="ogr">Tanecik: 0,4 · 0,4 · 0,5 mol</span></div>
+        <div class="oy"><div data-dogru><b>A</b><span>I = II &gt; III</span><em>%__</em></div><div><b>B</b><span>I &gt; II &gt; III</span><em>%__</em></div><div><b>C</b><span>III &gt; I = II</span><em>%__</em></div><div><b>D</b><span>II &gt; I &gt; III</span><em>%__</em></div><div><b>E</b><span>I = II = III</span><em>%__</em></div></div>
+      </div>
+      <div class="kart mesveret" data-soru="I12">
+        <div class="mesveret-bas">{{sno|12}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
+        <p class="soru">Uçucu olmayan katılarla hazırlanan sulu çözeltiler için hangisi <b>yanlıştır</b>?</p>
+        <div class="karalama"><span class="ogr">Koligatif etki sayıya bağlı → E yanlış</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Saf sudan yüksek sıcaklıkta kaynamaya başlar.</span><em>%__</em></div><div><b>B</b><span>Aynı sıcaklıkta buhar basıncı saf sudan düşüktür.</span><em>%__</em></div><div><b>C</b><span>1 kg suda 0,1 mol CaCl<sub>2</sub>, 0,1 mol NaCl’den düşük sıcaklıkta donar.</span><em>%__</em></div><div><b>D</b><span>Kaynarken su uçtukça sıcaklık (doyana dek) yükselir.</span><em>%__</em></div><div data-dogru><b>E</b><span>Koligatif etki tanecik sayısına değil, cinsine bağlıdır.</span><em>%__</em></div></div>
+      </div>
+    </div>
+    <div class="kart mer-z skor">
+      {{poz|pamuk-akce|ps}}
+      <div><span class="et mer">{{ikon|kale}}İmtihan skoru</span><p><b>10+ doğru:</b> Kale Kapısı nişanını boya · <b>7–9:</b> yan yolları tekrar et · <b>6 ve altı:</b> duraklara dön. Sonra: <b>Üstad soruları</b>.</p></div>
+      <div class="skor-kutu">Doğru <span class="kk"></span> × 25 = <span class="kk b"></span> akçe</div>
+    </div>
+  </main>
+  {{alt|12}}
+</section>
+
+<!-- ================================================================ SAYFA 13 · ÜSTAD SORULARI (bonus; akçeye dahil değil) -->
+<section class="sayfa s13 ustad-sayfa">
+  {{zemin}}
+  {{hud|13}}
+  {{cini}}
+  <div class="bant b40" data-serbest>{{sahne|ustad_bandi}}
+    <div class="levha ustad">{{rozet|Ü|-|laj}}<div><div class="ust">Üstad soruları · bonus · YKS/AYT tarzı</div><h1>Üstad <em>soruları</em></h1><p class="alt-bas">Altı zor soru. Akçe yok; <b>6/6</b> doğru: <b>Üstad Mührü</b>.</p></div></div>
+  </div>
+  <main class="ic" style="top:54mm">
+    <div class="ustad-izgara esnek">
+      <div class="ustad-soru" data-soru="U1">
+        <div class="ustad-bas">{{sno|1|laj}}<span class="et">Yoğunluk · seyreltme</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">Kütlece %36,5’lik HCl çözeltisinin yoğunluğu 1,2 g/mL’dir. Bu çözeltiden 50 mL alınıp saf suyla 1,5 L’ye tamamlanıyor. Son çözeltinin HCl derişimi kaç M’dir? (HCl: 36,5 g/mol)</p>
+        <div class="karalama"><span class="ogr">M₁ = 10·1,2·36,5/36,5 = 12 M; 12·50 = M₂·1500 → 0,4 M</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>0,04</div><div class="sik" data-dogru><b>B</b>0,4</div><div class="sik"><b>C</b>0,6</div><div class="sik"><b>D</b>1,2</div><div class="sik"><b>E</b>4</div></div>
+      </div>
+      <div class="ustad-soru" data-soru="U2">
+        <div class="ustad-bas">{{sno|2|laj}}<span class="et">Karıştırma · iyon</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">0,2 M 100 mL Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> ile 0,3 M 200 mL Na<sub>2</sub>SO<sub>4</sub> çözeltileri karıştırılıp üzerine 200 mL saf su ekleniyor. Son çözeltideki <b>toplam iyon</b> derişimi kaç M’dir? (Tam iyonlaşma, tepkime yok, hacimler toplanır.)</p>
+        <div class="karalama"><span class="ogr">İyon: 0,02·5 + 0,06·3 = 0,28 mol / 0,5 L = 0,56 M</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>0,24</div><div class="sik"><b>B</b>0,40</div><div class="sik"><b>C</b>0,48</div><div class="sik" data-dogru><b>D</b>0,56</div><div class="sik"><b>E</b>0,93</div></div>
+      </div>
+      <div class="ustad-soru" data-soru="U3">
+        <div class="ustad-bas">{{sno|3|laj}}<span class="et">Grafik · deriştirme</span><span class="ustad-zor">AYT</span></div>
+        <div class="ustad-sekil" style="float:right;margin:0 0 .6mm 2mm">{{info|ustad_buharlasma}}</div>
+        <p class="soru">Sabit sıcaklıkta 500 mL X tuzu çözeltisinden su buharlaştırılıyor; derişimin buharlaşan suya göre değişimi grafikte. 450 mL su buharlaştığında kaç gram X katısı çökmüş olur? (X: 100 g/mol; hacim azalması buharlaşan suya eşit)</p>
+        <div class="karalama"><span class="ogr">n = 0,2 mol; 50 mL’de 2·0,05 = 0,1 mol kalır → 10 g</span></div>
+        <div class="siklar"><div class="sik" data-dogru><b>A</b>10</div><div class="sik"><b>B</b>15</div><div class="sik"><b>C</b>20</div><div class="sik"><b>D</b>30</div><div class="sik"><b>E</b>40</div></div>
+      </div>
+      <div class="ustad-soru" data-soru="U4">
+        <div class="ustad-bas">{{sno|4|laj}}<span class="et">Koligatif · karışım</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">1 kg suda bir miktar NaCl ve 0,1 mol CaCl<sub>2</sub> çözülerek hazırlanan çözelti 1 atm’de −1,674 °C’ta donmaya başlıyor. Çözeltide kaç gram NaCl vardır? (NaCl: 58,5 g/mol · K<sub>d</sub> = 1,86 °C · ideal)</p>
+        <div class="karalama"><span class="ogr">Tanecik 0,9 mol − 0,3 = 0,6 → 0,3 mol NaCl = 17,55 g</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>5,85</div><div class="sik"><b>B</b>11,7</div><div class="sik" data-dogru><b>C</b>17,55</div><div class="sik"><b>D</b>23,4</div><div class="sik"><b>E</b>35,1</div></div>
+      </div>
+      <div class="ustad-soru" data-soru="U5">
+        <div class="ustad-bas">{{sno|5|laj}}<span class="et">ppm · molarite</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">Bir kaynak suyunda florür iyonu (F<sup>−</sup>) derişimi 1,9 ppm ölçülüyor. Bu suyun F<sup>−</sup> derişimi kaç M’dir? (F: 19 g/mol; seyreltik çözeltide 1 L ≈ 1 kg)</p>
+        <div class="karalama"><span class="ogr">1,9 mg/L = 1,9·10⁻³ g/L ÷ 19 = 1·10⁻⁴ M</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>1·10<sup>−5</sup></div><div class="sik" data-dogru><b>B</b>1·10<sup>−4</sup></div><div class="sik"><b>C</b>1,9·10<sup>−4</sup></div><div class="sik"><b>D</b>1·10<sup>−3</sup></div><div class="sik"><b>E</b>1,9·10<sup>−3</sup></div></div>
+      </div>
+      <div class="ustad-soru" data-soru="U6">
+        <div class="ustad-bas">{{sno|6|laj}}<span class="et">Kütlece % · su ekleme</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">Kütlece %10’luk 400 g şekerli su ile kütlece %30’luk m gram şekerli su karıştırılınca %20’lik çözelti oluşuyor. Bu karışımı %16’lık yapmak için kaç gram su eklenmelidir?</p>
+        <div class="karalama"><span class="ogr">40 + 0,3m = 0,2(400 + m) → m = 400; 160/0,16 = 1000 → +200 g</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>50</div><div class="sik"><b>B</b>100</div><div class="sik"><b>C</b>150</div><div class="sik"><b>D</b>160</div><div class="sik" data-dogru><b>E</b>200</div></div>
+      </div>
+    </div>
+    <div class="ustad-muhur">
+      {{nisan|ustad}}
+      <div><span class="et">{{ikon|medeniyet}}Üstad Mührü · bonus nişan</span><p><b>6/6 doğru:</b> mührü boya ve final sayfasında işaretle. <b>4–5:</b> çözümleri oku, yarın yeniden dene. Akçeye eklenmez.</p></div>
+      <div class="skor-kutu">Doğru <span class="kk"></span> / 6</div>
+    </div>
+  </main>
+  {{alt|13}}
+</section>
+
+<!-- ================================================================ SAYFA 14 · CEVAPLAR VE ÇÖZÜMLER -->
+<section class="sayfa s14">
+  {{zemin}}
+  {{hud|14}}
+  {{cini}}
+  <div class="bant b30" data-serbest>{{sahne|egirdir_gece}}
+    <div class="levha kucuk">{{rozet|✓|-|gol}}<div><div class="ust">Yolun sonu · Eğirdir’de gece nöbeti</div><h1>Cevaplar &amp; <em>çözümler</em></h1></div></div>
+  </div>
+  <main class="ic" style="top:44.5mm">
+    <!-- dogrula.py bu ızgarayı okur ve soru sayfalarındaki data-dogru işaretleriyle karşılaştırır. -->
+    <div class="kart anahtar-kart">
+      <div class="kart-bas"><span class="et">{{ikon|anahtar}}Büyük İmtihan anahtarı · durak etiketiyle</span><span class="kes-not">Yanlışın hangi duraktan? Etikete bak.</span></div>
+      <div class="anahtar-izgara">
+        <div><i>1</i><b>C</b><small>1. durak</small></div><div><i>2</i><b>D</b><small>1. durak</small></div><div><i>3</i><b>B</b><small>2. durak</small></div><div><i>4</i><b>D</b><small>2. durak</small></div>
+        <div><i>5</i><b>A</b><small>3. durak</small></div><div><i>6</i><b>C</b><small>3. durak</small></div><div><i>7</i><b>D</b><small>3. durak</small></div><div><i>8</i><b>B</b><small>4. durak</small></div>
+        <div><i>9</i><b>B</b><small>4. durak</small></div><div><i>10</i><b>E</b><small>4. durak</small></div><div><i>11</i><b>A</b><small>5. durak</small></div><div><i>12</i><b>E</b><small>5. durak</small></div>
+      </div>
+      <div class="yan-anahtar satir-anahtar"><p><b>Kıssa</b><span class="ck">1 C</span><span class="ck">2 D</span><span class="ck">3 E</span><span class="ck">4 B</span></p>
+          <p><b>Meclis</b><span class="ck">1 Yusuf</span><span class="ck">2 Pamuk</span><span class="ck">3 Elif</span><span class="ck">4 Yusuf</span></p>
+          <p><b>Merdiven</b><span class="ck">1 · 18,4 M</span><span class="ck">2 · 0,36 M</span><span class="ck">3 · 216 g</span></p><p><b>Üstad</b><span class="ck">1 B</span><span class="ck">2 D</span><span class="ck">3 A</span><span class="ck">4 C</span><span class="ck">5 B</span><span class="ck">6 E</span></p></div>
+    </div>
+    <div class="kart cozum-kart esnek">
+      <div class="cozumler">
+        <div class="grup"><h4>Büyük İmtihan</h4>
+          <p class="c"><b>1 · C</b> Tuz 350·0,12 = 42 g; su 350 − 42 = 308 g.</p>
+          <p class="c"><b>2 · D</b> Alkol 400·0,70 = 280 mL; hacim 560 mL → 280/560·100 = 50 derece.</p>
+          <p class="c"><b>3 · B</b> 1,5 mg / 5 kg = 0,3 mg/kg = 0,3 ppm.</p>
+          <p class="c"><b>4 · D</b> 36 ppm ≈ 36 mg/L; 36 · 2,5 = 90 mg.</p>
+          <p class="c"><b>5 · A</b> KOH = 56 g/mol; 22,4/56 = 0,4 mol; 0,4/2 = 0,2 M.</p>
+          <p class="c"><b>6 · C</b> 2Al<sup>3+</sup> + 3SO<sub>4</sub><sup>2−</sup>: 0,6 M (I ✓), 0,9 M (II ✓), toplam 1,5 M (III ✗).</p>
+          <p class="c"><b>7 · D</b> n = 0,15·0,4 = 0,06 mol; MgSO<sub>4</sub> = 120 → 7,2 g.</p>
+          <p class="c"><b>8 · B</b> 0,9·200 = 0,3·V<sub>2</sub> → 600 mL; eklenen su 400 mL.</p>
+          <p class="c"><b>9 · B</b> (0,09 + 0,035) mol / 0,5 L = 0,25 M.</p>
+          <p class="c"><b>10 · E</b> Doymuş kalır, derişim sabit (I ✓); çözünen çöker (II ✓); dipteki katı artar (III ✓).</p>
+          <p class="c"><b>11 · A</b> Tanecik: I 0,4 · II 0,1·4 = 0,4 · III 0,5 → I = II &gt; III.</p>
+          <p class="c"><b>12 · E</b> Koligatif etki tanecik <b>sayısına</b> bağlıdır, cinsine değil.</p>
+        </div>
+        <div class="grup"><h4>Kıssalar</h4>
+          <p class="c"><b>1 · C</b> 5 g/100 mL → 50 g/L (I ✓); 50/180 ≈ 0,28 M (II ✓); 500 mL’de 25 g ≈ 0,14 mol (III ✗).</p>
+          <p class="c"><b>2 · D</b> P 90 · R 130 · S 80 · T 110 mg/L → 100’ü aşan R ve T.</p>
+          <p class="c"><b>3 · E</b> 0,5 mol için tanecik: X 2,79/1,86 = 1,5 (CaCl<sub>2</sub>) · Y 0,5 (glikoz) · Z 1,0 (NaCl).</p>
+          <p class="c"><b>4 · B</b> (0,05·200 + 0,01·800)/1000 = 0,018 M Ca(NO<sub>3</sub>)<sub>2</sub> → NO<sub>3</sub><sup>−</sup> 0,036 M; hedefte.</p>
+        </div>
+        <div class="grup"><h4>Meclis: kim haklı?</h4>
+          <p class="c"><b>1 · Yusuf</b> Satır 1: çözelti 24 + 136 = 160 g → 24/160·100 = %15.</p>
+          <p class="c"><b>2 · Pamuk</b> Satır 2: 250 mL = 0,25 L → 0,2/0,25 = 0,8 M.</p>
+          <p class="c"><b>3 · Elif</b> Satır 2: V<sub>2</sub> = 250 + 350 = 600 mL → 1,2·250/600 = 0,5 M.</p>
+          <p class="c"><b>4 · Yusuf</b> Satır 3: KCl 0,4 mol tanecik verir; KCl çözeltisi daha düşük sıcaklıkta donar.</p>
+        </div>
+        <div class="grup"><h4>Anahtar merdiveni</h4>
+          <p class="c"><b>1 · 18,4 M</b> 1 L = 1840 g; H<sub>2</sub>SO<sub>4</sub> 1803,2 g = 18,4 mol.</p>
+          <p class="c"><b>2 · 0,36 M</b> Cl<sup>−</sup>: 0,12 + 0,06 = 0,18 mol; 0,18/0,5 L.</p>
+          <p class="c"><b>3 · 216 g</b> 0,3 mol tanecik/250 g → 1,2 mol/kg; 1,2·180 = 216 g.</p>
+        </div>
+        <div class="grup"><h4>Hızlı görevler</h4>
+          <p class="c"><b>1. durak</b> 40/(40 + 160)·100 = %20.</p>
+          <p class="c"><b>2. durak</b> 0,15 mg / 2,5 L = 0,06 mg/L ≈ 0,06 ppm; sınırın 6 katı.</p>
+          <p class="c"><b>3. durak</b> 0,25·0,4 = 0,1 mol; 0,1·120 = 12 g.</p>
+          <p class="c"><b>4. durak</b> 0,4·250 = M<sub>2</sub>·1000 → 0,1 M.</p>
+          <p class="c"><b>5. durak</b> 0,1·5 = 0,5 mol tanecik; 1,86·0,5 = 0,93 → −0,93 °C.</p>
+        </div>
+        <div class="grup"><h4>Üstad soruları · bonus</h4>
+          <p class="c"><b>Ü1 · B</b> M = 10·1,2·36,5/36,5 = 12 M; 12·50 = M<sub>2</sub>·1500 → 0,4 M.</p>
+          <p class="c"><b>Ü2 · D</b> Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> 0,02 mol → 0,10 mol iyon; Na<sub>2</sub>SO<sub>4</sub> 0,06 mol → 0,18; 0,28/0,5 = 0,56 M.</p>
+          <p class="c"><b>Ü3 · A</b> n = 0,4·0,5 = 0,2 mol; 400 mL’de doyar (2 M). 450 mL’de 50 mL kalır: 0,1 mol çözünmüş, 0,1 mol = 10 g çöker.</p>
+          <p class="c"><b>Ü4 · C</b> 1,674/1,86 = 0,9 mol tanecik; CaCl<sub>2</sub> 0,3 → NaCl 0,6 tanecik = 0,3 mol = 17,55 g.</p>
+          <p class="c"><b>Ü5 · B</b> 1,9 mg/L = 1,9·10<sup>−3</sup> g/L; ÷ 19 = 1·10<sup>−4</sup> M.</p>
+          <p class="c"><b>Ü6 · E</b> m = 400 g; 800 g çözeltide 160 g şeker; %16 için 1000 g → 200 g su.</p>
+        </div>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:.8fr 1.2fr">
+      <div class="kart keh-z puan">
+        <span class="et keh">{{ikon|akce}}Puanını hesapla · her doğru +25 akçe</span>
+        <div class="skor-kutu">Doğru <span class="kk"></span> × 8,33 ≈ <span class="kk"></span> puan</div>
+      </div>
+      <div class="kart tekrar">
+        <span class="et">{{ikon|harita}}Tekrar rotası · yanlışın nereden? (İmtihan soru no)</span>
+        <p class="kucuk-p"><b>1. durak (s.{{sayfa|2}})</b> yüzde → 1, 2 · <b>2. durak (s.{{sayfa|3}})</b> ppm → 3, 4 · <b>3. durak (s.{{sayfa|4}})</b> molarite, iyon → 5, 6, 7 · <b>4. durak (s.{{sayfa|5}})</b> seyreltme, karıştırma → 8, 9, 10 · <b>5. durak (s.{{sayfa|6}})</b> koligatif → 11, 12</p>
+      </div>
+    </div>
+  </main>
+  {{alt|14}}
+</section>
+
+<!-- ================================================================ SAYFA 15 · FİNAL · YOLCULUK TAMAMLANDI -->
+<section class="sayfa s15">
+  {{zemin}}
+  {{hud|15}}
+  {{cini}}
+  <div class="bant final-bant" data-serbest>{{final}}
+    <div class="levha final-levha">{{rozet|★|-|keh}}<div><div class="ust">Göller yolu tamam · 10. sınıf yolculuğu bitti</div><h1>Yolculuk <em>tamamlandı!</em></h1><p class="alt-bas">Akçeni topla, unvanını al, nişanlarını albüme işle.</p></div></div>
+    <div class="balon-buyuk final-balon"><span class="et keh">Pamuk</span><br>Van’dan yola çıktık, altı yolda Doğu’dan Batı’ya geldik. Son sözüm: <b>az olsun, öz olsun</b>; hesabı tam olsun. Miyav!</div>
+  </div>
+  <main class="ic" style="top:103mm">
+    <div class="kart ray-kart">
+      <div class="kart-bas"><span class="et keh">{{ikon|akce}}Akçe rayı</span><span class="kes-not">Toplamını raya işaretle · unvanını yuvarlak içine al</span></div>
+      {{info|akce_rayi|DERİŞİM ÜSTADI}}
+    </div>
+    <div class="unvanlar">
+      <div class="unvan">{{info|unvan_rozeti|1|#A3B3BE}}<b>Çırak</b><small>0–399 akçe</small><p>Yola çıktın. Durak görevlerini tekrar dene.</p></div>
+      <div class="unvan">{{info|unvan_rozeti|2|#13A3A6}}<b>Kalfa</b><small>400–799 akçe</small><p>Birimleri biliyorsun. Yan yollarla güçlen.</p></div>
+      <div class="unvan">{{info|unvan_rozeti|3|#0E4C5A}}<b>Usta</b><small>800–1149 akçe</small><p>Seyreltip karıştırıyorsun. Tuzaklara dikkat.</p></div>
+      <div class="unvan ust">{{info|unvan_rozeti|4|#F0A21A}}<b>Derişim Üstadı</b><small>1150–1400 akçe</small><p>Kale kapısını açtın; 10. sınıf yolculuğu senin.</p></div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1.06fr .94fr">
+      <div class="kart defter-kart">
+        <span class="et keh">{{ikon|hulasa}}Akçe defteri</span>
+        <table class="defter">
+          <tr><th>Durak</th><th>En çok</th><th>Senin</th></tr>
+          <tr><td>1. durak · Eğirdir Gölü · Derişim ve yüzde</td><td class="n">100</td><td class="k"><span></span></td></tr>
+          <tr><td>2. durak · Isparta · ppm</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>3. durak · Burdur Gölü · Molarite</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>4. durak · Salda Gölü · Seyreltme</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>5. durak · Davraz · Koligatif</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>Hülasa · muhasebe</td><td class="n">40</td><td class="k"><span></span></td></tr>
+          <tr><td>Yan yol · Meclis</td><td class="n">120</td><td class="k"><span></span></td></tr>
+          <tr><td>Yan yol · Kıssalar</td><td class="n">120</td><td class="k"><span></span></td></tr>
+          <tr><td>Yan yol · Anahtar merdiveni</td><td class="n">120</td><td class="k"><span></span></td></tr>
+          <tr><td>Eğirdir Kalesi · Büyük İmtihan</td><td class="n">300</td><td class="k"><span></span></td></tr>
+          <tr class="top"><td>TOPLAM</td><td class="n">1400</td><td class="k"><span></span></td></tr>
+        </table>
+      </div>
+      <div class="bento dikey">
+        <div class="kart nisan-kart">
+          <span class="et">{{ikon|kale}}Nişan sayımı · boyadıklarını işaretle</span>
+          {{nisan-sayim}}
+        </div>
+        <div class="kart unvan-kartim">
+          <span class="et mer">{{ikon|bayrak}}Unvan kartım</span>
+          <div class="satirlar"><div>Adım:</div><div>Unvanım:</div><div>Toplam akçe:</div></div>
+        </div>
+        <div class="kart gol-z siradaki-yol">
+          <span class="et">{{ikon|harita}}Yolculuk tamamlandı → Nişan albümü</span>
+          <b>Altı yol, bir yolculuk</b>
+          <div class="yol-seridi"><span><i>1</i>Kars–Erzurum</span><span><i>2</i>Van Gölü</span><span><i>3</i>Dicle</span><span><i>4</i>Kapadokya</span><span><i>5</i>Pamukkale–Afyon</span><span class="son"><i>6</i>Göller ✓</span></div>
+          <p class="kucuk-p">Kitabın sonundaki <b>Nişan albümü</b>’nde bütün yolların nişanlarını bir araya topla, Ahilik toplamını hesapla.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  {{alt|15}}
+</section>
+
+</body>
+</html>

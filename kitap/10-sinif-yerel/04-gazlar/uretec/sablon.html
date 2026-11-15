@@ -4,11 +4,33 @@
 <meta charset="utf-8">
 <title>Kimya Rotası 10 · Gazlar · Kapadokya Yolu</title>
 <link rel="stylesheet" href="../../yerel-ortak/stil.css">
+<style>
+/* Gazlar · üniteye özel küçük kurallar (ortak stil.css değişmez) */
+.bos { display: inline-block; min-width: 12mm; border-bottom: .3mm dotted var(--obs-2); text-align: center; line-height: 1.05; }
+.bos.g { min-width: 17mm; }
+html.ogretmen .bos > .ogr { font-size: 9pt; }
+.yanyana { display: grid; gap: 2.2mm; align-items: center; }
+.yanyana svg.info, .kavram svg.info, .bilgi-kart svg.info { width: 100%; height: auto; display: block; }
+.kavram svg.info { margin: .6mm 0 .8mm; }
+.kucuk-p { font-size: 9.5pt; line-height: 1.24; }
+.kavram ul.ozet-liste { font-size: 9.6pt; }
+table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .4mm 1.1mm; font-size: 9.2pt; }
+.ustad-sekil svg.info { width: 27mm; height: auto; }
+.ustad-sekil.genis svg.info { width: 33mm; }
+.kissa-ic .ust-satir svg.info.grafik { width: 36mm; }
+.final-balon.yukari { top: 6mm; right: 50mm; width: 50mm; }
+.resim { margin: .6mm auto .4mm; }
+.resim svg { width: 100%; height: auto; display: block; }
+.resim-sag svg.info { width: 100%; height: auto; display: block; }
+.final-balon.yukari::after { top: 9mm; }
+.sandik-izgara.dort { grid-template-columns: repeat(4, 1fr); }
+.mini-tablo { display: grid; grid-template-columns: auto 1fr; gap: .4mm 2mm; font-size: 9.4pt; line-height: 1.22; margin-top: .8mm; }
+.mini-tablo b { color: var(--kob-k); }
+</style>
 </head>
 <body>
-<!-- Bu dosyadan uretec/kur.py ile unite.html üretilir. İçerik burada; çizimler {{yer-tutucu}} ile gelir.
-     Yer tutucular ve bileşenler: yerel-ortak/TASARIM-SISTEMI.md (§5 bileşenler, §8 yer tutucular, §9 cevap işaretleme).
-     HTML yorumları olduğu gibi kalır; yorum içindeki {{…}} çözülmez (örnek bileşenler bu yüzden yorumda durur). -->
+<!-- Bu dosyadan uretec/kur.py ile unite.html üretilir. Düzeltmeyi burada yap, sonra kur.py'yi çalıştır.
+     Yer tutucular ve bileşenler: yerel-ortak/TASARIM-SISTEMI.md (§5 bileşenler, §8 yer tutucular, §10 cevap işaretleme, §11 Üstad). -->
 {{defs}}
 
 <!-- ================================================================ SAYFA 1 · YOLA ÇIKIŞ -->
@@ -19,21 +41,19 @@
   <div class="acilis">
     <div>
       <div class="cipler"><span class="cip koyu buyuk">Yol 4 · Kapadokya Yolu</span><span class="cip buyuk">10. sınıf · {{meta|tema}}</span></div>
-      <h1 class="dev-baslik"><span class="kav"><svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12 C40 2 70 2 100 11 S160 20 200 10 S270 2 296 10" fill="none" stroke="#F0A21A" stroke-width="9" stroke-linecap="round"/></svg>Gazlar</span></h1>
-      <p class="slogan">Ünitenin sloganı: bir atasözü ya da <b>yerel bir cümle.</b></p>
+      <h1 class="dev-baslik"><span class="kav mol"><svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12 C40 2 70 2 100 11 S160 20 200 10 S270 2 296 10" fill="none" stroke="#F0A21A" stroke-width="9" stroke-linecap="round"/></svg>Gazlar</span></h1>
+      <p class="slogan">Görünmez ama ölçülür; <b>dili de tek: PV = nRT.</b></p>
       <div class="cipler" style="margin-top:2.6mm"><span class="cip">5 durak</span><span class="cip">3 yan yol</span><span class="cip mer">1 kale</span><span class="cip akce">{{sikke|}} {{meta|akce_toplam}} akçe</span></div>
     </div>
     <div class="pamuk-sahne">
-      <div class="balon-buyuk"><span class="et keh">Pamuk · tur rehberin</span><br>Miyav, hoş geldin! Bu yolda <b>neyi</b> öğreneceğimizi bir cümleyle söyle.</div>
+      <div class="balon-buyuk"><span class="et keh">Pamuk · tur rehberin</span><br>Miyav, hoş geldin! Basıncı, hacmi, sıcaklığı ve molü tek denklemde buluşturacağız: <b>PV = nRT</b>. Balonlar hazır!</div>
       {{poz|pamuk-selam|pamuk-buyuk}}
     </div>
   </div>
-  <!-- Tur haritası: meta.json duraklarının enlem–boylamından genel harita. Bölgeye özel panorama çizince
-       {{rota-haritasi}} yerine {{sahne|panorama_adi}}, {{rota-etiket}} yerine kendi etiket yer tutucunu koy (Mol: panorama). -->
   <div class="panorama-kutu" data-serbest>
-    {{rota-haritasi}}
-    <div class="panorama-bas"><h2>Tur haritası</h2><p>Yer 1’den başla, Uçhisar Kalesi’ne çık.</p></div>
-    {{rota-etiket}}
+    {{panorama-kapadokya}}
+    <div class="panorama-bas"><h2>Tur haritası</h2><p>Erciyes’ten başla, Kapadokya’yı dolaş, Uçhisar Kalesi’ne çık.</p></div>
+    {{panorama-etiket}}
   </div>
   <main class="ic" style="top:173mm">
     <div class="ara-bas">Kazanılacak nişanlar <small>Durağı bitirince nişanını kendin boya. Kalem senden, nişan bizden.</small></div>
@@ -43,19 +63,19 @@
         <span class="et mer">{{ikon|meclis}}Yol arkadaşların</span>
         <div class="kisiler"><div class="kisi">{{av|elif}}<div><b>Elif<small>10. sınıf · Edremit</small></b><p>Meraklı; “Neden?” demeden geçmez.</p></div></div>
         <div class="kisi">{{av|yusuf}}<div><b>Yusuf<small>kimya kulübü · Erciş</small></b><p>Sakin; adım adım, örnekle anlatır.</p></div></div>
-        <div class="kisi">{{av|pamuk}}<div><b>Pamuk<small>Van kedisi</small></b><p>Bir gözü mavi, bir gözü kehribar; hep sayıyla konuşur.</p></div></div>
+        <div class="kisi">{{av|pamuk}}<div><b>Pamuk<small>Van kedisi · PV = nRT</small></b><p>Bir gözü mavi, bir gözü kehribar; hep sayıyla konuşur.</p></div></div>
         <div class="kisi">{{av|zeynep}}<div><b>Zeynep Hoca<small>kimya öğretmeni</small></b><p>“Medeniyetimizden” köşelerini o anlatır.</p></div></div></div>
       </div>
       <div class="kart">
         <span class="et">{{ikon|hedef}}Yolun sonunda · hedefler</span>
         <ol class="hedefler">
-          <li>Birinci kazanım (öğrencinin yapacağı iş).</li>
-          <li>İkinci kazanım.</li>
-          <li>Üçüncü kazanım.</li>
+          <li>Gazı tanecik modeliyle açıklayıp basıncı ölçeceksin.</li>
+          <li>Gaz yasalarını ve PV = nRT’yi grafikte ve hesapta kullanacaksın.</li>
+          <li>Gaz yoğunluğunu ve yayılma hızlarını karşılaştıracaksın.</li>
         </ol>
         <div class="et keh" style="margin-top:3mm">Ahilik basamakları · toplam akçene göre</div>
         <div class="basamak-unvan" style="margin-top:3.4mm">
-          <div><b>Çırak</b><small>0+</small></div><div><b>Kalfa</b><small>400+</small></div><div><b>Usta</b><small>800+</small></div><div><b>Üstad</b><small>1150+</small></div>
+          <div><b>Çırak</b><small>0+</small></div><div><b>Kalfa</b><small>400+</small></div><div><b>Usta</b><small>800+</small></div><div><b>Gaz Üstadı</b><small>1150+</small></div>
         </div>
       </div>
     </div>
@@ -72,500 +92,569 @@
   {{alt|1}}
 </section>
 
-<!-- ================================================================ SAYFA 2 · 1. DURAK · YER 1 -->
+<!-- ================================================================ SAYFA 2 · 1. DURAK · ERCİYES · GAZ VE BASINÇ -->
 <section class="sayfa s2">
   {{zemin}}
   {{hud|2}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|safak|1}}
-    <div class="levha">{{rozet|1}}<div><div class="ust">1. durak · Yer 1 · sabah</div><h1>1. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+100 akçe</span><span class="cip">Nişan: 1. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|erciyes}}
+    <div class="levha">{{rozet|1}}<div><div class="ust">1. durak · Kayseri · Erciyes eteği · öğle</div><h1>Gaz ve <em>basınç</em></h1><p class="alt-bas">Görünmeyen taneciklerin <b>çarpışmaları</b> ölçülebilir.</p><div class="hedef"><b>Hedef</b>Gazı tanecik modeliyle anlat; basıncı ölç, birimlerini çevir.<span class="cip akce">+100 akçe</span><span class="cip">Nişan: Basınç Bekçisi</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kayseri’de aldığım cips paketi Erciyes yolunda şişti! Hava mı girdi?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Girmedi. Yükseldikçe <span class="vurgu">açık hava basıncı</span> azalır; içteki gaz paketi şişirir.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @P<sub>0</sub></span>Zirvede (≈ 3917 m) basınç, deniz kıyısının ≈ 0,6 katı. Miyav!</div></div>
       </div>
-      <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
-        </div>
-        {{hazine|H1}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · gaz hâli</span></div>
+        <div class="resim" style="width:50mm">{{info|tanecik_kutulari}}</div>
+        <p class="kucuk-p">Gaz tanecikleri <b>uzak</b>, hızlı ve <b>rastgele</b> hareket eder. Gaz kabın <b>tüm hacmini</b> alır, <b>sıkışır</b>, ısınınca <b>genleşir</b>, her oranda <b>homojen</b> karışır. Gazı dört nicelik anlatır: <b>P, V, T</b> (kelvin), <b>n</b>.</p>
+        <div class="hizli-kontrol"><span class="cip akce">+20 akçe</span><span><b>Hızlı kontrol:</b> −13 °C = <span class="bos"><span class="ogr">260</span></span> K · 300 K = <span class="bos"><span class="ogr">27</span></span> °C</span></div>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
-      <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
+    <div class="kart bilgi-kart" style="display:grid;grid-template-columns:1fr 60mm;gap:3mm;align-items:center;padding:2mm 3mm">
+      <div>
+        <span class="et kob">{{ikon|terazi}}Kavram · basınç ve barometre</span>
+        <p class="kucuk-p" style="margin-top:.8mm"><b>Basınç</b> birim yüzeye dik kuvvettir; gaz basıncı taneciklerin çepere <b>çarpmasından</b> doğar. Atmosferin basıncı <b>açık hava basıncıdır</b> (P<sub>0</sub>). 1643’te <b>Torricelli</b>’nin cıvalı borusunda sütun deniz kıyısında ≈ <b>76 cm</b>’de kaldı: <b>barometre</b>. Yükseldikçe sütun kısalır. <b>NŞA</b>: 0 °C ve 1 atm.</p>
+        <table class="gorev-tablo dar" style="margin-top:1mm"><tr><th>1 atm</th><td>76 cmHg</td><td>760 mmHg = 760 torr</td><td>≈ 101,3 kPa</td></tr></table>
+      </div>
+      {{info|barometreler}}
+    </div>
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · manometre</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+20 akçe</span></span></div>
+      <div class="yanyana" style="grid-template-columns:1fr 1fr 30mm;align-items:start">
+        <div>
+          <div class="baglam">Kayseri’de açık hava basıncı ≈ 67 cmHg.</div>
+          <p class="soru">Kapalı bir gaz tüpüne bağlı açık uçlu manometrede cıva, açık kolda 9 cm yüksek. Gazın basıncı kaç atm? Tüp aynı sıcaklıkta Erciyes zirvesine (P<sub>0</sub> ≈ 47 cmHg) çıkarılırsa seviye farkı kaç cm olur?</p>
+        </div>
+        <div>
+          <ol class="akis"><li><i>1</i><span><b>H3:</b> açık kol yüksek: P<sub>gaz</sub> = 67 + 9 = 76 cmHg = 1 atm</span></li><li><i>2</i><span>Tüpteki basınç değişmez: 76 − 47 = 29 cm (yine açık kol yüksek)</span></li></ol>
+          <div class="sonuc"><span>SONUÇ</span>1 atm · zirvede h = 29 cm</div>
+        </div>
+        {{info|manometre|9|acik|Kayseri}}
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1fr 1fr 1fr">
+      {{hazine|H1}}
+      {{hazine|H2}}
+      {{hazine|H3}}
+    </div>
+    <div class="bento esnek" style="grid-template-columns:.9fr .9fr 1.2fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Gaz ısınınca tanecikleri büyür; bu yüzden genleşir.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Tanecik boyutu değişmez; <b>hızlanırlar</b>, aradaki <b>uzaklık artar</b>.</p></div>
       </div>
       <div class="kart hizli">
-        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+20 akçe</span></div>
+        <p class="soru">Erciyes yamacında barometre 57 cmHg gösteriyor. Bu basınç kaç mmHg, kaç atm’dir?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">1 atm = 76 cmHg; 57 / 76 = ?</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">570 mmHg · 0,75 atm</span></div><span class="ters-cevap"><span class="ters">0,75 atm</span></span></div>
       </div>
-    </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
-      </div>
-      <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Yoldan</span>
-        <p>Bölgeden, doğrulanmış bir günlük hayat bilgisi. Emin değilsen “yaklaşık” de.</p>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
-      <div class="bento dikey">
-        {{hazine|H2}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
+      <div class="medeniyet">{{kose}}
+        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
+        <div class="haz-ic sag" style="grid-template-columns:1fr 19mm"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
+        <p class="metin"><b>Gevher Nesibe Darüşşifası</b> (Kayseri, 1205–1206): Selçuklu Sultanı I. Gıyaseddin Keyhüsrev, kız kardeşi Gevher Nesibe Sultan adına yaptırdı. Yan yana iki yapı: <b>darüşşifa</b> ve <b>tıp medresesi</b>.</p></div>{{info|sifahane}}</div>
+        <p class="not">Bugün hastanelerde oksijen, çelik tüplerde <b>yüksek basınç</b> altında saklanır.</p>
       </div>
     </div>
   </main>
   {{alt|2}}
 </section>
 
-<!-- ================================================================ SAYFA 3 · 2. DURAK · YER 2 -->
+<!-- ================================================================ SAYFA 3 · 2. DURAK · GÖREME · BOYLE VE CHARLES -->
 <section class="sayfa s3">
   {{zemin}}
   {{hud|3}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|gun|2}}
-    <div class="levha">{{rozet|2}}<div><div class="ust">2. durak · Yer 2 · öğle</div><h1>2. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: 2. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|goreme}}
+    <div class="levha">{{rozet|2}}<div><div class="ust">2. durak · Göreme · şafakta balonlar</div><h1>Boyle ve <em>Charles</em></h1><p class="alt-bas">İki nicelik sabit, ikisi değişir: <b>P–V</b> ve <b>V–T</b>.</p><div class="hedef"><b>Hedef</b>Boyle ve Charles yasalarını grafikle yorumla; oranı kelvinle kur.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Balon Kaptanı</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Brülör yanınca yerde yatan balonlar şişip kalktı! Neden?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Sabit basınçta ısınan hava <span class="vurgu">genleşir</span>: <b>Charles</b> yasası. Zarf böyle dolar.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @V/T</span>300 K’den 390 K’e: hacim 1,3 katı! Önce kelvin. Miyav!</div></div>
       </div>
-      <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · Boyle yasası</span></div>
+        <div class="yanyana" style="grid-template-columns:1fr 37mm">
+          <p class="kucuk-p"><b>Boyle (1662):</b> miktarı ve sıcaklığı sabit gazın basıncı ile hacmi <b>ters orantılıdır</b>; P·V sabittir. Hacim küçülünce birim hacimdeki tanecik artar, çarpışma sıklaşır.</p>
+          {{info|grafik_boyle}}
         </div>
-        {{hazine|H3}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
+        <div class="hizli-kontrol"><span class="cip akce">+20 akçe</span><span><b>Hızlı kontrol:</b> T sabitken hacim yarıya inerse P <span class="bos g"><span class="ogr">2 katı</span></span> olur.</span></div>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
+    <div class="bento" style="grid-template-columns:1.25fr .75fr">
+      <div class="kart kavram yanyana" style="grid-template-columns:1fr 46mm">
+        <div>
+          <span class="et kob">{{ikon|kitap}}Kavram · Charles yasası</span>
+          <p class="kucuk-p" style="margin-top:.8mm">Miktarı ve basıncı sabit gazın hacmi <b>mutlak sıcaklıkla doğru orantılıdır</b>: V/T sabittir. V–t (°C) doğrusunun uzantısı <b>−273 °C</b>’de sıfıra iner: <b>mutlak sıfır</b> (0 K). Kesik kısım yalnız uzantıdır; gerçek gazlar oraya inmeden sıvılaşır.</p>
+        </div>
+        {{info|grafik_charles}}
+      </div>
+      <div class="bento dikey">
+        {{hazine|H4}}
+        {{hazine|H5}}
+        <div class="kes-not">{{ikon|makas}}Kes · yapıştır · kart başı +10</div>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 2 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 2 · Boyle</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30 akçe</span></span></div>
+        <div class="baglam">Kalkış: Göreme’de P ≈ 0,9 atm.</div>
+        <div class="yanyana" style="grid-template-columns:1fr 38mm">
+          <p class="soru">Sepetteki ağzı kapalı esnek pakette 2,0 L hava var. Balon yükselip dış basınç 0,75 atm’ye düşüyor. Sıcaklık değişmezse hava kaç L olur?</p>
+          {{info|paket_boyle}}
+        </div>
+        <ol class="akis"><li><i>1</i><span><b>H4:</b> 0,9 · 2,0 = 0,75 · V<sub>2</sub> → V<sub>2</sub> = 1,8 / 0,75</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>2,4 L: paket şişer</div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 3 · Charles</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30 akçe</span></span></div>
+        <div class="baglam">Zarfın ağzı açık, basınç sabit.</div>
+        <p class="soru">Brülör, 3000 m³ havayı 27 °C’den 117 °C’ye ısıtıyor. Bu hava kaç m³ olmak ister? Zarfa sığmayan hava ne olur?</p>
+        <ol class="akis"><li><i>1</i><span>300 K’den 390 K’e · <b>H5:</b> V<sub>2</sub> = 3000 · 390 / 300</span></li><li><i>2</i><span>Fazla 900 m³ ağızdan çıkar; içeride daha az hava kalır.</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>3900 m³ · 900 m³ hava dışarı</div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:.95fr 1fr 1.05fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“20 °C’den 40 °C’ye ısınan gazın hacmi 2 katına çıkar.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Oran <b>kelvinle</b> kurulur: 293 K’den 313 K’e. Hacim yalnız ≈ <b>1,07 katına</b> çıkar.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
+        <p class="soru">Sabit basınçta gece −13 °C’de 2,6 L olan hava, öğlen 27 °C’de kaç L olur?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">260 K’den 300 K’e: 2,6 · 300 / 260</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">3 L</span></div><span class="ters-cevap"><span class="ters">Cevap: 3 L</span></span></div>
       </div>
-    </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
-      </div>
-      <div class="medeniyet">{{kose}}
-        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
-        <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
-        <p class="metin"><b>Âlimin adı</b> (yıl): YEREL-KIMLIK.md’deki doğrulanmış bilgi, iki cümle.</p>
-        <p class="not">Konuya bağlayan tek cümle.</p>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
-      <div class="bento dikey">
-        {{hazine|H4}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
+      <div class="kart kiyidan">
+        <span class="et">{{ikon|dalga}}Yoldan · neden şafakta?</span>
+        <p class="kucuk-p" style="margin-top:.8mm">Kapadokya’da balon uçuşları çoğunlukla <b>gün doğumunda</b> yapılır; sabahları rüzgâr genellikle daha sakindir. Rüzgâr güvenli sınırı aşınca uçuşa izin verilmez.</p>
+        <p class="kucuk-p" style="margin-top:.8mm">Serin sabah havası, zarftaki sıcak havayla daha büyük <b>sıcaklık farkı</b> demektir: aynı ısıtmayla balon daha kolay yükselir.</p>
       </div>
     </div>
   </main>
   {{alt|3}}
 </section>
 
-<!-- ================================================================ SAYFA 4 · 3. DURAK · YER 3 -->
+<!-- ================================================================ SAYFA 4 · 3. DURAK · AVANOS · ÜÇ YASA BİR ARADA -->
 <section class="sayfa s4">
   {{zemin}}
   {{hud|4}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|altin|3}}
-    <div class="levha">{{rozet|3}}<div><div class="ust">3. durak · Yer 3 · ikindi</div><h1>3. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: 3. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|avanos}}
+    <div class="levha">{{rozet|3}}<div><div class="ust">3. durak · Avanos · Kızılırmak kıyısı</div><h1>Üç yasa <em>bir arada</em></h1><p class="alt-bas">Gay-Lussac, Avogadro ve <b>birleşik</b> gaz denklemi.</p><div class="hedef"><b>Hedef</b>Kapalı kapta P–T, sabit P ve T’de V–n ilişkisini kullan; birleşik denklemle çöz.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Çömlek Ustası</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Usta, kapalı parçalara fırından önce iğneyle delik açıyor. Neden?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Kapalı kapta hava genleşemez; basınç <span class="vurgu">mutlak sıcaklıkla</span> artar: <b>Gay-Lussac</b>.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @P/T</span>300 K’den 600 K’e: basınç 2 katı! Delik, kaçış yolu. Miyav!</div></div>
       </div>
-      <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · Gay-Lussac yasası</span></div>
+        <div class="yanyana" style="grid-template-columns:1fr 40mm">
+          <p class="kucuk-p">Miktarı ve hacmi sabit gazın basıncı <b>mutlak sıcaklıkla doğru orantılıdır</b>: P/T sabittir. P–T (K) doğrusu orijinden geçer. Isınan kapalı kap, sprey kutusu, lastik: hepsinde basınç artar.</p>
+          {{info|grafik_gay}}
         </div>
-        {{hazine|H5}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 3 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 4 · Gay-Lussac</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+30 akçe</span></span></div>
+        <div class="yanyana" style="grid-template-columns:1fr 36mm">
+          <p class="soru">Ağzı sıkıca kapatılmış bir testideki hava 27 °C’de 1 atm basınç yapıyor. Testi fırında 177 °C’ye ısınırsa (hacim sabit) basınç kaç atm olur?</p>
+          {{info|kucuk_gl}}
+        </div>
+        <ol class="akis"><li><i>1</i><span>300 K’den 450 K’e · <b>H6:</b> P<sub>2</sub> = 1 · 450 / 300</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>1,5 atm: delik bu yüzden</div>
+      </div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · Avogadro yasası</span></div>
+        <div class="yanyana" style="grid-template-columns:1fr 44mm">
+          <p class="kucuk-p">Aynı sıcaklık ve basınçta hacim <b>mol sayısıyla doğru orantılıdır</b>: V/n sabittir. Eşit hacimler <b>eşit sayıda</b> tanecik içerir. NŞA’da 1 mol gaz <b>22,4 L</b>. Testilerde 5,6’şar L = 0,25’er mol: tanecik sayısı <b>aynı</b>, kütle <b>farklı</b>.</p>
+          {{info|testiler}}
+        </div>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1.1fr .95fr .95fr">
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 5 · birleşik</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+40 akçe</span></span></div>
+        <div class="baglam">Avanos’tan Erciyes zirvesine bir balon.</div>
+        <p class="soru">27 °C ve 0,9 atm’de 6 L hava içeren ağzı bağlı esnek balon, zirvede −3 °C ve 0,6 atm’ye geliyor. Hacmi kaç L olur?</p>
+        <ol class="akis"><li><i>1</i><span>n sabit · 300 K, 270 K · <b>H8:</b> 0,9 · 6 / 300 = 0,6 · V<sub>2</sub> / 270</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>V<sub>2</sub> = 8,1 L</div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
+        <p class="soru">NŞA’da 11,2 L N<sub>2</sub> gazı kaç gramdır? Kaç molekül içerir? (N: 14)</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">n = 11,2 / 22,4 = 0,5 mol</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">14 g · 3,01·10²³</span></div><span class="ters-cevap"><span class="ters">14 g · 3,01·10²³</span></span></div>
       </div>
-    </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
-      </div>
-      <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Yoldan</span>
-        <p>Bölgeden, doğrulanmış bir günlük hayat bilgisi. Emin değilsen “yaklaşık” de.</p>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Aynı koşulda eşit hacimli gazların kütleleri eşittir.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p><b>Mol sayıları</b> eşittir; kütleler mol kütlesine göre farklıdır.</p></div>
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
-      <div class="bento dikey">
-        {{hazine|H6}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
+    <div class="bento" style="grid-template-columns:1fr 1fr 1.15fr">
+      {{hazine|H6}}
+      {{hazine|H7}}
+      {{hazine|H8}}
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1fr">
+      <div class="medeniyet">{{kose}}
+        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
+        <div class="haz-ic sag" style="grid-template-columns:1fr 1fr 32mm;gap:4mm;align-items:center">
+          <div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><p class="metin"><b>Takiyüddin</b>, 1551’de yazdığı <i>et-Turuku’s-Seniyye</i> adlı eserinde kebap şişini <b>buharla</b> döndüren bir düzenek anlattı.</p></div>
+          <p class="metin">Ateşteki ağzı kapalı, su dolu kabın dar borusundan buhar fışkırır ve şişin ucundaki kanatlı çarkı çevirir. Kapalı kapta ısınan buharın <b>basıncı artar</b>: Gay-Lussac’ın işi!</p>
+          {{info|buhar_carki}}
+        </div>
       </div>
     </div>
   </main>
   {{alt|4}}
 </section>
 
-<!-- ================================================================ SAYFA 5 · 4. DURAK · YER 4 -->
+<!-- ================================================================ SAYFA 5 · 4. DURAK · KIZILÇUKUR ÜSTÜ · İDEAL GAZ -->
 <section class="sayfa s5">
   {{zemin}}
   {{hud|5}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|gun|4}}
-    <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Yer 4 · öğle</div><h1>4. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: 4. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|kizilcukur}}
+    <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Kızılçukur · balon sepetinde</div><h1>İdeal <em>gaz</em></h1><p class="alt-bas">Tanecik hareketi ve <b>PV = nRT</b>.</p><div class="hedef"><b>Hedef</b>Kinetik teorinin varsayımlarını söyle; PV = nRT ile P, V, n ya da T bul.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Tanecik Pilotu</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Isınan hava hafifliyor diyorlar. Tanecikler mi hafifledi?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Hayır, <span class="vurgu">hızlanırlar</span>. Havanın bir kısmı ağızdan çıkar; zarfta daha az mol kalır.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @PV=nRT</span>P, V sabit; T artınca n azalır. Kaçan hava, kaldırma! Miyav!</div></div>
       </div>
-      <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
-        </div>
-        {{hazine|H7}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · kinetik teori</span></div>
+        <p class="kucuk-p">Varsayımlarına tam uyan gaza <b>ideal gaz</b> denir:</p>
+        <ul class="ozet-liste" style="margin-top:.6mm">
+          <li>Tanecik hacmi, kap hacmi yanında <b>ihmal</b> edilir.</li>
+          <li>Tanecikler sürekli, <b>rastgele</b>, doğrusal hareket eder.</li>
+          <li>Çarpışmalar <b>esnektir</b>; toplam kinetik enerji korunur.</li>
+          <li>Tanecikler arası çekme ve itme <b>yoktur</b>.</li>
+          <li>Ortalama kinetik enerji <b>mutlak sıcaklıkla</b> orantılıdır; aynı T’de bütün gazlarda eşittir.</li>
+        </ul>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
+      <div class="kart bilgi-kart" style="padding:2mm 2.6mm">
+        <span class="et mer">{{ikon|isik}}Zarfın içinde · zarfın dışında</span>
+        <div class="resim" style="width:50mm">{{info|balon_kesit}}</div>
+      </div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · ideal gaz denklemi</span></div>
+        <p class="kucuk-p">Dört yasa tek eşitlikte birleşir: <b>P·V = n·R·T</b>. P <b>atm</b>, V <b>L</b>, T <b>K</b> olmalı.</p>
+        <p class="kucuk-p" style="margin-top:.6mm"><b>R nereden?</b> NŞA’da 1 mol gaz 22,4 L: R = 22,4 / 273 ≈ <b>0,082</b> L·atm/(mol·K).</p>
+        <p class="kucuk-p" style="margin-top:.6mm"><b>Gerçek gaz</b> ideale <b>yüksek T, düşük P</b>’de, küçük ve apolar taneciklerde (He, H<sub>2</sub>) yaklaşır.</p>
+        <div class="hizli-kontrol"><span class="cip akce">+10 akçe</span><span><b>Hızlı kontrol:</b> 0,5 atm’de He ile 2 atm’de SO<sub>2</sub>’den hangisi ideale yakın? <span class="bos"><span class="ogr">He</span></span></span></div>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1.32fr .68fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 4 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 6 · balonun kaldırması</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+40 akçe</span></span></div>
+        <p class="soru">Zarfın hacmi 2460 m³ (2,46·10<sup>6</sup> L), içindeki basınç 0,9 atm kabul ediliyor. Hava 27 °C’den 87 °C’ye ısıtılınca zarfta kaç mol hava kalır? Kaç kg hava dışarı çıkar? (M<sub>hava</sub> ≈ 29 g/mol)</p>
+        <ol class="akis"><li><i>1</i><span><b>H9:</b> n<sub>1</sub> = PV/RT = 2,214·10<sup>6</sup> / (0,082 · 300) = 90 000 mol</span></li><li><i>2</i><span>n<sub>2</sub> = 2,214·10<sup>6</sup> / (0,082 · 360) = 75 000 mol</span></li><li><i>3</i><span>Çıkan: 15 000 mol · 29 g = 435 000 g</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>75 000 mol kalır · ≈ 435 kg hava çıkar</div>
+      </div>
+      <div class="bento dikey">
+        {{hazine|H9}}
+        {{hazine|H10}}
+        <div class="kes-not">{{ikon|makas}}Kes · yapıştır</div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1fr .95fr 1fr">
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 7 · yakıt</span><span class="sag"><span class="cip akce">+30 akçe</span></span></div>
+        <div class="kose-mol">{{mol|C3H8|10,25,0|16mm}}</div>
+        <div class="baglam">Brülörün yakıtı propandır.</div>
+        <p class="soru">27 °C ve 1,23 atm’de 4 L propan (C<sub>3</sub>H<sub>8</sub>) gazı kaç gramdır? (H: 1, C: 12)</p>
+        <ol class="akis"><li><i>1</i><span>n = 1,23 · 4 / (0,082 · 300) = 0,2 mol</span></li><li><i>2</i><span>m = 0,2 · 44</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>8,8 g propan</div>
+      </div>
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Aynı sıcaklıkta ağır molekülün kinetik enerjisi büyüktür.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Ortalama kinetik enerji yalnız <b>sıcaklığa</b> bağlı; ağır molekül yalnızca <b>daha yavaştır</b>.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
-      </div>
-    </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
-      </div>
-      <div class="medeniyet">{{kose}}
-        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
-        <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
-        <p class="metin"><b>Âlimin adı</b> (yıl): YEREL-KIMLIK.md’deki doğrulanmış bilgi, iki cümle.</p>
-        <p class="not">Konuya bağlayan tek cümle.</p>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
-      <div class="bento dikey">
-        {{hazine|H8}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
+        <p class="soru">27 °C ve 2,46 atm’de 0,4 mol ideal gaz kaç L hacim kaplar?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">V = nRT / P; RT = 24,6</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">4 L</span></div><span class="ters-cevap"><span class="ters">Cevap: 4 L</span></span></div>
       </div>
     </div>
   </main>
   {{alt|5}}
 </section>
 
-<!-- ================================================================ SAYFA 6 · 5. DURAK · YER 5 -->
+<!-- ================================================================ SAYFA 6 · 5. DURAK · DERİNKUYU · YOĞUNLUK VE YAYILMA -->
 <section class="sayfa s6">
   {{zemin}}
   {{hud|6}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|altin|5}}
-    <div class="levha">{{rozet|5}}<div><div class="ust">5. durak · Yer 5 · ikindi</div><h1>5. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: 5. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|derinkuyu}}
+    <div class="levha">{{rozet|5}}<div><div class="ust">5. durak · Derinkuyu Yeraltı Şehri</div><h1>Yoğunluk, <em>yayılma</em></h1><p class="alt-bas">Hafif gaz yükselir ve hızlı yayılır: anahtar <b>mol kütlesi</b>.</p><div class="hedef"><b>Hedef</b>d = P·M/(R·T) ile yoğunluk bul; Graham yasasıyla hızları karşılaştır.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Yeraltı Kâşifi</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerin onlarca metre altındayız, yine de rahat nefes alıyoruz. Nasıl?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Katları <span class="vurgu">havalandırma bacaları</span> bağlar; taze hava tünellere yayılır: <b>difüzyon</b>.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @M</span>CO<sub>2</sub> (44) havadan (≈ 29) ağır; dipte birikir. Baca şart! Miyav.</div></div>
       </div>
-      <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
-        </div>
-        {{hazine|H9}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · gaz yoğunluğu</span></div>
+        <p class="kucuk-p">PV = nRT’de n yerine m/M yazılırsa <b>d = P·M/(R·T)</b>. Aynı P ve T’de yoğunluk <b>mol kütlesiyle doğru orantılıdır</b>. Sabit hacimli kapta ısıtmak d’yi değiştirmez; serbest pistonlu kapta d azalır.</p>
+        <div class="resim" style="width:78mm">{{info|yogunluk_cetveli}}</div>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
+    <div class="bento" style="grid-template-columns:.95fr 1.05fr">
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · difüzyon, efüzyon, Graham</span></div>
+        <table class="gorev-tablo dar"><tr><th></th><th>Difüzyon (yayılma)</th><th>Efüzyon (sızma)</th></tr>
+          <tr><td>Ne?</td><td>Derişim farkıyla başka gazın içinde yayılma</td><td>Basınç farkıyla küçük delikten kaçma</td></tr>
+          <tr><td>Örnek</td><td>Tandır kokusunun tünele yayılması</td><td>Helyum balonunun birkaç günde sönmesi</td></tr></table>
+        <p class="kucuk-p" style="margin-top:1mm"><b>Graham:</b> aynı sıcaklıkta yayılma hızı mol kütlesinin <b>karekökü</b> ile ters orantılıdır: v<sub>1</sub>/v<sub>2</sub> = √(M<sub>2</sub>/M<sub>1</sub>) = t<sub>2</sub>/t<sub>1</sub>. Hız, gaz miktarına bağlı değildir.</p>
+      </div>
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 5 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 8 · NH<sub>3</sub>–HCl borusu</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+20 akçe</span></span></div>
+        <p class="soru">100 cm’lik borunun iki ucuna aynı anda NH<sub>3</sub> ve HCl ıslatılmış pamuk konuyor. Beyaz halka NH<sub>3</sub> ucundan kaç cm uzakta oluşur? (NH<sub>3</sub>: 17, HCl: 36,5)</p>
+        <div class="resim" style="width:70mm">{{info|graham_boru}}</div>
+        <ol class="akis"><li><i>1</i><span>v<sub>NH₃</sub>/v<sub>HCl</sub> = √(36,5/17) ≈ 1,47 · x = 100 · 1,47 / 2,47 ≈ 59 cm</span></li></ol>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1fr 1fr .78fr">
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 9 · yoğunluk</span><span class="sag"><span class="cip akce">+30 akçe</span></span></div>
+        <div class="kose-mol">{{mol|CO2|15,30,0|14mm}}</div>
+        <p class="soru">NŞA’da CO<sub>2</sub>’nin yoğunluğu kaç g/L? Havanınkinin (M ≈ 29) kaç katı?</p>
+        <ol class="akis"><li><i>1</i><span>NŞA: d = M / 22,4 = 44 / 22,4</span></li><li><i>2</i><span>Oran = 44 / 29</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>≈ 1,96 g/L · ≈ 1,5 kat</div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 10 · Graham</span><span class="sag"><span class="cip akce">+30 akçe</span></span></div>
+        <p class="soru">Eşit sayıda tanecik içeren CH<sub>4</sub> ve SO<sub>2</sub> aynı delikten sızıyor. SO<sub>2</sub> 30 s’de sızıyorsa CH<sub>4</sub> kaç s’de sızar? (C: 12, O: 16, S: 32)</p>
+        <ol class="akis"><li><i>1</i><span><b>H12:</b> v<sub>CH₄</sub>/v<sub>SO₂</sub> = √(64/16) = 2</span></li><li><i>2</i><span>Süre yarıya: 30 / 2</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>15 s</div>
+      </div>
+      <div class="bento dikey">
+        {{hazine|H11}}
+        {{hazine|H12}}
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:.95fr .95fr 1.1fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“H<sub>2</sub>, O<sub>2</sub>’den 32/2 = 16 kat hızlı yayılır.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Hız, mol kütlesinin <b>karekökü</b> ile ters orantılı: √(32/2) = <b>4 kat</b>.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
-      </div>
-    </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
+        <p class="soru">Aynı koşullarda yoğunluğu O<sub>2</sub>’nin 2 katı olan gazın mol kütlesi kaçtır? Hangi gaz olabilir? (O: 16, S: 32)</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">d oranı = M oranı</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">64 g/mol · SO₂</span></div><span class="ters-cevap"><span class="ters">64 · SO₂</span></span></div>
       </div>
       <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Yoldan</span>
-        <p>Bölgeden, doğrulanmış bir günlük hayat bilgisi. Emin değilsen “yaklaşık” de.</p>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
-      <div class="bento dikey">
-        {{hazine|H10}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
+        <span class="et">{{ikon|dalga}}Yoldan · Derinkuyu</span>
+        <p class="kucuk-p" style="margin-top:.8mm">Derinkuyu Yeraltı Şehri yumuşak <b>tüf</b> kayaya oyulmuştur; yaklaşık <b>85 m</b> derine iner. Katlar onlarca <b>havalandırma bacası</b> ve kuyuyla birbirine bağlanır.</p>
+        <p class="kucuk-p" style="margin-top:.8mm">Geçitler büyük yuvarlak <b>taş kapılarla</b> kapatılabilirdi.</p>
       </div>
     </div>
   </main>
   {{alt|6}}
 </section>
 
-<!-- ================================================================ SAYFA 7 · HÜLASA -->
+<!-- ================================================================ SAYFA 7 · HÜLASA · HASAN DAĞI ETEĞİ -->
 <section class="sayfa s7">
   {{zemin}}
   {{hud|7}}
   {{cini}}
-  <div class="bant b40" data-serbest>{{sahne|ornek_sahne|altin|21}}
-    <div class="levha kob">{{rozet|H|-|erg}}<div><div class="ust" style="color:var(--erguvan)">Hülasa · konaklama yeri</div><h1>Gazlar <em style="color:var(--erguvan)">Hülasası</em></h1><p class="alt-bas">Yolun altı kartı. Sınavdan önceki gece bu sayfa yeter.</p></div></div>
+  <div class="bant b40" data-serbest>{{sahne|hasan}}
+    <div class="levha kob">{{rozet|H|-|erg}}<div><div class="ust" style="color:var(--erguvan)">Hülasa · Hasan Dağı eteğinde konaklama</div><h1>Gaz <em style="color:var(--erguvan)">Hülasası</em></h1><p class="alt-bas">Yolun altı kartı. Sınavdan önceki gece bu sayfa yeter.</p></div></div>
   </div>
   <main class="ic" style="top:52.2mm">
     <div class="ozetler" data-tasma-yatay>
-      <div class="ozet-kart koyu"><span class="sira">01/06</span><span class="et">Ünitenin sayısı</span><div class="dev-sayi acik">1400</div><p>Koyu kart: ünitenin simge sayısı ya da denklemi.</p></div>
-      <div class="ozet-kart gol"><span class="sira">02/06</span><span class="et">Tek kural</span><h3>Kural cümlesi.</h3><div class="ozet-f">a = b / c</div><p>Kısa açıklama.</p></div>
-      <div class="ozet-kart"><span class="sira">03/06</span><span class="et">Okuma</span><h3>Başlık</h3><ul class="ozet-liste"><li>Madde</li><li>Madde</li><li>Madde</li></ul></div>
-      <div class="ozet-kart keh"><span class="sira">04/06</span><span class="et keh">Konu</span><h3>Başlık</h3><ul class="ozet-liste"><li>Madde</li><li>Madde</li></ul></div>
-      <div class="ozet-kart mer"><span class="sira">05/06</span><span class="et mer">Karşılaştırma</span><h3>Başlık</h3><p>İki şeyin farkı, tek cümle.</p></div>
+      <div class="ozet-kart koyu"><span class="sira">01/06</span><span class="et">Bölümün denklemi</span><div class="dev-sayi acik">PV = nRT</div><p>R = 0,082 L·atm/(mol·K). P atm, V L, T K, n mol.</p><div class="ozet-mol">{{mol|He|0,0,0|9mm}}{{mol|N2|0,25,0|15mm}}{{mol|CO2|15,30,0|19mm}}{{mol|CH4|10,20,5|13mm}}</div></div>
+      <div class="ozet-kart gol"><span class="sira">02/06</span><span class="et">Tek kural</span><h3>Önce kelvin, sonra oran.</h3><div class="ozet-f"><span class="kesir"><span>P<sub>1</sub>V<sub>1</sub></span><span>n<sub>1</sub>T<sub>1</sub></span></span> = <span class="kesir"><span>P<sub>2</sub>V<sub>2</sub></span><span>n<sub>2</sub>T<sub>2</sub></span></span></div><p>Sabit kalanı sil; geriye ilgili yasa kalır. T = t + 273.</p></div>
+      <div class="ozet-kart"><span class="sira">03/06</span><span class="et">Dört yasa</span><h3>Hangisi sabit?</h3>
+        <ul class="ozet-liste"><li><b>Boyle</b> (n, T): P·V sabit</li><li><b>Charles</b> (n, P): V/T sabit</li><li><b>Gay-Lussac</b> (n, V): P/T sabit</li><li><b>Avogadro</b> (P, T): V/n sabit</li><li>Mutlak sıfır: 0 K = −273 °C</li></ul></div>
+      <div class="ozet-kart keh"><span class="sira">04/06</span><span class="et keh">Basınç</span><h3>1 atm = 76 cmHg</h3>
+        <ul class="ozet-liste"><li>= 760 mmHg = 760 torr ≈ 101,3 kPa</li><li>Yükseldikçe P<sub>0</sub> azalır (Erciyes zirvesi ≈ 0,62 atm)</li><li>Manometre: P<sub>gaz</sub> = P<sub>0</sub> ± h</li><li>NŞA: 0 °C, 1 atm, 22,4 L/mol</li></ul></div>
+      <div class="ozet-kart mer"><span class="sira">05/06</span><span class="et mer">Hafif gaz hızlı</span><h3>Yoğunluk ve Graham</h3>{{info|graham_boru}}
+        <ul class="ozet-liste"><li>d = P·M/(R·T); aynı P, T’de d oranı = M oranı</li><li>v<sub>1</sub>/v<sub>2</sub> = √(M<sub>2</sub>/M<sub>1</sub>) = t<sub>2</sub>/t<sub>1</sub></li><li>Aynı T’de ortalama kinetik enerji eşit</li></ul></div>
       <div class="ozet-kart"><span class="sira">06/06</span><span class="et mer">{{ikon|tuzak}}En sık 4 hata</span>
-        <ul class="ozet-liste no"><li>Hata</li><li>Hata</li><li>Hata</li><li>Hata</li></ul>
+        <ul class="ozet-liste no"><li>Oranda °C kullanmak (hep kelvin!)</li><li>PV = nRT’ye mmHg ya da mL yazmak</li><li>Boyle’da P ile V’yi doğru orantılı sanmak</li><li>Graham’da karekökü unutmak</li></ul>
         <div class="muhur-kose">{{muhur|yanlis}}</div></div>
     </div>
     <div class="kart keh-z sandik">
       <div class="kart-bas"><span class="et keh">{{ikon|hazine}}Hazine sandığın · {{meta|hazine_sayisi}} kart</span><span class="kes-not">{{ikon|makas}}Hepsini kesip defterine yapıştırdın mı?</span></div>
-      <div class="sandik-izgara">{{sandik}}</div>
+      <div class="sandik-izgara dort">{{sandik}}</div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1.5fr .5fr">
       <div class="kart muhasebe">
         <div class="kart-bas"><span class="et keh">{{ikon|cay}}Muhasebe · kendimi muhasebe ediyorum</span><span class="cip akce">6 satır = +40 akçe</span></div>
         <div class="satir bas"><span>Bardağını ne kadar doldurabilirsin?</span><span>{{cay|1}}Tamam</span><span>{{cay|.5}}Yarım</span><span>{{cay|0}}Tekrar</span></div>
-        <div class="satir"><span>Kazanım cümlesi 1 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 2 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 3 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 4 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 5 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 6 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Gazın özelliklerini tanecik modeliyle açıklayabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Basınç birimlerini çevirip manometre okuyabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Boyle ve Charles yasalarını grafikleriyle yorumlayabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Gay-Lussac, Avogadro ve birleşik denklemle çözebilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Kinetik teoriyi açıklar, PV = nRT’yi kullanabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Gaz yoğunluğunu ve yayılma hızlarını karşılaştırabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
       </div>
       <div class="kart not-kart">
         <span class="et">{{ikon|kitap}}Kendime not</span>
         <p class="kucuk">Bu yolda en çok neye dikkat etmeliyim?</p>
         <div class="cizgiler"><div></div><div></div><div></div><div></div></div>
         {{poz|pamuk-kitap|pamuk-oku}}
+        <p class="kucuk"><b>Kaydedildi!</b> “Tekrar” dediğin konunun durağına dön.</p>
       </div>
     </div>
   </main>
   {{alt|7}}
 </section>
 
-<!-- ================================================================ SAYFA 8 · YAN YOL 1 · MECLİS -->
+<!-- ================================================================ SAYFA 8 · YAN YOL 1 · GÜZELYURT · MECLİS -->
 <section class="sayfa s8">
   {{zemin}}
   {{hud|8}}
   {{cini}}
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|gun|31}}
-    <div class="levha keh">{{rozet|M|-|keh}}<div><div class="ust">Yan yol 1 · yer adı</div><h1>Meclis: <em>kim haklı?</em></h1><p class="alt-bas">Dört çözüm meclise geldi; her birinde <b>tek hata</b> var.</p><div class="hedef"><b>Usul</b>Doğru kişi +10, neden +10, doğrusu +10.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|guzelyurt}}
+    <div class="levha keh">{{rozet|M|-|keh}}<div><div class="ust">Yan yol 1 · Güzelyurt · taş evde meclis</div><h1>Meclis: <em>kim haklı?</em></h1><p class="alt-bas">Dört çözüm meclise geldi; her birinde <b>tek hata</b> var.</p><div class="hedef"><b>Usul</b>Doğru kişi +10, neden +10, doğrusu +10.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
     <!-- Cevap işaretleme: haklı yorumda <div class="yorum" data-dogru>, hatalı satırın kutucuğunda <span class="kutucuk" data-dogru>,
          neden ve doğrusu <span class="ogr">…</span> içinde (öğrenci baskısında görünmez). -->
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart meclis" data-soru="M1">
-        <div class="meclis-bas"><span class="harf" style="background:var(--gol)">A</span><div><b>Ahmet</b> <small>çözümünü meclise getirdi · Hata 1</small></div><span class="cip akce">+30</span></div>
+        <div class="meclis-bas"><span class="harf" style="background:var(--gol)">Ö</span><div><b>Ömer</b> <small>çözümünü meclise getirdi · Hata 1</small></div><span class="cip akce">+30</span></div>
         <div class="ic2">
-          <p class="psoru">Soru kökü (değerler parantezde).</p>
-          <div class="cozum-defter"><div><i>1</i>Doğru bir adım.</div><div><i>2</i>Hatalı adım (tek, net bir hata).</div><div><i>3</i>Hatanın taşıdığı sonuç.</div></div>
-          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Bence sorun 2. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">hatanın nedeni</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">doğru sonuç</span></span></div></div>
+          <p class="psoru">Göreme’de esnek bir balondaki 3 L hava, sabit basınçta 17 °C’den 34 °C’ye ısınıyor. Son hacim kaç L’dir?</p>
+          <div class="cozum-defter"><div><i>1</i>V<sub>1</sub>/t<sub>1</sub> = V<sub>2</sub>/t<sub>2</sub> → 3/17 = V<sub>2</sub>/34</div><div><i>2</i>V<sub>2</sub> = 3 · 34 / 17</div><div><i>3</i>V<sub>2</sub> = 6 L</div></div>
+          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Hata 1. satırda; sıcaklık kelvine çevrilmemiş.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 2. satırda; çarpma yanlış.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk" data-dogru></span>1 <span class="kutucuk"></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">°C ile oran kurulmuş</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">3 · 307 / 290 ≈ 3,18 L</span></span></div></div>
         </div>
       </div>
       <div class="kart meclis" data-soru="M2">
-        <div class="meclis-bas mer"><span class="harf" style="background:var(--mer)">Z</span><div><b>Zehra</b> <small>çözümünü meclise getirdi · Hata 2</small></div><span class="cip akce">+30</span></div>
+        <div class="meclis-bas mer"><span class="harf" style="background:var(--mer)">H</span><div><b>Hatice</b> <small>çözümünü meclise getirdi · Hata 2</small></div><span class="cip akce">+30</span></div>
         <div class="ic2">
-          <p class="psoru">Soru kökü (değerler parantezde).</p>
-          <div class="cozum-defter"><div><i>1</i>Doğru bir adım.</div><div><i>2</i>Hatalı adım (tek, net bir hata).</div><div><i>3</i>Hatanın taşıdığı sonuç.</div></div>
-          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Bence sorun 2. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">hatanın nedeni</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">doğru sonuç</span></span></div></div>
+          <p class="psoru">Avanos atölyesinde ucu kapalı şırıngadaki 5 mL hava (1,2 atm), sıcaklık değişmeden 2 mL’ye sıkıştırılıyor. Son basınç kaç atm?</p>
+          <div class="cozum-defter"><div><i>1</i>Hacim azalınca basınç da azalır.</div><div><i>2</i>P<sub>2</sub> = 1,2 · 2 / 5</div><div><i>3</i>P<sub>2</sub> = 0,48 atm</div></div>
+          <div class="yorum">{{av|pamuk}}<span><b>Pamuk:</b> 3. satırda bölme yanlış.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum" data-dogru>{{av|elif}}<span><b>Elif:</b> Hata 1. satırda; P ile V ters orantılı.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk" data-dogru></span>1 <span class="kutucuk"></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">Boyle: P ile V ters orantılı</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">1,2 · 5 = P₂ · 2: 3 atm</span></span></div></div>
         </div>
       </div>
       <div class="kart meclis" data-soru="M3">
-        <div class="meclis-bas kob"><span class="harf" style="background:var(--kob)">M</span><div><b>Mehmet Emin</b> <small>çözümünü meclise getirdi · Hata 3</small></div><span class="cip akce">+30</span></div>
+        <div class="meclis-bas kob"><span class="harf" style="background:var(--kob)">F</span><div><b>Furkan</b> <small>çözümünü meclise getirdi · Hata 3</small></div><span class="cip akce">+30</span></div>
         <div class="ic2">
-          <p class="psoru">Soru kökü (değerler parantezde).</p>
-          <div class="cozum-defter"><div><i>1</i>Doğru bir adım.</div><div><i>2</i>Hatalı adım (tek, net bir hata).</div><div><i>3</i>Hatanın taşıdığı sonuç.</div></div>
-          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Bence sorun 2. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">hatanın nedeni</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">doğru sonuç</span></span></div></div>
+          <p class="psoru">27 °C’de 570 mmHg basınç yapan 0,15 mol ideal gaz kaç L hacim kaplar? (R = 0,082 L·atm/(mol·K))</p>
+          <div class="cozum-defter"><div><i>1</i>T = 27 + 273 = 300 K</div><div><i>2</i>V = nRT/P = 0,15 · 0,082 · 300 / 570</div><div><i>3</i>V ≈ 0,0065 L</div></div>
+          <div class="yorum">{{av|elif}}<span><b>Elif:</b> 1. satırda kelvin yanlış.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Hata 2. satırda; basınç atm’ye çevrilmemiş.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">R ile P atm olmalı</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">0,75 atm: V = 3,69 / 0,75 = 4,92 L</span></span></div></div>
         </div>
       </div>
       <div class="kart meclis" data-soru="M4">
-        <div class="meclis-bas keh"><span class="harf" style="background:var(--keh)">R</span><div><b>Rabia</b> <small>çözümünü meclise getirdi · Hata 4</small></div><span class="cip akce">+30</span></div>
+        <div class="meclis-bas keh"><span class="harf" style="background:var(--keh)">E</span><div><b>Esma</b> <small>çözümünü meclise getirdi · Hata 4</small></div><span class="cip akce">+30</span></div>
         <div class="ic2">
-          <p class="psoru">Soru kökü (değerler parantezde).</p>
-          <div class="cozum-defter"><div><i>1</i>Doğru bir adım.</div><div><i>2</i>Hatalı adım (tek, net bir hata).</div><div><i>3</i>Hatanın taşıdığı sonuç.</div></div>
-          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Bence sorun 2. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">hatanın nedeni</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">doğru sonuç</span></span></div></div>
+          <p class="psoru">Aynı sıcaklıkta He’nin yayılma hızı CH<sub>4</sub>’ünkinin kaç katıdır? (He: 4, CH<sub>4</sub>: 16 g/mol)</p>
+          <div class="cozum-defter"><div><i>1</i>M: He = 4, CH<sub>4</sub> = 16 g/mol</div><div><i>2</i>v<sub>He</sub> / v<sub>CH₄</sub> = 16 / 4</div><div><i>3</i>He 4 kat hızlıdır.</div></div>
+          <div class="yorum" data-dogru>{{av|pamuk}}<span><b>Pamuk:</b> 2. satırda karekök unutulmuş. Miyav!</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum">{{av|yusuf}}<span><b>Yusuf:</b> 1. satırda mol kütleleri yanlış.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">Graham’da karekök alınır</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">√(16/4) = 2 kat</span></span></div></div>
         </div>
       </div>
     </div>
-    <div class="kart keh-z meclis-not esnek">
-      {{poz|pamuk-dusunen|pn}}
-      <p><b>Meclis notu (Pamuk):</b> Bir çözümü kontrol etmenin en hızlı yolu birimlere bakmaktır. Hükmünü verince cevapları <b>s.{{sayfa|14}}</b>’{{ek|14|de}} kontrol et.</p>
-      <div class="muhur-yer">{{muhur|dogru}}</div>
+    <div class="bento esnek" style="grid-template-columns:1fr 1fr">
+      <div class="medeniyet">{{kose}}
+        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
+        <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
+        <p class="metin"><b>İbn Sînâ</b> (980–1037), <i>el-Kânûn fi’t-Tıb</i> adlı eserinde sağlığı korumak için gerekli altı temel etkeni sayar; bunların ilki <b>havadır</b>. Mevsimlerin, rüzgârların ve yerleşim yerlerinin havasının sağlığa etkisini inceledi.</p>
+        <p class="not">Derinkuyu’nun bacaları da aynı ihtiyacın cevabı: <b>temiz hava</b>, yayılarak her kata ulaşır.</p>
+      </div>
+      <div class="kart keh-z meclis-not">
+        {{poz|pamuk-dusunen|pn}}
+        <p><b>Meclis notu (Pamuk):</b> Dört hatanın dördü de bir <b>birim ya da yön</b> hatası. Önce sor: T kelvin mi? P atm, V litre mi? Sıkışan gazın basıncı artıyor mu? Graham’da kök var mı? Hükmünü verince cevapları <b>s.{{sayfa|14}}</b>’{{ek|14|de}} kontrol et.</p>
+        <div class="muhur-yer">{{muhur|dogru}}</div>
+      </div>
     </div>
   </main>
   {{alt|8}}
 </section>
 
-<!-- ================================================================ SAYFA 9 · YAN YOL 2 · KISSALAR -->
+<!-- ================================================================ SAYFA 9 · YAN YOL 2 · IHLARA · KISSALAR -->
 <section class="sayfa s9">
   {{zemin}}
   {{hud|9}}
   {{cini}}
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|safak|41}}
-    <div class="levha keh">{{rozet|K|-|keh}}<div><div class="ust">Yan yol 2 · yer adı</div><h1><em>Kıssalar</em></h1><p class="alt-bas">Önce oku, sonra gereken bilgiyi seç. <b>Kıssadan hisse!</b></p><div class="hedef"><b>Usul</b>Çözümünü kartın boş yerine yaz; şıkkı sonra işaretle.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|ihlara}}
+    <div class="levha keh">{{rozet|K|-|keh}}<div><div class="ust">Yan yol 2 · Ihlara Vadisi · Melendiz kıyısı</div><h1><em>Kıssalar</em></h1><p class="alt-bas">Önce oku, sonra gereken bilgiyi seç. <b>Kıssadan hisse!</b></p><div class="hedef"><b>Usul</b>Çözümünü kartın boş yerine yaz; şıkkı sonra işaretle.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <!-- En az bir kıssada grafik, birinde tablo. Doğru şık: <div class="sik" data-dogru>. Karalamadaki <span class="ogr"> öğretmen çözümüdür. -->
     <div class="bento kissa-izgara esnek" style="grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
       <div class="kart kissa" data-soru="K1">
-        <div class="kissa-bas"><span class="et">{{ikon|kissa}}Kıssa 1 · başlık</span><span class="cip akce">+30</span></div>
+        <div class="kissa-bas"><span class="et">{{ikon|kissa}}Kıssa 1 · Erciyes’e tırmanış</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
-          <p class="metin">Bağlam metni: günlük hayat, sağlık, endüstri, çevre ya da laboratuvar (doğrulanabilir bilgi). <b>Gerekli veri</b> kalın.</p>
-          <!-- resimli üst satır:  <div class="ust-satir"><p class="metin">…</p>{{info|ad}}</div> · yargılı soru: <ul class="yargi"><li><b>I.</b>…</li></ul> -->
-          <p class="soru">Soru kökü?</p>
-          <div class="karalama"><span class="ogr">Kısa çözüm (öğretmen baskısında kırmızı).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik" data-dogru><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
-          <div class="hisse"><b>Kıssadan hisse:</b> Tek cümlelik ders.</div>
+          <p class="metin">Elif, ağzı sıkıca bağlı esnek bir balonla Erciyes’e çıkıyor. Sıcaklık değişmiyor; balonun içindeki basınç dıştakine eşit. 1000 m’de balonun hacmi <b>4 L</b>. Tabloda açık hava basıncının yaklaşık değerleri var.</p>
+          <table class="gorev-tablo dar"><tr><th>Yükseklik (m)</th><th>1000</th><th>2000</th><th>3000</th><th>3900</th></tr><tr><td>Basınç (atm)</td><td>0,9</td><td>0,8</td><td>0,7</td><td>0,6</td></tr></table>
+          <ul class="yargi"><li><b>I.</b>3900 m’de balonun hacmi 6 L olur.</li><li><b>II.</b>1000 m’den 2000 m’ye çıkınca hacim 0,5 L artar.</li><li><b>III.</b>Yükseklik 2 katına çıkınca hacim de 2 katına çıkar.</li></ul>
+          <p style="font-size:9.8pt">yargılarından hangileri doğrudur?</p>
+          <div class="karalama"><span class="ogr">P·V = 3,6: 3900 m’de 6 L (I doğru) · 2000 m’de 4,5 L (II doğru) · 4’ten 4,5’e, 2 katı değil (III yanlış)</span></div>
+          <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız III</div><div class="sik" data-dogru><b>C</b>I ve II</div><div class="sik"><b>D</b>I ve III</div><div class="sik"><b>E</b>I, II ve III</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Basınç azalınca hacim artar; ama yükseklikle doğru orantılı değil.</div>
         </div>
       </div>
       <div class="kart kissa" data-soru="K2">
-        <div class="kissa-bas keh"><span class="et keh">{{ikon|kissa}}Kıssa 2 · başlık</span><span class="cip akce">+30</span></div>
+        <div class="kissa-bas keh"><span class="et keh">{{ikon|kissa}}Kıssa 2 · Brülörün yakıtı</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
-          <p class="metin">Bağlam metni: günlük hayat, sağlık, endüstri, çevre ya da laboratuvar (doğrulanabilir bilgi). <b>Gerekli veri</b> kalın.</p>
-          <!-- resimli üst satır:  <div class="ust-satir"><p class="metin">…</p>{{info|ad}}</div> · yargılı soru: <ul class="yargi"><li><b>I.</b>…</li></ul> -->
-          <p class="soru">Soru kökü?</p>
-          <div class="karalama"><span class="ogr">Kısa çözüm (öğretmen baskısında kırmızı).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik" data-dogru><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
-          <div class="hisse"><b>Kıssadan hisse:</b> Tek cümlelik ders.</div>
+          <p class="metin">Balon brülörlerinin yakıtı <b>propandır</b> (C<sub>3</sub>H<sub>8</sub>); evlerde kullanılan doğal gazın büyük kısmı ise <b>metandır</b> (CH<sub>4</sub>). Gaz kaçak dedektörleri, kaçan gazın biriktiği yere takılır. Havanın ortalama mol kütlesi ≈ <b>29 g/mol</b>. (H: 1, C: 12)</p>
+          <ul class="yargi"><li><b>I.</b>Propan kaçağı yere yakın birikir; metan tavana doğru yükselir.</li><li><b>II.</b>Aynı koşullarda CH<sub>4</sub>’ün yayılma hızı C<sub>3</sub>H<sub>8</sub>’inkinin ≈ 1,66 katıdır.</li><li><b>III.</b>Aynı koşullarda C<sub>3</sub>H<sub>8</sub>’in yoğunluğu CH<sub>4</sub>’ünkinden küçüktür.</li></ul>
+          <p style="font-size:9.8pt">yargılarından hangileri doğrudur?</p>
+          <div class="karalama"><span class="ogr">16 &lt; 29 &lt; 44 (I doğru) · √(44/16) ≈ 1,66 (II doğru) · d, M ile artar: propan daha yoğun (III yanlış)</span></div>
+          <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız III</div><div class="sik"><b>C</b>I ve III</div><div class="sik" data-dogru><b>D</b>I ve II</div><div class="sik"><b>E</b>I, II ve III</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Dedektör gazın biriktiği yere: hafifse tavana, ağırsa yere.</div>
         </div>
       </div>
       <div class="kart kissa" data-soru="K3">
-        <div class="kissa-bas kob"><span class="et kob">{{ikon|kissa}}Kıssa 3 · başlık</span><span class="cip akce">+30</span></div>
+        <div class="kissa-bas kob"><span class="et kob">{{ikon|kissa}}Kıssa 3 · İki çelik tüp</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
-          <p class="metin">Bağlam metni: günlük hayat, sağlık, endüstri, çevre ya da laboratuvar (doğrulanabilir bilgi). <b>Gerekli veri</b> kalın.</p>
-          <!-- resimli üst satır:  <div class="ust-satir"><p class="metin">…</p>{{info|ad}}</div> · yargılı soru: <ul class="yargi"><li><b>I.</b>…</li></ul> -->
-          <p class="soru">Soru kökü?</p>
-          <div class="karalama"><span class="ogr">Kısa çözüm (öğretmen baskısında kırmızı).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik" data-dogru><b>E</b>Seçenek E</div></div>
-          <div class="hisse"><b>Kıssadan hisse:</b> Tek cümlelik ders.</div>
+          <div class="ust-satir"><p class="metin">Avanos’taki atölyede hacimleri <b>eşit</b> iki çelik tüpte X ve Y gazları var. Tüpler ısıtılırken basınç sensörleriyle yandaki grafik çiziliyor.</p>{{info|kissa_pt}}</div>
+          <ul class="yargi"><li><b>I.</b>Her iki tüpte de P/T oranı sabittir.</li><li><b>II.</b>X tüpündeki gazın mol sayısı Y’dekinin 3 katıdır.</li><li><b>III.</b>300 K’de Y tüpündeki basınç 0,3 atm’dir.</li></ul>
+          <p style="font-size:9.8pt">yargılarından hangileri doğrudur?</p>
+          <div class="karalama"><span class="ogr">Doğrular orijinden (I doğru) · eşit V, T’de n oranı = P oranı = 1,2/0,4 = 3 (II doğru) · 0,4 · 300/400 = 0,3 (III doğru)</span></div>
+          <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız II</div><div class="sik"><b>C</b>I ve II</div><div class="sik"><b>D</b>I ve III</div><div class="sik" data-dogru><b>E</b>I, II ve III</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Aynı kapta P–T eğimi büyükse mol sayısı büyüktür.</div>
         </div>
       </div>
       <div class="kart kissa" data-soru="K4">
-        <div class="kissa-bas mer"><span class="et mer">{{ikon|kissa}}Kıssa 4 · başlık</span><span class="cip akce">+30</span></div>
+        <div class="kissa-bas mer"><span class="et mer">{{ikon|kissa}}Kıssa 4 · Laboratuvarda üç tüp</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
-          <p class="metin">Bağlam metni: günlük hayat, sağlık, endüstri, çevre ya da laboratuvar (doğrulanabilir bilgi). <b>Gerekli veri</b> kalın.</p>
-          <!-- resimli üst satır:  <div class="ust-satir"><p class="metin">…</p>{{info|ad}}</div> · yargılı soru: <ul class="yargi"><li><b>I.</b>…</li></ul> -->
-          <p class="soru">Soru kökü?</p>
-          <div class="karalama"><span class="ogr">Kısa çözüm (öğretmen baskısında kırmızı).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik" data-dogru><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
-          <div class="hisse"><b>Kıssadan hisse:</b> Tek cümlelik ders.</div>
+          <p class="metin">Elif, laboratuvardaki üç çelik tüpün etiketini okuyor. (He: 4, C: 12, O: 16; R = 0,082)</p>
+          <table class="gorev-tablo dar"><tr><th>Tüp</th><th>İçerik</th><th>Hacim</th><th>Sıcaklık</th></tr><tr><td>I</td><td>8 g He</td><td>41 L</td><td>27 °C</td></tr><tr><td>II</td><td>64 g O<sub>2</sub></td><td>24,6 L</td><td>27 °C</td></tr><tr><td>III</td><td>44 g CO<sub>2</sub></td><td>8,2 L</td><td>127 °C</td></tr></table>
+          <p class="soru">Tüplerdeki basınçların büyükten küçüğe sıralanışı hangisidir?</p>
+          <div class="karalama"><span class="ogr">I: 2 · 0,082 · 300 / 41 = 1,2 atm · II: 2 · 24,6 / 24,6 = 2 atm · III: 1 · 0,082 · 400 / 8,2 = 4 atm</span></div>
+          <div class="siklar"><div class="sik"><b>A</b>I &gt; II &gt; III</div><div class="sik" data-dogru><b>B</b>III &gt; II &gt; I</div><div class="sik"><b>C</b>II &gt; III &gt; I</div><div class="sik"><b>D</b>III &gt; I &gt; II</div><div class="sik"><b>E</b>I = II = III</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Kıyaslamadan önce hepsini mole, sonra basınca çevir.</div>
         </div>
       </div>
     </div>
@@ -573,56 +662,56 @@
   {{alt|9}}
 </section>
 
-<!-- ================================================================ SAYFA 10 · YAN YOL 3 · ANAHTAR MERDİVENİ -->
+<!-- ================================================================ SAYFA 10 · YAN YOL 3 · GÜVERCİNLİK VADİSİ · ANAHTAR MERDİVENİ -->
 <section class="sayfa s10">
   {{zemin}}
   {{hud|10}}
   {{cini}}
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|gunbatimi|51}}
-    <div class="levha keh">{{rozet|A|-|keh}}<div><div class="ust">Yan yol 3 · yer adı</div><h1>Anahtar <em>merdiveni</em></h1><p class="alt-bas">Önce anahtarsız dene. Takılırsan <b>bir basamak in</b>, yeniden dene.</p><div class="hedef"><b>Usul</b>Her problem +40 akçe; açtığın her anahtar −10.<span class="cip akce">3 × 40 = +120 akçe</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|guvercinlik}}
+    <div class="levha keh">{{rozet|A|-|keh}}<div><div class="ust">Yan yol 3 · Güvercinlik Vadisi · taş basamaklar</div><h1>Anahtar <em>merdiveni</em></h1><p class="alt-bas">Önce anahtarsız dene. Takılırsan <b>bir basamak in</b>, yeniden dene.</p><div class="hedef"><b>Usul</b>Her problem +40 akçe; açtığın her anahtar −10.<span class="cip akce">3 × 40 = +120 akçe</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">1</span><p class="soru">Problem 1: iki-üç adımlı bir soru. Değerler parantezde (H: 1, C: 12 g/mol).</p></div>
-        <div class="cozum-alani"><div><span class="ogr">1. adım (öğretmen)</span></div><div><span class="ogr">2. adım</span></div><div><span class="ogr"><b>Sonuç</b></span></div></div>
+        <div class="bas-satir"><span class="no">1</span><p class="soru">Göreme’de 27 °C ve 1,5 atm’de 4 L hava içeren esnek bir torba (gaz miktarı sabit) 127 °C ve 1 atm’ye getiriliyor. Torbanın son hacmi kaç L olur?</p></div>
+        <div class="cozum-alani"><div><span class="ogr">T₁ = 300 K, T₂ = 400 K</span></div><div><span class="ogr">(1,5 · 4) / 300 = (1 · V₂) / 400</span></div><div><span class="ogr"><b>V₂ = 2400 / 300 = 8 L</b></span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Hangi kavram? Hangi hazine kartı?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Denklemi kur.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Son adım, neredeyse çözüm.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>n sabit, üç nicelik değişiyor: birleşik denklem (H8). Sıcaklıkları kelvine çevir.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>T<sub>1</sub> = 300 K, T<sub>2</sub> = 400 K: (1,5 · 4) / 300 = (1 · V<sub>2</sub>) / 400 yaz.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>V<sub>2</sub> = 1,5 · 4 · 400 / (300 · 1): önce payı, sonra paydayı hesapla.</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">2</span><p class="soru">Problem 2: iki-üç adımlı bir soru. Değerler parantezde (H: 1, C: 12 g/mol).</p></div>
-        <div class="cozum-alani"><div><span class="ogr">1. adım (öğretmen)</span></div><div><span class="ogr">2. adım</span></div><div><span class="ogr"><b>Sonuç</b></span></div></div>
+        <div class="bas-satir"><span class="no">2</span><p class="soru">Genel formülü C<sub>n</sub>H<sub>2n</sub> olan bir hidrokarbon gazının 127 °C ve 0,82 atm’deki yoğunluğu 1,05 g/L’dir. Gazın formülü nedir? (H: 1, C: 12; R = 0,082)</p></div>
+        <div class="cozum-alani"><div><span class="ogr">M = d · R · T / P</span></div><div><span class="ogr">M = 1,05 · 0,082 · 400 / 0,82 = 42 g/mol</span></div><div><span class="ogr"><b>14n = 42: n = 3: C₃H₆</b></span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Hangi kavram? Hangi hazine kartı?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Denklemi kur.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Son adım, neredeyse çözüm.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>d = P·M/(R·T) bağıntısını (H11) M için düzenle.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>M = 1,05 · 0,082 · 400 / 0,82. Kısayol: 0,082 / 0,82 = 0,1.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>C<sub>n</sub>H<sub>2n</sub> için M = 12n + 2n = 14n; bulduğun M’ye eşitle.</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">3</span><p class="soru">Problem 3: iki-üç adımlı bir soru. Değerler parantezde (H: 1, C: 12 g/mol).</p></div>
-        <div class="cozum-alani"><div><span class="ogr">1. adım (öğretmen)</span></div><div><span class="ogr">2. adım</span></div><div><span class="ogr"><b>Sonuç</b></span></div></div>
+        <div class="bas-satir"><span class="no">3</span><p class="soru">Aynı sıcaklıkta eşit sayıda tanecik içeren H<sub>2</sub> ve X gazları aynı delikten sızdırılıyor. H<sub>2</sub> 6 s’de, X 24 s’de tamamen sızıyor. X’in mol kütlesi kaçtır, hangi gaz olabilir? (H: 1, O: 16)</p></div>
+        <div class="cozum-alani"><div><span class="ogr">süre oranı 24 / 6 = 4: X 4 kat yavaş</span></div><div><span class="ogr">√(M<sub>X</sub> / 2) = 4</span></div><div><span class="ogr"><b>M<sub>X</sub> = 32 g/mol: O₂</b></span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Hangi kavram? Hangi hazine kartı?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Denklemi kur.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Son adım, neredeyse çözüm.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Süre ile hız ters orantılı: X’in süresi 4 kat uzunsa hızı kaç kat?</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Graham (H12): t<sub>X</sub> / t<sub>H₂</sub> = √(M<sub>X</sub> / 2) = 4 yaz.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>İki tarafın karesini al: M<sub>X</sub> / 2 = 16. Hangi iki atomlu gaz?</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1fr .62fr .7fr">
-      <div class="kart keh-z mrd-kart">{{info|merdiven_akce}}</div>
+      <div class="kart keh-z mrd-kart">{{info|merdiven_tuf}}</div>
       <div class="kart keh-z yan-toplam">
         <span class="et keh">{{ikon|akce}}Yan yollar</span>
         <div class="tablo"><span>Meclis</span><span class="kk"></span><span>Kıssa</span><span class="kk"></span><span>Anahtar</span><span class="kk"></span><span class="top">Toplam / 360</span><span class="kk top"></span></div>
@@ -638,105 +727,109 @@
   {{zemin}}
   {{hud|11}}
   {{cini}}
-  <div class="bant b62" data-serbest>{{sahne|ornek_sahne|gunbatimi|61}}
+  <div class="bant b62" data-serbest>{{sahne|uchisar_buyuk}}
     <div class="levha mer">{{rozet|K|-|mer}}<div><div class="ust">Uçhisar Kalesi · Büyük İmtihan · 1. bölüm</div><h1>Kale <em>kapısı</em></h1><p class="alt-bas">12 soru · 25 dakika. Her doğru <b>+25 akçe</b>; 10+ doğru: <b>Kale Kapısı</b> nişanı.</p>
-      <div class="hedef"><b>Azık</b>Soruda kullanılan sabitler ve mol kütleleri.</div>
+      <div class="hedef"><b>Azık</b>H 1 · He 4 · C 12 · N 14 · O 16 · S 32 g/mol · R = 0,082 L·atm/(mol·K) · NŞA’da 22,4 L/mol</div>
       <div class="hedef"><b>Meşveret</b>Sınıfça oylayın, şıklara tahmin yüzdesi (%__) yazın, sonra çözün.</div></div></div>
   </div>
   <main class="ic" style="top:76.5mm">
-    <!-- 12 soru, 5 şık, A–E her biri en az bir kez. Doğru şık: <div data-dogru><b>D</b>…  Uzun şıklar: class="oy yatay" ya da "oy". -->
     <div class="mesveret-izgara esnek">
       <div class="kart mesveret" data-soru="I1">
         <div class="mesveret-bas">{{sno|1}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 1. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div data-dogru><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Pamuk, Erciyes eteğinde gazların özelliklerini sıralıyor. Aşağıdakilerden hangisi <u>yanlıştır</u>?</p>
+        <div class="karalama"><span class="ogr">Gazın belirli hacmi yoktur; kabın hacmini alır.</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Kabı tamamen doldururlar.</span><em>%__</em></div><div data-dogru><b>B</b><span>Belirli hacimleri vardır.</span><em>%__</em></div><div><b>C</b><span>Sıkıştırılabilirler.</span><em>%__</em></div><div><b>D</b><span>Her oranda karışırlar.</span><em>%__</em></div><div><b>E</b><span>Sıvılardan az yoğundurlar.</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I2">
         <div class="mesveret-bas">{{sno|2}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 2. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div data-dogru><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Erciyes yamacında ölçülen 0,75 atm basınç için;</p>
+        <ul class="yargi"><li><b>I.</b>57 cmHg</li><li><b>II.</b>570 mmHg</li><li><b>III.</b>570 torr</li></ul>
+        <p class="kucuk-soru">değerlerinden hangileri bu basınca eşittir?</p>
+        <div class="karalama"><span class="ogr">0,75 · 76 = 57 cmHg · 0,75 · 760 = 570 mmHg = 570 torr</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div data-dogru><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I3">
         <div class="mesveret-bas">{{sno|3}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 3. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div data-dogru><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Sabit sıcaklıkta 0,9 atm’de 4 L hava içeren esnek bir kap, basınç 1,2 atm olana kadar sıkıştırılıyor. Son hacim kaç L’dir?</p>
+        <div class="karalama"><span class="ogr">0,9 · 4 = 1,2 · V₂: V₂ = 3,6 / 1,2 = 3 L</span></div>
+        <div class="oy uc"><div><b>A</b><span>2,4</span><em>%__</em></div><div><b>B</b><span>2,7</span><em>%__</em></div><div data-dogru><b>C</b><span>3</span><em>%__</em></div><div><b>D</b><span>3,6</span><em>%__</em></div><div><b>E</b><span>5,3</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I4">
         <div class="mesveret-bas">{{sno|4}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 4. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div data-dogru><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Göreme’de serbest pistonlu bir kapta −23 °C’de 5 L gaz, sabit basınçta 77 °C’ye ısıtılıyor. Son hacim kaç L’dir?</p>
+        <div class="karalama"><span class="ogr">250 K’den 350 K’e: V₂ = 5 · 350 / 250 = 7 L</span></div>
+        <div class="oy uc"><div><b>A</b><span>3,6</span><em>%__</em></div><div><b>B</b><span>5</span><em>%__</em></div><div><b>C</b><span>6</span><em>%__</em></div><div data-dogru><b>D</b><span>7</span><em>%__</em></div><div><b>E</b><span>10</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I5">
         <div class="mesveret-bas">{{sno|5}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 5. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div data-dogru><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Avanos’ta kapalı, sabit hacimli çelik kaptaki ideal gaz ısıtılıyor. Gazın;</p>
+        <ul class="yargi"><li><b>I.</b>basıncı artar.</li><li><b>II.</b>yoğunluğu artar.</li><li><b>III.</b>ortalama kinetik enerjisi artar.</li></ul>
+        <p class="kucuk-soru">yargılarından hangileri doğrudur?</p>
+        <div class="karalama"><span class="ogr">n, V sabit: P artar (I doğru) · m, V aynı: d sabit (II yanlış) · E<sub>k</sub> T ile artar (III doğru)</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div><b>C</b><span>I ve II</span><em>%__</em></div><div data-dogru><b>D</b><span>I ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I6">
         <div class="mesveret-bas">{{sno|6}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 6. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div data-dogru><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru"><span class="resim-sag">{{mol|CH4|10,20,5|13mm}}</span>NŞA’da 8,96 L hacim kaplayan CH<sub>4</sub> gazı kaç gramdır?</p>
+        <div class="karalama"><span class="ogr">n = 8,96 / 22,4 = 0,4 mol · m = 0,4 · 16 = 6,4 g</span></div>
+        <div class="oy uc"><div data-dogru><b>A</b><span>6,4</span><em>%__</em></div><div><b>B</b><span>4,8</span><em>%__</em></div><div><b>C</b><span>3,2</span><em>%__</em></div><div><b>D</b><span>8,96</span><em>%__</em></div><div><b>E</b><span>16</span><em>%__</em></div></div>
       </div>
     </div>
   </main>
   {{alt|11}}
 </section>
 
-<!-- ================================================================ SAYFA 12 · BÜYÜK İMTİHAN 2/2 -->
+<!-- ================================================================ SAYFA 12 · BÜYÜK İMTİHAN 2/2 · KALE KAPISI -->
 <section class="sayfa s12">
   {{zemin}}
   {{hud|12}}
   {{cini}}
-  <div class="bant b30" data-serbest>{{sahne|ornek_sahne|gunbatimi|62}}
+  <div class="bant b30" data-serbest>{{sahne|uchisar_kapi}}
     <div class="levha mer kucuk">{{rozet|K|-|mer}}<div><div class="ust">Büyük İmtihan · 2. bölüm</div><h1>Kapı <em>aralandı</em></h1><p class="alt-bas">Sorular 7–12 · sabrın sonu selamettir.</p></div></div>
   </div>
   <main class="ic" style="top:44.5mm">
     <div class="mesveret-izgara esnek">
       <div class="kart mesveret" data-soru="I7">
         <div class="mesveret-bas">{{sno|7}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 7. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div data-dogru><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru"><span class="resim-sag">{{mol|He|0,0,0|8mm}}</span>Pamuk’un balon dolduracağı 2,05 L’lik çelik tüpte 27 °C’de 0,25 mol He var. Tüpteki basınç kaç atm’dir?</p>
+        <div class="karalama"><span class="ogr">P = 0,25 · 0,082 · 300 / 2,05 = 6,15 / 2,05 = 3 atm</span></div>
+        <div class="oy uc"><div><b>A</b><span>0,75</span><em>%__</em></div><div><b>B</b><span>1,5</span><em>%__</em></div><div data-dogru><b>C</b><span>3</span><em>%__</em></div><div><b>D</b><span>6</span><em>%__</em></div><div><b>E</b><span>12</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I8">
         <div class="mesveret-bas">{{sno|8}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 8. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div data-dogru><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Kinetik teoriyle ilgili aşağıdakilerden hangisi <u>yanlıştır</u>?</p>
+        <div class="karalama"><span class="ogr">Aynı T’de bütün gazların ortalama kinetik enerjisi eşittir.</span></div>
+        <div class="oy"><div><b>A</b><span>Tanecik hacmi ihmal edilir.</span><em>%__</em></div><div><b>B</b><span>Tanecikler sürekli, rastgele hareket eder.</span><em>%__</em></div><div><b>C</b><span>Çarpışmalar esnektir.</span><em>%__</em></div><div><b>D</b><span>Tanecikler arası çekim ihmal edilir.</span><em>%__</em></div><div data-dogru><b>E</b><span>Aynı T’de SO<sub>2</sub>’nin E<sub>k</sub>’si He’ninkinden büyüktür.</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I9">
         <div class="mesveret-bas">{{sno|9}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 9. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div data-dogru><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Gaz · sıcaklık (°C) · basınç (atm) üçlülerinden hangisi ideal gaz davranışına <u>en yakındır</u>?</p>
+        <div class="karalama"><span class="ogr">Yüksek T, düşük P, küçük ve apolar tanecik: He · 273 °C · 0,5 atm</span></div>
+        <div class="oy yatay"><div data-dogru><b>A</b><span>He · 273 · 0,5</span><em>%__</em></div><div><b>B</b><span>He · 0 · 2</span><em>%__</em></div><div><b>C</b><span>NH<sub>3</sub> · 273 · 0,5</span><em>%__</em></div><div><b>D</b><span>CO<sub>2</sub> · 273 · 0,5</span><em>%__</em></div><div><b>E</b><span>SO<sub>2</sub> · 0 · 2</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I10">
         <div class="mesveret-bas">{{sno|10}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 10. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div data-dogru><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Derinkuyu’nun havasız alt katlarında birikebilen bir gazın NŞA’daki yoğunluğu ≈ 1,96 g/L’dir. Bu gaz hangisidir?</p>
+        <div class="karalama"><span class="ogr">M = d · 22,4 = 1,96 · 22,4 ≈ 44 g/mol: CO₂</span></div>
+        <div class="oy uc"><div><b>A</b><span>CH<sub>4</sub></span><em>%__</em></div><div><b>B</b><span>N<sub>2</sub></span><em>%__</em></div><div><b>C</b><span>O<sub>2</sub></span><em>%__</em></div><div data-dogru><b>D</b><span>CO<sub>2</sub></span><em>%__</em></div><div><b>E</b><span>SO<sub>2</sub></span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I11">
         <div class="mesveret-bas">{{sno|11}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 11. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div data-dogru><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Aynı sıcaklıkta X gazının yayılma hızı CH<sub>4</sub>’ünkinin yarısıdır. X’in mol kütlesi kaç g/mol’dür?</p>
+        <div class="karalama"><span class="ogr">√(M / 16) = 2: M = 4 · 16 = 64 g/mol</span></div>
+        <div class="oy uc"><div><b>A</b><span>8</span><em>%__</em></div><div data-dogru><b>B</b><span>64</span><em>%__</em></div><div><b>C</b><span>32</span><em>%__</em></div><div><b>D</b><span>4</span><em>%__</em></div><div><b>E</b><span>256</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I12">
         <div class="mesveret-bas">{{sno|12}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 12. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div data-dogru><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <div class="yanyana" style="grid-template-columns:1fr 33mm;align-items:start"><div><p class="soru">Aynı basınçta X ve Y gazlarının V–t grafiği yanda. Buna göre;</p>
+        <ul class="yargi"><li><b>I.</b>n<sub>X</sub> = 3·n<sub>Y</sub></li><li><b>II.</b>Uzantılar −273 °C’de keser.</li><li><b>III.</b>273 °C’de V<sub>X</sub> = 25,2 L</li></ul><p class="kucuk-soru">yargılarından hangileri doğrudur?</p></div>{{info|imtihan_vt}}</div>
+        <div class="karalama"><span class="ogr">16,8 / 5,6 = 3 (I doğru) · −273 °C (II doğru) · 273 °C’de X = 33,6 L (III yanlış)</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div data-dogru><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
     </div>
     <div class="kart mer-z skor">
       {{poz|pamuk-akce|ps}}
-      <div><span class="et mer">{{ikon|kale}}İmtihan skoru</span><p><b>10+ doğru:</b> Kale Kapısı nişanını boya · <b>7–9:</b> yan yolları tekrar et · <b>6 ve altı:</b> duraklara dön. Sonra: <b>Üstad soruları</b>.</p></div>
+      <div><span class="et mer">{{ikon|kale}}İmtihan skoru</span><p><b>10+ doğru:</b> Kale Kapısı nişanını boya · <b>7–9:</b> Meclis sayfasını tekrar et · <b>6 ve altı:</b> 2. ve 4. durağa dön. Sonra: <b>Üstad soruları</b>.</p></div>
       <div class="skor-kutu">Doğru <span class="kk"></span> × 25 = <span class="kk b"></span> akçe</div>
     </div>
   </main>
@@ -752,44 +845,45 @@
     <div class="levha ustad">{{rozet|Ü|-|laj}}<div><div class="ust">Üstad soruları · bonus · YKS/AYT tarzı</div><h1>Üstad <em>soruları</em></h1><p class="alt-bas">Altı zor soru. Akçe yok; <b>6/6</b> doğru: <b>Üstad Mührü</b>.</p></div></div>
   </div>
   <main class="ic" style="top:54mm">
-    <!-- 6 soru · 5 şık · tek doğru (data-dogru) · cevaplar dağınık · en az birinde grafik ya da tablo (<div class="ustad-sekil">…</div>
-         ya da <table class="ustad-tablo">). Çözümler Cevaplar sayfasına da yazılır. Akçeye dahil DEĞİL (toplam 1400 kalır). -->
+    <!-- 6 soru · 5 şık · tek doğru (data-dogru) · çözümler Cevaplar sayfasında. Akçeye dahil DEĞİL (toplam 1400). -->
     <div class="ustad-izgara esnek">
       <div class="ustad-soru" data-soru="U1">
-        <div class="ustad-bas">{{sno|1|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 1: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik" data-dogru><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|1|laj}}<span class="et">Balon · ideal gaz</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">Ağzı açık bir balon zarfının hacmi sabit; zarftaki basınç da değişmiyor. Zarftaki hava 7 °C’den 77 °C’ye ısıtılırsa başlangıçtaki havanın yüzde kaçı zarftan dışarı çıkar?</p>
+        <div class="karalama"><span class="ogr">P, V sabit: n ~ 1/T · n₂/n₁ = 280/350 = 0,8: %20 çıkar</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>%10</div><div class="sik" data-dogru><b>B</b>%20</div><div class="sik"><b>C</b>%25</div><div class="sik"><b>D</b>%80</div><div class="sik"><b>E</b>%91</div></div>
       </div>
       <div class="ustad-soru" data-soru="U2">
-        <div class="ustad-bas">{{sno|2|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 2: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik" data-dogru><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|2|laj}}<span class="et">Musluklu kaplar</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">27 °C’de 2 L’lik kapta 3 atm He, 3 L’lik kapta 1 atm Ne var. Aradaki musluk açılıp gazlar karıştıktan sonra kaplar 127 °C’ye ısıtılıyor. Son basınç kaç atm’dir? <span class="kucuk">(Bağlantı hacmi ihmal.)</span></p>
+        <div class="karalama"><span class="ogr">27 °C’de P = (3·2 + 1·3) / 5 = 1,8 atm · 127 °C’de 1,8 · 400/300 = 2,4 atm</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>1,8</div><div class="sik"><b>B</b>2</div><div class="sik"><b>C</b>2,25</div><div class="sik" data-dogru><b>D</b>2,4</div><div class="sik"><b>E</b>3,6</div></div>
       </div>
       <div class="ustad-soru" data-soru="U3">
-        <div class="ustad-bas">{{sno|3|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 3: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik" data-dogru><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|3|laj}}<span class="et">Manometre · Erciyes</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru"><span class="ustad-sekil">{{info|manometre|7|gaz|Kayseri}}</span>Kayseri’de (P<sub>0</sub> = 67 cmHg) açık uçlu manometrede cıva, gaz kolunda 7 cm yüksek. Kap, sıcaklığı ve hacmi değişmeden P<sub>0</sub> = 47 cmHg olan Erciyes’e taşınıyor. Cıva seviyeleri için hangisi doğrudur?</p>
+        <div class="karalama"><span class="ogr">P<sub>gaz</sub> = 67 − 7 = 60 cmHg; 60 &gt; 47: açık kol 13 cm yüksek</span></div>
+        <div class="siklar iki"><div class="sik"><b>A</b>Gaz kolu 13 cm yüksek</div><div class="sik" data-dogru><b>B</b>Açık kol 13 cm yüksek</div><div class="sik"><b>C</b>Açık kol 7 cm yüksek</div><div class="sik"><b>D</b>Gaz kolu 7 cm yüksek</div><div class="sik"><b>E</b>Seviyeler eşit</div></div>
       </div>
       <div class="ustad-soru" data-soru="U4">
-        <div class="ustad-bas">{{sno|4|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 4: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik" data-dogru><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|4|laj}}<span class="et">Grafik · V–T</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru"><span class="ustad-sekil">{{info|ustad_vt}}</span>Miktarı sabit ideal gazın K, L, M durumları grafikte.</p>
+        <ul class="yargi"><li><b>I.</b>P<sub>K</sub> = P<sub>L</sub></li><li><b>II.</b>P<sub>M</sub> = 2·P<sub>K</sub></li><li><b>III.</b>L’den M’ye (sabit T) basınç 2 katına çıkar.</li></ul>
+        <div class="karalama"><span class="ogr">P ~ T/V: K 100, L 100, M 200 (birim) · I, II, III doğru</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>I ve II</div><div class="sik"><b>C</b>I ve III</div><div class="sik"><b>D</b>II ve III</div><div class="sik" data-dogru><b>E</b>I, II ve III</div></div>
       </div>
       <div class="ustad-soru" data-soru="U5">
-        <div class="ustad-bas">{{sno|5|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 5: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik" data-dogru><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|5|laj}}<span class="et">Yoğunluk · Graham</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">Aynı koşullarda X gazının yoğunluğu He’ninkinin 16 katıdır. X’in yayılma hızı He’ninkinin kaç katıdır; belli miktar X 40 s’de sızıyorsa eşit mol He kaç s’de sızar? (He: 4)</p>
+        <div class="karalama"><span class="ogr">M<sub>X</sub> = 64 · v oranı √(4/64) = 1/4 · t<sub>He</sub> = 40/4 = 10 s</span></div>
+        <div class="siklar iki"><div class="sik" data-dogru><b>A</b>1/4 kat · 10 s</div><div class="sik"><b>B</b>1/16 kat · 2,5 s</div><div class="sik"><b>C</b>4 kat · 160 s</div><div class="sik"><b>D</b>1/4 kat · 160 s</div><div class="sik"><b>E</b>1/2 kat · 20 s</div></div>
       </div>
       <div class="ustad-soru" data-soru="U6">
-        <div class="ustad-bas">{{sno|6|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 6: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik" data-dogru><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|6|laj}}<span class="et">Kinetik teori · eşit kütle</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">Aynı sıcaklıkta eşit kütlede CH<sub>4</sub> ve SO<sub>2</sub>, hacimleri eşit iki kapta. (H: 1, C: 12, O: 16, S: 32)</p>
+        <ul class="yargi"><li><b>I.</b>Basınçlar oranı P<sub>CH₄</sub>/P<sub>SO₂</sub> = 4’tür.</li><li><b>II.</b>Ortalama kinetik enerjiler eşittir.</li><li><b>III.</b>Kaplardaki tanecik sayıları eşittir.</li></ul>
+        <div class="karalama"><span class="ogr">n oranı 64/16 = 4: P oranı 4 (I doğru) · aynı T (II doğru) · sayılar 4:1 (III yanlış)</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız II</div><div class="sik" data-dogru><b>C</b>I ve II</div><div class="sik"><b>D</b>I ve III</div><div class="sik"><b>E</b>II ve III</div></div>
       </div>
     </div>
     <div class="ustad-muhur">
@@ -806,67 +900,71 @@
   {{zemin}}
   {{hud|14}}
   {{cini}}
-  <div class="bant b36" data-serbest>{{sahne|ornek_sahne|gece|71}}
-    <div class="levha kucuk">{{rozet|✓|-|gol}}<div><div class="ust">Turun sonu · gece nöbeti</div><h1>Cevaplar &amp; <em>çözümler</em></h1></div></div>
+  <div class="bant b36" data-serbest>{{sahne|kapadokya_gece}}
+    <div class="levha kucuk">{{rozet|C|-|gol}}<div><div class="ust">Yolun sonu · Uçhisar’da gece nöbeti</div><h1>Cevaplar &amp; <em>çözümler</em></h1></div></div>
   </div>
   <main class="ic" style="top:50.5mm">
     <!-- dogrula.py bu ızgarayı okur ve soru sayfalarındaki data-dogru işaretleriyle karşılaştırır. -->
     <div class="kart anahtar-kart">
       <div class="kart-bas"><span class="et">{{ikon|anahtar}}Büyük İmtihan anahtarı · durak etiketiyle</span><span class="kes-not">Yanlışın hangi duraktan? Etikete bak.</span></div>
       <div class="anahtar-izgara">
-        <div><i>1</i><b>D</b><small>1. durak</small></div>
-        <div><i>2</i><b>C</b><small>2. durak</small></div>
-        <div><i>3</i><b>B</b><small>3. durak</small></div>
-        <div><i>4</i><b>E</b><small>4. durak</small></div>
-        <div><i>5</i><b>A</b><small>5. durak</small></div>
-        <div><i>6</i><b>C</b><small>1. durak</small></div>
-        <div><i>7</i><b>C</b><small>2. durak</small></div>
-        <div><i>8</i><b>D</b><small>3. durak</small></div>
-        <div><i>9</i><b>B</b><small>4. durak</small></div>
-        <div><i>10</i><b>E</b><small>5. durak</small></div>
-        <div><i>11</i><b>C</b><small>1. durak</small></div>
-        <div><i>12</i><b>D</b><small>2. durak</small></div>
+        <div><i>1</i><b>B</b><small>1. durak</small></div><div><i>2</i><b>E</b><small>1. durak</small></div><div><i>3</i><b>C</b><small>2. durak</small></div><div><i>4</i><b>D</b><small>2. durak</small></div>
+        <div><i>5</i><b>D</b><small>3. durak</small></div><div><i>6</i><b>A</b><small>3. durak</small></div><div><i>7</i><b>C</b><small>4. durak</small></div><div><i>8</i><b>E</b><small>4. durak</small></div>
+        <div><i>9</i><b>A</b><small>4. durak</small></div><div><i>10</i><b>D</b><small>5. durak</small></div><div><i>11</i><b>B</b><small>5. durak</small></div><div><i>12</i><b>C</b><small>2. durak</small></div>
       </div>
     </div>
     <div class="kart cozum-kart esnek">
       <div class="cozumler">
         <div class="grup"><h4>Büyük İmtihan</h4>
-          <p class="c"><b>1 · D</b> Kısa çözüm.</p>
-          <p class="c"><b>2 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>3 · B</b> Kısa çözüm.</p>
-          <p class="c"><b>4 · E</b> Kısa çözüm.</p>
-          <p class="c"><b>5 · A</b> Kısa çözüm.</p>
-          <p class="c"><b>6 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>7 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>8 · D</b> Kısa çözüm.</p>
-          <p class="c"><b>9 · B</b> Kısa çözüm.</p>
-          <p class="c"><b>10 · E</b> Kısa çözüm.</p>
-          <p class="c"><b>11 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>12 · D</b> Kısa çözüm.</p>
+          <p class="c"><b>1 · B</b> Gazın belirli hacmi yoktur; kabın hacmini alır.</p>
+          <p class="c"><b>2 · E</b> 0,75 · 76 = 57 cmHg (I) · 0,75 · 760 = 570 mmHg = 570 torr (II, III).</p>
+          <p class="c"><b>3 · C</b> 0,9 · 4 = 1,2 · V → V = 3 L. (5,3: doğru orantı sanılmış.)</p>
+          <p class="c"><b>4 · D</b> 250 K → 350 K: V = 5 · 350 / 250 = 7 L.</p>
+          <p class="c"><b>5 · D</b> P artar (I ✓); m ve V aynı, d sabit (II ✗); E<sub>k</sub> artar (III ✓).</p>
+          <p class="c"><b>6 · A</b> 8,96 / 22,4 = 0,4 mol; 0,4 · 16 = 6,4 g.</p>
+          <p class="c"><b>7 · C</b> P = 0,25 · 0,082 · 300 / 2,05 = 3 atm.</p>
+          <p class="c"><b>8 · E</b> Aynı T’de ortalama kinetik enerji bütün gazlarda eşittir.</p>
+          <p class="c"><b>9 · A</b> Yüksek T, düşük P, küçük M, apolar: He · 273 °C · 0,5 atm.</p>
+          <p class="c"><b>10 · D</b> M = 1,96 · 22,4 ≈ 44 g/mol: CO<sub>2</sub>.</p>
+          <p class="c"><b>11 · B</b> √(M/16) = 2 → M = 64 g/mol.</p>
+          <p class="c"><b>12 · C</b> 16,8/5,6 = 3 (I ✓); −273 °C (II ✓); 273 °C’de X 33,6 L (III ✗).</p>
         </div>
         <div class="grup"><h4>Kıssalar</h4>
-          <p class="c"><b>1 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>2 · B</b> Kısa çözüm.</p>
-          <p class="c"><b>3 · E</b> Kısa çözüm.</p>
-          <p class="c"><b>4 · D</b> Kısa çözüm.</p>
-        </div>
-        <div class="grup yan-anahtar"><h4>Yan yollar · hızlı anahtar</h4>
-          <p><b>Kıssa</b><span class="ck">1 C</span><span class="ck">2 B</span><span class="ck">3 E</span><span class="ck">4 D</span></p>
-          <p><b>Meclis</b><span class="ck">1 Yusuf</span><span class="ck">2 Yusuf</span><span class="ck">3 Yusuf</span><span class="ck">4 Yusuf</span></p>
-          <p><b>Merdiven</b><span class="ck">1 · …</span><span class="ck">2 · …</span><span class="ck">3 · …</span></p>
+          <p class="c"><b>1 · C</b> P·V = 3,6: 3900 m’de 6 L (I ✓); 2000 m’de 4,5 L (II ✓); doğru orantı yok (III ✗).</p>
+          <p class="c"><b>2 · D</b> 16 &lt; 29 &lt; 44 (I ✓); √(44/16) ≈ 1,66 (II ✓); propan daha yoğun (III ✗).</p>
+          <p class="c"><b>3 · E</b> Orijinden geçer (I); n oranı = P oranı = 3 (II); 0,4 · 300/400 = 0,3 atm (III).</p>
+          <p class="c"><b>4 · B</b> I 1,2 atm · II 2 atm · III 4 atm: III &gt; II &gt; I.</p>
         </div>
         <div class="grup"><h4>Üstad soruları</h4>
-          <p class="c"><b>1 · B</b> Kısa çözüm.</p>
-          <p class="c"><b>2 · E</b> Kısa çözüm.</p>
-          <p class="c"><b>3 · A</b> Kısa çözüm.</p>
-          <p class="c"><b>4 · D</b> Kısa çözüm.</p>
-          <p class="c"><b>5 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>6 · B</b> Kısa çözüm.</p>
+          <p class="c"><b>1 · B</b> P, V sabit: n<sub>2</sub>/n<sub>1</sub> = T<sub>1</sub>/T<sub>2</sub> = 280/350 = 0,8 → %20 çıkar.</p>
+          <p class="c"><b>2 · D</b> PV toplamı 9 atm·L, 5 L’de 1,8 atm; 400/300 ile 2,4 atm.</p>
+          <p class="c"><b>3 · B</b> P<sub>gaz</sub> = 67 − 7 = 60 cmHg sabit; 60 − 47 = 13 cm, açık kol yüksek.</p>
+          <p class="c"><b>4 · E</b> P, T/V ile orantılı: K = L; M = 2·K; L’den M’ye V yarıya, P 2 katı.</p>
+          <p class="c"><b>5 · A</b> d oranı = M oranı → M<sub>X</sub> = 64; v oranı √(4/64) = 1/4; t<sub>He</sub> = 10 s.</p>
+          <p class="c"><b>6 · C</b> Eşit kütle: n oranı 4 → P oranı 4 (I); aynı T (II); sayılar eşit değil (III ✗).</p>
         </div>
-        <div class="grup"><h4>Meclis · merdiven · hızlı görevler</h4>
-          <p class="c"><b>Meclis 1 · Yusuf</b> Hatalı satır ve doğrusu.</p>
-          <p class="c"><b>Merdiven 1</b> Kısa çözüm.</p>
-          <p class="c"><b>1. durak</b> Hızlı görev cevabı.</p>
+        <div class="grup yan-anahtar"><h4>Yan yollar · hızlı anahtar</h4>
+          <p><b>Kıssa</b><span class="ck">1 C</span><span class="ck">2 D</span><span class="ck">3 E</span><span class="ck">4 B</span></p>
+          <p><b>Meclis</b><span class="ck">1 Yusuf</span><span class="ck">2 Elif</span><span class="ck">3 Yusuf</span><span class="ck">4 Pamuk</span></p>
+          <p><b>Merdiven</b><span class="ck">1 · 8 L</span><span class="ck">2 · C₃H₆</span><span class="ck">3 · 32 (O₂)</span></p>
+        </div>
+        <div class="grup"><h4>Meclis: kim haklı?</h4>
+          <p class="c"><b>1 · Yusuf</b> Satır 1: °C ile oran. 3 · 307 / 290 ≈ 3,18 L.</p>
+          <p class="c"><b>2 · Elif</b> Satır 1: P ile V ters orantılı. 1,2 · 5 = P<sub>2</sub> · 2 → 3 atm.</p>
+          <p class="c"><b>3 · Yusuf</b> Satır 2: 570 mmHg = 0,75 atm → V = 3,69 / 0,75 = 4,92 L.</p>
+          <p class="c"><b>4 · Pamuk</b> Satır 2: karekök unutulmuş. √(16/4) = 2 kat.</p>
+        </div>
+        <div class="grup"><h4>Anahtar merdiveni</h4>
+          <p class="c"><b>1 · 8 L</b> (1,5 · 4)/300 = V<sub>2</sub>/400 → V<sub>2</sub> = 8 L.</p>
+          <p class="c"><b>2 · C<sub>3</sub>H<sub>6</sub></b> M = 1,05 · 40 = 42; 14n = 42 → n = 3.</p>
+          <p class="c"><b>3 · O<sub>2</sub></b> √(M/2) = 24/6 = 4 → M = 32 g/mol.</p>
+        </div>
+        <div class="grup"><h4>Hızlı görevler</h4>
+          <p class="c"><b>1. durak</b> 570 mmHg · 0,75 atm · kontrol: 260 K, 27 °C.</p>
+          <p class="c"><b>2. durak</b> 2,6 · 300/260 = 3 L · kontrol: basınç 2 katı.</p>
+          <p class="c"><b>3. durak</b> 0,8 · 350/280 = 1 atm.</p>
+          <p class="c"><b>4. durak</b> V = 0,4 · 24,6 / 2,46 = 4 L · kontrol: He.</p>
+          <p class="c"><b>5. durak</b> d oranı 2 = M oranı → 64 g/mol: SO<sub>2</sub>.</p>
         </div>
       </div>
     </div>
@@ -878,7 +976,7 @@
       </div>
       <div class="kart tekrar">
         <span class="et">{{ikon|harita}}Tekrar rotası · yanlışın nereden?</span>
-        <ul class="ozet-liste"><li><b>1. durak (s.{{sayfa|2}})</b> · konu → soru …</li><li><b>2. durak (s.{{sayfa|3}})</b> · konu → soru …</li><li><b>3. durak (s.{{sayfa|4}})</b> · konu → soru …</li><li><b>4. durak (s.{{sayfa|5}})</b> · konu → soru …</li><li><b>5. durak (s.{{sayfa|6}})</b> · konu → soru …</li></ul>
+        <ul class="ozet-liste"><li><b>1. durak (s.{{sayfa|2}})</b> · özellikler, basınç birimleri → soru 1, 2</li><li><b>2. durak (s.{{sayfa|3}})</b> · Boyle, Charles, grafik → soru 3, 4, 12</li><li><b>3. durak (s.{{sayfa|4}})</b> · Gay-Lussac, NŞA → soru 5, 6</li><li><b>4. durak (s.{{sayfa|5}})</b> · PV = nRT, kinetik teori → soru 7, 8, 9</li><li><b>5. durak (s.{{sayfa|6}})</b> · yoğunluk, Graham → soru 10, 11</li></ul>
       </div>
     </div>
   </main>
@@ -891,30 +989,30 @@
   {{hud|15}}
   {{cini}}
   <div class="bant final-bant" data-serbest>{{final}}
-    <div class="levha final-levha">{{rozet|★|-|keh}}<div><div class="ust">Kapadokya yolu tamam · Yol 4 final</div><h1>Yol <em>tamamlandı!</em></h1><p class="alt-bas">Akçeni topla, unvanını al, nişanlarını say.</p></div></div>
-    <div class="balon-buyuk final-balon"><span class="et keh">Pamuk</span><br>Ünitenin özünü tek cümleyle söyleyen kapanış. Miyav!</div>
+    <div class="levha final-levha">{{rozet|4|-|keh}}<div><div class="ust">Kapadokya yolu tamam · Yol 4 final</div><h1>Yol <em>tamamlandı!</em></h1><p class="alt-bas">Akçeni topla, unvanını al, nişanlarını say.</p></div></div>
+    <div class="balon-buyuk final-balon yukari"><span class="et keh">Pamuk</span><br>Artık bir balonun neden yükseldiğini tek denklemle anlatabilirsin: <b>PV = nRT</b>. Miyav!</div>
   </div>
   <main class="ic" style="top:103mm">
     <div class="kart ray-kart">
       <div class="kart-bas"><span class="et keh">{{ikon|akce}}Akçe rayı</span><span class="kes-not">Toplamını raya işaretle · unvanını yuvarlak içine al</span></div>
-      {{info|akce_rayi|ÜSTAD}}
+      {{info|akce_rayi|GAZ ÜSTADI}}
     </div>
     <div class="unvanlar">
       <div class="unvan">{{info|unvan_rozeti|1|#A3B3BE}}<b>Çırak</b><small>0–399 akçe</small><p>Yola çıktın. Durak görevlerini tekrar dene.</p></div>
-      <div class="unvan">{{info|unvan_rozeti|2|#13A3A6}}<b>Kalfa</b><small>400–799 akçe</small><p>Haritayı biliyorsun. Yan yollarla güçlen.</p></div>
-      <div class="unvan">{{info|unvan_rozeti|3|#0E4C5A}}<b>Usta</b><small>800–1149 akçe</small><p>Her yönde geçiş yapıyorsun. Tuzaklara dikkat.</p></div>
-      <div class="unvan ust">{{info|unvan_rozeti|4|#F0A21A}}<b>Üstad</b><small>1150–1400 akçe</small><p>Kale kapısını açtın. Sıradaki yol seni bekliyor.</p></div>
+      <div class="unvan">{{info|unvan_rozeti|2|#13A3A6}}<b>Kalfa</b><small>400–799 akçe</small><p>Yasaları biliyorsun. Yan yollarla güçlen.</p></div>
+      <div class="unvan">{{info|unvan_rozeti|3|#0E4C5A}}<b>Usta</b><small>800–1149 akçe</small><p>PV = nRT elinde. Birimlere dikkat.</p></div>
+      <div class="unvan ust">{{info|unvan_rozeti|4|#F0A21A}}<b>Gaz Üstadı</b><small>1150–1400 akçe</small><p>Kale kapısını açtın. Yol 5 seni bekliyor.</p></div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1.06fr .94fr">
       <div class="kart defter-kart">
         <span class="et keh">{{ikon|hulasa}}Akçe defteri</span>
         <table class="defter">
           <tr><th>Durak</th><th>En çok</th><th>Senin</th></tr>
-          <tr><td>1. durak · Yer 1</td><td class="n">100</td><td class="k"><span></span></td></tr>
-          <tr><td>2. durak · Yer 2</td><td class="n">150</td><td class="k"><span></span></td></tr>
-          <tr><td>3. durak · Yer 3</td><td class="n">150</td><td class="k"><span></span></td></tr>
-          <tr><td>4. durak · Yer 4</td><td class="n">150</td><td class="k"><span></span></td></tr>
-          <tr><td>5. durak · Yer 5</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>1. durak · Erciyes · Gaz ve basınç</td><td class="n">100</td><td class="k"><span></span></td></tr>
+          <tr><td>2. durak · Göreme · Boyle ve Charles</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>3. durak · Avanos · Üç yasa</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>4. durak · Kızılçukur · İdeal gaz</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>5. durak · Derinkuyu · Yoğunluk</td><td class="n">150</td><td class="k"><span></span></td></tr>
           <tr><td>Hülasa · muhasebe</td><td class="n">40</td><td class="k"><span></span></td></tr>
           <tr><td>Yan yol · Meclis</td><td class="n">120</td><td class="k"><span></span></td></tr>
           <tr><td>Yan yol · Kıssalar</td><td class="n">120</td><td class="k"><span></span></td></tr>
@@ -933,9 +1031,9 @@
           <div class="satirlar"><div>Adım:</div><div>Unvanım:</div><div>Toplam akçe:</div></div>
         </div>
         <div class="kart gol-z siradaki-yol">
-          <span class="et">{{ikon|harita}}Sıradaki yol →</span>
-          <b>Yol 5 · sıradaki ünite</b>
-          <p>Bir sonraki yolun merak uyandıran tek cümlesi.</p>
+          <span class="et">{{ikon|harita}}Sıradaki yol</span>
+          <b>Yol 5 · Çözeltiler 1</b>
+          <p>Pamukkale–Afyon Yolu: travertenlerde CO<sub>2</sub> kaçınca ne çöker?</p>
         </div>
       </div>
     </div>

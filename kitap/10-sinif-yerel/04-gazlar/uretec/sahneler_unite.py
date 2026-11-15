@@ -37,8 +37,8 @@ NISAN_IKON = {
              '<path d="M28 13 C36 13 38 19 35 25"/><path d="M14 26 H34 M15 31 H33"/><path d="M17 42 h14"/>',
     "tanecik": '<rect x="6" y="6" width="36" height="36" rx="4"/><circle cx="15" cy="16" r="3.4"/><circle cx="31" cy="20" r="3.4"/><circle cx="20" cy="33" r="3.4"/>'
                '<path d="M18 13 L24 9 M34 23 L39 27 M17 36 L11 39"/>',
-    "baca": '<path d="M4 16 H18 M30 16 H44"/><path d="M18 4 V16 M30 4 V16"/><path d="M18 16 V30 M30 16 V30"/><path d="M8 44 V36 A6 6 0 0 1 20 36 V44 M28 44 V36 A6 6 0 0 1 40 36 V44"/>'
-            '<path d="M24 7 V24 M20 20 L24 25 L28 20"/>',
+    "baca": '<path d="M3 14 H18 M30 14 H45"/><path d="M18 14 V27 M30 14 V27"/><path d="M8 45 V33 Q8 27 14 27 H34 Q40 27 40 33 V45 Z"/>'
+            '<path d="M21 34 h6 v11 h-6 Z"/><path d="M24 4 V21 M20 17 L24 22 L28 17"/><path d="M8 9 q3 -3 6 0 M34 9 q3 -3 6 0"/>',
 }
 
 
@@ -191,46 +191,70 @@ def tuf_sirt(s, x0, x1, y, h, tohum, renkler=(TUF_P, TUF, TUF_O, "#FFF2E2"), dal
 
 
 def uchisar_kaya(s, x, y, w, h, tohum=7, tas="#EDD6B2", isik=-1, bayrak=True, isikli=False, pencere=1.0):
-    """Uçhisar Kalesi: içi oyulmuş dev tüf kayası (temsilî). (x, y) taban ortası. Döndürür (svg, tepe noktası)."""
+    """Uçhisar Kalesi (temsilî): içi oyulmuş, çok kubbeli dev tüf kayası; teraslar ve sıra sıra oyma odalar.
+    (x, y) taban ortası; w genişlik, h yükseklik. Döndürür (svg, tepe noktası)."""
     r = RNG(tohum)
-    prof = [(-.5, 0), (-.47, -.18), (-.42, -.34), (-.36, -.44), (-.3, -.5), (-.24, -.62), (-.18, -.72), (-.1, -.84), (-.04, -.94), (.03, -1.0),
-            (.1, -.96), (.15, -.86), (.2, -.8), (.27, -.74), (.33, -.62), (.38, -.5), (.43, -.36), (.47, -.2), (.5, 0)]
-    pts = [(x + w * px + r.uniform(-w * .008, w * .008), y + h * py + (r.uniform(-h * .015, h * .015) if -1 < py < 0 else 0)) for px, py in prof]
-    d = egri_d(pts, gerginlik=.8) + " Z"
-    g = s.lin([(0, acik(tas, .25)), (.45, tas), (1, koyu(tas, .22))], x - w / 2, 0, x + w / 2, 0, kull="userSpaceOnUse", ad="uk")
+    loblar = [(-.31, .5, .2), (-.15, .78, .19), (.03, 1.0, .16), (.18, .8, .18), (.33, .55, .19)]
+
+    def ust(u):
+        en = max(0.0, .34 * (1 - abs(u) / .5))
+        for cx, tp, hw in loblar:
+            d = abs(u - cx) / hw
+            if d < 1:
+                en = max(en, tp * (1 - d ** 2.4) ** .42)
+        return en
+    N = 90
+    pts = [(x + w * (-.5 + i / N), y - h * ust(-.5 + i / N) + (r.uniform(-h * .006, h * .006) if 0 < i < N else 0)) for i in range(N + 1)]
+    d = cizgi_d([(x - w / 2, y)] + pts + [(x + w / 2, y)], True)
+    g = s.lin([(0, acik(tas, .3)), (.42, tas), (1, koyu(tas, .25))], x - w / 2, 0, x + w / 2, 0, kull="userSpaceOnUse", ad="uk")
     o = [f'<path d="{d}" fill="{g}"/>']
     kl = s.klip(f'<path d="{d}"/>', ad="ukk")
     ic = []
-    # dikey kaya damarları + yatay katman izleri
-    for k in range(14):
-        px = x + w * r.uniform(-.42, .42)
-        ic.append(f'<path d="M{f(px)} {f(y - h * r.uniform(.5, 1))} q{f(r.uniform(-10, 10))} {f(h * .3)} {f(r.uniform(-6, 6))} {f(h * .9)}" stroke="{koyu(tas, .2)}" stroke-width="{f(w * .006)}" fill="none" opacity=".4"/>')
-    for k in range(5):
-        yy = y - h * (.12 + k * .17)
-        ic.append(f'<path d="M{f(x - w / 2)} {f(yy)} Q{f(x)} {f(yy + r.uniform(-8, 8))} {f(x + w / 2)} {f(yy)}" stroke="{acik(tas, .3)}" stroke-width="{f(h * .012)}" fill="none" opacity=".35"/>')
-    # gölge tarafı
-    gl = s.lin([(0, "#2A1E3A", 0), (.55, "#2A1E3A", 0), (1, "#2A1E3A", .28)], x - w / 2, 0, x + w / 2, 0, kull="userSpaceOnUse", ad="ug")
-    ic.append(f'<rect x="{f(x - w / 2)}" y="{f(y - h)}" width="{f(w)}" height="{f(h)}" fill="{gl}"/>')
-    # oyma odalar: pencere/kapı açıklıkları
-    sayi = int(42 * pencere)
-    for k in range(sayi):
-        py = y - h * r.uniform(.12, .86)
-        t = (y - py) / h
-        yarı = .44 - .36 * t ** 1.4
-        px = x + w * r.uniform(-yarı, yarı) + w * .02
-        gw = w * r.uniform(.012, .022)
-        gh = gw * r.uniform(1.2, 1.9)
-        renk = (r.choice(["#FFD27A", "#FFE6A0", "#F7B955"]) if (isikli and r.random() < .7) else koyu(tas, .6))
-        if r.random() < .45:
-            ic.append(f'<path d="M{f(px - gw)} {f(py + gh)} V{f(py)} A{f(gw)} {f(gw)} 0 0 1 {f(px + gw)} {f(py)} V{f(py + gh)} Z" fill="{renk}"/>')
-        else:
-            ic.append(f'<rect x="{f(px - gw)}" y="{f(py)}" width="{f(gw * 2)}" height="{f(gh)}" fill="{renk}"/>')
+    gd = s.lin([(0, "#2A1E3A", 0), (.6, "#2A1E3A", .05), (1, "#2A1E3A", .3)], 0, y - h, 0, y, kull="userSpaceOnUse", ad="ud")
+    ic.append(f'<rect x="{f(x - w / 2)}" y="{f(y - h)}" width="{f(w)}" height="{f(h)}" fill="{gd}"/>')
+    for k in range(12):
+        px = x + w * r.uniform(-.4, .4)
+        ic.append(f'<path d="M{f(px)} {f(y - h * r.uniform(.45, .95))} q{f(r.uniform(-10, 10))} {f(h * .3)} {f(r.uniform(-6, 6))} {f(h * .85)}" stroke="{koyu(tas, .22)}" stroke-width="{f(max(1, w * .005))}" fill="none" opacity=".4"/>')
+    # teraslar: açık kenar + koyu gölge
+    for fr in (.16, .3, .45, .6, .74, .88):
+        yy = y - h * fr + r.uniform(-h * .01, h * .01)
+        ic.append(f'<path d="M{f(x - w / 2)} {f(yy)} H{f(x + w / 2)}" stroke="{acik(tas, .45)}" stroke-width="{f(max(1.2, h * .012))}"/>'
+                  f'<path d="M{f(x - w / 2)} {f(yy + h * .013)} H{f(x + w / 2)}" stroke="{koyu(tas, .32)}" stroke-width="{f(max(1, h * .008))}" opacity=".55"/>')
+    # oyma odalar: kat kat sıralar
+    oda = koyu(tas, .62)
+    gw = w * .016
+    for fr in [.07 + i * .062 for i in range(14)]:
+        yy = y - h * fr
+        uu = [(-.5 + i / 160) for i in range(161) if ust(-.5 + i / 160) > fr + .05]
+        if not uu:
+            continue
+        u0, u1 = min(uu), max(uu)
+        n = int((u1 - u0) * w / (gw * 6.5) * pencere)
+        for j in range(n):
+            if r.random() < .3:
+                continue
+            u = u0 + (u1 - u0) * (j + r.uniform(.2, .8)) / max(n, 1)
+            px = x + w * u
+            ww = gw * r.uniform(.8, 1.3)
+            hh = ww * r.uniform(1.4, 2.1)
+            renk = (r.choice(["#FFD27A", "#FFE6A0", "#F7B955"]) if (isikli and r.random() < .75) else oda)
+            if r.random() < .55:
+                ic.append(f'<path d="M{f(px - ww)} {f(yy)} V{f(yy - hh + ww)} A{f(ww)} {f(ww)} 0 0 1 {f(px + ww)} {f(yy - hh + ww)} V{f(yy)} Z" fill="{renk}"/>')
+            else:
+                ic.append(f'<rect x="{f(px - ww)}" y="{f(yy - hh)}" width="{f(ww * 2)}" height="{f(hh)}" fill="{renk}"/>')
+    # tabanda kapılar ve merdiven
+    for k in range(3):
+        px = x + w * (-.25 + k * .22)
+        dw = w * .024
+        ic.append(f'<path d="M{f(px - dw)} {f(y)} V{f(y - h * .07)} A{f(dw)} {f(dw)} 0 0 1 {f(px + dw)} {f(y - h * .07)} V{f(y)} Z" fill="{"#FFC65A" if isikli else oda}"/>')
+    yol = [(x - w * .36, y), (x - w * .26, y - h * .16), (x - w * .3, y - h * .3), (x - w * .2, y - h * .45)]
+    ic.append(f'<path d="{cizgi_d(yol)}" stroke="{acik(tas, .5)}" stroke-width="{f(max(2, h * .018))}" fill="none" stroke-linejoin="round" opacity=".85"/>')
     o.append(f'<g clip-path="{kl}">{"".join(ic)}</g>')
     tepe = (x + w * .03, y - h)
     if bayrak:
-        bx, by = tepe[0], tepe[1] + h * .02
-        o.append(f'<path d="M{f(bx)} {f(by)} v{f(-h * .22)}" stroke="#4A3A2E" stroke-width="{f(max(2, h * .008))}"/>')
-        o.append(turk_bayragi(bx, by - h * .22, h * .085, h * .01))
+        bx, by = tepe[0], tepe[1] + h * .01
+        o.append(f'<path d="M{f(bx)} {f(by)} v{f(-h * .2)}" stroke="#4A3A2E" stroke-width="{f(max(2, h * .008))}"/>')
+        o.append(turk_bayragi(bx, by - h * .2, h * .08, h * .01))
     return "".join(o), tepe
 
 
@@ -377,12 +401,6 @@ def erciyes():
                  kar_golge="#C3D2EC", sis="#BFDDEE", isik=-1, sirt=8, puruz=14, kenar_isik="#F2F8FF")
     uzak += d
     s += uzak
-    # teleferik hattı (yamaçta, temsilî)
-    s += '<path d="M1380 292 L1560 196 L1700 128" stroke="#3A3F4B" stroke-width="2" fill="none" opacity=".7"/>'
-    for t in (.15, .35, .55, .75, .9):
-        x = 1380 + 320 * t
-        y = 292 - 164 * t
-        s += f'<path d="M{f(x)} {f(y)} v9" stroke="#3A3F4B" stroke-width="1.6"/><rect x="{f(x - 5)}" y="{f(y + 9)}" width="10" height="7" rx="2" fill="#E2533D"/>'
     # Kayseri ovası
     s += S.tepe_bandi(s, 0, W, ufuk + 30, 24, 15, "#C9C27A", "#A9B65E")[0]
     ova = s.lin([(0, "#B9BE6A"), (1, "#6E9A44")], 0, ufuk + 30, 0, H, kull="userSpaceOnUse", ad="ova")
@@ -928,11 +946,11 @@ def final_kapadokya(h=900, nisanlar=None):
     s += f'<path d="M0 {ufuk + 170} C500 {ufuk + 150} 1000 {ufuk + 190} 1500 {ufuk + 180} L1500 {h} H0 Z" fill="{g}"/>'
     s += peri_kumesi(s, 0, 1400, h - 6, 10, 273, boy=(150, 280), en=(.42, .58))
     # büyük balon (sol) ve nişan çelengi: balon sepetinden Uçhisar'ın bayrak direğine
-    bx, by, br = 330, 300, 130
+    bx, by, br = 300, 590, 110
     s += balon(s, bx, by, br, 2, renk=("#E2533D", "#F0A21A"), alev=True, serit=True)
-    sx, sy = bx + br * .17, by + br * 1.6
-    ex, ey = tepe[0] - 40, tepe[1] - 70
-    kx, ky = (sx + ex) / 2, max(sy, ey) + 180
+    sx, sy = bx + br * .95, by + br * .25
+    ex, ey = tepe[0] - 120, tepe[1] - 60
+    kx, ky = (sx + ex) / 2, max(sy, ey) + 40
     s += f'<path d="M{f(sx)} {f(sy)} Q{f(kx)} {f(ky)} {f(ex)} {f(ey)}" stroke="#5A3A22" stroke-width="4" fill="none"/>'
     if nisanlar:
         for k, ns in enumerate(nisanlar):
@@ -950,105 +968,112 @@ def final_kapadokya(h=900, nisanlar=None):
 
 # ================================================================== AÇILIŞ · KAPADOKYA PANORAMASI + TUR ROTASI
 
-# Stilize (temsilî) yerleşim: güneyden kuzeye değil, KUZEYDEN GÜNEYE bakış (uzak = güney). Doğu solda: Erciyes sol arkada,
-# Hasan Dağı sağ arkada, Kızılırmak önde (kuzey). Kümelenen Göreme–Uçhisar–Avanos çevresi okunur olsun diye açılarak çizildi.
+# Stilize (temsilî) harita: KUZEYDEN GÜNEYE bakış (uzak = güney). Doğu solda: Erciyes sol arkada, Hasan Dağı sağ arkada,
+# Kızılırmak önde (kuzey). Birbirine çok yakın Göreme–Uçhisar–Avanos–Kızılçukur çevresi okunur olsun diye açılarak çizildi.
 # (anahtar, x, y, etiket üst, etiket ad, alt, tür)
 DURAKLAR = [
-    ("1", 300, 560, "1. DURAK · ERCİYES", "Gaz ve basınç", "s.2 · +100 akçe", "durak"),
-    ("2", 905, 742, "2. DURAK · GÖREME", "Boyle ve Charles", "s.3 · +150 akçe", "durak"),
-    ("3", 1030, 968, "3. DURAK · AVANOS", "Üç yasa bir arada", "s.4 · +150 akçe", "durak"),
-    ("4", 690, 676, "4. DURAK · KIZILÇUKUR", "İdeal gaz", "s.5 · +150 akçe", "durak"),
-    ("5", 1150, 512, "5. DURAK · DERİNKUYU", "Yoğunluk, yayılma", "s.6 · +150 akçe", "durak"),
-    ("H", 1700, 452, "HASAN DAĞI ETEĞİ", "Hülasa", "s.7 · +40 akçe", "hulasa"),
-    ("M", 1560, 548, "GÜZELYURT", "Meclis: Kim haklı?", "s.8 · +120 akçe", "yan"),
-    ("K", 1830, 606, "IHLARA VADİSİ", "Kıssa", "s.9 · +120 akçe", "yan"),
-    ("A", 1250, 806, "GÜVERCİNLİK VADİSİ", "Anahtar merdiveni", "s.10 · +120 akçe", "yan"),
-    ("V", 1380, 700, "UÇHİSAR KALESİ", "Büyük İmtihan", "s.11–12 · +300 akçe", "kale"),
+    ("1", 250, 650, "1. DURAK · ERCİYES", "Gaz ve basınç", "s.2 · +100 akçe", "durak"),
+    ("2", 870, 770, "2. DURAK · GÖREME", "Boyle ve Charles", "s.3 · +150 akçe", "durak"),
+    ("3", 900, 975, "3. DURAK · AVANOS", "Üç yasa bir arada", "s.4 · +150 akçe", "durak"),
+    ("4", 590, 840, "4. DURAK · KIZILÇUKUR", "İdeal gaz", "s.5 · +150 akçe", "durak"),
+    ("5", 1090, 560, "5. DURAK · DERİNKUYU", "Yoğunluk, yayılma", "s.6 · +150 akçe", "durak"),
+    ("H", 1700, 470, "HASAN DAĞI ETEĞİ", "Hülasa", "s.7 · +40 akçe", "hulasa"),
+    ("M", 1470, 610, "GÜZELYURT", "Meclis: Kim haklı?", "s.8 · +120 akçe", "yan"),
+    ("K", 1830, 660, "IHLARA VADİSİ", "Kıssa", "s.9 · +120 akçe", "yan"),
+    ("A", 1170, 870, "GÜVERCİNLİK VADİSİ", "Anahtar merdiveni", "s.10 · +120 akçe", "yan"),
+    ("V", 1370, 770, "UÇHİSAR KALESİ", "Büyük İmtihan", "s.11–12 · +300 akçe", "kale"),
 ]
-ROTA_ARA = {("1", "2"): [(520, 640), (720, 720)], ("2", "3"): [(960, 860)], ("3", "4"): [(860, 900), (720, 800)],
-            ("4", "5"): [(840, 600), (1000, 540)], ("5", "H"): [(1400, 470)], ("H", "M"): [(1650, 500)], ("M", "K"): [(1700, 600)],
-            ("K", "A"): [(1700, 760), (1450, 860)], ("A", "V"): [(1330, 770)]}
+ROTA_ARA = {("1", "2"): [(520, 700)], ("2", "3"): [(920, 880)], ("3", "4"): [(760, 935)],
+            ("4", "5"): [(800, 710), (980, 610)], ("5", "H"): [(1400, 500)], ("H", "M"): [(1600, 560)],
+            ("M", "K"): [(1660, 650)], ("K", "A"): [(1650, 790), (1380, 880)], ("A", "V"): [(1270, 830)]}
 
 
 def kapadokya_panorama(h=1100):
     s = Svg("gz-pan")
     ufuk = 360
     s += S.gokyuzu(s, 0, 0, W, ufuk + 6, duraklar=[(0, "#34449A"), (.3, "#7E70C0"), (.55, "#EE98B2"), (.8, "#FFC892"), (1, "#FFE4BE")])
-    gx, gy = 140, ufuk - 40
+    s += _zemin(s, ufuk, "#E8BE92", h)
+    gx, gy = 120, ufuk - 30
     for k in range(12):
         a0 = math.pi + .1 + k * (math.pi - .2) / 12
         a1 = a0 + .05
         s += f'<path d="M{gx} {gy} L{f(gx + 2400 * math.cos(a0))} {f(gy + 2400 * math.sin(a0))} L{f(gx + 2400 * math.cos(a1))} {f(gy + 2400 * math.sin(a1))} Z" fill="#FFE4B0" opacity=".09"/>'
     s += S.gunes(s, gx, gy, 50, hale="#FFC56B", hale_r=600, guc=.95)
-    for (x, y, w_, k) in ((620, 150, 520, 18), (1240, 96, 600, 22), (1700, 220, 400, 14)):
+    for (x, y, w_, k) in ((640, 150, 520, 18), (1260, 96, 600, 22), (1700, 210, 400, 14)):
         s += S.bulut_serit(s, x, y, w_, k, "#FFD2C0", "#F790A8", .75)
-    # gökyüzünde balonlar
     r = RNG(300)
-    for k in range(22):
-        x, y = r.uniform(560, 2050), r.uniform(50, 330)
-        s += balon(s, x, y, r.uniform(10, 24), 301 + k, op=.95, cizgi=False)
-    for k, (x, y, rr) in enumerate([(820, 250, 34), (1010, 190, 28), (640, 330, 24), (1240, 290, 30)]):
-        s += balon(s, x, y, rr, 330 + k)
-    # uzak dağlar: Erciyes (sol), Hasan Dağı (sağ)
+    # uzak dağlar: Erciyes (sol, büyük ve karlı), Hasan Dağı (sağ, iki tepeli)
     uzak = ""
-    d, _ = S.dag(s, -120, 820, ufuk + 8, 330, 70, 340, renk="#C78CAE", golge="#7F5C96", bicim="sivri", kar_y=150, kar="#FFE6EE",
-                 kar_golge="#C6A7D2", sis="#FFA18E", isik=-1, sirt=7, puruz=12, kenar_isik="#FFD7C2")
+    d, _ = S.dag(s, -160, 860, ufuk + 8, 330, 60, 340, renk="#C98AAE", golge="#7A5694", bicim="sivri", kar_y=150, kar="#FFEAF0",
+                 kar_golge="#C9A9D6", sis="#FFA18E", isik=-1, sirt=8, puruz=14, kenar_isik="#FFD7C2")
     uzak += d
-    d, _ = S.dag(s, 1380, 2240, ufuk + 8, 1760, 170, 341, renk="#B486AA", golge="#74578C", bicim="volkan", kar_y=226, kar="#FFE0E6",
-                 kar_golge="#C3A3CC", sis="#FFA18E", isik=-1, sirt=4, puruz=8)
+    d, _ = S.dag(s, 1380, 2240, ufuk + 8, 1780, 150, 341, renk="#B486AA", golge="#74578C", bicim="volkan", kar_y=210, kar="#FFE6EE",
+                 kar_golge="#C3A3CC", sis="#FFA18E", isik=-1, sirt=4, puruz=9)
     uzak += d
-    d, _ = S.dag(s, 1560, 2000, ufuk + 8, 1620, 224, 342, renk="#A97CA0", golge="#6E5288", bicim="volkan", kar_y=262, kar="#FFE0E6",
+    d, _ = S.dag(s, 1500, 1980, ufuk + 8, 1600, 214, 342, renk="#A97CA0", golge="#6E5288", bicim="volkan", kar_y=250, kar="#FFE6EE",
                  kar_golge="#C3A3CC", sis="#FFA18E", isik=-1, sirt=2, puruz=6)
     uzak += d
     s += uzak
-    # kara: tüf ovası (uzakta pembe sis, önde sıcak okr)
-    gk = s.lin([(0, "#D9A2A0"), (.15, "#E7BE9E"), (.5, "#E2C392"), (1, "#B9A162")], 0, ufuk, 0, h, kull="userSpaceOnUse", ad="kara")
+    # kara: sıcak tüf ovası
+    gk = s.lin([(0, "#E2A6A0"), (.12, "#ECBE92"), (.45, "#E5C07C"), (.78, "#CDB466"), (1, "#A4B25C")], 0, ufuk, 0, h, kull="userSpaceOnUse", ad="kara")
     s += f'<rect x="0" y="{ufuk + 4}" width="{W}" height="{h - ufuk}" fill="{gk}"/>'
-    # tüf sırtları ve vadiler (orta plan)
-    s += tuf_sirt(s, -40, 2140, ufuk + 70, 50, 343, renkler=("#E7B4A8", "#F2CDBE", "#DDA59A", "#FBE2D6"), dalga=12)[0]
-    s += tuf_sirt(s, 380, 1300, 760, 70, 344, renkler=("#EDB9A8", "#F7D9C8", "#E0A694", "#FFEBDE"), dalga=8)[0]
-    # tarla yamaları ve bağlar
-    for k in range(60):
+    # uzak tüf sırtları ve Kızılçukur'un pembe sırtları
+    s += tuf_sirt(s, -40, 2140, ufuk + 60, 46, 343, renkler=("#E7B4A8", "#F2CDBE", "#DDA59A", "#FBE2D6"), dalga=14)[0]
+    s += tuf_sirt(s, 380, 1050, 790, 80, 344, renkler=("#EAA9A0", "#F6D2C2", "#DC9488", "#FFE6DA"), dalga=7)[0]
+    s += tuf_sirt(s, 1050, 1700, 690, 60, 345, renkler=("#EFC9AE", "#FAE4CF", "#E3B595", "#FFF1E2"), dalga=8)[0]
+    # tarlalar, bağlar
+    for k in range(80):
         x = r.uniform(0, W)
-        y = r.uniform(ufuk + 90, h - 40)
+        y = r.uniform(ufuk + 90, 990)
         sc = .45 + (y - ufuk) / (h - ufuk)
         w_ = r.uniform(60, 150) * sc
-        c = r.choice(["#C9C27A", "#A9C46A", "#D3B86A", "#8FB24E", "#E2CF86"])
-        s += f'<path d="M{f(x)} {f(y)} l{f(w_)} {f(-w_ * .06)} l{f(-w_ * .2)} {f(w_ * .3)} l{f(-w_)} {f(w_ * .06)} Z" fill="{c}" opacity=".5"/>'
-    # Kızılırmak (önde, kuzey)
-    g = s.lin([(0, "#D9926A"), (1, "#8C4A2E")], 0, 940, 0, h, kull="userSpaceOnUse", ad="nh")
-    nehir = "M-20 1010 C300 990 600 1040 900 1010 C1200 980 1500 1030 1800 1000 C1950 985 2050 995 2120 990 L2120 1060 C1900 1068 1600 1086 1300 1060 C1000 1034 700 1084 400 1066 C200 1054 60 1070 -20 1072 Z"
+        c = r.choice(["#C9C27A", "#A9C46A", "#D3B86A", "#8FB24E", "#E2CF86", "#7FA84A"])
+        s += f'<path d="M{f(x)} {f(y)} l{f(w_)} {f(-w_ * .06)} l{f(-w_ * .2)} {f(w_ * .3)} l{f(-w_)} {f(w_ * .06)} Z" fill="{c}" opacity=".55"/>'
+    for (x0, y0, x1) in ((80, 760, 330), (1500, 900, 1900), (1220, 640, 1420), (330, 900, 560)):
+        s += _bag_satirlari(s, x0, x1, y0, 50, int(x0) + 7, renk="#7FA24E")
+    # Kızılırmak (önde, kuzey) + Avanos köprüsü
+    g = s.lin([(0, "#D9926A"), (1, "#8C4A2E")], 0, 990, 0, h, kull="userSpaceOnUse", ad="nh")
+    nehir = ("M-20 1022 C300 1004 600 1048 900 1024 C1200 998 1500 1040 1800 1012 C1950 1000 2050 1006 2120 1002 "
+             "L2120 1074 C1900 1080 1600 1098 1300 1074 C1000 1050 700 1096 400 1080 C200 1068 60 1082 -20 1084 Z")
     s += f'<path d="{nehir}" fill="{g}"/>'
-    s += f'<path d="M100 1030 h120 M520 1046 h90 M1100 1024 h140 M1600 1040 h100" stroke="#FFE6D2" stroke-width="3" opacity=".6"/>'
-    # simge yapılar
-    s += peri_kumesi(s, 760, 1060, 730, 7, 345, boy=(40, 80), en=(.45, .6))       # Göreme
-    s += peri_kumesi(s, 1080, 1330, 820, 6, 346, boy=(36, 66))                      # Güvercinlik
-    uk, _ = uchisar_kaya(s, 1410, 690, 150, 120, 347, tas="#F0D6B0", bayrak=True, pencere=.5)
+    s += f'<path d="M100 1046 h120 M520 1060 h90 M1100 1040 h140 M1600 1052 h100" stroke="#FFE6D2" stroke-width="3" opacity=".6"/>'
+    s += Y.asma_kopru(s, 960, 1120, 1036, 6, 34, renk="#6E4A2E", halat="#3A2A1E")
+    # Erciyes eteği: Kayseri evleri + kümbet
+    s += _tasevler(s, 360, 560, 610, 6, 346, olcek=.6)
+    s += Y.kumbet(s, 340, 600, 80, 347, tas="#E2B48C", cati="#C08A62")
+    # Göreme peri bacaları (büyük küme) + Kızılçukur çevresi + Çavuşin/Paşabağ (Avanos yolu)
+    s += peri_kumesi(s, 700, 1010, 752, 9, 348, boy=(60, 110), en=(.45, .6))
+    s += peri_kumesi(s, 950, 1090, 935, 5, 349, boy=(56, 96), en=(.45, .6))
+    s += peri_kumesi(s, 420, 560, 812, 4, 350, boy=(50, 84), renkler=("#F0C9B8", "#F6DCCB"))
+    # Avanos: evler, çömlekler
+    s += _tasevler(s, 960, 1100, 978, 5, 351, olcek=.62)
+    s += testi(s, 1112, 984, 34, tohum=352)
+    s += testi(s, 1140, 986, 26, tohum=353, bicim="kup")
+    # Uçhisar Kalesi (büyük) + Güvercinlik kaya yüzü
+    uk, _ = uchisar_kaya(s, 1350, 745, 230, 190, 354, tas="#F0D6B0", bayrak=True, pencere=.8)
     s += uk
-    s += _tasevler(s, 1320, 1500, 700, 6, 348, olcek=.5)
-    # Avanos: evler + çömlek
-    s += _tasevler(s, 980, 1160, 960, 6, 349, olcek=.55)
-    s += testi(s, 1170, 968, 30, tohum=350)
-    s += testi(s, 1196, 970, 22, tohum=351, bicim="kup")
-    # Erciyes eteği: kümbet + kavak
-    s += Y.kumbet(s, 380, 560, 70, 352, tas="#E2B48C", cati="#C08A62")
-    # Derinkuyu: yeraltı girişi + baca
-    s += f'<path d="M1110 520 h80 v-14 a40 22 0 0 0 -80 0 Z" fill="#7A5A3A"/><path d="M1124 520 v-10 a26 14 0 0 1 52 0 v10 Z" fill="#2E1C12"/>'
-    s += _tasevler(s, 1200, 1300, 506, 3, 353, olcek=.45)
-    # Güzelyurt + Ihlara kanyonu
-    s += _tasevler(s, 1520, 1620, 540, 4, 354, olcek=.45)
-    s += f'<path d="M1760 590 C1800 600 1840 640 1900 650 L1916 640 C1860 626 1820 590 1780 580 Z" fill="#9C6A48"/>'
-    s += f'<path d="M1770 588 C1810 602 1846 632 1902 646" stroke="#5FC0C8" stroke-width="5" fill="none"/>'
-    # Hasan Dağı eteği: çadır + koyunlar
-    s += Y.cadir(s, 1660, 452, 40, 30, renk="#9E2F28")
-    for k in range(4):
-        s += Y.koyun(1700 + k * 14, 456 + (k % 2) * 3, .55)
-    # kavaklar ve köyler (rozet çevresi boş)
+    s += _tasevler(s, 1250, 1460, 752, 7, 355, olcek=.55)
+    s += guvercinlik_yuzu(s, 1080, 1290, 830, 880, 356, tas="#F0D2B8", sira=2)
+    # Derinkuyu: yeraltı girişi + baca + kasaba
+    s += f'<path d="M1150 552 h90 v-16 a45 24 0 0 0 -90 0 Z" fill="#8C6A44"/><path d="M1165 552 v-12 a30 16 0 0 1 60 0 v12 Z" fill="#2E1C12"/>'
+    s += f'<rect x="1260" y="520" width="16" height="30" fill="#7A5A3A"/><rect x="1254" y="514" width="28" height="9" rx="3" fill="#C9A27A"/>'
+    s += _tasevler(s, 1150, 1300, 548, 3, 357, olcek=.5)
+    # Güzelyurt taş evleri, Ihlara kanyonu, Hasan eteğinde çadırlar
+    s += _tasevler(s, 1370, 1450, 606, 3, 358, olcek=.5)
+    s += f'<path d="M1740 700 C1800 708 1860 736 1950 744 L1966 730 C1880 716 1820 690 1760 684 Z" fill="#9C6A48"/>'
+    s += f'<path d="M1752 694 C1810 708 1870 730 1956 738" stroke="#5FC0C8" stroke-width="6" fill="none"/>'
+    for k in range(6):
+        s += S.kavak(s, 1760 + k * 34, 712 + k * 5, 44, 9, 359 + k, renk="#4F9445")
+    s += Y.cadir(s, 1790, 468, 46, 34, renk="#9E2F28")
+    s += Y.cadir(s, 1840, 474, 36, 27, renk="#253C78", serit="#F0A21A")
+    for k in range(5):
+        s += Y.koyun(1620 + k * 15, 452 + (k % 2) * 4, .55)
+    # ağaç kümeleri (rozetlerden uzak)
     konum = {k: (x, y) for (k, x, y, *_r) in DURAKLAR}
-    for k in range(70):
+    for k in range(60):
         x = r.uniform(20, 2080)
-        y = r.uniform(ufuk + 100, 1000)
-        if any(math.hypot(x - a, y - b) < 90 for a, b in konum.values()):
+        y = r.uniform(ufuk + 110, 990)
+        if any(math.hypot(x - a_, y - b_) < 110 for a_, b_ in konum.values()):
             continue
         sc = .35 + (y - ufuk) / 700 * .9
         if r.random() < .6:
@@ -1057,6 +1082,12 @@ def kapadokya_panorama(h=1100):
         else:
             for j in range(2):
                 s += S.agac(s, x + j * 30 * sc, y, 14 * sc, 500 + k * 2 + j, renk=r.choice(["#6FAA4E", "#7DB955"]))
+    # gökyüzünde balonlar (uzak küçükler + yakın büyükler)
+    for k in range(18):
+        x, y = r.uniform(560, 2050), r.uniform(50, 300)
+        s += balon(s, x, y, r.uniform(9, 20), 301 + k, op=.95, cizgi=False)
+    for k, (x, y, rr) in enumerate([(760, 250, 34), (980, 170, 30), (1210, 300, 26), (640, 380, 22), (1540, 330, 24)]):
+        s += balon(s, x, y, rr, 330 + k)
     # rota
     sira = [d_[0] for d_ in DURAKLAR]
     yol = []
@@ -1083,12 +1114,10 @@ def kapadokya_panorama(h=1100):
             s += f'<text x="{f(x)}" y="{f(y + 10)}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="27" fill="#FFFFFF">{k}</text>'
     x, y = konum["1"]
     s += f'<path d="M{f(x + 36)} {f(y + 40)} v-64" stroke="#1B1D26" stroke-width="4"/><path d="M{f(x + 38)} {f(y - 22)} h44 l-10 13 l10 13 h-44 Z" fill="#E2533D" stroke="#1B1D26" stroke-width="2.4"/>'
-    # yer adları (haritada, halolu)
-    for (ad_, x, y, fs) in (("Erciyes", 330, 120, 44), ("Hasan Dağı", 1760, 214, 40), ("Kızılırmak", 330, 1050, 34)):
+    for (ad_, x, y, fs) in (("Erciyes", 400, 300, 42), ("Hasan Dağı", 1780, 262, 38), ("Kızılırmak", 330, 1062, 32)):
         s += halolu_yazi(f'x="{x}" y="{y}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="{fs}" letter-spacing="1"', ad_, "#FFFFFF", "#5A2E4A", 1.6)
-    s += '<use href="#pamuk-selam" x="520" y="900" width="104" height="119"/>'
-    s += S.marti(1500, 1010, 1.4, 6, ayrintili=True)
-    # pusula
+    s += '<use href="#pamuk-selam" x="40" y="890" width="96" height="110"/>'
+    s += S.marti(1500, 1030, 1.3, 6, ayrintili=True)
     px, py = 1960, h - 140
     s += f'<circle cx="{px}" cy="{py}" r="74" fill="#FFFFFF" opacity=".9" stroke="#1B1D26" stroke-width="3"/>'
     s += f'<path d="{cizgi_d(yildiz_noktalari(px, py, 66, 14, 4, -math.pi / 2), True)}" fill="#1D3A8A" stroke="#1B1D26" stroke-width="2"/>'

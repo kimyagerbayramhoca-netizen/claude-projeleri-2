@@ -1,0 +1,57 @@
+{
+  "sinif": 10,
+  "yol": 6,
+  "rota": "Göller Yolu",
+  "unite": "Derişim Birimleri",
+  "klasor": "06-cozeltiler-2",
+  "tema": "Tema 2 · Bölüm 2",
+  "bolge": "Isparta · Burdur",
+  "merkez": {"enlem": 37.79, "boylam": 30.42},
+  "duraklar": [
+    {"no": 1, "yer": "Eğirdir Gölü", "baslik": "Ne kadar çözünmüş?", "enlem": 37.96, "boylam": 30.80, "sayfa": 2, "akce": 100},
+    {"no": 2, "yer": "Isparta", "baslik": "Milyonda bir", "enlem": 37.80, "boylam": 30.50, "sayfa": 3, "akce": 150},
+    {"no": 3, "yer": "Burdur Gölü", "baslik": "Litrede kaç mol?", "enlem": 37.76, "boylam": 30.24, "sayfa": 4, "akce": 150},
+    {"no": 4, "yer": "Salda Gölü", "baslik": "Su ekle, karıştır", "enlem": 37.55, "boylam": 29.68, "sayfa": 5, "akce": 150},
+    {"no": 5, "yer": "Davraz", "baslik": "Tuz, buzu neden eritir?", "enlem": 37.75, "boylam": 30.74, "sayfa": 6, "akce": 150}
+  ],
+  "kale": "Eğirdir Kalesi",
+  "kale_konum": {"enlem": 37.876, "boylam": 30.848},
+  "nisanlar": [
+    {"ad": "Yüzde Ehli", "ikon": "beher", "renk": "gol", "aciklama": "1. durak · derişim, yüzde"},
+    {"ad": "Gül Damlası", "ikon": "gul", "renk": "erg", "aciklama": "2. durak · ppm"},
+    {"ad": "Molar Kaptan", "ikon": "balon", "renk": "kob", "aciklama": "3. durak · molarite"},
+    {"ad": "Seyreltme Ustası", "ikon": "seyrelt", "renk": "gol", "aciklama": "4. durak · seyreltme"},
+    {"ad": "Buz Kırıcı", "ikon": "kar", "renk": "mer", "aciklama": "5. durak · koligatif"},
+    {"ad": "Kale Kapısı", "ikon": "kale", "renk": "keh", "aciklama": "İmtihan · 10+ doğru"},
+    {"ad": "Üstad Mührü", "ikon": "ustad", "renk": "laj", "aciklama": "Üstad · 6/6 doğru", "bonus": true}
+  ],
+  "hazine": [
+    {"kod": "H1", "baslik": "Kütlece yüzde · +10 akçe", "formul": "% = <span class=\"kesir\"><span>m_{çözünen}</span><span>m_{çözelti}</span></span> · 100", "not": "m_{çözelti} = m_{çözücü} + m_{çözünen}", "kisa": "% = m_{çözünen}/m_{çözelti}·100", "durak": 1},
+    {"kod": "H2", "renk": "gol", "baslik": "Hacimce yüzde · +10 akçe", "formul": "% = <span class=\"kesir\"><span>V_{çözünen}</span><span>V_{çözelti}</span></span> · 100", "not": "Kolonya derecesi = hacimce % alkol", "kisa": "% = V_{çözünen}/V_{çözelti}·100", "durak": 1},
+    {"kod": "H3", "renk": "erg", "baslik": "ppm · milyonda bir · +10", "formul": "ppm = <span class=\"kesir\"><span>m_{çözünen}</span><span>m_{çözelti}</span></span> · 10^6", "not": "İki kütle aynı birimde · %1 = 10 000 ppm", "kisa": "ppm = m/m · 10^6", "durak": 2},
+    {"kod": "H4", "renk": "gol", "baslik": "Sulu çözeltide ppm · +10", "formul": "1 ppm ≈ 1 mg/L", "not": "Çok seyreltik: 1 L ≈ 1 kg", "durak": 2},
+    {"kod": "H5", "renk": "kob", "baslik": "Molarite · +10", "formul": "M = <span class=\"kesir\"><span>n</span><span>V</span></span>", "not": "V: çözelti hacmi, litre", "kisa": "M = n / V", "durak": 3},
+    {"kod": "H6", "renk": "kob", "baslik": "İyon derişimi · +10", "formul": "X_aY_b: [X] = a·M", "not": "[Y] = b·M · toplam (a + b)·M", "kisa": "[X] = a·M", "durak": 3},
+    {"kod": "H7", "renk": "mer", "baslik": "Yoğunluk köprüsü · +10", "formul": "M = <span class=\"kesir\"><span>10·d·%</span><span>M_A</span></span>", "not": "d: g/mL · % kütlece", "kisa": "M = 10·d·% / M_A", "durak": 3},
+    {"kod": "H8", "renk": "gol", "baslik": "Seyrelt · deriştir · +10", "formul": "M_1·V_1 = M_2·V_2", "not": "Yalnız su eklenir ya da uçarsa", "durak": 4},
+    {"kod": "H9", "renk": "erg", "baslik": "Karıştır · +10 akçe", "formul": "M_{son} = <span class=\"kesir\"><span>M_1V_1 + M_2V_2</span><span>V_1 + V_2</span></span>", "not": "Moller toplanır, derişimler değil", "kisa": "Σn / ΣV", "durak": 4},
+    {"kod": "H10", "renk": "mer", "baslik": "Tanecikleri say · +10", "formul": "ΔT = K · n_{tanecik}", "not": "1 kg su · K_d ≈ 1,86 · K_k ≈ 0,52 °C", "kisa": "ΔT = K·n_{tanecik}", "durak": 5}
+  ],
+  "medeniyet": [
+    {"ad": "el-Kindî", "yil": "9. yüzyıl", "katki": "Koku ve damıtma üzerine kitabında gül suyu gibi kokulu suların damıtılmasını tarif etti.", "sayfa": 3},
+    {"ad": "Câbir bin Hayyân", "yil": "8. yüzyıl", "katki": "Adıyla anılan eserler damıtma, kristallendirme ve süzme gibi işlemleri sistemli biçimde anlatır.", "sayfa": 5},
+    {"ad": "el-Bîrûnî", "yil": "973–1048", "katki": "Birçok metal ve değerli taşın özgül ağırlığını hassas biçimde ölçtü.", "sayfa": 8}
+  ],
+  "kavramlar": [
+    {"terim": "derişim", "tanim": "Belirli miktardaki çözeltide (ya da çözücüde) çözünmüş madde miktarı."},
+    {"terim": "derişik / seyreltik çözelti", "tanim": "Birim miktarında görece çok / az çözünen bulunan çözelti; karşılaştırmaya göre değişir."},
+    {"terim": "izotonik, hipertonik, hipotonik", "tanim": "Derişimi karşılaştırılan çözeltiye eşit, ondan yüksek ya da düşük olan çözelti."},
+    {"terim": "kütlece yüzde", "tanim": "100 g çözeltideki çözünenin gram cinsinden kütlesi."},
+    {"terim": "hacimce yüzde", "tanim": "100 mL çözeltideki çözünenin mL cinsinden hacmi; kolonya derecesi bir hacimce yüzdedir."},
+    {"terim": "ppm", "tanim": "Milyonda bir kısım: 10^6 g çözeltideki çözünenin gram cinsinden kütlesi; seyreltik sulu çözeltide ≈ mg/L."},
+    {"terim": "molarite (M)", "tanim": "1 L çözeltide çözünmüş maddenin mol sayısı; birimi mol/L."},
+    {"terim": "seyreltme / deriştirme", "tanim": "Çözeltiye çözücü ekleyerek derişimi düşürme / çökme olmadan çözücü uzaklaştırarak artırma."},
+    {"terim": "koligatif özellik", "tanim": "Çözünenin cinsine değil, çözünen taneciklerin derişimine bağlı özellik: buhar basıncı düşmesi, kaynama noktası yükselmesi, donma noktası alçalması."}
+  ],
+  "sayfa_sayisi": 15
+}

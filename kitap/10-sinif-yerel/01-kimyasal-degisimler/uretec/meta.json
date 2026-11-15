@@ -13,100 +13,100 @@
   "duraklar": [
     {
       "no": 1,
-      "yer": "Yer 1",
-      "baslik": "1. durak başlığı",
-      "enlem": 40.15,
-      "boylam": 41.83,
+      "yer": "Çıldır Gölü",
+      "baslik": "Ne değişti?",
+      "enlem": 41.07,
+      "boylam": 43.23,
       "sayfa": 2,
       "akce": 100
     },
     {
       "no": 2,
-      "yer": "Yer 2",
-      "baslik": "2. durak başlığı",
-      "enlem": 40.03,
-      "boylam": 42.39,
+      "yer": "Kars",
+      "baslik": "Tepkime denklemi",
+      "enlem": 40.63,
+      "boylam": 43.04,
       "sayfa": 3,
       "akce": 120
     },
     {
       "no": 3,
-      "yer": "Yer 3",
-      "baslik": "3. durak başlığı",
-      "enlem": 40.35,
-      "boylam": 42.77,
+      "yer": "Ani",
+      "baslik": "Asit ve baz",
+      "enlem": 40.507,
+      "boylam": 43.572,
       "sayfa": 4,
       "akce": 120
     },
     {
       "no": 4,
-      "yer": "Yer 4",
-      "baslik": "4. durak başlığı",
-      "enlem": 40.65,
-      "boylam": 42.25,
+      "yer": "Sarıkamış",
+      "baslik": "Yanma, sentez, analiz",
+      "enlem": 40.33,
+      "boylam": 42.59,
       "sayfa": 5,
       "akce": 120
     },
     {
       "no": 5,
-      "yer": "Yer 5",
-      "baslik": "5. durak başlığı",
-      "enlem": 40.79,
-      "boylam": 42.93,
+      "yer": "Pasinler",
+      "baslik": "Çökelme tepkimeleri",
+      "enlem": 39.98,
+      "boylam": 41.68,
       "sayfa": 6,
       "akce": 120
     },
     {
       "no": 6,
-      "yer": "Yer 6",
-      "baslik": "6. durak başlığı",
-      "enlem": 40.51,
-      "boylam": 43.35,
+      "yer": "Erzurum",
+      "baslik": "Elektron alışverişi",
+      "enlem": 39.906,
+      "boylam": 41.276,
       "sayfa": 7,
       "akce": 120
     }
   ],
   "kale": "Kars Kalesi",
   "kale_konum": {
-    "enlem": 40.23,
-    "boylam": 43.5
+    "enlem": 40.611,
+    "boylam": 43.09
   },
   "nisanlar": [
     {
-      "ad": "1. Durak Nişanı",
-      "ikon": "deste",
+      "ad": "Buz Gözcüsü",
+      "ikon": "buz",
       "renk": "gol",
-      "aciklama": "1. durak · konu"
+      "aciklama": "1. durak · değişim"
     },
     {
-      "ad": "2. Durak Nişanı",
-      "ikon": "izotop",
+      "ad": "Denklem Kâtibi",
+      "ikon": "denklem",
       "renk": "kob",
-      "aciklama": "2. durak · konu"
+      "aciklama": "2. durak · denklem"
     },
     {
-      "ad": "3. Durak Nişanı",
-      "ikon": "kefal",
-      "renk": "gol",
-      "aciklama": "3. durak · konu"
+      "ad": "Kireç Ustası",
+      "ikon": "kirec",
+      "renk": "keh",
+      "aciklama": "3. durak · asit-baz"
     },
     {
-      "ad": "4. Durak Nişanı",
-      "ikon": "mizan",
+      "ad": "Ocak Bekçisi",
+      "ikon": "alev",
       "renk": "mer",
-      "aciklama": "4. durak · konu"
+      "aciklama": "4. durak · yanma"
     },
     {
-      "ad": "5. Durak Nişanı",
-      "ikon": "karisim",
+      "ad": "Çökelek Avcısı",
+      "ikon": "cokelek",
       "renk": "erg",
-      "aciklama": "5. durak · konu"
+      "aciklama": "5. durak · çökelme"
     },
     {
-      "ad": "6. Durak Nişanı",
-      "ikon": "deste",
-      "renk": "kob",
-      "aciklama": "6. durak · konu"
+      "ad": "Elektron İzcisi",
+      "ikon": "elektron",
+      "renk": "gol",
+      "aciklama": "6. durak · redoks"
     },
     {
       "ad": "Kale Kapısı",
@@ -125,95 +125,203 @@
   "hazine": [
     {
       "kod": "H1",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "a = b · c",
-      "not": "Kısa not",
+      "baslik": "Tek soru · +10 akçe",
+      "formul": "Yeni madde var mı?",
+      "not": "Var → kimyasal · yok → fiziksel",
+      "kisa": "yeni madde = kimyasal",
       "durak": 1
     },
     {
       "kod": "H2",
-      "renk": "gol",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "x = y / z",
+      "renk": "mer",
+      "baslik": "Göstergeler · +10 akçe",
+      "formul": "gaz · renk · çökelek · ısı",
+      "not": "İpucudur, tek başına kanıt değil",
+      "kisa": "gösterge ≠ kanıt",
       "durak": 1
     },
     {
       "kod": "H3",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "a = b · c",
-      "not": "Kısa not",
+      "renk": "gol",
+      "baslik": "Korunanlar · +10 akçe",
+      "formul": "atom · kütle · yük",
+      "not": "Molekül sayısı değişebilir",
+      "kisa": "atom · kütle · yük",
       "durak": 2
     },
     {
       "kod": "H4",
-      "renk": "gol",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "x = y / z",
+      "renk": "kob",
+      "baslik": "Denkleştirme sırası · +10 akçe",
+      "formul": "C → H → O",
+      "not": "O en sona; kesir çıkarsa hepsini ×2",
+      "kisa": "önce C, sonra H, O",
       "durak": 2
     },
     {
       "kod": "H5",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "a = b · c",
-      "not": "Kısa not",
+      "renk": "mer",
+      "baslik": "Nötralleşme · +10 akçe",
+      "formul": "H⁺ + OH⁻ → {H2O}",
+      "not": "Kuvvetli asit + kuvvetli baz",
+      "kisa": "H⁺ + OH⁻ → {H2O}",
       "durak": 3
     },
     {
       "kod": "H6",
       "renk": "gol",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "x = y / z",
+      "baslik": "Tuzun soyağacı · +10 akçe",
+      "formul": "asit + baz → tuz + su",
+      "not": "Katyon bazdan, anyon asitten gelir",
+      "kisa": "asit + baz → tuz + su",
       "durak": 3
     },
     {
       "kod": "H7",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "a = b · c",
-      "not": "Kısa not",
+      "baslik": "Tam yanma · +10 akçe",
+      "formul": "C_xH_y → x CO₂ + y/2 H₂O",
+      "not": "O₂ katsayısını en sona bırak",
+      "kisa": "x CO₂ + y/2 H₂O",
       "durak": 4
     },
     {
       "kod": "H8",
-      "renk": "gol",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "x = y / z",
+      "renk": "kob",
+      "baslik": "Sentez · analiz · +10 akçe",
+      "formul": "A + B → AB · AB → A + B",
+      "not": "Birleşen sentez, ayrışan analiz",
+      "kisa": "A + B → AB · AB → A + B",
       "durak": 4
     },
     {
       "kod": "H9",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "a = b · c",
-      "not": "Kısa not",
+      "renk": "erg",
+      "baslik": "Net iyon denklemi · +10 akçe",
+      "formul": "Ag⁺ + Cl⁻ → AgCl(k)",
+      "not": "Yalnız çökeleği yapan iyonlar yazılır",
+      "kisa": "Ag⁺ + Cl⁻ → AgCl",
       "durak": 5
     },
     {
       "kod": "H10",
       "renk": "gol",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "x = y / z",
+      "baslik": "Eş değiştir · +10 akçe",
+      "formul": "AB + CD → AD + CB",
+      "not": "Sonra çözünürlük tablosuna bak",
+      "kisa": "AB + CD → AD + CB",
       "durak": 5
     },
     {
       "kod": "H11",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "a = b · c",
-      "not": "Kısa not",
+      "renk": "mer",
+      "baslik": "YB oku · +10 akçe",
+      "formul": "e⁻ veren yükseltgenir",
+      "not": "YB artar · e⁻ alan indirgenir, YB azalır",
+      "kisa": "e⁻ veren yükseltgenir",
       "durak": 6
     },
     {
       "kod": "H12",
-      "renk": "gol",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "x = y / z",
+      "renk": "kob",
+      "baslik": "Elektron dengesi · +10 akçe",
+      "formul": "verilen e⁻ = alınan e⁻",
+      "not": "Önce mol, sonra elektron say",
+      "kisa": "verilen = alınan e⁻",
       "durak": 6
     }
   ],
-  "medeniyet": [],
-  "kavramlar": [
+  "medeniyet": [
     {
-      "terim": "terim",
-      "tanim": "tanım"
+      "ad": "İbn Sînâ",
+      "yil": "980–1037",
+      "katki": "Kitâbü’ş-Şifâ’da simyacıların bakırı boyayıp gümüşe benzetebileceğini, ama metalin türünü değiştiremeyeceğini yazdı.",
+      "sayfa": 2
+    },
+    {
+      "ad": "Ebû Bekir er-Râzî",
+      "yil": "865–925",
+      "katki": "Maddeleri gruplara ayırarak sınıflandırdı (tuzlar bu gruplardan biriydi); laboratuvar araçlarını tek tek tarif etti.",
+      "sayfa": 4
+    },
+    {
+      "ad": "Câbir bin Hayyân",
+      "yil": "8. yy",
+      "katki": "Deneysel kimyanın öncülerinden; damıtma, kristallendirme ve süzmeyi sistemli kullandı.",
+      "sayfa": 6
+    },
+    {
+      "ad": "Erzurumlu İbrahim Hakkı",
+      "yil": "1703–1780",
+      "katki": "Hasankale’de (bugünkü Pasinler) doğdu; 1757’de tamamladığı ansiklopedik Marifetnâme’de maddeyi dönemin anlayışıyla dört unsurla (ateş, hava, su, toprak) açıkladı.",
+      "sayfa": 7
     }
   ],
-  "sayfa_sayisi": 16
+  "kavramlar": [
+    {
+      "terim": "fiziksel değişim",
+      "tanim": "Maddenin kimliği değişmeden hâlinin, biçiminin ya da boyutunun değişmesi."
+    },
+    {
+      "terim": "kimyasal değişim",
+      "tanim": "Bağların kopup yeniden kurulduğu, yeni maddenin oluştuğu değişim."
+    },
+    {
+      "terim": "tepkime denklemi",
+      "tanim": "Tepkenleri, ürünleri, fiziksel hâlleri ve katsayıları sembollerle gösteren yazı."
+    },
+    {
+      "terim": "homojen / heterojen tepkime",
+      "tanim": "Bütün maddeler aynı fazdaysa homojen, farklı fazlardaysa heterojen tepkime."
+    },
+    {
+      "terim": "ekzotermik / endotermik",
+      "tanim": "Isı veren tepkime ekzotermik, ısı alan tepkime endotermiktir."
+    },
+    {
+      "terim": "Arrhenius asidi",
+      "tanim": "Suda çözündüğünde ortama H⁺ (H₃O⁺) iyonu veren madde."
+    },
+    {
+      "terim": "Arrhenius bazı",
+      "tanim": "Suda çözündüğünde ortama OH⁻ iyonu veren ya da suyla tepkimesinden OH⁻ oluşturan madde."
+    },
+    {
+      "terim": "nötralleşme",
+      "tanim": "Sulu ortamda asit ile bazın tepkimesi; tuz ve su oluşur, ısı açığa çıkar."
+    },
+    {
+      "terim": "yanma",
+      "tanim": "Bir maddenin oksijenle tepkimesi; oksitler oluşur. Her yanma bir redoks tepkimesidir."
+    },
+    {
+      "terim": "sentez / analiz",
+      "tanim": "Maddelerin birleşerek tek ürün oluşturması sentez, bir maddenin daha basit maddelere ayrışması analizdir."
+    },
+    {
+      "terim": "çökelme tepkimesi",
+      "tanim": "İki çözelti karışınca suda az çözünen katının (çökelek) oluştuğu çift yer değiştirme tepkimesi."
+    },
+    {
+      "terim": "net iyon denklemi",
+      "tanim": "Yalnız tepkimeye gerçekten katılan iyonları gösteren denklem."
+    },
+    {
+      "terim": "seyirci iyon",
+      "tanim": "Tepkimeye katılmadan çözeltide kalan iyon."
+    },
+    {
+      "terim": "yükseltgenme basamağı (YB)",
+      "tanim": "Bir atomun bileşikteki görünür yükü; serbest elementte 0."
+    },
+    {
+      "terim": "yükseltgenme / indirgenme",
+      "tanim": "Elektron verme (YB artar) yükseltgenme, elektron alma (YB azalır) indirgenmedir."
+    },
+    {
+      "terim": "redoks tepkimesi",
+      "tanim": "Yükseltgenme ve indirgenmenin birlikte gerçekleştiği, elektron aktarılan tepkime."
+    }
+  ],
+  "sayfa_sayisi": 16,
+  "hud": "Kars–Erzurum"
 }

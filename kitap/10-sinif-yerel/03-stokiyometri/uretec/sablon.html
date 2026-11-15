@@ -4,11 +4,44 @@
 <meta charset="utf-8">
 <title>Kimya Rotası 10 · Stokiyometri · Dicle Yolu</title>
 <link rel="stylesheet" href="../../yerel-ortak/stil.css">
+<style>
+/* Dicle Yolu · üniteye özel küçük ayarlar (ortak stil.css değişmez) */
+.resim svg { width: 100%; height: auto; display: block; }
+.resim-kart { padding: 2mm 2.6mm; }
+.resim-kart .et { margin-bottom: 1mm; }
+.denklem { font-family: var(--baslik); font-weight: 800; font-size: 12.6pt; line-height: 1.15; text-align: center; padding: 1.2mm 0 .6mm; }
+.denklem small { font-family: var(--govde); font-size: 8pt; font-weight: 800; color: var(--soluk); }
+.gorev-yan { display: grid; grid-template-columns: 1fr 40mm; gap: 2.4mm; align-items: center; }
+.gorev-yan.genis { grid-template-columns: 1fr 52mm; }
+.gorev-yan.dar { grid-template-columns: 1fr 30mm; }
+.iki-sutun.siki { gap: 2.4mm; }
+table.gorev-tablo.kucuk { font-size: 9pt; margin-top: 1mm; }
+table.gorev-tablo.kucuk th, table.gorev-tablo.kucuk td { padding: .45mm 1.2mm; }
+table.korunum-tab td { text-align: left !important; font-weight: 700; background: #fff !important; }
+table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab th:last-child { background: var(--mer-a); }
+.yoldan .et { color: var(--keh-k); }
+.yoldan p { font-size: 9.5pt; line-height: 1.27; margin-top: .6mm; }
+.s8 .sandik-izgara { grid-template-columns: repeat(4, 1fr); }
+.s8 .sandik-izgara div { font-size: 9pt; padding: .8mm 1mm; }
+.s8 .sandik-izgara b { min-width: 7mm; margin-right: .8mm; }
+.mini-kavram { padding: 1.6mm 2.6mm; }
+.mini-kavram p { font-size: 9.5pt; line-height: 1.25; }
+.ozet-f.kucuk { font-size: 13pt; }
+.medeniyet .resimli { display: block; }
+.medeniyet .resimli > svg { float: right; width: 21mm; height: auto; margin: .6mm 0 .8mm 1.8mm; border-radius: 2mm; border: .3mm solid var(--altin); }
+.medeniyet .resimli::after { content: ""; display: block; clear: both; }
+.kucuk-not { font-size: 8.6pt; color: var(--soluk); font-weight: 700; }
+.mesveret .denklem { font-size: 11pt; padding: .4mm 0; }
+.ustad-soru .denklem { font-size: 10.6pt; padding: .2mm 0; }
+.ustad-sekil.genis svg { width: 40mm; }
+.cozumler p.c { margin-bottom: .55mm; }
+.siradaki-yol b { font-size: 13pt; }
+.s1 .ic { gap: 1.8mm; }
+</style>
 </head>
 <body>
 <!-- Bu dosyadan uretec/kur.py ile unite.html üretilir. İçerik burada; çizimler {{yer-tutucu}} ile gelir.
-     Yer tutucular ve bileşenler: yerel-ortak/TASARIM-SISTEMI.md (§5 bileşenler, §8 yer tutucular, §9 cevap işaretleme).
-     HTML yorumları olduğu gibi kalır; yorum içindeki {{…}} çözülmez (örnek bileşenler bu yüzden yorumda durur). -->
+     Yer tutucular ve bileşenler: yerel-ortak/TASARIM-SISTEMI.md (§5 bileşenler, §8 yer tutucular, §10 cevap işaretleme). -->
 {{defs}}
 
 <!-- ================================================================ SAYFA 1 · YOLA ÇIKIŞ -->
@@ -19,21 +52,19 @@
   <div class="acilis">
     <div>
       <div class="cipler"><span class="cip koyu buyuk">Yol 3 · Dicle Yolu</span><span class="cip buyuk">10. sınıf · {{meta|tema}}</span></div>
-      <h1 class="dev-baslik" style="font-size:48pt"><span class="kav"><svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12 C40 2 70 2 100 11 S160 20 200 10 S270 2 296 10" fill="none" stroke="#F0A21A" stroke-width="9" stroke-linecap="round"/></svg>Stokiyometri</span></h1>
-      <p class="slogan">Ünitenin sloganı: bir atasözü ya da <b>yerel bir cümle.</b></p>
+      <h1 class="dev-baslik" style="font-size:48pt"><span class="kav"><svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12 C40 2 70 2 100 11 S160 20 200 10 S270 2 296 10" fill="none" stroke="#F0A21A" stroke-width="9" stroke-linecap="round"/></svg><span style="color:var(--gol)">Stokiyo</span>metri</span></h1>
+      <p class="slogan">Yedi ölç, bir biç; <b>tepkimede de önce oranı ölç.</b></p>
       <div class="cipler" style="margin-top:2.6mm"><span class="cip">6 durak</span><span class="cip">3 yan yol</span><span class="cip mer">1 kale</span><span class="cip akce">{{sikke|}} {{meta|akce_toplam}} akçe</span></div>
     </div>
     <div class="pamuk-sahne">
-      <div class="balon-buyuk"><span class="et keh">Pamuk · tur rehberin</span><br>Miyav, hoş geldin! Bu yolda <b>neyi</b> öğreneceğimizi bir cümleyle söyle.</div>
+      <div class="balon-buyuk"><span class="et keh">Pamuk · yol rehberin</span><br>Miyav, hoş geldin! Dicle boyunca atomları sayacağız: hiçbiri <b>kaybolmaz</b>, yalnızca <b>ortak değiştirir.</b></div>
       {{poz|pamuk-selam|pamuk-buyuk}}
     </div>
   </div>
-  <!-- Tur haritası: meta.json duraklarının enlem–boylamından genel harita. Bölgeye özel panorama çizince
-       {{rota-haritasi}} yerine {{sahne|panorama_adi}}, {{rota-etiket}} yerine kendi etiket yer tutucunu koy (Mol: panorama). -->
   <div class="panorama-kutu" data-serbest>
-    {{rota-haritasi}}
-    <div class="panorama-bas"><h2>Tur haritası</h2><p>Yer 1’den başla, Diyarbakır Surları’ne çık.</p></div>
-    {{rota-etiket}}
+    {{sahne|panorama_dicle}}
+    <div class="panorama-bas"><h2>Yol haritası</h2><p>Çayönü’nden Dicle’ye in, Hasankeyf’e kadar git, Diyarbakır Surları’na dön.</p></div>
+    {{dicle-etiket}}
   </div>
   <main class="ic" style="top:173mm">
     <div class="ara-bas">Kazanılacak nişanlar <small>Durağı bitirince nişanını kendin boya. Kalem senden, nişan bizden.</small></div>
@@ -43,19 +74,19 @@
         <span class="et mer">{{ikon|meclis}}Yol arkadaşların</span>
         <div class="kisiler"><div class="kisi">{{av|elif}}<div><b>Elif<small>10. sınıf · Edremit</small></b><p>Meraklı; “Neden?” demeden geçmez.</p></div></div>
         <div class="kisi">{{av|yusuf}}<div><b>Yusuf<small>kimya kulübü · Erciş</small></b><p>Sakin; adım adım, örnekle anlatır.</p></div></div>
-        <div class="kisi">{{av|pamuk}}<div><b>Pamuk<small>Van kedisi</small></b><p>Bir gözü mavi, bir gözü kehribar; hep sayıyla konuşur.</p></div></div>
+        <div class="kisi">{{av|pamuk}}<div><b>Pamuk<small>Van kedisi · oranlar</small></b><p>Bir gözü mavi, biri kehribar; sayıyla konuşur.</p></div></div>
         <div class="kisi">{{av|zeynep}}<div><b>Zeynep Hoca<small>kimya öğretmeni</small></b><p>“Medeniyetimizden” köşelerini o anlatır.</p></div></div></div>
       </div>
       <div class="kart">
         <span class="et">{{ikon|hedef}}Yolun sonunda · hedefler</span>
         <ol class="hedefler">
-          <li>Birinci kazanım (öğrencinin yapacağı iş).</li>
-          <li>İkinci kazanım.</li>
-          <li>Üçüncü kazanım.</li>
+          <li>Denklemleri en küçük tam sayılarla denkleştireceksin.</li>
+          <li>Katsayılardan mol, kütle, tanecik hesaplayacaksın.</li>
+          <li>Sınırlayıcı, verim, saflık ve zincir sorularını çözeceksin.</li>
         </ol>
-        <div class="et keh" style="margin-top:3mm">Ahilik basamakları · toplam akçene göre</div>
+        <div class="et keh" style="margin-top:2.4mm">Ahilik basamakları · toplam akçene göre</div>
         <div class="basamak-unvan" style="margin-top:3.4mm">
-          <div><b>Çırak</b><small>0+</small></div><div><b>Kalfa</b><small>400+</small></div><div><b>Usta</b><small>800+</small></div><div><b>Üstad</b><small>1150+</small></div>
+          <div><b>Çırak</b><small>0+</small></div><div><b>Kalfa</b><small>400+</small></div><div><b>Usta</b><small>800+</small></div><div><b>Oran Üstadı</b><small>1150+</small></div>
         </div>
       </div>
     </div>
@@ -72,423 +103,464 @@
   {{alt|1}}
 </section>
 
-<!-- ================================================================ SAYFA 2 · 1. DURAK · YER 1 -->
+<!-- ================================================================ SAYFA 2 · 1. DURAK · ÇAYÖNÜ · TEPKİME DENKLEMİ VE KORUNUM -->
 <section class="sayfa s2">
   {{zemin}}
   {{hud|2}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|safak|1}}
-    <div class="levha">{{rozet|1}}<div><div class="ust">1. durak · Yer 1 · sabah</div><h1>1. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+100 akçe</span><span class="cip">Nişan: 1. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|cayonu}}
+    <div class="levha">{{rozet|1}}<div><div class="ust">1. durak · Çayönü (Ergani) · sabah</div><h1>Atomlar <em>kaybolmaz</em></h1><p class="alt-bas">Tepkime denklemi ve <b>kütlenin korunumu</b>.</p><div class="hedef"><b>Hedef</b>Denklemi oku; korunanı korunmayandan ayır.<span class="cip akce">+100 akçe</span><span class="cip">Nişan: Korunum Bekçisi</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Ateşte ısıtılan bakır tel neden kararıp ağırlaşıyor?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Oksijen bakıra bağlanıyor: 2Cu + O<sub>2</sub> → 2CuO. Atomlar <span class="vurgu">ne kaybolur ne yoktan var olur</span>.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @oran</span>Solda 2 Cu, 2 O; sağda 2 Cu, 2 O. Saydım, tuttu. Miyav!</div></div>
+      </div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · tepkime denklemi</span></div>
+        <p>Okun soluna <b>tepkenler</b>, sağına <b>ürünler</b> yazılır; hâller parantezle: (k), (s), (g), (suda).</p>
+        <div class="denklem">2Cu(k) + O<sub>2</sub>(g) → 2CuO(k)</div>
+        <p><b>Kütlenin korunumu:</b> Lavoisier (18. yy) kapalı kaplarda tarttı: girenlerin kütleleri toplamı, ürünlerinkine eşittir.</p>
+        <table class="gorev-tablo kucuk korunum-tab"><tr><th>Her zaman korunur</th><th>Korunmayabilir</th></tr>
+          <tr><td>toplam kütle</td><td>molekül sayısı</td></tr><tr><td>atom türü ve sayısı</td><td>toplam mol sayısı</td></tr><tr><td>toplam proton, elektron</td><td>hâl, renk, hacim</td></tr></table>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1.12fr .88fr">
+      <div class="kart resim-kart">
+        <span class="et">{{ikon|terazi}}Kapalı kapta tartı · önce ve sonra</span>
+        <div class="resim">{{info|korunum_semasi}}</div>
       </div>
       <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
-        </div>
         {{hazine|H1}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-      </div>
-    </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
-      <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
-      </div>
-      <div class="kart hizli">
-        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
-      </div>
-    </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
-      </div>
-      <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Yoldan</span>
-        <p>Bölgeden, doğrulanmış bir günlük hayat bilgisi. Emin değilsen “yaklaşık” de.</p>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
-      <div class="bento dikey">
         {{hazine|H2}}
         <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1.4fr .6fr">
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · çözümlü</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+30 akçe</span></span></div>
+        <p class="soru">Kapalı kapta 12,8 g bakır tozu yeterli oksijenle 2Cu + O<sub>2</sub> → 2CuO tepkimesine girip 16,0 g CuO oluşturuyor. Kaç g O<sub>2</sub> harcanır? Kabın kütlesi değişir mi?</p>
+        <ol class="akis">
+          <li><i>1</i><span><b>H1:</b> m(O<sub>2</sub>) = 16,0 − 12,8 = 3,2 g</span></li>
+          <li><i>2</i><span>Kap kapalı, atom çıkmaz. Kontrol (Cu 64, O 16): 0,2 mol Cu → 0,2 mol CuO = 16 g</span></li>
+        </ol>
+        <div class="sonuc"><span>SONUÇ</span>3,2 g O<sub>2</sub> · toplam kütle değişmez</div>
+      </div>
+      <div class="kart kiyidan yoldan">
+        <span class="et">{{ikon|harita}}Yoldan · Çayönü</span>
+        <p>Ergani’deki Çayönü’nde malakit (yeşil bakır cevheri) ve bakır boncuklar bulundu: bakırın işlendiği <b>en eski yerlerden</b> biri.</p>
+        <div class="hizli-kontrol" style="border-top-color:var(--keh)"><span class="cip akce">+20</span><span><b>Hızlı kontrol:</b> 2H<sub>2</sub> + O<sub>2</sub>’de kaç atom var?</span><span class="ters-cevap"><span class="ters">6 atom</span></span></div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1fr 1fr 1.08fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Odun yanınca kütle kaybolur.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Sistem <b>açık</b>: CO<sub>2</sub> ve su buharı havaya karışır; kütle onlarla gider.</p></div>
+      </div>
+      <div class="kart hizli">
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+20 akçe</span></div>
+        <p class="soru">4 g H<sub>2</sub> ile 32 g O<sub>2</sub> artansız su oluşturuyor. Kaç g su oluşur? Molekül sayısı korunur mu?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">36 g su; hayır</span></div><span class="ters-cevap"><span class="ters">36 g · hayır</span></span></div>
+      </div>
+      <div class="medeniyet">{{kose}}
+        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
+        <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
+        <p class="metin"><b>İbn Sînâ</b> (980–1037) <i>Kitâbü’ş-Şifâ</i>’da, simyacıların bir madeni başka bir madene gerçekten <b>dönüştüremeyeceğini</b>, yalnızca benzetebileceğini yazdı.</p>
+        <p class="not">Tepkimede de <b>atom türü değişmez</b>.</p>
       </div>
     </div>
   </main>
   {{alt|2}}
 </section>
 
-<!-- ================================================================ SAYFA 3 · 2. DURAK · YER 2 -->
+<!-- ================================================================ SAYFA 3 · 2. DURAK · HEVSEL BAHÇELERİ · DENKLEŞTİRME -->
 <section class="sayfa s3">
   {{zemin}}
   {{hud|3}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|gun|2}}
-    <div class="levha">{{rozet|2}}<div><div class="ust">2. durak · Yer 2 · öğle</div><h1>2. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+120 akçe</span><span class="cip">Nişan: 2. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|hevsel}}
+    <div class="levha">{{rozet|2}}<div><div class="ust">2. durak · Hevsel Bahçeleri · öğle</div><h1>İki yaka <em>denk</em></h1><p class="alt-bas">Okun iki yanında her atomdan <b>aynı sayıda</b>.</p><div class="hedef"><b>Hedef</b>Denklemleri en küçük tam sayılarla denkleştir; formülü bilinmeyeni bul.<span class="cip akce">+120 akçe</span><span class="cip">Nişan: Denge Bahçıvanı</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1.04fr .96fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yapraklar şeker yapıyor ama denklemim tutmuyor!</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Dicle’nin iki yakası gibi: iki yanda her atomdan aynı sayıda. Önüne <span class="vurgu">katsayı</span> yaz.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @oran</span>6CO<sub>2</sub> + 6H<sub>2</sub>O → C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6O<sub>2</sub>: iki yakada 6 C, 12 H, 18 O!</div></div>
       </div>
       <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
+        <div class="kart kavram">
+          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · denkleştirme</span></div>
+          <p><b>Katsayı:</b> formülün önündeki sayı (1 yazılmaz); <b>en küçük tam sayılar</b> seçilir. <b>Parantez:</b> dıştaki alt simge içtekileri çarpar: Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub>’te 2 Al, 3 S, 12 O.</p>
         </div>
         {{hazine|H3}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
+    <div class="bento" style="grid-template-columns:1.32fr .68fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 2 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 2 · tam sayılı ve kesirli</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30 akçe</span></span></div>
+        <div class="baglam">Bahçe ocağının tüpünde propan, çakmakta bütan yanar.</div>
+        <div class="iki-sutun siki">
+          <div><p class="soru"><span class="harf-r">A</span>C<sub>3</sub>H<sub>8</sub> + O<sub>2</sub> → CO<sub>2</sub> + H<sub>2</sub>O</p>
+            <ol class="akis"><li><i>1</i><span>3 C → 3CO<sub>2</sub>; 8 H → 4H<sub>2</sub>O</span></li><li><i>2</i><span>Sağda O: 6 + 4 = 10 → 5O<sub>2</sub></span></li></ol>
+            <div class="sonuc"><span>SONUÇ</span>C<sub>3</sub>H<sub>8</sub> + 5O<sub>2</sub> → 3CO<sub>2</sub> + 4H<sub>2</sub>O</div></div>
+          <div><p class="soru"><span class="harf-r">B</span>C<sub>4</sub>H<sub>10</sub> + O<sub>2</sub> → CO<sub>2</sub> + H<sub>2</sub>O</p>
+            <ol class="akis"><li><i>1</i><span>4CO<sub>2</sub> + 5H<sub>2</sub>O; sağda O: 8 + 5 = 13 → <sup>13</sup>/<sub>2</sub> O<sub>2</sub></span></li><li><i>2</i><span>Kesir var: hepsini 2 ile çarp</span></li></ol>
+            <div class="sonuc"><span>SONUÇ</span>2C<sub>4</sub>H<sub>10</sub> + 13O<sub>2</sub> → 8CO<sub>2</sub> + 10H<sub>2</sub>O</div></div>
+        </div>
+      </div>
+      <div class="kart resim-kart">
+        <span class="et">{{ikon|dalga}}İki yakada sayım · propan</span>
+        <div class="resim">{{info|iki_yaka}}</div>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1.12fr .88fr">
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 3 · formülü bilinmeyen</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+25 akçe</span></span></div>
+        <div class="gorev-yan genis">
+          <div><p class="soru">Denkleşmiş X + 3O<sub>2</sub> → 2CO<sub>2</sub> + 3H<sub>2</sub>O denkleminde X’in formülü nedir?</p>
+            <ol class="akis"><li><i>1</i><span>Ürünlerde: 2 C, 6 H, 4 + 3 = 7 O</span></li><li><i>2</i><span>3O<sub>2</sub>’den 6 O gelir → X’te 1 O kalır</span></li></ol>
+            <div class="sonuc"><span>SONUÇ</span>X = C<sub>2</sub>H<sub>6</sub>O</div></div>
+          <table class="gorev-tablo kucuk"><tr><th>Atom</th><th>Ürün</th><th>3O<sub>2</sub></th><th>X</th></tr><tr><td>C</td><td>2</td><td>0</td><td>2</td></tr><tr><td>H</td><td>6</td><td>0</td><td>6</td></tr><tr><td>O</td><td>7</td><td>6</td><td>1</td></tr></table>
+        </div>
+      </div>
+      <div class="bento dikey">
+        {{hazine|H4}}
+        <div class="kes-not">{{ikon|makas}}Kes · yapıştır · kart başı +10</div>
+      <div class="kart kiyidan yoldan" style="flex:1">
+        <span class="et">{{ikon|harita}}Yoldan · Hevsel</span>
+        <p>Hevsel Bahçeleri surlarla Dicle arasında uzanır; 2015’te Diyarbakır Kalesi ile birlikte <b>UNESCO Dünya Mirası</b> Listesi’ne alındı.</p>
+      </div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1fr 1fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+15 akçe</span></div>
+        <div class="tuzak-iddia"><small>Elif’in kestirmesi</small><p>“O sayısı tutmuyorsa H<sub>2</sub>O yerine H<sub>2</sub>O<sub>2</sub> yazarım.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Alt simge değişirse <b>madde değişir</b> (H<sub>2</sub>O<sub>2</sub> başka maddedir). Yalnız katsayı: 2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
-      </div>
-    </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
-      </div>
-      <div class="medeniyet">{{kose}}
-        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
-        <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
-        <p class="metin"><b>Âlimin adı</b> (yıl): YEREL-KIMLIK.md’deki doğrulanmış bilgi, iki cümle.</p>
-        <p class="not">Konuya bağlayan tek cümle.</p>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
-      <div class="bento dikey">
-        {{hazine|H4}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
+        <p class="soru">Bahçe kapısı paslanıyor: Fe + O<sub>2</sub> → Fe<sub>2</sub>O<sub>3</sub>. En küçük tam sayılarla denkleştir; katsayılar toplamı kaç?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">2Fe<sub>2</sub>O<sub>3</sub> ile başla: 4 Fe, 6 O.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">4Fe + 3O<sub>2</sub> → 2Fe<sub>2</sub>O<sub>3</sub> · 9</span></div><span class="ters-cevap"><span class="ters">Cevap: 9</span></span></div>
       </div>
     </div>
   </main>
   {{alt|3}}
 </section>
 
-<!-- ================================================================ SAYFA 4 · 3. DURAK · YER 3 -->
+<!-- ================================================================ SAYFA 4 · 3. DURAK · MALABADİ KÖPRÜSÜ · DENKLEMDEN HESABA -->
 <section class="sayfa s4">
   {{zemin}}
   {{hud|4}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|altin|3}}
-    <div class="levha">{{rozet|3}}<div><div class="ust">3. durak · Yer 3 · ikindi</div><h1>3. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+120 akçe</span><span class="cip">Nişan: 3. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|malabadi}}
+    <div class="levha">{{rozet|3}}<div><div class="ust">3. durak · Malabadi Köprüsü · ikindi</div><h1>Katsayı <em>köprüsü</em></h1><p class="alt-bas">Katsayılar <b>mol oranıdır</b>; kütle oranı değil.</p><div class="hedef"><b>Hedef</b>Bir maddenin miktarından ötekini hesapla.<span class="cip akce">+120 akçe</span><span class="cip">Nişan: Köprü Mimarı</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kemer iki yakayı bağlar. Ya iki maddeyi?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span><span class="vurgu">Katsayılar</span>: N<sub>2</sub> + 3H<sub>2</sub> → 2NH<sub>3</sub>’te 1 mol N<sub>2</sub>, 3 mol H<sub>2</sub> ile 2 mol NH<sub>3</sub> verir.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @oran</span>Mol 1 : 3 : 2, kütle 28 : 6 : 34. Yine 28 + 6 = 34. Miyav!</div></div>
       </div>
-      <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
-        </div>
-        {{hazine|H5}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
+      <div class="bento dikey"><div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · stokiyometri</span></div>
+        <p>Harcanan ve oluşan madde miktarlarını denklemden hesaplamak. Denklem üç “dilde” okunur:</p>
+        <table class="gorev-tablo kucuk"><tr><th></th><th>N<sub>2</sub>(g)</th><th>3H<sub>2</sub>(g)</th><th>2NH<sub>3</sub>(g)</th><th>Oran</th></tr>
+          <tr><td>Tanecik</td><td>1 molekül</td><td>3 molekül</td><td>2 molekül</td><td>katsayı</td></tr>
+          <tr><td>Mol</td><td>1 mol</td><td>3 mol</td><td>2 mol</td><td>katsayı</td></tr>
+          <tr><td>Kütle</td><td>28 g</td><td>6 g</td><td>34 g</td><td>katsayı değil</td></tr></table>
+        <p class="kucuk-not" style="margin-top:1mm">H: 1 · N: 14 g/mol</p>
+      </div></div>
+    </div>
+    <div class="bento" style="grid-template-columns:1.12fr .88fr">
+      <div class="kart resim-kart">
+        <span class="et">{{ikon|harita}}Hesap yolu · köprüden geç</span>
+        <div class="resim">{{info|oran_koprusu}}</div>
+      </div>
+      <div class="medeniyet">{{kose}}
+        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
+        <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><div class="resimli">{{info|cezeri_duzenek}}<p class="metin"><b>el-Cezerî</b> Âmid’de (Diyarbakır) <b>Artuklu</b> sarayında 25 yılı aşkın çalıştı; makinelerini anlatan kitabını <b>1206</b>’da bitirdi.</p></div>
+        <p class="not"><b>Yoldan:</b> Malabadi Köprüsü de Artukludur (1147).</p>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 3 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 4 · kütleden kütleye</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
+        <p class="soru">Doğal gazdaki metan yanıyor: CH<sub>4</sub> + 2O<sub>2</sub> → CO<sub>2</sub> + 2H<sub>2</sub>O. 4,8 g CH<sub>4</sub> için kaç g O<sub>2</sub> harcanır, kaç g CO<sub>2</sub> oluşur? (H 1, C 12, O 16)</p>
+        <ol class="akis"><li><i>1</i><span>0,3 mol CH<sub>4</sub> → <b>H5:</b> 0,6 mol O<sub>2</sub>, 0,3 mol CO<sub>2</sub></span></li><li><i>2</i><span>19,2 g O<sub>2</sub>; 13,2 g CO<sub>2</sub> (kontrol: 4,8 + 19,2 = 13,2 + 10,8)</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>19,2 g O<sub>2</sub> · 13,2 g CO<sub>2</sub></div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 5 · kütleden taneciğe</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+30</span></span></div>
+        <div class="kose-mol">{{mol|NH3|25,0,0|11mm}}</div>
+        <p class="soru">Gübrelerin temeli amonyak: N<sub>2</sub> + 3H<sub>2</sub> → 2NH<sub>3</sub>. 6,8 g NH<sub>3</sub> için kaç g H<sub>2</sub> gerekir, kaç tane N<sub>2</sub> harcanır?</p>
+        <ol class="akis"><li><i>1</i><span>0,4 mol NH<sub>3</sub> → H<sub>2</sub> 0,4·<sup>3</sup>/<sub>2</sub> = 0,6 mol = 1,2 g</span></li><li><i>2</i><span>N<sub>2</sub> 0,2 mol = 0,2·6,02·10<sup>23</sup></span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>1,2 g H<sub>2</sub> · 1,204·10<sup>23</sup> N<sub>2</sub></div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“2H<sub>2</sub> + O<sub>2</sub>’de 2 g H<sub>2</sub>, 1 g O<sub>2</sub> ile birleşir.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Katsayılar <b>mol</b> oranıdır: 2 mol H<sub>2</sub> (4 g), 1 mol O<sub>2</sub> (32 g) ile birleşir.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
+        <p class="soru">Mangal kömürü yanıyor: C + O<sub>2</sub> → CO<sub>2</sub>. 6 g karbon tamamen yanınca kaç g CO<sub>2</sub> oluşur?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">6/12 = 0,5 mol; 1 : 1.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">22 g CO<sub>2</sub></span></div><span class="ters-cevap"><span class="ters">Cevap: 22 g</span></span></div>
       </div>
-    </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
-      </div>
-      <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Yoldan</span>
-        <p>Bölgeden, doğrulanmış bir günlük hayat bilgisi. Emin değilsen “yaklaşık” de.</p>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
       <div class="bento dikey">
+        {{hazine|H5}}
         {{hazine|H6}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
       </div>
     </div>
   </main>
   {{alt|4}}
 </section>
 
-<!-- ================================================================ SAYFA 5 · 4. DURAK · YER 4 -->
+<!-- ================================================================ SAYFA 5 · 4. DURAK · BATMAN · SINIRLAYICI BİLEŞEN -->
 <section class="sayfa s5">
   {{zemin}}
   {{hud|5}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|gun|4}}
-    <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Yer 4 · öğle</div><h1>4. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+120 akçe</span><span class="cip">Nişan: 4. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|batman}}
+    <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Batman · Raman Dağı eteği</div><h1>Önce <em>biten</em> belirler</h1><p class="alt-bas">Tepkime, tepkenlerden <b>biri bitince</b> durur.</p><div class="hedef"><b>Hedef</b>Grafikten denklemi oku; sınırlayıcı bileşeni ve artanı bul.<span class="cip akce">+120 akçe</span><span class="cip">Nişan: Alev Ustası</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1.04fr .96fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Ocağa hava az gidince alev neden isli yanıyor?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Oksijen yetmezse tepkime onun bitişiyle durur: oksijen <span class="vurgu">sınırlayıcı bileşen</span> olur.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @oran</span>1 öğün = 2 kaşık mama + 1 kâse süt. 10 kaşık, 7 kâse → 5 öğün; çok olan mama biter!</div></div>
       </div>
       <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
+        <div class="kart kavram">
+          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · sınırlayıcı bileşen</span></div>
+          <p><b>İlk tükenen</b> ve ürün miktarını belirleyen tepken; tükenmeyene <b>artan madde</b> denir. Her tepkenin molünü <b>kendi katsayısına böl</b>: en küçük çıkan sınırlayıcıdır.</p>
         </div>
         {{hazine|H7}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-      </div>
-    </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
-      <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 4 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
-      </div>
-      <div class="kart hizli">
-        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
       </div>
     </div>
     <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
+      <div class="kart resim-kart">
+        <span class="et">{{ikon|terazi}}Tanecik gözüyle · 2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O</span>
+        <div class="resim">{{info|sinirlayici_tanecik}}</div>
+        <p class="kucuk-not" style="margin-top:.6mm">4 H<sub>2</sub> sayıca fazla; yine de <b>H<sub>2</sub> biter</b>: 4/2 = 2 &lt; 3/1 = 3.</p>
       </div>
-      <div class="medeniyet">{{kose}}
-        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
-        <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
-        <p class="metin"><b>Âlimin adı</b> (yıl): YEREL-KIMLIK.md’deki doğrulanmış bilgi, iki cümle.</p>
-        <p class="not">Konuya bağlayan tek cümle.</p>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 6 · grafikten denklem</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
+        <div class="gorev-yan">
+          <div><p class="soru">X ve Y’den Z oluşuyor (tam verim). Grafiğe göre denklem nedir, hangisi artar?</p>
+            <ol class="akis"><li><i>1</i><span>X −2, Y −4, Z +2 → 1 : 2 : 1</span></li><li><i>2</i><span>Y tükenir: sınırlayıcı Y; X’ten 1 mol artar</span></li></ol></div>
+          <div class="resim">{{info|mol_zaman|durak}}</div>
+        </div>
+        <div class="sonuc"><span>SONUÇ</span>X + 2Y → Z · 1 mol X artar</div>
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
-      <div class="bento dikey">
-        {{hazine|H8}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 7 · Başlangıç – Değişim – Sonuç</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+40 akçe</span></span></div>
+      <p class="soru">Raman’ın doğal gazından 9,6 g CH<sub>4</sub> ile 32 g O<sub>2</sub>, CH<sub>4</sub> + 2O<sub>2</sub> → CO<sub>2</sub> + 2H<sub>2</sub>O denklemine göre tam verimle tepkimeye giriyor. Hangi maddeden kaç g artar? Kaç g CO<sub>2</sub> oluşur?</p>
+      <div class="gorev-yan" style="grid-template-columns:1fr 78mm">
+        <ol class="akis"><li><i>1</i><span>CH<sub>4</sub> 0,6 mol; O<sub>2</sub> 1,0 mol · <b>H7:</b> 0,6/1 &gt; 1,0/2 → O<sub>2</sub> sınırlayıcı</span></li><li><i>2</i><span>Artan CH<sub>4</sub> 0,1 mol = 1,6 g · CO<sub>2</sub> 0,5 mol = 22 g</span></li><li><i>3</i><span>Kontrol: 9,6 + 32 = 41,6 = 22 + 18 + 1,6</span></li></ol>
+        <table class="gorev-tablo kucuk"><tr><th>mol</th><th>CH<sub>4</sub></th><th>2O<sub>2</sub></th><th>CO<sub>2</sub></th><th>2H<sub>2</sub>O</th></tr><tr><td>B</td><td>0,6</td><td>1,0</td><td>0</td><td>0</td></tr><tr><td>D</td><td>−0,5</td><td>−1,0</td><td>+0,5</td><td>+1,0</td></tr><tr><td>S</td><td>0,1</td><td>0</td><td>0,5</td><td>1,0</td></tr></table>
       </div>
+      <div class="sonuc"><span>SONUÇ</span>1,6 g CH<sub>4</sub> artar · 22 g CO<sub>2</sub></div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Molü az olan hep sınırlayıcıdır.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Molü katsayıya böl: 3 mol H<sub>2</sub> + 2 mol O<sub>2</sub>’de H<sub>2</sub> 3/2 = 1,5 &lt; O<sub>2</sub> 2/1 = 2 → çok olan <b>H<sub>2</sub> biter</b>.</p></div>
+      </div>
+      <div class="kart hizli">
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+20 akçe</span></div>
+        <p class="soru">C<sub>3</sub>H<sub>8</sub> + 5O<sub>2</sub> → 3CO<sub>2</sub> + 4H<sub>2</sub>O. 0,4 mol propan ile 1,5 mol O<sub>2</sub> tepkimeye giriyor. Sınırlayıcı hangisi, kaç mol CO<sub>2</sub> oluşur?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">0,4/1 ile 1,5/5’i karşılaştır.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">O<sub>2</sub> · 0,9 mol CO<sub>2</sub></span></div><span class="ters-cevap"><span class="ters">O<sub>2</sub> · 0,9 mol</span></span></div>
+      </div>
+      <div class="bento dikey"><div class="kart kiyidan yoldan">
+        <span class="et">{{ikon|harita}}Yoldan · Batman</span>
+        <p><b>Raman Dağı</b>’nda petrole 1940’ta rastlandı; <b>Batman Rafinerisi</b> 1955’te kuruldu.</p>
+      </div>
+      {{hazine|H8}}</div>
     </div>
   </main>
   {{alt|5}}
 </section>
 
-<!-- ================================================================ SAYFA 6 · 5. DURAK · YER 5 -->
+<!-- ================================================================ SAYFA 6 · 5. DURAK · HASANKEYF · VERİM VE SAFLIK -->
 <section class="sayfa s6">
   {{zemin}}
   {{hud|6}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|altin|5}}
-    <div class="levha">{{rozet|5}}<div><div class="ust">5. durak · Yer 5 · ikindi</div><h1>5. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+120 akçe</span><span class="cip">Nişan: 5. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|hasankeyf}}
+    <div class="levha">{{rozet|5}}<div><div class="ust">5. durak · Hasankeyf · Ilısu Baraj Gölü kıyısı</div><h1>Verim ve <em>saflık</em></h1><p class="alt-bas">Kâğıttaki hesap ile kaptaki gerçek <b>aynı olmayabilir</b>.</p><div class="hedef"><b>Hedef</b>Verimi ve saflığı hesapla; yalnız saf kısmı hesaba kat.<span class="cip akce">+120 akçe</span><span class="cip">Nişan: Verim Ehli</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1.04fr .96fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Bu yamaçlar kireç taşı. Isıtınca hepsi kirece döner mi?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Hesabın söylediği en çok ürün <span class="vurgu">teorik verim</span>; ocaktan alınan <b>gerçek verim</b>, çoğu zaman daha az.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @oran</span>Taşta kil, kum da var. Yalnız <b>saf kısım</b> tepkimeye girer. Miyav!</div></div>
       </div>
       <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
+        <div class="kart kavram">
+          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · verim ve saflık</span></div>
+          <p><b>Teorik verim:</b> sınırlayıcıdan hesaplanan en çok ürün. <b>Gerçek verim:</b> deneyde alınan; yarım kalan tepkime, yan tepkime ve kayıplarla azalır. <b>Saflık:</b> saf madde kütlesi / örnek kütlesi.</p>
         </div>
-        {{hazine|H9}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
+        <div class="kart kiyidan yoldan" style="flex:1">
+      <span class="et">{{ikon|harita}}Yoldan · Hasankeyf</span>
+      <p>Yamaçlar büyük ölçüde <b>kireç taşı ve dolomittir</b>; mağaralar bu kayalara oyulmuştur. Ilısu Barajı’nın suları 2020’de eski Hasankeyf’in büyük bölümünü kapladı; Zeynel Bey Türbesi ve başka bazı yapılar yeni yerleşimdeki Kültür Parkı’na taşındı.</p>
+    </div>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 5 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 8 · verimi bul</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
+        <div class="gorev-yan dar">
+          <div><p class="soru">Kireç ocağı: CaCO<sub>3</sub> → CaO + CO<sub>2</sub>. 50 g CaCO<sub>3</sub>’ten 22,4 g CaO alınıyor. Verim yüzde kaçtır? (C 12, O 16, Ca 40)</p>
+            <ol class="akis"><li><i>1</i><span>0,5 mol → teorik CaO 28 g</span></li><li><i>2</i><span><b>H9:</b> 22,4 / 28 · 100</span></li></ol></div>
+          <div class="resim">{{info|verim_saati|80}}</div>
+        </div>
+        <div class="sonuc"><span>SONUÇ</span>%80 verim</div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 9 · saflığı bul</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+30</span></span></div>
+        <div class="gorev-yan dar">
+          <div><p class="soru">40 g kayaç örneği HCl ile 13,2 g CO<sub>2</sub> veriyor (safsızlık gaz vermez): CaCO<sub>3</sub> + 2HCl → CaCl<sub>2</sub> + H<sub>2</sub>O + CO<sub>2</sub>. Örnek % kaç CaCO<sub>3</sub>?</p>
+            <ol class="akis"><li><i>1</i><span>0,3 mol CO<sub>2</sub> → 0,3 mol CaCO<sub>3</sub> = 30 g</span></li><li><i>2</i><span><b>H10:</b> 30 / 40 · 100</span></li></ol></div>
+          <div class="resim">{{info|saflik_tasi}}</div>
+        </div>
+        <div class="sonuc"><span>SONUÇ</span>%75 saflık</div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1fr 1fr 1.1fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“%80 saf örnekte hesabı örneğin tamamıyla yaparım.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Yalnız <b>saf kısım</b> tepkimeye girer: önce örnek × 0,80, sonra mole git.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
+        <p class="soru">Ocak %80 verimle çalışıyor. 0,4 mol CaO almak için kaç g CaCO<sub>3</sub> gerekir?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Teorik = 0,4 / 0,80 mol.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">50 g CaCO<sub>3</sub></span></div><span class="ters-cevap"><span class="ters">Cevap: 50 g</span></span></div>
+      </div>
+      <div class="medeniyet">{{kose}}
+        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
+        <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><div class="resimli">{{info|hazini_kart}}<p class="metin"><b>el-Hâzinî</b> (12. yy) <i>Mîzânü’l-Hikme</i>’de, iki madenli bir alaşımda madenlerin <b>oranını</b> bulan hassas bir terazi anlattı.</p></div>
+        <p class="not"><b>Saflığı</b> bilmek, hesabın ilk adımıdır.</p>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
-      </div>
-      <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Yoldan</span>
-        <p>Bölgeden, doğrulanmış bir günlük hayat bilgisi. Emin değilsen “yaklaşık” de.</p>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
-      <div class="bento dikey">
-        {{hazine|H10}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
-      </div>
-    </div>
+    <div class="bento" style="grid-template-columns:1fr 1fr">{{hazine|H9}}{{hazine|H10}}</div>
   </main>
   {{alt|6}}
 </section>
 
-<!-- ================================================================ SAYFA 7 · 6. DURAK · YER 6 -->
+<!-- ================================================================ SAYFA 7 · 6. DURAK · BAKIRCILAR ÇARŞISI · KARIŞIMLAR VE ARDIŞIK TEPKİMELER -->
 <section class="sayfa s7">
   {{zemin}}
   {{hud|7}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|safak|6}}
-    <div class="levha">{{rozet|6}}<div><div class="ust">6. durak · Yer 6 · sabah</div><h1>6. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+120 akçe</span><span class="cip">Nişan: 6. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|bakircilar}}
+    <div class="levha">{{rozet|6}}<div><div class="ust">6. durak · Diyarbakır · Bakırcılar Çarşısı</div><h1>Karışım ve <em>zincir</em></h1><p class="alt-bas">Her maddeye kendi denklemi; halkaları <b>ortak madde</b> bağlar.</p><div class="hedef"><b>Hedef</b>Karışımı x ile çöz; zincirde oranı ortak maddeyle taşı.<span class="cip akce">+120 akçe</span><span class="cip">Nişan: Zincir Ustası</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1.04fr .96fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Pirinç tepsi bakır–çinko karışımı. HCl’ye atsak ikisi de gaz verir mi?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Yalnız çinko: Zn + 2HCl → ZnCl<sub>2</sub> + H<sub>2</sub>. Çıkan H<sub>2</sub>’nin <span class="vurgu">hepsi çinkodan</span>.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @oran</span>Bakır da zincirle gelir: malakit → CuO → Cu. Miyav!</div></div>
       </div>
       <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
+        <div class="kart kavram">
+          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · karışım ve zincir</span></div>
+          <p><b>Karışım:</b> her bileşen kendi denklemiyle tepkir; x ve (toplam − x) de, ortak niceliği topla. <b>Ardışık:</b> bir tepkimenin ürünü sonrakinin tepkenidir; oranı <b>ortak madde</b> taşır.</p>
         </div>
-        {{hazine|H11}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
+        <div class="kart kiyidan yoldan" style="flex:1">
+        <span class="et">{{ikon|harita}}Yoldan · Bakırcılar Çarşısı</span>
+        <p>Diyarbakır’ın Bakırcılar Çarşısı’nda ustalar kazan, ibrik, bakraç döver; süsü kazıma ve kabartmayla verir. Bölgede bakırın hikâyesi <b>Çayönü</b>’ne uzanır.</p>
+        </div>
+        
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
-      <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 6 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 10 · gaz karışımı</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+35 akçe</span></span></div>
+      <div class="gorev-yan dar">
+        <div><div class="baglam">Çay ocağının tüp gazı propan ve bütan karışımıdır.</div>
+          <p class="soru">C<sub>3</sub>H<sub>8</sub> ve C<sub>4</sub>H<sub>10</sub>’dan oluşan 0,5 mollük karışım yanınca 1,8 mol CO<sub>2</sub> oluşuyor. Molce % kaçı propandır? Karışım kaç gramdır? (H 1, C 12)</p>
+          <div class="iki-sutun siki">
+            <table class="gorev-tablo kucuk"><tr><th></th><th>C<sub>3</sub>H<sub>8</sub></th><th>C<sub>4</sub>H<sub>10</sub></th><th>Toplam</th></tr><tr><td>Mol</td><td>x</td><td>0,5 − x</td><td>0,5</td></tr><tr><td>CO<sub>2</sub> (mol)</td><td>3x</td><td>4(0,5 − x)</td><td>1,8</td></tr></table>
+            <ol class="akis"><li><i>1</i><span>3x + 2 − 4x = 1,8 → <b>x = 0,2</b></span></li><li><i>2</i><span>0,2 / 0,5 · 100 = %40 propan</span></li><li><i>3</i><span>0,2·44 + 0,3·58 = 8,8 + 17,4</span></li></ol>
+          </div>
+          <div class="sonuc"><span>SONUÇ</span>%40 propan · 26,2 g karışım</div></div>
+        <div class="resim">{{info|lpg_tupu}}</div>
+      </div>
+    </div>
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 11 · ardışık tepkimeler</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+35 akçe</span></span></div>
+      <div class="gorev-yan genis">
+        <div><div class="denklem" style="font-size:10.4pt;text-align:left">Cu<sub>2</sub>(OH)<sub>2</sub>CO<sub>3</sub> → 2CuO + CO<sub>2</sub> + H<sub>2</sub>O &nbsp;·&nbsp; 2CuO + C → 2Cu + CO<sub>2</sub></div>
+          <p class="soru">44,4 g malakitten tam verimle kaç g bakır elde edilir? Toplam kaç mol CO<sub>2</sub> çıkar? (H 1, C 12, O 16, Cu 64)</p>
+          <ol class="akis"><li><i>1</i><span>M<sub>A</sub> = 222 → 0,2 mol malakit → 0,4 mol CuO (ortak madde)</span></li><li><i>2</i><span>0,4 mol Cu = 25,6 g · CO<sub>2</sub>: 0,2 + 0,2 = 0,4 mol</span></li></ol>
+          <div class="sonuc"><span>SONUÇ</span>25,6 g Cu · 0,4 mol CO<sub>2</sub></div></div>
+        <div class="resim">{{info|bakir_zinciri}}</div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Pirinçteki bakır da HCl ile H<sub>2</sub> verir.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Bakır HCl ile H<sub>2</sub> <b>vermez</b>; H<sub>2</sub>’nin hepsi çinkodan.</p></div>
       </div>
       <div class="kart hizli">
-        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+20 akçe</span></div>
+        <p class="soru">20 g pirinç (Cu–Zn) HCl ile 0,2 g H<sub>2</sub> veriyor. Kütlece % kaç çinkodur? (H 1, Zn 65)</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">0,1 mol H<sub>2</sub> = 0,1 mol Zn.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">%32,5 Zn</span></div><span class="ters-cevap"><span class="ters">Cevap: %32,5</span></span></div>
       </div>
-    </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
-      </div>
-      <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Yoldan</span>
-        <p>Bölgeden, doğrulanmış bir günlük hayat bilgisi. Emin değilsen “yaklaşık” de.</p>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
       <div class="bento dikey">
+        {{hazine|H11}}
         {{hazine|H12}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
       </div>
     </div>
   </main>
   {{alt|7}}
 </section>
 
-<!-- ================================================================ SAYFA 8 · HÜLASA -->
+<!-- ================================================================ SAYFA 8 · HÜLASA · HASAN PAŞA HANI -->
 <section class="sayfa s8">
   {{zemin}}
   {{hud|8}}
   {{cini}}
-  <div class="bant b40" data-serbest>{{sahne|ornek_sahne|altin|21}}
-    <div class="levha kob">{{rozet|H|-|erg}}<div><div class="ust" style="color:var(--erguvan)">Hülasa · konaklama yeri</div><h1>Stokiyometri <em style="color:var(--erguvan)">Hülasası</em></h1><p class="alt-bas">Yolun altı kartı. Sınavdan önceki gece bu sayfa yeter.</p></div></div>
+  <div class="bant b40" data-serbest>{{sahne|han_hulasa}}
+    <div class="levha kob">{{rozet|H|-|erg}}<div><div class="ust" style="color:var(--erguvan)">Hülasa · Hasan Paşa Hanı’nda konaklama</div><h1>Oran <em style="color:var(--erguvan)">Hülasası</em></h1><p class="alt-bas">Yolun altı kartı. Sınavdan önceki gece bu sayfa yeter.</p></div></div>
   </div>
   <main class="ic" style="top:52.2mm">
     <div class="ozetler" data-tasma-yatay>
-      <div class="ozet-kart koyu"><span class="sira">01/06</span><span class="et">Ünitenin sayısı</span><div class="dev-sayi acik">1400</div><p>Koyu kart: ünitenin simge sayısı ya da denklemi.</p></div>
-      <div class="ozet-kart gol"><span class="sira">02/06</span><span class="et">Tek kural</span><h3>Kural cümlesi.</h3><div class="ozet-f">a = b / c</div><p>Kısa açıklama.</p></div>
-      <div class="ozet-kart"><span class="sira">03/06</span><span class="et">Okuma</span><h3>Başlık</h3><ul class="ozet-liste"><li>Madde</li><li>Madde</li><li>Madde</li></ul></div>
-      <div class="ozet-kart keh"><span class="sira">04/06</span><span class="et keh">Konu</span><h3>Başlık</h3><ul class="ozet-liste"><li>Madde</li><li>Madde</li></ul></div>
-      <div class="ozet-kart mer"><span class="sira">05/06</span><span class="et mer">Karşılaştırma</span><h3>Başlık</h3><p>İki şeyin farkı, tek cümle.</p></div>
+      <div class="ozet-kart koyu"><span class="sira">01/06</span><span class="et">Yolun ilkesi</span><div class="dev-sayi acik" style="font-size:20pt">Σm<sub>giren</sub> = Σm<sub>ürün</sub></div><p>Kütle ve atomlar korunur; molekül sayısı korunmayabilir.</p><div class="ozet-mol">{{mol|CH4|10,20,5|12mm}}{{mol|O2|10,20,0|12mm}}{{mol|CO2|15,30,0|15mm}}{{mol|H2O|0,0,0|11mm}}</div></div>
+      <div class="ozet-kart gol"><span class="sira">02/06</span><span class="et">Tek kural</span><h3>Önce mole git.</h3><div class="ozet-f kucuk">verilen → mol → mol → istenen</div><div class="ozet-f">n<sub>B</sub> = n<sub>A</sub> · <span class="kesir"><span>k<sub>B</sub></span><span>k<sub>A</sub></span></span></div><p>Katsayı mol ve tanecik oranıdır, kütle oranı değil.</p></div>
+      <div class="ozet-kart"><span class="sira">03/06</span><span class="et">Denkleştirme</span><h3>İki yaka denk</h3>
+        <ul class="ozet-liste"><li>Kalabalık formüle 1 koy</li><li>Metal → ametal → H → O</li><li>Kesir çıkarsa paydayla çarp</li><li>Alt simgeye dokunma</li></ul></div>
+      <div class="ozet-kart keh"><span class="sira">04/06</span><span class="et keh">Sınırlayıcı</span><h3>En küçük n ÷ k</h3>
+        <ul class="ozet-liste"><li>Her molü kendi katsayısına böl</li><li>En küçük çıkan önce biter</li><li>B − D = S tablosu kur</li><li>Ürün sınırlayıcıdan hesaplanır</li></ul></div>
+      <div class="ozet-kart mer"><span class="sira">05/06</span><span class="et mer">Verim · saflık</span><h3>Gerçek ≤ teorik</h3><div class="resim" style="width:62%;margin:0 auto">{{info|verim_saati|80}}</div><p>% verim = gerçek / teorik · 100 · % saflık = saf / örnek · 100.</p></div>
       <div class="ozet-kart"><span class="sira">06/06</span><span class="et mer">{{ikon|tuzak}}En sık 4 hata</span>
-        <ul class="ozet-liste no"><li>Hata</li><li>Hata</li><li>Hata</li><li>Hata</li></ul>
+        <ul class="ozet-liste no"><li>Denkleştirirken alt simgeyi değiştirmek</li><li>Katsayıyı kütle oranı sanmak</li><li>Molü az olanı sınırlayıcı sanmak</li><li>Verimle çarpacağına bölmek (ya da tersi)</li></ul>
         <div class="muhur-kose">{{muhur|yanlis}}</div></div>
     </div>
     <div class="kart keh-z sandik">
@@ -499,139 +571,142 @@
       <div class="kart muhasebe">
         <div class="kart-bas"><span class="et keh">{{ikon|cay}}Muhasebe · kendimi muhasebe ediyorum</span><span class="cip akce">6 satır = +40 akçe</span></div>
         <div class="satir bas"><span>Bardağını ne kadar doldurabilirsin?</span><span>{{cay|1}}Tamam</span><span>{{cay|.5}}Yarım</span><span>{{cay|0}}Tekrar</span></div>
-        <div class="satir"><span>Kazanım cümlesi 1 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 2 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 3 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 4 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 5 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 6 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Kütlenin korunumunu atomlarla açıklarım.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Denklemi en küçük tam sayılarla denkleştiririm.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Bir maddeden ötekinin kütlesini, sayısını bulurum.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Sınırlayıcıyı ve artan miktarı bulurum.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Yüzde verim ve saflık sorularını çözerim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Karışım ve zincir (ardışık) soruları çözerim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
       </div>
       <div class="kart not-kart">
         <span class="et">{{ikon|kitap}}Kendime not</span>
         <p class="kucuk">Bu yolda en çok neye dikkat etmeliyim?</p>
         <div class="cizgiler"><div></div><div></div><div></div><div></div></div>
         {{poz|pamuk-kitap|pamuk-oku}}
+        <p class="kucuk"><b>Kaydedildi!</b> “Tekrar” dediğin konunun durağına dön.</p>
       </div>
     </div>
   </main>
   {{alt|8}}
 </section>
 
-<!-- ================================================================ SAYFA 9 · YAN YOL 1 · MECLİS -->
+<!-- ================================================================ SAYFA 9 · YAN YOL 1 · MECLİS · DİCLE KIYISI -->
 <section class="sayfa s9">
   {{zemin}}
   {{hud|9}}
   {{cini}}
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|gun|31}}
-    <div class="levha keh">{{rozet|M|-|keh}}<div><div class="ust">Yan yol 1 · yer adı</div><h1>Meclis: <em>kim haklı?</em></h1><p class="alt-bas">Dört çözüm meclise geldi; her birinde <b>tek hata</b> var.</p><div class="hedef"><b>Usul</b>Doğru kişi +10, neden +10, doğrusu +10.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|karpuz_meclis}}
+    <div class="levha keh">{{rozet|M|-|keh}}<div><div class="ust">Yan yol 1 · Dicle kıyısı · bostan çardağında meclis</div><h1>Meclis: <em>kim haklı?</em></h1><p class="alt-bas">Dört çözüm meclise geldi; her birinde <b>tek hata</b> var.</p><div class="hedef"><b>Usul</b>Doğru kişi +10, neden +10, doğrusu +10.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <!-- Cevap işaretleme: haklı yorumda <div class="yorum" data-dogru>, hatalı satırın kutucuğunda <span class="kutucuk" data-dogru>,
-         neden ve doğrusu <span class="ogr">…</span> içinde (öğrenci baskısında görünmez). -->
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart meclis" data-soru="M1">
         <div class="meclis-bas"><span class="harf" style="background:var(--gol)">A</span><div><b>Ahmet</b> <small>çözümünü meclise getirdi · Hata 1</small></div><span class="cip akce">+30</span></div>
         <div class="ic2">
-          <p class="psoru">Soru kökü (değerler parantezde).</p>
-          <div class="cozum-defter"><div><i>1</i>Doğru bir adım.</div><div><i>2</i>Hatalı adım (tek, net bir hata).</div><div><i>3</i>Hatanın taşıdığı sonuç.</div></div>
-          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Bence sorun 2. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">hatanın nedeni</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">doğru sonuç</span></span></div></div>
+          <p class="psoru">Çakmak gazı bütanın yanma denklemini denkleştiriniz: C<sub>4</sub>H<sub>10</sub> + O<sub>2</sub> → CO<sub>2</sub> + H<sub>2</sub>O</p>
+          <div class="cozum-defter"><div><i>1</i>C<sub>4</sub>H<sub>10</sub>’a 1 koydum: 4CO<sub>2</sub> ve 5H<sub>2</sub>O.</div><div><i>2</i>Sağda O: 8 + 5 = 13 → 13O<sub>2</sub> yazdım.</div><div><i>3</i>C<sub>4</sub>H<sub>10</sub> + 13O<sub>2</sub> → 4CO<sub>2</sub> + 5H<sub>2</sub>O denk.</div></div>
+          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda; sayım doğru, yazım yanlış.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Sorun 2. satırda: 13 O atomu 13 değil <sup>13</sup>/<sub>2</sub> O<sub>2</sub> eder.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">13 O atomu = 13/2 O<sub>2</sub> molekülü</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">2C<sub>4</sub>H<sub>10</sub> + 13O<sub>2</sub> → 8CO<sub>2</sub> + 10H<sub>2</sub>O</span></span></div></div>
         </div>
       </div>
       <div class="kart meclis" data-soru="M2">
         <div class="meclis-bas mer"><span class="harf" style="background:var(--mer)">Z</span><div><b>Zehra</b> <small>çözümünü meclise getirdi · Hata 2</small></div><span class="cip akce">+30</span></div>
         <div class="ic2">
-          <p class="psoru">Soru kökü (değerler parantezde).</p>
-          <div class="cozum-defter"><div><i>1</i>Doğru bir adım.</div><div><i>2</i>Hatalı adım (tek, net bir hata).</div><div><i>3</i>Hatanın taşıdığı sonuç.</div></div>
-          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Bence sorun 2. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">hatanın nedeni</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">doğru sonuç</span></span></div></div>
+          <p class="psoru">N<sub>2</sub> + 3H<sub>2</sub> → 2NH<sub>3</sub>. 8,4 g N<sub>2</sub> kaç gram H<sub>2</sub> ile tepkimeye girer? (H: 1, N: 14 g/mol)</p>
+          <div class="cozum-defter"><div><i>1</i>Katsayılar 1 : 3 olduğundan kütleler de 1 : 3’tür.</div><div><i>2</i>m(H<sub>2</sub>) = 3 · 8,4 = 25,2 g</div><div><i>3</i>Kütle kontrolü: 8,4 + 25,2 = 33,6 g NH<sub>3</sub></div></div>
+          <div class="yorum" data-dogru>{{av|pamuk}}<span><b>Pamuk:</b> 1. satırda: katsayı mol oranıdır, kütle oranı değil.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda; kütle kontrolü yanlış toplanmış.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk" data-dogru></span>1 <span class="kutucuk"></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">katsayı mol oranıdır</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">0,3 mol N<sub>2</sub> → 0,9 mol H<sub>2</sub> = 1,8 g</span></span></div></div>
         </div>
       </div>
       <div class="kart meclis" data-soru="M3">
         <div class="meclis-bas kob"><span class="harf" style="background:var(--kob)">M</span><div><b>Mehmet Emin</b> <small>çözümünü meclise getirdi · Hata 3</small></div><span class="cip akce">+30</span></div>
         <div class="ic2">
-          <p class="psoru">Soru kökü (değerler parantezde).</p>
-          <div class="cozum-defter"><div><i>1</i>Doğru bir adım.</div><div><i>2</i>Hatalı adım (tek, net bir hata).</div><div><i>3</i>Hatanın taşıdığı sonuç.</div></div>
-          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Bence sorun 2. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">hatanın nedeni</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">doğru sonuç</span></span></div></div>
+          <p class="psoru">3 mol Al ile 3 mol Cl<sub>2</sub>, 2Al + 3Cl<sub>2</sub> → 2AlCl<sub>3</sub> denklemine göre tam verimle tepkimeye giriyor. Kaç mol AlCl<sub>3</sub> oluşur?</p>
+          <div class="cozum-defter"><div><i>1</i>Al 3 mol, Cl<sub>2</sub> 3 mol alınmış.</div><div><i>2</i>Mol sayıları eşit; ikisi de tamamen tükenir.</div><div><i>3</i>3 mol Al → 3 mol AlCl<sub>3</sub> oluşur.</div></div>
+          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> 2. satırda: mol ÷ katsayı karşılaştırılmalı.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda; 3 mol Al 1,5 mol AlCl<sub>3</sub> verir.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">Al 3/2 = 1,5 · Cl<sub>2</sub> 3/3 = 1 → Cl<sub>2</sub> biter</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">2 mol AlCl<sub>3</sub>; 1 mol Al artar</span></span></div></div>
         </div>
       </div>
       <div class="kart meclis" data-soru="M4">
         <div class="meclis-bas keh"><span class="harf" style="background:var(--keh)">R</span><div><b>Rabia</b> <small>çözümünü meclise getirdi · Hata 4</small></div><span class="cip akce">+30</span></div>
         <div class="ic2">
-          <p class="psoru">Soru kökü (değerler parantezde).</p>
-          <div class="cozum-defter"><div><i>1</i>Doğru bir adım.</div><div><i>2</i>Hatalı adım (tek, net bir hata).</div><div><i>3</i>Hatanın taşıdığı sonuç.</div></div>
-          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Bence sorun 2. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">hatanın nedeni</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">doğru sonuç</span></span></div></div>
+          <p class="psoru">25 g CaCO<sub>3</sub>, CaCO<sub>3</sub> → CaO + CO<sub>2</sub> tepkimesine göre %80 verimle ayrışıyor. Kaç gram CaO oluşur? (C: 12, O: 16, Ca: 40)</p>
+          <div class="cozum-defter"><div><i>1</i>n = 25 / 100 = 0,25 mol CaCO<sub>3</sub></div><div><i>2</i>Teorik CaO: 0,25 · 56 = 14 g</div><div><i>3</i>Gerçek: 14 / 0,80 = 17,5 g CaO</div></div>
+          <div class="yorum">{{av|yusuf}}<span><b>Yusuf:</b> Hata 2. satırda; CaO 56 değil 72 g/mol.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum" data-dogru>{{av|elif}}<span><b>Elif:</b> 3. satırda: gerçek verim teorikten büyük olamaz.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk"></span>2 <span class="kutucuk" data-dogru></span>3 · NEDEN?<span class="cizgili"><span class="ogr">verimle çarpılmalı, bölünmez</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">14 · 0,80 = 11,2 g CaO</span></span></div></div>
         </div>
       </div>
     </div>
-    <div class="kart keh-z meclis-not esnek">
-      {{poz|pamuk-dusunen|pn}}
-      <p><b>Meclis notu (Pamuk):</b> Bir çözümü kontrol etmenin en hızlı yolu birimlere bakmaktır. Hükmünü verince cevapları <b>s.{{sayfa|15}}</b>’{{ek|15|de}} kontrol et.</p>
-      <div class="muhur-yer">{{muhur|dogru}}</div>
+    <div class="bento esnek" style="grid-template-columns:1.1fr .9fr">
+      <div class="medeniyet">{{kose}}
+        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
+        <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><div class="resimli">{{info|imbik}}<p class="metin"><b>Câbir bin Hayyân</b> (8. yy) <b>damıtma, kristallendirme, süzme</b> gibi işlemleri sistemli kullandı.</p></div>
+        <p class="not">Meclisteki çözümler de böyle sınanır: <b>adım adım</b>, her satırı kontrol ederek.</p>
+      </div>
+      <div class="kart keh-z meclis-not">
+        {{poz|pamuk-dusunen|pn}}
+        <p><b>Meclis notu (Pamuk):</b> Çözümü iki soruyla sına: <b>“Kütle korunuyor mu?”</b> ve <b>“Ürün teorikten az mı?”</b> Biri “hayır” ise hata oradadır. Cevaplar s.{{sayfa|15}}’{{ek|15|de}}.</p>
+        <div class="muhur-yer">{{muhur|dogru}}</div>
+      </div>
     </div>
   </main>
   {{alt|9}}
 </section>
 
-<!-- ================================================================ SAYFA 10 · YAN YOL 2 · KISSALAR -->
+<!-- ================================================================ SAYFA 10 · YAN YOL 2 · KISSALAR · ON GÖZLÜ KÖPRÜ -->
 <section class="sayfa s10">
   {{zemin}}
   {{hud|10}}
   {{cini}}
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|safak|41}}
-    <div class="levha keh">{{rozet|K|-|keh}}<div><div class="ust">Yan yol 2 · yer adı</div><h1><em>Kıssalar</em></h1><p class="alt-bas">Önce oku, sonra gereken bilgiyi seç. <b>Kıssadan hisse!</b></p><div class="hedef"><b>Usul</b>Çözümünü kartın boş yerine yaz; şıkkı sonra işaretle.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|on_gozlu}}
+    <div class="levha keh">{{rozet|K|-|keh}}<div><div class="ust">Yan yol 2 · On Gözlü Köprü · Dicle</div><h1><em>Kıssalar</em></h1><p class="alt-bas">Önce oku, sonra gereken bilgiyi seç. <b>Kıssadan hisse!</b></p><div class="hedef"><b>Usul</b>Çözümünü kartın boş yerine yaz; şıkkı sonra işaretle.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <!-- En az bir kıssada grafik, birinde tablo. Doğru şık: <div class="sik" data-dogru>. Karalamadaki <span class="ogr"> öğretmen çözümüdür. -->
     <div class="bento kissa-izgara esnek" style="grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
       <div class="kart kissa" data-soru="K1">
-        <div class="kissa-bas"><span class="et">{{ikon|kissa}}Kıssa 1 · başlık</span><span class="cip akce">+30</span></div>
+        <div class="kissa-bas"><span class="et">{{ikon|kissa}}Kıssa 1 · Sağlık · mide yanması</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
-          <p class="metin">Bağlam metni: günlük hayat, sağlık, endüstri, çevre ya da laboratuvar (doğrulanabilir bilgi). <b>Gerekli veri</b> kalın.</p>
-          <!-- resimli üst satır:  <div class="ust-satir"><p class="metin">…</p>{{info|ad}}</div> · yargılı soru: <ul class="yargi"><li><b>I.</b>…</li></ul> -->
-          <p class="soru">Soru kökü?</p>
-          <div class="karalama"><span class="ogr">Kısa çözüm (öğretmen baskısında kırmızı).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik" data-dogru><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
-          <div class="hisse"><b>Kıssadan hisse:</b> Tek cümlelik ders.</div>
+          <p class="metin">Bazı mide ilaçlarında alüminyum hidroksit bulunur; mide asidindeki HCl ile tepkimeye girer: <b>Al(OH)<sub>3</sub> + 3HCl → AlCl<sub>3</sub> + 3H<sub>2</sub>O</b>. Bir tablette <b>0,78 g Al(OH)<sub>3</sub></b> var ve tamamı tepkimeye giriyor. (H: 1, O: 16, Al: 27, Cl: 35,5)</p>
+          <ul class="yargi"><li><b>I.</b>Tablet 0,01 mol Al(OH)<sub>3</sub> içerir.</li><li><b>II.</b>0,03 mol HCl etkisiz hâle getirilir.</li><li><b>III.</b>Oluşan su 0,54 g’dır.</li></ul>
+          <p class="soru" style="font-weight:700">yargılarından hangileri doğrudur?</p>
+          <div class="karalama"><span class="ogr">0,78/78 = 0,01 mol (I) · HCl 0,03 mol (II) · su 0,03·18 = 0,54 g (III)</span></div>
+          <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız II</div><div class="sik"><b>C</b>I ve II</div><div class="sik"><b>D</b>II ve III</div><div class="sik" data-dogru><b>E</b>I, II ve III</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Önce mole git; oran katsayıdadır.</div>
         </div>
       </div>
       <div class="kart kissa" data-soru="K2">
-        <div class="kissa-bas keh"><span class="et keh">{{ikon|kissa}}Kıssa 2 · başlık</span><span class="cip akce">+30</span></div>
+        <div class="kissa-bas keh"><span class="et keh">{{ikon|kissa}}Kıssa 2 · Tarım · gübrenin hammaddesi</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
-          <p class="metin">Bağlam metni: günlük hayat, sağlık, endüstri, çevre ya da laboratuvar (doğrulanabilir bilgi). <b>Gerekli veri</b> kalın.</p>
-          <!-- resimli üst satır:  <div class="ust-satir"><p class="metin">…</p>{{info|ad}}</div> · yargılı soru: <ul class="yargi"><li><b>I.</b>…</li></ul> -->
-          <p class="soru">Soru kökü?</p>
-          <div class="karalama"><span class="ogr">Kısa çözüm (öğretmen baskısında kırmızı).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik" data-dogru><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
-          <div class="hisse"><b>Kıssadan hisse:</b> Tek cümlelik ders.</div>
+          <div class="ust-satir"><p class="metin">Bahçelere giden azotlu gübrelerin temel maddesi amonyaktır. Kapalı bir kapta N<sub>2</sub> ve H<sub>2</sub>’nin tam verimli tepkimesinde maddelerin <b>mol–zaman grafiği</b> yandadır.</p><div class="resim" style="width:38mm">{{info|mol_zaman|kissa}}</div></div>
+          <ul class="yargi"><li><b>I.</b>Denklem N<sub>2</sub> + 3H<sub>2</sub> → 2NH<sub>3</sub>’tür.</li><li><b>II.</b>Sınırlayıcı bileşen N<sub>2</sub>’dir.</li><li><b>III.</b>Kaptaki toplam gaz molü 2,2’den 1,4’e düşer.</li></ul>
+          <div class="karalama"><span class="ogr">0,4 : 1,2 : 0,8 = 1 : 3 : 2 (I) · H<sub>2</sub> biter (II ✗) · 2,2 → 0,6 + 0,8 = 1,4 (III)</span></div>
+          <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız II</div><div class="sik"><b>C</b>I ve II</div><div class="sik" data-dogru><b>D</b>I ve III</div><div class="sik"><b>E</b>I, II ve III</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Grafikte değişimler katsayılarla orantılıdır.</div>
         </div>
       </div>
       <div class="kart kissa" data-soru="K3">
-        <div class="kissa-bas kob"><span class="et kob">{{ikon|kissa}}Kıssa 3 · başlık</span><span class="cip akce">+30</span></div>
+        <div class="kissa-bas kob"><span class="et kob">{{ikon|kissa}}Kıssa 3 · Laboratuvar · magnezyum şerit</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
-          <p class="metin">Bağlam metni: günlük hayat, sağlık, endüstri, çevre ya da laboratuvar (doğrulanabilir bilgi). <b>Gerekli veri</b> kalın.</p>
-          <!-- resimli üst satır:  <div class="ust-satir"><p class="metin">…</p>{{info|ad}}</div> · yargılı soru: <ul class="yargi"><li><b>I.</b>…</li></ul> -->
-          <p class="soru">Soru kökü?</p>
-          <div class="karalama"><span class="ogr">Kısa çözüm (öğretmen baskısında kırmızı).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik" data-dogru><b>E</b>Seçenek E</div></div>
-          <div class="hisse"><b>Kıssadan hisse:</b> Tek cümlelik ders.</div>
+          <div class="ust-satir"><p class="metin">Yusuf kimya kulübünde Mg + 2HCl → MgCl<sub>2</sub> + H<sub>2</sub> tepkimesiyle üç deneme yapıyor; tepkimeler tam verimli.</p><div class="resim" style="width:30mm">{{info|mg_denemeleri}}</div></div>
+          <table class="gorev-tablo kucuk"><tr><th>Deneme</th><th>Mg (mol)</th><th>HCl (mol)</th></tr><tr><td>1</td><td>0,1</td><td>0,1</td></tr><tr><td>2</td><td>0,1</td><td>0,3</td></tr><tr><td>3</td><td>0,2</td><td>0,3</td></tr></table>
+          <p class="soru">Hangi denemelerde tepkime sonunda magnezyum artar?</p>
+          <div class="karalama"><span class="ogr">1: HCl 0,1/2 = 0,05 &lt; 0,1 → Mg artar · 2: Mg biter · 3: 0,15 &lt; 0,2 → Mg artar</span></div>
+          <div class="siklar"><div class="sik"><b>A</b>Yalnız 1</div><div class="sik"><b>B</b>Yalnız 2</div><div class="sik" data-dogru><b>C</b>1 ve 3</div><div class="sik"><b>D</b>2 ve 3</div><div class="sik"><b>E</b>1, 2 ve 3</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Her denemede ayrı ayrı mol ÷ katsayı.</div>
         </div>
       </div>
       <div class="kart kissa" data-soru="K4">
-        <div class="kissa-bas mer"><span class="et mer">{{ikon|kissa}}Kıssa 4 · başlık</span><span class="cip akce">+30</span></div>
+        <div class="kissa-bas mer"><span class="et mer">{{ikon|kissa}}Kıssa 4 · Mutfak · kabartma tozu</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
-          <p class="metin">Bağlam metni: günlük hayat, sağlık, endüstri, çevre ya da laboratuvar (doğrulanabilir bilgi). <b>Gerekli veri</b> kalın.</p>
-          <!-- resimli üst satır:  <div class="ust-satir"><p class="metin">…</p>{{info|ad}}</div> · yargılı soru: <ul class="yargi"><li><b>I.</b>…</li></ul> -->
-          <p class="soru">Soru kökü?</p>
-          <div class="karalama"><span class="ogr">Kısa çözüm (öğretmen baskısında kırmızı).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik" data-dogru><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
-          <div class="hisse"><b>Kıssadan hisse:</b> Tek cümlelik ders.</div>
+          <p class="metin">Kabartma tozundaki sodyum bikarbonat fırında ayrışır; çıkan gazlar hamuru kabartır: <b>2NaHCO<sub>3</sub>(k) → Na<sub>2</sub>CO<sub>3</sub>(k) + H<sub>2</sub>O(g) + CO<sub>2</sub>(g)</b>. Açık bir kapta <b>8,4 g NaHCO<sub>3</sub></b> tamamen ayrışıyor. (H: 1, C: 12, O: 16, Na: 23)</p>
+          <p class="soru">Kaptaki katının kütlesi kaç gram azalır?</p>
+          <div class="karalama"><span class="ogr">8,4/84 = 0,1 mol → 0,05 mol CO<sub>2</sub> (2,2 g) + 0,05 mol H<sub>2</sub>O (0,9 g) uçar → 3,1 g</span></div>
+          <div class="siklar"><div class="sik"><b>A</b>2,2</div><div class="sik" data-dogru><b>B</b>3,1</div><div class="sik"><b>C</b>4,4</div><div class="sik"><b>D</b>5,3</div><div class="sik"><b>E</b>8,4</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Açık kapta kaybolan kütle, kaçan gazların kütlesidir.</div>
         </div>
       </div>
     </div>
@@ -639,52 +714,52 @@
   {{alt|10}}
 </section>
 
-<!-- ================================================================ SAYFA 11 · YAN YOL 3 · ANAHTAR MERDİVENİ -->
+<!-- ================================================================ SAYFA 11 · YAN YOL 3 · ANAHTAR MERDİVENİ · SURLARIN ETEĞİ -->
 <section class="sayfa s11">
   {{zemin}}
   {{hud|11}}
   {{cini}}
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|gunbatimi|51}}
-    <div class="levha keh">{{rozet|A|-|keh}}<div><div class="ust">Yan yol 3 · yer adı</div><h1>Anahtar <em>merdiveni</em></h1><p class="alt-bas">Önce anahtarsız dene. Takılırsan <b>bir basamak in</b>, yeniden dene.</p><div class="hedef"><b>Usul</b>Her problem +40 akçe; açtığın her anahtar −10.<span class="cip akce">3 × 40 = +120 akçe</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|sur_etegi}}
+    <div class="levha keh">{{rozet|A|-|keh}}<div><div class="ust">Yan yol 3 · Surların eteği · gün batımı</div><h1>Anahtar <em>merdiveni</em></h1><p class="alt-bas">Önce anahtarsız dene. Takılırsan <b>bir basamak in</b>, yeniden dene.</p><div class="hedef"><b>Usul</b>Her problem +40 akçe; açtığın her anahtar −10.<span class="cip akce">3 × 40 = +120 akçe</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">1</span><p class="soru">Problem 1: iki-üç adımlı bir soru. Değerler parantezde (H: 1, C: 12 g/mol).</p></div>
-        <div class="cozum-alani"><div><span class="ogr">1. adım (öğretmen)</span></div><div><span class="ogr">2. adım</span></div><div><span class="ogr"><b>Sonuç</b></span></div></div>
+        <div class="bas-satir"><span class="no">1</span><p class="soru">aC<sub>3</sub>H<sub>6</sub> + bO<sub>2</sub> → cCO<sub>2</sub> + dH<sub>2</sub>O denklemi en küçük tam sayılarla denkleştirildiğinde a + b + c + d toplamı kaç olur?</p></div>
+        <div class="cozum-alani"><div><span class="ogr">C<sub>3</sub>H<sub>6</sub> + 9/2 O<sub>2</sub> → 3CO<sub>2</sub> + 3H<sub>2</sub>O</span></div><div><span class="ogr">×2: 2C<sub>3</sub>H<sub>6</sub> + 9O<sub>2</sub> → 6CO<sub>2</sub> + 6H<sub>2</sub>O</span></div><div><span class="ogr"><b>2 + 9 + 6 + 6 = 23</b></span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Hangi kavram? Hangi hazine kartı?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Denklemi kur.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Son adım, neredeyse çözüm.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>C<sub>3</sub>H<sub>6</sub>’ya 1 koy; 3 C ve 6 H için CO<sub>2</sub> ve H<sub>2</sub>O katsayılarını yaz.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Sağdaki O’ları say: 3·2 + 3·1 = 9. Bu kaç O<sub>2</sub> eder?</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Kesirden kurtulmak için hepsini 2 ile çarp, dördünü topla.</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">2</span><p class="soru">Problem 2: iki-üç adımlı bir soru. Değerler parantezde (H: 1, C: 12 g/mol).</p></div>
-        <div class="cozum-alani"><div><span class="ogr">1. adım (öğretmen)</span></div><div><span class="ogr">2. adım</span></div><div><span class="ogr"><b>Sonuç</b></span></div></div>
+        <div class="bas-satir"><span class="no">2</span><p class="soru">Bakırcının ocağında 12,8 g bakır ile 4,8 g kükürt, 2Cu + S → Cu<sub>2</sub>S denklemine göre tam verimle tepkimeye giriyor. Hangi maddeden kaç gram artar? Kaç gram Cu<sub>2</sub>S oluşur? (S: 32, Cu: 64 g/mol)</p></div>
+        <div class="cozum-alani"><div><span class="ogr">Cu 0,2 mol → 0,2/2 = 0,1 · S 0,15 mol → 0,15/1 = 0,15</span></div><div><span class="ogr">Cu sınırlayıcı; S 0,1 mol harcanır, 0,05 mol = 1,6 g artar</span></div><div><span class="ogr"><b>1,6 g S artar · 0,1 mol Cu<sub>2</sub>S = 16 g</b></span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Hangi kavram? Hangi hazine kartı?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Denklemi kur.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Son adım, neredeyse çözüm.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Mollere çevir: n<sub>Cu</sub> = 12,8/64, n<sub>S</sub> = 4,8/32.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Her molü kendi katsayısına böl (Cu için 2, S için 1). Küçük çıkan sınırlayıcıdır.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>B–D–S tablosu kur; kütle korunumuyla kontrol et: 12,8 + 4,8 = ?</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">3</span><p class="soru">Problem 3: iki-üç adımlı bir soru. Değerler parantezde (H: 1, C: 12 g/mol).</p></div>
-        <div class="cozum-alani"><div><span class="ogr">1. adım (öğretmen)</span></div><div><span class="ogr">2. adım</span></div><div><span class="ogr"><b>Sonuç</b></span></div></div>
+        <div class="bas-satir"><span class="no">3</span><p class="soru">2,9 g bütan tamamen yakılıyor: 2C<sub>4</sub>H<sub>10</sub> + 13O<sub>2</sub> → 8CO<sub>2</sub> + 10H<sub>2</sub>O. Oluşan CO<sub>2</sub>’nin tamamı kireç suyundan geçiriliyor; CO<sub>2</sub> + Ca(OH)<sub>2</sub> → CaCO<sub>3</sub> + H<sub>2</sub>O tepkimesi %80 verimle yürüyor. Kaç gram CaCO<sub>3</sub> çöker? (H: 1, C: 12, O: 16, Ca: 40)</p></div>
+        <div class="cozum-alani"><div><span class="ogr">2,9/58 = 0,05 mol C<sub>4</sub>H<sub>10</sub> → CO<sub>2</sub>: 0,05·4 = 0,2 mol</span></div><div><span class="ogr">teorik CaCO<sub>3</sub> 0,2 mol = 20 g</span></div><div><span class="ogr"><b>20 · 0,80 = 16 g CaCO<sub>3</sub></b></span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Hangi kavram? Hangi hazine kartı?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Denklemi kur.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Son adım, neredeyse çözüm.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>İki tepkimeyi bağlayan ortak madde hangisi? Önce bütanın molünü bul.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Bütan : CO<sub>2</sub> = 2 : 8 = 1 : 4; CO<sub>2</sub> : CaCO<sub>3</sub> = 1 : 1.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Teorik kütleyi bul ve %80’ini al: verim ürünü azaltır.</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1fr .62fr .7fr">
@@ -704,49 +779,48 @@
   {{zemin}}
   {{hud|12}}
   {{cini}}
-  <div class="bant b62" data-serbest>{{sahne|ornek_sahne|gunbatimi|61}}
-    <div class="levha mer">{{rozet|K|-|mer}}<div><div class="ust">Diyarbakır Surları · Büyük İmtihan · 1. bölüm</div><h1>Kale <em>kapısı</em></h1><p class="alt-bas">12 soru · 25 dakika. Her doğru <b>+25 akçe</b>; 10+ doğru: <b>Kale Kapısı</b> nişanı.</p>
-      <div class="hedef"><b>Azık</b>Soruda kullanılan sabitler ve mol kütleleri.</div>
+  <div class="bant b62" data-serbest>{{sahne|kale_sur}}
+    <div class="levha mer">{{rozet|K|-|mer}}<div><div class="ust">Diyarbakır Surları · Büyük İmtihan · 1. bölüm</div><h1>Sur <em>kapısı</em></h1><p class="alt-bas">12 soru · 25 dakika. Her doğru <b>+25 akçe</b>; 10+ doğru: <b>Sur Kapısı</b> nişanı.</p>
+      <div class="hedef"><b>Azık</b>H 1 · C 12 · N 14 · O 16 · S 32 · Cl 35,5 · Ca 40 · Fe 56 · Cu 64 g/mol · N<sub>A</sub> = 6,02·10<sup>23</sup></div>
       <div class="hedef"><b>Meşveret</b>Sınıfça oylayın, şıklara tahmin yüzdesi (%__) yazın, sonra çözün.</div></div></div>
   </div>
   <main class="ic" style="top:76.5mm">
-    <!-- 12 soru, 5 şık, A–E her biri en az bir kez. Doğru şık: <div data-dogru><b>D</b>…  Uzun şıklar: class="oy yatay" ya da "oy". -->
     <div class="mesveret-izgara esnek">
       <div class="kart mesveret" data-soru="I1">
         <div class="mesveret-bas">{{sno|1}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 1. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div data-dogru><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Kapalı bir kapta gerçekleşen bir kimyasal tepkimede aşağıdakilerden hangisi <u>kesinlikle</u> korunur?</p>
+        <div class="karalama"><span class="ogr">Atom türü ve sayısı (dolayısıyla kütle) korunur; molekül ve mol sayısı, hâl, hacim değişebilir.</span></div>
+        <div class="oy"><div data-dogru><b>A</b><span>Toplam atom sayısı</span><em>%__</em></div><div><b>B</b><span>Toplam molekül sayısı</span><em>%__</em></div><div><b>C</b><span>Toplam mol sayısı</span><em>%__</em></div><div><b>D</b><span>Maddelerin fiziksel hâli</span><em>%__</em></div><div><b>E</b><span>Gazların toplam hacmi</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I2">
         <div class="mesveret-bas">{{sno|2}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 2. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div data-dogru><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Kapalı bir kapta 5,6 g demir tozu ile bir miktar kükürt, Fe + S → FeS denklemine göre artansız tepkimeye girerek 8,8 g FeS oluşturuyor. Harcanan kükürt kaç gramdır?</p>
+        <div class="karalama"><span class="ogr">Kütle korunur: 8,8 − 5,6 = 3,2 g</span></div>
+        <div class="oy uc"><div><b>A</b><span>1,6</span><em>%__</em></div><div data-dogru><b>B</b><span>3,2</span><em>%__</em></div><div><b>C</b><span>5,6</span><em>%__</em></div><div><b>D</b><span>8,8</span><em>%__</em></div><div><b>E</b><span>14,4</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I3">
         <div class="mesveret-bas">{{sno|3}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 3. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div data-dogru><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Demir cevherinin karbonla indirgenmesi: aFe<sub>2</sub>O<sub>3</sub> + bC → cFe + dCO<sub>2</sub>. Denklem en küçük tam sayılarla denkleştirilirse a + b + c + d kaç olur?</p>
+        <div class="karalama"><span class="ogr">2Fe<sub>2</sub>O<sub>3</sub> + 3C → 4Fe + 3CO<sub>2</sub> → 2 + 3 + 4 + 3 = 12</span></div>
+        <div class="oy uc"><div><b>A</b><span>8</span><em>%__</em></div><div><b>B</b><span>9</span><em>%__</em></div><div><b>C</b><span>10</span><em>%__</em></div><div><b>D</b><span>11</span><em>%__</em></div><div data-dogru><b>E</b><span>12</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I4">
         <div class="mesveret-bas">{{sno|4}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 4. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div data-dogru><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Denkleşmiş 2X + 9O<sub>2</sub> → 6CO<sub>2</sub> + 6H<sub>2</sub>O denkleminde X ile gösterilen maddenin formülü hangisidir?</p>
+        <div class="karalama"><span class="ogr">Ürün: 6 C, 12 H, 18 O · O<sub>2</sub>’den 18 O → 2X: C<sub>6</sub>H<sub>12</sub> → X = C<sub>3</sub>H<sub>6</sub></span></div>
+        <div class="oy uc"><div data-dogru><b>A</b><span>C<sub>3</sub>H<sub>6</sub></span><em>%__</em></div><div><b>B</b><span>C<sub>3</sub>H<sub>8</sub></span><em>%__</em></div><div><b>C</b><span>C<sub>6</sub>H<sub>12</sub></span><em>%__</em></div><div><b>D</b><span>C<sub>3</sub>H<sub>6</sub>O</span><em>%__</em></div><div><b>E</b><span>C<sub>2</sub>H<sub>6</sub></span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I5">
         <div class="mesveret-bas">{{sno|5}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 5. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div data-dogru><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru"><span class="resim-sag">{{mol|C3H8|10,25,0|15mm}}</span>Tüp gazdaki propan yanıyor: C<sub>3</sub>H<sub>8</sub> + 5O<sub>2</sub> → 3CO<sub>2</sub> + 4H<sub>2</sub>O. 6,6 g propanın tamamen yanması için kaç gram O<sub>2</sub> gerekir?</p>
+        <div class="karalama"><span class="ogr">6,6/44 = 0,15 mol → O<sub>2</sub> 0,75 mol · 32 = 24 g</span></div>
+        <div class="oy uc"><div><b>A</b><span>4,8</span><em>%__</em></div><div><b>B</b><span>12,0</span><em>%__</em></div><div data-dogru><b>C</b><span>24,0</span><em>%__</em></div><div><b>D</b><span>33,0</span><em>%__</em></div><div><b>E</b><span>48,0</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I6">
         <div class="mesveret-bas">{{sno|6}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 6. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div data-dogru><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru"><span class="resim-sag">{{mol|NH3|25,0,0|11mm}}</span>N<sub>2</sub> + 3H<sub>2</sub> → 2NH<sub>3</sub> tepkimesinde 3,4 g NH<sub>3</sub> oluşurken kaç tane H<sub>2</sub> molekülü harcanır?</p>
+        <div class="karalama"><span class="ogr">3,4/17 = 0,2 mol NH<sub>3</sub> → H<sub>2</sub> 0,3 mol → 0,3·6,02·10<sup>23</sup> = 1,806·10<sup>23</sup></span></div>
+        <div class="oy yatay"><div><b>A</b><span>3,01·10<sup>22</sup></span><em>%__</em></div><div><b>B</b><span>6,02·10<sup>22</sup></span><em>%__</em></div><div><b>C</b><span>1,204·10<sup>23</sup></span><em>%__</em></div><div data-dogru><b>D</b><span>1,806·10<sup>23</sup></span><em>%__</em></div><div class="tam"><b>E</b><span>3,612·10<sup>23</sup></span><em>%__</em></div></div>
       </div>
     </div>
   </main>
@@ -758,51 +832,51 @@
   {{zemin}}
   {{hud|13}}
   {{cini}}
-  <div class="bant b30" data-serbest>{{sahne|ornek_sahne|gunbatimi|62}}
+  <div class="bant b30" data-serbest>{{sahne|sur_kapisi}}
     <div class="levha mer kucuk">{{rozet|K|-|mer}}<div><div class="ust">Büyük İmtihan · 2. bölüm</div><h1>Kapı <em>aralandı</em></h1><p class="alt-bas">Sorular 7–12 · sabrın sonu selamettir.</p></div></div>
   </div>
   <main class="ic" style="top:44.5mm">
     <div class="mesveret-izgara esnek">
       <div class="kart mesveret" data-soru="I7">
         <div class="mesveret-bas">{{sno|7}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 7. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div data-dogru><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">0,6 mol Al ile 0,6 mol Cl<sub>2</sub>, 2Al + 3Cl<sub>2</sub> → 2AlCl<sub>3</sub> denklemine göre tam verimle tepkimeye giriyor. Buna göre aşağıdakilerden hangisi doğrudur?</p>
+        <div class="karalama"><span class="ogr">Al 0,6/2 = 0,3 · Cl<sub>2</sub> 0,6/3 = 0,2 → Cl<sub>2</sub> biter; Al 0,4 harcanır, 0,2 mol artar; AlCl<sub>3</sub> 0,4 mol</span></div>
+        <div class="oy"><div><b>A</b><span>Sınırlayıcı bileşen Al’dir.</span><em>%__</em></div><div data-dogru><b>B</b><span>0,2 mol Al artar.</span><em>%__</em></div><div><b>C</b><span>0,6 mol AlCl<sub>3</sub> oluşur.</span><em>%__</em></div><div><b>D</b><span>Cl<sub>2</sub>’den 0,2 mol artar.</span><em>%__</em></div><div><b>E</b><span>0,3 mol AlCl<sub>3</sub> oluşur.</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I8">
         <div class="mesveret-bas">{{sno|8}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 8. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div data-dogru><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">4 g H<sub>2</sub> ile 40 g O<sub>2</sub>, 2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O denklemine göre tam verimle tepkimeye giriyor. Tepkime sonunda artan madde ve kütlesi hangisidir?</p>
+        <div class="karalama"><span class="ogr">H<sub>2</sub> 2 mol (2/2 = 1) · O<sub>2</sub> 1,25 mol → H<sub>2</sub> biter; O<sub>2</sub> 0,25 mol = 8 g artar</span></div>
+        <div class="oy yatay"><div><b>A</b><span>H<sub>2</sub> – 1 g</span><em>%__</em></div><div><b>B</b><span>H<sub>2</sub> – 2 g</span><em>%__</em></div><div><b>C</b><span>O<sub>2</sub> – 2 g</span><em>%__</em></div><div><b>D</b><span>O<sub>2</sub> – 4 g</span><em>%__</em></div><div class="tam" data-dogru><b>E</b><span>O<sub>2</sub> – 8 g</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I9">
         <div class="mesveret-bas">{{sno|9}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 9. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div data-dogru><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">N<sub>2</sub> + 3H<sub>2</sub> → 2NH<sub>3</sub>. 5,6 g N<sub>2</sub>’nin yeterli H<sub>2</sub> ile tepkimesinden 4,08 g NH<sub>3</sub> elde ediliyor. Tepkime yüzde kaç verimlidir?</p>
+        <div class="karalama"><span class="ogr">0,2 mol N<sub>2</sub> → teorik 0,4 mol NH<sub>3</sub> = 6,8 g · 4,08/6,8 = %60</span></div>
+        <div class="oy uc"><div><b>A</b><span>40</span><em>%__</em></div><div><b>B</b><span>50</span><em>%__</em></div><div data-dogru><b>C</b><span>60</span><em>%__</em></div><div><b>D</b><span>75</span><em>%__</em></div><div><b>E</b><span>80</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I10">
         <div class="mesveret-bas">{{sno|10}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 10. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div data-dogru><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Kütlece %80 saflıktaki 75 g kireç taşı ısıtılıyor. Safsızlıklar ayrışmıyor ve CaCO<sub>3</sub> → CaO + CO<sub>2</sub> tepkimesi tam verimle yürüyor. Kaç gram CO<sub>2</sub> oluşur?</p>
+        <div class="karalama"><span class="ogr">saf 75·0,80 = 60 g = 0,6 mol → 0,6·44 = 26,4 g</span></div>
+        <div class="oy uc"><div><b>A</b><span>13,2</span><em>%__</em></div><div><b>B</b><span>19,8</span><em>%__</em></div><div><b>C</b><span>22,0</span><em>%__</em></div><div data-dogru><b>D</b><span>26,4</span><em>%__</em></div><div><b>E</b><span>33,0</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I11">
         <div class="mesveret-bas">{{sno|11}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 11. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div data-dogru><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">C<sub>2</sub>H<sub>6</sub> ve C<sub>3</sub>H<sub>8</sub>’den oluşan 0,3 mollük karışım tamamen yakıldığında 0,8 mol CO<sub>2</sub> oluşuyor. Karışım kaç gramdır?</p>
+        <div class="karalama"><span class="ogr">2x + 3(0,3 − x) = 0,8 → x = 0,1 C<sub>2</sub>H<sub>6</sub> · 0,1·30 + 0,2·44 = 11,8 g</span></div>
+        <div class="oy uc"><div><b>A</b><span>9,6</span><em>%__</em></div><div data-dogru><b>B</b><span>11,8</span><em>%__</em></div><div><b>C</b><span>12,6</span><em>%__</em></div><div><b>D</b><span>13,2</span><em>%__</em></div><div><b>E</b><span>14,4</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I12">
         <div class="mesveret-bas">{{sno|12}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 12. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div data-dogru><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Bakır sülfür cevheri iki adımda bakıra dönüşür: 2Cu<sub>2</sub>S + 3O<sub>2</sub> → 2Cu<sub>2</sub>O + 2SO<sub>2</sub> ve Cu<sub>2</sub>S + 2Cu<sub>2</sub>O → 6Cu + SO<sub>2</sub>. 48 g Cu<sub>2</sub>S’nin tamamı bakıra dönüşürse kaç gram Cu elde edilir?</p>
+        <div class="karalama"><span class="ogr">48/160 = 0,3 mol Cu<sub>2</sub>S · Cu atomu korunur: 0,6 mol · 64 = 38,4 g</span></div>
+        <div class="oy uc"><div><b>A</b><span>19,2</span><em>%__</em></div><div><b>B</b><span>25,6</span><em>%__</em></div><div><b>C</b><span>32,0</span><em>%__</em></div><div data-dogru><b>D</b><span>38,4</span><em>%__</em></div><div><b>E</b><span>48,0</span><em>%__</em></div></div>
       </div>
     </div>
     <div class="kart mer-z skor">
       {{poz|pamuk-akce|ps}}
-      <div><span class="et mer">{{ikon|kale}}İmtihan skoru</span><p><b>10+ doğru:</b> Kale Kapısı nişanını boya · <b>7–9:</b> yan yolları tekrar et · <b>6 ve altı:</b> duraklara dön. Sonra: <b>Üstad soruları</b>.</p></div>
+      <div><span class="et mer">{{ikon|kale}}İmtihan skoru</span><p><b>10+ doğru:</b> Sur Kapısı nişanını boya · <b>7–9:</b> yan yolları tekrar et · <b>6 ve altı:</b> duraklara dön. Sonra: <b>Üstad soruları</b>.</p></div>
       <div class="skor-kutu">Doğru <span class="kk"></span> × 25 = <span class="kk b"></span> akçe</div>
     </div>
   </main>
@@ -818,44 +892,43 @@
     <div class="levha ustad">{{rozet|Ü|-|laj}}<div><div class="ust">Üstad soruları · bonus · YKS/AYT tarzı</div><h1>Üstad <em>soruları</em></h1><p class="alt-bas">Altı zor soru. Akçe yok; <b>6/6</b> doğru: <b>Üstad Mührü</b>.</p></div></div>
   </div>
   <main class="ic" style="top:54mm">
-    <!-- 6 soru · 5 şık · tek doğru (data-dogru) · cevaplar dağınık · en az birinde grafik ya da tablo (<div class="ustad-sekil">…</div>
-         ya da <table class="ustad-tablo">). Çözümler Cevaplar sayfasına da yazılır. Akçeye dahil DEĞİL (toplam 1400 kalır). -->
     <div class="ustad-izgara esnek">
       <div class="ustad-soru" data-soru="U1">
-        <div class="ustad-bas">{{sno|1|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 1: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik" data-dogru><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|1|laj}}<span class="et">Korunum · bilinmeyen element</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">XO<sub>2</sub> + 2C → X + 2CO tepkimesinde 30,2 g XO<sub>2</sub>’nin karbonla tamamen indirgenmesinden 11,2 g CO oluşuyor. X’in mol kütlesi kaç g/mol’dür? <span class="kucuk">(C: 12, O: 16)</span></p>
+        <div class="karalama"><span class="ogr">CO 0,4 mol → XO<sub>2</sub> 0,2 mol → 151 g/mol → X = 151 − 32 = 119 (kalay)</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>56</div><div class="sik"><b>B</b>64</div><div class="sik"><b>C</b>65</div><div class="sik"><b>D</b>108</div><div class="sik" data-dogru><b>E</b>119</div></div>
       </div>
       <div class="ustad-soru" data-soru="U2">
-        <div class="ustad-bas">{{sno|2|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 2: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik" data-dogru><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|2|laj}}<span class="et">Sınırlayıcı · eşit kütle</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">Kapalı bir kaba <b>eşit kütlede</b> H<sub>2</sub> ve O<sub>2</sub> konup 2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O tepkimesi tam verimle gerçekleştiriliyor. Su sıvı; kapta 14 g gaz kalıyor. Başlangıçta toplam kaç gram gaz vardı? <span class="kucuk">(H: 1, O: 16)</span></p>
+        <div class="karalama"><span class="ogr">m’şer: O<sub>2</sub> m/32 biter; H<sub>2</sub> m/16 mol harcanır → kalan 7m/8 = 14 → m = 16 → 32 g</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>24</div><div class="sik" data-dogru><b>B</b>32</div><div class="sik"><b>C</b>36</div><div class="sik"><b>D</b>40</div><div class="sik"><b>E</b>48</div></div>
       </div>
       <div class="ustad-soru" data-soru="U3">
-        <div class="ustad-bas">{{sno|3|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 3: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik" data-dogru><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|3|laj}}<span class="et">Grafik · sınırlayıcı</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru"><span class="ustad-sekil">{{info|ustad_grafik}}</span>Sabit miktarda O<sub>2</sub> içeren kaplarda farklı kütlelerde Mg yakılıyor (2Mg + O<sub>2</sub> → 2MgO, tam verim). Oluşan MgO kütlesi grafikte. <span class="kucuk">(O: 16, Mg: 24)</span></p>
+        <ul class="yargi"><li><b>I.</b>Kırılma noktasında Mg ve O<sub>2</sub> artansızdır.</li><li><b>II.</b>14,4 g Mg alınırsa 4,8 g O<sub>2</sub> artar.</li><li><b>III.</b>Kaplardaki O<sub>2</sub> 6,4 g’dır.</li></ul>
+        <div class="karalama"><span class="ogr">16 g MgO = 0,4 mol → O<sub>2</sub> 0,2 mol = 6,4 g (III) · 9,6 g’da artansız (I) · 14,4’te Mg artar (II ✗)</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız III</div><div class="sik"><b>C</b>I ve II</div><div class="sik" data-dogru><b>D</b>I ve III</div><div class="sik"><b>E</b>I, II ve III</div></div>
       </div>
       <div class="ustad-soru" data-soru="U4">
-        <div class="ustad-bas">{{sno|4|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 4: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik" data-dogru><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|4|laj}}<span class="et">Verim · ardışık</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">Fe<sub>2</sub>O<sub>3</sub> + 3CO → 2Fe + 3CO<sub>2</sub> tepkimesi %80 verimle yürüyor; oluşan CO<sub>2</sub>’nin tamamı CO<sub>2</sub> + Ca(OH)<sub>2</sub> → CaCO<sub>3</sub> + H<sub>2</sub>O ile tam verimle çöktürülüyor. 48 g Fe<sub>2</sub>O<sub>3</sub>’ten kaç gram CaCO<sub>3</sub> çöker? <span class="kucuk">(C: 12, O: 16, Ca: 40, Fe: 56)</span></p>
+        <div class="karalama"><span class="ogr">0,3 mol Fe<sub>2</sub>O<sub>3</sub> → teorik 0,9 mol CO<sub>2</sub> → %80: 0,72 mol → 72 g CaCO<sub>3</sub></span></div>
+        <div class="siklar"><div class="sik"><b>A</b>36</div><div class="sik"><b>B</b>54</div><div class="sik" data-dogru><b>C</b>72</div><div class="sik"><b>D</b>90</div><div class="sik"><b>E</b>112,5</div></div>
       </div>
       <div class="ustad-soru" data-soru="U5">
-        <div class="ustad-bas">{{sno|5|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 5: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik" data-dogru><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|5|laj}}<span class="et">Karışım · iki metal</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">Mg ve Al’den oluşan 18 g alaşım yeterli HCl ile tepkimeye giriyor: Mg + 2HCl → MgCl<sub>2</sub> + H<sub>2</sub> ve 2Al + 6HCl → 2AlCl<sub>3</sub> + 3H<sub>2</sub>. Toplam 0,9 mol H<sub>2</sub> çıktığına göre alaşım kütlece yüzde kaç Mg’dir? <span class="kucuk">(Mg: 24, Al: 27)</span></p>
+        <div class="karalama"><span class="ogr">x + 1,5y = 0,9; 24x + 27y = 18 → x = 0,3, y = 0,4 → 7,2/18 = %40</span></div>
+        <div class="siklar"><div class="sik" data-dogru><b>A</b>40</div><div class="sik"><b>B</b>45</div><div class="sik"><b>C</b>50</div><div class="sik"><b>D</b>55</div><div class="sik"><b>E</b>60</div></div>
       </div>
       <div class="ustad-soru" data-soru="U6">
-        <div class="ustad-bas">{{sno|6|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 6: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik" data-dogru><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|6|laj}}<span class="et">Sınırlayıcı · kısmi verim</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">Kapalı bir kapta 14 g N<sub>2</sub> ile 4 g H<sub>2</sub>, N<sub>2</sub> + 3H<sub>2</sub> → 2NH<sub>3</sub> tepkimesine %50 verimle giriyor. Tepkime sonunda kaptaki toplam gaz kaç moldür? <span class="kucuk">(H: 1, N: 14)</span></p>
+        <div class="karalama"><span class="ogr">N<sub>2</sub> 0,5 (sınırlayıcı), H<sub>2</sub> 2 · %50: 0,25 N<sub>2</sub> harcanır → 0,25 + 1,25 + 0,5 = 2,0 mol</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>1,0</div><div class="sik"><b>B</b>1,5</div><div class="sik"><b>C</b>1,75</div><div class="sik" data-dogru><b>D</b>2,0</div><div class="sik"><b>E</b>2,5</div></div>
       </div>
     </div>
     <div class="ustad-muhur">
@@ -872,67 +945,68 @@
   {{zemin}}
   {{hud|15}}
   {{cini}}
-  <div class="bant b36" data-serbest>{{sahne|ornek_sahne|gece|71}}
-    <div class="levha kucuk">{{rozet|✓|-|gol}}<div><div class="ust">Turun sonu · gece nöbeti</div><h1>Cevaplar &amp; <em>çözümler</em></h1></div></div>
+  <div class="bant b36" data-serbest>{{sahne|gece_dicle}}
+    <div class="levha kucuk">{{rozet|✓|-|gol}}<div><div class="ust">Yolun sonu · surlarda gece nöbeti</div><h1>Cevaplar &amp; <em>çözümler</em></h1></div></div>
   </div>
   <main class="ic" style="top:50.5mm">
-    <!-- dogrula.py bu ızgarayı okur ve soru sayfalarındaki data-dogru işaretleriyle karşılaştırır. -->
     <div class="kart anahtar-kart">
       <div class="kart-bas"><span class="et">{{ikon|anahtar}}Büyük İmtihan anahtarı · durak etiketiyle</span><span class="kes-not">Yanlışın hangi duraktan? Etikete bak.</span></div>
       <div class="anahtar-izgara">
-        <div><i>1</i><b>D</b><small>1. durak</small></div>
-        <div><i>2</i><b>C</b><small>2. durak</small></div>
-        <div><i>3</i><b>B</b><small>3. durak</small></div>
-        <div><i>4</i><b>E</b><small>4. durak</small></div>
-        <div><i>5</i><b>A</b><small>5. durak</small></div>
-        <div><i>6</i><b>C</b><small>6. durak</small></div>
-        <div><i>7</i><b>C</b><small>1. durak</small></div>
-        <div><i>8</i><b>D</b><small>2. durak</small></div>
-        <div><i>9</i><b>B</b><small>3. durak</small></div>
-        <div><i>10</i><b>E</b><small>4. durak</small></div>
-        <div><i>11</i><b>C</b><small>5. durak</small></div>
+        <div><i>1</i><b>A</b><small>1. durak</small></div>
+        <div><i>2</i><b>B</b><small>1. durak</small></div>
+        <div><i>3</i><b>E</b><small>2. durak</small></div>
+        <div><i>4</i><b>A</b><small>2. durak</small></div>
+        <div><i>5</i><b>C</b><small>3. durak</small></div>
+        <div><i>6</i><b>D</b><small>3. durak</small></div>
+        <div><i>7</i><b>B</b><small>4. durak</small></div>
+        <div><i>8</i><b>E</b><small>4. durak</small></div>
+        <div><i>9</i><b>C</b><small>5. durak</small></div>
+        <div><i>10</i><b>D</b><small>5. durak</small></div>
+        <div><i>11</i><b>B</b><small>6. durak</small></div>
         <div><i>12</i><b>D</b><small>6. durak</small></div>
       </div>
     </div>
     <div class="kart cozum-kart esnek">
       <div class="cozumler">
         <div class="grup"><h4>Büyük İmtihan</h4>
-          <p class="c"><b>1 · D</b> Kısa çözüm.</p>
-          <p class="c"><b>2 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>3 · B</b> Kısa çözüm.</p>
-          <p class="c"><b>4 · E</b> Kısa çözüm.</p>
-          <p class="c"><b>5 · A</b> Kısa çözüm.</p>
-          <p class="c"><b>6 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>7 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>8 · D</b> Kısa çözüm.</p>
-          <p class="c"><b>9 · B</b> Kısa çözüm.</p>
-          <p class="c"><b>10 · E</b> Kısa çözüm.</p>
-          <p class="c"><b>11 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>12 · D</b> Kısa çözüm.</p>
+          <p class="c"><b>1 · A</b> Atom türü ve sayısı (dolayısıyla kütle) korunur; molekül, mol, hâl, hacim değişebilir.</p>
+          <p class="c"><b>2 · B</b> Kütle korunur: 8,8 − 5,6 = 3,2 g S.</p>
+          <p class="c"><b>3 · E</b> 2Fe<sub>2</sub>O<sub>3</sub> + 3C → 4Fe + 3CO<sub>2</sub>: 2 + 3 + 4 + 3 = 12.</p>
+          <p class="c"><b>4 · A</b> Ürün 6 C, 12 H, 18 O; O<sub>2</sub>’den 18 O → 2X = C<sub>6</sub>H<sub>12</sub> → C<sub>3</sub>H<sub>6</sub>.</p>
+          <p class="c"><b>5 · C</b> 0,15 mol propan → 0,75 mol O<sub>2</sub> = 24 g. (33: kütleler katsayıyla çarpılmış.)</p>
+          <p class="c"><b>6 · D</b> 0,2 mol NH<sub>3</sub> → 0,3 mol H<sub>2</sub> = 1,806·10<sup>23</sup>.</p>
+          <p class="c"><b>7 · B</b> Al 0,3; Cl<sub>2</sub> 0,2 → Cl<sub>2</sub> biter; 0,4 mol Al harcanır, 0,2 mol artar; 0,4 mol AlCl<sub>3</sub>.</p>
+          <p class="c"><b>8 · E</b> H<sub>2</sub> 2 mol biter; O<sub>2</sub> 1 mol harcanır, 0,25 mol = 8 g artar.</p>
+          <p class="c"><b>9 · C</b> Teorik 0,4 mol NH<sub>3</sub> = 6,8 g; 4,08/6,8 = %60.</p>
+          <p class="c"><b>10 · D</b> Saf 60 g = 0,6 mol → 26,4 g CO<sub>2</sub>. (33,0: saflık unutulmuş.)</p>
+          <p class="c"><b>11 · B</b> 2x + 3(0,3 − x) = 0,8 → x = 0,1; 3 + 8,8 = 11,8 g.</p>
+          <p class="c"><b>12 · D</b> Cu atomu korunur: 0,3 mol Cu<sub>2</sub>S → 0,6 mol Cu = 38,4 g.</p>
         </div>
         <div class="grup"><h4>Kıssalar</h4>
-          <p class="c"><b>1 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>2 · B</b> Kısa çözüm.</p>
-          <p class="c"><b>3 · E</b> Kısa çözüm.</p>
-          <p class="c"><b>4 · D</b> Kısa çözüm.</p>
-        </div>
-        <div class="grup yan-anahtar"><h4>Yan yollar · hızlı anahtar</h4>
-          <p><b>Kıssa</b><span class="ck">1 C</span><span class="ck">2 B</span><span class="ck">3 E</span><span class="ck">4 D</span></p>
-          <p><b>Meclis</b><span class="ck">1 Yusuf</span><span class="ck">2 Yusuf</span><span class="ck">3 Yusuf</span><span class="ck">4 Yusuf</span></p>
-          <p><b>Merdiven</b><span class="ck">1 · …</span><span class="ck">2 · …</span><span class="ck">3 · …</span></p>
+          <p class="c"><b>1 · E</b> 0,01 mol (I) · 0,03 mol HCl (II) · 0,03 mol su = 0,54 g (III).</p>
+          <p class="c"><b>2 · D</b> 0,4 : 1,2 : 0,8 = 1 : 3 : 2 (I); H<sub>2</sub> biter (II yanlış); 2,2 → 1,4 (III).</p>
+          <p class="c"><b>3 · C</b> 1. ve 3. denemede HCl biter, Mg artar; 2.’de Mg biter.</p>
+          <p class="c"><b>4 · B</b> 0,1 mol NaHCO<sub>3</sub> → 0,05 mol CO<sub>2</sub> (2,2 g) + 0,05 mol H<sub>2</sub>O (0,9 g) uçar: 3,1 g.</p>
         </div>
         <div class="grup"><h4>Üstad soruları</h4>
-          <p class="c"><b>1 · B</b> Kısa çözüm.</p>
-          <p class="c"><b>2 · E</b> Kısa çözüm.</p>
-          <p class="c"><b>3 · A</b> Kısa çözüm.</p>
-          <p class="c"><b>4 · D</b> Kısa çözüm.</p>
-          <p class="c"><b>5 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>6 · B</b> Kısa çözüm.</p>
+          <p class="c"><b>1 · E</b> 0,4 mol CO → 0,2 mol XO<sub>2</sub> = 151 g/mol → X = 119 (kalay, Sn).</p>
+          <p class="c"><b>2 · B</b> m’şer gram: O<sub>2</sub> biter; kalan H<sub>2</sub> 7m/8 = 14 → m = 16; toplam 32 g.</p>
+          <p class="c"><b>3 · D</b> O<sub>2</sub> 0,2 mol = 6,4 g; 9,6 g Mg’de artansız; 14,4 g’da 4,8 g <u>Mg</u> artar.</p>
+          <p class="c"><b>4 · C</b> 0,3 mol Fe<sub>2</sub>O<sub>3</sub> → 0,9 · 0,80 = 0,72 mol CO<sub>2</sub> → 72 g CaCO<sub>3</sub>.</p>
+          <p class="c"><b>5 · A</b> x = 0,3 mol Mg (7,2 g), y = 0,4 mol Al (10,8 g) → %40 Mg.</p>
+          <p class="c"><b>6 · D</b> N<sub>2</sub> sınırlayıcı; %50: 0,25 mol N<sub>2</sub>, 0,75 mol H<sub>2</sub> harcanır → 0,25 + 1,25 + 0,5 = 2,0 mol.</p>
         </div>
-        <div class="grup"><h4>Meclis · merdiven · hızlı görevler</h4>
-          <p class="c"><b>Meclis 1 · Yusuf</b> Hatalı satır ve doğrusu.</p>
-          <p class="c"><b>Merdiven 1</b> Kısa çözüm.</p>
-          <p class="c"><b>1. durak</b> Hızlı görev cevabı.</p>
+        <div class="grup"><h4>Meclis · merdiven</h4>
+          <p class="c"><b>M1 · Yusuf</b> Satır 2: 13 O = <sup>13</sup>/<sub>2</sub> O<sub>2</sub>; ×2: 2C<sub>4</sub>H<sub>10</sub> + 13O<sub>2</sub> → 8CO<sub>2</sub> + 10H<sub>2</sub>O.</p>
+          <p class="c"><b>M2 · Pamuk</b> Satır 1: katsayı mol oranı; 0,3 mol N<sub>2</sub> → 0,9 mol = 1,8 g H<sub>2</sub>.</p>
+          <p class="c"><b>M3 · Yusuf</b> Satır 2: Cl<sub>2</sub> 3/3 = 1 &lt; Al 3/2 → 2 mol AlCl<sub>3</sub>; 1 mol Al artar.</p>
+          <p class="c"><b>M4 · Elif</b> Satır 3: 14 · 0,80 = 11,2 g CaO.</p>
+          <p class="c"><b>Merdiven</b> 1 · 23 &nbsp;·&nbsp; 2 · 1,6 g S artar, 16 g Cu<sub>2</sub>S &nbsp;·&nbsp; 3 · 16 g CaCO<sub>3</sub>.</p>
+        </div>
+        <div class="grup yan-anahtar"><h4>Hızlı görevler · kısa anahtar</h4>
+          <p><b>Kıssa</b><span class="ck">1 E</span><span class="ck">2 D</span><span class="ck">3 C</span><span class="ck">4 B</span></p>
+          <p><b>Durak</b><span class="ck">1 · 36 g, hayır</span><span class="ck">2 · 9</span><span class="ck">3 · 22 g</span></p>
+          <p><b>Durak</b><span class="ck">4 · O<sub>2</sub>; 0,9 mol</span><span class="ck">5 · 50 g</span><span class="ck">6 · %32,5</span></p>
         </div>
       </div>
     </div>
@@ -944,7 +1018,7 @@
       </div>
       <div class="kart tekrar">
         <span class="et">{{ikon|harita}}Tekrar rotası · yanlışın nereden?</span>
-        <ul class="ozet-liste"><li><b>1. durak (s.{{sayfa|2}})</b> · konu → soru …</li><li><b>2. durak (s.{{sayfa|3}})</b> · konu → soru …</li><li><b>3. durak (s.{{sayfa|4}})</b> · konu → soru …</li><li><b>4. durak (s.{{sayfa|5}})</b> · konu → soru …</li><li><b>5. durak (s.{{sayfa|6}})</b> · konu → soru …</li><li><b>6. durak (s.{{sayfa|7}})</b> · konu → soru …</li></ul>
+        <ul class="ozet-liste"><li><b>1–2. durak (s.{{sayfa|2}}–{{sayfa|3}})</b> · korunum, denkleştirme → soru 1–4</li><li><b>3–4. durak (s.{{sayfa|4}}–{{sayfa|5}})</b> · hesap, sınırlayıcı → soru 5–8</li><li><b>5–6. durak (s.{{sayfa|6}}–{{sayfa|7}})</b> · verim, saflık, karışım, zincir → soru 9–12</li></ul>
       </div>
     </div>
   </main>
@@ -958,30 +1032,30 @@
   {{cini}}
   <div class="bant final-bant" data-serbest>{{final}}
     <div class="levha final-levha">{{rozet|★|-|keh}}<div><div class="ust">Dicle yolu tamam · Yol 3 final</div><h1>Yol <em>tamamlandı!</em></h1><p class="alt-bas">Akçeni topla, unvanını al, nişanlarını say.</p></div></div>
-    <div class="balon-buyuk final-balon"><span class="et keh">Pamuk</span><br>Ünitenin özünü tek cümleyle söyleyen kapanış. Miyav!</div>
+    <div class="balon-buyuk final-balon"><span class="et keh">Pamuk</span><br>Artık her tepkimeyi bir oranla okuyorsun: <b>önce mole git</b>, köprüden geç. Miyav!</div>
   </div>
   <main class="ic" style="top:103mm">
     <div class="kart ray-kart">
       <div class="kart-bas"><span class="et keh">{{ikon|akce}}Akçe rayı</span><span class="kes-not">Toplamını raya işaretle · unvanını yuvarlak içine al</span></div>
-      {{info|akce_rayi|ÜSTAD}}
+      {{info|akce_rayi|ORAN ÜSTADI}}
     </div>
     <div class="unvanlar">
       <div class="unvan">{{info|unvan_rozeti|1|#A3B3BE}}<b>Çırak</b><small>0–399 akçe</small><p>Yola çıktın. Durak görevlerini tekrar dene.</p></div>
-      <div class="unvan">{{info|unvan_rozeti|2|#13A3A6}}<b>Kalfa</b><small>400–799 akçe</small><p>Haritayı biliyorsun. Yan yollarla güçlen.</p></div>
-      <div class="unvan">{{info|unvan_rozeti|3|#0E4C5A}}<b>Usta</b><small>800–1149 akçe</small><p>Her yönde geçiş yapıyorsun. Tuzaklara dikkat.</p></div>
-      <div class="unvan ust">{{info|unvan_rozeti|4|#F0A21A}}<b>Üstad</b><small>1150–1400 akçe</small><p>Kale kapısını açtın. Sıradaki yol seni bekliyor.</p></div>
+      <div class="unvan">{{info|unvan_rozeti|2|#13A3A6}}<b>Kalfa</b><small>400–799 akçe</small><p>Denklemi okuyorsun. Yan yollarla güçlen.</p></div>
+      <div class="unvan">{{info|unvan_rozeti|3|#0E4C5A}}<b>Usta</b><small>800–1149 akçe</small><p>Köprüden rahat geçiyorsun. Tuzaklara dikkat.</p></div>
+      <div class="unvan ust">{{info|unvan_rozeti|4|#F0A21A}}<b>Oran Üstadı</b><small>1150–1400 akçe</small><p>Sur kapısını açtın. Yol 4 seni bekliyor.</p></div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1.06fr .94fr">
       <div class="kart defter-kart">
         <span class="et keh">{{ikon|hulasa}}Akçe defteri</span>
         <table class="defter sik">
           <tr><th>Durak</th><th>En çok</th><th>Senin</th></tr>
-          <tr><td>1. durak · Yer 1</td><td class="n">100</td><td class="k"><span></span></td></tr>
-          <tr><td>2. durak · Yer 2</td><td class="n">120</td><td class="k"><span></span></td></tr>
-          <tr><td>3. durak · Yer 3</td><td class="n">120</td><td class="k"><span></span></td></tr>
-          <tr><td>4. durak · Yer 4</td><td class="n">120</td><td class="k"><span></span></td></tr>
-          <tr><td>5. durak · Yer 5</td><td class="n">120</td><td class="k"><span></span></td></tr>
-          <tr><td>6. durak · Yer 6</td><td class="n">120</td><td class="k"><span></span></td></tr>
+          <tr><td>1. durak · Çayönü · Korunum</td><td class="n">100</td><td class="k"><span></span></td></tr>
+          <tr><td>2. durak · Hevsel · Denkleştirme</td><td class="n">120</td><td class="k"><span></span></td></tr>
+          <tr><td>3. durak · Malabadi · Hesap</td><td class="n">120</td><td class="k"><span></span></td></tr>
+          <tr><td>4. durak · Batman · Sınırlayıcı</td><td class="n">120</td><td class="k"><span></span></td></tr>
+          <tr><td>5. durak · Hasankeyf · Verim</td><td class="n">120</td><td class="k"><span></span></td></tr>
+          <tr><td>6. durak · Bakırcılar · Zincir</td><td class="n">120</td><td class="k"><span></span></td></tr>
           <tr><td>Hülasa · muhasebe</td><td class="n">40</td><td class="k"><span></span></td></tr>
           <tr><td>Yan yol · Meclis</td><td class="n">120</td><td class="k"><span></span></td></tr>
           <tr><td>Yan yol · Kıssalar</td><td class="n">120</td><td class="k"><span></span></td></tr>
@@ -1001,8 +1075,8 @@
         </div>
         <div class="kart gol-z siradaki-yol">
           <span class="et">{{ikon|harita}}Sıradaki yol →</span>
-          <b>Yol 4 · sıradaki ünite</b>
-          <p>Bir sonraki yolun merak uyandıran tek cümlesi.</p>
+          <b>Yol 4 · Gazlar · Kapadokya Yolu</b>
+          <p>Balonlar neden yükselir? Oranlar yanında, sıra basınçta.</p>
         </div>
       </div>
     </div>

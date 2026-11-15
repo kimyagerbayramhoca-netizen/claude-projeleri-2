@@ -494,13 +494,15 @@ def merdiven_tuf(onek="gi-mrd"):
     g = s.lin([(0, "#FFE0C8"), (1, "#F7B9C6")], 0, 0, 0, 1, ad="gk")
     s += f'<rect width="{W}" height="{H}" rx="22" fill="{g}"/>'
     s += SU.guvercinler(560, 40, 260, 70, 5, 31, renk="#FFFFFF")
-    tuf = s.lin([(0, "#F4DEC0"), (1, "#D9AE84")], 0, 0, 0, 1, ad="tf")
+    tuf = s.lin([(0, "#E9A36A"), (1, "#B4643A")], 0, 0, 0, 1, ad="tf")
     for k in range(4):
         x = 50 + k * 205
         y = 70 + k * 52
         s += f'<path d="M{x} {H - 20} V{y + 10} Q{x} {y} {x + 12} {y} H{x + 203} Q{x + 215} {y} {x + 215} {y + 10} V{H - 20} Z" fill="{tuf}" stroke="{OBS}" stroke-width="3"/>'
-        s += f'<path d="M{x + 6} {y + 16} H{x + 209}" stroke="#FFF4E4" stroke-width="5" opacity=".8"/>'
-        s += f'<path d="M{x + 40} {y + 50} q-6 60 6 {H - 90 - y}" stroke="#C99A78" stroke-width="3" fill="none" opacity=".5"/>'
+        s += f'<path d="M{x + 6} {y + 16} H{x + 209}" stroke="#FFD9B0" stroke-width="5" opacity=".8"/>'
+        s += f'<path d="M{x + 30} {y + 40} q-6 60 6 {H - 80 - y}" stroke="#8E4A26" stroke-width="3" fill="none" opacity=".45"/>'
+        if y + 120 < H - 40:
+            s += f'<path d="M{x + 170} {y + 120} v-12 a9 9 0 0 1 18 0 v12 Z" fill="#5A2E18" opacity=".8"/>'
         for j in range(4 - k):
             s += akce_sikke(s, x + 40 + j * 46, y - 26, 20)
         s += halolu_yazi(f'x="{x + 107}" y="{y + 64}" text-anchor="middle" {B} font-size="48"', f"+{40 - 10 * k}", "#FFFFFF", OBS, 1.4)

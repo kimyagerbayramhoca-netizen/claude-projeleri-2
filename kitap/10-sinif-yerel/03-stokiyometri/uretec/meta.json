@@ -6,61 +6,303 @@
   "klasor": "03-stokiyometri",
   "tema": "Tema 1 · Bölüm 3",
   "bolge": "Diyarbakır · Batman",
-  "merkez": {"enlem": 37.95, "boylam": 40.6},
+  "merkez": {
+    "enlem": 37.95,
+    "boylam": 40.6
+  },
   "duraklar": [
-    {"no": 1, "yer": "Çayönü", "baslik": "Atomlar kaybolmaz", "enlem": 38.216, "boylam": 39.727, "sayfa": 2, "akce": 100},
-    {"no": 2, "yer": "Hevsel Bahçeleri", "baslik": "Denkleştirme", "enlem": 37.902, "boylam": 40.240, "sayfa": 3, "akce": 120},
-    {"no": 3, "yer": "Malabadi Köprüsü", "baslik": "Denklemden hesaba", "enlem": 38.154, "boylam": 41.204, "sayfa": 4, "akce": 120},
-    {"no": 4, "yer": "Batman", "baslik": "Sınırlayıcı bileşen", "enlem": 37.887, "boylam": 41.132, "sayfa": 5, "akce": 120},
-    {"no": 5, "yer": "Hasankeyf", "baslik": "Verim ve saflık", "enlem": 37.714, "boylam": 41.413, "sayfa": 6, "akce": 120},
-    {"no": 6, "yer": "Bakırcılar Çarşısı", "baslik": "Karışım ve zincir", "enlem": 37.912, "boylam": 40.236, "sayfa": 7, "akce": 120}
+    {
+      "no": 1,
+      "yer": "Çayönü",
+      "baslik": "Atomlar kaybolmaz",
+      "enlem": 38.216,
+      "boylam": 39.727,
+      "sayfa": 2,
+      "akce": 100
+    },
+    {
+      "no": 2,
+      "yer": "Hevsel Bahçeleri",
+      "baslik": "Denkleştirme",
+      "enlem": 37.902,
+      "boylam": 40.24,
+      "sayfa": 3,
+      "akce": 120
+    },
+    {
+      "no": 3,
+      "yer": "Malabadi Köprüsü",
+      "baslik": "Denklemden hesaba",
+      "enlem": 38.154,
+      "boylam": 41.204,
+      "sayfa": 4,
+      "akce": 120
+    },
+    {
+      "no": 4,
+      "yer": "Batman",
+      "baslik": "Sınırlayıcı bileşen",
+      "enlem": 37.887,
+      "boylam": 41.132,
+      "sayfa": 5,
+      "akce": 120
+    },
+    {
+      "no": 5,
+      "yer": "Hasankeyf",
+      "baslik": "Verim ve saflık",
+      "enlem": 37.714,
+      "boylam": 41.413,
+      "sayfa": 6,
+      "akce": 120
+    },
+    {
+      "no": 6,
+      "yer": "Bakırcılar Çarşısı",
+      "baslik": "Karışım ve zincir",
+      "enlem": 37.912,
+      "boylam": 40.236,
+      "sayfa": 7,
+      "akce": 120
+    }
   ],
   "kale": "Diyarbakır Surları",
-  "kale_konum": {"enlem": 37.918, "boylam": 40.231},
+  "kale_konum": {
+    "enlem": 37.918,
+    "boylam": 40.231
+  },
   "nisanlar": [
-    {"ad": "Korunum Bekçisi", "ikon": "korunum", "renk": "gol", "aciklama": "1. durak · korunum"},
-    {"ad": "Denge Bahçıvanı", "ikon": "fidan", "renk": "zum", "aciklama": "2. durak · denkleştirme"},
-    {"ad": "Köprü Mimarı", "ikon": "kopru", "renk": "keh", "aciklama": "3. durak · mol oranı"},
-    {"ad": "Alev Ustası", "ikon": "alev", "renk": "mer", "aciklama": "4. durak · sınırlayıcı"},
-    {"ad": "Verim Ehli", "ikon": "verim", "renk": "kob", "aciklama": "5. durak · verim, saflık"},
-    {"ad": "Zincir Ustası", "ikon": "zincir", "renk": "erg", "aciklama": "6. durak · karışım, zincir"},
-    {"ad": "Sur Kapısı", "ikon": "kale", "renk": "keh", "aciklama": "İmtihan · 10+ doğru"},
-    {"ad": "Üstad Mührü", "ikon": "ustad", "renk": "laj", "aciklama": "Üstad · 6/6 doğru", "bonus": true}
+    {
+      "ad": "Korunum Bekçisi",
+      "ikon": "korunum",
+      "renk": "gol",
+      "aciklama": "1. durak"
+    },
+    {
+      "ad": "Denge Bahçıvanı",
+      "ikon": "fidan",
+      "renk": "zum",
+      "aciklama": "2. durak"
+    },
+    {
+      "ad": "Köprü Mimarı",
+      "ikon": "kopru",
+      "renk": "keh",
+      "aciklama": "3. durak"
+    },
+    {
+      "ad": "Alev Ustası",
+      "ikon": "alev",
+      "renk": "mer",
+      "aciklama": "4. durak"
+    },
+    {
+      "ad": "Verim Ehli",
+      "ikon": "verim",
+      "renk": "kob",
+      "aciklama": "5. durak"
+    },
+    {
+      "ad": "Zincir Ustası",
+      "ikon": "zincir",
+      "renk": "erg",
+      "aciklama": "6. durak"
+    },
+    {
+      "ad": "Sur Kapısı",
+      "ikon": "kale",
+      "renk": "keh",
+      "aciklama": "İmtihan 10+"
+    },
+    {
+      "ad": "Üstad Mührü",
+      "ikon": "ustad",
+      "renk": "laj",
+      "aciklama": "Üstad 6/6",
+      "bonus": true
+    }
   ],
   "hazine": [
-    {"kod": "H1", "baslik": "Korunum · +10 akçe", "formul": "Σm<sub>girenler</sub> = Σm<sub>ürünler</sub>", "not": "Kapalı kapta kütle değişmez.", "kisa": "Σm gir = Σm ürün", "durak": 1},
-    {"kod": "H2", "renk": "gol", "baslik": "Ne korunur? · +10 akçe", "formul": "kütle · atom türü ve sayısı", "not": "Molekül ve mol sayısı değişebilir.", "kisa": "kütle + atom", "durak": 1},
-    {"kod": "H3", "renk": "zum", "sinif": "strateji", "baslik": "Denkleştirme sırası · +10 akçe",
-     "adimlar": ["<b>Kalabalık formüle 1 koy.</b>", "<b>Sırayla eşitle:</b> metal → ametal → H → O.", "<b>Kesir çıkarsa</b> hepsini paydayla çarp; sonra tek tek say."],
-     "kisa": "metal→ametal→H→O", "durak": 2},
-    {"kod": "H4", "renk": "mer", "baslik": "Alt simgeye dokunma · +10 akçe", "formul": "2H<sub>2</sub>O, H<sub>4</sub>O<sub>2</sub> değil", "not": "Yalnız katsayı değişir; formül değişmez.", "kisa": "yalnız katsayı", "durak": 2},
-    {"kod": "H5", "baslik": "Katsayı köprüsü · +10 akçe", "formul": "n<sub>B</sub> = n<sub>A</sub> · <span class=\"kesir\"><span>k<sub>B</sub></span><span>k<sub>A</sub></span></span>", "kisa": "n<sub>B</sub> = n<sub>A</sub>·k<sub>B</sub>/k<sub>A</sub>", "durak": 3},
-    {"kod": "H6", "renk": "gol", "baslik": "Hesap yolu · +10 akçe", "formul": "verilen → mol → mol → istenen", "not": "Kütle oranı değil, mol oranı.", "kisa": "→ mol → mol →", "durak": 3},
-    {"kod": "H7", "renk": "mer", "baslik": "Sınırlayıcıyı bul · +10 akçe", "formul": "en küçük <span class=\"kesir\"><span>n</span><span>katsayı</span></span>", "kisa": "en küçük n/k", "durak": 4},
-    {"kod": "H8", "renk": "kob", "baslik": "BDS tablosu · +10 akçe", "formul": "Başlangıç − Değişim = Sonuç", "not": "Değişim satırı katsayılarla orantılı.", "kisa": "B · D · S", "durak": 4},
-    {"kod": "H9", "renk": "kob", "baslik": "Yüzde verim · +10 akçe", "formul": "% verim = <span class=\"kesir\"><span>gerçek</span><span>teorik</span></span>·100", "not": "Teorik: sınırlayıcıdan.", "kisa": "gerçek/teorik·100", "durak": 5},
-    {"kod": "H10", "renk": "gol", "baslik": "Yüzde saflık · +10 akçe", "formul": "% saflık = <span class=\"kesir\"><span>saf kütle</span><span>örnek</span></span>·100", "not": "Yalnız saf kısım tepkimeye girer.", "kisa": "saf/örnek·100", "durak": 5},
-    {"kod": "H11", "renk": "erg", "baslik": "Karışım · +10 akçe", "formul": "x · (toplam − x)", "not": "Her bileşene kendi denklemi.", "kisa": "x · toplam − x", "durak": 6},
-    {"kod": "H12", "renk": "keh", "baslik": "Zincir · +10 akçe", "formul": "ortak madde köprüdür", "not": "Ortak maddeyi eşitle, oranı taşı.", "kisa": "ortak madde", "durak": 6}
+    {
+      "kod": "H1",
+      "baslik": "Korunum · +10 akçe",
+      "formul": "Σm<sub>giren</sub> = Σm<sub>ürün</sub>",
+      "not": "Kapalı kapta kütle değişmez.",
+      "kisa": "Σm giren = Σm ürün",
+      "durak": 1
+    },
+    {
+      "kod": "H2",
+      "renk": "gol",
+      "baslik": "Ne korunur? · +10 akçe",
+      "formul": "kütle + atomlar",
+      "not": "Molekül ve mol sayısı değişebilir.",
+      "kisa": "kütle + atom",
+      "durak": 1
+    },
+    {
+      "kod": "H3",
+      "renk": "zum",
+      "sinif": "strateji",
+      "baslik": "Denkleştirme sırası · +10 akçe",
+      "adimlar": [
+        "<b>Kalabalık formüle 1 koy.</b>",
+        "<b>Sırayla eşitle:</b> metal → ametal → H → O.",
+        "<b>Kesir çıkarsa</b> hepsini paydayla çarp; sonra tek tek say."
+      ],
+      "kisa": "metal→ametal→H→O",
+      "durak": 2
+    },
+    {
+      "kod": "H4",
+      "renk": "mer",
+      "baslik": "Alt simgeye dokunma · +10 akçe",
+      "formul": "2H<sub>2</sub>O, H<sub>4</sub>O<sub>2</sub> değil",
+      "not": "Yalnız katsayı değişir; formül değişmez.",
+      "kisa": "yalnız katsayı",
+      "durak": 2
+    },
+    {
+      "kod": "H5",
+      "baslik": "Katsayı köprüsü · +10 akçe",
+      "formul": "n<sub>B</sub> = n<sub>A</sub> · <span class=\"kesir\"><span>k<sub>B</sub></span><span>k<sub>A</sub></span></span>",
+      "kisa": "n<sub>B</sub> = n<sub>A</sub>·k<sub>B</sub>/k<sub>A</sub>",
+      "durak": 3
+    },
+    {
+      "kod": "H6",
+      "renk": "gol",
+      "baslik": "Hesap yolu · +10 akçe",
+      "formul": "→ mol → mol →",
+      "not": "verilen → mol → mol → istenen",
+      "kisa": "→ mol → mol →",
+      "durak": 3
+    },
+    {
+      "kod": "H7",
+      "renk": "mer",
+      "baslik": "Sınırlayıcıyı bul · +10 akçe",
+      "formul": "en küçük <span class=\"kesir\"><span>n</span><span>katsayı</span></span>",
+      "kisa": "en küçük n/k",
+      "durak": 4
+    },
+    {
+      "kod": "H8",
+      "renk": "kob",
+      "baslik": "BDS tablosu · +10 akçe",
+      "formul": "B − D = S",
+      "not": "Başlangıç − Değişim = Sonuç; değişim katsayılarla orantılı.",
+      "kisa": "B − D = S",
+      "durak": 4
+    },
+    {
+      "kod": "H9",
+      "renk": "kob",
+      "baslik": "Yüzde verim · +10 akçe",
+      "formul": "% verim = <span class=\"kesir\"><span>gerçek</span><span>teorik</span></span>·100",
+      "not": "Teorik: sınırlayıcıdan.",
+      "kisa": "gerçek/teorik·100",
+      "durak": 5
+    },
+    {
+      "kod": "H10",
+      "renk": "gol",
+      "baslik": "Yüzde saflık · +10 akçe",
+      "formul": "% saflık = <span class=\"kesir\"><span>saf kütle</span><span>örnek</span></span>·100",
+      "not": "Yalnız saf kısım tepkimeye girer.",
+      "kisa": "saf/örnek·100",
+      "durak": 5
+    },
+    {
+      "kod": "H11",
+      "renk": "erg",
+      "baslik": "Karışım · +10 akçe",
+      "formul": "x · toplam − x",
+      "not": "Her bileşene kendi denklemi.",
+      "kisa": "x · toplam − x",
+      "durak": 6
+    },
+    {
+      "kod": "H12",
+      "renk": "keh",
+      "baslik": "Zincir · +10 akçe",
+      "formul": "ortak madde",
+      "not": "Halkaları ortak madde bağlar.",
+      "kisa": "ortak madde",
+      "durak": 6
+    }
   ],
   "medeniyet": [
-    {"ad": "İbn Sînâ", "yil": "980–1037", "katki": "Madenlerin türünün simyayla gerçekten değiştirilemeyeceğini, ancak benzerlerinin yapılabileceğini savundu.", "sayfa": 2},
-    {"ad": "el-Cezerî", "yil": "? – y. 1206", "katki": "Âmid’de (Diyarbakır) Artuklu hükümdarlarının hizmetinde çalıştı; makinelerini anlattığı kitabını 1206’da tamamladı.", "sayfa": 4},
-    {"ad": "el-Hâzinî", "yil": "12. yy", "katki": "Mîzânü’l-Hikme’de iki madenden oluşan alaşımda madenlerin oranını bulmaya yarayan hassas teraziyi anlattı.", "sayfa": 6},
-    {"ad": "Câbir bin Hayyân", "yil": "8. yy", "katki": "Damıtma, kristallendirme ve süzme gibi işlemleri sistemli kullandı.", "sayfa": 7}
+    {
+      "ad": "İbn Sînâ",
+      "yil": "980–1037",
+      "katki": "Madenlerin türünün simyayla gerçekten değiştirilemeyeceğini, ancak benzerlerinin yapılabileceğini savundu.",
+      "sayfa": 2
+    },
+    {
+      "ad": "el-Cezerî",
+      "yil": "? – y. 1206",
+      "katki": "Âmid’de (Diyarbakır) Artuklu hükümdarlarının hizmetinde çalıştı; makinelerini anlattığı kitabını 1206’da tamamladı.",
+      "sayfa": 4
+    },
+    {
+      "ad": "el-Hâzinî",
+      "yil": "12. yy",
+      "katki": "Mîzânü’l-Hikme’de iki madenden oluşan alaşımda madenlerin oranını bulmaya yarayan hassas teraziyi anlattı.",
+      "sayfa": 6
+    },
+    {
+      "ad": "Câbir bin Hayyân",
+      "yil": "8. yy",
+      "katki": "Damıtma, kristallendirme ve süzme gibi işlemleri sistemli kullandı.",
+      "sayfa": 9
+    }
   ],
   "kavramlar": [
-    {"terim": "kimyasal tepkime denklemi", "tanim": "Tepkenlerin (okun solu) ve ürünlerin (okun sağı) formüllerle, katsayılarla ve hâl simgeleriyle yazılışı."},
-    {"terim": "kütlenin korunumu kanunu", "tanim": "Kimyasal tepkimede girenlerin kütleleri toplamı, ürünlerin kütleleri toplamına eşittir."},
-    {"terim": "stokiyometrik katsayı", "tanim": "Denklemde formülün önüne yazılan, maddelerin mol (tanecik) oranını gösteren sayı."},
-    {"terim": "denkleştirme", "tanim": "Okun iki yanında her atom türünden aynı sayıda olacak biçimde en küçük tam sayı katsayıları bulma."},
-    {"terim": "stokiyometri", "tanim": "Tepkimede harcanan ve oluşan madde miktarlarının denklem yardımıyla hesaplanması."},
-    {"terim": "sınırlayıcı bileşen", "tanim": "Tepkimede ilk tükenen ve oluşacak ürün miktarını belirleyen tepken."},
-    {"terim": "artan madde", "tanim": "Tepkime bittiğinde tükenmeden kalan tepken."},
-    {"terim": "teorik verim", "tanim": "Denklemden, sınırlayıcı bileşene göre hesaplanan en çok ürün miktarı."},
-    {"terim": "yüzde verim", "tanim": "Gerçek verimin teorik verime oranının 100 ile çarpımı."},
-    {"terim": "yüzde saflık", "tanim": "Bir örnekteki saf maddenin kütlesinin örneğin toplam kütlesine oranının 100 ile çarpımı."},
-    {"terim": "ardışık tepkimeler", "tanim": "Bir tepkimenin ürününün sonraki tepkimenin tepkeni olduğu tepkime zinciri."}
+    {
+      "terim": "kimyasal tepkime denklemi",
+      "tanim": "Tepkenlerin (okun solu) ve ürünlerin (okun sağı) formüllerle, katsayılarla ve hâl simgeleriyle yazılışı."
+    },
+    {
+      "terim": "kütlenin korunumu kanunu",
+      "tanim": "Kimyasal tepkimede girenlerin kütleleri toplamı, ürünlerin kütleleri toplamına eşittir."
+    },
+    {
+      "terim": "stokiyometrik katsayı",
+      "tanim": "Denklemde formülün önüne yazılan, maddelerin mol (tanecik) oranını gösteren sayı."
+    },
+    {
+      "terim": "denkleştirme",
+      "tanim": "Okun iki yanında her atom türünden aynı sayıda olacak biçimde en küçük tam sayı katsayıları bulma."
+    },
+    {
+      "terim": "stokiyometri",
+      "tanim": "Tepkimede harcanan ve oluşan madde miktarlarının denklem yardımıyla hesaplanması."
+    },
+    {
+      "terim": "sınırlayıcı bileşen",
+      "tanim": "Tepkimede ilk tükenen ve oluşacak ürün miktarını belirleyen tepken."
+    },
+    {
+      "terim": "artan madde",
+      "tanim": "Tepkime bittiğinde tükenmeden kalan tepken."
+    },
+    {
+      "terim": "teorik verim",
+      "tanim": "Denklemden, sınırlayıcı bileşene göre hesaplanan en çok ürün miktarı."
+    },
+    {
+      "terim": "yüzde verim",
+      "tanim": "Gerçek verimin teorik verime oranının 100 ile çarpımı."
+    },
+    {
+      "terim": "yüzde saflık",
+      "tanim": "Bir örnekteki saf maddenin kütlesinin örneğin toplam kütlesine oranının 100 ile çarpımı."
+    },
+    {
+      "terim": "ardışık tepkimeler",
+      "tanim": "Bir tepkimenin ürününün sonraki tepkimenin tepkeni olduğu tepkime zinciri."
+    }
   ],
   "akce_toplam": 1400,
   "sayfa_sayisi": 16

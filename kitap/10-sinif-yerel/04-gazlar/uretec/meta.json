@@ -6,54 +6,271 @@
   "klasor": "04-gazlar",
   "tema": "Tema 1 · Bölüm 4",
   "bolge": "Kapadokya (Kayseri · Nevşehir · Aksaray)",
-  "merkez": {"enlem": 38.55, "boylam": 34.80},
+  "merkez": {
+    "enlem": 38.55,
+    "boylam": 34.8
+  },
   "duraklar": [
-    {"no": 1, "yer": "Erciyes", "baslik": "Gaz ve basınç", "enlem": 38.56, "boylam": 35.43, "sayfa": 2, "akce": 100},
-    {"no": 2, "yer": "Göreme", "baslik": "Boyle ve Charles", "enlem": 38.643, "boylam": 34.829, "sayfa": 3, "akce": 150},
-    {"no": 3, "yer": "Avanos", "baslik": "Üç yasa bir arada", "enlem": 38.715, "boylam": 34.847, "sayfa": 4, "akce": 150},
-    {"no": 4, "yer": "Kızılçukur", "baslik": "İdeal gaz", "enlem": 38.66, "boylam": 34.87, "sayfa": 5, "akce": 150},
-    {"no": 5, "yer": "Derinkuyu", "baslik": "Yoğunluk, yayılma", "enlem": 38.373, "boylam": 34.734, "sayfa": 6, "akce": 150}
+    {
+      "no": 1,
+      "yer": "Erciyes",
+      "baslik": "Gaz ve basınç",
+      "enlem": 38.56,
+      "boylam": 35.43,
+      "sayfa": 2,
+      "akce": 100
+    },
+    {
+      "no": 2,
+      "yer": "Göreme",
+      "baslik": "Boyle ve Charles",
+      "enlem": 38.643,
+      "boylam": 34.829,
+      "sayfa": 3,
+      "akce": 150
+    },
+    {
+      "no": 3,
+      "yer": "Avanos",
+      "baslik": "Üç yasa bir arada",
+      "enlem": 38.715,
+      "boylam": 34.847,
+      "sayfa": 4,
+      "akce": 150
+    },
+    {
+      "no": 4,
+      "yer": "Kızılçukur",
+      "baslik": "İdeal gaz",
+      "enlem": 38.66,
+      "boylam": 34.87,
+      "sayfa": 5,
+      "akce": 150
+    },
+    {
+      "no": 5,
+      "yer": "Derinkuyu",
+      "baslik": "Yoğunluk, yayılma",
+      "enlem": 38.373,
+      "boylam": 34.734,
+      "sayfa": 6,
+      "akce": 150
+    }
   ],
   "kale": "Uçhisar Kalesi",
-  "kale_konum": {"enlem": 38.630, "boylam": 34.805},
+  "kale_konum": {
+    "enlem": 38.63,
+    "boylam": 34.805
+  },
   "nisanlar": [
-    {"ad": "Basınç Bekçisi", "ikon": "barometre", "renk": "kob", "aciklama": "1. durak · basınç"},
-    {"ad": "Balon Kaptanı", "ikon": "balon", "renk": "mer", "aciklama": "2. durak · Boyle, Charles"},
-    {"ad": "Çömlek Ustası", "ikon": "testi", "renk": "erg", "aciklama": "3. durak · üç yasa"},
-    {"ad": "Tanecik Pilotu", "ikon": "tanecik", "renk": "gol", "aciklama": "4. durak · ideal gaz"},
-    {"ad": "Yeraltı Kâşifi", "ikon": "baca", "renk": "kob", "aciklama": "5. durak · yayılma"},
-    {"ad": "Kale Kapısı", "ikon": "kale", "renk": "keh", "aciklama": "İmtihan · 10+ doğru"},
-    {"ad": "Üstad Mührü", "ikon": "ustad", "renk": "laj", "aciklama": "Üstad · 6/6 doğru", "bonus": true}
+    {
+      "ad": "Basınç Bekçisi",
+      "ikon": "barometre",
+      "renk": "kob",
+      "aciklama": "1. durak · basınç"
+    },
+    {
+      "ad": "Balon Kaptanı",
+      "ikon": "balon",
+      "renk": "mer",
+      "aciklama": "2. durak · Boyle, Charles"
+    },
+    {
+      "ad": "Çömlek Ustası",
+      "ikon": "testi",
+      "renk": "erg",
+      "aciklama": "3. durak · üç yasa"
+    },
+    {
+      "ad": "Tanecik Pilotu",
+      "ikon": "tanecik",
+      "renk": "gol",
+      "aciklama": "4. durak · ideal gaz"
+    },
+    {
+      "ad": "Yeraltı Kâşifi",
+      "ikon": "baca",
+      "renk": "kob",
+      "aciklama": "5. durak · yayılma"
+    },
+    {
+      "ad": "Kale Kapısı",
+      "ikon": "kale",
+      "renk": "keh",
+      "aciklama": "İmtihan · 10+ doğru"
+    },
+    {
+      "ad": "Üstad Mührü",
+      "ikon": "ustad",
+      "renk": "laj",
+      "aciklama": "Üstad · 6/6 doğru",
+      "bonus": true
+    }
   ],
   "hazine": [
-    {"kod": "H1", "renk": "mer", "baslik": "Önce kelvin", "formul": "T = t + 273", "not": "−73 °C = 200 K · +10 akçe", "durak": 1},
-    {"kod": "H2", "renk": "kob", "baslik": "Basınç birimleri", "formul": "1 atm = 76 cmHg", "not": "= 760 mmHg = 760 torr · +10 akçe", "kisa": "1 atm = 76 cmHg", "durak": 1},
-    {"kod": "H3", "renk": "gol", "baslik": "Açık uçlu manometre", "formul": "P_{gaz} = P_0 ± h", "not": "Cıva açık kolda yüksekse + · +10 akçe", "durak": 1},
-    {"kod": "H4", "baslik": "Boyle · n, T sabit", "formul": "P_1·V_1 = P_2·V_2", "not": "P ile V ters orantılı · +10 akçe", "kisa": "P₁V₁ = P₂V₂", "durak": 2},
-    {"kod": "H5", "renk": "mer", "baslik": "Charles · n, P sabit", "formul": "<span class=\"kesir\"><span>V_1</span><span>T_1</span></span> = <span class=\"kesir\"><span>V_2</span><span>T_2</span></span>", "not": "T her zaman kelvin · +10 akçe", "kisa": "V₁/T₁ = V₂/T₂", "durak": 2},
-    {"kod": "H6", "renk": "erg", "baslik": "Gay-Lussac · n, V sabit", "formul": "<span class=\"kesir\"><span>P_1</span><span>T_1</span></span> = <span class=\"kesir\"><span>P_2</span><span>T_2</span></span>", "not": "Kapalı kap ısınınca P artar · +10 akçe", "kisa": "P₁/T₁ = P₂/T₂", "durak": 3},
-    {"kod": "H7", "renk": "gol", "baslik": "Avogadro · P, T sabit", "formul": "<span class=\"kesir\"><span>V_1</span><span>n_1</span></span> = <span class=\"kesir\"><span>V_2</span><span>n_2</span></span>", "not": "NŞA: 1 mol gaz = 22,4 L · +10 akçe", "kisa": "V₁/n₁ = V₂/n₂", "durak": 3},
-    {"kod": "H8", "renk": "kob", "sinif": "strateji", "baslik": "Birleşik gaz denklemi · +10 akçe", "adimlar": ["<b>Yaz:</b> P<sub>1</sub>V<sub>1</sub>/(n<sub>1</sub>T<sub>1</sub>) = P<sub>2</sub>V<sub>2</sub>/(n<sub>2</sub>T<sub>2</sub>)", "<b>Sadeleştir:</b> sabit kalan nicelikleri sil.", "<b>Birim:</b> T kelvin; iki tarafta P ve V aynı birim."], "kisa": "P₁V₁/n₁T₁ = P₂V₂/n₂T₂", "durak": 3},
-    {"kod": "H9", "renk": "gol", "baslik": "İdeal gaz denklemi", "formul": "P·V = n·R·T", "not": "R = 0,082 L·atm/(mol·K) · +10 akçe", "kisa": "PV = nRT", "durak": 4},
-    {"kod": "H10", "renk": "mer", "baslik": "Kinetik enerji", "formul": "E<sub>k</sub> ortalama ~ T", "not": "Aynı T'de bütün gazlarda eşit · +10 akçe", "kisa": "E<sub>k</sub> ~ T (kelvin)", "durak": 4},
-    {"kod": "H11", "renk": "kob", "baslik": "Gaz yoğunluğu", "formul": "d = <span class=\"kesir\"><span>P·M_A</span><span>R·T</span></span>", "not": "Aynı P, T'de d oranı = M oranı · +10 akçe", "kisa": "d = P·M<sub>A</sub>/(R·T)", "durak": 5},
-    {"kod": "H12", "renk": "erg", "baslik": "Graham yasası", "formul": "<span class=\"kesir\"><span>v_1</span><span>v_2</span></span> = √<span class=\"kesir\"><span>M_2</span><span>M_1</span></span>", "not": "= t₂ / t₁ (süre ters orantılı) · +10 akçe", "kisa": "v₁/v₂ = √(M₂/M₁)", "durak": 5}
+    {
+      "kod": "H1",
+      "renk": "mer",
+      "baslik": "Önce kelvin",
+      "formul": "T = t + 273",
+      "not": "−73 °C = 200 K · +10 akçe",
+      "durak": 1
+    },
+    {
+      "kod": "H2",
+      "renk": "kob",
+      "baslik": "Basınç birimleri",
+      "formul": "1 atm = 76 cmHg",
+      "not": "= 760 mmHg = 760 torr · +10 akçe",
+      "kisa": "1 atm = 76 cmHg",
+      "durak": 1
+    },
+    {
+      "kod": "H3",
+      "renk": "gol",
+      "baslik": "Açık uçlu manometre",
+      "formul": "P_{gaz} = P_0 ± h",
+      "not": "Cıva açık kolda yüksekse + · +10 akçe",
+      "durak": 1
+    },
+    {
+      "kod": "H4",
+      "baslik": "Boyle · n, T sabit",
+      "formul": "P_1·V_1 = P_2·V_2",
+      "not": "P ile V ters orantılı · +10 akçe",
+      "kisa": "P₁V₁ = P₂V₂",
+      "durak": 2
+    },
+    {
+      "kod": "H5",
+      "renk": "mer",
+      "baslik": "Charles · n, P sabit",
+      "formul": "<span class=\"kesir\"><span>V_1</span><span>T_1</span></span> = <span class=\"kesir\"><span>V_2</span><span>T_2</span></span>",
+      "not": "T her zaman kelvin · +10 akçe",
+      "kisa": "V₁/T₁ = V₂/T₂",
+      "durak": 2
+    },
+    {
+      "kod": "H6",
+      "renk": "erg",
+      "baslik": "Gay-Lussac · n, V sabit",
+      "formul": "<span class=\"kesir\"><span>P_1</span><span>T_1</span></span> = <span class=\"kesir\"><span>P_2</span><span>T_2</span></span>",
+      "not": "Kapalı kap ısınınca P artar · +10 akçe",
+      "kisa": "P₁/T₁ = P₂/T₂",
+      "durak": 3
+    },
+    {
+      "kod": "H7",
+      "renk": "gol",
+      "baslik": "Avogadro · P, T sabit",
+      "formul": "<span class=\"kesir\"><span>V_1</span><span>n_1</span></span> = <span class=\"kesir\"><span>V_2</span><span>n_2</span></span>",
+      "not": "NŞA: 1 mol gaz = 22,4 L · +10 akçe",
+      "kisa": "V₁/n₁ = V₂/n₂",
+      "durak": 3
+    },
+    {
+      "kod": "H8",
+      "renk": "kob",
+      "baslik": "Birleşik gaz denklemi",
+      "formul": "<span class=\"kesir\"><span>P_1·V_1</span><span>n_1·T_1</span></span> = <span class=\"kesir\"><span>P_2·V_2</span><span>n_2·T_2</span></span>",
+      "not": "Sabit kalanı sil; T kelvin · +10 akçe",
+      "kisa": "P₁V₁/n₁T₁ = P₂V₂/n₂T₂",
+      "durak": 3
+    },
+    {
+      "kod": "H9",
+      "renk": "gol",
+      "baslik": "İdeal gaz denklemi",
+      "formul": "P·V = n·R·T",
+      "not": "R = 0,082 L·atm/(mol·K) · +10 akçe",
+      "kisa": "PV = nRT",
+      "durak": 4
+    },
+    {
+      "kod": "H10",
+      "renk": "mer",
+      "baslik": "Kinetik enerji",
+      "formul": "E<sub>k</sub> ortalama ~ T",
+      "not": "Aynı T'de bütün gazlarda eşit · +10 akçe",
+      "kisa": "E<sub>k</sub> ~ T (kelvin)",
+      "durak": 4
+    },
+    {
+      "kod": "H11",
+      "renk": "kob",
+      "baslik": "Gaz yoğunluğu",
+      "formul": "d = <span class=\"kesir\"><span>P·M_A</span><span>R·T</span></span>",
+      "not": "Aynı P, T'de d oranı = M oranı · +10 akçe",
+      "kisa": "d = P·M<sub>A</sub>/(R·T)",
+      "durak": 5
+    },
+    {
+      "kod": "H12",
+      "renk": "erg",
+      "baslik": "Graham yasası",
+      "formul": "<span class=\"kesir\"><span>v_1</span><span>v_2</span></span> = √<span class=\"kesir\"><span>M_2</span><span>M_1</span></span>",
+      "not": "= t₂ / t₁ (süre ters orantılı) · +10 akçe",
+      "kisa": "v₁/v₂ = √(M₂/M₁)",
+      "durak": 5
+    }
   ],
   "medeniyet": [
-    {"ad": "Gevher Nesibe Darüşşifası", "yil": "1205–1206", "katki": "Kayseri'de Selçuklu döneminde kurulan darüşşifa ve tıp medresesi; hem hasta tedavi edilir hem hekim yetiştirilirdi.", "sayfa": 2},
-    {"ad": "Takiyüddin", "yil": "16. yy", "katki": "et-Turuku's-Seniyye (1551): kebap şişini buharla döndüren düzeneği anlattı.", "sayfa": 4},
-    {"ad": "İbn Sînâ", "yil": "980–1037", "katki": "el-Kânûn fi't-Tıb: sağlığı korumak için gerekli altı etkenin ilki olarak havayı inceledi.", "sayfa": 6}
+    {
+      "ad": "Gevher Nesibe Darüşşifası",
+      "yil": "1205–1206",
+      "katki": "Kayseri'de Selçuklu döneminde kurulan darüşşifa ve tıp medresesi; hem hasta tedavi edilir hem hekim yetiştirilirdi.",
+      "sayfa": 2
+    },
+    {
+      "ad": "Takiyüddin",
+      "yil": "16. yy",
+      "katki": "et-Turuku's-Seniyye (1551): kebap şişini buharla döndüren düzeneği anlattı.",
+      "sayfa": 4
+    },
+    {
+      "ad": "İbn Sînâ",
+      "yil": "980–1037",
+      "katki": "el-Kânûn fi't-Tıb: sağlığı korumak için gerekli altı etkenin ilki olarak havayı inceledi.",
+      "sayfa": 8
+    }
   ],
   "kavramlar": [
-    {"terim": "gaz basıncı", "tanim": "Gaz taneciklerinin kabın çeperlerine çarpmasıyla birim yüzeye uygulanan kuvvet."},
-    {"terim": "açık hava basıncı (P_0)", "tanim": "Atmosferin yeryüzüne uyguladığı basınç; yükseldikçe azalır. Deniz kıyısında yaklaşık 1 atm = 76 cmHg."},
-    {"terim": "barometre", "tanim": "Açık hava basıncını ölçen araç (Torricelli, 1643)."},
-    {"terim": "manometre", "tanim": "Kapalı kaptaki gazın basıncını ölçen araç."},
-    {"terim": "mutlak sıfır", "tanim": "0 K = −273 °C; ideal gazın hacminin sıfıra indiği varsayılan sıcaklık."},
-    {"terim": "NŞA", "tanim": "Normal şartlar: 0 °C ve 1 atm; 1 mol ideal gaz 22,4 L hacim kaplar."},
-    {"terim": "ideal gaz", "tanim": "Tanecik hacmi ve tanecikler arası etkileşimi ihmal edilen gaz; PV = nRT'ye tam uyar."},
-    {"terim": "difüzyon", "tanim": "Gaz taneciklerinin derişim farkıyla başka bir ortamda yayılması."},
-    {"terim": "efüzyon", "tanim": "Gazın basınç farkıyla küçük bir delikten dışarı sızması."}
+    {
+      "terim": "gaz basıncı",
+      "tanim": "Gaz taneciklerinin kabın çeperlerine çarpmasıyla birim yüzeye uygulanan kuvvet."
+    },
+    {
+      "terim": "açık hava basıncı (P_0)",
+      "tanim": "Atmosferin yeryüzüne uyguladığı basınç; yükseldikçe azalır. Deniz kıyısında yaklaşık 1 atm = 76 cmHg."
+    },
+    {
+      "terim": "barometre",
+      "tanim": "Açık hava basıncını ölçen araç (Torricelli, 1643)."
+    },
+    {
+      "terim": "manometre",
+      "tanim": "Kapalı kaptaki gazın basıncını ölçen araç."
+    },
+    {
+      "terim": "mutlak sıfır",
+      "tanim": "0 K = −273 °C; ideal gazın hacminin sıfıra indiği varsayılan sıcaklık."
+    },
+    {
+      "terim": "NŞA",
+      "tanim": "Normal şartlar: 0 °C ve 1 atm; 1 mol ideal gaz 22,4 L hacim kaplar."
+    },
+    {
+      "terim": "ideal gaz",
+      "tanim": "Tanecik hacmi ve tanecikler arası etkileşimi ihmal edilen gaz; PV = nRT'ye tam uyar."
+    },
+    {
+      "terim": "difüzyon",
+      "tanim": "Gaz taneciklerinin derişim farkıyla başka bir ortamda yayılması."
+    },
+    {
+      "terim": "efüzyon",
+      "tanim": "Gazın basınç farkıyla küçük bir delikten dışarı sızması."
+    }
   ],
   "akce_toplam": 1400,
   "sayfa_sayisi": 15
