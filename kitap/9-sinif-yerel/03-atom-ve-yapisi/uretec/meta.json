@@ -1,0 +1,219 @@
+{
+  "sinif": 9,
+  "yol": 3,
+  "rota": "Şanlıurfa–Harran Yolu",
+  "unite": "Atom ve Yapısı",
+  "klasor": "03-atom-ve-yapisi",
+  "tema": "Tema 1 · Bölüm 3",
+  "bolge": "Şanlıurfa",
+  "merkez": {
+    "enlem": 37.127,
+    "boylam": 38.68
+  },
+  "duraklar": [
+    {
+      "no": 1,
+      "yer": "Yer 1",
+      "baslik": "1. durak başlığı",
+      "enlem": 36.827,
+      "boylam": 37.96,
+      "sayfa": 2,
+      "akce": 100
+    },
+    {
+      "no": 2,
+      "yer": "Yer 2",
+      "baslik": "2. durak başlığı",
+      "enlem": 36.707,
+      "boylam": 38.52,
+      "sayfa": 3,
+      "akce": 120
+    },
+    {
+      "no": 3,
+      "yer": "Yer 3",
+      "baslik": "3. durak başlığı",
+      "enlem": 37.027,
+      "boylam": 38.9,
+      "sayfa": 4,
+      "akce": 120
+    },
+    {
+      "no": 4,
+      "yer": "Yer 4",
+      "baslik": "4. durak başlığı",
+      "enlem": 37.327,
+      "boylam": 38.38,
+      "sayfa": 5,
+      "akce": 120
+    },
+    {
+      "no": 5,
+      "yer": "Yer 5",
+      "baslik": "5. durak başlığı",
+      "enlem": 37.467,
+      "boylam": 39.06,
+      "sayfa": 6,
+      "akce": 120
+    },
+    {
+      "no": 6,
+      "yer": "Yer 6",
+      "baslik": "6. durak başlığı",
+      "enlem": 37.187,
+      "boylam": 39.48,
+      "sayfa": 7,
+      "akce": 120
+    }
+  ],
+  "kale": "Urfa Kalesi",
+  "kale_konum": {
+    "enlem": 36.907,
+    "boylam": 39.63
+  },
+  "nisanlar": [
+    {
+      "ad": "1. Durak Nişanı",
+      "ikon": "deste",
+      "renk": "gol",
+      "aciklama": "1. durak · konu"
+    },
+    {
+      "ad": "2. Durak Nişanı",
+      "ikon": "izotop",
+      "renk": "kob",
+      "aciklama": "2. durak · konu"
+    },
+    {
+      "ad": "3. Durak Nişanı",
+      "ikon": "kefal",
+      "renk": "gol",
+      "aciklama": "3. durak · konu"
+    },
+    {
+      "ad": "4. Durak Nişanı",
+      "ikon": "mizan",
+      "renk": "mer",
+      "aciklama": "4. durak · konu"
+    },
+    {
+      "ad": "5. Durak Nişanı",
+      "ikon": "karisim",
+      "renk": "erg",
+      "aciklama": "5. durak · konu"
+    },
+    {
+      "ad": "6. Durak Nişanı",
+      "ikon": "deste",
+      "renk": "kob",
+      "aciklama": "6. durak · konu"
+    },
+    {
+      "ad": "Kale Kapısı",
+      "ikon": "kale",
+      "renk": "keh",
+      "aciklama": "İmtihan · 10+ doğru"
+    },
+    {
+      "ad": "Üstad Mührü",
+      "ikon": "ustad",
+      "renk": "laj",
+      "aciklama": "Üstad · 6/6 doğru",
+      "bonus": true
+    }
+  ],
+  "hazine": [
+    {
+      "kod": "H1",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "a = b · c",
+      "not": "Kısa not",
+      "durak": 1
+    },
+    {
+      "kod": "H2",
+      "renk": "gol",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "x = y / z",
+      "durak": 1
+    },
+    {
+      "kod": "H3",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "a = b · c",
+      "not": "Kısa not",
+      "durak": 2
+    },
+    {
+      "kod": "H4",
+      "renk": "gol",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "x = y / z",
+      "durak": 2
+    },
+    {
+      "kod": "H5",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "a = b · c",
+      "not": "Kısa not",
+      "durak": 3
+    },
+    {
+      "kod": "H6",
+      "renk": "gol",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "x = y / z",
+      "durak": 3
+    },
+    {
+      "kod": "H7",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "a = b · c",
+      "not": "Kısa not",
+      "durak": 4
+    },
+    {
+      "kod": "H8",
+      "renk": "gol",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "x = y / z",
+      "durak": 4
+    },
+    {
+      "kod": "H9",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "a = b · c",
+      "not": "Kısa not",
+      "durak": 5
+    },
+    {
+      "kod": "H10",
+      "renk": "gol",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "x = y / z",
+      "durak": 5
+    },
+    {
+      "kod": "H11",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "a = b · c",
+      "not": "Kısa not",
+      "durak": 6
+    },
+    {
+      "kod": "H12",
+      "renk": "gol",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "x = y / z",
+      "durak": 6
+    }
+  ],
+  "medeniyet": [],
+  "kavramlar": [
+    {
+      "terim": "terim",
+      "tanim": "tanım"
+    }
+  ],
+  "sayfa_sayisi": 16
+}
