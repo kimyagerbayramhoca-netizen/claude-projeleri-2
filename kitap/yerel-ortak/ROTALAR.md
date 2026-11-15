@@ -3,7 +3,7 @@
 Yeni tasarımda her ünite Türkiye'de, konusunun **gerçekten yaşandığı** bir bölgede geçen bir yolculuktur.
 Elif (Edremit), Yusuf (Erciş) ve Van kedisi Pamuk, Van'dan yola çıkıp bütün Türkiye'yi dolaşır. Örnek ve
 referans uygulama: `10-sinif-yerel/02-mol-kavrami` (Yol 2 · Van Gölü Turu). Tasarım sistemi:
-`TASARIM-SISTEMI-YEREL.md`. Dil, karakter ve örnek havuzu: `../YEREL-KIMLIK.md`.
+`TASARIM-SISTEMI.md` (bu klasörde; yeni ünite tarifi §15). Dil, karakter ve örnek havuzu: `../YEREL-KIMLIK.md`.
 
 ## 1. Rota tablosu
 
@@ -59,11 +59,14 @@ Toplam 1400 akçe korunur (duraklara göre dağıt); Ahilik eşikleri 400 / 800 
 - **Yerler:** depremden zarar görmüş yapıları bugünkü hâliyle anlatma. Cami, kilise ve manastırları oyun sahnesi
   (durak, kale) yapma; medrese ve darüşşifalar "Medeniyetimizden" köşesinde bilgi olarak geçebilir.
   Kurum ve marka logosu yok. Çizimler temsilîdir.
-- **Görsel ve baskı kuralları** (`TASARIM-SISTEMI-YEREL.md` §7, §10):
+- **Görsel ve baskı kuralları** (`TASARIM-SISTEMI.md` §7, §14):
   - konturlu SVG yazısı yok; hale gerekiyorsa `temel.halolu_yazi`
   - fontta olmayan sembolü kalın yazıda kullanma
   - kalkan el açık avuçtur
   - PDF'te Type 3 font olmaz
 - **Dosyalar:** ortak kütüphane `yerel-ortak/` içindedir; ünite yazarı ortak dosyaları **değiştirmez**.
-  Yeni sahne, yapı ve çizimleri kendi ünitesinde `uretec/` altındaki bir modüle yazar; ortak modüllerdeki parçaları içe aktarır.
+  Yeni sahne, yapı ve çizimleri kendi ünitesinde `uretec/sahneler_unite.py`'ye yazar; ortak modüllerdeki parçaları içe aktarır.
   Ortak kütüphaneye eklenmesini istediği bir şey olursa raporunda önerir.
+- **Başlangıç:** `python3 kitap/yerel-ortak/yeni_unite.py <9-sinif-yerel|10-sinif-yerel> <NN-klasor> --yol N --rota "…" --unite "…"`
+  bütün sayfa türleriyle çalışan bir iskelet üretir (`TASARIM-SISTEMI.md` §15). Künye ve hazine kartları `uretec/meta.json`'dadır.
+- **Cevap işaretleme:** doğru şık `data-dogru`, öğretmene özel cevap `<span class="ogr">`, soru kartı `data-soru` (`TASARIM-SISTEMI.md` §10).

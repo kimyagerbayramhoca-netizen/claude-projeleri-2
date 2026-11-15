@@ -2,7 +2,8 @@
    KİMYA ROTASI · YEREL TASARIM SİSTEMİ  ("Van Gölü" iskelet + "Medrese Defteri" tezhibi)
    ---------------------------------------------------------------------
    Bu dosya bileşen bazlıdır. Her blok başında: ne işe yarar, hangi HTML ile kullanılır.
-   Renk tokenları uretec/cizim/renkler.py ile AYNIDIR (SVG illüstrasyonları da bu paleti kullanır).
+   Renk tokenları yerel-ortak/cizim/renkler.py ile AYNIDIR (SVG illüstrasyonları da bu paleti kullanır).
+   Belge: yerel-ortak/TASARIM-SISTEMI.md (bileşenler §5, yer tutucular §8, cevap işaretleme §10, Üstad §11, varyantlar §12).
 
    PDF kuralları (deneyle bulundu):
    • CSS background-image ile tekrar eden SVG desenleri PDF'te sayfa başına ~400 KB raster olur → KULLANMA.
@@ -641,3 +642,87 @@ ol.akis.yatay li { padding-bottom: 0; } ol.akis.yatay li::after { display: none;
 .yan-anahtar p { display: flex; align-items: center; flex-wrap: wrap; gap: 1mm; margin-bottom: 1.2mm; }
 .yan-anahtar p b { width: 18mm; font-size: 8pt; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; color: var(--keh-k); }
 .yan-anahtar .ck { display: inline-block; border: .35mm solid var(--obs); border-radius: 4mm; padding: .2mm 1.8mm; background: var(--gol-aa); font-weight: 800; font-size: 9.5pt; white-space: nowrap; }
+
+/* ------------------------------------------------------------------ 31. CEVAP İŞARETLEME · ÖĞRETMEN BASKISI
+   Öğrenci baskısında hiçbir şey değişmez; render.js --ogretmen sayfayı <html class="ogretmen"> ile basar.
+   • data-dogru   doğru şık (.sik, .oy > div), doğru yorum (.yorum), işaretlenecek kutucuk (.kutucuk)
+   • .ogr         öğretmene özel cevap / çözüm metni: öğrenci baskısında display:none (yerleşimi hiç etkilemez)
+   • data-soru    soru kartının kodu (K1, I7, U3 …): dogrula.py doğru şıkkı sayfadan bu kodla okur
+   Kırmızı metin yerleşimi bozmaz: karalama, hüküm çizgisi ve merdiven satırında mutlak konumla üste basılır. */
+:root { --ogr: #D3121B; --ogr-a: #FFE9E7; }
+.ogr { display: none; }
+html.ogretmen .ogr { display: inline; color: var(--ogr); font-family: var(--govde); font-weight: 800; font-style: normal;
+  letter-spacing: 0; text-transform: none; }
+html.ogretmen .ogr b { color: var(--ogr); font-weight: 900; }
+html.ogretmen .sik[data-dogru], html.ogretmen .oy > div[data-dogru] { border-color: var(--ogr); background: var(--ogr-a); box-shadow: 0 0 0 .45mm var(--ogr); }
+html.ogretmen .sik[data-dogru] > b, html.ogretmen .oy > div[data-dogru] > b { background: var(--ogr); border-color: var(--ogr); color: #fff; }
+html.ogretmen .kutucuk[data-dogru], html.ogretmen .yorum[data-dogru] .kutucuk { position: relative; background: var(--ogr); border-color: var(--ogr); }
+html.ogretmen .kutucuk[data-dogru]::after, html.ogretmen .yorum[data-dogru] .kutucuk::after { content: ""; position: absolute; left: .95mm; top: .15mm;
+  width: .95mm; height: 1.9mm; border: solid #fff; border-width: 0 .45mm .45mm 0; transform: rotate(45deg); }
+html.ogretmen .yorum[data-dogru] .k { color: var(--ogr); }
+/* üste basılan çözümler */
+html.ogretmen .karalama > .ogr { display: block; position: absolute; left: 1.8mm; right: 17mm; top: 1.1mm; font-size: 8.8pt; line-height: 1.24; }
+html.ogretmen .cevap-kutu > .ogr { margin-left: 1.4mm; font-size: 9.8pt; }
+html.ogretmen .cizgili, html.ogretmen .cozum-alani > div, html.ogretmen .satirlar > div, html.ogretmen .bos-satir { position: relative; }
+html.ogretmen .cizgili > .ogr { position: absolute; left: .8mm; bottom: .1mm; white-space: nowrap; font-size: 8.6pt; }
+html.ogretmen .cozum-alani > div > .ogr, html.ogretmen .bos-satir > .ogr { position: absolute; left: 1mm; bottom: .5mm; white-space: nowrap; font-size: 9.4pt; }
+/* nüsha işareti: her sayfanın sağ üstünde, çini şeridinin altında */
+html.ogretmen .sayfa::after { content: "ÖĞRETMEN NÜSHASI · CEVAPLAR KIRMIZI"; position: absolute; right: 0; top: 12mm; z-index: 6;
+  background: var(--ogr); color: #fff; font-family: var(--govde); font-weight: 900; font-size: 6.8pt; letter-spacing: .08em;
+  padding: .7mm 2.6mm .6mm 3mm; border-radius: 0 0 0 2mm; }
+
+/* ------------------------------------------------------------------ 32. ÜSTAD SORULARI (bonus sayfa; her ünitede aynı kimlik)
+   <section class="sayfa ustad-sayfa"> bant.b40 + {{sahne|ustad_bandi}} + .levha.ustad (rozet {{rozet|Ü|-|laj}})
+     .ic > .ustad-izgara.esnek > 6 × .ustad-soru[data-soru=U1…]  (.ustad-bas: {{sno|n|laj}} + .et + .ustad-zor)
+                                                                  .soru + (.ustad-sekil) + .karalama + .siklar(.iki|.uc) > .sik
+         > .ustad-muhur: {{nisan|ustad}} + açıklama + skor kutusu
+   YKS/AYT tarzı 6 zor soru; akçeye dahil değil. Hepsini çözen "Üstad Mührü" nişanını boyar. */
+.levha.ustad { border-color: var(--lajver); box-shadow: inset 0 0 0 .9mm rgba(255, 255, 255, .93), inset 0 0 0 1.25mm var(--altin), var(--golge-k); }
+.levha.ustad .ust { color: var(--altin-k); }
+.levha.ustad h1 em { color: var(--lajver); }
+.levha.ustad .alt-bas b { color: var(--lajver); }
+.levha.ustad .hedef { border-top-color: var(--altin); }
+.levha.ustad .hedef > b { color: var(--altin-k); }
+.ustad-izgara { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); grid-auto-flow: column; gap: 2.6mm; }
+.ustad-soru { position: relative; display: flex; flex-direction: column; gap: 1.1mm; min-height: 0; background: var(--kirec);
+  border: .45mm solid var(--lajver); border-radius: 1.4mm; padding: 2mm 2.8mm 2.4mm;
+  box-shadow: inset 0 0 0 .8mm var(--kirec), inset 0 0 0 1.1mm var(--altin), var(--golge-k); }
+.ustad-bas { display: flex; align-items: center; gap: 1.8mm; }
+.ustad-bas svg.sno { width: 8.6mm; height: 8.6mm; flex: none; }
+.ustad-bas .et { flex: 1; color: var(--lajver); }
+.ustad-zor { flex: none; background: var(--lajver); color: var(--altin-a); border: .3mm solid var(--altin); border-radius: 3mm;
+  padding: .35mm 2mm .25mm; font-family: var(--kufi); font-weight: 700; font-size: 7.4pt; letter-spacing: .12em; }
+.ustad-soru .soru { font-weight: 800; font-size: 9.8pt; line-height: 1.26; }
+.ustad-soru .soru .kucuk { font-weight: 700; font-size: 9.5pt; color: var(--obs-2); }
+.ustad-soru ul.yargi { font-size: 9.6pt; }
+.ustad-soru ul.yargi li b { color: var(--lajver); }
+.ustad-soru .karalama { flex: 1 1 auto; min-height: 7mm; }
+.ustad-soru .siklar { margin-top: 0; gap: 1.2mm; }
+.ustad-soru .sik { padding: .55mm 1.6mm .55mm .7mm; font-size: 9.5pt; }
+.ustad-soru .sik b { border-color: var(--lajver); color: var(--lajver); }
+.ustad-sekil { float: right; margin: -.4mm 0 .6mm 2mm; }
+.ustad-sekil svg { display: block; height: auto; }
+table.ustad-tablo { border-collapse: collapse; width: 100%; font-size: 9.5pt; }
+table.ustad-tablo th, table.ustad-tablo td { border: .3mm solid var(--lajver); padding: .5mm 1.4mm; text-align: center; line-height: 1.2; }
+table.ustad-tablo th { background: var(--altin-a); font-weight: 900; font-size: 8pt; letter-spacing: .03em; }
+table.ustad-tablo td:first-child { font-weight: 900; background: var(--kob-a); }
+.ustad-muhur { display: grid; grid-template-columns: 13mm 1fr auto; gap: 3mm; align-items: center; background: var(--kirec);
+  border: .45mm solid var(--lajver); border-radius: 1.4mm; padding: 1.6mm 3mm;
+  box-shadow: inset 0 0 0 .8mm var(--kirec), inset 0 0 0 1.1mm var(--altin), var(--golge-k); }
+.ustad-muhur svg.nisan-svg { width: 13mm; height: 15.6mm; }
+.ustad-muhur .et { color: var(--altin-k); }
+.ustad-muhur p { font-size: 9.5pt; line-height: 1.24; margin-top: .3mm; }
+.ustad-muhur p b { color: var(--lajver); }
+.ustad-muhur .skor-kutu .kk { width: 11mm; }
+
+/* ------------------------------------------------------------------ 33. İSKELET YER TUTUCUSU (yeni_unite.py örnek alanı; içerik gelince silinir) */
+.iskelet-alan { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1mm; text-align: center;
+  background: repeating-linear-gradient(135deg, #fff 0 2.4mm, var(--gum-a) 2.4mm 4.8mm); border: .45mm dashed var(--gum-k); box-shadow: none; color: var(--gum-k); }
+.iskelet-alan p { font-size: 9.5pt; font-weight: 700; max-width: 80%; }
+/* sık akçe defteri (6 duraklı ünitelerde 12 satır sığsın) */
+table.defter.sik td, table.defter.sik th { padding-top: .5mm; padding-bottom: .5mm; }
+table.defter.sik td.k span { height: 4.8mm; }
+/* 7–8 nişanlı nişan sayımı (final sayfası sağ sütununa sığsın; {{nisan-sayim}} sınıfı kendisi ekler) */
+.nisan-say.cok { gap: 1mm; }
+.nisan-say.cok svg { width: 9.8mm; height: 11.8mm; }
+.nisan-say.cok b { font-size: 7.2pt; }

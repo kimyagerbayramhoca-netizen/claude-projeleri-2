@@ -883,3 +883,165 @@ def panorama(h=1100):
     s += f'<circle cx="{px}" cy="{py}" r="10" fill="#F0A21A" stroke="#1B1D26" stroke-width="2"/>'
     s += f'<text x="{px}" y="{py - 76}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="30" fill="#1B1D26">K</text>'
     return s.cikti(f"0 0 {W} {h}", cls="sahne panorama", par="xMidYMid slice"), konum
+
+
+# ------------------------------------------------------------------ ÜSTAD SORULARI BANDI (bütün ünitelerde aynı kimlik)
+
+def ustad_bandi(h=400):
+    """Üstad soruları sayfasının bandı (2100×h; .bant.b40 için h=400): lacivert medrese gecesi, altın Selçuklu
+    yıldız geçmesi, ışıklı pencereli medrese revakı silüeti ve sağda büyük altın mühür madalyonu.
+    Sol üst levhaya boş kalır. Ünitelere göre değişmez: Üstad sayfası kitabın her yerinde aynı görünür."""
+    from .temel import selcuklu_yildizi, yildiz_noktalari
+    s = Svg("sh-ust")
+    g = s.lin([(0, "#0A1238"), (.55, "#162F6E"), (1, "#244590")], 0, 0, 0, h, kull="userSpaceOnUse", ad="gk")
+    s += f'<rect width="{W}" height="{h}" fill="{g}"/>'
+    s += S.yildizlar(s, 0, 0, W, h * .7, 70, 911, renk="#FFE9B0")
+    # altın geçme ağı (tek path)
+    d = []
+    adim = 110
+    for i in range(-1, W // adim + 2):
+        for j in range(-1, h // adim + 2):
+            cx, cy = i * adim + 55, j * adim + 20
+            d.append(cizgi_d(selcuklu_yildizi(cx, cy, 30), True))
+            d.append(f"M{cx + 30} {cy} H{cx + 80} M{cx} {cy + 30} V{cy + 80}")
+    s += f'<path d="{" ".join(d)}" fill="none" stroke="{ALTIN}" stroke-width="2.2" opacity=".2"/>'
+    # mühür madalyonu (sağ)
+    mx, my, R = 1650, h * .47, h * .31
+    hl = s.rad([(0, "#FFE7A8", .5), (.45, ALTIN, .16), (1, ALTIN, 0)], mx, my, R * 2.4, kull="userSpaceOnUse", ad="hl")
+    s += f'<circle cx="{f(mx)}" cy="{f(my)}" r="{f(R * 2.4)}" fill="{hl}"/>'
+    for k in range(16):
+        a = -math.pi / 2 + k * math.pi / 8
+        s += (f'<path d="M{f(mx + R * 1.12 * math.cos(a))} {f(my + R * 1.12 * math.sin(a))} L{f(mx + R * 1.75 * math.cos(a))} {f(my + R * 1.75 * math.sin(a))}" '
+              f'stroke="#FFE3A0" stroke-width="{3 if k % 2 else 5}" stroke-linecap="round" opacity=".45"/>')
+    ga = s.lin([(0, "#FBE9AE"), (.5, ALTIN), (1, "#8A6212")], 0, 0, 1, 1, ad="ga")
+    s += f'<path d="{cizgi_d(yildiz_noktalari(mx, my, R, R * .86, 16, -math.pi / 2), True)}" fill="{ga}" stroke="#3E2C0E" stroke-width="4" stroke-linejoin="round"/>'
+    s += f'<path d="{cizgi_d(selcuklu_yildizi(mx, my, R * .8), True)}" fill="#1D3A8A" stroke="#F6E7BF" stroke-width="4" stroke-linejoin="round"/>'
+    s += f'<circle cx="{f(mx)}" cy="{f(my)}" r="{f(R * .55)}" fill="none" stroke="#F6E7BF" stroke-width="3" stroke-dasharray="7 7"/>'
+    s += f'<path d="{cizgi_d(selcuklu_yildizi(mx, my, R * .42), True)}" fill="{ga}" stroke="#3E2C0E" stroke-width="3" stroke-linejoin="round"/>'
+    s += f'<circle cx="{f(mx)}" cy="{f(my)}" r="{f(R * .15)}" fill="#1D3A8A" stroke="#F6E7BF" stroke-width="3"/>'
+    for k in range(8):
+        a = -math.pi / 2 + k * math.pi / 4 + math.pi / 8
+        s += f'<circle cx="{f(mx + R * .68 * math.cos(a))}" cy="{f(my + R * .68 * math.sin(a))}" r="5" fill="#F6E7BF"/>'
+    # medrese revakı silüeti: kemerli pencerelerde sıcak ışık
+    ry = h - 66
+    rv = [f"M0 {h} V{ry}"]
+    isik = []
+    x = 0
+    k = 0
+    while x < W:
+        w_ = 64 if (k % 5) else 96
+        rv.append(f"H{x + w_}")
+        if x + w_ < W - 10:
+            ax = x + w_ + 14
+            isik.append(f'<path d="M{ax} {h - 6} V{ry + 30} A18 18 0 0 1 {ax + 36} {ry + 30} V{h - 6} Z" fill="#FFD27A" opacity=".85"/>'
+                        f'<path d="M{ax + 4} {h - 6} V{ry + 32} A14 14 0 0 1 {ax + 32} {ry + 32} V{h - 6} Z" fill="#FFF1C4" opacity=".6"/>')
+        x += w_ + 64
+        k += 1
+    rv.append(f"H{W} V{h} Z")
+    s += f'<path d="{" ".join(rv)}" fill="#0B1638"/>'
+    s += "".join(isik)
+    for kx in (560, 1180):  # iki küçük kubbe
+        s += f'<path d="M{kx - 70} {ry} Q{kx - 70} {ry - 64} {kx} {ry - 70} Q{kx + 70} {ry - 64} {kx + 70} {ry} Z" fill="#0B1638"/>'
+        s += f'<path d="M{kx} {ry - 70} V{ry - 92}" stroke="#0B1638" stroke-width="5"/><circle cx="{kx}" cy="{ry - 96}" r="5" fill="{ALTIN}"/>'
+    s += f'<path d="M0 {ry} H{W}" stroke="{ALTIN}" stroke-width="3" opacity=".8"/>'
+    s += f'<path d="M0 {h - 2} H{W}" stroke="{ALTIN}" stroke-width="4"/>'
+    return s.cikti(f"0 0 {W} {h}", cls="sahne ustad-bandi", par="xMidYMid slice")
+
+
+# ------------------------------------------------------------------ GENEL TUR HARİTASI (meta.json durakları → açılış panoraması)
+
+def rota_haritasi(duraklar, kale=None, h=1100, tohum=1, tema="gunbatimi"):
+    """Açılış sayfası için genel tur haritası (.panorama-kutu 210×110 mm → 2100×h birim).
+    duraklar: [{"enlem":…, "boylam":…}, …] (meta.json); kale: {"enlem":…, "boylam":…} ya da None.
+    Durakların enlem–boylamı eğik bakışlı bir düzleme izdüşürülür (uzak kenar küçük); arazi stilizedir.
+    Döndürür: (svg, konum)  konum = {"1": (x, y), …, "K": (x, y)} (birim; mm için /10).
+    Bölgeye özel panorama çizilene kadar her ünite bununla açılır (Van örneği: panorama())."""
+    from .temel import selcuklu_yildizi, yildiz_noktalari
+    r = RNG(tohum)
+    pts = [(d["enlem"], d["boylam"]) for d in duraklar] + ([(kale["enlem"], kale["boylam"])] if kale else [])
+    e0, e1 = min(p[0] for p in pts), max(p[0] for p in pts)
+    b0, b1 = min(p[1] for p in pts), max(p[1] for p in pts)
+    de, db = max(e1 - e0, .2), max(b1 - b0, .3)
+    e0, e1, b0, b1 = e0 - de * .35, e1 + de * .35, b0 - db * .3, b1 + db * .3
+    ufuk = 372
+
+    def P(enl, boy):
+        u = (boy - b0) / (b1 - b0)
+        v = (enl - e0) / (e1 - e0)
+        k = 1.5
+        z = 1 + v * k
+        X = W / 2 + (u - .5) * 2300 / z
+        t = (1 / z - 1 / (1 + k)) / (1 - 1 / (1 + k))
+        return X, ufuk + 40 + (h - 120 - ufuk - 40) * t, 1 / z
+
+    s = Svg(f"sh-rota{tohum}")
+    s += S.gokyuzu(s, 0, 0, W, ufuk + 6, tema)
+    s += S.gunes(s, 320, ufuk - 50, 50, hale="#FFC56B", hale_r=620, guc=.9)
+    for (x, y, w_, kk) in ((640, 150, 520, 18), (1280, 100, 620, 22), (1720, 220, 400, 14), (140, 230, 340, 12)):
+        s += S.bulut_serit(s, x, y, w_, kk, "#FFC9A0", "#FF7A8A", .75)
+    uzak = ""
+    for i, (sol, sag, tx, ty, bicim, renk, golge, kar) in enumerate((
+            (-120, 760, 300, 210, "tepe", "#A57FA6", "#7A5C8E", None),
+            (520, 1500, 1020, 120, "sivri", "#C08FB0", "#8A6A9E", 190),
+            (1300, 2240, 1820, 190, "volkan", "#A9789E", "#7B5A8C", 240))):
+        d_, _ = S.dag(s, sol, sag, ufuk + 8, tx, ty, tohum * 7 + i, renk=renk, golge=golge, bicim=bicim, kar_y=kar,
+                      kar="#FFE6EE", kar_golge="#C6A7D2", sis="#FFA18E", isik=-1, sirt=3, puruz=7)
+        uzak += d_
+    s += uzak
+    gk = s.lin([(0, "#C79A86"), (.12, "#C9A572"), (.45, "#A3B061"), (1, "#5E8E40")], 0, ufuk, 0, h, kull="userSpaceOnUse", ad="kara")
+    s += f'<rect x="0" y="{ufuk + 4}" width="{W}" height="{h - ufuk}" fill="{gk}"/>'
+    # tarla yamaları (izdüşümlü)
+    for _ in range(90):
+        x, y, sc = P(r.uniform(e0, e1), r.uniform(b0 - (b1 - b0) * .3, b1 + (b1 - b0) * .3))
+        w_ = r.uniform(70, 170) * sc
+        hh = w_ * .35 * (.4 + sc)
+        c = r.choice(["#B9B65E", "#8FB24E", "#D3B86A", "#7AA84A", "#C9A04E", "#A8C46A"])
+        s += f'<path d="M{f(x)} {f(y)} l{f(w_)} {f(-hh * .2)} l{f(-w_ * .2)} {f(hh)} l{f(-w_)} {f(hh * .2)} Z" fill="{c}" opacity=".55"/>'
+    # dere: haritanın bir yanından öbürüne kıvrılan su
+    dere = [P(e0 + (e1 - e0) * t, b0 + (b1 - b0) * (.15 + .7 * t + .08 * math.sin(t * 7))) for t in [i / 14 for i in range(15)]]
+    dd = egri_d([(x, y) for x, y, _ in dere])
+    s += f'<path d="{dd}" fill="none" stroke="#2F8FA0" stroke-width="16" stroke-linecap="round" opacity=".55"/>'
+    s += f'<path d="{dd}" fill="none" stroke="#8FD8DA" stroke-width="6" stroke-linecap="round" opacity=".8"/>'
+    konum = {str(i + 1): P(d["enlem"], d["boylam"])[:2] for i, d in enumerate(duraklar)}
+    if kale:
+        konum["K"] = P(kale["enlem"], kale["boylam"])[:2]
+    sira = list(konum.values())
+    # ağaç kümeleri ve köyler (rotaya ve rozetlere uzak)
+    for _ in range(46):
+        x, y, sc = P(r.uniform(e0, e1), r.uniform(b0 - (b1 - b0) * .25, b1 + (b1 - b0) * .25))
+        if y < ufuk + 30 or any(math.hypot(x - a, y - b) < 120 for a, b in sira):
+            continue
+        tur = r.random()
+        if tur < .55:
+            for j in range(3):
+                s += S.kavak(s, x + j * 22 * sc * 2, y, 70 * sc * 1.8, 13 * sc * 1.8, tohum * 100 + _ * 3 + j, renk="#5E9A4A")
+        elif tur < .8:
+            for j in range(2):
+                s += S.agac(s, x + j * 34 * sc * 2, y, 15 * sc * 1.8, tohum * 200 + _ * 2 + j, renk=r.choice(["#6FAA4E", "#7DB955"]))
+        else:
+            for j in range(3):
+                s += S.ev(x + j * 28 * sc * 2, y + (j % 2) * 4, 22 * sc * 2, 16 * sc * 2, tohum * 300 + _ * 3 + j, duvar="#F3E2C6", cati="#C2563A")
+    # rota
+    yd = egri_d(sira, False, .9)
+    s += f'<path d="{yd}" fill="none" stroke="#1B1D26" stroke-width="17" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>'
+    s += f'<path d="{yd}" fill="none" stroke="#FFF1CF" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>'
+    s += f'<path d="{yd}" fill="none" stroke="#E08A1A" stroke-width="3.2" stroke-dasharray="12 9" stroke-linecap="round"/>'
+    for k, (x, y) in konum.items():
+        if k == "K":
+            s += f'<circle cx="{f(x)}" cy="{f(y)}" r="34" fill="#E2533D" stroke="#1B1D26" stroke-width="3"/>'
+            s += f'<path d="M{f(x - 18)} {f(y + 14)} V{f(y - 6)} h6 v-6 h6 v6 h4 v-6 h6 v6 h4 v-6 h6 v6 h4 V{f(y + 14)} Z" fill="#FFFFFF" stroke="#1B1D26" stroke-width="1.6"/>'
+        else:
+            s += f'<path d="{cizgi_d(selcuklu_yildizi(x, y, 36), True)}" fill="#F0C14A" stroke="#1B1D26" stroke-width="3" stroke-linejoin="round"/>'
+            s += f'<path d="{cizgi_d(selcuklu_yildizi(x, y, 29), True)}" fill="#13A3A6" stroke="#1B1D26" stroke-width="2" stroke-linejoin="round"/>'
+            s += f'<text x="{f(x)}" y="{f(y + 11)}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="32" fill="#FFFFFF">{k}</text>'
+    x, y = konum["1"]
+    s += f'<path d="M{f(x + 36)} {f(y + 40)} v-64" stroke="#1B1D26" stroke-width="4"/><path d="M{f(x + 38)} {f(y - 22)} h44 l-10 13 l10 13 h-44 Z" fill="#E2533D" stroke="#1B1D26" stroke-width="2.4"/>'
+    for k, (x, y, o) in enumerate(((1000, 200, 1.1), (1066, 232, .8), (1500, 150, .7), (820, 290, .6))):
+        s += S.marti(x, y, o, 3 - k, renk="#3A2550")
+    px, py = 1960, h - 140
+    s += f'<circle cx="{px}" cy="{py}" r="74" fill="#FFFFFF" opacity=".9" stroke="#1B1D26" stroke-width="3"/>'
+    s += f'<path d="{cizgi_d(yildiz_noktalari(px, py, 66, 14, 4, -math.pi / 2), True)}" fill="#1D3A8A" stroke="#1B1D26" stroke-width="2"/>'
+    s += f'<path d="{cizgi_d(selcuklu_yildizi(px, py, 34), True)}" fill="#13A3A6" stroke="#1B1D26" stroke-width="2"/>'
+    s += f'<circle cx="{px}" cy="{py}" r="10" fill="#F0A21A" stroke="#1B1D26" stroke-width="2"/>'
+    s += f'<text x="{px}" y="{py - 76}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="30" fill="#1B1D26">K</text>'
+    return s.cikti(f"0 0 {W} {h}", cls="sahne panorama", par="xMidYMid slice"), konum

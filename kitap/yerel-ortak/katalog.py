@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""İllüstrasyon kütüphanesinin görsel kataloğu → kitap/10-sinif-yerel/katalog/*.png
+"""İllüstrasyon kütüphanesinin (yerel-ortak/cizim) görsel kataloğu → kitap/yerel-ortak/katalog/*.png
 
-Çalıştır:  python3 uretec/katalog.py
-Üretilenler (TASARIM-SISTEMI-YEREL.md bu görsellere bağlanır):
+Çalıştır:  python3 kitap/yerel-ortak/katalog.py
+Üretilenler (TASARIM-SISTEMI.md bu görsellere bağlanır):
   karakterler.png   Pamuk / Elif / Yusuf / Zeynep Hoca pozları ve avatarlar (sembol kimlikleriyle)
   molekuller.png    3B molekül ve kristal çizimleri (molekul.py)
   susler.png        çini şeritleri, zemin geçmesi, tezhip köşebendi, kilim, mühürler, rozetler, nişanlar, çay bardakları, ikonlar
@@ -14,17 +14,14 @@ import os
 import subprocess
 import sys
 
-BURA = os.path.dirname(os.path.abspath(__file__))
-UNITE = os.path.dirname(BURA)
-KATALOG = os.path.normpath(os.path.join(UNITE, "..", "katalog"))
-ORTAK = os.path.normpath(os.path.join(BURA, "..", "..", "..", "yerel-ortak"))
+ORTAK = os.path.dirname(os.path.abspath(__file__))
+KATALOG = os.path.join(ORTAK, "katalog")
 sys.path.insert(0, ORTAK)
-sys.path.insert(0, BURA)
 
 from cizim import sahneler as SH, karakter as K, sus as U, molekul as M, infografik as I  # noqa: E402
 from cizim.renkler import GOL, GOL_K, KEH, MER, KOB, ERGUVAN  # noqa: E402
 
-FONT = "../../fontlar"
+FONT = os.path.relpath(os.path.join(os.path.dirname(ORTAK), "fontlar"), KATALOG).replace(os.sep, "/")
 CSS = f"""
 @font-face{{font-family:"Baloo Bhaijaan 2";src:url("{FONT}/baloobhaijaan2/static/BalooBhaijaan2-400.ttf");font-weight:400}}@font-face{{font-family:"Baloo Bhaijaan 2";src:url("{FONT}/baloobhaijaan2/static/BalooBhaijaan2-500.ttf");font-weight:500}}@font-face{{font-family:"Baloo Bhaijaan 2";src:url("{FONT}/baloobhaijaan2/static/BalooBhaijaan2-600.ttf");font-weight:600}}@font-face{{font-family:"Baloo Bhaijaan 2";src:url("{FONT}/baloobhaijaan2/static/BalooBhaijaan2-700.ttf");font-weight:700}}@font-face{{font-family:"Baloo Bhaijaan 2";src:url("{FONT}/baloobhaijaan2/static/BalooBhaijaan2-800.ttf");font-weight:800}}
 @font-face{{font-family:"Nunito";src:url("{FONT}/nunito/static/Nunito-400.ttf");font-weight:400}}@font-face{{font-family:"Nunito";src:url("{FONT}/nunito/static/Nunito-500.ttf");font-weight:500}}@font-face{{font-family:"Nunito";src:url("{FONT}/nunito/static/Nunito-600.ttf");font-weight:600}}@font-face{{font-family:"Nunito";src:url("{FONT}/nunito/static/Nunito-700.ttf");font-weight:700}}@font-face{{font-family:"Nunito";src:url("{FONT}/nunito/static/Nunito-800.ttf");font-weight:800}}@font-face{{font-family:"Nunito";src:url("{FONT}/nunito/static/Nunito-900.ttf");font-weight:900}}
@@ -48,7 +45,7 @@ def sayfa(ad, baslik, aciklama, govde, defs=False, genislik=1400):
     open(yol, "w", encoding="utf-8").write(html)
     subprocess.run(["node", os.path.join(ORTAK, "fotograf.js"), yol, os.path.join(KATALOG, f"{ad}.png"), str(genislik), "1"], check=True)
     os.remove(yol)
-    print("yazıldı:", os.path.relpath(os.path.join(KATALOG, f"{ad}.png"), UNITE))
+    print("yazıldı:", os.path.relpath(os.path.join(KATALOG, f"{ad}.png")))
 
 
 def oge(svg, kod, not_=""):
@@ -89,7 +86,7 @@ def molekuller():
 
 def susler():
     g = []
-    from kur import cini_serit
+    from kur_ortak import cini_serit
     serit = cini_serit().replace('class="cini-serit"', 'style="display:block;width:100%;height:26px"')
     g.append(f'<div class="oge" style="width:100%">{serit}<code>sus.cini_serit_ince() → kur.cini_serit() · {{{{cini}}}} (HUD altı, 30 karo tek SVG)</code></div>')
     g.append(oge(f'<div style="width:420px;height:140px">{U.cini_serit_genis().replace("<svg ", "<svg width=\"420\" height=\"140\" ", 1)}</div>', "sus.cini_serit_genis()", "geniş çini bordürü"))
@@ -101,7 +98,7 @@ def susler():
     g.append(oge(U.durak_rozeti("r1", "3").replace("<svg ", '<svg width="120" ', 1), "{{rozet|3}}", "durak rozeti"))
     harf = '<text x="50" y="64" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="40" fill="#1B1D26">K</text>'
     g.append(oge(U.durak_rozeti("r2", harf, "", MER, "#A12817").replace("<svg ", '<svg width="120" ', 1), "{{rozet|K|-|mer}}", "harf rozeti (yan yol, kale)"))
-    for i, (k, r) in enumerate((("deste", (GOL, GOL_K)), ("izotop", (KOB, "#1B3584")), ("kefal", (GOL, GOL_K)), ("mizan", (MER, "#A12817")), ("karisim", (ERGUVAN, "#4E2760")), ("kale", (KEH, "#8C5500")))):
+    for i, (k, r) in enumerate((("deste", (GOL, GOL_K)), ("izotop", (KOB, "#1B3584")), ("kefal", (GOL, GOL_K)), ("mizan", (MER, "#A12817")), ("karisim", (ERGUVAN, "#4E2760")), ("kale", (KEH, "#8C5500")), ("ustad", ("#1D3A8A", "#13285E")))):
         g.append(oge(U.nisan(f"n{i}", U.NISAN_IKON[k], r[0], r[1], kurdele="#E2533D").replace("<svg ", '<svg width="100" ', 1), f"{{{{nisan|{k}}}}}", "boyanacak nişan"))
     g.append(oge("".join(U.cay_bardagi(f"c{i}", v, b, boy=60) for i, (v, b) in enumerate(((1, False), (.5, False), (0, False), (0, True)))), "{{cay|1}} {{cay|.5}} {{cay|0}} {{cay|0|b}}", "Muhasebe: Tamam / Yarım / Tekrar / boyanacak"))
     ik = "".join(f'<span style="display:inline-block;text-align:center;margin:4px 6px;color:#0A6C74"><svg width="34" height="34"><use href="#i-{k}"/></svg><br><small>{k}</small></span>' for k in U.IKON)
@@ -117,6 +114,11 @@ def sahneler():
                   ("iskele", "Anahtar · iskele"), ("kale_buyuk", "İmtihan 1 · Van Kalesi"), ("kale_kapi", "İmtihan 2 · kale kapısı"), ("gece", "Cevaplar · gece")):
         svg = getattr(SH, ad)().replace("<svg ", '<svg style="width:100%;height:auto;display:block" ', 1)
         g.append(f'<div class="oge" style="width:660px">{svg}<code>sahneler.{ad}() · {{{{sahne|{ad}}}}}</code><small>{n}</small></div>')
+    svg = SH.ustad_bandi().replace("<svg ", '<svg style="width:100%;height:auto;display:block" ', 1)
+    g.append(f'<div class="oge" style="width:660px">{svg}<code>sahneler.ustad_bandi() · {{{{sahne|ustad_bandi}}}}</code><small>Üstad soruları bandı (her ünitede aynı; .bant.b40)</small></div>')
+    ornek = [{"enlem": 40.0, "boylam": 28.6}, {"enlem": 39.78, "boylam": 29.1}, {"enlem": 40.1, "boylam": 29.5}, {"enlem": 40.4, "boylam": 29.0}, {"enlem": 40.5, "boylam": 29.7}]
+    rh, _ = SH.rota_haritasi(ornek, kale={"enlem": 39.98, "boylam": 30.2}, tohum=7)
+    g.append(f'<div class="oge" style="width:660px">{rh.replace("<svg ", "<svg style=\"width:100%;height:auto;display:block\" ", 1)}<code>sahneler.rota_haritasi(duraklar, kale) · {{{{rota-haritasi}}}} + {{{{rota-etiket}}}}</code><small>genel tur haritası (meta.json durakları)</small></div>')
     pan, _ = SH.panorama()
     g.append(f'<div class="oge genis">{pan.replace("<svg ", "<svg style=\"width:100%;height:auto\" ", 1)}<code>sahneler.panorama() · {{{{sahne|panorama}}}} + {{{{panorama-etiket}}}}</code><small>açılış · tur rotası (perspektif harita)</small></div>')
     g.append(f'<div class="oge genis">{SH.final().replace("<svg ", "<svg style=\"width:100%;height:auto\" ", 1)}<code>sahneler.final(nisanlar) · {{{{final}}}}</code><small>final · kale burcu</small></div>')
@@ -140,8 +142,8 @@ def infografikler():
 
 
 def ebru_sayfasi():
-    gov = ('<div class="izgara"><div class="oge" style="width:640px"><img src="../../yerel-ortak/gorsel/ebru-gol.jpg" style="width:100%"><code>ebru.ebru_gol() · gorsel/ebru-gol.jpg</code><small>battal + gelgit + dalga · altbilgi şeridi, Medeniyetimizden üst şeridi</small></div>'
-           '<div class="oge" style="width:420px"><img src="../../yerel-ortak/gorsel/ebru-gun.jpg" style="width:100%"><code>ebru.ebru_gun() · gorsel/ebru-gun.jpg</code><small>gün batımı paleti · Hülasa kart zemini</small></div></div>')
+    gov = ('<div class="izgara"><div class="oge" style="width:640px"><img src="../gorsel/ebru-gol.jpg" style="width:100%"><code>ebru.ebru_gol() · gorsel/ebru-gol.jpg</code><small>battal + gelgit + dalga · altbilgi şeridi, Medeniyetimizden üst şeridi</small></div>'
+           '<div class="oge" style="width:420px"><img src="../gorsel/ebru-gun.jpg" style="width:100%"><code>ebru.ebru_gun() · gorsel/ebru-gun.jpg</code><small>gün batımı paleti · Hülasa kart zemini</small></div></div>')
     sayfa("ebru", "Ebru dokuları", "Matematiksel marmorlama (damla + biz/tarak dönüşümleri) → JPEG; PDF'e bir kez gömülür.", gov)
 
 

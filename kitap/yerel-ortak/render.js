@@ -3,6 +3,7 @@
 //   node yerel-ortak/render.js <ünite-klasörü>            → PDF + bütün PNG'ler
 //   node yerel-ortak/render.js <ünite-klasörü> 3 4        → yalnızca 3. ve 4. sayfanın PNG'si (PDF yine üretilir)
 //   node yerel-ortak/render.js <ünite-klasörü> --pdfsiz 3 → yalnızca PNG (hızlı deneme)
+//   node yerel-ortak/render.js <dosya.html> --pngsiz      → başka yere kurulmuş HTML'den yalnız PDF (dosya.pdf, aynı klasör)
 //   Ünite klasörü verilmezse içinde bulunulan klasör kullanılır.
 // Denetim iki tür sorunu listeler (yatayda bilerek taşan dekorlu kapsayıcılar data-tasma-yatay ile işaretlenir):
 //   • alan dışı   : HUD+çini şeridi altı (12 mm) ile altbilgi üstü (283 mm) arasındaki alandan taşan öğe
@@ -13,17 +14,21 @@ const fs = require('fs');
 const { chromium } = require('playwright');
 
 const _arg = process.argv.slice(2);
-const _klasor = _arg.find(a => !a.startsWith('--') && fs.existsSync(a) && fs.statSync(a).isDirectory());
-const UNITE = path.resolve(_klasor || process.cwd());
-const HTML = path.join(UNITE, 'unite.html');
-const PDF = path.join(UNITE, path.basename(UNITE) + '.pdf');
-const ONIZ = path.join(UNITE, 'onizleme');
+// hedef: ünite klasörü ya da doğrudan bir .html dosyası (ör. YEREL_CIKTI ile başka yere kurulmuş ünite)
+const _hedef = _arg.find(a => !a.startsWith('--') && fs.existsSync(a) && (fs.statSync(a).isDirectory() || a.endsWith('.html')));
+const _dosya = _hedef && fs.statSync(_hedef).isFile();
+const UNITE = _dosya ? path.dirname(path.resolve(_hedef)) : path.resolve(_hedef || process.cwd());
+const HTML = _dosya ? path.resolve(_hedef) : path.join(UNITE, 'unite.html');
+const _ad = path.basename(HTML, '.html');
+const PDF = path.join(UNITE, (_ad === 'unite' ? path.basename(UNITE) : _ad) + '.pdf');
+const ONIZ = path.join(UNITE, _ad === 'unite' ? 'onizleme' : 'onizleme-' + _ad);
 
 (async () => {
-  const argv = process.argv.slice(2).filter(a => a !== _klasor);
+  const argv = process.argv.slice(2).filter(a => a !== _hedef);
   const pdfsiz = argv.includes('--pdfsiz');
+  const pngsiz = argv.includes('--pngsiz');
   const sec = argv.filter(a => !a.startsWith('--')).map(Number);
-  fs.mkdirSync(ONIZ, { recursive: true });
+  if (!pngsiz) fs.mkdirSync(ONIZ, { recursive: true });
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 900, height: 1200 }, deviceScaleFactor: 2 });
   await page.goto('file://' + HTML, { waitUntil: 'load' });
@@ -59,7 +64,7 @@ const ONIZ = path.join(UNITE, 'onizleme');
   console.log(sorunlar.length ? sorunlar.join('\n') : 'Taşma yok.');
 
   const sayfalar = await page.$$('.sayfa');
-  for (let i = 0; i < sayfalar.length; i++) {
+  for (let i = 0; i < sayfalar.length && !pngsiz; i++) {
     if (sec.length && !sec.includes(i + 1)) continue;
     await sayfalar[i].screenshot({ path: path.join(ONIZ, `s${String(i + 1).padStart(2, '0')}.png`) });
   }

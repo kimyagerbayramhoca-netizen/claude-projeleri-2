@@ -407,7 +407,9 @@ def raf_kaplari(onek="inf-raf"):
 
 # ------------------------------------------------------------------ final: akçe rayı + unvan rozetleri
 
-def akce_rayi(onek="inf-ray"):
+def akce_rayi(onek="inf-ray", ust_unvan="MOL ÜSTADI"):
+    """Final sayfası akçe rayı (0–1400; Kalfa 400, Usta 800, Üstad 1150). ust_unvan: en üst basamağın adı
+    (ör. {{info|akce_rayi|ÜSTAD}}; Mol ünitesinde varsayılan "MOL ÜSTADI")."""
     s = Svg(onek)
     W, H = 1880, 260
     x0, x1, y = 60, 1820, 150
@@ -420,7 +422,7 @@ def akce_rayi(onek="inf-ray"):
     s += f'<rect x="{x0}" y="{y - 20}" width="{x1 - x0}" height="40" rx="20" fill="{g}" stroke="{OBS}" stroke-width="4"/>'
     for a in range(0, 1401, 100):
         s += f'<path d="M{f(X(a))} {y - 20} v{12 if a % 200 else 18}" stroke="{OBS}" stroke-width="3"/>'
-    esik = [(0, "ÇIRAK", GUM_K), (400, "KALFA", GOL_K), (800, "USTA", DERIN), (1150, "MOL ÜSTADI", KEH_K), (1400, "", OBS)]
+    esik = [(0, "ÇIRAK", GUM_K), (400, "KALFA", GOL_K), (800, "USTA", DERIN), (1150, ust_unvan, KEH_K), (1400, "", OBS)]
     for a, ad, c in esik:
         x = X(a)
         s += f'<path d="M{f(x)} {y - 26} V{y - 74}" stroke="{c}" stroke-width="4"/>'

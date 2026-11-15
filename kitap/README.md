@@ -40,7 +40,7 @@ Klasik tasarımdaki üniteler yukarıdaki tablodadır. Aşağıdaki iki klasör,
 | `10-sinif-yerel/02-mol-kavrami` | **Yerel prototip:** Van Gölü Turu + Medrese defteri. Akçe, durak, Hülasa, Meclis, Kıssa, Büyük İmtihan; Elif, Yusuf, Pamuk (Van kedisi), Zeynep Hoca; "Medeniyetimizden" köşeleri |
 
 - Yerel tasarımın dili, karakterleri ve örnek havuzu: `YEREL-KIMLIK.md`
-- Çizim kütüphanesi, renk ve yazı tipi sistemi: `10-sinif-yerel/TASARIM-SISTEMI-YEREL.md`
+- Çizim kütüphanesi, renk ve yazı tipi sistemi: `yerel-ortak/TASARIM-SISTEMI.md`
 - Yazı tipleri `fontlar/` klasöründedir (hepsi OFL lisanslı, Türkçe karakterleri tam).
 - Konsept denemeleri: `tasarim-onerileri/` ve `tasarim-onerileri-yerel/`
 

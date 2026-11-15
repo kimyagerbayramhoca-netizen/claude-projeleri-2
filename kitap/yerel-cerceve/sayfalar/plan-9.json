@@ -1,0 +1,63 @@
+{
+ "sinif": 9,
+ "html": "/home/user/claude-projeleri-2/kitap/yerel-cerceve/sayfalar/kitap-9.html",
+ "sayfalar": [
+  {
+   "tur": "kapak",
+   "no": 1
+  },
+  {
+   "tur": "rehber",
+   "no": 2,
+   "parca": 1
+  },
+  {
+   "tur": "rehber",
+   "no": 3,
+   "parca": 2
+  },
+  {
+   "tur": "harita",
+   "no": 4
+  },
+  {
+   "tur": "bos",
+   "no": 5
+  },
+  {
+   "tur": "zaman",
+   "no": 6,
+   "parca": 1
+  },
+  {
+   "tur": "zaman",
+   "no": 7,
+   "parca": 2
+  },
+  {
+   "tur": "periyodik",
+   "no": 8
+  },
+  {
+   "tur": "sozluk",
+   "no": 9,
+   "parca": 1
+  },
+  {
+   "tur": "album",
+   "no": 10,
+   "parca": 1
+  },
+  {
+   "tur": "album",
+   "no": 11,
+   "parca": 2
+  },
+  {
+   "tur": "arka_kapak",
+   "no": 12
+  }
+ ],
+ "baslar": {},
+ "uniteler": []
+}

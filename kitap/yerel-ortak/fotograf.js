@@ -1,5 +1,5 @@
 // Genel amaçlı HTML → PNG (tam sayfa) betiği. katalog.py kullanır.
-//   node uretec/fotograf.js girdi.html cikti.png [genislik_px=1400] [olcek=1]
+//   node yerel-ortak/fotograf.js girdi.html cikti.png [genislik_px=1400] [olcek=1]
 const path = require('path');
 const { chromium } = require('playwright');
 

@@ -1,0 +1,61 @@
+{
+  "sinif": 10,
+  "yol": 2,
+  "rota": "Van Gölü Turu",
+  "unite": "Mol Kavramı",
+  "klasor": "02-mol-kavrami",
+  "tema": "Tema 1 · Bölüm 2",
+  "bolge": "Van",
+  "merkez": {"enlem": 38.6, "boylam": 42.9},
+  "duraklar": [
+    {"no": 1, "yer": "Edremit", "baslik": "Neden mol?", "enlem": 38.425, "boylam": 43.30, "sayfa": 2, "akce": 100},
+    {"no": 2, "yer": "Gevaş", "baslik": "Atomun kütlesi", "enlem": 38.265, "boylam": 43.11, "sayfa": 3, "akce": 150},
+    {"no": 3, "yer": "Tatvan", "baslik": "Mol ile tanecik", "enlem": 38.49, "boylam": 42.21, "sayfa": 4, "akce": 150},
+    {"no": 4, "yer": "Ahlat", "baslik": "Mol ile kütle", "enlem": 38.78, "boylam": 42.43, "sayfa": 5, "akce": 150},
+    {"no": 5, "yer": "Adilcevaz", "baslik": "Karışımlar", "enlem": 38.845, "boylam": 42.70, "sayfa": 6, "akce": 150}
+  ],
+  "kale": "Van Kalesi",
+  "kale_konum": {"enlem": 38.50, "boylam": 43.40},
+  "nisanlar": [
+    {"ad": "Deste Ustası", "ikon": "deste", "renk": "gol", "aciklama": "1. durak · deste"},
+    {"ad": "İzotop İzcisi", "ikon": "izotop", "renk": "kob", "aciklama": "2. durak · izotop"},
+    {"ad": "Kefal Sayıcı", "ikon": "kefal", "renk": "gol", "aciklama": "3. durak · tanecik"},
+    {"ad": "Mizan Ehli", "ikon": "mizan", "renk": "mer", "aciklama": "4. durak · kütle"},
+    {"ad": "Karışım Kâşifi", "ikon": "karisim", "renk": "erg", "aciklama": "5. durak · karışım"},
+    {"ad": "Kale Kapısı", "ikon": "kale", "renk": "keh", "aciklama": "İmtihan · 10+ doğru"}
+  ],
+  "hazine": [
+    {"kod": "H1", "baslik": "Desteyi aç", "formul": "1 mol = N_A tane", "not": "N_A = 6,02·10^23 · +10 akçe", "durak": 1},
+    {"kod": "H2", "renk": "kob", "baslik": "Ortalama kütle", "formul": "Σ (kütle × oran)", "not": "%80 → 0,80 yaz · +10 akçe", "durak": 2},
+    {"kod": "H3", "renk": "gol", "baslik": "akb ⇄ gram", "formul": "1 g = N_A akb", "not": "+10 akçe", "durak": 2},
+    {"kod": "H4", "baslik": "Tanecikten mole", "formul": "n = <span class=\"kesir\"><span>N</span><span>N_A</span></span>", "kisa": "n = N / N_A", "durak": 3},
+    {"kod": "H5", "renk": "gol", "baslik": "Molden taneciğe", "formul": "N = n · N_A", "durak": 3},
+    {"kod": "H6", "renk": "kob", "baslik": "X_aY_b → atom molü", "formul": "n_{atom} = n·(a + b)", "durak": 3},
+    {"kod": "H7", "renk": "mer", "baslik": "Kütleden mole · +10", "formul": "n = <span class=\"kesir\"><span>m</span><span>M_A</span></span>", "kisa": "n = m / M_A", "durak": 4},
+    {"kod": "H8", "renk": "mer", "baslik": "Molden kütleye · +10", "formul": "m = n·M_A", "kisa": "m = n · M_A", "durak": 4},
+    {"kod": "H9", "renk": "kob", "sinif": "strateji", "baslik": "3 adımlık strateji · +10 akçe",
+     "adimlar": ["<b>Bilinmeyeni koy:</b> birine x, diğerine (toplam − x).",
+                 "<b>Ortak niceliği topla:</b> kütle, H molü, C molü… her bileşen için ayrı yazılır.",
+                 "<b>Çöz ve kontrol et:</b> sonucu toplama geri koy."],
+     "kisa": "x · toplam − x", "durak": 5},
+    {"kod": "H10", "renk": "gol", "baslik": "Akıllı kütle seç · +10 akçe", "formul": "Hepsine bölünen kütle", "not": "32 ve 64 → 64 g al", "kisa": "bölünen kütle", "durak": 5}
+  ],
+  "medeniyet": [
+    {"ad": "el-Bîrûnî", "yil": "973–1048", "katki": "Birçok maddenin özgül ağırlığını hassas biçimde ölçtü.", "sayfa": 3},
+    {"ad": "el-Hâzinî", "yil": "12. yy", "katki": "Mîzânü’l-Hikme (1121): hassas terazi ve özgül ağırlık tabloları.", "sayfa": 5},
+    {"ad": "Câbir bin Hayyân", "yil": "8. yy", "katki": "Deneysel kimyanın öncülerinden; damıtma, kristallendirme ve süzmeyi sistemli kullandı.", "sayfa": 6},
+    {"ad": "Ebû Bekir er-Râzî", "yil": "865–925", "katki": "Maddeleri sınıflandırdı, laboratuvar araçlarını tarif etti.", "sayfa": 8},
+    {"ad": "Takiyüddin", "yil": "16. yy", "katki": "İstanbul’da kurulan rasathanede gökyüzünü gözlemleyip ölçümler yaptı.", "sayfa": 13}
+  ],
+  "kavramlar": [
+    {"terim": "mol", "tanim": "6,02·10^23 tane tanecik içeren madde miktarı; SI’da madde miktarının birimi."},
+    {"terim": "Avogadro sayısı (N_A)", "tanim": "6,02·10^23; 1 mol maddedeki tanecik sayısı."},
+    {"terim": "izotop", "tanim": "Proton sayıları aynı, nötron sayıları (dolayısıyla kütle numaraları) farklı atomlar."},
+    {"terim": "atomik kütle birimi (akb)", "tanim": "Bir ¹²C atomunun kütlesinin 1/12’si."},
+    {"terim": "bağıl atom kütlesi", "tanim": "Bir atomun kütlesinin ¹²C’ye göre akb cinsinden değeri."},
+    {"terim": "ortalama atom kütlesi", "tanim": "İzotop kütlelerinin doğal bolluk oranlarına göre ağırlıklı ortalaması."},
+    {"terim": "formül birimi", "tanim": "İyonik bileşiğin formülünün gösterdiği en küçük iyon birimi (ör. 1 Na_2CO_3 = 2 Na⁺ + 1 CO₃²⁻)."},
+    {"terim": "mol kütlesi (M_A)", "tanim": "1 mol taneciğin gram cinsinden kütlesi (g/mol)."}
+  ],
+  "sayfa_sayisi": 14
+}

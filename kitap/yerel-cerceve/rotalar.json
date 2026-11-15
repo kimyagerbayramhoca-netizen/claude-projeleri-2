@@ -1,0 +1,975 @@
+{
+ "aciklama": "Kimya Rotası yerel tasarım: 16 ünitenin Türkiye rotaları (9. sınıf Yol 1–10, 10. sınıf Yol 1–6). Kaynak: yerel-ortak/ROTALAR.md. Koordinatlar yaklaşıktır (WGS84, ondalık derece). durum=oneri: ünite henüz yazılmadı; duraklar ROTALAR.md önerilerinden kurulmuş öneridir, ünite yazarı değiştirebilir. durum=hazir: yeni tasarım ünitesi var; ayrıntı ünitenin uretec/meta.json dosyasından okunur (o dosya önceliklidir).",
+ "baslangic": {
+  "yer": "Van",
+  "enlem": 38.494,
+  "boylam": 43.38
+ },
+ "siniflar": {
+  "9": {
+   "alt_baslik": "Anadolu'nun kimyası",
+   "klasik": "9-sinif",
+   "yerel": "9-sinif-yerel"
+  },
+  "10": {
+   "alt_baslik": "Doğu'dan Batı'ya",
+   "klasik": "10-sinif",
+   "yerel": "10-sinif-yerel"
+  }
+ },
+ "etiket_aciklama": "etiket: içindekiler haritasında rota etiketinin yeri. dx/dy = rozet çapasının rota merkezine göre kayması (mm, harita 210 mm genişliğinde); yon='sol' ise etiket çapanın soluna uzanır (rozet sağda), diğerlerinde sağa.",
+ "rotalar": [
+  {
+   "sinif": 9,
+   "yol": 1,
+   "unite": "Günlük Hayatta Kimya",
+   "klasor": "01-gunluk-hayatta-kimya",
+   "tema": "Tema 1 · Bölüm 1",
+   "rota": "İznik–Bursa Yolu",
+   "bolge": "Bursa",
+   "merkez": {
+    "enlem": 40.235,
+    "boylam": 29.208
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "İznik",
+     "konu": "çini atölyesi: kobalt mavisi, bakır turkuazı (metal oksit pigmentleri)",
+     "enlem": 40.429,
+     "boylam": 29.721
+    },
+    {
+     "no": 2,
+     "yer": "Çekirge",
+     "konu": "kaplıca suyu: asidik, bazik, nötr (pH)",
+     "enlem": 40.198,
+     "boylam": 29.035
+    },
+    {
+     "no": 3,
+     "yer": "Cumalıkızık",
+     "konu": "köy kahvaltısı: mutfakta kimya, pekmez, sirke",
+     "enlem": 40.174,
+     "boylam": 29.169
+    },
+    {
+     "no": 4,
+     "yer": "Koza Han",
+     "konu": "ipek ve kök boya: kimyanın alt disiplinleri ve meslekler",
+     "enlem": 40.184,
+     "boylam": 29.062
+    }
+   ],
+   "kale": {
+    "ad": "Bursa Hisarı",
+    "enlem": 40.188,
+    "boylam": 29.055
+   },
+   "medeniyet": [
+    "Câbir bin Hayyân",
+    "el-Kindî"
+   ],
+   "etiket": {
+    "yon": "sol",
+    "dx": -10.7,
+    "dy": -6.5
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 9,
+   "yol": 2,
+   "unite": "Kimyasal Güvenlik",
+   "klasor": "02-kimyasal-guvenlik",
+   "tema": "Tema 1 · Bölüm 2",
+   "rota": "Batı Karadeniz Maden Yolu",
+   "bolge": "Zonguldak · Karabük · Bartın",
+   "merkez": {
+    "enlem": 41.459,
+    "boylam": 32.368
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Zonguldak",
+     "konu": "maden ocağı: grizu (metan), gaz dedektörü, koruyucu donanım",
+     "enlem": 41.456,
+     "boylam": 31.798
+    },
+    {
+     "no": 2,
+     "yer": "Karabük",
+     "konu": "demir-çelik: sıcak metal ve iş güvenliği",
+     "enlem": 41.204,
+     "boylam": 32.626
+    },
+    {
+     "no": 3,
+     "yer": "Safranbolu",
+     "konu": "konakta ev kimyasalları: çamaşır suyu ile tuz ruhu karıştırılmaz; sobada CO",
+     "enlem": 41.251,
+     "boylam": 32.692
+    },
+    {
+     "no": 4,
+     "yer": "Bartın",
+     "konu": "okul laboratuvarı: malzemeler, piktogramlar, etiket, atık",
+     "enlem": 41.634,
+     "boylam": 32.337
+    }
+   ],
+   "kale": {
+    "ad": "Amasra Kalesi",
+    "enlem": 41.748,
+    "boylam": 32.386
+   },
+   "medeniyet": [
+    "er-Râzî"
+   ],
+   "etiket": {
+    "yon": "alt",
+    "dx": -11.1,
+    "dy": 11.9
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 9,
+   "yol": 3,
+   "unite": "Atom ve Yapısı",
+   "klasor": "03-atom-ve-yapisi",
+   "tema": "Tema 1 · Bölüm 3",
+   "rota": "Şanlıurfa–Harran Yolu",
+   "bolge": "Şanlıurfa",
+   "merkez": {
+    "enlem": 37.127,
+    "boylam": 38.68
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Göbeklitepe",
+     "konu": "fikirlerin uzun yolculuğu: atom modelleri",
+     "enlem": 37.223,
+     "boylam": 38.922
+    },
+    {
+     "no": 2,
+     "yer": "Harran",
+     "konu": "kümbet evleri ve gökbilimciler: katmanlar, ışık, enerji düzeyleri",
+     "enlem": 36.862,
+     "boylam": 39.031
+    },
+    {
+     "no": 3,
+     "yer": "Urfa çarşısı",
+     "konu": "proton, nötron, elektron ve iyonlar",
+     "enlem": 37.159,
+     "boylam": 38.792
+    },
+    {
+     "no": 4,
+     "yer": "Halfeti",
+     "konu": "elektron dizilimi ve değerlik elektronu",
+     "enlem": 37.246,
+     "boylam": 37.87
+    }
+   ],
+   "kale": {
+    "ad": "Urfa Kalesi",
+    "enlem": 37.146,
+    "boylam": 38.786
+   },
+   "medeniyet": [
+    "Sâbit bin Kurra",
+    "el-Battânî",
+    "İbn Heysem"
+   ],
+   "etiket": {
+    "yon": "alt",
+    "dx": -20.8,
+    "dy": 12
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 9,
+   "yol": 4,
+   "unite": "Periyodik Tablo",
+   "klasor": "04-periyodik-tablo",
+   "tema": "Tema 1 · Bölüm 4",
+   "rota": "Maden Yolu I · Batı Anadolu",
+   "bolge": "Eskişehir · Kütahya · Konya · Balıkesir",
+   "merkez": {
+    "enlem": 39.229,
+    "boylam": 30.014
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Seydişehir",
+     "konu": "alüminyum: metal",
+     "enlem": 37.42,
+     "boylam": 31.848
+    },
+    {
+     "no": 2,
+     "yer": "Kırka",
+     "konu": "bor: yarı metal",
+     "enlem": 39.29,
+     "boylam": 30.527
+    },
+    {
+     "no": 3,
+     "yer": "Bandırma",
+     "konu": "bor işleme",
+     "enlem": 40.352,
+     "boylam": 27.977
+    },
+    {
+     "no": 4,
+     "yer": "Gümüşköy",
+     "konu": "gümüş",
+     "enlem": 39.47,
+     "boylam": 29.77
+    },
+    {
+     "no": 5,
+     "yer": "Kütahya",
+     "konu": "çini: kobalt ve bakır (geçiş metalleri)",
+     "enlem": 39.419,
+     "boylam": 29.986
+    }
+   ],
+   "kale": {
+    "ad": "Kütahya Kalesi",
+    "enlem": 39.421,
+    "boylam": 29.979
+   },
+   "medeniyet": [
+    "er-Râzî",
+    "el-Bîrûnî"
+   ],
+   "etiket": {
+    "yon": "alt",
+    "dx": -36.8,
+    "dy": 11.5
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 9,
+   "yol": 5,
+   "unite": "Periyodik Özellikler",
+   "klasor": "05-periyodik-ozellikler",
+   "tema": "Tema 1 · Bölüm 5",
+   "rota": "Maden Yolu II · Doğu Anadolu",
+   "bolge": "Sivas · Elazığ",
+   "merkez": {
+    "enlem": 38.814,
+    "boylam": 38.984
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Divriği",
+     "konu": "demir",
+     "enlem": 39.372,
+     "boylam": 38.118
+    },
+    {
+     "no": 2,
+     "yer": "Guleman",
+     "konu": "krom",
+     "enlem": 38.462,
+     "boylam": 39.863
+    },
+    {
+     "no": 3,
+     "yer": "Maden",
+     "konu": "bakır",
+     "enlem": 38.392,
+     "boylam": 39.675
+    },
+    {
+     "no": 4,
+     "yer": "Hazar Gölü",
+     "konu": "atom ve iyon yarıçapı",
+     "enlem": 38.49,
+     "boylam": 39.4
+    },
+    {
+     "no": 5,
+     "yer": "Keban",
+     "konu": "metalik ve ametalik karakter, iyonlaşma",
+     "enlem": 38.796,
+     "boylam": 38.737
+    }
+   ],
+   "kale": {
+    "ad": "Divriği Kalesi",
+    "enlem": 39.374,
+    "boylam": 38.114
+   },
+   "medeniyet": [
+    "Divriği Darüşşifası"
+   ],
+   "etiket": {
+    "yon": "ust",
+    "dx": -13.1,
+    "dy": -11.9
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 9,
+   "yol": 6,
+   "unite": "Kimyasal Etkileşimler",
+   "klasor": "06-kimyasal-etkilesimler",
+   "tema": "Tema 2 · Bölüm 1",
+   "rota": "Tuz Gölü–Aksaray Yolu",
+   "bolge": "Aksaray · Tuz Gölü",
+   "merkez": {
+    "enlem": 38.368,
+    "boylam": 33.902
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Tuz Gölü",
+     "konu": "tuzla: NaCl, iyonik bağ ve kristal",
+     "enlem": 38.85,
+     "boylam": 33.47
+    },
+    {
+     "no": 2,
+     "yer": "Aksaray",
+     "konu": "kovalent bağ, Lewis yapıları; bakır kazanda metalik bağ",
+     "enlem": 38.369,
+     "boylam": 34.03
+    },
+    {
+     "no": 3,
+     "yer": "Ihlara Vadisi",
+     "konu": "Melendiz suyu: molekül polarlığı",
+     "enlem": 38.244,
+     "boylam": 34.297
+    },
+    {
+     "no": 4,
+     "yer": "Hasan Dağı",
+     "konu": "volkan ve obsidyen",
+     "enlem": 38.128,
+     "boylam": 34.167
+    }
+   ],
+   "kale": {
+    "ad": "Sultanhanı Kervansarayı",
+    "enlem": 38.249,
+    "boylam": 33.548
+   },
+   "medeniyet": [
+    "İbn Sînâ"
+   ],
+   "etiket": {
+    "yon": "alt",
+    "dx": -9.6,
+    "dy": 13.4
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 9,
+   "yol": 7,
+   "unite": "Bileşiklerin Adlandırılması",
+   "klasor": "07-adlandirma",
+   "tema": "Tema 2 · Bölüm 2",
+   "rota": "İstanbul Yolu",
+   "bolge": "İstanbul",
+   "merkez": {
+    "enlem": 41.038,
+    "boylam": 28.997
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Mısır Çarşısı",
+     "konu": "aktarlar: göztaşı, şap, nişadır gibi yaygın eski adlar",
+     "enlem": 41.0166,
+     "boylam": 28.9706
+    },
+    {
+     "no": 2,
+     "yer": "Eminönü",
+     "konu": "çok atomlu iyonlar",
+     "enlem": 41.0175,
+     "boylam": 28.9745
+    },
+    {
+     "no": 3,
+     "yer": "Galata",
+     "konu": "iyonik bileşikler, birden çok yük alabilen metaller",
+     "enlem": 41.0257,
+     "boylam": 28.9741
+    },
+    {
+     "no": 4,
+     "yer": "Boğaz vapuru",
+     "konu": "moleküler bileşikler ve asitler",
+     "enlem": 41.045,
+     "boylam": 29.01
+    }
+   ],
+   "kale": {
+    "ad": "Rumeli Hisarı",
+    "enlem": 41.085,
+    "boylam": 29.056
+   },
+   "medeniyet": [
+    "Süleymaniye Darüşşifası",
+    "Takiyüddin"
+   ],
+   "etiket": {
+    "yon": "ust",
+    "dx": -11.9,
+    "dy": -13
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 9,
+   "yol": 8,
+   "unite": "Moleküller Arası Etkileşimler",
+   "klasor": "08-molekuller-arasi",
+   "tema": "Tema 2 · Bölüm 3",
+   "rota": "Doğu Karadeniz Yolu",
+   "bolge": "Ordu · Giresun · Trabzon",
+   "merkez": {
+    "enlem": 40.882,
+    "boylam": 39.069
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Ordu",
+     "konu": "fındık yağı: apolar molekül, London kuvvetleri",
+     "enlem": 40.986,
+     "boylam": 37.879
+    },
+    {
+     "no": 2,
+     "yer": "Trabzon",
+     "konu": "hamsi tavası: yağ–su, benzer benzeri çözer",
+     "enlem": 41.003,
+     "boylam": 39.716
+    },
+    {
+     "no": 3,
+     "yer": "Uzungöl",
+     "konu": "sis ve buz: yoğuşma, hidrojen bağı",
+     "enlem": 40.619,
+     "boylam": 40.29
+    }
+   ],
+   "kale": {
+    "ad": "Giresun Kalesi",
+    "enlem": 40.918,
+    "boylam": 38.392
+   },
+   "medeniyet": [
+    "el-Kindî"
+   ],
+   "etiket": {
+    "yon": "ust",
+    "dx": -22.7,
+    "dy": -13.1
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 9,
+   "yol": 9,
+   "unite": "Katılar ve Özellikleri",
+   "klasor": "09-katilar",
+   "tema": "Tema 2 · Bölüm 4",
+   "rota": "Mardin–Midyat Yolu",
+   "bolge": "Mardin · Batman",
+   "merkez": {
+    "enlem": 37.441,
+    "boylam": 41.056
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Mardin",
+     "konu": "taş evler: kalker, kristal katı",
+     "enlem": 37.313,
+     "boylam": 40.735
+    },
+    {
+     "no": 2,
+     "yer": "Midyat",
+     "konu": "telkari: gümüş, metalik katı",
+     "enlem": 37.418,
+     "boylam": 41.339
+    },
+    {
+     "no": 3,
+     "yer": "Hasankeyf",
+     "konu": "cam ve obsidyen (amorf), elmas–grafit (allotropi)",
+     "enlem": 37.714,
+     "boylam": 41.413
+    }
+   ],
+   "kale": {
+    "ad": "Mardin Kalesi",
+    "enlem": 37.32,
+    "boylam": 40.738
+   },
+   "medeniyet": [
+    "el-Bîrûnî"
+   ],
+   "etiket": {
+    "yon": "alt",
+    "dx": -3.1,
+    "dy": 15.4
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 9,
+   "yol": 10,
+   "unite": "Sıvılar ve Özellikleri",
+   "klasor": "10-sivilar",
+   "tema": "Tema 2 · Bölüm 5",
+   "rota": "Rize–Kaçkar Yolu",
+   "bolge": "Rize",
+   "merkez": {
+    "enlem": 40.919,
+    "boylam": 40.837
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Rize",
+     "konu": "çay: buharlaşma ve kaynama",
+     "enlem": 41.02,
+     "boylam": 40.523
+    },
+    {
+     "no": 2,
+     "yer": "Ayder Yaylası",
+     "konu": "yükseklik arttıkça kaynama noktası düşer",
+     "enlem": 40.953,
+     "boylam": 41.103
+    },
+    {
+     "no": 3,
+     "yer": "Anzer",
+     "konu": "Anzer balı: viskozite",
+     "enlem": 40.591,
+     "boylam": 40.517
+    },
+    {
+     "no": 4,
+     "yer": "Fırtına Deresi",
+     "konu": "yüzey gerilimi, kılcallık; kemer köprüler",
+     "enlem": 41.06,
+     "boylam": 40.97
+    }
+   ],
+   "kale": {
+    "ad": "Zil Kale",
+    "enlem": 40.973,
+    "boylam": 41.072
+   },
+   "medeniyet": [
+    "el-Hâzinî"
+   ],
+   "etiket": {
+    "yon": "ust",
+    "dx": 4,
+    "dy": -13.7
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 10,
+   "yol": 1,
+   "unite": "Kimyasal Değişimler ve Tepkime Türleri",
+   "klasor": "01-kimyasal-degisimler",
+   "tema": "Tema 1 · Bölüm 1",
+   "rota": "Kars–Erzurum Yolu",
+   "bolge": "Kars · Erzurum",
+   "merkez": {
+    "enlem": 40.504,
+    "boylam": 42.809
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Çıldır Gölü",
+     "konu": "donma: fiziksel değişim",
+     "enlem": 41.07,
+     "boylam": 43.23
+    },
+    {
+     "no": 2,
+     "yer": "Kars",
+     "konu": "kaşar peyniri: mayalanma, kimyasal değişim",
+     "enlem": 40.602,
+     "boylam": 43.097
+    },
+    {
+     "no": 3,
+     "yer": "Ani",
+     "konu": "kireç harcı: CaO, Ca(OH)₂, CaCO₃",
+     "enlem": 40.507,
+     "boylam": 43.572
+    },
+    {
+     "no": 4,
+     "yer": "Sarıkamış",
+     "konu": "sobada yanma ve CO",
+     "enlem": 40.33,
+     "boylam": 42.59
+    },
+    {
+     "no": 5,
+     "yer": "Erzurum",
+     "konu": "Oltu taşı çarşısı; paslanma: redoks",
+     "enlem": 39.906,
+     "boylam": 41.276
+    }
+   ],
+   "kale": {
+    "ad": "Kars Kalesi",
+    "enlem": 40.611,
+    "boylam": 43.09
+   },
+   "medeniyet": [
+    "İbrahim Hakkı Erzurumî"
+   ],
+   "etiket": {
+    "yon": "ust",
+    "dx": -27.7,
+    "dy": -15.6
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 10,
+   "yol": 2,
+   "unite": "Mol Kavramı",
+   "klasor": "02-mol-kavrami",
+   "tema": "Tema 1 · Bölüm 2",
+   "rota": "Van Gölü Turu",
+   "bolge": "Van",
+   "merkez": {
+    "enlem": 38.547,
+    "boylam": 42.867
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Edremit",
+     "konu": "Neden mol?",
+     "enlem": 38.423,
+     "boylam": 43.257
+    },
+    {
+     "no": 2,
+     "yer": "Gevaş",
+     "konu": "Atomun kütlesi",
+     "enlem": 38.296,
+     "boylam": 43.106
+    },
+    {
+     "no": 3,
+     "yer": "Tatvan",
+     "konu": "Mol ile tanecik sayısı",
+     "enlem": 38.503,
+     "boylam": 42.281
+    },
+    {
+     "no": 4,
+     "yer": "Ahlat",
+     "konu": "Mol ile kütle",
+     "enlem": 38.751,
+     "boylam": 42.481
+    },
+    {
+     "no": 5,
+     "yer": "Adilcevaz",
+     "konu": "Karışımlar",
+     "enlem": 38.804,
+     "boylam": 42.731
+    }
+   ],
+   "kale": {
+    "ad": "Van Kalesi",
+    "enlem": 38.503,
+    "boylam": 43.343
+   },
+   "medeniyet": [
+    "el-Bîrûnî",
+    "el-Hâzinî",
+    "Câbir bin Hayyân",
+    "er-Râzî",
+    "Takiyüddin"
+   ],
+   "etiket": {
+    "yon": "alt",
+    "dx": -4.3,
+    "dy": 15.2
+   },
+   "durum": "hazir",
+   "yan_yollar": [
+    {
+     "yer": "Süphan eteği",
+     "baslik": "Hülasa",
+     "enlem": 38.92,
+     "boylam": 42.83
+    },
+    {
+     "yer": "Erciş",
+     "baslik": "Meclis",
+     "enlem": 39.028,
+     "boylam": 43.358
+    },
+    {
+     "yer": "Muradiye",
+     "baslik": "Kıssa",
+     "enlem": 39.003,
+     "boylam": 43.763
+    },
+    {
+     "yer": "Van iskelesi",
+     "baslik": "Anahtar merdiveni",
+     "enlem": 38.52,
+     "boylam": 43.3
+    }
+   ]
+  },
+  {
+   "sinif": 10,
+   "yol": 3,
+   "unite": "Kimyasal Tepkimeler ve Stokiyometri",
+   "klasor": "03-stokiyometri",
+   "tema": "Tema 1 · Bölüm 3",
+   "rota": "Dicle Yolu",
+   "bolge": "Diyarbakır · Batman",
+   "merkez": {
+    "enlem": 37.924,
+    "boylam": 40.55
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Çayönü",
+     "konu": "bakırın en eski işlendiği yerlerden: kütlenin korunumu",
+     "enlem": 38.216,
+     "boylam": 39.727
+    },
+    {
+     "no": 2,
+     "yer": "Hevsel Bahçeleri",
+     "konu": "denklemleri denkleştirme ve denklemden hesaba",
+     "enlem": 37.9,
+     "boylam": 40.24
+    },
+    {
+     "no": 3,
+     "yer": "Batman",
+     "konu": "rafineri: yanma ve verim",
+     "enlem": 37.881,
+     "boylam": 41.132
+    },
+    {
+     "no": 4,
+     "yer": "Hasankeyf",
+     "konu": "sınırlayıcı bileşen, yüzde verim ve saflık",
+     "enlem": 37.714,
+     "boylam": 41.413
+    }
+   ],
+   "kale": {
+    "ad": "Diyarbakır Surları",
+    "enlem": 37.91,
+    "boylam": 40.236
+   },
+   "medeniyet": [
+    "el-Cezerî"
+   ],
+   "etiket": {
+    "yon": "alt",
+    "dx": -17.6,
+    "dy": 13.3
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 10,
+   "yol": 4,
+   "unite": "Gazlar",
+   "klasor": "04-gazlar",
+   "tema": "Tema 1 · Bölüm 4",
+   "rota": "Kapadokya Yolu",
+   "bolge": "Nevşehir · Kayseri",
+   "merkez": {
+    "enlem": 38.579,
+    "boylam": 34.932
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Göreme",
+     "konu": "balonlar: Charles yasası",
+     "enlem": 38.643,
+     "boylam": 34.829
+    },
+    {
+     "no": 2,
+     "yer": "Derinkuyu",
+     "konu": "yeraltı şehri: basınç, havalandırma, difüzyon",
+     "enlem": 38.374,
+     "boylam": 34.734
+    },
+    {
+     "no": 3,
+     "yer": "Erciyes",
+     "konu": "yükseklik ve basınç",
+     "enlem": 38.531,
+     "boylam": 35.447
+    },
+    {
+     "no": 4,
+     "yer": "Avanos",
+     "konu": "çömlek fırını: ideal gaz",
+     "enlem": 38.715,
+     "boylam": 34.847
+    }
+   ],
+   "kale": {
+    "ad": "Uçhisar Kalesi",
+    "enlem": 38.63,
+    "boylam": 34.805
+   },
+   "medeniyet": [
+    "Gevher Nesibe Darüşşifası"
+   ],
+   "etiket": {
+    "yon": "ust",
+    "dx": -10,
+    "dy": -13.9
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 10,
+   "yol": 5,
+   "unite": "Çözünme ve Çözünürlük",
+   "klasor": "05-cozeltiler-1",
+   "tema": "Tema 2 · Bölüm 1",
+   "rota": "Pamukkale–Afyon Yolu",
+   "bolge": "Denizli · Afyonkarahisar",
+   "merkez": {
+    "enlem": 38.397,
+    "boylam": 29.81
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Pamukkale",
+     "konu": "travertenler: CO₂ kaçınca CaCO₃ çöker (çözünürlük, sıcaklık, basınç)",
+     "enlem": 37.921,
+     "boylam": 29.12
+    },
+    {
+     "no": 2,
+     "yer": "Karahayıt",
+     "konu": "sıcak su kaynağı: doygunluk",
+     "enlem": 37.965,
+     "boylam": 29.103
+    },
+    {
+     "no": 3,
+     "yer": "Gazlıgöl",
+     "konu": "maden suyu: iyonlu çözelti ve iletkenlik",
+     "enlem": 38.94,
+     "boylam": 30.48
+    }
+   ],
+   "kale": {
+    "ad": "Afyonkarahisar Kalesi",
+    "enlem": 38.762,
+    "boylam": 30.537
+   },
+   "medeniyet": [],
+   "etiket": {
+    "yon": "ust",
+    "dx": -23.9,
+    "dy": -14.7
+   },
+   "durum": "oneri"
+  },
+  {
+   "sinif": 10,
+   "yol": 6,
+   "unite": "Derişim Birimleri",
+   "klasor": "06-cozeltiler-2",
+   "tema": "Tema 2 · Bölüm 2",
+   "rota": "Göller Yolu",
+   "bolge": "Isparta · Burdur",
+   "merkez": {
+    "enlem": 37.789,
+    "boylam": 30.419
+   },
+   "duraklar": [
+    {
+     "no": 1,
+     "yer": "Isparta",
+     "konu": "gül yağı: derişim ve ppm",
+     "enlem": 37.764,
+     "boylam": 30.556
+    },
+    {
+     "no": 2,
+     "yer": "Eğirdir Gölü",
+     "konu": "tatlı su",
+     "enlem": 38.02,
+     "boylam": 30.86
+    },
+    {
+     "no": 3,
+     "yer": "Burdur Gölü",
+     "konu": "tuzlu göl: molarite; kışın yola tuz",
+     "enlem": 37.735,
+     "boylam": 30.15
+    },
+    {
+     "no": 4,
+     "yer": "Salda Gölü",
+     "konu": "seyreltme ve karıştırma",
+     "enlem": 37.55,
+     "boylam": 29.68
+    }
+   ],
+   "kale": {
+    "ad": "Eğirdir Kalesi",
+    "enlem": 37.876,
+    "boylam": 30.848
+   },
+   "medeniyet": [
+    "el-Kindî"
+   ],
+   "etiket": {
+    "yon": "alt",
+    "dx": -13.7,
+    "dy": 13
+   },
+   "durum": "oneri"
+  }
+ ]
+}

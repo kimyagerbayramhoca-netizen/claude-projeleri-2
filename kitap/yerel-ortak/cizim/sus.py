@@ -287,3 +287,9 @@ def ikon_sembolleri():
     for ad, ic in IKON.items():
         out.append(f'<symbol id="i-{ad}" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">{ic}</g></symbol>')
     return "".join(out)
+
+
+# Üstad Mührü nişanı (Üstad soruları sayfası, bonus): mühür sapı + gövde + altta yıldız baskı izi
+NISAN_IKON["ustad"] = ('<circle cx="24" cy="7.5" r="4"/><path d="M21.2 11 H26.8 L26 18 H22 Z"/><path d="M13 18 H35 L37.5 25 H10.5 Z"/>'
+                       '<path d="M9 25 H39 V28.5 H9 Z"/>'
+                       f'<path d="{cizgi_d(selcuklu_yildizi(24, 38.5, 7.6), True)}"/><circle cx="24" cy="38.5" r="2"/>')

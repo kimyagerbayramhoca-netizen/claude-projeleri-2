@@ -33,14 +33,7 @@
   </div>
   <main class="ic" style="top:173mm">
     <div class="ara-bas">Kazanılacak nişanlar <small>Durağı bitirince nişanını kendin boya. Kalem senden, nişan bizden.</small></div>
-    <div class="nisanlar">
-      <div>{{nisan|deste}}<b>Deste Ustası</b><span>1. durak · deste</span></div>
-      <div>{{nisan|izotop}}<b>İzotop İzcisi</b><span>2. durak · izotop</span></div>
-      <div>{{nisan|kefal}}<b>Kefal Sayıcı</b><span>3. durak · tanecik</span></div>
-      <div>{{nisan|mizan}}<b>Mizan Ehli</b><span>4. durak · kütle</span></div>
-      <div>{{nisan|karisim}}<b>Karışım Kâşifi</b><span>5. durak · karışım</span></div>
-      <div>{{nisan|kale}}<b>Kale Kapısı</b><span>İmtihan · 10+ doğru</span></div>
-    </div>
+    {{nisan-izgara}}
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart karakterler">
         <span class="et mer">{{ikon|meclis}}Yol arkadaşların</span>
@@ -126,7 +119,7 @@
         <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Mol bir <b>sayı destesidir</b>. 1 mol demir ile 1 mol su aynı sayıda tanecik içerir; kütleleri farklıdır.</p></div>
       </div>
       <div class="bento dikey">
-        <div class="hazine">{{hno|H1}}<div><div class="had">Desteyi aç</div><div class="hf">1 mol = N<sub>A</sub> tane</div><div class="hac">N<sub>A</sub> = 6,02·10<sup>23</sup> · +10 akçe</div></div>{{sikke|sikke}}</div>
+        {{hazine|H1}}
         <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
         <div class="kart kiyidan" style="flex:1">
           <span class="et">{{ikon|dalga}}Kıyıdan</span>
@@ -189,8 +182,8 @@
         <div class="sonuc"><span>SONUÇ</span>Ortalama atom kütlesi = 10,8 akb</div>
       </div>
       <div class="bento dikey">
-        <div class="hazine">{{hno|H2|kob}}<div><div class="had">Ortalama kütle</div><div class="hf">Σ (kütle × oran)</div><div class="hac">%80 → 0,80 yaz · +10 akçe</div></div>{{sikke|sikke}}</div>
-        <div class="hazine">{{hno|H3|gol}}<div><div class="had">akb ⇄ gram</div><div class="hf">1 g = N<sub>A</sub> akb</div><div class="hac">+10 akçe</div></div>{{sikke|sikke}}</div>
+        {{hazine|H2}}
+        {{hazine|H3}}
         <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
       </div>
     </div>
@@ -270,9 +263,9 @@
     </div>
     <div class="bento" style="grid-template-columns:.95fr 1.05fr 1fr">
       <div class="bento dikey">
-        <div class="hazine">{{hno|H4}}<div><div class="had">Tanecikten mole</div><div class="hf">n = <span class="kesir"><span>N</span><span>N<sub>A</sub></span></span></div></div>{{sikke|sikke}}</div>
-        <div class="hazine">{{hno|H5|gol}}<div><div class="had">Molden taneciğe</div><div class="hf">N = n · N<sub>A</sub></div></div>{{sikke|sikke}}</div>
-        <div class="hazine">{{hno|H6|kob}}<div><div class="had">X<sub>a</sub>Y<sub>b</sub> → atom molü</div><div class="hf">n<sub>atom</sub> = n·(a + b)</div></div>{{sikke|sikke}}</div>
+        {{hazine|H4}}
+        {{hazine|H5}}
+        {{hazine|H6}}
         <div class="kes-not">{{ikon|makas}}Kes · yapıştır · kart başı +10</div>
       </div>
       <div class="tuzak">
@@ -320,8 +313,8 @@
           <p class="atom-serit">g/mol: H 1 · C 12 · N 14 · O 16 · Na 23 · Mg 24 · S 32 · Cl 35,5 · Ca 40</p>
         </div>
         <div class="bento" style="grid-template-columns:1fr 1fr">
-          <div class="hazine">{{hno|H7|mer}}<div><div class="had">Kütleden mole · +10</div><div class="hf">n = <span class="kesir"><span>m</span><span>M<sub>A</sub></span></span></div></div>{{sikke|sikke}}</div>
-          <div class="hazine">{{hno|H8|mer}}<div><div class="had">Molden kütleye · +10</div><div class="hf">m = n·M<sub>A</sub></div></div>{{sikke|sikke}}</div>
+          {{hazine|H7}}
+          {{hazine|H8}}
         </div>
       </div>
     </div>
@@ -394,9 +387,8 @@
         <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @N<sub>A</sub></span>İki madde, bir toplam, <span class="vurgu">tek bilinmeyen</span>. Tek denklem yeter!</div></div>
       </div>
       <div class="bento dikey">
-        <div class="hazine strateji">{{hno|H9|kob}}<div><div class="had">3 adımlık strateji · +10 akçe</div>
-          <ol class="adimlar"><li><b>Bilinmeyeni koy:</b> birine x, diğerine (toplam − x).</li><li><b>Ortak niceliği topla:</b> kütle, H molü, C molü… her bileşen için ayrı yazılır.</li><li><b>Çöz ve kontrol et:</b> sonucu toplama geri koy.</li></ol></div>{{sikke|sikke}}</div>
-        <div class="hazine">{{hno|H10|gol}}<div><div class="had">Akıllı kütle seç · +10 akçe</div><div class="hf">Hepsine bölünen kütle</div><div class="hac">32 ve 64 → 64 g al</div></div>{{sikke|sikke}}</div>
+        {{hazine|H9}}
+        {{hazine|H10}}
         <div class="pamuk-not">{{poz|pamuk-akce}}<span><b>Pamuk:</b> Kontrol adımını atlama; x’i bulunca toplamı yeniden hesapla!</span></div>
       </div>
     </div>
@@ -467,11 +459,8 @@
         <div class="muhur-kose">{{muhur|yanlis}}</div></div>
     </div>
     <div class="kart keh-z sandik">
-      <div class="kart-bas"><span class="et keh">{{ikon|hazine}}Hazine sandığın · 10 kart</span><span class="kes-not">{{ikon|makas}}Hepsini kesip defterine yapıştırdın mı?</span></div>
-      <div class="sandik-izgara">
-        <div><b>H1</b>1 mol = N<sub>A</sub> tane</div><div><b>H2</b>Σ (kütle × oran)</div><div><b>H3</b>1 g = N<sub>A</sub> akb</div><div><b>H4</b>n = N / N<sub>A</sub></div><div><b>H5</b>N = n · N<sub>A</sub></div>
-        <div><b>H6</b>n<sub>atom</sub> = n·(a + b)</div><div><b>H7</b>n = m / M<sub>A</sub></div><div><b>H8</b>m = n · M<sub>A</sub></div><div><b>H9</b>x · toplam − x</div><div><b>H10</b>bölünen kütle</div>
-      </div>
+      <div class="kart-bas"><span class="et keh">{{ikon|hazine}}Hazine sandığın · {{meta|hazine_sayisi}} kart</span><span class="kes-not">{{ikon|makas}}Hepsini kesip defterine yapıştırdın mı?</span></div>
+      <div class="sandik-izgara">{{sandik}}</div>
     </div>
     <div class="bento" style="grid-template-columns:1.5fr .5fr">
       <div class="kart muhasebe">
@@ -555,7 +544,7 @@
       </div>
       <div class="kart keh-z meclis-not">
         {{poz|pamuk-dusunen|pn}}
-        <p><b>Meclis notu (Pamuk):</b> Bir çözümü kontrol etmenin en hızlı yolu <b>birimlere</b> bakmaktır. Birimler karışıyorsa hata büyük ihtimalle oradadır. Hükmünü verince cevapları <b>s.13</b>’te kontrol et.</p>
+        <p><b>Meclis notu (Pamuk):</b> Bir çözümü kontrol etmenin en hızlı yolu <b>birimlere</b> bakmaktır. Birimler karışıyorsa hata büyük ihtimalle oradadır. Hükmünü verince cevapları <b>s.{{sayfa|13}}</b>’{{ek|13|de}} kontrol et.</p>
         <div class="muhur-yer">{{muhur|dogru}}</div>
       </div>
     </div>
@@ -873,7 +862,7 @@
       </div>
       <div class="kart tekrar">
         <span class="et">{{ikon|harita}}Tekrar rotası · yanlışın nereden?</span>
-        <ul class="ozet-liste"><li><b>2. durak (s.3)</b> · izotop, ortalama kütle → soru 9, 10</li><li><b>3. durak (s.4)</b> · tanecik ⇄ mol, atom molü → soru 1, 2, 7</li><li><b>4. durak (s.5)</b> · kütle ⇄ mol, mol kütlesi → soru 3, 4, 5, 6, 8</li><li><b>5. durak (s.6)</b> · karışım, eşit kütle → soru 11, 12</li></ul>
+        <ul class="ozet-liste"><li><b>2. durak (s.{{sayfa|3}})</b> · izotop, ortalama kütle → soru 9, 10</li><li><b>3. durak (s.{{sayfa|4}})</b> · tanecik ⇄ mol, atom molü → soru 1, 2, 7</li><li><b>4. durak (s.{{sayfa|5}})</b> · kütle ⇄ mol, mol kütlesi → soru 3, 4, 5, 6, 8</li><li><b>5. durak (s.{{sayfa|6}})</b> · karışım, eşit kütle → soru 11, 12</li></ul>
       </div>
     </div>
   </main>
@@ -921,14 +910,7 @@
       <div class="bento dikey">
         <div class="kart nisan-kart">
           <span class="et">{{ikon|kale}}Nişan sayımı · boyadıklarını işaretle</span>
-          <div class="nisan-say">
-            <div>{{nisan|deste}}<b>Deste Ustası</b><small><span class="kutucuk"></span></small></div>
-            <div>{{nisan|izotop}}<b>İzotop İzcisi</b><small><span class="kutucuk"></span></small></div>
-            <div>{{nisan|kefal}}<b>Kefal Sayıcı</b><small><span class="kutucuk"></span></small></div>
-            <div>{{nisan|mizan}}<b>Mizan Ehli</b><small><span class="kutucuk"></span></small></div>
-            <div>{{nisan|karisim}}<b>Karışım Kâşifi</b><small><span class="kutucuk"></span></small></div>
-            <div>{{nisan|kale}}<b>Kale Kapısı</b><small><span class="kutucuk"></span></small></div>
-          </div>
+          {{nisan-sayim}}
         </div>
         <div class="kart unvan-kartim">
           <span class="et mer">{{ikon|bayrak}}Unvan kartım</span>

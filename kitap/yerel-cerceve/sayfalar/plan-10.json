@@ -1,0 +1,173 @@
+{
+ "sinif": 10,
+ "html": "/home/user/claude-projeleri-2/kitap/yerel-cerceve/sayfalar/kitap-10.html",
+ "sayfalar": [
+  {
+   "tur": "kapak",
+   "no": 1
+  },
+  {
+   "tur": "rehber",
+   "no": 2,
+   "parca": 1
+  },
+  {
+   "tur": "rehber",
+   "no": 3,
+   "parca": 2
+  },
+  {
+   "tur": "harita",
+   "no": 4
+  },
+  {
+   "tur": "unite",
+   "no": 5,
+   "yol": 2,
+   "sayfa": 1,
+   "ilk": true
+  },
+  {
+   "tur": "unite",
+   "no": 6,
+   "yol": 2,
+   "sayfa": 2,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 7,
+   "yol": 2,
+   "sayfa": 3,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 8,
+   "yol": 2,
+   "sayfa": 4,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 9,
+   "yol": 2,
+   "sayfa": 5,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 10,
+   "yol": 2,
+   "sayfa": 6,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 11,
+   "yol": 2,
+   "sayfa": 7,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 12,
+   "yol": 2,
+   "sayfa": 8,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 13,
+   "yol": 2,
+   "sayfa": 9,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 14,
+   "yol": 2,
+   "sayfa": 10,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 15,
+   "yol": 2,
+   "sayfa": 11,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 16,
+   "yol": 2,
+   "sayfa": 12,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 17,
+   "yol": 2,
+   "sayfa": 13,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 18,
+   "yol": 2,
+   "sayfa": 14,
+   "ilk": false
+  },
+  {
+   "tur": "bos",
+   "no": 19
+  },
+  {
+   "tur": "zaman",
+   "no": 20,
+   "parca": 1
+  },
+  {
+   "tur": "zaman",
+   "no": 21,
+   "parca": 2
+  },
+  {
+   "tur": "periyodik",
+   "no": 22
+  },
+  {
+   "tur": "sozluk",
+   "no": 23,
+   "parca": 1
+  },
+  {
+   "tur": "album",
+   "no": 24,
+   "parca": 1
+  },
+  {
+   "tur": "album",
+   "no": 25,
+   "parca": 2
+  },
+  {
+   "tur": "arka_kapak",
+   "no": 26
+  }
+ ],
+ "baslar": {
+  "2": 5
+ },
+ "uniteler": [
+  {
+   "yol": 2,
+   "rota": "Van Gölü Turu",
+   "unite": "Mol Kavramı",
+   "klasor": "02-mol-kavrami",
+   "dizin": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/02-mol-kavrami",
+   "sayfa_sayisi": 14,
+   "varyantlar": {}
+  }
+ ]
+}
