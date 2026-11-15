@@ -238,55 +238,545 @@
    "ilk": false
   },
   {
+   "tur": "bos",
+   "no": 36
+  },
+  {
+   "tur": "unite",
+   "no": 37,
+   "yol": 3,
+   "sayfa": 1,
+   "ilk": true
+  },
+  {
+   "tur": "unite",
+   "no": 38,
+   "yol": 3,
+   "sayfa": 2,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 39,
+   "yol": 3,
+   "sayfa": 3,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 40,
+   "yol": 3,
+   "sayfa": 4,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 41,
+   "yol": 3,
+   "sayfa": 5,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 42,
+   "yol": 3,
+   "sayfa": 6,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 43,
+   "yol": 3,
+   "sayfa": 7,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 44,
+   "yol": 3,
+   "sayfa": 8,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 45,
+   "yol": 3,
+   "sayfa": 9,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 46,
+   "yol": 3,
+   "sayfa": 10,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 47,
+   "yol": 3,
+   "sayfa": 11,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 48,
+   "yol": 3,
+   "sayfa": 12,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 49,
+   "yol": 3,
+   "sayfa": 13,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 50,
+   "yol": 3,
+   "sayfa": 14,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 51,
+   "yol": 3,
+   "sayfa": 15,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 52,
+   "yol": 3,
+   "sayfa": 16,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 53,
+   "yol": 4,
+   "sayfa": 1,
+   "ilk": true
+  },
+  {
+   "tur": "unite",
+   "no": 54,
+   "yol": 4,
+   "sayfa": 2,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 55,
+   "yol": 4,
+   "sayfa": 3,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 56,
+   "yol": 4,
+   "sayfa": 4,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 57,
+   "yol": 4,
+   "sayfa": 5,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 58,
+   "yol": 4,
+   "sayfa": 6,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 59,
+   "yol": 4,
+   "sayfa": 7,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 60,
+   "yol": 4,
+   "sayfa": 8,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 61,
+   "yol": 4,
+   "sayfa": 9,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 62,
+   "yol": 4,
+   "sayfa": 10,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 63,
+   "yol": 4,
+   "sayfa": 11,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 64,
+   "yol": 4,
+   "sayfa": 12,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 65,
+   "yol": 4,
+   "sayfa": 13,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 66,
+   "yol": 4,
+   "sayfa": 14,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 67,
+   "yol": 4,
+   "sayfa": 15,
+   "ilk": false
+  },
+  {
+   "tur": "bos",
+   "no": 68
+  },
+  {
+   "tur": "unite",
+   "no": 69,
+   "yol": 5,
+   "sayfa": 1,
+   "ilk": true
+  },
+  {
+   "tur": "unite",
+   "no": 70,
+   "yol": 5,
+   "sayfa": 2,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 71,
+   "yol": 5,
+   "sayfa": 3,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 72,
+   "yol": 5,
+   "sayfa": 4,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 73,
+   "yol": 5,
+   "sayfa": 5,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 74,
+   "yol": 5,
+   "sayfa": 6,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 75,
+   "yol": 5,
+   "sayfa": 7,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 76,
+   "yol": 5,
+   "sayfa": 8,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 77,
+   "yol": 5,
+   "sayfa": 9,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 78,
+   "yol": 5,
+   "sayfa": 10,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 79,
+   "yol": 5,
+   "sayfa": 11,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 80,
+   "yol": 5,
+   "sayfa": 12,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 81,
+   "yol": 5,
+   "sayfa": 13,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 82,
+   "yol": 5,
+   "sayfa": 14,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 83,
+   "yol": 5,
+   "sayfa": 15,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 84,
+   "yol": 5,
+   "sayfa": 16,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 85,
+   "yol": 6,
+   "sayfa": 1,
+   "ilk": true
+  },
+  {
+   "tur": "unite",
+   "no": 86,
+   "yol": 6,
+   "sayfa": 2,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 87,
+   "yol": 6,
+   "sayfa": 3,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 88,
+   "yol": 6,
+   "sayfa": 4,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 89,
+   "yol": 6,
+   "sayfa": 5,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 90,
+   "yol": 6,
+   "sayfa": 6,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 91,
+   "yol": 6,
+   "sayfa": 7,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 92,
+   "yol": 6,
+   "sayfa": 8,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 93,
+   "yol": 6,
+   "sayfa": 9,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 94,
+   "yol": 6,
+   "sayfa": 10,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 95,
+   "yol": 6,
+   "sayfa": 11,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 96,
+   "yol": 6,
+   "sayfa": 12,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 97,
+   "yol": 6,
+   "sayfa": 13,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 98,
+   "yol": 6,
+   "sayfa": 14,
+   "ilk": false
+  },
+  {
+   "tur": "unite",
+   "no": 99,
+   "yol": 6,
+   "sayfa": 15,
+   "ilk": false
+  },
+  {
    "tur": "zaman",
-   "no": 36,
+   "no": 100,
    "parca": 1
   },
   {
    "tur": "zaman",
-   "no": 37,
+   "no": 101,
    "parca": 2
   },
   {
    "tur": "periyodik",
-   "no": 38
+   "no": 102
   },
   {
    "tur": "sozluk",
-   "no": 39,
+   "no": 103,
    "parca": 1
   },
   {
    "tur": "sozluk",
-   "no": 40,
+   "no": 104,
    "parca": 2
   },
   {
    "tur": "album",
-   "no": 41,
+   "no": 105,
    "parca": 1
   },
   {
    "tur": "album",
-   "no": 42,
+   "no": 106,
    "parca": 2
   },
   {
    "tur": "hazine",
-   "no": 43,
+   "no": 107,
+   "yol": 1,
+   "pdf": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/01-kimyasal-degisimler/01-kimyasal-degisimler-hazine-kartlari.pdf",
+   "sayfa": 1,
+   "ilk": true
+  },
+  {
+   "tur": "hazine",
+   "no": 108,
    "yol": 2,
    "pdf": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/02-mol-kavrami/02-mol-kavrami-hazine-kartlari.pdf",
    "sayfa": 1,
    "ilk": true
   },
   {
+   "tur": "hazine",
+   "no": 109,
+   "yol": 3,
+   "pdf": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/03-stokiyometri/03-stokiyometri-hazine-kartlari.pdf",
+   "sayfa": 1,
+   "ilk": true
+  },
+  {
+   "tur": "hazine",
+   "no": 110,
+   "yol": 4,
+   "pdf": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/04-gazlar/04-gazlar-hazine-kartlari.pdf",
+   "sayfa": 1,
+   "ilk": true
+  },
+  {
+   "tur": "hazine",
+   "no": 111,
+   "yol": 5,
+   "pdf": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/05-cozeltiler-1/05-cozeltiler-1-hazine-kartlari.pdf",
+   "sayfa": 1,
+   "ilk": true
+  },
+  {
+   "tur": "hazine",
+   "no": 112,
+   "yol": 6,
+   "pdf": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/06-cozeltiler-2/06-cozeltiler-2-hazine-kartlari.pdf",
+   "sayfa": 1,
+   "ilk": true
+  },
+  {
+   "tur": "bos",
+   "no": 113
+  },
+  {
    "tur": "arka_kapak",
-   "no": 44
+   "no": 114
   }
  ],
  "baslar": {
   "1": 5,
-  "2": 21
+  "2": 21,
+  "3": 37,
+  "4": 53,
+  "5": 69,
+  "6": 85
  },
  "uniteler": [
   {
@@ -296,7 +786,11 @@
    "klasor": "01-kimyasal-degisimler",
    "dizin": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/01-kimyasal-degisimler",
    "sayfa_sayisi": 16,
-   "varyantlar": {}
+   "varyantlar": {
+    "fotokopi": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/01-kimyasal-degisimler/01-kimyasal-degisimler-fotokopi.pdf",
+    "ogretmen": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/01-kimyasal-degisimler/01-kimyasal-degisimler-ogretmen.pdf",
+    "hazine-kartlari": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/01-kimyasal-degisimler/01-kimyasal-degisimler-hazine-kartlari.pdf"
+   }
   },
   {
    "yol": 2,
@@ -309,6 +803,58 @@
     "fotokopi": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/02-mol-kavrami/02-mol-kavrami-fotokopi.pdf",
     "ogretmen": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/02-mol-kavrami/02-mol-kavrami-ogretmen.pdf",
     "hazine-kartlari": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/02-mol-kavrami/02-mol-kavrami-hazine-kartlari.pdf"
+   }
+  },
+  {
+   "yol": 3,
+   "rota": "Dicle Yolu",
+   "unite": "Stokiyometri",
+   "klasor": "03-stokiyometri",
+   "dizin": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/03-stokiyometri",
+   "sayfa_sayisi": 16,
+   "varyantlar": {
+    "fotokopi": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/03-stokiyometri/03-stokiyometri-fotokopi.pdf",
+    "ogretmen": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/03-stokiyometri/03-stokiyometri-ogretmen.pdf",
+    "hazine-kartlari": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/03-stokiyometri/03-stokiyometri-hazine-kartlari.pdf"
+   }
+  },
+  {
+   "yol": 4,
+   "rota": "Kapadokya Yolu",
+   "unite": "Gazlar",
+   "klasor": "04-gazlar",
+   "dizin": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/04-gazlar",
+   "sayfa_sayisi": 15,
+   "varyantlar": {
+    "fotokopi": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/04-gazlar/04-gazlar-fotokopi.pdf",
+    "ogretmen": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/04-gazlar/04-gazlar-ogretmen.pdf",
+    "hazine-kartlari": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/04-gazlar/04-gazlar-hazine-kartlari.pdf"
+   }
+  },
+  {
+   "yol": 5,
+   "rota": "Pamukkale–Afyon Yolu",
+   "unite": "Çözünme ve Çözünürlük",
+   "klasor": "05-cozeltiler-1",
+   "dizin": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/05-cozeltiler-1",
+   "sayfa_sayisi": 16,
+   "varyantlar": {
+    "fotokopi": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/05-cozeltiler-1/05-cozeltiler-1-fotokopi.pdf",
+    "ogretmen": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/05-cozeltiler-1/05-cozeltiler-1-ogretmen.pdf",
+    "hazine-kartlari": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/05-cozeltiler-1/05-cozeltiler-1-hazine-kartlari.pdf"
+   }
+  },
+  {
+   "yol": 6,
+   "rota": "Göller Yolu",
+   "unite": "Derişim Birimleri",
+   "klasor": "06-cozeltiler-2",
+   "dizin": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/06-cozeltiler-2",
+   "sayfa_sayisi": 15,
+   "varyantlar": {
+    "fotokopi": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/06-cozeltiler-2/06-cozeltiler-2-fotokopi.pdf",
+    "ogretmen": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/06-cozeltiler-2/06-cozeltiler-2-ogretmen.pdf",
+    "hazine-kartlari": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/06-cozeltiler-2/06-cozeltiler-2-hazine-kartlari.pdf"
    }
   }
  ]
