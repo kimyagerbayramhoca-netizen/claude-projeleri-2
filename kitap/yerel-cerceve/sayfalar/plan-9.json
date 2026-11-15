@@ -44,18 +44,27 @@
    "parca": 1
   },
   {
-   "tur": "album",
+   "tur": "sozluk",
    "no": 10,
-   "parca": 1
+   "parca": 2
   },
   {
    "tur": "album",
    "no": 11,
+   "parca": 1
+  },
+  {
+   "tur": "album",
+   "no": 12,
    "parca": 2
   },
   {
+   "tur": "bos",
+   "no": 13
+  },
+  {
    "tur": "arka_kapak",
-   "no": 12
+   "no": 14
   }
  ],
  "baslar": {},

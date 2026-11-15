@@ -35,9 +35,12 @@ from yardim import yeni, e, zengin, zemin, cini, defs  # noqa: E402
 class Kitap:
     """Bir sınıfın çerçeve sayfaları."""
 
-    def __init__(self, sinif):
+    def __init__(self, sinif, sayfa_sayilari=None):
         self.sinif = int(sinif)
         self.yollar = V.yollar(self.sinif)
+        for y in self.yollar:                     # kitap_yerel.js gerçek kurulumdan sayıları geri verebilir
+            if sayfa_sayilari and str(y["yol"]) in sayfa_sayilari:
+                y["sayfa_sayisi"] = int(sayfa_sayilari[str(y["yol"])])
         self.ad = f"Kimya Rotası {self.sinif}"
         self.alt_baslik = V.alt_baslik(self.sinif)
         self.baslangic = V.baslangic()
@@ -45,8 +48,16 @@ class Kitap:
         import album as AL
         self.sozluk_sayfalari = SZ.sayfalara_bol(self)
         self.album_sayfalari = AL.sayfalara_bol(self)
-        self.kavram_sayisi = sum(len(sf) for sf in self.sozluk_sayfalari) if self.sozluk_sayfalari and isinstance(self.sozluk_sayfalari[0], list) else 0
-        self.plan, self.baslar = V.sayfa_plani(self.sinif, self.yollar, len(self.sozluk_sayfalari), len(self.album_sayfalari))
+        hazine = {}
+        for y in self.yollar:                     # ünitelerin hazine kartı kesme yaprakları (varsa) kitabın sonundaki eke girer
+            pdf = y["varyantlar"].get("hazine-kartlari")
+            if y["hazir"] and y["sayfa_sayisi"] and pdf:
+                try:
+                    from pypdf import PdfReader
+                    hazine[y["yol"]] = (pdf, len(PdfReader(pdf).pages))
+                except Exception as hata:          # noqa: BLE001
+                    print(f"UYARI: {pdf} okunamadı ({hata}); hazine eki atlandı")
+        self.plan, self.baslar = V.sayfa_plani(self.sinif, self.yollar, len(self.sozluk_sayfalari), len(self.album_sayfalari), hazine)
 
     # ---------------------------------------------------------------- çerçeve parçaları
     def no(self, tur, **k):
@@ -90,13 +101,18 @@ class Kitap:
 
 def main(argv):
     if not argv or argv[0] not in ("9", "10"):
-        raise SystemExit("kullanım: python3 uretec/kur.py <9|10> [--plan plan.json]")
-    k = Kitap(argv[0])
+        raise SystemExit("kullanım: python3 uretec/kur.py <9|10> [--plan plan.json] [--sayfa-sayilari '{\"2\":15}'] [--fotokopi]")
+    sayilar = json.loads(argv[argv.index("--sayfa-sayilari") + 1]) if "--sayfa-sayilari" in argv else None
+    k = Kitap(argv[0], sayilar)
     html = k.kur()
     os.makedirs(os.path.join(CERCEVE, "sayfalar"), exist_ok=True)
     hedef = os.path.join(CERCEVE, "sayfalar", f"kitap-{k.sinif}.html")
     with open(hedef, "w", encoding="utf-8") as fp:
         fp.write(html)
+    if "--fotokopi" in argv:                      # siyah-beyaz nüsha: ortak fotokopi eşlemesi (yerel-ortak/fotokopi.py)
+        import fotokopi as FK
+        with open(hedef.replace(".html", "-fotokopi.html"), "w", encoding="utf-8") as fp:
+            fp.write(FK.fotokopi_html(html))
     plan = {"sinif": k.sinif, "html": hedef, "sayfalar": k.plan, "baslar": k.baslar,
             "uniteler": [{"yol": y["yol"], "rota": y["rota"], "unite": y["unite"], "klasor": y["klasor"], "dizin": y["dizin"],
                           "sayfa_sayisi": y["sayfa_sayisi"], "varyantlar": y["varyantlar"]} for y in k.yollar if y["hazir"]]}

@@ -5,46 +5,34 @@
   2. Her çoktan seçmeli soruda TEK doğru şık olduğu denetlenir.
   3. unite.html içindeki cevap anahtarı (s.13) ve şık metinleri sayfadan okunup hesapla karşılaştırılır.
   4. Akçe muhasebesi: durak toplamları ve ünite toplamı (1400).
-Sonunda "SONUÇ: hepsi doğru" yazmalı.
+  5. Üstad soruları (bonus) ve sayfadaki öğretmen işaretleri (data-dogru, meclis hükmü, .ogr) hesapla aynı mı?
+Sonunda "SONUÇ: hepsi doğru" yazmalı. Yardımcılar: yerel-ortak/dogrula_ortak.py
 """
 import os
 import re
+import sys
 from fractions import Fraction as F
 
 BURA = os.path.dirname(os.path.abspath(__file__))
 HTML = os.path.join(os.path.dirname(BURA), "unite.html")
 
-NA = 6.02e23
-M = dict(H=1, He=4, B=10.8, C=12, N=14, O=16, Na=23, Mg=24, S=32, Cl=35.5, Ca=40, Fe=56)
+
+def _ortak():
+    d = BURA
+    while d != os.path.dirname(d):
+        if os.path.exists(os.path.join(d, "yerel-ortak", "dogrula_ortak.py")):
+            return os.path.join(d, "yerel-ortak")
+        d = os.path.dirname(d)
+    raise SystemExit("yerel-ortak bulunamadı")
 
 
-def mk(d):
-    return sum(M[k] * v for k, v in d.items())
+sys.path.insert(0, _ortak())
+from dogrula_ortak import (D, NA, M, mk, yakin, kontrol, tek_sik, yargi, sayfa_isaretleri_ayni,  # noqa: E402,F401
+                           meclis_hukumleri, ogretmen_metinleri)
+from dogrula_ortak import dagilim as harf_dagilimi  # noqa: E402
+import math  # noqa: E402
 
-
-def yakin(a, b, t=1e-9):
-    return abs(a - b) <= t * max(1, abs(a), abs(b))
-
-
-hata = []
-
-
-def kontrol(ad, kosul):
-    print(("OK  " if kosul else "HATA") + "  " + ad)
-    if not kosul:
-        hata.append(ad)
-
-
-def tek_sik(ad, siklar, dogru_mu, beklenen):
-    d = [k for k, v in siklar.items() if dogru_mu(v)]
-    kontrol(f"{ad}: tek doğru şık {d} == ['{beklenen}']", d == [beklenen])
-    return d[0] if len(d) == 1 else None
-
-
-def yargi_kumesi(sozluk):
-    return {k for k, ok in sozluk.items() if ok}
-
-
+yargi_kumesi = yargi
 YARGI_SIK = {"A": "I", "B": "III", "C": "I,II", "D": "II,III", "E": "I,II,III"}  # kıssa 1
 anahtar = {}
 
@@ -167,18 +155,18 @@ if os.path.exists(HTML):
     html = open(HTML, encoding="utf-8").read()
     izgara = re.search(r'<div class="anahtar-izgara">(.*?)</div>\s*</div>', html, re.S)
     sayfa_anahtar = dict((int(n), h) for n, h in re.findall(r"<i>(\d+)</i><b>([A-E])</b>", izgara.group(1))) if izgara else {}
-    kontrol(f"s.13 anahtar ızgarası hesapla aynı {sayfa_anahtar}", sayfa_anahtar == T)
+    kontrol(f"s.14 anahtar ızgarası hesapla aynı {sayfa_anahtar}", sayfa_anahtar == T)
     for no, harf in T.items():
-        kontrol(f"s.13 çözüm satırı '{no} · {harf}' var", f"<b>{no} · {harf}</b>" in html)
+        kontrol(f"s.14 çözüm satırı '{no} · {harf}' var", f"<b>{no} · {harf}</b>" in html)
     for k, harf in zip(("1", "2", "3", "4"), (anahtar["K1"], anahtar["K2"], anahtar["K3"], anahtar["K4"])):
-        kontrol(f"s.13 kıssa çözümü '{k} · {harf}' var", f"<b>{k} · {harf}</b>" in html)
+        kontrol(f"s.14 kıssa çözümü '{k} · {harf}' var", f"<b>{k} · {harf}</b>" in html)
     # her meşveret kartında A–E beş şık
     kartlar = re.findall(r'<div class="oy[^"]*">(.*?)</div></div>\s*</div>', html, re.S)
     harfler = [re.findall(r"<b>([A-E])</b>", k) for k in kartlar]
     kontrol(f"12 meşveret kartı, her birinde A–E ({len(harfler)} kart)", len(harfler) == 12 and all(sorted(h) == list("ABCDE") for h in harfler))
     # kıssa şıkları
     siklar = re.findall(r'<div class="siklar[^"]*">(.*?)</div></div>', html, re.S)
-    kontrol(f"4 kıssa kartında A–E ({len(siklar)} kart)", len(siklar) == 4 and all(sorted(re.findall(r"<b>([A-E])</b>", k)) == list("ABCDE") for k in siklar))
+    kontrol(f"4 kıssa + 6 Üstad kartında A–E ({len(siklar)} kart)", len(siklar) == 10 and all(sorted(re.findall(r"<b>([A-E])</b>", k)) == list("ABCDE") for k in siklar))
     # sayfada yazan kritik sayılar
     for metin in ("10,6 g saf Na<sub>2</sub>CO<sub>3</sub>", "2,16 gramdır", "5 g CaCO<sub>3</sub>", "0,02 mol C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>",
                   "0,5 mol boraks", "≈ 19 katrilyon yıl", "≈ 140 kat"):
@@ -201,9 +189,65 @@ toplam = sum(toplamlar.values()) + sum(yan.values())
 kontrol(f"Ünite toplam akçe {toplam} = 1400", toplam == 1400)
 kontrol("Ray eşikleri: 400/1400 %28,57 · 800/1400 %57,14 · 1150/1400 %82,14",
         [round(400 / 1400 * 100, 2), round(800 / 1400 * 100, 2), round(1150 / 1400 * 100, 2)] == [28.57, 57.14, 82.14])
-bar = [0, 0, 7, 18, 29, 39, 50, 53, 61, 70, 79, 89, 100, 100]
-birikim = [0, 0, 100, 250, 400, 550, 700, 740, 860, 980, 1100, 1250, 1400, 1400]
+bar = [0, 0, 7, 18, 29, 39, 50, 53, 61, 70, 79, 89, 100, 100, 100]          # 15 sayfa (13: Üstad, akçesiz)
+birikim = [0, 0, 100, 250, 400, 550, 700, 740, 860, 980, 1100, 1250, 1400, 1400, 1400]
 kontrol("HUD akçe çubuğu yüzdeleri", [round(b / 1400 * 100) for b in birikim] == bar)
 
-print("\nCEVAP ANAHTARI · İmtihan:", " ".join(f"{k}{v}" for k, v in T.items()), "· Kıssa:", " ".join(f"{k}{v}" for k, v in anahtar.items()))
-print("SONUÇ:", "hepsi doğru" if not hata else f"{len(hata)} hata: {hata}")
+# ------------------------------------------------------------------ Üstad soruları (bonus; 1400 akçeye dahil değil)
+U = {}
+q = (24.3 - 24) / (25 + 26 - 2 * 24)                     # 24(1 − 2q) + 25q + 26q = 24,3
+kontrol(f"Üstad 1: q = {q:.3f} → bolluk 0,8 / 0,1 / 0,1, ortalama 24,3", yakin(q, .1) and yakin(24 * (1 - 2 * q) + 25 * q + 26 * q, 24.3))
+U[1] = tek_sik("Üstad 1", {"A": 3.01e22, "B": 6.02e22, "C": 1.204e23, "D": 2.408e23, "E": 3.01e23}, lambda v: yakin(v, 2 * q * .5 * NA), "B")
+for ad, MX in (("Mg", 24), ("S", 32)):                 # a = 1 X atomu (g), b = 1 ¹²C atomu (g) = 12/N_A
+    a_, b_ = MX / NA, 12 / NA
+    U[2] = tek_sik(f"Üstad 2 (X = {ad})", {"A": a_ + 32 * b_, "B": a_ + 4 * b_ / 3, "C": 12 * a_ / b_ + 32, "D": (a_ + 32) / NA, "E": a_ + 8 * b_ / 3},
+                   lambda v: math.isclose(v, (MX + 32) / NA, rel_tol=1e-9), "E")   # göreli: değerler ~10⁻²² g
+nI, nII, nIII = .2, 6.8 / mk("NH3"), 1.806e23 / NA
+H3 = [nI * 6, nII * 3, nIII * 2]
+K3 = [nI * mk("C2H6"), 6.8, nIII * mk("H2O")]
+A3 = [nI * 8, nII * 4, nIII * 3]
+kontrol(f"Üstad 3: H {[round(v, 2) for v in H3]} · kütle {[round(v, 2) for v in K3]} · atom {[round(v, 2) for v in A3]}",
+        yakin(H3[0], 1.2) and yakin(H3[1], 1.2) and yakin(K3[0], 6) and yakin(K3[2], 5.4) and yakin(A3[2], .9))
+d3 = yargi({"I": yakin(H3[0], H3[1]), "II": max(K3) == K3[0], "III": min(A3) == A3[2] and sorted(A3)[1] > A3[2]})
+U[3] = tek_sik("Üstad 3", {"A": {"I"}, "B": {"III"}, "C": {"I", "II"}, "D": {"I", "III"}, "E": {"I", "II", "III"}}, lambda v: v == d3, "D")
+y4 = (mk("NaCl") * .5 - 28.35) / (2 * mk("NaCl") - mk("CaCl2"))      # x = 0,5 − 2y
+x4 = .5 - 2 * y4
+kontrol(f"Üstad 4: NaCl {x4:.2f} mol, CaCl2 {y4:.2f} mol → kütle 28,35 g, Cl 0,5 mol",
+        yakin(x4 * mk("NaCl") + y4 * mk("CaCl2"), 28.35) and yakin(x4 + 2 * y4, .5) and yakin(y4, .15))
+U[4] = tek_sik("Üstad 4", {"A": 5.85, "B": 8.775, "C": 11.7, "D": 16.65, "E": 17.55}, lambda v: yakin(v, x4 * mk("NaCl")), "C")
+nY = (20.8 - 8) / mk("SO2")
+kontrol("Üstad 5: grafik (8; 2,5) → X eğimi 5/16 = CH4 (SO2 olsa 3/64); (20,8; 3,1) → Y = SO2",
+        yakin(2.5 / 8, 5 / mk("CH4")) and not yakin(2.5 / 8, 3 / mk("SO2")) and yakin(2.5 + nY * 3, 3.1))
+U[5] = tek_sik("Üstad 5", {"A": .2, "B": .25, "C": .4, "D": .6, "E": .8}, lambda v: yakin(v, nY), "A")
+m1 = 18 / NA                                            # 1 H2O molekülü (g); akb ve atom kütleleri tanımdan bağımsız
+
+
+def u6(N):                                              # N: 1 moldeki tanecik sayısı
+    return {"A": N * m1, "B": 18 / (N * m1), "C": 3 * N, "D": m1, "E": N * m1}
+
+
+U[6] = tek_sik("Üstad 6 (değişmeyen nicelik)", {k: (u6(6.02e23)[k], u6(3.01e23)[k]) for k in "ABCDE"}, lambda v: yakin(v[0], v[1]), "D")
+harf_dagilimi(U.values())
+
+# ------------------------------------------------------------------ sayfadaki öğretmen işaretleri (öğretmen baskısı = bu işaretler)
+if os.path.exists(HTML):
+    beklenen = {f"I{k}": v for k, v in T.items()}
+    beklenen.update({f"K{i}": anahtar[f"K{i}"] for i in range(1, 5)})
+    beklenen.update({f"U{k}": v for k, v in U.items()})
+    sayfa_isaretleri_ayni(html, beklenen)
+    kontrol(f"meclis hükümleri (haklı kişi, satır) {meclis_hukumleri(html)}",
+            meclis_hukumleri(html) == {"M1": ("Yusuf", 2), "M2": ("Elif", 1), "M3": ("Yusuf", 2), "M4": ("Pamuk", 2)})
+    for k, h in U.items():
+        kontrol(f"s.14 Üstad çözümü 'Ü{k} · {h}' var", f"<b>Ü{k} · {h}</b>" in html)
+    us = re.search(r"<p><b>Üstad</b>(.*?)</p>", html)
+    kontrol("s.14 hızlı anahtarda Üstad satırı hesapla aynı", bool(us) and re.findall(r'<span class="ck">(\d) ([A-E])</span>', us.group(1)) == [(str(k), h) for k, h in U.items()])
+    ogr = ogretmen_metinleri(html)
+    kontrol(f"öğretmen metinleri: {len(ogr)} (5 CEVABIN + 3 boşluk + 8 meclis + 4 kıssa + 9 merdiven + 12 imtihan + 6 Üstad = 47)", len(ogr) == 47)
+    ciftler = re.findall(r'CEVABIN:<span class="ogr">(.*?)</span></div><span class="ters-cevap"><span class="ters">(?:Cevap: )?(.*?)</span></span>', html)
+    kontrol(f"CEVABIN kutusundaki kırmızı cevap ters yazılı cevapla aynı ({len(ciftler)} kutu)",
+            len(ciftler) == 5 and all(a == b or a.endswith("= " + b) for a, b in ciftler))
+    kontrol("Üstad sayfası: 6 kart, Üstad Mührü nişanı, akçe yok", html.count('class="ustad-soru"') == 6 and "Üstad Mührü" in html)
+
+print("\nCEVAP ANAHTARI · İmtihan:", " ".join(f"{k}{v}" for k, v in T.items()), "· Kıssa:", " ".join(f"{k}{v}" for k, v in anahtar.items()),
+      "· Üstad:", " ".join(f"Ü{k}{v}" for k, v in U.items()))
+D.sonuc()

@@ -22,7 +22,8 @@
     {"ad": "Kefal Sayıcı", "ikon": "kefal", "renk": "gol", "aciklama": "3. durak · tanecik"},
     {"ad": "Mizan Ehli", "ikon": "mizan", "renk": "mer", "aciklama": "4. durak · kütle"},
     {"ad": "Karışım Kâşifi", "ikon": "karisim", "renk": "erg", "aciklama": "5. durak · karışım"},
-    {"ad": "Kale Kapısı", "ikon": "kale", "renk": "keh", "aciklama": "İmtihan · 10+ doğru"}
+    {"ad": "Kale Kapısı", "ikon": "kale", "renk": "keh", "aciklama": "İmtihan · 10+ doğru"},
+    {"ad": "Üstad Mührü", "ikon": "ustad", "renk": "laj", "aciklama": "Üstad · 6/6 doğru", "bonus": true}
   ],
   "hazine": [
     {"kod": "H1", "baslik": "Desteyi aç", "formul": "1 mol = N_A tane", "not": "N_A = 6,02·10^23 · +10 akçe", "durak": 1},
@@ -45,7 +46,7 @@
     {"ad": "el-Hâzinî", "yil": "12. yy", "katki": "Mîzânü’l-Hikme (1121): hassas terazi ve özgül ağırlık tabloları.", "sayfa": 5},
     {"ad": "Câbir bin Hayyân", "yil": "8. yy", "katki": "Deneysel kimyanın öncülerinden; damıtma, kristallendirme ve süzmeyi sistemli kullandı.", "sayfa": 6},
     {"ad": "Ebû Bekir er-Râzî", "yil": "865–925", "katki": "Maddeleri sınıflandırdı, laboratuvar araçlarını tarif etti.", "sayfa": 8},
-    {"ad": "Takiyüddin", "yil": "16. yy", "katki": "İstanbul’da kurulan rasathanede gökyüzünü gözlemleyip ölçümler yaptı.", "sayfa": 13}
+    {"ad": "Takiyüddin", "yil": "16. yy", "katki": "İstanbul’da kurulan rasathanede gökyüzünü gözlemleyip ölçümler yaptı.", "sayfa": 14}
   ],
   "kavramlar": [
     {"terim": "mol", "tanim": "6,02·10^23 tane tanecik içeren madde miktarı; SI’da madde miktarının birimi."},
@@ -57,5 +58,5 @@
     {"terim": "formül birimi", "tanim": "İyonik bileşiğin formülünün gösterdiği en küçük iyon birimi (ör. 1 Na_2CO_3 = 2 Na⁺ + 1 CO₃²⁻)."},
     {"terim": "mol kütlesi (M_A)", "tanim": "1 mol taneciğin gram cinsinden kütlesi (g/mol)."}
   ],
-  "sayfa_sayisi": 14
+  "sayfa_sayisi": 15
 }

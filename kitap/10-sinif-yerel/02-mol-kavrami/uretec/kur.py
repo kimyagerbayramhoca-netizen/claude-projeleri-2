@@ -43,11 +43,12 @@ SAYFA = {
     10: ("Yan yol · <b>Van iskelesi</b>", "Yan yol 3 · Anahtar merdiveni", 70),
     11: ("<b>Van Kalesi</b> · 1/2", "Büyük İmtihan · 1. bölüm", 79),
     12: ("<b>Van Kalesi</b> · 2/2", "Büyük İmtihan · 2. bölüm", 89),
-    13: ("<b>Cevaplar</b>", "Cevaplar ve çözümler", 100),
-    14: ("<b>Final</b>", "Final · akçe rayı ve unvan", 100),
+    13: ("<b>Üstad</b> · bonus", "Üstad soruları · bonus", 100),
+    14: ("<b>Cevaplar</b>", "Cevaplar ve çözümler", 100),
+    15: ("<b>Final</b>", "Final · akçe rayı ve unvan", 100),
 }
 # ilerleme noktaları: 5 durak + hülasa + 3 yan yol + kale ; her sayfada hangisi "şimdi" (−1: yok, 10: hepsi tamam)
-SIMDI = {1: -1, 2: 0, 3: 1, 4: 2, 5: 3, 6: 4, 7: 5, 8: 6, 9: 7, 10: 8, 11: 9, 12: 9, 13: 10, 14: 10}
+SIMDI = {1: -1, 2: 0, 3: 1, 4: 2, 5: 3, 6: 4, 7: 5, 8: 6, 9: 7, 10: 8, 11: 9, 12: 9, 13: 10, 14: 10, 15: 10}
 
 u = KO.Unite(__file__, SAYFA, SIMDI)
 

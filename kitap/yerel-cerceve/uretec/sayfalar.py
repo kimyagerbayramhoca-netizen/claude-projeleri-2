@@ -299,7 +299,12 @@ def _rehber2(k, p):
 
 
 def bos(k, p):
-    return _gecici(k, p, "notlar", "Notlar")
+    """Ünite tek sayfada başlasın / zaman şeridi karşılıklı açılsın diye araya giren sayfa: çizgili Notlar sayfası."""
+    satir = "".join(f'<path d="M0 {f(y, 2)} H188" stroke="#BFD3D8" stroke-width=".3"/>' for y in [i * 8.6 for i in range(1, 27)])
+    ic = (f'<div class="not-kutu"><div class="not-bas">{_ik("kitap")}Notlar <small>Yolda aklına gelenler, sorular, kendi örneklerin</small></div>'
+          f'<svg class="not-cizgi" viewBox="0 0 188 232" preserveAspectRatio="none">{satir}</svg>'
+          f'<svg class="not-pamuk" viewBox="0 0 140 160"><use href="#pamuk-kitap"/></svg></div>')
+    return k.sayfa("notlar-sayfa", "notlar", p["no"], ic, hud=("Defter", "Notlar"), konu="Notlar")
 
 
 def _yuzyil(sira):
@@ -409,11 +414,97 @@ def periyodik(k, p):
 
 
 def sozluk(k, p):
-    return _gecici(k, p, f"sozluk-{p['parca']}", "Kavram sözlüğü")
+    no, parca = p["no"], p["parca"]
+    sutunlar = k.sozluk_sayfalari[parca - 1]
+    renk = {y["yol"]: y["renk"] for y in k.yollar}
+    html_sutun = []
+    for sutun in sutunlar:
+        ic = []
+        for o in sutun:
+            if o[0] == "harf":
+                ic.append(f'<div class="sz-harf">{o[1]}</div>')
+            else:
+                _, terim, tanim, yol = o
+                ic.append(f'<p class="madde"><b>{terim}</b><span class="ychip" style="--r:{renk[yol]}">Y{yol}</span> {tanim}</p>')
+        html_sutun.append(f'<div class="sozluk-sutun">{"".join(ic)}</div>')
+    if parca == 1:
+        palet = ("#0E4C5A", "#13A3A6", "#F0A21A", "#E2533D", "#1F8A5B")
+        bant = (f'<div class="bant b30" data-serbest>{CZ.cini_pano_bandi(yeni("sz"), 300, palet)}'
+                f'<div class="levha kucuk">{_rozet("A", "gol")}<div><div class="ust">Kaynak · {k.kavram_sayisi} kavram · Türkçe alfabe sırasıyla</div>'
+                f'<h1>Kavram <em>sözlüğü</em></h1></div></div></div>')
+        ust = 44.0
+        bas = ""
+    else:
+        bant = ""
+        ust = 16.0
+        bas = '<div class="sz-devam">Kavram sözlüğü <small>(devam)</small></div>'
+        ust += 7.5
+    ic = (f'{bant}<main class="ic" style="top:{f(ust - (7.5 if parca > 1 else 0), 2)}mm">{bas}'
+          f'<div class="sozluk">{"".join(html_sutun)}</div>'
+          f'{"<p class=sz-not>Y: kavramın anlatıldığı yol. Kısa tanımlar hatırlatma içindir; ayrıntı yolun durak sayfalarındadır.</p>" if parca == len(k.sozluk_sayfalari) else ""}</main>')
+    return k.sayfa("sozluk-sayfa", f"sozluk-{parca}", no, ic, hud=("Kaynak", "Kavram sözlüğü"), konu=f"Kavram sözlüğü · {parca}/{len(k.sozluk_sayfalari)}")
+
+
+def _album_yol(k, y):
+    import cizimler as CZ2
+    from yardim import zengin as _z
+    nis = []
+    liste = [n for n in (y.get("nisanlar") or []) if n.get("ikon") != "ustad" and "Üstad Mührü" not in n.get("ad", "")]
+    if liste:
+        for n in liste:
+            svg = CZ2.nisan_boyama(yeni("an"), CZ2.nisan_ikonu(n.get("ikon", "")))
+            nis.append(f'<div class="ay-nisan">{svg}<b>{_z(n["ad"])}</b><small>{_z(n.get("aciklama", ""))}</small></div>')
+    else:
+        adlar = [f'{d["no"]}. durak' for d in y["duraklar"]] + ["Kale"]
+        for ad in adlar:
+            svg = CZ2.nisan_boyama(yeni("an"), None, bos=True)
+            nis.append(f'<div class="ay-nisan bos">{svg}<b class="cizgi"></b><small>{ad}</small></div>')
+    ustad = CZ2.nisan_boyama(yeni("au"), CZ2.ustad_ikonu())
+    bas = k.baslar.get(y["yol"])
+    durum = f'<span class="ay-durum hazir">s.{bas}</span>' if bas else '<span class="ay-durum">yakında</span>'
+    genis = len(k.yollar) <= 6
+    alt = ('<div class="ay-not"><span>En sevdiğim durak:</span><i></i><span>Bitirdiğim gün:</span><i class="k"></i></div>' if genis else "")
+    return (f'<div class="album-yol{" genis" if genis else ""}" style="--r:{y["renk"]};--r-k:{y["renk_k"]}">'
+            f'<div class="ay-bas">{_yol_rozet(y)}<div><b>Yol {y["yol"]} · {e(y["rota"])}</b><span>{e(y["unite"])} · {e(y["tema"])}</span></div>{durum}</div>'
+            f'<div class="ay-govde"><div class="ay-nisanlar" style="--n:{len(nis)}">{"".join(nis)}</div>'
+            f'<div class="ay-ustad">{ustad}<b>Üstad Mührü</b><small>6 Üstad sorusu</small></div>'
+            f'<div class="ay-akce"><span class="et keh">Akçe</span><div class="ay-kutu"><i></i><span>/1400</span></div>'
+            f'<div class="ay-unvan"><span><i></i>Çırak</span><span><i></i>Kalfa</span><span><i></i>Usta</span><span><i></i>Üstad</span></div></div></div>{alt}</div>')
 
 
 def album(k, p):
-    return _gecici(k, p, f"album-{p['parca']}", "Nişan albümü")
+    no, parca = p["no"], p["parca"]
+    yollar = k.album_sayfalari[parca - 1]
+    paneller = "".join(_album_yol(k, y) for y in yollar)
+    son = parca == len(k.album_sayfalari)
+    toplam = ""
+    if son:
+        import infografik_kopru as IK
+        unv = "".join(f'<div class="at-unvan">{IK.unvan(yeni("tu"), i + 1, r)}<b>{ad}</b><small>ortalama {esik}</small></div>'
+                      for i, (ad, esik, r) in enumerate((("Çırak", "0+", "#A3B3BE"), ("Kalfa", "400+", "#13A3A6"),
+                                                         ("Usta", "800+", "#0E4C5A"), ("Üstad", "1150+", "#F0A21A"))))
+        toplam = (f'<div class="kart album-toplam"><span class="et keh">{_sikke()}Ahilik toplamı · kitabın unvanı</span>'
+                  f'<div class="at-satir"><div class="at-hesap">Toplam akçe <i></i> ÷ biten yol <i class="k"></i> = ortalama <i></i></div>'
+                  f'<div class="at-hesap">Boyanan Üstad Mührü <i class="k"></i> / {len(k.yollar)}</div></div>'
+                  f'<div class="at-unvanlar">{unv}</div>'
+                  f'<p>Her yolun eşikleri aynıdır: Kalfa 400, Usta 800, Üstad 1150 akçe (1400 üzerinden). Kitap unvanın, yol başına '
+                  f'ortalama akçene göre verilir. Unvanını yuvarlak içine al; nişanlarını boya, albümü tamamla!</p></div>')
+    if parca == 1:
+        bant = (f'<div class="bant b30" data-serbest>{CZ.album_bandi(yeni("ab"), 300)}'
+                f'<div class="levha kucuk mer">{_rozet("N", "mer")}<div><div class="ust">Kitabın sonu · boya, say, unvan al</div>'
+                f'<h1>Nişan <em>albümü</em></h1></div></div></div>')
+        ust = 44.0
+    else:
+        bant, ust = "", 15.0
+    yonerge = ""
+    if parca == 1 and len(k.yollar) <= 6:
+        yonerge = ('<div class="kart album-yonerge"><div class="pamuk-not"><svg viewBox="0 0 140 160"><use href="#pamuk-akce"/></svg><p>'
+                   '<b>Albümü nasıl doldurursun?</b> Bir durağı bitirince o durağın nişanını <b>kendi renklerinle boya</b>. '
+                   'Kalede 10 ya da daha çok doğru yaparsan Kale nişanı, Üstad sorularının hepsini çözersen <b>Üstad Mührü</b> senin. '
+                   'Final sayfasındaki akçe toplamını kutuya yaz, unvanını işaretle. Kitabın sonunda yolların ortalamasıyla '
+                   '<b>kitap unvanını</b> bul. Miyav!</p></div></div>')
+    ic = f'{bant}<main class="ic" style="top:{f(ust, 2)}mm">{paneller}{yonerge}{toplam}</main>'
+    return k.sayfa("album-sayfa", f"album-{parca}", no, ic, hud=("Nişan albümü", "Boya, say, unvan al"), konu=f"Nişan albümü · {parca}/{len(k.album_sayfalari)}")
 
 
 def arka_kapak(k, p):

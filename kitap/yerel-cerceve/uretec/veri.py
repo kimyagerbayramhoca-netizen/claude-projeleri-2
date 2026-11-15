@@ -59,8 +59,9 @@ def yollar(sinif):
     for r in sorted((r for r in veri["rotalar"] if r["sinif"] == int(sinif)), key=lambda r: r["yol"]):
         y = json.loads(json.dumps(r))
         dizin = os.path.join(KITAP, f"{sinif}-sinif-yerel", r["klasor"])
+        # ünite "hazır": yeni tasarım klasörü var VE en az bir kez kurulmuş (unite.html) — yapım aşamasındakiler kitaba girmez
         y["dizin"] = dizin if os.path.isdir(dizin) else None
-        y["hazir"] = y["dizin"] is not None
+        y["hazir"] = y["dizin"] is not None and os.path.exists(os.path.join(dizin, "unite.html"))
         y["renk"], y["renk_k"] = YOL_RENK[r["yol"]]
         y["nisanlar"] = None
         y["nisan_kaynak"] = None
@@ -89,6 +90,8 @@ def yollar(sinif):
                                      "konu": d.get("baslik") or d.get("konu", ""), "enlem": d["enlem"], "boylam": d["boylam"]})
                 if yeni:
                     y["duraklar"] = yeni
+            if isinstance(meta.get("kale_konum"), dict) and "enlem" in meta["kale_konum"]:
+                y["kale"] = {"ad": y["kale"]["ad"], "enlem": meta["kale_konum"]["enlem"], "boylam": meta["kale_konum"]["boylam"]}
             if meta.get("kale"):
                 k = meta["kale"]
                 if isinstance(k, dict) and "enlem" in k:

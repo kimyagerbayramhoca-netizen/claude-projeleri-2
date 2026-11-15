@@ -67,14 +67,6 @@
 .ic-ek b { font-size: 8.8pt; font-weight: 800; line-height: 1.12; }
 .ic-ek span { font-family: var(--baslik); font-weight: 800; font-size: 12pt; color: var(--lajver); padding-top: .6mm; }
 
-/* ------------------------------------------------------------------ 3. NOTLAR (boş sayfa yerine) */
-.notlar-sayfa .not-kutu { position: absolute; left: 11mm; right: 11mm; top: 16mm; bottom: 16mm; }
-.notlar-sayfa .not-bas { display: flex; align-items: center; gap: 2.4mm; font-family: var(--baslik); font-weight: 800; font-size: 15pt; color: var(--gol-k); }
-.notlar-sayfa .not-bas svg { width: 8mm; height: 8mm; }
-.notlar-sayfa .not-satir { margin-top: 3mm; height: calc(100% - 26mm);
-  background: repeating-linear-gradient(to bottom, transparent 0, transparent 8.6mm, #BFD3D8 8.6mm, #BFD3D8 8.9mm); }
-.notlar-sayfa .not-pamuk { position: absolute; right: 2mm; bottom: 1mm; width: 22mm; height: 25mm; opacity: .95; }
-
 /* içindekiler ekleri: durak dizisi (az yollu sınıfta), lejant, kitap sonu kartlarının alt yazısı */
 .icindekiler.genis .ic-yol { padding-top: 1.8mm; padding-bottom: 1.9mm; }
 .durak-dizi { font-size: 8.4pt; font-weight: 700; color: var(--soluk); line-height: 1.25; margin-top: .9mm; padding-top: .8mm; border-top: .3mm dashed var(--cizgi); }
@@ -82,12 +74,17 @@
 .ara-bas .lejant { margin-left: auto; display: flex; align-items: center; gap: 1.2mm; font-family: var(--govde); font-size: 7.6pt; font-weight: 800; color: var(--soluk); }
 .lejant i { display: inline-block; flex: none; }
 .lejant .l-durak { width: 2.6mm; height: 2.6mm; border-radius: 50%; background: #fff; border: .4mm solid var(--obs); box-shadow: inset 0 0 0 .5mm #fff, inset 0 0 0 1.3mm var(--gol); margin-left: 1.4mm; }
-.lejant .l-kale { width: 3.2mm; height: 2.6mm; background: #fff; border: .35mm solid var(--obs); border-top-width: 0; margin-left: 1.4mm;
-  box-shadow: inset 0 -1.2mm 0 0 #fff; position: relative; }
-.lejant .l-kale::before { content: ""; position: absolute; left: -.35mm; right: -.35mm; top: -.7mm; height: .7mm;
-  background: linear-gradient(90deg, var(--obs) 0 20%, transparent 20% 40%, var(--obs) 40% 60%, transparent 60% 80%, var(--obs) 80%); }
+.lejant .l-kale { width: 3.2mm; height: 2.6mm; background: #fff; border: .35mm solid var(--obs); margin-left: 1.4mm; }
 .lejant .l-yolculuk { width: 7mm; border-top: .55mm dotted var(--derin); margin-left: 1.4mm; }
 .ic-ek b small { display: block; font-size: 7.4pt; font-weight: 800; color: var(--gum-k); margin-top: .2mm; }
+
+/* ------------------------------------------------------------------ 3. NOTLAR (boş sayfa yerine) */
+.notlar-sayfa .not-kutu { position: absolute; left: 11mm; right: 11mm; top: 17mm; bottom: 16mm; z-index: 2; }
+.notlar-sayfa .not-bas { display: flex; align-items: baseline; gap: 2.4mm; font-family: var(--baslik); font-weight: 800; font-size: 17pt; color: var(--gol-k); }
+.notlar-sayfa .not-bas svg { width: 7mm; height: 7mm; align-self: center; color: var(--gol-k); }
+.notlar-sayfa .not-bas small { font-family: var(--govde); font-size: 9pt; font-weight: 700; color: var(--soluk); }
+.notlar-sayfa svg.not-cizgi { position: absolute; left: 0; top: 14mm; width: 188mm; height: 232mm; }
+.notlar-sayfa svg.not-pamuk { position: absolute; right: 0; bottom: 0; width: 24mm; height: 27.4mm; }
 
 /* ------------------------------------------------------------------ 4. KAPAKLAR (tam taşmalı; çerçevesiz) */
 .kapak-sayfa { background: #1B1D26; }
@@ -252,3 +249,66 @@
 .pt-cevir { position: absolute; right: 11mm; top: 13.6mm; z-index: 3; display: flex; align-items: center; gap: 1mm; font-size: 6.8pt; font-weight: 900;
   letter-spacing: .08em; text-transform: uppercase; color: var(--gum-k); }
 .pt-cevir svg { width: 4mm; height: 4mm; color: var(--gum-k); }
+
+/* ------------------------------------------------------------------ 8. KAVRAM SÖZLÜĞÜ */
+.levha.kucuk h1 { font-size: 21pt; }
+.sozluk { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4.6mm; }
+.sozluk-sutun { min-width: 0; }
+.sz-harf { font-family: var(--baslik); font-weight: 800; font-size: 14pt; line-height: 1; color: var(--gol-k); border-bottom: .4mm solid var(--gol);
+  padding: 1.2mm 0 .5mm; margin: .6mm 0 1.2mm; display: flex; align-items: flex-end; gap: 1.6mm; }
+.sz-harf::after { content: ""; flex: 1; border-bottom: .3mm dashed var(--cizgi); margin-bottom: .6mm; }
+.madde { font-size: 9pt; line-height: 1.24; margin-bottom: 1.25mm; break-inside: avoid; }
+.madde b { font-weight: 900; color: var(--obs); }
+.madde .ychip { font-size: 6.4pt; padding: .1mm 1.2mm 0; margin: 0 .6mm 0 1.2mm; vertical-align: .2mm; }
+.sz-devam { font-family: var(--baslik); font-weight: 800; font-size: 14pt; line-height: 1; }
+.sz-devam small { font-family: var(--govde); font-size: 8.6pt; font-weight: 800; color: var(--soluk); }
+.sz-not { font-size: 8.4pt; font-weight: 700; color: var(--soluk); border-top: .3mm dashed var(--cizgi); padding-top: 1.2mm; }
+
+/* ------------------------------------------------------------------ 9. NİŞAN ALBÜMÜ */
+.album-yol { background: #fff; border: var(--cz) solid var(--obs); border-left: 1.8mm solid var(--r); border-radius: var(--r); box-shadow: var(--golge-k); padding: 1.8mm 2.6mm 2mm 2.2mm; }
+.ay-bas { display: flex; align-items: center; gap: 2mm; padding-bottom: 1.2mm; border-bottom: .3mm dashed var(--cizgi); }
+.ay-bas svg.yol-rozet { width: 8.4mm; height: 8.4mm; flex: none; }
+.ay-bas b { display: block; font-family: var(--baslik); font-weight: 800; font-size: 11.4pt; line-height: 1; color: var(--r-k); padding-top: .4mm; }
+.ay-bas span { font-size: 8.4pt; font-weight: 700; color: var(--soluk); }
+.ay-durum { margin-left: auto; font-weight: 900 !important; font-size: 7.2pt !important; letter-spacing: .06em; text-transform: uppercase; border: .3mm dashed var(--gum);
+  border-radius: 2mm; padding: .4mm 1.6mm .3mm; color: var(--gum-k) !important; }
+.ay-durum.hazir { border-style: solid; border-color: var(--r-k); color: var(--r-k) !important; }
+.ay-govde { display: grid; grid-template-columns: 1fr 21mm 33mm; gap: 2.4mm; align-items: center; margin-top: 1.4mm; }
+.ay-nisanlar { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 1.4mm; }
+.ay-nisan, .ay-ustad { text-align: center; min-width: 0; }
+.ay-nisan svg, .ay-ustad svg { width: 13.4mm; height: 16.1mm; display: block; margin: 0 auto .3mm; }
+.ay-nisan b, .ay-ustad b { display: block; font-family: var(--baslik); font-weight: 800; font-size: 8.8pt; line-height: 1; padding-top: .3mm; }
+.ay-nisan small, .ay-ustad small { display: block; font-size: 6.8pt; font-weight: 800; color: var(--gum-k); line-height: 1.1; margin-top: .3mm; }
+.ay-nisan b.cizgi { height: 3.4mm; border-bottom: .3mm dotted var(--obs-2); margin: 0 1mm; }
+.ay-ustad { border-left: .3mm dashed var(--cizgi); padding-left: 1.4mm; }
+.ay-ustad b { color: var(--lajver); }
+.ay-akce { border-left: .3mm dashed var(--cizgi); padding-left: 2.2mm; }
+.ay-kutu { display: flex; align-items: center; gap: 1mm; margin-top: .8mm; font-weight: 900; font-size: 9pt; color: var(--soluk); }
+.ay-kutu i { display: block; width: 15mm; height: 6.4mm; border: .35mm solid var(--obs); border-radius: 1.4mm; background: #fff; }
+.ay-unvan { display: grid; grid-template-columns: 1fr 1fr; gap: .6mm 1.4mm; margin-top: 1.2mm; font-size: 7.4pt; font-weight: 800; }
+.ay-unvan span { display: flex; align-items: center; gap: .8mm; }
+.ay-unvan i { display: inline-block; width: 2.6mm; height: 2.6mm; border: .3mm solid var(--obs); border-radius: 50%; background: #fff; }
+.album-toplam { background: var(--keh-a); }
+.album-toplam .et svg { width: 4.6mm; height: 4.6mm; }
+.at-satir { display: flex; gap: 6mm; flex-wrap: wrap; margin-top: 1.6mm; }
+.at-hesap { display: flex; align-items: center; gap: 1.4mm; font-weight: 800; font-size: 9.6pt; }
+.at-hesap i { display: inline-block; width: 17mm; height: 6.4mm; border: .35mm solid var(--obs); border-radius: 1.4mm; background: #fff; }
+.at-hesap i.k { width: 9mm; }
+.at-unvanlar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2mm; margin-top: 1.8mm; }
+.at-unvan { display: grid; grid-template-columns: 9mm 1fr; grid-template-rows: auto auto; column-gap: 1.4mm; align-items: center; background: #fff;
+  border: .35mm solid var(--obs); border-radius: 2mm; padding: 1mm 1.6mm; }
+.at-unvan svg { grid-row: span 2; width: 9mm; height: 9mm; }
+.at-unvan b { font-family: var(--baslik); font-size: 10.6pt; line-height: 1; padding-top: .4mm; }
+.at-unvan small { font-size: 7.4pt; font-weight: 800; color: var(--soluk); }
+.album-toplam p { font-size: 9pt; line-height: 1.25; margin-top: 1.6mm; }
+.album-yol.genis { padding: 2.4mm 3mm 2.6mm 2.6mm; }
+.album-yol.genis .ay-bas b { font-size: 13pt; } .album-yol.genis .ay-bas svg.yol-rozet { width: 10mm; height: 10mm; }
+.album-yol.genis .ay-nisan svg, .album-yol.genis .ay-ustad svg { width: 16.6mm; height: 19.9mm; }
+.album-yol.genis .ay-nisan b, .album-yol.genis .ay-ustad b { font-size: 9.6pt; }
+.album-yol.genis .ay-govde { margin-top: 2.4mm; }
+.ay-not { display: flex; align-items: flex-end; gap: 1.6mm; margin-top: 2.2mm; padding-top: 1.4mm; border-top: .3mm dashed var(--cizgi); font-size: 8.6pt; font-weight: 800; color: var(--soluk); }
+.ay-not i { flex: 1; border-bottom: .3mm dotted var(--obs-2); height: 3.6mm; } .ay-not i.k { flex: .45; }
+.album-yonerge { background: var(--gol-aa); }
+.album-yonerge .pamuk-not { grid-template-columns: 15mm 1fr; }
+.album-yonerge .pamuk-not svg { width: 15mm; height: 17mm; }
+.album-yonerge p { font-size: 9.6pt; line-height: 1.3; }

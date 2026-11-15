@@ -434,29 +434,30 @@ MAVI_G = "#3A8CF2"
 
 # ------------------------------------------------------------------ ÇİNİ PANO BANDI (rehber 2): İznik karoları, açık vektör
 
-def cini_pano_bandi(onek="cp-bant", h=360):
+def cini_pano_bandi(onek="cp-bant", h=360, palet=None):
     s = Svg(onek)
     W = 2100
     a = 120
+    zemin_r, yildiz_r, gobek_r, nokta_r, yaprak_r = palet or (KOB_K, KOB, GOL, MER, ZUMRUT)
     zem = s.lin([(0, "#FFFFFF"), (1, "#EAF4F6")], 0, 0, 0, 1, ad="cz")
-    o = [f'<rect width="{W}" height="{h}" fill="{KOB_K}"/>']
+    o = [f'<rect width="{W}" height="{h}" fill="{zemin_r}"/>']
     r = RNG(77)
     for j in range(-1, h // a + 1):
         for i in range(-1, W // a + 1):
             x, y = i * a + (a / 2 if j % 2 else 0), j * a + 10
             o.append(f'<rect x="{f(x + 3)}" y="{f(y + 3)}" width="{a - 6}" height="{a - 6}" rx="6" fill="{zem}"/>')
             cx, cy = x + a / 2, y + a / 2
-            o.append(f'<path d="{cizgi_d(selcuklu_yildizi(cx, cy, 40), True, 1)}" fill="{KOB}" stroke="{KOB_K}" stroke-width="2"/>')
-            o.append(f'<path d="{cizgi_d(selcuklu_yildizi(cx, cy, 25), True, 1)}" fill="{GOL}" stroke="#FFFFFF" stroke-width="3"/>')
-            o.append(f'<circle cx="{f(cx)}" cy="{f(cy)}" r="8" fill="{MER}" stroke="#FFFFFF" stroke-width="2.4"/>')
+            o.append(f'<path d="{cizgi_d(selcuklu_yildizi(cx, cy, 40), True, 1)}" fill="{yildiz_r}" stroke="{zemin_r}" stroke-width="2"/>')
+            o.append(f'<path d="{cizgi_d(selcuklu_yildizi(cx, cy, 25), True, 1)}" fill="{gobek_r}" stroke="#FFFFFF" stroke-width="3"/>')
+            o.append(f'<circle cx="{f(cx)}" cy="{f(cy)}" r="8" fill="{nokta_r}" stroke="#FFFFFF" stroke-width="2.4"/>')
             for dx, dy in ((0, 0), (a, 0), (0, a), (a, a)):
-                o.append(f'<circle cx="{f(x + dx)}" cy="{f(y + dy)}" r="15" fill="{MER}" stroke="#FFFFFF" stroke-width="3"/>'
+                o.append(f'<circle cx="{f(x + dx)}" cy="{f(y + dy)}" r="15" fill="{nokta_r}" stroke="#FFFFFF" stroke-width="3"/>'
                          f'<circle cx="{f(x + dx)}" cy="{f(y + dy)}" r="5" fill="{ALTIN_A}"/>')
             # lale yaprakları (köşegenlerde)
             for k in range(4):
                 ang = math.pi / 4 + k * math.pi / 2
                 px, py = cx + 47 * math.cos(ang), cy + 47 * math.sin(ang)
-                o.append(f'<ellipse cx="{f(px)}" cy="{f(py)}" rx="9" ry="4.4" transform="rotate({f(math.degrees(ang))} {f(px)} {f(py)})" fill="{ZUMRUT}"/>')
+                o.append(f'<ellipse cx="{f(px)}" cy="{f(py)}" rx="9" ry="4.4" transform="rotate({f(math.degrees(ang))} {f(px)} {f(py)})" fill="{yaprak_r}"/>')
     g = s.lin([(0, "#0E2A3A", 0), (1, "#0E2A3A", .25)], 0, h - 70, 0, h, kull="userSpaceOnUse", ad="cg")
     o.append(f'<rect x="0" y="{h - 70}" width="{W}" height="70" fill="{g}"/>')
     s += "".join(o)
@@ -567,4 +568,38 @@ def medeniyet_bandi(onek="md-bant", h=420, sag_odak="rasat"):
         s += f'<path d="M1180 {h - 40} L1440 {h - 300}" stroke="{ALTIN_A}" stroke-width="4" stroke-dasharray="10 8"/>'
     gk = s.lin([(0, "#000000", 0), (1, "#000000", .25)], 0, h - 70, 0, h, kull="userSpaceOnUse", ad="mk")
     s += f'<rect x="0" y="{h - 70}" width="{W}" height="70" fill="{gk}"/>'
+    return s.cikti(f"0 0 {W} {h}", cls="sahne", par="xMidYMid slice")
+
+
+# ------------------------------------------------------------------ NİŞAN ALBÜMÜ BANDI (2100×h): gün batımında nişan çelengi
+
+def album_bandi(onek="al-bant", h=300):
+    s = Svg(onek)
+    W = 2100
+    ufuk = h - 70
+    s += S.gokyuzu(s, 0, 0, W, ufuk + 4, "gunbatimi")
+    s += S.gunes(s, 520, ufuk - 10, 46, hale="#FFC56B", hale_r=480, guc=.95)
+    for (x, y, w_, k) in ((140, 90, 420, 14), (1260, 70, 520, 16), (1700, 150, 360, 12)):
+        s += S.bulut_serit(s, x, y, w_, k, "#FFC59A", "#FF6F8A", .75)
+    d, _ = S.dag(s, 900, 1700, ufuk + 4, 1300, 110, 701, renk="#D08AA6", golge="#7E5A92", bicim="volkan", kar_y=150,
+                 kar="#FFE3EC", kar_golge="#C7A6CF", sis="#FF9A8A", isik=-1, sirt=4)
+    s += d
+    s += S.gol(s, 0, ufuk, W, h - ufuk, 702, ufuk="#FFB59A", orta="#C86A9A", derin="#2D3A7A", gunes_x=520, parilti_renk="#FFE3A0")
+    # çelenk ipi + boyanmış nişanlar (sağ yarı)
+    x0, x1 = 1060, 2140
+    s += f'<path d="M{x0} 40 Q{(x0 + x1) / 2} 150 {x1} 30" fill="none" stroke="#5A3A22" stroke-width="5"/>'
+    renk = [(GOL, GOL_K), (KOB, KOB_K), (MER, MER_K), (ERGUVAN, "#4E2760"), (KEH, KEH_K), (LAJVER, "#13285E")]
+    ik = ["deste", "izotop", "mizan", "karisim", "kale", "ustad"]
+    for i in range(6):
+        t = (i + .7) / 6.4
+        x = (1 - t) ** 2 * x0 + 2 * (1 - t) * t * (x0 + x1) / 2 + t * t * x1
+        y = (1 - t) ** 2 * 40 + 2 * (1 - t) * t * 150 + t * t * 30
+        ns = U.nisan(f"{onek}n{i}", nisan_ikonu(ik[i]), renk[i][0], renk[i][1], kurdele="#E2533D")
+        ns = ns.replace("<svg ", f'<svg x="{f(x - 62)}" y="{f(y + 6)}" width="124" height="148" ', 1)
+        s += f'<path d="M{f(x)} {f(y)} v12" stroke="#5A3A22" stroke-width="3"/>' + ns
+    r = RNG(703)
+    for k in range(40):
+        x, y = r.uniform(900, 2080), r.uniform(10, h - 60)
+        c = r.choice(["#F0A21A", "#13A3A6", "#E2533D", "#FFFFFF", "#2B50B5"])
+        s += f'<rect x="{f(x)}" y="{f(y)}" width="{f(r.uniform(6, 11))}" height="{f(r.uniform(3, 5))}" fill="{c}" transform="rotate({f(r.uniform(0, 180))} {f(x)} {f(y)})" opacity=".9"/>'
     return s.cikti(f"0 0 {W} {h}", cls="sahne", par="xMidYMid slice")

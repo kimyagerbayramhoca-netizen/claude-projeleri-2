@@ -661,10 +661,11 @@ html.ogretmen .kutucuk[data-dogru]::after, html.ogretmen .yorum[data-dogru] .kut
   width: .95mm; height: 1.9mm; border: solid #fff; border-width: 0 .45mm .45mm 0; transform: rotate(45deg); }
 html.ogretmen .yorum[data-dogru] .k { color: var(--ogr); }
 /* üste basılan çözümler */
-html.ogretmen .karalama > .ogr { display: block; position: absolute; left: 1.8mm; right: 17mm; top: 1.1mm; font-size: 8.8pt; line-height: 1.24; }
-html.ogretmen .cevap-kutu > .ogr { margin-left: 1.4mm; font-size: 9.8pt; }
+html.ogretmen .karalama > .ogr { display: block; position: absolute; left: 1.8mm; right: 16mm; top: .9mm; font-size: 8.4pt; line-height: 1.2; }
+html.ogretmen .cevap-kutu { position: relative; }
+html.ogretmen .cevap-kutu > .ogr { position: absolute; left: 15.5mm; top: 1.1mm; white-space: nowrap; font-size: 9.2pt; }
 html.ogretmen .cizgili, html.ogretmen .cozum-alani > div, html.ogretmen .satirlar > div, html.ogretmen .bos-satir { position: relative; }
-html.ogretmen .cizgili > .ogr { position: absolute; left: .8mm; bottom: .1mm; white-space: nowrap; font-size: 8.6pt; }
+html.ogretmen .cizgili > .ogr { position: absolute; left: .4mm; bottom: .1mm; white-space: nowrap; font-size: 7.6pt; }
 html.ogretmen .cozum-alani > div > .ogr, html.ogretmen .bos-satir > .ogr { position: absolute; left: 1mm; bottom: .5mm; white-space: nowrap; font-size: 9.4pt; }
 /* nüsha işareti: her sayfanın sağ üstünde, çini şeridinin altında */
 html.ogretmen .sayfa::after { content: "ÖĞRETMEN NÜSHASI · CEVAPLAR KIRMIZI"; position: absolute; right: 0; top: 12mm; z-index: 6;
@@ -823,3 +824,33 @@ html.baski .baski-kunye { position: absolute; left: 60px; bottom: 12px; font-fam
 .hy-makas.kose { left: -2.6mm; top: -2.6mm; transform: rotate(45deg); }
 .hazine-yaprak .hy-alt { position: absolute; left: 12mm; right: 12mm; bottom: 8mm; display: flex; justify-content: space-between; font-size: 7.2pt;
   font-weight: 900; letter-spacing: .09em; text-transform: uppercase; color: var(--gol-k); }
+/* uzun şıklar tek sütunda (ör. Üstad kavram sorusu) · öğretmen baskısında noktalı boşluğa basılan cevap */
+.siklar.tek { grid-template-columns: 1fr; }
+.siklar.tek .sik { white-space: normal; }
+html.ogretmen .bosluk { position: relative; }
+html.ogretmen .bosluk > .ogr { position: absolute; left: .4mm; bottom: .05em; white-space: nowrap; font-size: 9.4pt; }
+.ustad-sekil svg.ustad-graf { width: 38mm; border-radius: 1.6mm; border: .3mm solid var(--lajver); }
+/* Üstad kartı sıkı düzen + tek sütun şıklar; Cevaplar sayfası: anahtar kartında yan yol/Üstad satırı, puan + tekrar tek şerit */
+.ustad-soru { gap: .8mm; padding-top: 1.8mm; padding-bottom: 2mm; }
+.ustad-soru .karalama { min-height: 5mm; }
+.ustad-soru .siklar.tek { gap: .8mm; }
+.ustad-soru .siklar.tek .sik { padding-top: .3mm; padding-bottom: .3mm; }
+.satir-anahtar { display: flex; flex-wrap: wrap; gap: .4mm 4mm; margin-top: 1.8mm; padding-top: 1.4mm; border-top: .3mm dashed var(--cizgi); }
+.satir-anahtar p { margin-bottom: 0; }
+.satir-anahtar p b { width: auto; margin-right: .6mm; }
+.puan-serit { display: grid; grid-template-columns: .78fr 1.22fr; gap: 3mm; padding: 1.8mm 3mm; }
+.puan-serit > div { display: flex; flex-direction: column; gap: .6mm; }
+.puan-serit > .keh-z { background: var(--keh-a); border-radius: var(--r-k); margin: -.6mm 0 -.6mm -1.4mm; padding: .8mm 1.4mm; }
+.puan-serit p { font-size: 9.5pt; line-height: 1.22; }
+.puan-serit .skor-kutu { font-size: 9.5pt; }
+.cozum-kart .cozumler { line-height: 1.21; }
+.cozum-kart .cozumler p.c { margin-bottom: .5mm; }
+.kucuk-med { margin-top: 4.4mm; padding: 4.6mm 5mm 3mm; }
+.kucuk-med .haz-ic.sag { grid-template-columns: 1fr 15mm; }
+.cozum-kart .cozumler .grup { break-inside: auto; }
+.cozum-kart .cozumler p.c, .cozum-kart .cozumler .medeniyet { break-inside: avoid; }
+.cozum-kart .cozumler h4 { break-after: avoid; }
+.cozum-kart { padding-top: 1.9mm; padding-bottom: 1.9mm; }
+.cozum-kart .cozumler { font-size: 9.5pt; line-height: 1.2; }
+.cozum-kart .cozumler .grup { margin-bottom: 1.5mm; }
+.cozum-kart .cozumler h4 { margin-bottom: .7mm; }
