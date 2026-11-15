@@ -726,3 +726,56 @@ table.defter.sik td.k span { height: 4.8mm; }
 .nisan-say.cok { gap: 1mm; }
 .nisan-say.cok svg { width: 9.8mm; height: 11.8mm; }
 .nisan-say.cok b { font-size: 7.2pt; }
+
+/* ------------------------------------------------------------------ 34. FOTOKOPİ ANA NÜSHASI (siyah-beyaz, az mürekkep)
+   <html class="fotokopi">: kur.py --fotokopi üretir (SVG renkleri kurulumda griye eşlenir: yerel-ortak/fotokopi.py),
+   render.js --fotokopi basar. CSS filter KULLANILMAZ (PDF'te rasterleşir). Kurallar:
+   metin saf siyah · kutu zeminleri beyaz ya da çok açık gri, çerçeveler siyah · koyu hap/şerit/başlıklar beyaz + siyah çerçeve ·
+   ebru yok · gölgeler açık gri · sahneler çok açık ton + koyu çizgi. Hedef: sayfa başına ortalama mürekkep < %15. */
+html.fotokopi {
+  --kar: #FFFFFF; --kirec: #FFFFFF; --beyaz: #FFFFFF;
+  --obs: #000000; --obs-2: #000000; --soluk: #000000; --cizgi: #A8A8A8;
+  --gol: #000000; --gol-k: #000000; --keh: #000000; --keh-k: #000000; --mer: #000000; --mer-k: #000000;
+  --kob: #000000; --kob-k: #000000; --gun: #000000; --pembe: #000000; --erguvan: #000000; --derin: #000000;
+  --altin: #6A6A6A; --altin-k: #000000; --lajver: #000000; --zumrut: #000000; --gum: #7A7A7A; --gum-k: #000000;
+  --gol-a: #F1F1F1; --gol-aa: #F7F7F7; --keh-a: #F1F1F1; --mer-a: #F1F1F1; --kob-a: #F1F1F1; --gum-a: #F4F4F4; --altin-a: #F1F1F1;
+  --ogr: #000000; --ogr-a: #FFFFFF;
+  --golge: .9mm 1mm 0 #C9C9C9; --golge-k: .6mm .7mm 0 #C9C9C9;
+}
+html.fotokopi, html.fotokopi body { background: #fff; }
+html.fotokopi .hud { background: #fff; color: #000; border-bottom: .35mm solid #000; }
+html.fotokopi .hud .yer, html.fotokopi .hud .yer b { color: #000; }
+html.fotokopi .hud .noktalar i { border-color: #000; }
+html.fotokopi .hud .noktalar i.tam { background: #8A8A8A; border-color: #000; }
+html.fotokopi .hud .noktalar i.simdi { background: #fff; border-color: #000; box-shadow: 0 0 0 .45mm #000; }
+html.fotokopi .hud .noktalar i.kale { border: 0; background: none; box-shadow: none; }
+html.fotokopi .hud .akce .yaz { border: .3mm solid #000; }
+html.fotokopi .hud .akce .bar { background: #fff; border: .3mm solid #000; }
+html.fotokopi .hud .akce .bar i { background: #9A9A9A; }
+html.fotokopi .alt .no b { color: #000; }
+html.fotokopi .ebru-alt { background: #fff; border-top: .35mm solid #000; }
+html.fotokopi .medeniyet::before { background: #F1F1F1; border-bottom-color: #000; }
+html.fotokopi .ozetler::before { background: #F6F6F6; border-top: .35mm solid #000; border-bottom: .35mm solid #000; }
+html.fotokopi .med-bas, html.fotokopi .ustad-zor { background: #fff; color: #000; border-color: #000; }
+html.fotokopi .med-bas svg { color: #000; }
+html.fotokopi .cip.koyu, html.fotokopi .cip.gol, html.fotokopi .cip.mer, html.fotokopi .cip.kob { background: #fff; color: #000; border-color: #000; }
+html.fotokopi .sonuc { background: #fff; color: #000; box-shadow: inset 0 0 0 .35mm #000; }
+html.fotokopi .sonuc > span:first-child { background: #E4E4E4; color: #000; }
+html.fotokopi .tuzak-ust { background: #fff; color: #000; }
+html.fotokopi .tuzak-ust b svg { color: #000; }
+html.fotokopi .ozet-kart.koyu { background: #fff; color: #000; }
+html.fotokopi .ozet-kart.koyu .sira, html.fotokopi .dev-sayi.acik, html.fotokopi .dev-sayi.acik sup { color: #000; }
+html.fotokopi .meclis-bas .harf { background: #fff !important; color: #000; }
+html.fotokopi .yol-cip span.on, html.fotokopi .harf-r { background: #fff; color: #000; box-shadow: inset 0 0 0 .3mm #000; }
+html.fotokopi ol.hedefler li::before { background: #fff; color: #000; box-shadow: inset 0 0 0 .3mm #000; }
+html.fotokopi .sandik-izgara b { background: #E4E4E4; color: #000; }
+html.fotokopi .vurgu { background: linear-gradient(transparent 52%, #E2E2E2 52%, #E2E2E2 92%, transparent 92%); }
+html.fotokopi .anahtar-ipucu { background: #fff; }
+html.fotokopi .cozum-defter { background-image: linear-gradient(90deg, transparent 6.4mm, #9A9A9A 6.4mm, #9A9A9A 6.7mm, transparent 6.7mm); }
+html.fotokopi .basamak:nth-child(3) { background: #ECECEC; }
+html.fotokopi .karalama { border-color: #9A9A9A; }
+html.fotokopi .panorama-bas { color: #000; text-shadow: none; }
+html.fotokopi .panorama-bas h2, html.fotokopi .panorama-bas p { background: rgba(255, 255, 255, .85); display: inline-block; padding: 0 1.2mm; }
+html.fotokopi .durak-et { box-shadow: .5mm .6mm 0 #BDBDBD; }
+html.fotokopi .levha.ustad { box-shadow: inset 0 0 0 .9mm #fff, inset 0 0 0 1.25mm #6A6A6A, var(--golge-k); }
+html.fotokopi .iskelet-alan { background: #fff; }

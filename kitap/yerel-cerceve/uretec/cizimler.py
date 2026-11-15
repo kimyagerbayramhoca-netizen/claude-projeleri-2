@@ -20,7 +20,7 @@ for _p in (ORTAK, BURA):
 from cizim.temel import Svg, f, nok, cizgi_d, egri_d, selcuklu_yildizi, yildiz_noktalari, acik, koyu, karis, halolu_yazi, rng as RNG  # noqa: E402
 from cizim import sus as U  # noqa: E402
 from cizim.renkler import (OBS, GOL, GOL_K, GOL_A, KEH, KEH_K, KEH_A, MER, MER_K, MER_A, KOB, KOB_K, KOB_A, ALTIN, ALTIN_K,  # noqa: E402
-                           ALTIN_A, LAJVER, ZUMRUT, ERGUVAN, GUM, GUM_K, GUM_A, DERIN, KIREC)
+                           ALTIN_A, LAJVER, ZUMRUT, ERGUVAN, GUM, GUM_K, GUM_A, DERIN, KIREC, GOL_AA)
 
 B = 'font-family="Baloo Bhaijaan 2" font-weight="800"'
 N9 = 'font-family="Nunito" font-weight="900"'
@@ -254,3 +254,210 @@ def nisan_ikonu(ad):
     if ad in U.NISAN_IKON:
         return U.NISAN_IKON[ad]
     return f'<path d="{cizgi_d(selcuklu_yildizi(24, 24, 14), True)}"/><circle cx="24" cy="24" r="4"/>'
+
+
+# ------------------------------------------------------------------ SAYFA TÜRÜ KÜÇÜK RESİMLERİ (rehber) · viewBox 210×297
+
+def _m_kart(x, y, w, h, dolgu="#FFFFFF", bas=None, r=4, cizgi=OBS, kesik=False):
+    o = f'<rect x="{f(x + 1.6)}" y="{f(y + 1.8)}" width="{f(w)}" height="{f(h)}" rx="{r}" fill="{DERIN}"/>' if not kesik else ""
+    kes = ' stroke-dasharray="3 2"' if kesik else ""
+    o += f'<rect x="{f(x)}" y="{f(y)}" width="{f(w)}" height="{f(h)}" rx="{r}" fill="{dolgu}" stroke="{cizgi}" stroke-width="1.1"{kes}/>'
+    if bas:
+        o += (f'<path d="M{f(x)} {f(y + r)} a{r} {r} 0 0 1 {r} {-r} h{f(w - 2 * r)} a{r} {r} 0 0 1 {r} {r} v{f(7 - r)} h{f(-w)} Z" fill="{bas}" '
+              f'stroke="{cizgi}" stroke-width="1.1"/>')
+    return o
+
+
+def _m_satir(x, y, w, n=3, ara=5.2, renk="#C9D3D8", kal=2.2, son=.6):
+    return "".join(f'<path d="M{f(x)} {f(y + i * ara)} h{f(w * (son if i == n - 1 else 1))}" stroke="{renk}" stroke-width="{kal}" stroke-linecap="round"/>'
+                   for i in range(n))
+
+
+def _m_yildiz(x, y, R, renk, metin=None, fs=None):
+    o = (f'<path d="{cizgi_d(selcuklu_yildizi(x, y, R), True, 1)}" fill="{ALTIN}" stroke="{OBS}" stroke-width=".9"/>'
+         f'<path d="{cizgi_d(selcuklu_yildizi(x, y, R * .78), True, 1)}" fill="{renk}" stroke="{OBS}" stroke-width=".6"/>')
+    if metin is not None:
+        o += f'<text x="{f(x)}" y="{f(y + (fs or R) * .38)}" text-anchor="middle" {B} font-size="{f(fs or R)}" fill="#FFFFFF">{metin}</text>'
+    return o
+
+
+def _m_bant(s, y, h, gok, kara, odak=""):
+    g = s.lin([(i / (len(gok) - 1), c) for i, c in enumerate(gok)], 0, y, 0, y + h, kull="userSpaceOnUse", ad="mb")
+    o = f'<rect x="0" y="{y}" width="210" height="{h}" fill="{g}"/>'
+    o += f'<path d="M0 {f(y + h * .62)} Q60 {f(y + h * .5)} 120 {f(y + h * .64)} T210 {f(y + h * .58)} V{f(y + h)} H0 Z" fill="{kara}"/>'
+    o += odak
+    o += f'<path d="M0 {f(y + h)} H210" stroke="{OBS}" stroke-width="1.2"/>'
+    return o
+
+
+def _m_levha(x, y, w, h, renk=GOL):
+    return (f'<rect x="{f(x + 1.2)}" y="{f(y + 1.4)}" width="{w}" height="{h}" rx="5" fill="{DERIN}"/>'
+            f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="5" fill="#FFFFFF" stroke="{OBS}" stroke-width="1.1"/>'
+            + _m_yildiz(x + 11, y + h / 2, 8, renk)
+            + f'<path d="M{f(x + 23)} {f(y + h * .36)} h{f(w * .55)}" stroke="{OBS}" stroke-width="4.6" stroke-linecap="round"/>'
+            + _m_satir(x + 23, y + h * .64, w * .62, 2, 4.4, "#B8C5CC", 1.8))
+
+
+def mini_sayfa(onek, tur):
+    """Bir sayfa türünün şematik küçük resmi (210×297 birimlik A4)."""
+    s = Svg(onek)
+    o = [f'<rect x="0" y="0" width="210" height="297" fill="{KIREC if tur == "ustad" else "#FBFDFD"}"/>',
+         f'<rect x="0" y="0" width="210" height="10" fill="{OBS}"/>',
+         f'<path d="M0 11 H210" stroke="{KOB_K}" stroke-width="2.4"/><path d="M2 11 H210" stroke="#FFFFFF" stroke-width="1" stroke-dasharray="1.4 5"/>']
+    o += [f'<circle cx="{150 + i * 5}" cy="5" r="1.6" fill="{GOL if i < 3 else "none"}" stroke="#8FA3AD" stroke-width=".6"/>' for i in range(6)]
+    o.append(f'<rect x="10" y="3.5" width="30" height="3" rx="1.5" fill="#FFFFFF" opacity=".85"/>')
+    if tur == "acilis":
+        o.append(f'<path d="M12 28 h70" stroke="{GOL}" stroke-width="13" stroke-linecap="round"/><path d="M90 28 h50" stroke="{OBS}" stroke-width="13" stroke-linecap="round"/>')
+        o.append(_m_satir(12, 45, 120, 1, 0, "#9AA8B0", 3))
+        o.append(f'<circle cx="180" cy="34" r="16" fill="#FFFFFF" stroke="{OBS}" stroke-width="1.2"/><circle cx="174" cy="32" r="2.4" fill="{MAVI_G}"/><circle cx="186" cy="32" r="2.4" fill="{KEH}"/>')
+        g = s.lin([(0, "#5B3A86"), (.5, "#FF6F6A"), (1, "#9DAA5E")], 0, 58, 0, 168, kull="userSpaceOnUse", ad="mp")
+        o.append(f'<rect x="0" y="58" width="210" height="110" fill="{g}"/>')
+        o.append(f'<path d="M40 120 C60 92 140 88 170 112 C178 130 150 150 100 148 C60 146 34 138 40 120 Z" fill="#2BB3B1" stroke="#FFF3D6" stroke-width="2"/>')
+        o.append(f'<path d="M44 124 C60 96 140 92 166 112 C172 132 140 146 100 144" fill="none" stroke="#FFF1CF" stroke-width="3.4" stroke-dasharray="5 3"/>')
+        for i, (x, y) in enumerate(((44, 124), (78, 102), (122, 98), (160, 110), (150, 140))):
+            o.append(_m_yildiz(x, y, 6, GOL))
+        for i in range(6):
+            o.append(_m_yildiz(22 + i * 33, 186, 9, [GOL, KOB, GOL, MER, ERGUVAN, KEH][i]))
+        o.append(_m_kart(10, 204, 92, 48) + _m_satir(18, 218, 74, 5, 6))
+        o.append(_m_kart(108, 204, 92, 48) + _m_satir(116, 218, 74, 5, 6))
+        o.append(_m_kart(10, 258, 190, 16, "#EEF9F8"))
+    elif tur == "durak":
+        o.append(_m_bant(s, 12, 46, ["#86C8F0", "#E3F6FB"], "#5E9A4A", f'<rect x="150" y="30" width="22" height="20" fill="#C99E74" stroke="{OBS}" stroke-width=".8"/><path d="M148 30 L161 18 L174 30 Z" fill="#B8553A" stroke="{OBS}" stroke-width=".8"/>'))
+        o.append(_m_levha(10, 18, 112, 34))
+        o.append(_m_kart(10, 64, 96, 66))
+        for i, c in enumerate((MER_A, GOL_A, KEH_A, MER_A)):
+            o.append(f'<rect x="{18 if i % 2 else 30}" y="{72 + i * 14}" width="66" height="11" rx="4" fill="{c}" stroke="{OBS}" stroke-width=".7"/>')
+        o.append(_m_kart(112, 64, 88, 66, KOB_A) + _m_satir(120, 78, 70, 6, 7.5))
+        o.append(_m_kart(10, 136, 190, 50) + _m_satir(18, 150, 54, 4, 8) + f'<path d="M84 160 H190" stroke="{GOL}" stroke-width="5" stroke-linecap="round"/>')
+        o.append(_m_kart(10, 192, 64, 80, MER_A, bas=MER) + _m_satir(18, 214, 46, 6, 7.5))
+        o.append(_m_kart(80, 192, 58, 36, kesik=True) + _m_yildiz(92, 210, 8, KEH) + _m_satir(104, 204, 26, 3, 6))
+        o.append(_m_kart(80, 234, 58, 38, GOL_AA) + _m_satir(88, 246, 42, 4, 6))
+        o.append(_m_kart(144, 192, 56, 80, KEH_A) + _m_satir(152, 208, 40, 6, 7.5))
+    elif tur == "hulasa":
+        o.append(_m_bant(s, 12, 36, ["#86C8F0", "#E3F6FB"], "#5E9A4A", f'<path d="M120 40 L150 18 L180 40 Z" fill="#9AA8CE"/><path d="M143 23 L150 18 L157 23 L150 25 Z" fill="#FFFFFF"/>'))
+        o.append(_m_levha(10, 16, 100, 28, ERGUVAN))
+        r = RNG(41)
+        for i in range(22):
+            o.append(f'<circle cx="{f(r.uniform(0, 210))}" cy="{f(r.uniform(52, 156))}" r="{f(r.uniform(10, 26))}" fill="{r.choice([MER, KEH, GOL, ERGUVAN, "#FF8A3D", "#FF5C8A"])}" opacity=".55"/>')
+        for i in range(6):
+            x, y = 10 + (i % 3) * 65, 58 + (i // 3) * 50
+            o.append(_m_kart(x, y, 60, 44, [DERIN, GOL_AA, "#FFFFFF", KEH_A, MER_A, "#FFFFFF"][i]) + _m_satir(x + 7, y + 12, 44, 4, 7, "#FFFFFF" if i == 0 else "#C9D3D8"))
+        o.append(_m_kart(10, 164, 190, 30, KEH_A))
+        for i in range(10):
+            o.append(f'<rect x="{16 + (i % 5) * 37}" y="{170 + (i // 5) * 12}" width="33" height="9" rx="2" fill="#FFFFFF" stroke="{OBS}" stroke-width=".6" stroke-dasharray="2 1.4"/>')
+        o.append(_m_kart(10, 200, 134, 72) + _m_satir(18, 216, 80, 7, 7.4))
+        for i in range(7):
+            for j in range(3):
+                o.append(f'<path d="M{110 + j * 11} {f(212 + i * 7.4)} l2 6 h4 l2 -6 Z" fill="#FFFFFF" stroke="{OBS}" stroke-width=".6"/>')
+        o.append(_m_kart(150, 200, 50, 72) + _m_satir(157, 214, 36, 5, 7))
+    elif tur == "meclis":
+        kil = "".join(f'<path d="M{x} 28 l9 -9 l9 9 l-9 9 Z" fill="{["#B23A2E", "#253C78", "#D99A2B"][i % 3]}"/>' for i, x in enumerate(range(118, 210, 18)))
+        o.append(_m_bant(s, 12, 44, ["#F5E8D0", "#F5E8D0"], "#B23A2E", f'<rect x="118" y="12" width="92" height="30" fill="#F5E8D0"/>{kil}'))
+        o.append(_m_levha(10, 17, 100, 32, KEH))
+        for i, (h, c) in enumerate((("A", GOL), ("Z", MER), ("M", KOB), ("R", KEH))):
+            x, y = 10 + (i % 2) * 97, 62 + (i // 2) * 92
+            o.append(_m_kart(x, y, 93, 86) + f'<circle cx="{x + 11}" cy="{y + 11}" r="6.5" fill="{c}" stroke="{OBS}" stroke-width=".8"/>'
+                     f'<text x="{x + 11}" y="{y + 14}" text-anchor="middle" {B} font-size="9" fill="#FFFFFF">{h}</text>'
+                     + _m_satir(x + 22, y + 11, 50, 1, 0, OBS, 3) + f'<rect x="{x + 7}" y="{y + 24}" width="79" height="26" rx="3" fill="#FFFFFF" stroke="{OBS}" stroke-width=".7"/>'
+                     + _m_satir(x + 16, y + 31, 60, 3, 7) + f'<rect x="{x + 7}" y="{y + 58}" width="79" height="20" rx="3" fill="none" stroke="{GOL_K}" stroke-width=".7" stroke-dasharray="2 1.4"/>')
+        o.append(_m_kart(10, 248, 120, 26, KIREC, cizgi=LAJVER) + _m_kart(136, 248, 64, 26, KEH_A))
+    elif tur == "kissa":
+        o.append(_m_bant(s, 12, 44, ["#9ED6EE", "#E3F6FB"], "#4E8A3E", f'<path d="M160 20 h14 v30 h-14 Z" fill="#DDF4F6" stroke="{OBS}" stroke-width=".8"/>'))
+        o.append(_m_levha(10, 17, 100, 32, KOB))
+        for i in range(4):
+            x, y = 10 + (i % 2) * 97, 62 + (i // 2) * 106
+            o.append(_m_kart(x, y, 93, 100, bas=[KOB, KEH, GOL, MER][i]) + _m_satir(x + 7, y + 18, 78, 5, 7))
+            for j in range(5):
+                o.append(f'<rect x="{x + 7 + (j % 2) * 40}" y="{y + 58 + (j // 2) * 12}" width="36" height="9" rx="4" fill="#FFFFFF" stroke="{OBS}" stroke-width=".6"/>')
+    elif tur == "merdiven":
+        o.append(_m_bant(s, 12, 44, ["#5B3A86", "#FF9A6A"], "#0E4C5A", f'<rect x="150" y="34" width="40" height="5" fill="#9A6B42"/><path d="M178 34 v-14" stroke="#FFFFFF" stroke-width="3"/>'))
+        o.append(_m_levha(10, 17, 100, 32, KEH))
+        for i in range(3):
+            y = 64 + i * 72
+            o.append(_m_kart(10, y, 92, 64) + _m_satir(18, y + 12, 74, 5, 8))
+            for j in range(3):
+                o.append(_m_kart(108 + j * 10, y + j * 16, 92 - j * 10, 16, [GOL_AA, GOL_A, KEH_A][j]) + f'<circle cx="{116 + j * 10}" cy="{y + 8 + j * 16}" r="3.4" fill="{KEH}"/>')
+    elif tur == "imtihan":
+        duvar = "".join(f'<rect x="{x}" y="22" width="12" height="10" fill="#E6CFA4" stroke="#8C6E4A" stroke-width=".6"/>' for x in range(96, 210, 18))
+        o.append(_m_bant(s, 12, 50, ["#2F5DA8", "#FFB46B"], "#D9BE92", f'<rect x="90" y="30" width="120" height="22" fill="#D9BE92"/>{duvar}'
+                                                                          f'<path d="M150 22 v-12" stroke="{OBS}" stroke-width="1"/><rect x="150" y="10" width="10" height="7" fill="{MER}"/>'))
+        o.append(_m_levha(10, 18, 104, 38, MER))
+        for i in range(6):
+            x, y = 10 + (i // 3) * 97, 68 + (i % 3) * 70
+            o.append(_m_kart(x, y, 93, 64) + _m_yildiz(x + 10, y + 10, 6.5, MER, str(i + 1 if i < 3 else i + 1), 7)
+                     + _m_satir(x + 20, y + 10, 50, 2, 6, OBS, 2.4) + f'<rect x="{x + 7}" y="{y + 22}" width="79" height="18" rx="3" fill="none" stroke="#B8C5CC" stroke-width=".7" stroke-dasharray="2 1.4"/>')
+            for j in range(5):
+                o.append(f'<rect x="{x + 7 + (j % 3) * 27}" y="{y + 44 + (j // 3) * 9}" width="24" height="7" rx="3" fill="#FFFFFF" stroke="{OBS}" stroke-width=".6"/>')
+    elif tur == "ustad":
+        yild = "".join(f'<path d="{cizgi_d(selcuklu_yildizi(x, y, r), True, 1)}" fill="{ALTIN}" opacity=".85"/>' for x, y, r in ((150, 24, 5), (176, 34, 3.6), (196, 20, 4.4), (128, 40, 3)))
+        o.append(_m_bant(s, 12, 44, ["#0F1A45", "#1D3A8A"], "#13285E", yild))
+        o.append(f'<rect x="10" y="17" width="100" height="32" rx="5" fill="#FFFFFF" stroke="{LAJVER}" stroke-width="1.2"/>' + _m_yildiz(21, 33, 8, LAJVER)
+                 + f'<path d="M33 27 h55" stroke="{OBS}" stroke-width="4.6" stroke-linecap="round"/>' + _m_satir(33, 38, 60, 2, 4.4, "#B8C5CC", 1.8))
+        for i in range(6):
+            x, y = 10 + (i // 3) * 97, 62 + (i % 3) * 66
+            o.append(f'<rect x="{x}" y="{y}" width="93" height="60" rx="3" fill="{KIREC}" stroke="{LAJVER}" stroke-width="1.2"/>'
+                     f'<rect x="{x + 2}" y="{y + 2}" width="89" height="56" rx="2" fill="none" stroke="{ALTIN}" stroke-width=".7"/>'
+                     + _m_yildiz(x + 10, y + 10, 6, LAJVER, str(i + 1), 7) + _m_satir(x + 20, y + 10, 60, 4, 6.5))
+        o.append(f'<rect x="10" y="262" width="190" height="14" rx="3" fill="{KIREC}" stroke="{LAJVER}" stroke-width="1.2"/>' + _m_yildiz(20, 269, 6, ALTIN))
+    elif tur == "cevaplar":
+        o.append(_m_bant(s, 12, 34, ["#070B26", "#2C4A85"], "#15224F", f'<circle cx="160" cy="24" r="7" fill="#FFF4D6"/><circle cx="163" cy="22" r="6" fill="#15224F"/>'
+                                                                       + "".join(f'<circle cx="{x}" cy="{y}" r="1" fill="#FFFFFF"/>' for x, y in ((130, 18), (180, 30), (196, 16), (120, 30)))))
+        o.append(_m_levha(10, 16, 104, 26, GOL))
+        o.append(_m_kart(10, 52, 190, 34))
+        for i in range(12):
+            o.append(f'<rect x="{16 + i * 15.2}" y="58" width="13" height="22" rx="2.4" fill="#FFFFFF" stroke="{OBS}" stroke-width=".7"/>'
+                     f'<text x="{f(22.5 + i * 15.2)}" y="72" text-anchor="middle" {B} font-size="8" fill="{GOL_K}">{"DCBEACCDBECD"[i]}</text>')
+        o.append(_m_kart(10, 92, 190, 136) + _m_satir(18, 104, 82, 15, 8) + _m_satir(110, 104, 82, 15, 8))
+        o.append(_m_kart(10, 234, 90, 38, KEH_A) + _m_kart(106, 234, 94, 38))
+    elif tur == "final":
+        o.append(_m_bant(s, 12, 64, ["#26245E", "#C9467F", "#FFD27A"], "#E8C998",
+                         f'<path d="M20 30 Q100 52 180 26" fill="none" stroke="#5A3A22" stroke-width="1"/>'
+                         + "".join(_m_yildiz(40 + i * 26, 36 + abs(i - 2.5) * -2 + 6, 6.5, [GOL, KOB, GOL, MER, ERGUVAN, KEH][i]) for i in range(6))))
+        o.append(_m_kart(10, 84, 190, 26))
+        g = s.lin([(0, GUM), (.5, GOL), (1, KEH)], 20, 0, 190, 0, kull="userSpaceOnUse", ad="fr")
+        o.append(f'<rect x="20" y="96" width="170" height="6" rx="3" fill="{g}" stroke="{OBS}" stroke-width=".6"/>')
+        for i in range(4):
+            o.append(_m_kart(10 + i * 48, 116, 44, 34, KEH_A if i == 3 else "#FFFFFF") + _m_yildiz(32 + i * 48, 128, 7, [GUM, GOL, DERIN, KEH][i]))
+        o.append(_m_kart(10, 156, 104, 116) + _m_satir(18, 170, 64, 11, 9) + "".join(f'<rect x="88" y="{164 + i * 9}" width="18" height="6" rx="1.5" fill="#FFFFFF" stroke="{OBS}" stroke-width=".5"/>' for i in range(11)))
+        o.append(_m_kart(120, 156, 80, 40) + "".join(_m_yildiz(130 + i * 12, 172, 5, [GOL, KOB, GOL, MER, ERGUVAN, KEH][i]) for i in range(6)))
+        o.append(_m_kart(120, 202, 80, 32) + _m_kart(120, 240, 80, 32, GOL_AA))
+    # altbilgi
+    o.append(f'<path d="M12 286 h40 M86 286 h40" stroke="{GOL_K}" stroke-width="2.4" stroke-linecap="round"/>' + _m_yildiz(196, 286, 5, GOL))
+    o.append(f'<rect x="0" y="292" width="210" height="5" fill="#BFE7E3"/><path d="M0 292 H210" stroke="{OBS}" stroke-width=".8"/>')
+    o.append(f'<rect x=".5" y=".5" width="209" height="296" fill="none" stroke="{OBS}" stroke-width="1.2"/>')
+    s += "".join(o)
+    return s.cikti("0 0 210 297", cls="mini-sayfa")
+
+
+MAVI_G = "#3A8CF2"
+
+
+# ------------------------------------------------------------------ ÇİNİ PANO BANDI (rehber 2): İznik karoları, açık vektör
+
+def cini_pano_bandi(onek="cp-bant", h=360):
+    s = Svg(onek)
+    W = 2100
+    a = 120
+    zem = s.lin([(0, "#FFFFFF"), (1, "#EAF4F6")], 0, 0, 0, 1, ad="cz")
+    o = [f'<rect width="{W}" height="{h}" fill="{KOB_K}"/>']
+    r = RNG(77)
+    for j in range(-1, h // a + 1):
+        for i in range(-1, W // a + 1):
+            x, y = i * a + (a / 2 if j % 2 else 0), j * a + 10
+            o.append(f'<rect x="{f(x + 3)}" y="{f(y + 3)}" width="{a - 6}" height="{a - 6}" rx="6" fill="{zem}"/>')
+            cx, cy = x + a / 2, y + a / 2
+            o.append(f'<path d="{cizgi_d(selcuklu_yildizi(cx, cy, 40), True, 1)}" fill="{KOB}" stroke="{KOB_K}" stroke-width="2"/>')
+            o.append(f'<path d="{cizgi_d(selcuklu_yildizi(cx, cy, 25), True, 1)}" fill="{GOL}" stroke="#FFFFFF" stroke-width="3"/>')
+            o.append(f'<circle cx="{f(cx)}" cy="{f(cy)}" r="8" fill="{MER}" stroke="#FFFFFF" stroke-width="2.4"/>')
+            for dx, dy in ((0, 0), (a, 0), (0, a), (a, a)):
+                o.append(f'<circle cx="{f(x + dx)}" cy="{f(y + dy)}" r="15" fill="{MER}" stroke="#FFFFFF" stroke-width="3"/>'
+                         f'<circle cx="{f(x + dx)}" cy="{f(y + dy)}" r="5" fill="{ALTIN_A}"/>')
+            # lale yaprakları (köşegenlerde)
+            for k in range(4):
+                ang = math.pi / 4 + k * math.pi / 2
+                px, py = cx + 47 * math.cos(ang), cy + 47 * math.sin(ang)
+                o.append(f'<ellipse cx="{f(px)}" cy="{f(py)}" rx="9" ry="4.4" transform="rotate({f(math.degrees(ang))} {f(px)} {f(py)})" fill="{ZUMRUT}"/>')
+    g = s.lin([(0, "#0E2A3A", 0), (1, "#0E2A3A", .25)], 0, h - 70, 0, h, kull="userSpaceOnUse", ad="cg")
+    o.append(f'<rect x="0" y="{h - 70}" width="{W}" height="70" fill="{g}"/>')
+    s += "".join(o)
+    return s.cikti(f"0 0 {W} {h}", cls="sahne", par="xMidYMid slice")

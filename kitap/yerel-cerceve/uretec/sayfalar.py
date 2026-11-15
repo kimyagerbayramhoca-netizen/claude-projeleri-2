@@ -237,8 +237,13 @@ def _rehber1(k, p):
     kis = "".join(f'<div class="ark ark-{r}"><svg viewBox="{"0 0 140 160" if poz.startswith("pamuk") else "0 0 200 210"}"><use href="#{poz}"/></svg>'
                   f'<div><b>{ad}</b><small>{alt}</small><p>{ac}</p></div></div>' for poz, ad, alt, ac, r in kisiler)
     arkadas = f'<div class="kart arkadas-kart"><span class="et">{_ik("meclis")}Yol arkadaşların</span><div class="arkadaslar">{kis}</div></div>'
+    isaret = [("hedef", "Görev", "Çözümü kapat, dene."), ("anahtar", "Anahtar", "Açarsan −10 akçe."), ("tuzak", "Tuzak!", "Yanlış bilinen."),
+              ("makas", "Kes", "Deftere yapıştır."), ("hazine", "Hazine", "Formül kartı."), ("medeniyet", "Medeniyet", "Bilim mirasımız."),
+              ("kale", "Kale", "Büyük İmtihan."), ("akce", "Akçe", "Puanın.")]
+    isr = "".join(f'<div class="is">{_ik(ik)}<div><b>{ad}</b>{ac}</div></div>' for ik, ad, ac in isaret)
+    isaretler = f'<div class="kart gol-z isaretler isaret-8"><span class="et">İşaretler</span>{isr}</div>'
     ic = (f'<main class="ic" style="top:62mm">{akis_kart}<div class="bento" style="grid-template-columns:1.12fr .88fr">{akce}{nisan}</div>'
-          f'{arkadas}</main>')
+          f'{arkadas}{isaretler}</main>')
     return k.sayfa("rehber-sayfa", "rehber-1", no, bant + ic, hud=("Rehber", "Bu kitabı nasıl kullanırım?"), konu="Rehber · yolculuğun kuralları")
 
 
@@ -250,8 +255,44 @@ def _sikke():
     return '<svg viewBox="0 0 40 40"><use href="#akce"/></svg>'
 
 
+TURLER = [("acilis", "Yola çıkış", "Tur haritası, kazanılacak nişanlar, yol arkadaşları ve hedefler."),
+          ("durak", "Durak sayfası", "Sahne ve levha, #kıyı-sohbeti, kavram, hazine kartı, görev, Tuzak!, hızlı görev."),
+          ("hulasa", "Hülasa", "Ebru zeminde altı özet kart, hazine sandığı ve Muhasebe."),
+          ("meclis", "Meclis", "Dört hatalı çözüm: kim haklı? Satırı bul, nedenini yaz."),
+          ("kissa", "Kıssa", "Günlük hayattan bağlam soruları; sonunda kıssadan hisse."),
+          ("merdiven", "Anahtar merdiveni", "Üç problem, üç basamak. Ne kadar az inersen o kadar akçe."),
+          ("imtihan", "Büyük İmtihan", "Kalede 12 meşveret sorusu: önce tahmin et, sonra çöz."),
+          ("ustad", "Üstad soruları", "YKS/AYT tarzı 6 zor soru; akçeye dahil değil. Hepsini çözen Üstad Mührü’nü boyar."),
+          ("cevaplar", "Cevaplar", "Durak etiketli anahtar ve bütün çözümler; yanlışın hangi duraktan?"),
+          ("final", "Final", "Akçe rayı, unvan kartı, akçe defteri ve nişan sayımı.")]
+
+KUTULAR = [("kavram", "kitap", "Kavram", "Tanım kutusu. Önce bunu anla."),
+           ("kiyidan", "dalga", "Kıyıdan", "Konunun günlük hayattaki karşılığı."),
+           ("hazine", "hazine", "Hazine kartı", "Formül kartı: kes, defterine yapıştır."),
+           ("gorev", "hedef", "Görev", "Çözümlü örnek: çözümü kapat, önce sen dene."),
+           ("tuzak", "tuzak", "Tuzak!", "Yanlış bilinen, YANLIŞ mührüyle; altında doğrusu."),
+           ("hizli", "anahtar", "Hızlı görev", "Kısa soru. Anahtar ipucu −10 akçe, cevap ters yazılı."),
+           ("medeniyet", "medeniyet", "Medeniyetimizden", "Zeynep Hoca’dan bilim tarihimizden bir sayfa."),
+           ("mesveret", "meclis", "Meşveret", "Sınıfça tahmin: şıklara %__ yaz, sonra çöz."),
+           ("muhasebe", "cay", "Muhasebe", "Kendini muhasebe et: çay bardağını doldur.")]
+
+
 def _rehber2(k, p):
-    return _gecici(k, p, "rehber-2", "Sayfa türleri ve işaretler")
+    no = p["no"]
+    bant = (f'<div class="bant b36" data-serbest>{CZ.cini_pano_bandi(yeni("cp"))}'
+            f'<div class="levha kob">{_rozet("2", "kob")}<div><div class="ust">Rehber · sayfa türleri ve kutular</div>'
+            f'<h1>Haritanın <em>dili</em></h1>'
+            f'<p class="alt-bas">Her yolda aynı sayfalar, aynı sırayla karşına çıkar.</p></div></div></div>')
+    hucre = "".join(f'<div class="sayfa-turu">{CZ.mini_sayfa(yeni("ms"), t)}<b>{ad}</b><span>{ac}</span></div>' for t, ad, ac in TURLER)
+    kutular = "".join(f'<div class="kutu-orn ko-{c}"><div class="kb">{_ik(ik)}<b>{ad}</b></div><p>{ac}</p></div>' for c, ik, ad, ac in KUTULAR)
+    oneri = ('<div class="kart oneri-kart"><div class="pamuk-not">{0}<p><b>Pamuk’un yol notu:</b> Görevlerde çözümü kapat, önce kendin dene. '
+             'Hülasa’daki Muhasebe’de “Tekrar” dediğin konunun durağına dön. İmtihanı süre tutarak çöz; yanlışını cevap sayfasındaki '
+             '<b>durak etiketinden</b> bul. Miyav!</p></div></div>').format('<svg viewBox="0 0 140 160"><use href="#pamuk-dusunen"/></svg>')
+    ic = (f'<main class="ic" style="top:52mm"><div class="ara-bas">{_ik("kitap", "ikon")}Sayfa türleri <small>her sayfanın küçük resmi; '
+          f'üst şeritteki noktalar hangisinde olduğunu söyler</small></div>'
+          f'<div class="sayfa-turleri">{hucre}</div>'
+          f'<div class="ara-bas">{_ik("hazine", "ikon")}Kutuyu rengiyle tanı</div><div class="kutu-izgara">{kutular}</div>{oneri}</main>')
+    return k.sayfa("rehber-sayfa", "rehber-2", no, bant + ic, hud=("Rehber", "Sayfa türleri ve kutular"), konu="Rehber · sayfa türleri ve kutular")
 
 
 def bos(k, p):
