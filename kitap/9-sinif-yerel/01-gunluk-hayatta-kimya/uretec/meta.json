@@ -31,13 +31,13 @@
     {"kod": "H3", "renk": "mer", "baslik": "pH cetveli · 25 °C", "formul": "asidik &lt; 7 &lt; bazik", "not": "pH = 7 nötr · küçüldükçe asitlik artar · +10 akçe", "kisa": "asidik &lt; 7 &lt; bazik", "durak": 2},
     {"kod": "H4", "renk": "gol", "baslik": "Su eklersen", "formul": "pH → 7’ye yaklaşır", "not": "7’yi geçmez; asit asit kalır · +10 akçe", "kisa": "su ekle → pH 7’ye yaklaşır", "durak": 2},
     {"kod": "H5", "renk": "keh", "baslik": "Kire göre seç", "formul": "Kireç, pas → asit", "not": "yağ, saç → kuvvetli baz · +10 akçe", "kisa": "kireç → asit · yağ → baz", "durak": 3},
-    {"kod": "H6", "renk": "mer", "baslik": "Güvenlik kuralı", "formul": "Temizleyici karıştırılmaz", "not": "çamaşır suyu + asit → zehirli klor · +10 akçe", "kisa": "temizleyici karıştırılmaz", "durak": 3},
+    {"kod": "H6", "renk": "mer", "baslik": "Güvenlik kuralı", "formul": "Temizleyici karıştırılmaz", "not": "çamaşır suyu + asit: zehirli klor gazı · +10 akçe", "kisa": "temizleyici karıştırılmaz", "durak": 3},
     {"kod": "H7", "renk": "kob", "baslik": "Üç değişken", "formul": "Değiştir · ölç · sabit tut", "not": "bağımsız · bağımlı · kontrol · +10 akçe", "kisa": "değiştir · ölç · sabit tut", "durak": 4},
     {"kod": "H8", "renk": "zum", "baslik": "Adil deney", "formul": "İki deneme, tek fark", "not": "iki şey değişirse neden bilinmez · +10 akçe", "kisa": "iki deneme, tek fark", "durak": 4},
     {"kod": "H9", "renk": "kob", "baslik": "Analizin iki sorusu", "formul": "Nitel: ne var? Nicel: ne kadar?", "not": "kurşun var mı? · kaç mg? · +10 akçe", "kisa": "nitel: ne var · nicel: ne kadar", "durak": 5},
     {"kod": "H10", "renk": "gol", "baslik": "Organik mi?", "formul": "Karbon temelli → organik", "not": "{CO}, {CO2}, {H2CO3}, karbonatlar, {HCN} anorganik · +10 akçe", "kisa": "karbon temelli = organik ({CO2} hariç)", "durak": 5},
     {"kod": "H11", "renk": "erg", "baslik": "Polimer", "formul": "Monomer × çok → polimer", "not": "ipek doğal, naylon sentetik · +10 akçe", "kisa": "monomer → polimer", "durak": 5},
-    {"kod": "H12", "renk": "laj", "sinif": "strateji", "baslik": "Disiplin bulucu", "adimlar": ["Ne var, ne kadar? → analitik", "Canlıda mı? → biyokimya", "Hız, enerji, sıcaklık? → fizikokimya", "Zincir, lif, plastik? → polimer"], "not": "soruyu tek kelimeye indir · +10 akçe", "kisa": "soruyu tek kelimeye indir", "durak": 5}
+    {"kod": "H12", "renk": "laj", "sinif": "strateji", "baslik": "Disiplin bulucu", "adimlar": ["Ne var, ne kadar? <b>Analitik</b>", "Canlıda mı? <b>Biyokimya</b>", "Hız, enerji, ısı? <b>Fizikokimya</b>", "Zincir, lif, plastik? <b>Polimer</b>"], "not": "soruyu tek kelimeye indir · +10 akçe", "kisa": "soruyu tek kelimeye indir", "durak": 5}
   ],
   "medeniyet": [
     {"ad": "Câbir bin Hayyân", "yil": "8. yüzyıl", "katki": "Adıyla anılan eserler damıtma, kristallendirme ve süzme gibi işlemleri sistemli biçimde anlatır.", "sayfa": 2},

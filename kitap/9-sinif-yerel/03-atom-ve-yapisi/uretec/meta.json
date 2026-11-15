@@ -13,100 +13,106 @@
   "duraklar": [
     {
       "no": 1,
-      "yer": "Yer 1",
-      "baslik": "1. durak başlığı",
-      "enlem": 36.827,
-      "boylam": 37.96,
+      "yer": "Göbeklitepe",
+      "baslik": "Fikirlerin yolculuğu",
+      "konu": "atom modelleri: Dalton, Thomson, Rutherford'a giden yol",
+      "enlem": 37.223,
+      "boylam": 38.922,
       "sayfa": 2,
       "akce": 100
     },
     {
       "no": 2,
-      "yer": "Yer 2",
-      "baslik": "2. durak başlığı",
-      "enlem": 36.707,
-      "boylam": 38.52,
+      "yer": "Harran",
+      "baslik": "Çekirdek ve katmanlar",
+      "konu": "kümbet evleri: altın levha, Bohr katmanları, elektron bulutu",
+      "enlem": 36.862,
+      "boylam": 39.031,
       "sayfa": 3,
       "akce": 120
     },
     {
       "no": 3,
-      "yer": "Yer 3",
-      "baslik": "3. durak başlığı",
-      "enlem": 37.027,
-      "boylam": 38.9,
+      "yer": "Harran Höyüğü",
+      "baslik": "Işık ve orbitaller",
+      "konu": "Harran'ın gökbilimcileri: çizgi spektrumu, enerji düzeyleri, s p d f",
+      "enlem": 36.866,
+      "boylam": 39.036,
       "sayfa": 4,
       "akce": 120
     },
     {
       "no": 4,
-      "yer": "Yer 4",
-      "baslik": "4. durak başlığı",
-      "enlem": 37.327,
-      "boylam": 38.38,
+      "yer": "Urfa çarşısı",
+      "baslik": "p, n, e ve iyonlar",
+      "konu": "bakırcılar ve isot: tanecik sayımı, iyon, izotop",
+      "enlem": 37.159,
+      "boylam": 38.792,
       "sayfa": 5,
       "akce": 120
     },
     {
       "no": 5,
-      "yer": "Yer 5",
-      "baslik": "5. durak başlığı",
-      "enlem": 37.467,
-      "boylam": 39.06,
+      "yer": "Halfeti",
+      "baslik": "Dizilim kuralları",
+      "konu": "su en alttan dolar: Aufbau, Pauli, Hund",
+      "enlem": 37.246,
+      "boylam": 37.87,
       "sayfa": 6,
       "akce": 120
     },
     {
       "no": 6,
-      "yer": "Yer 6",
-      "baslik": "6. durak başlığı",
-      "enlem": 37.187,
-      "boylam": 39.48,
+      "yer": "Fırat kıyısı",
+      "baslik": "Değerlik ve simetri",
+      "konu": "tekneyle Fırat: değerlik elektronu, küresel simetri, Cr ve Cu",
+      "enlem": 37.205,
+      "boylam": 37.885,
       "sayfa": 7,
       "akce": 120
     }
   ],
   "kale": "Urfa Kalesi",
   "kale_konum": {
-    "enlem": 36.907,
-    "boylam": 39.63
+    "enlem": 37.146,
+    "boylam": 38.786
   },
   "nisanlar": [
     {
-      "ad": "1. Durak Nişanı",
-      "ikon": "deste",
-      "renk": "gol",
-      "aciklama": "1. durak · konu"
+      "ad": "Fikir Yolcusu",
+      "ikon": "dikilitas",
+      "renk": "keh",
+      "aciklama": "1. durak · modeller"
     },
     {
-      "ad": "2. Durak Nişanı",
-      "ikon": "izotop",
+      "ad": "Kümbet Ustası",
+      "ikon": "kumbet",
+      "renk": "gol",
+      "aciklama": "2. durak · katmanlar"
+    },
+    {
+      "ad": "Yıldız Gözcüsü",
+      "ikon": "yildiz",
       "renk": "kob",
-      "aciklama": "2. durak · konu"
+      "aciklama": "3. durak · ışık"
     },
     {
-      "ad": "3. Durak Nişanı",
-      "ikon": "kefal",
-      "renk": "gol",
-      "aciklama": "3. durak · konu"
-    },
-    {
-      "ad": "4. Durak Nişanı",
-      "ikon": "mizan",
+      "ad": "İyon Sarrafı",
+      "ikon": "sarraf",
       "renk": "mer",
-      "aciklama": "4. durak · konu"
+      "aciklama": "4. durak · iyonlar"
     },
     {
-      "ad": "5. Durak Nişanı",
-      "ikon": "karisim",
+      "ad": "Sıra Bekçisi",
+      "ikon": "orbital",
       "renk": "erg",
-      "aciklama": "5. durak · konu"
+      "aciklama": "5. durak · dizilim"
     },
     {
-      "ad": "6. Durak Nişanı",
-      "ikon": "deste",
-      "renk": "kob",
-      "aciklama": "6. durak · konu"
+      "ad": "Halka Ustası",
+      "ikon": "halka",
+      "renk": "gol",
+      "aciklama": "6. durak · simetri"
     },
     {
       "ad": "Kale Kapısı",
@@ -125,95 +131,165 @@
   "hazine": [
     {
       "kod": "H1",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "a = b · c",
-      "not": "Kısa not",
+      "baslik": "Model neden değişir? · +10 akçe",
+      "formul": "yeni deney → yeni model",
+      "not": "Eski model açıklayamazsa geliştirilir",
+      "kisa": "yeni deney → yeni model",
       "durak": 1
     },
     {
       "kod": "H2",
       "renk": "gol",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "x = y / z",
+      "baslik": "Beş model · +10 akçe",
+      "formul": "D → T → R → B → M",
+      "not": "Dalton · Thomson · Rutherford · Bohr · modern",
+      "kisa": "D → T → R → B → M",
       "durak": 1
     },
     {
       "kod": "H3",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "a = b · c",
-      "not": "Kısa not",
+      "renk": "mer",
+      "baslik": "Altın levha · +10 akçe",
+      "formul": "çoğu geçer · azı döner",
+      "not": "Boşluk çok; çekirdek küçük, yoğun ve (+)",
+      "kisa": "çoğu geçer · azı döner",
       "durak": 2
     },
     {
       "kod": "H4",
-      "renk": "gol",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "x = y / z",
+      "renk": "kob",
+      "baslik": "Katman sığası · +10 akçe",
+      "formul": "en çok 2n² elektron",
+      "not": "K 2 · L 8 · M 18 · N 32",
+      "kisa": "en çok 2n²",
       "durak": 2
     },
     {
       "kod": "H5",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "a = b · c",
-      "not": "Kısa not",
+      "renk": "erg",
+      "baslik": "Işığın kaynağı · +10 akçe",
+      "formul": "üst → alt: ışık yayılır",
+      "not": "Alttan üste çıkmak için enerji soğurulur",
+      "kisa": "inen elektron ışık yayar",
       "durak": 3
     },
     {
       "kod": "H6",
       "renk": "gol",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "x = y / z",
+      "baslik": "Orbital sayısı · +10 akçe",
+      "formul": "s 1 · p 3 · d 5 · f 7",
+      "not": "n. düzeyde n² orbital · her orbitalde en çok 2 e⁻",
+      "kisa": "s1 · p3 · d5 · f7",
       "durak": 3
     },
     {
       "kod": "H7",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "a = b · c",
-      "not": "Kısa not",
+      "renk": "kob",
+      "baslik": "Sayma kuralları · +10 akçe",
+      "formul": "Z = p · A = p + n",
+      "not": "n = A − Z · nötr atomda e = p",
+      "kisa": "Z = p · A = p + n",
       "durak": 4
     },
     {
       "kod": "H8",
-      "renk": "gol",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "x = y / z",
+      "renk": "mer",
+      "baslik": "İyonda elektron · +10 akçe",
+      "formul": "e = p − yük",
+      "not": "X²⁺: e = p − 2 · Y³⁻: e = p + 3",
+      "kisa": "e = p − yük",
       "durak": 4
     },
     {
       "kod": "H9",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "a = b · c",
-      "not": "Kısa not",
+      "baslik": "Dolma sırası · +10 akçe",
+      "formul": "1s 2s 2p 3s 3p 4s 3d",
+      "not": "Sırayı enerji belirler: 4s, 3d’den önce dolar",
+      "kisa": "… 3p · 4s · 3d …",
       "durak": 5
     },
     {
       "kod": "H10",
-      "renk": "gol",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "x = y / z",
+      "renk": "erg",
+      "baslik": "Pauli · Hund · +10 akçe",
+      "formul": "↑↓ en çok · önce ↑ ↑ ↑",
+      "not": "Orbitalde en çok 2 zıt spinli elektron; eş enerjililere önce tek tek",
+      "kisa": "en çok 2 · önce tek tek",
       "durak": 5
     },
     {
       "kod": "H11",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "a = b · c",
-      "not": "Kısa not",
+      "renk": "gol",
+      "baslik": "Değerlik · +10 akçe",
+      "formul": "en dış katmandaki e⁻",
+      "not": "d dolmaya başladıysa son s ve d birlikte sayılır",
+      "kisa": "en dış katman",
       "durak": 6
     },
     {
       "kod": "H12",
-      "renk": "gol",
-      "baslik": "Kart başlığı · +10 akçe",
-      "formul": "x = y / z",
+      "renk": "kob",
+      "baslik": "Küresel simetri · +10 akçe",
+      "formul": "s¹ s² p³ p⁶ d⁵ d¹⁰",
+      "not": "Cr: [Ar] 4s¹ 3d⁵ · Cu: [Ar] 4s¹ 3d¹⁰",
+      "kisa": "yarı dolu ya da tam dolu",
       "durak": 6
     }
   ],
-  "medeniyet": [],
-  "kavramlar": [
+  "medeniyet": [
     {
-      "terim": "terim",
-      "tanim": "tanım"
+      "ad": "İbn Heysem",
+      "yil": "y. 965–1040",
+      "sira": 965,
+      "katki": "Basra’da doğdu, Kahire’de çalıştı. Kitâbü’l-Menâzır’da görmenin, cisimlerden göze gelen ışıkla gerçekleştiğini deney ve gözlemle gösterdi; bir iddiayı deneyle sınamayı yöntem hâline getirdi.",
+      "takma": ["İbnü’l-Heysem", "İbnü'l-Heysem", "Ibn al-Haytham"],
+      "kaynak": "zaman şeridinde zaten var (medeniyet.py); tarih ve katkı oradakiyle aynı",
+      "sayfa": 2
+    },
+    {
+      "ad": "Sâbit bin Kurra",
+      "yil": "836–901",
+      "sira": 836,
+      "katki": "Harran’da doğdu, Bağdat’ta çalıştı. Öklid ve Batlamyus’un eserlerinin Arapça çevirilerini gözden geçirip düzeltti; matematik ve astronomi üzerine özgün eserler yazdı, dost sayıları bulmak için bir kural verdi.",
+      "takma": ["Sâbit b. Kurre", "Sabit bin Kurra", "Thâbit ibn Qurra"],
+      "kaynak": "TDV İslâm Ansiklopedisi, “Sâbit b. Kurre” (doğum 221/836, Harran); Britannica (ölüm 901, Bağdat)",
+      "sayfa": 3
+    },
+    {
+      "ad": "el-Battânî",
+      "yil": "y. 858–929",
+      "sira": 858,
+      "katki": "Harran’da doğdu; gözlemlerinin çoğunu Rakka’da yaptı. Güneş yılının uzunluğunu 365 gün 5 saat 46 dakika 24 saniye olarak ölçtü.",
+      "takma": ["Battânî", "Battani", "al-Battānī"],
+      "kaynak": "Britannica ve TDV İslâm Ansiklopedisi, “Bettânî” (doğum y. 858 Harran, ölüm 929 Kasrülcis/Sâmerrâ yakını)",
+      "sayfa": 4
     }
   ],
-  "sayfa_sayisi": 16
+  "kavramlar": [
+    {"terim": "teori (kuram)", "tanim": "Deneylere dayanarak bir olayı açıklayan ve sonuçlarını öngören kapsamlı açıklama."},
+    {"terim": "model", "tanim": "Bir teoriyi anlatan çizim, benzetme ya da matematiksel ifade."},
+    {"terim": "atom modeli", "tanim": "Atomun yapısını deney sonuçlarına göre anlatan model: Dalton, Thomson, Rutherford, Bohr, modern model."},
+    {"terim": "elektron", "tanim": "Atomda çekirdeğin çevresinde bulunan, −1 yüklü, kütlesi protonun yaklaşık 1/1836’sı olan tanecik (Thomson, 1897)."},
+    {"terim": "proton", "tanim": "Çekirdekte bulunan +1 yüklü tanecik; sayısı elementin kimliğidir."},
+    {"terim": "nötron", "tanim": "Çekirdekte bulunan yüksüz tanecik (Chadwick, 1932)."},
+    {"terim": "çekirdek", "tanim": "Atomun merkezindeki, çok küçük hacimli ama kütlenin neredeyse tamamını taşıyan (+) yüklü bölge (Rutherford, 1911)."},
+    {"terim": "atom numarası (Z)", "tanim": "Çekirdekteki proton sayısı: Z = p."},
+    {"terim": "kütle numarası (A)", "tanim": "Çekirdekteki proton ve nötron sayılarının toplamı: A = p + n."},
+    {"terim": "iyon", "tanim": "Elektron alıp vermiş, yüklü tanecik: elektron veren katyon (+), elektron alan anyon (−) olur; e = p − yük."},
+    {"terim": "izotop", "tanim": "Proton sayıları aynı, nötron (ve kütle) sayıları farklı atomlar."},
+    {"terim": "izoton", "tanim": "Nötron sayıları aynı, proton sayıları farklı atomlar."},
+    {"terim": "izobar", "tanim": "Kütle numaraları aynı, proton sayıları farklı atomlar."},
+    {"terim": "izoelektronik", "tanim": "Elektron sayıları ve elektron dizilimleri aynı tanecikler."},
+    {"terim": "enerji düzeyi (katman)", "tanim": "Elektronun bulunabildiği belirli enerjili düzey: n = 1, 2, 3… ya da K, L, M… (Bohr, 1913)."},
+    {"terim": "temel hâl / uyarılmış hâl", "tanim": "Elektronların en düşük enerjili düzeylerde olduğu hâl temel hâl; enerji soğurup üst düzeye çıkmış hâli uyarılmış hâldir."},
+    {"terim": "çizgi spektrumu", "tanim": "Uyarılan atomların yalnız belirli renklerde (dalga boylarında) yaydığı ışık; her elemente özgüdür."},
+    {"terim": "orbital", "tanim": "Elektronun bulunma olasılığının yüksek olduğu üç boyutlu bölge; s, p, d, f türlerindedir ve her biri en çok 2 elektron alır."},
+    {"terim": "Aufbau (yapılanma) kuralı", "tanim": "Temel hâlde elektronlar orbitallere en düşük enerjiliden başlayarak yerleşir."},
+    {"terim": "Pauli dışlama ilkesi", "tanim": "Bir orbitalde en çok iki elektron bulunur ve spinleri zıttır."},
+    {"terim": "Hund kuralı", "tanim": "Eş enerjili orbitallere elektronlar önce teker teker ve aynı yönlü yerleşir, sonra eşleşir."},
+    {"terim": "değerlik elektronu", "tanim": "Atomun en yüksek enerji düzeyindeki (en dış katmanındaki) elektronlar; d dolmaya başlamışsa son s ve d elektronları birlikte sayılır."},
+    {"terim": "küresel simetri", "tanim": "Dizilimi tam dolu ya da yarı dolu orbital türüyle (s¹, s², p³, p⁶, d⁵, d¹⁰) biten taneciklerin her yöne eşit yük dağılımı."}
+  ],
+  "sayfa_sayisi": 16,
+  "hud": "Şanlıurfa–Harran"
 }
