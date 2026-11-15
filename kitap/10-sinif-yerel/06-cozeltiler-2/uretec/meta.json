@@ -111,7 +111,7 @@
     {
       "kod": "H1",
       "baslik": "Kütlece % · +10",
-      "formul": "% = <span class=\"kesir\"><span>m_{çözünen}</span><span>m_{çözelti}</span></span>·100",
+      "formul": "<span class=\"kesir\"><span>m_{çözünen}</span><span>m_{çözelti}</span></span>·100",
       "not": "çözelti = çözücü + çözünen",
       "kisa": "% = m/m·100",
       "durak": 1
@@ -120,7 +120,7 @@
       "kod": "H2",
       "renk": "gol",
       "baslik": "Hacimce % · +10",
-      "formul": "% = <span class=\"kesir\"><span>V_{çözünen}</span><span>V_{çözelti}</span></span>·100",
+      "formul": "<span class=\"kesir\"><span>V_{çözünen}</span><span>V_{çözelti}</span></span>·100",
       "not": "Kolonya derecesi budur",
       "kisa": "% = V/V·100",
       "durak": 1
@@ -129,7 +129,7 @@
       "kod": "H3",
       "renk": "erg",
       "baslik": "ppm · +10",
-      "formul": "ppm = <span class=\"kesir\"><span>m_{çözünen}</span><span>m_{çözelti}</span></span>·10^6",
+      "formul": "<span class=\"kesir\"><span>m_{çözünen}</span><span>m_{çözelti}</span></span>·10^6",
       "not": "%1 = 10 000 ppm",
       "kisa": "ppm = m/m·10^6",
       "durak": 2

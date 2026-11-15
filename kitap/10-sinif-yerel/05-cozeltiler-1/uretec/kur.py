@@ -82,6 +82,14 @@ def final():
     return SU.afyon_final(nisanlar=ns)
 
 
+def nisan_sayim():
+    """Final nişan sayımı: 8 nişan 8 sütunda adları sıkıştırır; 4 × 2 ızgarada okunur."""
+    ic = "".join(f'<div>{u.yt["nisan"](x["ikon"])}<b>{KO.zengin(x["ad"])}</b><small><span class="kutucuk"></span></small></div>'
+                 for x in u.meta["nisanlar"])
+    return f'<div class="nisan-say" style="grid-template-columns:repeat(4,minmax(0,1fr));row-gap:1.2mm">{ic}</div>'
+
+
+u.yer_tutucu("nisan-sayim", nisan_sayim)
 u.yer_tutucu("harita-etiket", harita_etiket)
 u.yer_tutucu("final", final)
 

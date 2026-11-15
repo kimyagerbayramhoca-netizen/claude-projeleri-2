@@ -131,7 +131,7 @@ def seyreltme_karistirma(onek="inf-sey"):
     s += _beher(306, 104, 76, 82, .8, "#CDE9D9")
     for dx, dy in ((8, 12), (24, 22), (40, 10), (56, 26), (16, 34), (34, 40), (52, 44), (62, 14)):
         s += _tanecik(310 + dx, 104 - 62 + dy, 3.6, "#2B50B5")
-    s += f'<text x="300" y="122" text-anchor="middle" {T} font-size="13" fill="{KEH_K}">karıştır: Σn / ΣV</text>'
+    s += f'<text x="322" y="122" text-anchor="middle" {T} font-size="13" fill="{KEH_K}">karıştır: Σn / ΣV</text>'
     return s.cikti(f"0 0 {Wd} {Hd}", cls="info")
 
 

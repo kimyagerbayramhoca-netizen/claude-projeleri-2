@@ -748,7 +748,7 @@ def afyon_kalesi(h=620):
     s += d
     s += _ova(s, ufuk, 756, ust="#D8B87A", alt="#7E8E48", h=h)
     s += _tarlalar(s, 0, 900, ufuk + 10, h - 30, 757, renkler=("#E0B86A", "#C9A85A", "#B8B060", "#D9A070"))
-    kale, _ = afyon_kayasi(s, 900, 1960, ufuk + 60, 60, 758, isik=-1)
+    kale, _ = afyon_kayasi(s, 940, 1960, ufuk + 60, 150, 758, isik=-1)
     s += kale
     for i in range(14):
         s += afyon_evi(820 + i * 92, ufuk + 110 + (i % 2) * 8, 70, 66, 760 + i, cati=["#B5523A", "#A9473A", "#C2643E"][i % 3])

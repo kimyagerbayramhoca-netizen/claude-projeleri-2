@@ -101,9 +101,9 @@ def gaz_egrisi(onek="inf-gaz"):
 # ------------------------------------------------------------------ 5. durak: doygunluk (A, B, C noktaları)
 def doygunluk_grafigi(onek="inf-doy"):
     def yaz(X, Y):
-        return (f'<text x="{f(X(66))}" y="{f(Y(78))}" {B} font-size="24" fill="{MER}">aşırı doymuş</text>'
-                f'<text x="{f(X(64))}" y="{f(Y(28))}" {B} font-size="24" fill="{GOL_K}">doymamış</text>'
-                f'<text x="{f(X(22))}" y="{f(Y(52))}" {B} font-size="24" fill="{KOB}">doymuş (eğri)</text>')
+        return (f'<text x="{f(X(4))}" y="{f(Y(84))}" {B} font-size="24" fill="{MER}">aşırı doymuş</text>'
+                f'<text x="{f(X(58))}" y="{f(Y(22))}" {B} font-size="24" fill="{GOL_K}">doymamış</text>'
+                f'<text x="{f(X(77))}" y="{f(Y(91))}" text-anchor="end" {B} font-size="24" fill="{KOB}">eğri: doymuş</text>')
     return _grafik(onek, [("X", KOB, "", (0, 0))], 80, 100, 20, 20, noktalar=[(50, 35, "A", GOL), (50, 60, "B", KOB), (50, 82, "C", MER)],
                    yaz=yaz, W=560, H=400)
 
@@ -134,7 +134,7 @@ def na2so4_grafik(onek="inf-nas"):
     def yaz(X, Y):
         return (f'<text x="{f(X(48))}" y="{f(Y(56))}" {B} font-size="26" fill="{LAJVER}">Na<tspan dy="6" font-size="19">2</tspan><tspan dy="-6">SO</tspan><tspan dy="6" font-size="19">4</tspan></text>'
                 f'<circle cx="{f(X(32.4))}" cy="{f(Y(50))}" r="8" fill="#FFFFFF" stroke="{MER}" stroke-width="4"/>'
-                f'<text x="{f(X(30))}" y="{f(Y(54))}" text-anchor="end" {T} font-size="21" fill="{MER}">≈ 32 °C</text>')
+                f'<text x="{f(X(37))}" y="{f(Y(39))}" {T} font-size="22" fill="{MER}">≈ 32 °C’ta tepe</text>')
     return _grafik(onek, [("Na2SO4", LAJVER, "", (0, 0))], 100, 60, 20, 10, isaret=[(40, 49)], yaz=yaz, W=500, H=360, cls="info ustad-graf",
                    zemin="#FFFDF7")
 
@@ -142,9 +142,9 @@ def na2so4_grafik(onek="inf-nas"):
 # ------------------------------------------------------------------ İmtihan 6: A ve B katıları
 def ab_grafik(onek="inf-ab"):
     def yaz(X, Y):
-        return (f'<text x="{f(X(74))}" y="{f(Y(96))}" {B} font-size="30" fill="{MER}">A</text>'
-                f'<text x="{f(X(74))}" y="{f(Y(40))}" {B} font-size="30" fill="{KOB}">B</text>')
-    return _grafik(onek, [("A", MER, "", (0, 0)), ("B", KOB, "", (0, 0))], 80, 100, 20, 20, W=440, H=340)
+        return (f'<text x="{f(X(52))}" y="{f(Y(72))}" {B} font-size="44" fill="{MER}">A</text>'
+                f'<text x="{f(X(64))}" y="{f(Y(48))}" {B} font-size="44" fill="{KOB}">B</text>')
+    return _grafik(onek, [("A", MER, "", (0, 0)), ("B", KOB, "", (0, 0))], 80, 100, 20, 20, W=400, H=320)
 
 
 # ------------------------------------------------------------------ 1. durak: çözünmenin üç basamağı (tanecik)
