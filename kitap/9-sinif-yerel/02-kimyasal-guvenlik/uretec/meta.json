@@ -1,0 +1,190 @@
+{
+  "sinif": 9,
+  "yol": 2,
+  "rota": "Batı Karadeniz Maden Yolu",
+  "unite": "Kimyasal Güvenlik",
+  "klasor": "02-kimyasal-guvenlik",
+  "tema": "Tema 1 · Bölüm 2",
+  "bolge": "Zonguldak · Karabük · Bartın",
+  "merkez": {
+    "enlem": 41.45,
+    "boylam": 32.35
+  },
+  "duraklar": [
+    {
+      "no": 1,
+      "yer": "Yer 1",
+      "baslik": "1. durak başlığı",
+      "enlem": 41.15,
+      "boylam": 31.63,
+      "sayfa": 2,
+      "akce": 100
+    },
+    {
+      "no": 2,
+      "yer": "Yer 2",
+      "baslik": "2. durak başlığı",
+      "enlem": 41.03,
+      "boylam": 32.19,
+      "sayfa": 3,
+      "akce": 150
+    },
+    {
+      "no": 3,
+      "yer": "Yer 3",
+      "baslik": "3. durak başlığı",
+      "enlem": 41.35,
+      "boylam": 32.57,
+      "sayfa": 4,
+      "akce": 150
+    },
+    {
+      "no": 4,
+      "yer": "Yer 4",
+      "baslik": "4. durak başlığı",
+      "enlem": 41.65,
+      "boylam": 32.05,
+      "sayfa": 5,
+      "akce": 150
+    },
+    {
+      "no": 5,
+      "yer": "Yer 5",
+      "baslik": "5. durak başlığı",
+      "enlem": 41.79,
+      "boylam": 32.73,
+      "sayfa": 6,
+      "akce": 150
+    }
+  ],
+  "kale": "Amasra Kalesi",
+  "kale_konum": {
+    "enlem": 41.23,
+    "boylam": 33.3
+  },
+  "nisanlar": [
+    {
+      "ad": "1. Durak Nişanı",
+      "ikon": "deste",
+      "renk": "gol",
+      "aciklama": "1. durak · konu"
+    },
+    {
+      "ad": "2. Durak Nişanı",
+      "ikon": "izotop",
+      "renk": "kob",
+      "aciklama": "2. durak · konu"
+    },
+    {
+      "ad": "3. Durak Nişanı",
+      "ikon": "kefal",
+      "renk": "gol",
+      "aciklama": "3. durak · konu"
+    },
+    {
+      "ad": "4. Durak Nişanı",
+      "ikon": "mizan",
+      "renk": "mer",
+      "aciklama": "4. durak · konu"
+    },
+    {
+      "ad": "5. Durak Nişanı",
+      "ikon": "karisim",
+      "renk": "erg",
+      "aciklama": "5. durak · konu"
+    },
+    {
+      "ad": "Kale Kapısı",
+      "ikon": "kale",
+      "renk": "keh",
+      "aciklama": "İmtihan · 10+ doğru"
+    },
+    {
+      "ad": "Üstad Mührü",
+      "ikon": "ustad",
+      "renk": "laj",
+      "aciklama": "Üstad · 6/6 doğru",
+      "bonus": true
+    }
+  ],
+  "hazine": [
+    {
+      "kod": "H1",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "a = b · c",
+      "not": "Kısa not",
+      "durak": 1
+    },
+    {
+      "kod": "H2",
+      "renk": "gol",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "x = y / z",
+      "durak": 1
+    },
+    {
+      "kod": "H3",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "a = b · c",
+      "not": "Kısa not",
+      "durak": 2
+    },
+    {
+      "kod": "H4",
+      "renk": "gol",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "x = y / z",
+      "durak": 2
+    },
+    {
+      "kod": "H5",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "a = b · c",
+      "not": "Kısa not",
+      "durak": 3
+    },
+    {
+      "kod": "H6",
+      "renk": "gol",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "x = y / z",
+      "durak": 3
+    },
+    {
+      "kod": "H7",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "a = b · c",
+      "not": "Kısa not",
+      "durak": 4
+    },
+    {
+      "kod": "H8",
+      "renk": "gol",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "x = y / z",
+      "durak": 4
+    },
+    {
+      "kod": "H9",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "a = b · c",
+      "not": "Kısa not",
+      "durak": 5
+    },
+    {
+      "kod": "H10",
+      "renk": "gol",
+      "baslik": "Kart başlığı · +10 akçe",
+      "formul": "x = y / z",
+      "durak": 5
+    }
+  ],
+  "medeniyet": [],
+  "kavramlar": [
+    {
+      "terim": "terim",
+      "tanim": "tanım"
+    }
+  ],
+  "sayfa_sayisi": 15
+}

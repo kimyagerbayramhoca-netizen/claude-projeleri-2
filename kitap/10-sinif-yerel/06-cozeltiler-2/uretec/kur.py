@@ -116,6 +116,7 @@ def final():
 
 
 u.yer_tutucu("panorama-etiket", panorama_etiket)
+u.yer_tutucu("muhur", lambda tur, boy="": U.muhur(u.yeni("mh"), tur, alt="GÖLLER YOLU"))   # mühür alt yazısı bu yolun adı
 u.yer_tutucu("final", final)
 
 if __name__ == "__main__":

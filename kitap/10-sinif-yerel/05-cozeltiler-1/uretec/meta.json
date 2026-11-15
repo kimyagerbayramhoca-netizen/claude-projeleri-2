@@ -136,8 +136,8 @@
       "kod": "H2",
       "renk": "mer",
       "baslik": "Isı alır mı, verir mi?",
-      "formul": "açığa çıkan &gt; harcanan → ısı verir",
-      "not": "Tersi: ısı alır (soğuk paket) · +10 akçe",
+      "formul": "çıkan &gt; harcanan → ısı verir",
+      "not": "Tersi: ısı alır (soğuk paket) · +10",
       "kisa": "ekzo · endo",
       "durak": 1
     },
@@ -154,8 +154,8 @@
       "kod": "H4",
       "renk": "gol",
       "baslik": "Hidrojen bağı şartı",
-      "formul": "H, F · O · N’ye bağlı",
-      "not": "Karşıda da F, O ya da N olmalı · +10 akçe",
+      "formul": "H–F · H–O · H–N",
+      "not": "H bunlardan birine bağlı; karşıda F, O ya da N · +10",
       "kisa": "H–F · H–O · H–N",
       "durak": 2
     },

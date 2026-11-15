@@ -144,7 +144,7 @@ def ab_grafik(onek="inf-ab"):
     def yaz(X, Y):
         return (f'<text x="{f(X(52))}" y="{f(Y(72))}" {B} font-size="44" fill="{MER}">A</text>'
                 f'<text x="{f(X(64))}" y="{f(Y(48))}" {B} font-size="44" fill="{KOB}">B</text>')
-    return _grafik(onek, [("A", MER, "", (0, 0)), ("B", KOB, "", (0, 0))], 80, 100, 20, 20, W=400, H=320)
+    return _grafik(onek, [("A", MER, "", (0, 0)), ("B", KOB, "", (0, 0))], 80, 100, 20, 20, yaz=yaz, W=400, H=320)
 
 
 # ------------------------------------------------------------------ 1. durak: çözünmenin üç basamağı (tanecik)
