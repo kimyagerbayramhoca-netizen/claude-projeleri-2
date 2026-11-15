@@ -14,7 +14,7 @@ Sembol kimlikleri (viewBox):
   Yusuf  : yusuf-anlatan, yusuf-defter, yusuf-gulen (0 0 200 210), av-yusuf
   Zeynep : zeynep-anlatan, zeynep-kitap (0 0 200 210), av-zeynep
 """
-from .temel import Svg, f
+from .temel import Svg, f, halolu_yazi
 from .renkler import OBS, GOL, GOL_K, KEH, KEH_K, MER, MER_K, KOB, KOB_K, ALTIN, ALTIN_A, LAJVER, MAVI
 
 CZ = OBS          # çizgi rengi
@@ -355,10 +355,31 @@ def _govde_insan(s, kim):
 
 
 def _el(x, y, ten, r=11, aci=0, isaret=False):
-    o = f'<g transform="rotate({aci} {f(x)} {f(y)})"><ellipse cx="{f(x)}" cy="{f(y)}" rx="{f(r)}" ry="{f(r * 1.05)}" fill="{ten}" stroke="{CZ}" stroke-width="{K}"/>'
-    if isaret:
-        o += f'<path d="M{f(x - 3)} {f(y - r * .7)} C{f(x - 4)} {f(y - r * 2)} {f(x + 4)} {f(y - r * 2)} {f(x + 3)} {f(y - r * .7)}" fill="{ten}" stroke="{CZ}" stroke-width="{K}"/>'
-    return o + "</g>"
+    """El. isaret=True: açık avuç (dört parmak + başparmak), "söz istiyorum / anlatıyorum" jesti.
+    Tek parmaklı yumruk kullanılmaz: küçük boyutta yanlış bir el işareti gibi okunabilir."""
+    if not isaret:
+        return (f'<g transform="rotate({aci} {f(x)} {f(y)})"><ellipse cx="{f(x)}" cy="{f(y)}" rx="{f(r)}" ry="{f(r * 1.05)}" '
+                f'fill="{ten}" stroke="{CZ}" stroke-width="{K}"/></g>')
+    k = r / 11
+    parca = []
+    # dört parmak (orta ikisi daha uzun), avucun üstünden çıkar
+    uclar = ((-6.4, -17.0), (-2.15, -19.6), (2.15, -19.2), (6.4, -16.2))
+    for px, ust in uclar:
+        parca.append(f'<rect x="{f(x + (px - 2.15) * k, 2)}" y="{f(y + ust * k, 2)}" width="{f(4.3 * k, 2)}" '
+                     f'height="{f((-ust - 1) * k, 2)}" rx="{f(2.15 * k, 2)}"/>')
+    # başparmak: gövdeye dönük yanda, yukarı-dışa açık
+    parca.append(f'<rect x="{f(x - 14.6 * k, 2)}" y="{f(y - 8.4 * k, 2)}" width="{f(4.6 * k, 2)}" height="{f(11.5 * k, 2)}" '
+                 f'rx="{f(2.3 * k, 2)}" transform="rotate(-38 {f(x - 12.3 * k, 2)} {f(y - 2.6 * k, 2)})"/>')
+    parca.append(f'<ellipse cx="{f(x)}" cy="{f(y)}" rx="{f(r)}" ry="{f(r * 1.05)}"/>')
+    sekil = "".join(parca)
+    # parmak araları: uçlardaki çentikten avuca doğru ince çizgi
+    ara = "".join(f'<path d="M{f(x + px * k, 2)} {f(y + (max(u1, u2) + 3.2) * k, 2)} V{f(y - 7.6 * k, 2)}"/>'
+                  for px, u1, u2 in ((-4.25, -17.0, -19.6), (0, -19.6, -19.2), (4.25, -19.2, -16.2)))
+    return (f'<g transform="rotate({aci} {f(x)} {f(y)})">'
+            f'<g fill="{ten}" stroke="{CZ}" stroke-width="{f(K * 2, 2)}" stroke-linejoin="round">{sekil}</g>'
+            f'<g fill="{ten}">{sekil}</g>'
+            f'<g stroke="{CZ}" stroke-width="{f(K * .55, 2)}" stroke-linecap="round" fill="none">{ara}</g>'
+            f'</g>')
 
 
 def _insan_kol(x0, y0, x1, y1, kx, ky, renk, kal=26):
@@ -397,7 +418,7 @@ def insan_poz(s, kim, poz):
     o.append(insan_bas(s, kim, ifade))
     o += on
     if poz == "soru":
-        o.append(f'<text x="30" y="58" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="34" fill="{KEH}" stroke="{CZ}" stroke-width="1.4">?</text>')
+        o.append(halolu_yazi('x="30" y="58" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="34"', "?", KEH, CZ, 1.1))
     if poz == "aha":
         o.append(f'<path d="M30 40 l8 8 M24 60 h12 M34 24 l4 10" stroke="{KEH}" stroke-width="3.4" stroke-linecap="round"/>'
                  f'<circle cx="30" cy="76" r="9" fill="#FFF6C8" stroke="{CZ}" stroke-width="1.6"/><path d="M27 86 h6" stroke="{CZ}" stroke-width="2"/>')

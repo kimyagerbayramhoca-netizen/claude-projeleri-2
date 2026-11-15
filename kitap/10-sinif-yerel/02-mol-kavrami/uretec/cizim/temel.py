@@ -20,6 +20,19 @@ def f(v, h=1):
     return "0" if s in ("-0", "") else s
 
 
+
+# Konturlu yazı yerine "hale": Chromium, stroke'lu SVG yazısını PDF'e Type 3 font olarak gömer
+# (bazı matbaa RIP'leri sorun çıkarır). Aynı görünüm, 8 yöne kaydırılmış koyu kopyalar + üstte asıl
+# yazıyla elde edilir; hepsi normal (CID TrueType) fontla gömülür.
+_YON8 = [(1, 0), (-1, 0), (0, 1), (0, -1), (.7071, .7071), (-.7071, .7071), (.7071, -.7071), (-.7071, -.7071)]
+
+
+def halolu_yazi(nitelik, metin, dolgu, hale, kalinlik):
+    """nitelik: x, y, font-family, font-size... (fill ve stroke HARİÇ). kalinlik: halenin dışa taşma payı."""
+    kopya = "".join(f'<text transform="translate({f(dx * kalinlik, 2)} {f(dy * kalinlik, 2)})" {nitelik} fill="{hale}">{metin}</text>'
+                    for dx, dy in _YON8)
+    return kopya + f'<text {nitelik} fill="{dolgu}">{metin}</text>'
+
 def nok(p, h=1):
     return f"{f(p[0], h)} {f(p[1], h)}"
 

@@ -12,12 +12,30 @@
    ===================================================================== */
 
 /* ------------------------------------------------------------------ 1. YAZI TİPLERİ (kitap/fontlar, OFL) */
-@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../../fontlar/baloobhaijaan2/BalooBhaijaan2%5Bwght%5D.ttf") format("truetype"); font-weight: 400 800; }
-@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/Nunito%5Bwght%5D.ttf") format("truetype"); font-weight: 200 1000; font-style: normal; }
-@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/Nunito-Italic%5Bwght%5D.ttf") format("truetype"); font-weight: 200 1000; font-style: italic; }
-@font-face { font-family: "Amiri"; src: url("../../fontlar/amiri/Amiri-Regular.ttf") format("truetype"); font-weight: 400; }
-@font-face { font-family: "Amiri"; src: url("../../fontlar/amiri/Amiri-Bold.ttf") format("truetype"); font-weight: 700; }
-@font-face { font-family: "Reem Kufi"; src: url("../../fontlar/reemkufi/ReemKufi%5Bwght%5D.ttf") format("truetype"); font-weight: 400 700; }
+/* Değişken (variable) fontlar Chromium PDF'inde Type 3 gömülür; matbaa için sabit kalınlıklı kopyalar
+   kullanılır (üretmek için: python3 kitap/araclar/statik_fontlar.py). İstenen kalınlık yoksa en yakını seçilir. */
+@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../../fontlar/baloobhaijaan2/static/BalooBhaijaan2-400.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../../fontlar/baloobhaijaan2/static/BalooBhaijaan2-500.ttf") format("truetype"); font-weight: 500; font-style: normal; }
+@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../../fontlar/baloobhaijaan2/static/BalooBhaijaan2-600.ttf") format("truetype"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../../fontlar/baloobhaijaan2/static/BalooBhaijaan2-700.ttf") format("truetype"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../../fontlar/baloobhaijaan2/static/BalooBhaijaan2-800.ttf") format("truetype"); font-weight: 800; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-400.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-500.ttf") format("truetype"); font-weight: 500; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-600.ttf") format("truetype"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-700.ttf") format("truetype"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-800.ttf") format("truetype"); font-weight: 800; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-900.ttf") format("truetype"); font-weight: 900; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-Italic-400.ttf") format("truetype"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-Italic-600.ttf") format("truetype"); font-weight: 600; font-style: italic; }
+@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-Italic-700.ttf") format("truetype"); font-weight: 700; font-style: italic; }
+@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-Italic-800.ttf") format("truetype"); font-weight: 800; font-style: italic; }
+@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-Italic-900.ttf") format("truetype"); font-weight: 900; font-style: italic; }
+@font-face { font-family: "Amiri"; src: url("../../fontlar/amiri/Amiri-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Amiri"; src: url("../../fontlar/amiri/Amiri-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Reem Kufi"; src: url("../../fontlar/reemkufi/static/ReemKufi-400.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Reem Kufi"; src: url("../../fontlar/reemkufi/static/ReemKufi-500.ttf") format("truetype"); font-weight: 500; font-style: normal; }
+@font-face { font-family: "Reem Kufi"; src: url("../../fontlar/reemkufi/static/ReemKufi-600.ttf") format("truetype"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "Reem Kufi"; src: url("../../fontlar/reemkufi/static/ReemKufi-700.ttf") format("truetype"); font-weight: 700; font-style: normal; }
 
 /* ------------------------------------------------------------------ 2. TOKENLAR */
 :root {
@@ -196,7 +214,7 @@ svg { overflow: visible; }
 /* ------------------------------------------------------------------ 8. MEDENİYETİMİZDEN (tezhipli köşe; C konseptinden)
    .medeniyet > svg.kose (4 köşe) + .med-bas + .med-ic > (.zh avatar satırı) + .metin (Amiri) */
 .medeniyet { position: relative; background: var(--kirec); border: .5mm solid var(--lajver); border-radius: .8mm;
-  padding: 5.2mm 5.4mm 3.6mm; box-shadow: inset 0 0 0 1mm var(--kirec), inset 0 0 0 1.4mm var(--altin), var(--golge); }
+  padding: 5.2mm 5.6mm 5.2mm; box-shadow: inset 0 0 0 1mm var(--kirec), inset 0 0 0 1.4mm var(--altin), var(--golge); }
 .medeniyet::before { content: ""; position: absolute; left: 1.4mm; right: 1.4mm; top: 1.4mm; height: 2.2mm;
   background: url("gorsel/ebru-gol.jpg") center 60% / 140mm auto; border-bottom: .3mm solid var(--altin); }
 .medeniyet > svg.kose { position: absolute; width: 8mm; height: 8mm; z-index: 1; }
@@ -243,7 +261,7 @@ ol.akis li > i { width: 5.6mm; height: 5.6mm; border-radius: 50%; border: var(--
 ol.akis li:not(:last-child)::after { content: ""; position: absolute; left: 2.75mm; top: 6mm; bottom: -.2mm; border-left: .35mm dotted var(--gol-k); }
 .sonuc { display: inline-block; background: var(--obs); color: #fff; border-radius: 6mm; padding: 1mm 3.2mm 1.1mm 1.2mm; font-weight: 800; font-size: 9.8pt; line-height: 1.25; margin-top: .6mm; }
 .sonuc > span:first-child { display: inline-block; background: var(--keh); color: var(--obs); border-radius: 5mm; padding: .35mm 2.2mm .25mm; margin-right: 1.8mm; font-size: 7.4pt; font-weight: 900; letter-spacing: .08em; vertical-align: .3mm; }
-table.gorev-tablo { border-collapse: collapse; width: 100%; font-size: 9.4pt; margin-top: 1.4mm; }
+table.gorev-tablo { border-collapse: collapse; width: 100%; font-size: 9.5pt; margin-top: 1.4mm; }
 table.gorev-tablo th, table.gorev-tablo td { border: .3mm solid var(--obs-2); padding: .7mm 1.4mm; text-align: center; }
 table.gorev-tablo th { background: var(--gol-a); font-weight: 900; }
 table.gorev-tablo td:first-child { text-align: left; font-weight: 800; background: var(--gum-a); }
@@ -390,7 +408,7 @@ ul.yargi li { position: relative; padding-left: 6.4mm; } ul.yargi li b { positio
 .unvan svg { width: 13mm; height: 13mm; display: block; margin: 0 auto .6mm; }
 .unvan b { display: block; font-family: var(--baslik); font-size: 12.4pt; line-height: 1; padding-top: .5mm; }
 .unvan small { display: block; font-size: 7.8pt; font-weight: 900; color: var(--keh-k); letter-spacing: .05em; }
-.unvan p { font-size: 9.2pt; line-height: 1.2; margin-top: .6mm; color: var(--obs-2); }
+.unvan p { font-size: 9.5pt; line-height: 1.18; margin-top: .6mm; color: var(--obs-2); }
 table.defter { width: 100%; border-collapse: collapse; font-size: 9.6pt; }
 table.defter td, table.defter th { border-bottom: .3mm dashed var(--cizgi); padding: .8mm 1mm; text-align: left; }
 table.defter th { font-size: 7.4pt; font-weight: 900; letter-spacing: .07em; text-transform: uppercase; color: var(--keh-k); border-bottom: .35mm solid var(--obs); }
@@ -446,7 +464,7 @@ ol.hedefler li::before { counter-increment: h; content: counter(h); width: 5.6mm
 .basamak-unvan small { font-size: 7.6pt; font-weight: 800; color: var(--soluk); }
 .isaretler { display: flex; align-items: center; gap: 2.6mm; padding: 1.8mm 3mm; }
 .isaretler > .et { flex: none; }
-.isaretler .is { display: flex; align-items: center; gap: 1.2mm; font-size: 8pt; line-height: 1.12; }
+.isaretler .is { display: flex; align-items: center; gap: 1.2mm; font-size: 8.6pt; line-height: 1.12; }
 .isaretler .is svg { width: 6mm; height: 6mm; color: var(--gol-k); flex: none; }
 .isaretler .is b { display: block; font-size: 8.6pt; }
 
@@ -490,8 +508,8 @@ svg.info.cek { width: 70%; height: auto; display: block; margin: .4mm auto .2mm;
 .tuz-ic p { margin-top: 0 !important; font-size: 9.5pt !important; }
 
 /* ------------------------------------------------------------------ 24. 4–6. DURAK EKLERİ */
-table.mk th { font-size: 7.6pt; } table.mk td { font-size: 9.2pt; } table.mk td:last-child { font-family: var(--baslik); font-size: 11pt; background: var(--keh-a); }
-p.atom-serit { margin-top: 1.4mm; font-size: 9pt !important; font-weight: 800; color: var(--kob-k); letter-spacing: .01em; }
+table.mk th { font-size: 7.6pt; } table.mk td { font-size: 9.5pt; } table.mk td:last-child { font-family: var(--baslik); font-size: 11pt; background: var(--keh-a); }
+p.atom-serit { margin-top: 1.4mm; font-size: 9.5pt !important; font-weight: 800; color: var(--kob-k); letter-spacing: .01em; }
 .haz-ic { display: grid; grid-template-columns: 30mm 1fr; gap: 2.4mm; align-items: center; }
 .haz-ic svg.info { width: 100%; height: auto; display: block; border-radius: 2mm; border: .3mm solid var(--altin); }
 .haz-ic.sag { grid-template-columns: 1fr 30mm; }
@@ -532,6 +550,7 @@ svg.pamuk-oku { width: 20mm; height: 22.8mm; align-self: center; margin-top: aut
 .muhur-yer svg { width: 18mm; height: 18mm; transform: rotate(10deg); }
 .kissa-izgara .kissa { min-height: 0; }
 .kissa-ic .ust-satir svg.info { width: 31mm; height: auto; border-radius: 2mm; border: .3mm solid var(--obs); }
+.kissa-ic .ust-satir svg.info.grafik { width: 38mm; }
 .raf-ic { display: grid; grid-template-columns: 37mm 1fr; gap: 2mm; align-items: center; }
 .raf-ic svg.info { width: 100%; height: auto; }
 table.gorev-tablo.raf { margin-top: 0; } table.gorev-tablo.raf td:first-child { text-align: center; width: 9mm; }
@@ -548,9 +567,10 @@ table.gorev-tablo.raf { margin-top: 0; } table.gorev-tablo.raf td:first-child { 
 .iki-sutun { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
 .iki-sutun > div { display: flex; flex-direction: column; }
 .iki-sutun .sonuc { align-self: flex-start; margin-top: auto; }
-.g7-alt { display: grid; grid-template-columns: 1fr auto; gap: 3mm; align-items: center; margin-top: 1.2mm; }
-.g7-alt .sonuc { margin-top: 0; }
-ol.akis.yatay { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2mm; margin-top: 0; }
+.g7-sag { display: flex; flex-direction: column; align-items: center; gap: 1.2mm; }
+.g7-sag .sonuc { margin-top: 0; }
+ol.akis.yatay { display: flex; justify-content: space-between; gap: 3mm; margin-top: 1.4mm; }
+ol.akis.yatay li { white-space: nowrap; }
 ol.akis.yatay li { padding-bottom: 0; } ol.akis.yatay li::after { display: none; }
 .medeniyet.hazini .haz-ic { grid-template-columns: 34mm 1fr; }
 .medeniyet .haz-ic .zh { margin-bottom: .4mm; }
@@ -618,3 +638,6 @@ ol.akis.yatay li { padding-bottom: 0; } ol.akis.yatay li::after { display: none;
 .kucuk-med { margin-top: 5mm; padding: 5.2mm 5.6mm 3.8mm; }
 .kucuk-med .haz-ic.sag { grid-template-columns: 1fr 19mm; }
 .kucuk-med .metin { font-size: 10.4pt; }
+.yan-anahtar p { display: flex; align-items: center; flex-wrap: wrap; gap: 1mm; margin-bottom: 1.2mm; }
+.yan-anahtar p b { width: 18mm; font-size: 8pt; font-weight: 900; letter-spacing: .05em; text-transform: uppercase; color: var(--keh-k); }
+.yan-anahtar .ck { display: inline-block; border: .35mm solid var(--obs); border-radius: 4mm; padding: .2mm 1.8mm; background: var(--gol-aa); font-weight: 800; font-size: 9.5pt; white-space: nowrap; }

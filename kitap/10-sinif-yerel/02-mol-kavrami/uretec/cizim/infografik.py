@@ -5,7 +5,7 @@ akçe rayı, unvan rozetleri, imbik (damıtma), özgül ağırlık resmi.
 Bütün sayılar dogrula.py ile denetlenir; burada yalnızca çizim vardır.
 """
 import math
-from .temel import Svg, f, nok, cizgi_d, egri_d, karis, acik, koyu, selcuklu_yildizi, yildiz_noktalari, rng as RNG
+from .temel import Svg, f, nok, cizgi_d, egri_d, karis, acik, koyu, selcuklu_yildizi, yildiz_noktalari, halolu_yazi, rng as RNG
 from .renkler import (OBS, GOL, GOL_K, GOL_A, GOL_AA, DERIN, KEH, KEH_K, KEH_A, MER, MER_K, MER_A, KOB, KOB_K, KOB_A,
                       ALTIN, ALTIN_K, ALTIN_A, LAJVER, ZUMRUT, GUM, GUM_K, GUM_A, PEMBE, ERGUVAN, ATOM)
 from . import molekul as M
@@ -40,7 +40,7 @@ def avogadro_merdiveni(onek="inf-avo"):
         if b and us not in (18, 21, 24):
             s += _sup("10", us, X(us), y + 70, 32, GUM_K)
     isaret = [
-        (math.log10(12), "12", "1 düzine yumurta", "yumurta", "ust", "middle"),
+        (math.log10(12), "12", "1 düzine yumurta", "yumurta", "ust", "start"),
         (math.log10(500), "500", "1 top kâğıt", "kagit", "alt", "middle"),
         (math.log10(8e9), "≈ 8·10⁹", "dünyadaki insan", "insan", "ust", "middle"),
         (math.log10(1.2e19), "≈ 1,2·10¹⁹", "Van Gölü’ndeki damla", "gol", "alt", "end"),
@@ -53,11 +53,13 @@ def avogadro_merdiveni(onek="inf-avo"):
         tx = x + (20 if anc == "end" else 0)
         if tur == "mol":
             tx = W - 24
+        if anc == "start":
+            tx = 22
         if yon == "ust":
             s += f'<path d="M{f(x)} {y - 16} V{y - 60}" stroke="{renk}" stroke-width="3" stroke-dasharray="6 5"/>'
             s += f'<text x="{f(tx)}" y="{y - 72}" text-anchor="{anc}" {B} font-size="44" fill="{renk}">{e1}</text>'
             s += f'<text x="{f(tx)}" y="{y - 120}" text-anchor="{anc}" {T} font-size="31" fill="{OBS}">{e2}</text>'
-            s += _kucuk_resim(s, tur, x - (60 if anc == "end" else 0), y - 226)
+            s += _kucuk_resim(s, tur, x - (60 if anc == "end" else 0) + (40 if anc == "start" else 0), y - 226)
         else:
             s += f'<path d="M{f(x)} {y + 16} V{y + 104}" stroke="{renk}" stroke-width="3" stroke-dasharray="6 5"/>'
             s += f'<text x="{f(tx)}" y="{y + 140}" text-anchor="{anc}" {B} font-size="44" fill="{renk}">{e1}</text>'
@@ -358,19 +360,19 @@ def grafik_xy(onek="inf-graf"):
     """Kütle (g) – mol grafiği: X için (12 g; 0,5 mol), Y için (16 g; 0,5 mol) noktalı doğrular."""
     s = Svg(onek)
     W, H = 520, 400
-    x0, y0, x1, y1 = 80, 340, 490, 40
-    s += f'<rect width="{W}" height="{H}" rx="18" fill="#FFFFFF"/>'
+    x0, y0, x1, y1 = 100, 330, 490, 50
+    s += f'<rect width="{W}" height="{H + 40}" rx="18" fill="#FFFFFF"/>'
     for k in range(0, 5):
         yy = y0 - (y0 - y1) * k / 4
         s += f'<path d="M{x0} {f(yy)} H{x1}" stroke="#DCE4E8" stroke-width="2"/>'
-        s += f'<text x="{x0 - 12}" y="{f(yy + 8)}" text-anchor="end" {T} font-size="22">{["0", "0,25", "0,5", "0,75", "1"][k]}</text>'
+        s += f'<text x="{x0 - 12}" y="{f(yy + 10)}" text-anchor="end" {T} font-size="30">{["0", "0,25", "0,5", "0,75", "1"][k]}</text>'
     for k in range(0, 5):
         xx = x0 + (x1 - x0) * k / 4
         s += f'<path d="M{f(xx)} {y0} V{y1}" stroke="#DCE4E8" stroke-width="2"/>'
-        s += f'<text x="{f(xx)}" y="{y0 + 30}" text-anchor="middle" {T} font-size="22">{k * 8}</text>'
+        s += f'<text x="{f(xx)}" y="{y0 + 36}" text-anchor="middle" {T} font-size="30">{k * 8}</text>'
     s += f'<path d="M{x0} {y1 - 10} V{y0} H{x1 + 10}" stroke="{OBS}" stroke-width="4" fill="none"/>'
-    s += f'<text x="{x1}" y="{y0 + 58}" text-anchor="end" {T} font-size="21" fill="{GUM_K}">kütle (g)</text>'
-    s += f'<text x="{x0 - 8}" y="{y1 - 18}" {T} font-size="21" fill="{GUM_K}">mol</text>'
+    s += f'<text x="{x1}" y="{y0 + 72}" text-anchor="end" {T} font-size="28" fill="{GUM_K}">kütle (g)</text>'
+    s += f'<text x="{x0 - 4}" y="{y1 - 16}" {T} font-size="28" fill="{GUM_K}">mol</text>'
     def X(g):
         return x0 + (x1 - x0) * g / 32
     def Yy(n):
@@ -382,7 +384,7 @@ def grafik_xy(onek="inf-graf"):
         s += f'<circle cx="{f(X(g))}" cy="{f(Yy(.5))}" r="10" fill="#FFFFFF" stroke="{c}" stroke-width="5"/>'
     s += f'<text x="{f(X(24) - 20)}" y="{f(Yy(1) - 12)}" {B} font-size="34" fill="{MER}">X</text>'
     s += f'<text x="{f(X(32) - 30)}" y="{f(Yy(1) - 12)}" {B} font-size="34" fill="{KOB}">Y</text>'
-    return s.cikti(f"0 0 {W} {H + 20}", cls="info grafik")
+    return s.cikti(f"0 0 {W} {H + 40}", cls="info grafik")
 
 
 def raf_kaplari(onek="inf-raf"):
@@ -399,7 +401,7 @@ def raf_kaplari(onek="inf-raf"):
         s += f'<path d="M{x - 56} 236 V160 H{x + 56} V236 Z" fill="{sivi}" opacity=".9"/>'
         s += f'<rect x="{x - 48}" y="40" width="96" height="24" rx="6" fill="{koyu(et, .1)}" stroke="{OBS}" stroke-width="3"/>'
         s += f'<rect x="{x - 46}" y="128" width="92" height="50" rx="8" fill="#FFFFFF" stroke="{et}" stroke-width="4"/>'
-        s += f'<text x="{x}" y="164" text-anchor="middle" {B} font-size="34" fill="{OBS}">{ad}</text>'
+        s += f'<text x="{x}" y="168" text-anchor="middle" {B} font-size="44" fill="{OBS}">{ad}</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info raf")
 
 
@@ -499,7 +501,7 @@ def merdiven_akce(onek="inf-mrd"):
         s += f'<rect x="{x}" y="{y}" width="215" height="14" fill="#E2B88A" stroke="{OBS}" stroke-width="3"/>'
         for j in range(4 - k):
             s += akce_sikke(s, x + 40 + j * 46, y - 26, 20)
-        s += f'<text x="{x + 107}" y="{y + 64}" text-anchor="middle" {B} font-size="48" fill="#FFFFFF" stroke="{OBS}" stroke-width="1.4" paint-order="stroke">+{40 - 10 * k}</text>'
+        s += halolu_yazi(f'x="{x + 107}" y="{y + 64}" text-anchor="middle" {B} font-size="48"', f"+{40 - 10 * k}", "#FFFFFF", OBS, 1.4)
         if y + 100 < 290:
             s += f'<text x="{x + 107}" y="{y + 100}" text-anchor="middle" {T} font-size="31" fill="#FFF6E6">{k} basamak</text>'
         else:

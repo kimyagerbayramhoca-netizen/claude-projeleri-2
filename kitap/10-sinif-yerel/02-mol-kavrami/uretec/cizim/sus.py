@@ -151,7 +151,7 @@ def kilim_serit(onek, en=1880, boy=60, renkler=None):
 
 # ------------------------------------------------------------------ mühürler
 
-def muhur(onek, tur="yanlis", ust="✶ MÜHÜR ✶", alt=None, boy=None):
+def muhur(onek, tur="yanlis", ust="• MÜHÜR •", alt=None, boy=None):
     """Sekiz köşeli yıldız mühür. tur: 'yanlis' (mercan) | 'dogru' (çini yeşili-turkuaz)."""
     renk = "#B4262C" if tur == "yanlis" else "#11807A"
     yazi = "YANLIŞ" if tur == "yanlis" else "DOĞRU"

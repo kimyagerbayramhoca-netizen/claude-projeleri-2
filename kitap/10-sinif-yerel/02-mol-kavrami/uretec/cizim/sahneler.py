@@ -6,7 +6,7 @@ Kompozisyon kuralı (başlık bantları): sol üst ~%48 × %70 alan GÖKYÜZÜ o
 oraya HTML'deki başlık levhası (.levha) oturur. Simge yapılar sağ yarıda ve alt şeritte durur.
 """
 import math
-from .temel import Svg, f, nok, cizgi_d, egri_d, karis, acik, koyu, rng as RNG
+from .temel import Svg, f, nok, cizgi_d, egri_d, karis, acik, koyu, halolu_yazi, rng as RNG
 from . import sahne as S
 from . import yapilar as Y
 from .renkler import OBS, GOL, GOL_K, KEH, MER, KOB, ALTIN
@@ -861,7 +861,7 @@ def panorama(h=1100):
     s += f'<path d="M{f(x + 36)} {f(y + 40)} v-64" stroke="#1B1D26" stroke-width="4"/><path d="M{f(x + 38)} {f(y - 22)} h44 l-10 13 l10 13 h-44 Z" fill="#E2533D" stroke="#1B1D26" stroke-width="2.4"/>'
     # Van Gölü yazısı
     x, y, _ = P(38.62, 42.86)
-    s += (f'<text x="{f(x)}" y="{f(y + 70)}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="76" fill="#FFFFFF" stroke="#0A5A66" stroke-width="2" paint-order="stroke" opacity=".96">Van Gölü</text>'
+    s += (f'<g opacity=".96">' + halolu_yazi(f'x="{f(x)}" y="{f(y + 70)}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="76"', "Van Gölü", "#FFFFFF", "#0A5A66", 1.6) + '</g>'
           f'<text x="{f(x)}" y="{f(y + 108)}" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="25" letter-spacing="1.5" fill="#FFFFFF" opacity=".95">SODALI GÖL · pH ≈ 9,5–10</text>')
     # gölde inci kefalleri + yüzen Pamuk
     for k, (a, b, aci) in enumerate(((38.43, 42.98, -20), (38.40, 43.06, -32), (38.47, 42.62, -14))):
