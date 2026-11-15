@@ -121,7 +121,7 @@
       "renk": "kob",
       "baslik": "Basınç birimleri",
       "formul": "1 atm = 76 cmHg",
-      "not": "= 760 mmHg = 760 torr · +10 akçe",
+      "not": "= 760 mmHg (torr) · +10 akçe",
       "kisa": "1 atm = 76 cmHg",
       "durak": 1
     },
@@ -130,7 +130,7 @@
       "renk": "gol",
       "baslik": "Açık uçlu manometre",
       "formul": "P_{gaz} = P_0 ± h",
-      "not": "Cıva açık kolda yüksekse + · +10 akçe",
+      "not": "Açık kol yüksekse + · +10 akçe",
       "durak": 1
     },
     {
@@ -155,7 +155,7 @@
       "renk": "erg",
       "baslik": "Gay-Lussac · n, V sabit",
       "formul": "<span class=\"kesir\"><span>P_1</span><span>T_1</span></span> = <span class=\"kesir\"><span>P_2</span><span>T_2</span></span>",
-      "not": "Kapalı kap ısınınca P artar · +10 akçe",
+      "not": "P/T sabit · +10 akçe",
       "kisa": "P₁/T₁ = P₂/T₂",
       "durak": 3
     },
@@ -164,7 +164,7 @@
       "renk": "gol",
       "baslik": "Avogadro · P, T sabit",
       "formul": "<span class=\"kesir\"><span>V_1</span><span>n_1</span></span> = <span class=\"kesir\"><span>V_2</span><span>n_2</span></span>",
-      "not": "NŞA: 1 mol gaz = 22,4 L · +10 akçe",
+      "not": "NŞA: 22,4 L/mol · +10 akçe",
       "kisa": "V₁/n₁ = V₂/n₂",
       "durak": 3
     },
@@ -173,7 +173,7 @@
       "renk": "kob",
       "baslik": "Birleşik gaz denklemi",
       "formul": "<span class=\"kesir\"><span>P_1·V_1</span><span>n_1·T_1</span></span> = <span class=\"kesir\"><span>P_2·V_2</span><span>n_2·T_2</span></span>",
-      "not": "Sabit kalanı sil; T kelvin · +10 akçe",
+      "not": "Sabit kalanı sil · +10 akçe",
       "kisa": "P₁V₁/n₁T₁ = P₂V₂/n₂T₂",
       "durak": 3
     },
@@ -191,7 +191,7 @@
       "renk": "mer",
       "baslik": "Kinetik enerji",
       "formul": "E<sub>k</sub> ortalama ~ T",
-      "not": "Aynı T'de bütün gazlarda eşit · +10 akçe",
+      "not": "Aynı T’de hep eşit · +10 akçe",
       "kisa": "E<sub>k</sub> ~ T (kelvin)",
       "durak": 4
     },
@@ -200,7 +200,7 @@
       "renk": "kob",
       "baslik": "Gaz yoğunluğu",
       "formul": "d = <span class=\"kesir\"><span>P·M_A</span><span>R·T</span></span>",
-      "not": "Aynı P, T'de d oranı = M oranı · +10 akçe",
+      "not": "d₁/d₂ = M₁/M₂ · +10 akçe",
       "kisa": "d = P·M<sub>A</sub>/(R·T)",
       "durak": 5
     },
@@ -209,7 +209,7 @@
       "renk": "erg",
       "baslik": "Graham yasası",
       "formul": "<span class=\"kesir\"><span>v_1</span><span>v_2</span></span> = √<span class=\"kesir\"><span>M_2</span><span>M_1</span></span>",
-      "not": "= t₂ / t₁ (süre ters orantılı) · +10 akçe",
+      "not": "= t₂/t₁ · +10 akçe",
       "kisa": "v₁/v₂ = √(M₂/M₁)",
       "durak": 5
     }

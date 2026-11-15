@@ -37,6 +37,15 @@ table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab
 .cozumler p.c { margin-bottom: .55mm; }
 .siradaki-yol b { font-size: 13pt; }
 .s1 .ic { gap: 1.8mm; }
+.oy.yatay > div:nth-child(5) { grid-column: 1 / -1; }  /* 5. şık tam satır (ortak .tam sınıfı ortak denetçide tanınmıyor) */
+.meclis-not ul.ozet-liste { margin: 1.2mm 0 .8mm; }
+.u3-yan { display: grid; grid-template-columns: 1fr 29mm; gap: 2mm; margin: .6mm 0 1mm; }
+.u3-yan > div { display: flex; flex-direction: column; gap: 1mm; } .u3-yan .karalama { flex: 1; min-height: 7mm; }
+.u3-yan .ustad-sekil { float: none; margin: 0; }
+.ustad-sekil svg.ugraf { width: 29mm; border-radius: 1.6mm; border: .3mm solid var(--lajver); }  /* ortak kural yalnız svg.ustad-graf için */
+.yd th:nth-child(1), .yd th:nth-child(2) { width: 15mm; } .yd th:nth-child(3) { width: 45%; } .yd td { height: 6.6mm; }
+.s16 .nisan-say.cok b { font-size: 6.8pt; }  /* 8 nişan adı dar hücreye sığsın (Bahçı-vanı yumuşak tire ile bölünür) */
+.s16 .nisan-say.cok > div { display: flex; flex-direction: column; align-items: center; } .s16 .nisan-say.cok > div > small { margin-top: auto; }
 </style>
 </head>
 <body>
@@ -552,13 +561,13 @@ table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab
   </div>
   <main class="ic" style="top:52.2mm">
     <div class="ozetler" data-tasma-yatay>
-      <div class="ozet-kart koyu"><span class="sira">01/06</span><span class="et">Yolun ilkesi</span><div class="dev-sayi acik" style="font-size:20pt">Σm<sub>giren</sub> = Σm<sub>ürün</sub></div><p>Kütle ve atomlar korunur; molekül sayısı korunmayabilir.</p><div class="ozet-mol">{{mol|CH4|10,20,5|12mm}}{{mol|O2|10,20,0|12mm}}{{mol|CO2|15,30,0|15mm}}{{mol|H2O|0,0,0|11mm}}</div></div>
+      <div class="ozet-kart koyu"><span class="sira">01/06</span><span class="et">Yolun ilkesi</span><div class="dev-sayi acik" style="font-size:20pt">m<sub>tepken</sub> = m<sub>ürün</sub></div><p>Kütle ve atomlar korunur; molekül sayısı korunmayabilir.</p><div class="ozet-mol">{{mol|CH4|10,20,5|12mm}}{{mol|O2|10,20,0|12mm}}{{mol|CO2|15,30,0|15mm}}{{mol|H2O|0,0,0|11mm}}</div></div>
       <div class="ozet-kart gol"><span class="sira">02/06</span><span class="et">Tek kural</span><h3>Önce mole git.</h3><div class="ozet-f kucuk">verilen → mol → mol → istenen</div><div class="ozet-f">n<sub>B</sub> = n<sub>A</sub> · <span class="kesir"><span>k<sub>B</sub></span><span>k<sub>A</sub></span></span></div><p>Katsayı mol ve tanecik oranıdır, kütle oranı değil.</p></div>
       <div class="ozet-kart"><span class="sira">03/06</span><span class="et">Denkleştirme</span><h3>İki yaka denk</h3>
         <ul class="ozet-liste"><li>Kalabalık formüle 1 koy</li><li>Metal → ametal → H → O</li><li>Kesir çıkarsa paydayla çarp</li><li>Alt simgeye dokunma</li></ul></div>
       <div class="ozet-kart keh"><span class="sira">04/06</span><span class="et keh">Sınırlayıcı</span><h3>En küçük n ÷ k</h3>
         <ul class="ozet-liste"><li>Her molü kendi katsayısına böl</li><li>En küçük çıkan önce biter</li><li>B − D = S tablosu kur</li><li>Ürün sınırlayıcıdan hesaplanır</li></ul></div>
-      <div class="ozet-kart mer"><span class="sira">05/06</span><span class="et mer">Verim · saflık</span><h3>Gerçek ≤ teorik</h3><div class="resim" style="width:62%;margin:0 auto">{{info|verim_saati|80}}</div><p>% verim = gerçek / teorik · 100 · % saflık = saf / örnek · 100.</p></div>
+      <div class="ozet-kart mer"><span class="sira">05/06</span><span class="et mer">Verim · saflık</span><h3>Gerçek ≤ teorik</h3><div class="resim" style="width:62%;margin:0 auto">{{info|verim_saati|80}}</div><p>%&nbsp;verim = gerçek / teorik · 100<br>%&nbsp;saflık = saf / örnek · 100</p></div>
       <div class="ozet-kart"><span class="sira">06/06</span><span class="et mer">{{ikon|tuzak}}En sık 4 hata</span>
         <ul class="ozet-liste no"><li>Denkleştirirken alt simgeyi değiştirmek</li><li>Katsayıyı kütle oranı sanmak</li><li>Molü az olanı sınırlayıcı sanmak</li><li>Verimle çarpacağına bölmek (ya da tersi)</li></ul>
         <div class="muhur-kose">{{muhur|yanlis}}</div></div>
@@ -596,7 +605,7 @@ table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab
   {{hud|9}}
   {{cini}}
   <div class="bant" data-serbest>{{sahne|karpuz_meclis}}
-    <div class="levha keh">{{rozet|M|-|keh}}<div><div class="ust">Yan yol 1 · Dicle kıyısı · bostan çardağında meclis</div><h1>Meclis: <em>kim haklı?</em></h1><p class="alt-bas">Dört çözüm meclise geldi; her birinde <b>tek hata</b> var.</p><div class="hedef"><b>Usul</b>Doğru kişi +10, neden +10, doğrusu +10.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
+    <div class="levha keh">{{rozet|M|-|keh}}<div><div class="ust">Yan yol 1 · Dicle kıyısı · çardakta meclis</div><h1>Meclis: <em>kim haklı?</em></h1><p class="alt-bas">Dört çözüm meclise geldi; her birinde <b>tek hata</b> var.</p><div class="hedef"><b>Usul</b>Doğru kişi +10, neden +10, doğrusu +10.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
     <div class="bento" style="grid-template-columns:1fr 1fr">
@@ -607,7 +616,7 @@ table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab
           <div class="cozum-defter"><div><i>1</i>C<sub>4</sub>H<sub>10</sub>’a 1 koydum: 4CO<sub>2</sub> ve 5H<sub>2</sub>O.</div><div><i>2</i>Sağda O: 8 + 5 = 13 → 13O<sub>2</sub> yazdım.</div><div><i>3</i>C<sub>4</sub>H<sub>10</sub> + 13O<sub>2</sub> → 4CO<sub>2</sub> + 5H<sub>2</sub>O denk.</div></div>
           <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda; sayım doğru, yazım yanlış.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
           <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Sorun 2. satırda: 13 O atomu 13 değil <sup>13</sup>/<sub>2</sub> O<sub>2</sub> eder.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">13 O atomu = 13/2 O<sub>2</sub> molekülü</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">2C<sub>4</sub>H<sub>10</sub> + 13O<sub>2</sub> → 8CO<sub>2</sub> + 10H<sub>2</sub>O</span></span></div></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr"><sup>13</sup>/<sub>2</sub> O<sub>2</sub> olmalı</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">2C<sub>4</sub>H<sub>10</sub> + 13O<sub>2</sub> → 8CO<sub>2</sub> + 10H<sub>2</sub>O</span></span></div></div>
         </div>
       </div>
       <div class="kart meclis" data-soru="M2">
@@ -617,7 +626,7 @@ table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab
           <div class="cozum-defter"><div><i>1</i>Katsayılar 1 : 3 olduğundan kütleler de 1 : 3’tür.</div><div><i>2</i>m(H<sub>2</sub>) = 3 · 8,4 = 25,2 g</div><div><i>3</i>Kütle kontrolü: 8,4 + 25,2 = 33,6 g NH<sub>3</sub></div></div>
           <div class="yorum" data-dogru>{{av|pamuk}}<span><b>Pamuk:</b> 1. satırda: katsayı mol oranıdır, kütle oranı değil.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
           <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda; kütle kontrolü yanlış toplanmış.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk" data-dogru></span>1 <span class="kutucuk"></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">katsayı mol oranıdır</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">0,3 mol N<sub>2</sub> → 0,9 mol H<sub>2</sub> = 1,8 g</span></span></div></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk" data-dogru></span>1 <span class="kutucuk"></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">mol ≠ kütle</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">0,3 mol N<sub>2</sub> → 0,9 mol H<sub>2</sub> = 1,8 g</span></span></div></div>
         </div>
       </div>
       <div class="kart meclis" data-soru="M3">
@@ -627,7 +636,7 @@ table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab
           <div class="cozum-defter"><div><i>1</i>Al 3 mol, Cl<sub>2</sub> 3 mol alınmış.</div><div><i>2</i>Mol sayıları eşit; ikisi de tamamen tükenir.</div><div><i>3</i>3 mol Al → 3 mol AlCl<sub>3</sub> oluşur.</div></div>
           <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> 2. satırda: mol ÷ katsayı karşılaştırılmalı.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
           <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda; 3 mol Al 1,5 mol AlCl<sub>3</sub> verir.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">Al 3/2 = 1,5 · Cl<sub>2</sub> 3/3 = 1 → Cl<sub>2</sub> biter</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">2 mol AlCl<sub>3</sub>; 1 mol Al artar</span></span></div></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">mol ÷ katsayı</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">2 mol AlCl<sub>3</sub>; 1 mol Al artar</span></span></div></div>
         </div>
       </div>
       <div class="kart meclis" data-soru="M4">
@@ -637,11 +646,11 @@ table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab
           <div class="cozum-defter"><div><i>1</i>n = 25 / 100 = 0,25 mol CaCO<sub>3</sub></div><div><i>2</i>Teorik CaO: 0,25 · 56 = 14 g</div><div><i>3</i>Gerçek: 14 / 0,80 = 17,5 g CaO</div></div>
           <div class="yorum">{{av|yusuf}}<span><b>Yusuf:</b> Hata 2. satırda; CaO 56 değil 72 g/mol.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
           <div class="yorum" data-dogru>{{av|elif}}<span><b>Elif:</b> 3. satırda: gerçek verim teorikten büyük olamaz.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk"></span>2 <span class="kutucuk" data-dogru></span>3 · NEDEN?<span class="cizgili"><span class="ogr">verimle çarpılmalı, bölünmez</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">14 · 0,80 = 11,2 g CaO</span></span></div></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk"></span>2 <span class="kutucuk" data-dogru></span>3 · NEDEN?<span class="cizgili"><span class="ogr">× 0,80 olmalı</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">14 · 0,80 = 11,2 g CaO</span></span></div></div>
         </div>
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:1.1fr .9fr">
+    <div class="bento esnek" style="grid-template-columns:1fr 1fr">
       <div class="medeniyet">{{kose}}
         <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
         <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><div class="resimli">{{info|imbik}}<p class="metin"><b>Câbir bin Hayyân</b> (8. yy) <b>damıtma, kristallendirme, süzme</b> gibi işlemleri sistemli kullandı.</p></div>
@@ -649,8 +658,9 @@ table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab
       </div>
       <div class="kart keh-z meclis-not">
         {{poz|pamuk-dusunen|pn}}
-        <p><b>Meclis notu (Pamuk):</b> Çözümü iki soruyla sına: <b>“Kütle korunuyor mu?”</b> ve <b>“Ürün teorikten az mı?”</b> Biri “hayır” ise hata oradadır. Cevaplar s.{{sayfa|15}}’{{ek|15|de}}.</p>
-        <div class="muhur-yer">{{muhur|dogru}}</div>
+        <div><p><b>Meclis notu (Pamuk):</b> Dört soruyla sına; “hayır” çıkan yerde hata vardır.</p>
+          <ul class="ozet-liste no"><li>Atomlar iki yanda denk mi?</li><li>Katsayı mol oranı mı?</li><li>Sınırlayıcı: mol ÷ katsayı mı?</li><li>Gerçek ≤ teorik mi?</li></ul>
+          <p class="kucuk-not">Cevaplar s.{{sayfa|15}}’{{ek|15|de}}.</p></div>
       </div>
     </div>
   </main>
@@ -689,7 +699,7 @@ table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab
         </div>
       </div>
       <div class="kart kissa" data-soru="K3">
-        <div class="kissa-bas kob"><span class="et kob">{{ikon|kissa}}Kıssa 3 · Laboratuvar · magnezyum şerit</span><span class="cip akce">+30</span></div>
+        <div class="kissa-bas kob"><span class="et kob">{{ikon|kissa}}Kıssa 3 · Laboratuvar · magnezyum</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
           <div class="ust-satir"><p class="metin">Yusuf kimya kulübünde Mg + 2HCl → MgCl<sub>2</sub> + H<sub>2</sub> tepkimesiyle üç deneme yapıyor; tepkimeler tam verimli.</p><div class="resim" style="width:30mm">{{info|mg_denemeleri}}</div></div>
           <table class="gorev-tablo kucuk"><tr><th>Deneme</th><th>Mg (mol)</th><th>HCl (mol)</th></tr><tr><td>1</td><td>0,1</td><td>0,1</td></tr><tr><td>2</td><td>0,1</td><td>0,3</td></tr><tr><td>3</td><td>0,2</td><td>0,3</td></tr></table>
@@ -820,7 +830,7 @@ table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab
         <div class="mesveret-bas">{{sno|6}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
         <p class="soru"><span class="resim-sag">{{mol|NH3|25,0,0|11mm}}</span>N<sub>2</sub> + 3H<sub>2</sub> → 2NH<sub>3</sub> tepkimesinde 3,4 g NH<sub>3</sub> oluşurken kaç tane H<sub>2</sub> molekülü harcanır?</p>
         <div class="karalama"><span class="ogr">3,4/17 = 0,2 mol NH<sub>3</sub> → H<sub>2</sub> 0,3 mol → 0,3·6,02·10<sup>23</sup> = 1,806·10<sup>23</sup></span></div>
-        <div class="oy yatay"><div><b>A</b><span>3,01·10<sup>22</sup></span><em>%__</em></div><div><b>B</b><span>6,02·10<sup>22</sup></span><em>%__</em></div><div><b>C</b><span>1,204·10<sup>23</sup></span><em>%__</em></div><div data-dogru><b>D</b><span>1,806·10<sup>23</sup></span><em>%__</em></div><div class="tam"><b>E</b><span>3,612·10<sup>23</sup></span><em>%__</em></div></div>
+        <div class="oy yatay"><div><b>A</b><span>3,01·10<sup>22</sup></span><em>%__</em></div><div><b>B</b><span>6,02·10<sup>22</sup></span><em>%__</em></div><div><b>C</b><span>1,204·10<sup>23</sup></span><em>%__</em></div><div data-dogru><b>D</b><span>1,806·10<sup>23</sup></span><em>%__</em></div><div><b>E</b><span>3,612·10<sup>23</sup></span><em>%__</em></div></div>
       </div>
     </div>
   </main>
@@ -847,7 +857,7 @@ table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab
         <div class="mesveret-bas">{{sno|8}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
         <p class="soru">4 g H<sub>2</sub> ile 40 g O<sub>2</sub>, 2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O denklemine göre tam verimle tepkimeye giriyor. Tepkime sonunda artan madde ve kütlesi hangisidir?</p>
         <div class="karalama"><span class="ogr">H<sub>2</sub> 2 mol (2/2 = 1) · O<sub>2</sub> 1,25 mol → H<sub>2</sub> biter; O<sub>2</sub> 0,25 mol = 8 g artar</span></div>
-        <div class="oy yatay"><div><b>A</b><span>H<sub>2</sub> – 1 g</span><em>%__</em></div><div><b>B</b><span>H<sub>2</sub> – 2 g</span><em>%__</em></div><div><b>C</b><span>O<sub>2</sub> – 2 g</span><em>%__</em></div><div><b>D</b><span>O<sub>2</sub> – 4 g</span><em>%__</em></div><div class="tam" data-dogru><b>E</b><span>O<sub>2</sub> – 8 g</span><em>%__</em></div></div>
+        <div class="oy yatay"><div><b>A</b><span>H<sub>2</sub> – 1 g</span><em>%__</em></div><div><b>B</b><span>H<sub>2</sub> – 2 g</span><em>%__</em></div><div><b>C</b><span>O<sub>2</sub> – 2 g</span><em>%__</em></div><div><b>D</b><span>O<sub>2</sub> – 4 g</span><em>%__</em></div><div data-dogru><b>E</b><span>O<sub>2</sub> – 8 g</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I9">
         <div class="mesveret-bas">{{sno|9}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
@@ -907,9 +917,10 @@ table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab
       </div>
       <div class="ustad-soru" data-soru="U3">
         <div class="ustad-bas">{{sno|3|laj}}<span class="et">Grafik · sınırlayıcı</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru"><span class="ustad-sekil">{{info|ustad_grafik}}</span>Sabit miktarda O<sub>2</sub> içeren kaplarda farklı kütlelerde Mg yakılıyor (2Mg + O<sub>2</sub> → 2MgO, tam verim). Oluşan MgO kütlesi grafikte. <span class="kucuk">(O: 16, Mg: 24)</span></p>
-        <ul class="yargi"><li><b>I.</b>Kırılma noktasında Mg ve O<sub>2</sub> artansızdır.</li><li><b>II.</b>14,4 g Mg alınırsa 4,8 g O<sub>2</sub> artar.</li><li><b>III.</b>Kaplardaki O<sub>2</sub> 6,4 g’dır.</li></ul>
-        <div class="karalama"><span class="ogr">16 g MgO = 0,4 mol → O<sub>2</sub> 0,2 mol = 6,4 g (III) · 9,6 g’da artansız (I) · 14,4’te Mg artar (II ✗)</span></div>
+        <p class="soru">Aynı miktarda O<sub>2</sub> bulunan kaplarda farklı kütlede Mg tam verimle yakılıyor (2Mg + O<sub>2</sub> → 2MgO). Oluşan MgO kütlesi grafikte. <span class="kucuk">(O: 16, Mg: 24)</span></p>
+        <div class="u3-yan"><div><ul class="yargi"><li><b>I.</b>Kırılmada artan madde yok.</li><li><b>II.</b>14,4 g Mg’de 4,8 g O<sub>2</sub> artar.</li><li><b>III.</b>Kaptaki O<sub>2</sub> 6,4 g’dır.</li></ul>
+          <div class="karalama"><span class="ogr">I, III doğru; II: Mg artar</span></div></div>
+          <span class="ustad-sekil">{{info|ustad_grafik}}</span></div>
         <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız III</div><div class="sik"><b>C</b>I ve II</div><div class="sik" data-dogru><b>D</b>I ve III</div><div class="sik"><b>E</b>I, II ve III</div></div>
       </div>
       <div class="ustad-soru" data-soru="U4">
@@ -1009,6 +1020,10 @@ table.korunum-tab th:first-child { background: var(--gol-a); } table.korunum-tab
           <p><b>Durak</b><span class="ck">4 · O<sub>2</sub>; 0,9 mol</span><span class="ck">5 · 50 g</span><span class="ck">6 · %32,5</span></p>
         </div>
       </div>
+    </div>
+    <div class="kart yanlis-defteri">
+      <div class="kart-bas"><span class="et mer">{{ikon|tuzak}}Yanlış defterim · aynı hatayı iki kez yapma</span><span class="kes-not">Durak etiketine bak, o sayfaya dön.</span></div>
+      <table class="gorev-tablo kucuk yd"><tr><th>Soru</th><th>Durak</th><th>Hatam neydi?</th><th>Doğrusu</th></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></table>
     </div>
     <div class="bento" style="grid-template-columns:.8fr 1.2fr">
       <div class="kart keh-z puan">

@@ -329,25 +329,34 @@ def kaz(x, y, o=1.0, yon=1):
 
 # ------------------------------------------------------------------ Ani: sur, kireç ocağı, harç teknesi
 
-def ani_sur(s, x0, x1, y, h, tohum, isik=-1, kirik=True):
+def ani_sur(s, x0, x1, y, h, tohum, isik=-1, kirik=True, kum="#C69A6E", suslu=True, kapi=True, gedik_yer=(.56, .87)):
     """Ani'nin tüf taşı surları: iki renk taş örgü, yarım yuvarlak burçlar, geometrik taş kakma şeritleri, karlı üst kenar."""
     r = RNG(tohum)
     w = x1 - x0
     o = []
-    kum = "#C69A6E"
     kizil = "#A65A3E"
     kara = "#4E3A38"
     ust = []
-    n = 30
+    n = 72
+    gedik = gedik_yer if kirik else ()          # yıkık gedikler: sur yer yer yarı boyuna kadar çökmüş (Ani bugün harabedir)
     for i in range(n + 1):
         t = i / n
         yy = y - h * (.78 + .08 * math.sin(t * 9 + 1))
         if kirik and r.random() < .3:
             yy += r.uniform(0, h * .12)
+        for gc in gedik:
+            d = abs(t - gc)
+            if d < .055:
+                hedef = y - h * (.34 + .08 * r.random())
+                yy += (hedef - yy) * min(1, (1 - d / .055) * 1.7)
+                yy += r.uniform(-h * .05, h * .05)
         ust.append((x0 + w * t, yy))
     duvar = [(x0, y)] + ust + [(x1, y)]
     g = s.lin([(0, acik(kum, .1)), (.7, kum), (1, koyu(kum, .2))], 0, y - h, 0, y, kull="userSpaceOnUse", ad="as")
     o.append(f'<path d="{cizgi_d(duvar, True)}" fill="{g}"/>')
+    kirp = s.kid("asc")                       # taş sıraları gediklerde gökyüzüne taşmasın
+    s.tanim(f'<clipPath id="{kirp}"><path d="{cizgi_d(duvar, True)}"/></clipPath>')
+    o.append(f'<g clip-path="url(#{kirp})">')
     # taş sıraları
     for k in range(1, int(h / 16)):
         yy = y - k * 16
@@ -356,6 +365,7 @@ def ani_sur(s, x0, x1, y, h, tohum, isik=-1, kirik=True):
         for xx in range(int(x0 + off), int(x1), 26):
             if r.random() < .25:
                 o.append(f'<rect x="{xx}" y="{f(yy)}" width="25" height="15" fill="{r.choice([kizil, kara, acik(kum, .25)])}" opacity=".55"/>')
+    o.append('</g>')
     # burçlar
     adet = max(3, int(w / 230))
     for i in range(adet):
@@ -364,26 +374,46 @@ def ani_sur(s, x0, x1, y, h, tohum, isik=-1, kirik=True):
         bh = h * r.uniform(1.0, 1.15)
         gb = s.lin([(0, koyu(kum, .2)), (.35, acik(kum, .15)), (.7, kum), (1, koyu(kum, .3))], bx - bw / 2, 0, bx + bw / 2, 0, kull="userSpaceOnUse", ad="ab")
         top = y - bh
-        if kirik and i % 2:
-            top += h * .14
-        o.append(f'<path d="M{f(bx - bw / 2)} {f(y)} V{f(top + 8)} Q{f(bx)} {f(top - 4)} {f(bx + bw / 2)} {f(top + 8)} V{f(y)} Z" fill="{gb}"/>')
-        # kakma şerit: dama (iki renk kare)
+        yikik = kirik and i % 2 == 1
+        if yikik:                                  # tepesi yıkılmış burç: kırık, basamaklı üst kenar
+            top += h * .2
+            kir = [(bx - bw / 2, top + 26), (bx - bw * .3, top + 4), (bx - bw * .12, top + 22), (bx + bw * .05, top - 6),
+                   (bx + bw * .22, top + 16), (bx + bw / 2, top + 34)]
+            o.append(f'<path d="M{f(bx - bw / 2)} {f(y)} L{" L".join(f"{f(a_)} {f(b_)}" for a_, b_ in kir)} V{f(y)} Z" fill="{gb}"/>')
+        else:
+            o.append(f'<path d="M{f(bx - bw / 2)} {f(y)} V{f(top + 8)} Q{f(bx)} {f(top - 4)} {f(bx + bw / 2)} {f(top + 8)} V{f(y)} Z" fill="{gb}"/>')
+        # kakma şerit: dama (iki renk kare) — yalnız Ani'de (suslu)
         sy = top + bh * .3
-        for j in range(8):
+        for j in (range(8) if suslu else ()):
             cx = bx - bw / 2 + bw * (j + .5) / 8
             for row in range(2):
                 if (j + row) % 2 == 0:
                     o.append(f'<rect x="{f(cx - bw / 16)}" y="{f(sy + row * bw / 8)}" width="{f(bw / 8)}" height="{f(bw / 8)}" fill="{kara}" opacity=".85"/>')
                 else:
                     o.append(f'<rect x="{f(cx - bw / 16)}" y="{f(sy + row * bw / 8)}" width="{f(bw / 8)}" height="{f(bw / 8)}" fill="{kizil}" opacity=".85"/>')
-        o.append(f'<path d="M{f(bx - bw / 2)} {f(sy - 3)} H{f(bx + bw / 2)} M{f(bx - bw / 2)} {f(sy + bw / 4 + 3)} H{f(bx + bw / 2)}" stroke="{kara}" stroke-width="2.4"/>')
+        if suslu:
+            o.append(f'<path d="M{f(bx - bw / 2)} {f(sy - 3)} H{f(bx + bw / 2)} M{f(bx - bw / 2)} {f(sy + bw / 4 + 3)} H{f(bx + bw / 2)}" stroke="{kara}" stroke-width="2.4"/>')
         # dar mazgal pencere
         o.append(f'<rect x="{f(bx - bw * .05)}" y="{f(top + bh * .58)}" width="{f(bw * .1)}" height="{f(bh * .16)}" rx="{f(bw * .05)}" fill="{kara}"/>')
-        # kar kapağı
+        # kar kapağı (yıkık burçta kırık kenarda ince kar)
+        if yikik:
+            o.append(f'<path d="M{" L".join(f"{f(a_)} {f(b_ - 5)}" for a_, b_ in kir)} L{" L".join(f"{f(a_)} {f(b_ + 3)}" for a_, b_ in reversed(kir))} Z" fill="#FFFFFF"/>')
+            continue
         o.append(f'<path d="M{f(bx - bw / 2 - 3)} {f(top + 10)} Q{f(bx)} {f(top - 8)} {f(bx + bw / 2 + 3)} {f(top + 10)} Q{f(bx + bw * .2)} {f(top + 6)} {f(bx)} {f(top + 12)} Q{f(bx - bw * .25)} {f(top + 6)} {f(bx - bw / 2 - 3)} {f(top + 10)} Z" fill="#FFFFFF"/>')
     # surun üstündeki kar
     kar_ust = [(p[0], p[1] - 4) for p in ust]
     o.append(f'<path d="{cizgi_d(kar_ust + [(p[0], p[1] + 5) for p in reversed(ust)], True)}" fill="#FFFFFF"/>')
+    # gediklerin dibinde moloz
+    for gc in gedik:
+        gx = x0 + w * gc
+        for _ in range(11):
+            mx, mr = gx + r.uniform(-w * .06, w * .06), r.uniform(7, 15)
+            my = y - r.uniform(0, 14)
+            ton = r.choice([kum, koyu(kum, .2), kizil, acik(kum, .15)])
+            o.append(f'<path d="M{f(mx - mr)} {f(my)} L{f(mx - mr * .4)} {f(my - mr * .8)} L{f(mx + mr * .6)} {f(my - mr * .7)} L{f(mx + mr)} {f(my)} Z" fill="{ton}" stroke="{koyu(kum, .4)}" stroke-width="1"/>')
+        o.append(f'<ellipse cx="{f(gx)}" cy="{f(y + 2)}" rx="{f(w * .07)}" ry="5" fill="#FFFFFF" opacity=".85"/>')
+    if not kapi:
+        return "".join(o)
     # kapı açıklığı
     kx = x0 + w * .3
     o.append(f'<path d="M{f(kx - h * .16)} {f(y)} V{f(y - h * .36)} Q{f(kx - h * .16)} {f(y - h * .52)} {f(kx)} {f(y - h * .56)} Q{f(kx + h * .16)} {f(y - h * .52)} {f(kx + h * .16)} {f(y - h * .36)} V{f(y)} Z" fill="#2E2222"/>')

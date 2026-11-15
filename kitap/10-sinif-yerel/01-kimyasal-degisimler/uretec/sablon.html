@@ -27,11 +27,15 @@ table.gorev-tablo.metal td:nth-child(2) { font-family: var(--baslik); font-weigh
 .aktiflik { margin-top: 1.2mm; font-size: 9.3pt; font-weight: 800; color: var(--kob-k); }
 .mesveret .ortala svg.info { width: 70%; height: auto; display: block; margin: 0 auto; }
 .kissa-ic .ust-satir svg.info.grafik { width: 36mm; }
-.ustad-sekil svg.info { width: 42mm; }
+.ustad-sekil svg.info { width: 38mm; }
+.s14 .ustad-izgara { grid-template-rows: auto auto auto; }
 .ustad-soru table.ustad-tablo { margin-top: .6mm; }
 .cozumler.siki { font-size: 8.9pt; line-height: 1.22; column-gap: 4.4mm; }
 .cozumler.siki h4 { font-size: 10.4pt; margin-bottom: .6mm; }
 .cozumler.siki p.c { margin-bottom: .45mm; }
+.s12 .mesveret .karalama, .s13 .mesveret .karalama { min-height: 8mm; }
+.s2 .iki-bilgi > div:last-child svg.info { width: 92%; margin-left: auto; margin-right: auto; }
+.s7 .iki-bilgi > div:first-child svg.info { width: 94%; margin-left: auto; margin-right: auto; }
 ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
 .mesveret .resim-sag.model { width: 40mm; margin: -.4mm 0 .4mm 2mm; }
 .mesveret .resim-sag.model svg { width: 100%; display: block; }
@@ -51,7 +55,7 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
   <div class="acilis">
     <div>
       <div class="cipler"><span class="cip koyu buyuk">Yol 1 · Kars–Erzurum Yolu</span><span class="cip buyuk">10. sınıf · {{meta|tema}}</span></div>
-      <h1 class="dev-baslik" style="font-size:33pt;margin-top:3.4mm"><span class="mol">Kimyasal</span> <span class="kav"><svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12 C40 2 70 2 100 11 S160 20 200 10 S270 2 296 10" fill="none" stroke="#F0A21A" stroke-width="9" stroke-linecap="round"/></svg>Değişimler</span></h1>
+      <h1 class="dev-baslik" style="font-size:30pt;margin-top:3.4mm"><span class="mol">Kimyasal</span> <span class="kav"><svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12 C40 2 70 2 100 11 S160 20 200 10 S270 2 296 10" fill="none" stroke="#F0A21A" stroke-width="9" stroke-linecap="round"/></svg>Değişimler</span></h1>
       <p class="slogan">İşleyen demir pas tutmaz; <b>atomlar ise hiç kaybolmaz.</b></p>
       <div class="cipler" style="margin-top:2.6mm"><span class="cip">6 durak</span><span class="cip">3 yan yol</span><span class="cip mer">1 kale</span><span class="cip akce">{{sikke|}} {{meta|akce_toplam}} akçe</span></div>
     </div>
@@ -79,9 +83,9 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
       <div class="kart">
         <span class="et">{{ikon|hedef}}Yolun sonunda · hedefler</span>
         <ol class="hedefler">
-          <li>Bir olayın fiziksel mi kimyasal mı olduğunu göstergeler ve tanecik modeliyle tartışacaksın.</li>
-          <li>Tepkime denklemlerini okuyup denkleştirecek, korunan nicelikleri sayacaksın.</li>
-          <li>Asit-baz, yanma, sentez-analiz, çökelme ve redoks tepkimelerini ayırt edeceksin.</li>
+          <li>Değişimi tanecik modeliyle sınıflandıracaksın.</li>
+          <li>Denklemleri okuyup denkleştireceksin.</li>
+          <li>Beş tepkime türünü ayırt edeceksin.</li>
         </ol>
         <div class="et keh" style="margin-top:2.6mm">Ahilik basamakları · toplam akçene göre</div>
         <div class="basamak-unvan" style="margin-top:3.4mm">
@@ -114,9 +118,9 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
     <div class="bento" style="grid-template-columns:1.04fr .96fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yaklaşık 1959 m’deki Çıldır Gölü buz tutmuş; üstünde atlı kızaklar var! Su başka bir madde mi oldu?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Hayır. Buz da su da H<sub>2</sub>O; yalnız tanecikler düzenli dizildi. Kimlik aynı: <span class="vurgu">fiziksel değişim</span>.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Buz erir, yine su olur. Ama Kars kaşarı bir daha süt olmaz. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Çıldır Gölü (≈ 1959 m) buz tutmuş! Su başka madde mi oldu?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Buz da su da H<sub>2</sub>O; yalnız tanecikler dizildi: <span class="vurgu">fiziksel değişim</span>.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Buz erir, yine su olur. Kaşar ise bir daha süt olmaz. Miyav!</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+20 akçe</span></div>
@@ -127,15 +131,15 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
         <div class="bos-satir" style="border-bottom:.3mm dotted var(--obs-2);height:6mm"><span class="ogr">Sütün ekşimesi kimyasaldır: laktik asit oluşur.</span></div>
       </div>
     </div>
-    <div class="kart iki-bilgi" style="grid-template-columns:50mm 1fr">
+    <div class="kart iki-bilgi" style="grid-template-columns:56mm 1fr">
       <div><span class="et mer">{{ikon|tuzak}}Değişimin göstergeleri</span>{{info|gostergeler}}</div>
       <div><span class="et">{{ikon|harita}}Tanecik gözüyle · yeni tanecik var mı?</span>{{info|tanecik_iki_olay}}</div>
     </div>
     <div class="bento" style="grid-template-columns:1.2fr .8fr">
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · çözümlü</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+30 akçe</span></span></div>
-        <p class="soru">Yol boyunca: (a) gölün donması (b) kaşarın olgunlaşması (c) sobada odunun yanması (d) Oltu taşının kesilip parlatılması. Hangileri kimyasal değişimdir?</p>
-        <ol class="akis"><li><i>1</i><span>(a), (d): yalnız hâl ya da biçim değişir, madde aynı → fiziksel.</span></li><li><i>2</i><span>(b), (c): yeni maddeler oluşur (tat-koku maddeleri; CO<sub>2</sub>, H<sub>2</sub>O, kül) → kimyasal.</span></li></ol>
+        <p class="soru">(a) Gölün donması (b) kaşarın olgunlaşması (c) sobada odunun yanması (d) Oltu taşının parlatılması. Hangileri kimyasaldır?</p>
+        <ol class="akis"><li><i>1</i><span>(a), (d): hâl ya da biçim değişir → fiziksel.</span></li><li><i>2</i><span>(b), (c): yeni madde oluşur (CO<sub>2</sub>, H<sub>2</sub>O, kül…) → kimyasal.</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>Kimyasal olanlar: (b) ve (c)</div>
       </div>
       <div class="bento dikey">
@@ -144,11 +148,11 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
         <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:1fr 1fr 1.08fr">
+    <div class="bento esnek" style="grid-template-columns:.95fr .95fr 1.16fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Gaz çıkıyorsa olay kesinlikle kimyasaldır.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Gösterge kanıt değildir. Gazoz açılınca çıkan CO<sub>2</sub> zaten suda çözünmüştü: fiziksel.</p></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Gaz çıkıyorsa olay kimyasaldır.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Gazoz açılınca çıkan CO<sub>2</sub> zaten suda çözünmüştü: fiziksel değişim.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+20 akçe</span></div>
@@ -159,8 +163,8 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
       <div class="medeniyet">{{kose}}
         <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
         <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
-        <p class="metin"><b>İbn Sînâ</b> (980–1037) <i>Kitâbü’ş-Şifâ</i>’da, simyacıların bakırı boyayıp gümüşe benzetebileceğini ama metalin <b>türünü değiştiremeyeceğini</b> yazdı.</p>
-        <p class="not">Görünüş değişti diye madde değişmiş olmaz: kanıt <b>yeni maddedir</b>.</p>
+        <p class="metin"><b>İbn Sînâ</b> (980–1037) <i>Kitâbü’ş-Şifâ</i>’da simyacıların bakırı boyayıp gümüşe benzetebileceğini, ama <b>türünü değiştiremeyeceğini</b> yazdı.</p>
+        <p class="not">Görünüş değişti diye madde değişmez: kanıt <b>yeni maddedir</b>.</p>
       </div>
     </div>
   </main>
@@ -179,9 +183,9 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Mandırada süt kazanlarda mayalanıyor. Süt şekeri nereye kayboluyor?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Kaybolmuyor, dönüşüyor! Bakteriler laktozu laktik aside çevirir. Bunu <span class="vurgu">tepkime denklemiyle</span> yazarız.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Solda 12 C varsa sağda da 12 C. Atom kaçmaz, ben sayarım. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Mandırada süt mayalanıyor. Süt şekeri nereye kayboluyor?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Kaybolmuyor! Bakteriler laktozu laktik aside çevirir; bunu <span class="vurgu">tepkime denklemiyle</span> yazarız.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Solda 12 C varsa sağda da 12 C. Atom kaçmaz. Miyav!</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · denklemi okumak</span></div>
@@ -191,6 +195,7 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
           <li>Katsayılar tanecik (mol) oranını gösterir.</li>
           <li>Tümü aynı fazda: <b>homojen</b>; farklı fazlarda: <b>heterojen</b>.</li>
           <li>Isı veren <b>ekzotermik</b>, ısı alan <b>endotermik</b>.</li>
+          <li>Denklem <b>denk</b> olmalı: her atomdan iki yanda eşit sayıda.</li>
         </ul>
       </div>
     </div>
@@ -202,15 +207,15 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
         <ul class="ozet-liste siki"><li>molekül sayısı, hâl, renk, hacim</li></ul></div>
       {{info|korunum_model}}
     </div>
-    <div class="bento" style="grid-template-columns:1fr 1fr .72fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr 1fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 2 · denkleştir</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 2</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
         <p class="soru">Mayalanan sütte: C<sub>12</sub>H<sub>22</sub>O<sub>11</sub> + H<sub>2</sub>O → __ C<sub>3</sub>H<sub>6</sub>O<sub>3</sub>. Katsayıyı bul, atomları say.</p>
         <ol class="akis"><li><i>1</i><span><b>H4:</b> önce C: 12 = 3·x → x = 4</span></li><li><i>2</i><span>H: 22 + 2 = 4·6 ✓ · O: 11 + 1 = 4·3 ✓</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>katsayı 4</div>
       </div>
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 3 · kütle</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 3</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
         <p class="soru">Kulüpte 6 g magnezyum şerit yakıldı, 10 g beyaz MgO oluştu: 2Mg + O<sub>2</sub> → 2MgO. Kaç g O<sub>2</sub> harcandı?</p>
         <ol class="akis"><li><i>1</i><span><b>H3:</b> kütle korunur: 6 + m(O<sub>2</sub>) = 10</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>4 g O<sub>2</sub></div>
@@ -256,39 +261,38 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
         <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Alparslan’ın 1064’te fethettiği Ani’de surlar hâlâ ayakta. Taşları ne tutuyor?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Kireçli harç! Sönmüş kireç Ca(OH)<sub>2</sub> bir <span class="vurgu">bazdır</span>; havadaki CO<sub>2</sub> ile yavaşça CaCO<sub>3</sub>’a döner.</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Kireçli harç! Sönmüş kireç Ca(OH)<sub>2</sub> bir <span class="vurgu">bazdır</span>; havadaki CO<sub>2</sub> ile CaCO<sub>3</sub>’a döner.</div></div>
         <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Baz ile asidik oksit buluştu, harç taşlaştı. Miyav!</div></div>
       </div>
-      <div class="kart kavram">
-        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · Arrhenius</span></div>
-        <p><b>Asit:</b> suda H<sup>+</sup> (H<sub>3</sub>O<sup>+</sup>) iyonu verir: HNO<sub>3</sub> → H<sup>+</sup> + NO<sub>3</sub><sup>−</sup>. Kuvvetli: HCl, HNO<sub>3</sub>, H<sub>2</sub>SO<sub>4</sub> · zayıf: CH<sub>3</sub>COOH (sirke).</p>
-        <p><b>Baz:</b> suda OH<sup>−</sup> verir ya da suyla OH<sup>−</sup> oluşturur: NaOH → Na<sup>+</sup> + OH<sup>−</sup>. Kuvvetli: NaOH, KOH · zayıf: NH<sub>3</sub>.</p>
+      <div class="bento dikey">
+        <div class="kart kavram">
+          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · Arrhenius</span></div>
+          <p><b>Asit:</b> suda H<sup>+</sup> (H<sub>3</sub>O<sup>+</sup>) iyonu verir: HNO<sub>3</sub> → H<sup>+</sup> + NO<sub>3</sub><sup>−</sup>. Kuvvetli: HCl, HNO<sub>3</sub>, H<sub>2</sub>SO<sub>4</sub> · zayıf: CH<sub>3</sub>COOH (sirke).</p>
+          <p><b>Baz:</b> suda OH<sup>−</sup> verir ya da suyla OH<sup>−</sup> oluşturur: NaOH → Na<sup>+</sup> + OH<sup>−</sup>. Kuvvetli: NaOH, KOH · zayıf: NH<sub>3</sub>.</p>
+        </div>
+        {{hazine|H5}}
+        {{hazine|H6}}
       </div>
     </div>
-    <div class="kart iki-bilgi" style="grid-template-columns:52mm 1fr;align-items:center">
+    <div class="kart iki-bilgi" style="grid-template-columns:56mm 1fr;align-items:center">
       <div><span class="et mer">{{ikon|kitap}}Nötralleşme</span>
-        <p class="kucuk-p" style="margin-top:1.2mm">Asit + baz → <b>tuz + su</b>. Sulu ortamdaki bu tepkime <b>ısı verir</b>.</p>
-        <p class="kucuk-p">Kuvvetli asit + kuvvetli baz: net iyon denklemi <b>H<sup>+</sup> + OH<sup>−</sup> → H<sub>2</sub>O</b>.</p>
-        <p class="kucuk-p">Oksitler: CO<sub>2</sub>, SO<sub>2</sub> (ametal) suda <b>asidik</b>; Na<sub>2</sub>O, CaO (aktif metal) <b>bazik</b>.</p></div>
+        <p class="kucuk-p" style="margin-top:1.2mm">Asit + baz → <b>tuz + su</b>; ısı verir.</p>
+        <p class="kucuk-p">Kuvvetli asit-baz: net iyon <b>H<sup>+</sup> + OH<sup>−</sup> → H<sub>2</sub>O</b>.</p>
+        <p class="kucuk-p">Ametal oksitleri (CO<sub>2</sub>, SO<sub>2</sub>) suda <b>asidik</b>; aktif metal oksitleri (Na<sub>2</sub>O, CaO) <b>bazik</b>.</p></div>
       {{info|asit_baz_model}}
     </div>
-    <div class="bento" style="grid-template-columns:1fr 1fr .72fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 4 · tuzun soyağacı</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 4</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
         <p class="soru">Kışın yollara CaCl<sub>2</sub>, tarlaya KNO<sub>3</sub> serilir. Bu tuzlar hangi asit-baz çiftlerinden elde edilir?</p>
         <ol class="akis"><li><i>1</i><span><b>H6:</b> katyon bazdan: Ca(OH)<sub>2</sub>, KOH; anyon asitten: HCl, HNO<sub>3</sub></span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>Ca(OH)<sub>2</sub> + 2HCl · KOH + HNO<sub>3</sub></div>
       </div>
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 5 · nötralleştir</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+30</span></span></div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 5</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+30</span></span></div>
         <p class="soru">Badanadaki 7,4 g Ca(OH)<sub>2</sub>’yi nötralleştirmek için kaç mol HCl gerekir? (H: 1, O: 16, Ca: 40)</p>
         <ol class="akis"><li><i>1</i><span>M = 40 + 2·17 = 74 → n = 0,1 mol</span></li><li><i>2</i><span>Ca(OH)<sub>2</sub> + 2HCl → CaCl<sub>2</sub> + 2H<sub>2</sub>O</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>0,1·2 = 0,2 mol HCl</div>
-      </div>
-      <div class="bento dikey">
-        {{hazine|H5}}
-        {{hazine|H6}}
-        <div class="kes-not">{{ikon|makas}}Kes · yapıştır</div>
       </div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1fr 1fr 1.08fr">
@@ -306,8 +310,8 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
       <div class="medeniyet">{{kose}}
         <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
         <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
-        <p class="metin"><b>Ebû Bekir er-Râzî</b> (865–925) maddeleri <b>gruplara ayırdı</b>; tuzlar bu gruplardan biriydi. Kullandığı laboratuvar araçlarını tek tek tarif etti.</p>
-        <p class="not">Asit mi, baz mı, tuz mu? Doğru sonuç doğru sınıflandırmayla başlar.</p>
+        <p class="metin"><b>Ebû Bekir er-Râzî</b> (865–925) maddeleri <b>gruplara ayırdı</b>; tuzlar bunlardan biriydi. Laboratuvar araçlarını tek tek tarif etti.</p>
+        <p class="not">Doğru sonuç, doğru sınıflandırmayla başlar.</p>
       </div>
     </div>
   </main>
@@ -326,14 +330,14 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
     <div class="bento" style="grid-template-columns:1.04fr .96fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Dışarıda sarıçam ormanı karlar altında; sobada odun çıtırdıyor. Duman nereye gidiyor?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Odundaki karbon oksijenle birleşir: C + O<sub>2</sub> → CO<sub>2</sub>. Hava yetmezse <span class="vurgu">CO</span> oluşur: renksiz, kokusuz, zehirli.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Baca temiz, dedektör yerinde, menfez açık. Ben öyle uyurum. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Orman karlar altında, sobada odun çıtırdıyor. Duman nereye gidiyor?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>C + O<sub>2</sub> → CO<sub>2</sub>. Hava yetmezse <span class="vurgu">CO</span> oluşur: renksiz, kokusuz, zehirli.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Baca temiz, dedektör yerinde, menfez açık. Miyav!</div></div>
       </div>
       <div class="bento dikey">
         <div class="kart kavram">
           <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · yanma</span></div>
-          <p>Bir maddenin <b>O<sub>2</sub> ile tepkimesidir</b>; oksitler oluşur. C ve H içeren madde <b>tam yanınca</b> yalnız CO<sub>2</sub> ve H<sub>2</sub>O verir. Her yanma bir redokstur (s.{{sayfa|7}}).</p>
+          <p>Maddenin <b>O<sub>2</sub> ile tepkimesi</b>. Tam yanmada C → CO<sub>2</sub>, H → H<sub>2</sub>O. Her yanma redokstur (s.{{sayfa|7}}).</p>
         </div>
         {{hazine|H7}}
         {{hazine|H8}}
@@ -350,24 +354,24 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
         <ol class="akis"><li><i>1</i><span><b>H7:</b> 4 C → 4CO<sub>2</sub> · 10 H → 5H<sub>2</sub>O</span></li><li><i>2</i><span>O: 8 + 5 = 13 → 13/2 O<sub>2</sub>; kesirden kurtul: ×2</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>2C<sub>4</sub>H<sub>10</sub> + 13O<sub>2</sub> → 8CO<sub>2</sub> + 10H<sub>2</sub>O</div>
       </div>
-      <div class="kart kavram iki-bilgi" style="grid-template-columns:1fr 38mm;padding:2.2mm 3mm">
+      <div class="kart kavram iki-bilgi" style="grid-template-columns:1fr 44mm;padding:2.2mm 3mm">
         <div><span class="et kob">{{ikon|kitap}}Sentez · analiz</span>
-          <p class="kucuk-p" style="margin-top:1mm"><b>Sentez:</b> maddeler birleşir, tek ürün oluşur. CaO + H<sub>2</sub>O → Ca(OH)<sub>2</sub> (kireç söndürme).</p>
-          <p class="kucuk-p"><b>Analiz:</b> bir madde daha basit maddelere ayrışır. CaCO<sub>3</sub> → CaO + CO<sub>2</sub> (kireç ocağı) · 2NaHCO<sub>3</sub> → Na<sub>2</sub>CO<sub>3</sub> + H<sub>2</sub>O + CO<sub>2</sub> (kete kabarır).</p></div>
+          <p class="kucuk-p" style="margin-top:1mm"><b>Sentez:</b> birleşip tek ürün: CaO + H<sub>2</sub>O → Ca(OH)<sub>2</sub> (kireç söndürme).</p>
+          <p class="kucuk-p"><b>Analiz:</b> ayrışma: CaCO<sub>3</sub> → CaO + CO<sub>2</sub> (kireç ocağı) · 2NaHCO<sub>3</sub> → Na<sub>2</sub>CO<sub>3</sub> + H<sub>2</sub>O + CO<sub>2</sub> (kete kabarır).</p></div>
         {{info|kirec_dongusu}}
       </div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1fr 1fr 1fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 7 · ayırt et</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+20</span></span></div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 7</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+20</span></span></div>
         <p class="soru">(a) 2Mg + O<sub>2</sub> → 2MgO (b) 2H<sub>2</sub>O<sub>2</sub> → 2H<sub>2</sub>O + O<sub>2</sub> (c) CaO + CO<sub>2</sub> → CaCO<sub>3</sub>. Hangisi analizdir?</p>
-        <ol class="akis"><li><i>1</i><span>(a), (c): iki madde → tek ürün: sentez</span></li><li><i>2</i><span>(b): tek madde → iki madde</span></li></ol>
+        <ol class="akis"><li><i>1</i><span>(a), (c): A + B → AB, sentez</span></li><li><i>2</i><span>(b): AB → A + B</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>Analiz: (b)</div>
       </div>
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
         <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yanma her zaman alevle olur ve ısı verir.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Paslanma alevsiz, yavaş bir yanmadır. N<sub>2</sub> + O<sub>2</sub> → 2NO ise <b>ısı alır</b>.</p></div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Paslanma alevsiz bir yanmadır; <span style="white-space:nowrap">N<sub>2</sub> + O<sub>2</sub> → 2NO</span> <b>ısı alır</b>.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
@@ -392,9 +396,9 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kaplıca suyu yaklaşık 40 °C ve berrak ama borular beyaz kabuk tutmuş. Su katı mı bırakıyor?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Suda iyonlar var. Ca<sup>2+</sup> ile CO<sub>3</sub><sup>2−</sup> buluşunca suda az çözünen CaCO<sub>3</sub> oluşur ve <span class="vurgu">çöker</span>.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>İki berrak çözelti karıştı, bir bulut oldu: adı çökelek. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yaklaşık 40 °C’lik kaplıca suyu berrak, ama borular beyaz kabuk tutmuş. Neden?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Suda Ca<sup>2+</sup> ile CO<sub>3</sub><sup>2−</sup> buluşunca az çözünen CaCO<sub>3</sub> oluşur ve <span class="vurgu">çöker</span>.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>İki berrak çözelti, bir bulut: adı çökelek. Miyav!</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · çökelme</span></div>
@@ -405,30 +409,29 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
         </ul>
       </div>
     </div>
-    <div class="kart iki-bilgi" style="grid-template-columns:50mm 1fr;align-items:center">
+    <div class="kart iki-bilgi" style="grid-template-columns:64mm 1fr;align-items:center">
       <div><span class="et mer">{{ikon|kitap}}Net iyon · seyirci iyon</span>
         <p class="kucuk-p" style="margin-top:1.2mm">CaCl<sub>2</sub>(suda) + Na<sub>2</sub>CO<sub>3</sub>(suda) → CaCO<sub>3</sub>(k) + 2NaCl(suda)</p>
         <p class="kucuk-p"><b>Net iyon denklemi:</b> yalnız çökeleği yapanlar yazılır.</p>
         <p class="kucuk-p"><b>Seyirci:</b> Na<sup>+</sup> ve Cl<sup>−</sup> çözeltide kalır. Serbest iyon azalınca <b>iletkenlik düşer</b>.</p></div>
       {{info|cokelme_model}}
     </div>
-    <div class="bento" style="grid-template-columns:1.04fr .96fr .72fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr 1fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 8 · net iyon</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
-        <p class="soru">NaCl içeren bir su örneğine AgNO<sub>3</sub> damlatılınca beyaz bulanıklık oluştu. Net iyon denklemi nedir, seyirciler hangileridir?</p>
-        <ol class="akis"><li><i>1</i><span><b>H10:</b> eş değiştir: AgCl ve NaNO<sub>3</sub>; AgCl çöker</span></li><li><i>2</i><span><b>H9:</b> Ag<sup>+</sup> + Cl<sup>−</sup> → AgCl(k)</span></li></ol>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 8</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
+        <p class="soru">NaCl içeren suya AgNO<sub>3</sub> damlatılınca beyaz bulanıklık oluştu. Net iyon denklemi ve seyirciler?</p>
+        <ol class="akis"><li><i>1</i><span><b>H10:</b> AgCl çöker, NaNO<sub>3</sub> çözünür</span></li><li><i>2</i><span><b>H9:</b> Ag<sup>+</sup> + Cl<sup>−</sup> → AgCl(k)</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>Seyirci: Na<sup>+</sup> ve NO<sub>3</sub><sup>−</sup></div>
       </div>
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 9 · çökelek kütlesi</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
-        <p class="soru">0,05 mol CaCl<sub>2</sub> içeren çözeltiye yeterince Na<sub>2</sub>CO<sub>3</sub> ekleniyor. Kaç g CaCO<sub>3</sub> çöker? (C: 12, O: 16, Ca: 40)</p>
-        <ol class="akis"><li><i>1</i><span>Ca<sup>2+</sup> + CO<sub>3</sub><sup>2−</sup> → CaCO<sub>3</sub>: oran 1 : 1</span></li><li><i>2</i><span>M = 100 g/mol → 0,05·100</span></li></ol>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 9</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
+        <p class="soru">0,05 mol CaCl<sub>2</sub>’ye yeterince Na<sub>2</sub>CO<sub>3</sub> eklenince kaç g CaCO<sub>3</sub> çöker? (C: 12, O: 16, Ca: 40)</p>
+        <ol class="akis"><li><i>1</i><span>Ca<sup>2+</sup> : CaCO<sub>3</sub> = 1 : 1 → 0,05 mol</span></li><li><i>2</i><span>M = 100 g/mol → 0,05·100</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>5 g CaCO<sub>3</sub></div>
       </div>
       <div class="bento dikey">
         {{hazine|H9}}
         {{hazine|H10}}
-        <div class="kes-not">{{ikon|makas}}Kes · yapıştır</div>
       </div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1fr 1fr 1.08fr">
@@ -468,16 +471,20 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
         <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Taşhan’da usta Oltu taşını kesip parlatıyor; kapıdaki demir parmaklık ise paslanmış.</div></div>
         <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Taşın işlenmesi fiziksel, paslanma kimyasal. Demir <span class="vurgu">elektron verir</span>, oksijen alır.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Elektron kaybolmaz: biri verir, öteki alır. Miyav!</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Elektron kaybolmaz: biri verir, öteki alır. Kışın yol tuzu paslanmayı hızlandırır. Miyav!</div></div>
       </div>
-      <div class="kart kavram">
-        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · redoks</span></div>
-        <p><b>Yükseltgenme:</b> e<sup>−</sup> vermek, YB artar: Fe → Fe<sup>2+</sup> + 2e<sup>−</sup></p>
-        <p><b>İndirgenme:</b> e<sup>−</sup> almak, YB azalır: Cu<sup>2+</sup> + 2e<sup>−</sup> → Cu</p>
-        <p class="kucuk-p"><b>YB kuralları:</b> serbest element 0 · bileşikte H +1, O −2, 1A +1, 2A +2 · toplam bileşikte 0, iyonda yükü kadar.</p>
+      <div class="bento dikey">
+        <div class="kart kavram">
+          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · redoks</span></div>
+          <p><b>Yükseltgenme:</b> e<sup>−</sup> vermek, YB artar: Fe → Fe<sup>2+</sup> + 2e<sup>−</sup></p>
+          <p><b>İndirgenme:</b> e<sup>−</sup> almak, YB azalır: Cu<sup>2+</sup> + 2e<sup>−</sup> → Cu</p>
+          <p class="kucuk-p"><b>YB:</b> element 0 · H +1, O −2, 1A +1, 2A +2 · bileşikte toplam 0</p>
+        </div>
+        {{hazine|H11}}
+        {{hazine|H12}}
       </div>
     </div>
-    <div class="kart iki-bilgi" style="grid-template-columns:1fr 62mm;align-items:center">
+    <div class="kart iki-bilgi" style="grid-template-columns:1fr 70mm;align-items:center">
       <div><span class="et">{{ikon|harita}}Demir çivi, bakır sülfat çözeltisinde</span>{{info|redoks_model}}</div>
       <div><span class="et mer">{{ikon|terazi}}Metal tepkimeleri · hepsi redoks</span>
         <table class="gorev-tablo metal" style="margin-top:1mm">
@@ -488,42 +495,37 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
         <p class="aktiflik">K &gt; Na &gt; Ca &gt; Mg &gt; Al &gt; Zn &gt; Fe &gt; Pb &gt; (H) &gt; Cu &gt; Ag &gt; Au</p>
         <p class="kucuk-p">Soldaki metal, sağdakinin iyonunu indirger.</p></div>
     </div>
-    <div class="bento" style="grid-template-columns:1fr 1fr .72fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 10 · YB bul</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 10</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
         <p class="soru">Pastaki (basitçe Fe<sub>2</sub>O<sub>3</sub>) Fe’nin ve K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>’deki Cr’nin YB’si kaçtır?</p>
         <ol class="akis"><li><i>1</i><span>2x + 3(−2) = 0 → x = +3</span></li><li><i>2</i><span>2(+1) + 2y + 7(−2) = 0 → y = +6</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>Fe: +3 · Cr: +6</div>
       </div>
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 11 · elektron say</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+30</span></span></div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 11</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+30</span></span></div>
         <p class="soru">5,6 g demir tozu yeterince CuSO<sub>4</sub> çözeltisine atılıyor. Kaç mol e<sup>−</sup> aktarılır, kaç g Cu birikir? (Fe: 56, Cu: 64)</p>
         <ol class="akis"><li><i>1</i><span>n(Fe) = 0,1 mol; her Fe 2e<sup>−</sup> verir</span></li><li><i>2</i><span><b>H12:</b> 0,2 mol e<sup>−</sup> → 0,1 mol Cu</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>0,2 mol e<sup>−</sup> · 6,4 g Cu</div>
       </div>
-      <div class="bento dikey">
-        {{hazine|H11}}
-        {{hazine|H12}}
-        <div class="kes-not">{{ikon|makas}}Kes · yapıştır</div>
-      </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:1fr 1fr 1.12fr">
+    <div class="bento esnek" style="grid-template-columns:.92fr .92fr 1.16fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yükseltgenme, oksijenle birleşmektir.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Yükseltgenme <b>elektron vermektir</b>. Fe + Cu<sup>2+</sup> tepkimesinde oksijen yok, Fe yine yükseltgenir.</p></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yükseltgenme, oksijen almaktır.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p><b>e<sup>−</sup> veren</b> yükseltgenir: Fe + Cu<sup>2+</sup>’da O yoktur.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Yol tuzu paslanmayı hızlandırır: 4Fe + 3O<sub>2</sub> → 2Fe<sub>2</sub>O<sub>3</sub>. 0,4 mol Fe kaç mol e<sup>−</sup> verir?</p>
+        <p class="soru">Pas: 4Fe + 3O<sub>2</sub> → 2Fe<sub>2</sub>O<sub>3</sub>. 0,4 mol Fe kaç mol e<sup>−</sup> verir?</p>
         <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Fe: 0’dan +3’e.</span></span></div>
         <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">1,2 mol e<sup>−</sup></span></div><span class="ters-cevap"><span class="ters">1,2 mol e⁻</span></span></div>
       </div>
       <div class="medeniyet">{{kose}}
         <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
         <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
-        <p class="metin"><b>Erzurumlu İbrahim Hakkı</b> (1703–1780) Hasankale’de doğdu. 1757’de bitirdiği <i>Marifetnâme</i>’de maddeyi, dönemin bilgisiyle <b>dört unsurla</b> açıkladı.</p>
-        <p class="not">Bugün paslanmayı elektron alışverişiyle açıklıyoruz.</p>
+        <p class="metin"><b>Erzurumlu İbrahim Hakkı</b> <span style="white-space:nowrap">(1703–1780)</span> Hasankale’de doğdu. 1757’de bitirdiği <i>Marifetnâme</i>’de maddeyi <b>dört unsurla</b> açıkladı.</p>
+        <p class="not">Bugün paslanmayı e<sup>−</sup> alışverişiyle açıklıyoruz.</p>
       </div>
     </div>
   </main>
@@ -548,7 +550,7 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
         <ul class="ozet-liste"><li><b>Asit-baz:</b> H<sup>+</sup> + OH<sup>−</sup> → H<sub>2</sub>O</li><li><b>Yanma:</b> + O<sub>2</sub> → oksit</li><li><b>Sentez / analiz:</b> A + B → AB · AB → A + B</li><li><b>Çökelme:</b> az çözünen katı</li><li><b>Redoks:</b> e<sup>−</sup> alışverişi</li></ul></div>
       <div class="ozet-kart mer"><span class="sira">05/06</span><span class="et mer">Redoks</span><h3>e<sup>−</sup> veren yükseltgenir</h3><p>YB artar: yükseltgenme · YB azalır: indirgenme. Verilen e<sup>−</sup> = alınan e<sup>−</sup>.</p><p style="margin-top:1mm">Fe → Fe<sup>2+</sup> + 2e<sup>−</sup> · Cu<sup>2+</sup> + 2e<sup>−</sup> → Cu</p></div>
       <div class="ozet-kart"><span class="sira">06/06</span><span class="et mer">{{ikon|tuzak}}En sık 4 hata</span>
-        <ul class="ozet-liste no"><li>Çöken iyonları seyirci sanmak</li><li>YB’si artanı “indirgendi” demek</li><li>OH içeren her maddeyi baz saymak</li><li>Molekül sayısı da korunur sanmak</li></ul>
+        <ul class="ozet-liste no"><li>Çöken iyonları seyirci sanmak</li><li>YB’si artanı “indirgendi” demek</li><li>OH içeren her maddeyi baz saymak</li><li>Molekül sayısı da<br>korunur sanmak</li></ul>
         <div class="muhur-kose">{{muhur|yanlis}}</div></div>
     </div>
     <div class="kart keh-z sandik">
@@ -781,43 +783,40 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
         <div class="mesveret-bas">{{sno|1}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
         <p class="soru">Aşağıdaki olaylardan hangisinde kimyasal değişim olur?</p>
         <div class="karalama"><span class="ogr">Süt kaşara dönüşürken yeni maddeler oluşur.</span></div>
-        <div class="oy"><div><b>A</b><span>Çıldır Gölü’nün buz tutması</span><em>%__</em></div><div><b>B</b><span>Oltu taşının kesilip parlatılması</span><em>%__</em></div><div data-dogru><b>C</b><span>Sütün kaşara dönüşmesi</span><em>%__</em></div><div><b>D</b><span>Kar tanesinin avuçta erimesi</span><em>%__</em></div><div><b>E</b><span>Şekerin çayda çözünmesi</span><em>%__</em></div></div>
+        <div class="oy yatay"><div><b>A</b><span>Gölün buz tutması</span><em>%__</em></div><div><b>B</b><span>Oltu taşının cilalanması</span><em>%__</em></div><div data-dogru><b>C</b><span>Sütün kaşara dönüşmesi</span><em>%__</em></div><div><b>D</b><span>Karın avuçta erimesi</span><em>%__</em></div><div><b>E</b><span>Şekerin çayda çözünmesi</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I2">
         <div class="mesveret-bas">{{sno|2}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Kimyasal tepkimelerde;</p>
+        <p class="soru">Kimyasal tepkimelerde hangileri her zaman korunur?</p>
         <ul class="yargi iki"><li><b>I.</b>toplam kütle</li><li><b>II.</b>molekül sayısı</li><li><b>III.</b>atom türü ve sayısı</li><li><b>IV.</b>toplam elektrik yükü</li></ul>
-        <p class="kucuk-soru">niceliklerinden hangileri her zaman korunur?</p>
         <div class="karalama"><span class="ogr">Molekül sayısı değişebilir: N₂ + 3H₂ → 2NH₃.</span></div>
-        <div class="oy yatay"><div><b>A</b><span>I ve II</span><em>%__</em></div><div><b>B</b><span>I ve III</span><em>%__</em></div><div><b>C</b><span>II ve IV</span><em>%__</em></div><div data-dogru><b>D</b><span>I, III ve IV</span><em>%__</em></div><div class="tam"><b>E</b><span>I, II, III ve IV</span><em>%__</em></div></div>
+        <div class="oy yatay"><div><b>A</b><span>I ve II</span><em>%__</em></div><div><b>B</b><span>I ve III</span><em>%__</em></div><div><b>C</b><span>II ve IV</span><em>%__</em></div><div data-dogru><b>D</b><span>I, III ve IV</span><em>%__</em></div><div><b>E</b><span>I, II, III ve IV</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I3">
         <div class="mesveret-bas">{{sno|3}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru"><span class="resim-sag model">{{info|model_soru}}</span>Kapalı kapta tepkimenin öncesi ve sonrası modellenmiştir. Bu değişim en küçük tam sayılarla denklem olarak yazılırsa katsayılar toplamı kaç olur?</p>
+        <p class="soru"><span class="resim-sag model">{{info|model_soru}}</span>Kaptaki tepkimenin öncesi ve sonrası verilmiştir. En küçük tam sayılı denklemde katsayılar toplamı kaçtır?</p>
         <div class="karalama"><span class="ogr">4H₂ + 2O₂ → 4H₂O (1 O₂ artar) → 2 + 1 + 2 = 5</span></div>
         <div class="oy uc"><div data-dogru><b>A</b><span>5</span><em>%__</em></div><div><b>B</b><span>7</span><em>%__</em></div><div><b>C</b><span>10</span><em>%__</em></div><div><b>D</b><span>11</span><em>%__</em></div><div><b>E</b><span>12</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I4">
         <div class="mesveret-bas">{{sno|4}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Kireç ocağında: CaCO<sub>3</sub>(k) → CaO(k) + CO<sub>2</sub>(g)</p>
-        <ul class="yargi"><li><b>I.</b>Analiz tepkimesidir.</li><li><b>II.</b>Heterojen tepkimedir.</li><li><b>III.</b>İndirgenme-yükseltgenme tepkimesidir.</li></ul>
-        <p class="kucuk-soru">yargılarından hangileri doğrudur?</p>
+        <p class="soru">CaCO<sub>3</sub>(k) → CaO(k) + CO<sub>2</sub>(g) için hangileri doğrudur?</p>
+        <ul class="yargi iki"><li><b>I.</b>Analizdir.</li><li><b>II.</b>Heterojendir.</li><li><b>III.</b>Redoks tepkimesidir.</li></ul>
         <div class="karalama"><span class="ogr">Ca +2, C +4, O −2 iki yanda aynı: redoks değil.</span></div>
-        <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız III</span><em>%__</em></div><div data-dogru><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div class="tam"><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
+        <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız III</span><em>%__</em></div><div data-dogru><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I5">
         <div class="mesveret-bas">{{sno|5}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
         <p class="soru">Aşağıdaki çözelti çiftlerinden hangisi karıştırılınca çökelek oluşur?</p>
         <div class="karalama"><span class="ogr">AgBr suda az çözünür; diğer ürünlerin hepsi çözünür.</span></div>
-        <div class="oy yatay"><div><b>A</b><span>NaNO<sub>3</sub> – KCl</span><em>%__</em></div><div><b>B</b><span>K<sub>2</sub>SO<sub>4</sub> – NH<sub>4</sub>NO<sub>3</sub></span><em>%__</em></div><div><b>C</b><span>LiCl – NaNO<sub>3</sub></span><em>%__</em></div><div><b>D</b><span>KOH – NaNO<sub>3</sub></span><em>%__</em></div><div data-dogru class="tam"><b>E</b><span>AgNO<sub>3</sub> – NaBr</span><em>%__</em></div></div>
+        <div class="oy yatay"><div><b>A</b><span>NaNO<sub>3</sub> – KCl</span><em>%__</em></div><div><b>B</b><span>K<sub>2</sub>SO<sub>4</sub> – NH<sub>4</sub>NO<sub>3</sub></span><em>%__</em></div><div><b>C</b><span>LiCl – NaNO<sub>3</sub></span><em>%__</em></div><div><b>D</b><span>KOH – NaNO<sub>3</sub></span><em>%__</em></div><div data-dogru><b>E</b><span>AgNO<sub>3</sub> – NaBr</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I6">
         <div class="mesveret-bas">{{sno|6}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Fe(NO<sub>3</sub>)<sub>3</sub> + 3KOH → Fe(OH)<sub>3</sub>(k) + 3KNO<sub>3</sub> için;</p>
-        <ul class="yargi"><li><b>I.</b>Net iyon denklemi: Fe<sup>3+</sup> + 3OH<sup>−</sup> → Fe(OH)<sub>3</sub>(k)</li><li><b>II.</b>K<sup>+</sup> ve NO<sub>3</sub><sup>−</sup> seyirci iyonlardır.</li><li><b>III.</b>Çözeltinin iletkenliği artar.</li></ul>
-        <p class="kucuk-soru">yargılarından hangileri doğrudur?</p>
+        <p class="soru">Fe(NO<sub>3</sub>)<sub>3</sub> + 3KOH → Fe(OH)<sub>3</sub>(k) + 3KNO<sub>3</sub> için hangileri doğrudur?</p>
+        <ul class="yargi iki"><li style="grid-column:1/-1"><b>I.</b>Net iyon: Fe<sup>3+</sup> + 3OH<sup>−</sup> → Fe(OH)<sub>3</sub>(k)</li><li><b>II.</b>K<sup>+</sup>, NO<sub>3</sub><sup>−</sup> seyircidir.</li><li><b>III.</b>İletkenlik artar.</li></ul>
         <div class="karalama"><span class="ogr">İyonlar çöktüğü için iletkenlik azalır (III ✗).</span></div>
-        <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div data-dogru><b>B</b><span>I ve II</span><em>%__</em></div><div><b>C</b><span>I ve III</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div class="tam"><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
+        <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div data-dogru><b>B</b><span>I ve II</span><em>%__</em></div><div><b>C</b><span>I ve III</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
     </div>
   </main>
@@ -916,7 +915,7 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
       </div>
       <div class="ustad-soru" data-soru="U4">
         <div class="ustad-bas">{{sno|4|laj}}<span class="et">Analiz · grafik</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru"><span class="ustad-sekil">{{info|kutle_grafigi}}</span>Kum karışmış 50 g kireç taşı (CaCO<sub>3</sub>) örneği açık kapta tamamen ısıtılıyor; katı kütlesi grafikteki gibi değişiyor. Kum ısıyla değişmez. Örnekte CaCO<sub>3</sub>’ün kütlece yüzdesi kaçtır? <span class="kucuk">(C: 12, O: 16, Ca: 40)</span></p>
+        <p class="soru"><span class="ustad-sekil">{{info|kutle_grafigi}}</span>Kum karışık 50 g kireç taşı (CaCO<sub>3</sub>) açık kapta tamamen ısıtılıyor; katı kütlesi grafikteki gibi azalıyor (kum değişmez). Örnekteki CaCO<sub>3</sub> kütlece yüzde kaçtır? <span class="kucuk">(C: 12, O: 16, Ca: 40)</span></p>
         <div class="karalama"><span class="ogr">CO₂ = 13,2 g = 0,3 mol → 30 g CaCO₃ → %60</span></div>
         <div class="siklar"><div class="sik"><b>A</b>%26,4</div><div class="sik"><b>B</b>%30</div><div class="sik"><b>C</b>%44</div><div class="sik" data-dogru><b>D</b>%60</div><div class="sik"><b>E</b>%73,6</div></div>
       </div>
@@ -929,9 +928,9 @@ ul.yargi.iki { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2mm; }
       <div class="ustad-soru" data-soru="U6">
         <div class="ustad-bas">{{sno|6|laj}}<span class="et">Tepkime türleri · tablo</span><span class="ustad-zor">AYT</span></div>
         <table class="ustad-tablo"><tr><th>No</th><th>Tepkime</th></tr><tr><td>I</td><td>2KClO<sub>3</sub> → 2KCl + 3O<sub>2</sub></td></tr><tr><td>II</td><td>CaO + SO<sub>2</sub> → CaSO<sub>3</sub></td></tr><tr><td>III</td><td>Zn + 2HCl → ZnCl<sub>2</sub> + H<sub>2</sub></td></tr></table>
-        <p class="soru">Tablodaki tepkimelerle ilgili hangisi <u>yanlıştır</u>?</p>
+        <p class="soru">Hangisi <u>yanlıştır</u>?</p>
         <div class="karalama"><span class="ogr">Zn 0 → +2: yükseltgenir (E yanlış). I’de Cl +5 → −1, O −2 → 0.</span></div>
-        <div class="siklar iki"><div class="sik"><b>A</b>I analiz ve redokstur.</div><div class="sik"><b>B</b>II sentezdir, redoks değil.</div><div class="sik"><b>C</b>III tekli yer değiştirmedir.</div><div class="sik"><b>D</b>I’de oksijen yükseltgenir.</div><div class="sik" data-dogru><b>E</b>III’te Zn indirgenir.</div></div>
+        <div class="siklar iki"><div class="sik"><b>A</b>I analiz ve redokstur.</div><div class="sik"><b>B</b>II redoks değildir.</div><div class="sik"><b>C</b>III yer değiştirmedir.</div><div class="sik"><b>D</b>I’de oksijen yükseltgenir.</div><div class="sik" data-dogru><b>E</b>III’te Zn indirgenir.</div></div>
       </div>
     </div>
     <div class="ustad-muhur">

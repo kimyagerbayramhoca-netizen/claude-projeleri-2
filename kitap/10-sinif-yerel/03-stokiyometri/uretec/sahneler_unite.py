@@ -714,14 +714,14 @@ def karpuz_meclis():
         x = 980 + r.uniform(0, 1100)
         y = ufuk + 110 + r.uniform(0, 80)
         s += f'<path d="M{f(x - 30)} {f(y + 4)} q30 -16 60 0" stroke="#5C9A40" stroke-width="3" fill="none"/>'
-    for k, (x, y, rr) in enumerate([(1000, 420, 22), (1080, 436, 18), (1990, 430, 22), (2060, 412, 16), (920, 400, 14)]):
+    for k, (x, y, rr) in enumerate([(1000, 420, 22), (1080, 436, 18), (1230, 446, 15), (2075, 445, 16), (920, 400, 14)]):
         s += karpuz(x, y, rr)
-    s += cardak(s, 1520, 400, 520, 200)
-    s += f'<rect x="1330" y="372" width="380" height="14" rx="5" fill="#8C5E36"/><path d="M1350 386 v30 M1690 386 v30" stroke="#6E4A2C" stroke-width="6"/>'
-    s += karpuz(1480, 366, 14, kesik=True) + karpuz(1560, 366, 14, kesik=True)
-    s += '<use href="#elif-soru" x="1170" y="196" width="240" height="252"/>'
-    s += '<use href="#yusuf-anlatan" x="1640" y="196" width="240" height="252"/>'
-    s += '<use href="#pamuk-dusunen" x="1440" y="250" width="160" height="183"/>'
+    s += cardak(s, 1630, 400, 520, 200)
+    s += f'<rect x="1440" y="372" width="380" height="14" rx="5" fill="#8C5E36"/><path d="M1460 386 v30 M1800 386 v30" stroke="#6E4A2C" stroke-width="6"/>'
+    s += karpuz(1590, 366, 14, kesik=True) + karpuz(1670, 366, 14, kesik=True)
+    s += '<use href="#elif-soru" x="1300" y="196" width="240" height="252"/>'
+    s += '<use href="#yusuf-anlatan" x="1765" y="196" width="240" height="252"/>'
+    s += '<use href="#pamuk-dusunen" x="1560" y="250" width="160" height="183"/>'
     s += _cerceve_golge(s)
     return _bitir(s)
 
@@ -808,8 +808,8 @@ def kale_sur(h=620):
     s += bazalt_sur(s, 900, 2160, tb, 110, burclar=[(1000, 170, 110), (1300, 182, 116), (1600, 176, 112), (1900, 190, 120), (2120, 170, 100)], tohum=142)
     bx = 1600
     by = tb(bx) - 176 - 24
-    s += f'<path d="M{bx} {f(by)} v-120" stroke="#3A2E26" stroke-width="7"/>'
-    s += turk_bayragi(bx, by - 120, 64, 8)
+    s += f'<path d="M{bx} {f(by + 10)} v-74" stroke="#3A2E26" stroke-width="7"/>'
+    s += turk_bayragi(bx, by - 64, 64, 8)
     # Hevsel bahçeleri ve Dicle
     gz = s.lin([(0, "#9BC062"), (1, "#4E8A3C")], 0, 420, 0, h, kull="userSpaceOnUse", ad="hz")
     s += f'<path d="M0 {h} V470 C400 452 800 470 1000 480 C1400 470 1800 470 2160 460 V{h} Z" fill="{gz}"/>'
@@ -1138,22 +1138,24 @@ def korunum_semasi(onek="dc-kor"):
 def iki_yaka(onek="dc-iki"):
     """Denkleştirme: Dicle'nin iki yakasında atom sayımı (C3H8 + 5O2 → 3CO2 + 4H2O): C 3 · H 8 · O 10."""
     s = Svg(onek)
-    Wd, Hd = 1000, 330
+    Wd, Hd = 1000, 640
     g = s.lin([(0, "#BFE7E3"), (1, "#5FC2C0")], 0, 0, 0, 1, ad="su")
     s += f'<rect width="{Wd}" height="{Hd}" rx="26" fill="#F4EBD6"/>'
-    s += f'<path d="M430 0 C470 120 440 220 470 {Hd} H560 C530 220 560 120 520 0 Z" fill="{g}"/>'
-    s += S.dalga_cizgileri(440, 30, 100, 280, 7, n=8, op=.7, k=2)
+    s += f'<path d="M440 0 C480 200 430 420 470 {Hd} H560 C520 420 570 200 530 0 Z" fill="{g}"/>'
+    s += S.dalga_cizgileri(450, 40, 90, 540, 7, n=10, op=.7, k=2)
     satir = [("C", 3, ATOM["C"]), ("H", 8, "#E9EEF2"), ("O", 10, ATOM["O"])]
-    for yaka, x0 in (("sol", 40), ("sag", 600)):
+    for x0 in (36, 590):
         for j, (el, n, renk) in enumerate(satir):
-            y = 80 + j * 82
-            s += f'<text x="{x0}" y="{y + 12}" {B} font-size="38" fill="{OBS}">{el}</text>'
+            y = 190 + j * 160
+            sira = (n + 4) // 5
+            s += f'<text x="{x0}" y="{y + 15}" {B} font-size="46" fill="{OBS}">{el}</text>'
             for k in range(n):
-                s += kure(s, x0 + 56 + k * 30, y, 12, renk)
-            s += f'<text x="{x0 + 360}" y="{y + 12}" text-anchor="end" {B} font-size="34" fill="{GOL_K}">{n}</text>'
-    s += f'<text x="215" y="40" text-anchor="middle" {B} font-size="28" fill="{OBS}">C<tspan dy="7" font-size="19">3</tspan><tspan dy="-7">H</tspan><tspan dy="7" font-size="19">8</tspan><tspan dy="-7"> + 5O</tspan><tspan dy="7" font-size="19">2</tspan></text>'
-    s += f'<text x="790" y="40" text-anchor="middle" {B} font-size="28" fill="{OBS}">3CO<tspan dy="7" font-size="19">2</tspan><tspan dy="-7"> + 4H</tspan><tspan dy="7" font-size="19">2</tspan><tspan dy="-7">O</tspan></text>'
-    s += f'<path d="M455 300 L545 300" stroke="{OBS}" stroke-width="6"/><path d="M540 286 l20 14 l-20 14 Z" fill="{OBS}"/>'
+                s += kure(s, x0 + 74 + (k % 5) * 50, y + (k // 5) * 46 - (sira - 1) * 23, 18, renk)
+            s += f'<text x="{x0 + 380}" y="{y + 15}" text-anchor="end" {B} font-size="44" fill="{GOL_K}">{n}</text>'
+    alt = '<tspan dy="9" font-size="27">{}</tspan><tspan dy="-9">{}</tspan>'
+    s += f'<text x="226" y="80" text-anchor="middle" {B} font-size="40" fill="{OBS}">C{alt.format(3, "H")}{alt.format(8, " + 5O")}<tspan dy="9" font-size="27">2</tspan></text>'
+    s += f'<text x="780" y="80" text-anchor="middle" {B} font-size="40" fill="{OBS}">3CO{alt.format(2, " + 4H")}{alt.format(2, "O")}</text>'
+    s += f'<path d="M458 606 L534 606" stroke="{OBS}" stroke-width="7"/><path d="M530 590 l22 16 l-22 16 Z" fill="{OBS}"/>'
     return s.cikti(f"0 0 {Wd} {Hd}", cls="info iki-yaka")
 
 
@@ -1169,33 +1171,34 @@ def oran_koprusu(onek="dc-kop"):
 
     def kutu(x, y, w, h_, renk, ust, alt):
         return (f'<rect x="{x}" y="{y}" width="{w}" height="{h_}" rx="18" fill="{renk}" stroke="{OBS}" stroke-width="4"/>'
-                f'<text x="{x + w / 2}" y="{y + 44}" text-anchor="middle" {B} font-size="34" fill="{OBS}">{ust}</text>'
-                f'<text x="{x + w / 2}" y="{y + 80}" text-anchor="middle" {T} font-size="24" fill="{GUM_K}">{alt}</text>')
+                f'<text x="{x + w / 2}" y="{y + (44 if alt else h_ / 2 + 12)}" text-anchor="middle" {B} font-size="34" fill="{OBS}">{ust}</text>'
+                + (f'<text x="{x + w / 2}" y="{y + 80}" text-anchor="middle" {T} font-size="24" fill="{GUM_K}">{alt}</text>' if alt else ""))
     s += kutu(30, 150, 230, 100, "#FFFFFF", "verilen", "g · tane · mol")
     s += kutu(840, 150, 230, 100, "#FFFFFF", "istenen", "g · tane · mol")
-    s += kutu(290, 60, 170, 92, GOL, "mol A", "n")
-    s += kutu(640, 60, 170, 92, GOL, "mol B", "n")
+    s += kutu(290, 60, 170, 92, GOL, "mol A", "")
+    s += kutu(640, 60, 170, 92, GOL, "mol B", "")
     s += f'<path d="M260 200 Q300 200 310 160" stroke="{OBS}" stroke-width="5" fill="none"/><path d="M790 160 Q800 200 840 200" stroke="{OBS}" stroke-width="5" fill="none"/>'
     s += f'<path d="M462 104 H630" stroke="{OBS}" stroke-width="6"/><path d="M626 90 l22 14 l-22 14 Z" fill="{OBS}"/>'
     s += f'<rect x="465" y="18" width="170" height="44" rx="22" fill="{KEH}" stroke="{OBS}" stroke-width="4"/>'
     s += f'<text x="550" y="49" text-anchor="middle" {B} font-size="28" fill="{OBS}">× k<tspan dy="6" font-size="18">B</tspan><tspan dy="-6"> / k</tspan><tspan dy="6" font-size="18">A</tspan></text>'
     s += f'<text x="150" y="290" text-anchor="middle" {T} font-size="23" fill="{OBS}">÷ M<tspan dy="5" font-size="16">A</tspan><tspan dy="-5"> ya da ÷ N</tspan><tspan dy="5" font-size="16">A</tspan></text>'
     s += f'<text x="950" y="290" text-anchor="middle" {T} font-size="23" fill="{OBS}">× M<tspan dy="5" font-size="16">A</tspan><tspan dy="-5"> ya da × N</tspan><tspan dy="5" font-size="16">A</tspan></text>'
-    s += f'<text x="550" y="410" text-anchor="middle" {T} font-size="24" fill="#FFFFFF">katsayılar mol köprüsüdür · kütle köprüsü değil</text>'
+    s += f'<rect x="270" y="380" width="560" height="40" rx="20" fill="#FFFFFF" stroke="{OBS}" stroke-width="3"/>'
+    s += f'<text x="550" y="409" text-anchor="middle" {T} font-size="24" fill="{OBS}">katsayılar mol köprüsüdür · kütle köprüsü değil</text>'
     return s.cikti(f"0 0 {Wd} {Hd}", cls="info kopru")
 
 
-def _eksen(s, x0, y0, x1, y1, xet, yet, xticks, yticks):
+def _eksen(s, x0, y0, x1, y1, xet, yet, xticks, yticks, fs=26):
     o = []
     for v, lab in yticks:
         yy = y0 - (y0 - y1) * v
-        o.append(f'<path d="M{x0} {f(yy)} H{x1}" stroke="#DCE4E8" stroke-width="2"/><text x="{x0 - 10}" y="{f(yy + 9)}" text-anchor="end" {T} font-size="26">{lab}</text>')
+        o.append(f'<path d="M{x0} {f(yy)} H{x1}" stroke="#DCE4E8" stroke-width="2"/><text x="{x0 - 10}" y="{f(yy + 9)}" text-anchor="end" {T} font-size="{fs}">{lab}</text>')
     for v, lab in xticks:
         xx = x0 + (x1 - x0) * v
-        o.append(f'<text x="{f(xx)}" y="{y0 + 34}" text-anchor="middle" {T} font-size="26">{lab}</text>')
+        o.append(f'<text x="{f(xx)}" y="{y0 + 8 + fs}" text-anchor="middle" {T} font-size="{fs}">{lab}</text>')
     o.append(f'<path d="M{x0} {y1 - 14} V{y0} H{x1 + 14}" stroke="{OBS}" stroke-width="4" fill="none"/>')
-    o.append(f'<text x="{x1}" y="{y0 + 66}" text-anchor="end" {T} font-size="24" fill="{GUM_K}">{xet}</text>')
-    o.append(f'<text x="{x0 - 2}" y="{y1 - 22}" {T} font-size="24" fill="{GUM_K}">{yet}</text>')
+    o.append(f'<text x="{x1}" y="{y0 + 14 + 2 * fs}" text-anchor="end" {T} font-size="{fs - 2}" fill="{GUM_K}">{xet}</text>')
+    o.append(f'<text x="{x0 - 2}" y="{y1 - 22}" {T} font-size="{fs - 2}" fill="{GUM_K}">{yet}</text>')
     return "".join(o)
 
 
@@ -1209,8 +1212,8 @@ USTAD_GRAFIK = dict(kirilma=(9.6, 16), mg_son=14.4)
 def mol_zaman(onek="dc-mz", tur="durak"):
     """Mol–zaman grafiği (veri: MOL_ZAMAN[tur]). durak: X + 2Y → Z; kissa: N2 + 3H2 → 2NH3."""
     s = Svg(onek)
-    Wd, Hd = 620, 440
-    x0, y0, x1, y1 = 96, 360, 590, 50
+    Wd, Hd = 620, 460
+    x0, y0, x1, y1 = 100, 350, 590, 54
     s += f'<rect width="{Wd}" height="{Hd}" rx="18" fill="#FFFFFF"/>'
     if tur == "durak":
         ymax, tick = 4, [(i / 4, str(i)) for i in range(5)]
@@ -1220,7 +1223,7 @@ def mol_zaman(onek="dc-mz", tur="durak"):
     def etiket(ad):
         return ad[:-1] + f'<tspan dy="7" font-size="20">{ad[-1]}</tspan>' if ad[-1].isdigit() else ad
     seri = [(etiket(ad), a, b, c) for (ad, a, b), c in zip(MOL_ZAMAN[tur], (MER, KOB, ZUMRUT))]
-    s += _eksen(s, x0, y0, x1, y1, "zaman", "mol", [(0, "0"), (.62, "t")], tick)
+    s += _eksen(s, x0, y0, x1, y1, "zaman", "mol", [(0, "0"), (.62, "t")], tick, fs=34)
     tx = x0 + (x1 - x0) * .62
     s += f'<path d="M{f(tx)} {y0} V{y1}" stroke="{GUM}" stroke-width="2.4" stroke-dasharray="8 7"/>'
     for ad, a, b, c in seri:
@@ -1265,7 +1268,7 @@ def verim_saati(onek="dc-ver", yuzde=80):
               f'L{f(cx + (R - 46) * math.cos(a1))} {f(cy + (R - 46) * math.sin(a1))} A{R - 46} {R - 46} 0 0 0 {f(cx + (R - 46) * math.cos(a0))} {f(cy + (R - 46) * math.sin(a0))} Z" fill="{c}" stroke="#FFFFFF" stroke-width="3"/>')
     for v in (0, 50, 100):
         a = math.pi + math.pi * v / 100
-        s += f'<text x="{f(cx + (R + 26) * math.cos(a))}" y="{f(cy + (R + 26) * math.sin(a) + 10)}" text-anchor="middle" {T} font-size="24">%{v}</text>'
+        s += f'<text x="{f(cx + (R + 26) * math.cos(a))}" y="{f(cy + (R + 26) * math.sin(a) + 10)}" text-anchor="middle" {T} font-size="34">%{v}</text>'
     a = math.pi + math.pi * yuzde / 100
     s += f'<path d="M{cx} {cy} L{f(cx + (R - 30) * math.cos(a))} {f(cy + (R - 30) * math.sin(a))}" stroke="{OBS}" stroke-width="9" stroke-linecap="round"/>'
     s += f'<circle cx="{cx}" cy="{cy}" r="16" fill="{KEH}" stroke="{OBS}" stroke-width="4"/>'
@@ -1288,24 +1291,26 @@ def saflik_tasi(onek="dc-saf"):
         s += f'<circle cx="{f(x)}" cy="{f(y)}" r="{f(r.uniform(3, 7))}" fill="{r.choice(["#9C7A54", "#7E6A58", "#B98E5A"])}" opacity=".8"/>'
     s += f'<rect x="40" y="300" width="440" height="22" rx="11" fill="#9C7A54" stroke="{OBS}" stroke-width="3"/>'
     s += f'<rect x="40" y="300" width="330" height="22" rx="11" fill="#FFFFFF" stroke="{OBS}" stroke-width="3"/>'
-    s += f'<text x="205" y="40" text-anchor="middle" {B} font-size="34" fill="{OBS}">%75 CaCO<tspan dy="7" font-size="22">3</tspan></text>'
-    s += f'<text x="440" y="40" text-anchor="middle" {T} font-size="24" fill="{GUM_K}">%25 kil</text>'
+    s += f'<text x="205" y="44" text-anchor="middle" {B} font-size="44" fill="{OBS}">%75 CaCO<tspan dy="9" font-size="28">3</tspan></text>'
+    s += f'<text x="445" y="44" text-anchor="middle" {T} font-size="32" fill="{GUM_K}">%25 kil</text>'
     return s.cikti(f"0 0 {Wd} {Hd + 6}", cls="info saflik")
 
 
 def bakir_zinciri(onek="dc-zin"):
     """Ardışık tepkimeler: malakit → CuO → Cu; Cu atomu zincir boyunca korunur (0,2 → 0,4 → 0,4 mol)."""
     s = Svg(onek)
-    Wd, Hd = 1000, 300
+    Wd, Hd = 1000, 340
     s += f'<rect width="{Wd}" height="{Hd}" rx="24" fill="#FFF6E6"/>'
-    halka = [(170, "malakit", "#1F8A5B", "0,2 mol"), (500, "CuO", "#3A3F4B", "0,4 mol"), (830, "Cu", BAKIR, "0,4 mol")]
+    halka = [(165, "malakit", "#1F8A5B", "0,2 mol"), (500, "CuO", "#3A3F4B", "0,4 mol"), (835, "Cu", BAKIR, "0,4 mol")]
     for i, (x, ad, renk, mol) in enumerate(halka):
-        s += f'<rect x="{x - 130}" y="80" width="260" height="130" rx="65" fill="none" stroke="{OBS}" stroke-width="22"/>'
-        s += f'<rect x="{x - 130}" y="80" width="260" height="130" rx="65" fill="none" stroke="{acik(renk, .25)}" stroke-width="12"/>'
-        s += f'<circle cx="{x}" cy="145" r="44" fill="{renk}" stroke="{OBS}" stroke-width="4"/>'
-        s += f'<text x="{x}" y="250" text-anchor="middle" {B} font-size="32" fill="{OBS}">{ad}</text>'
-        s += f'<text x="{x}" y="52" text-anchor="middle" {B} font-size="30" fill="{KEH_K}">{mol}</text>'
-    s += f'<text x="335" y="290" text-anchor="middle" {T} font-size="22" fill="{GUM_K}">ısı</text><text x="665" y="290" text-anchor="middle" {T} font-size="22" fill="{GUM_K}">+ karbon</text>'
+        s += f'<rect x="{x - 120}" y="88" width="240" height="124" rx="62" fill="none" stroke="{OBS}" stroke-width="22"/>'
+        s += f'<rect x="{x - 120}" y="88" width="240" height="124" rx="62" fill="none" stroke="{acik(renk, .25)}" stroke-width="12"/>'
+        s += f'<circle cx="{x}" cy="150" r="42" fill="{renk}" stroke="{OBS}" stroke-width="4"/>'
+        s += f'<text x="{x}" y="270" text-anchor="middle" {B} font-size="50" fill="{OBS}">{ad}</text>'
+        s += f'<text x="{x}" y="62" text-anchor="middle" {B} font-size="46" fill="{KEH_K}">{mol}</text>'
+    for x, et in ((333, "ısı"), (667, "+ C")):
+        s += f'<path d="M{x - 34} 150 H{x + 18}" stroke="{OBS}" stroke-width="7"/><path d="M{x + 14} 136 l22 14 l-22 14 Z" fill="{OBS}"/>'
+        s += f'<text x="{x}" y="322" text-anchor="middle" {T} font-size="36" fill="{GUM_K}">{et}</text>'
     return s.cikti(f"0 0 {Wd} {Hd}", cls="info zincir")
 
 
@@ -1344,11 +1349,11 @@ def mg_denemeleri(onek="dc-mg"):
 def ustad_grafik(onek="dc-ust"):
     """Sabit 6,4 g O2 ile artan kütlede Mg yakılıyor: oluşan MgO kütlesi – alınan Mg kütlesi (kırılma 9,6 g; 16 g)."""
     s = Svg(onek)
-    Wd, Hd = 560, 420
-    x0, y0, x1, y1 = 110, 340, 530, 50
+    Wd, Hd = 560, 440
+    x0, y0, x1, y1 = 100, 340, 512, 56
     s += f'<rect width="{Wd}" height="{Hd}" rx="16" fill="#FFFFFF"/>'
     s += _eksen(s, x0, y0, x1, y1, "Mg kütlesi (g)", "MgO (g)", [(0, "0"), (1 / 3, "4,8"), (2 / 3, "9,6"), (1, "14,4")],
-                [(0, "0"), (.25, "4"), (.5, "8"), (.75, "12"), (1, "16")])
+                [(0, "0"), (.25, "4"), (.5, "8"), (.75, "12"), (1, "16")], fs=34)
     (mg_k, mgo_k), mg_son = USTAD_GRAFIK["kirilma"], USTAD_GRAFIK["mg_son"]
     xa = x0 + (x1 - x0) * mg_k / mg_son
     y1 = y0 - (y0 - y1) * mgo_k / 16

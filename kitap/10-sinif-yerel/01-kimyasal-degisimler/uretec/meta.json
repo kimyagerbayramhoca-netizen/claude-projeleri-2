@@ -128,7 +128,7 @@
       "baslik": "Tek soru · +10 akçe",
       "formul": "Yeni madde var mı?",
       "not": "Var → kimyasal · yok → fiziksel",
-      "kisa": "yeni madde = kimyasal",
+      "kisa": "yeni madde var mı?",
       "durak": 1
     },
     {
@@ -152,7 +152,7 @@
     {
       "kod": "H4",
       "renk": "kob",
-      "baslik": "Denkleştirme sırası · +10 akçe",
+      "baslik": "Denkleştirme · +10 akçe",
       "formul": "C → H → O",
       "not": "O en sona; kesir çıkarsa hepsini ×2",
       "kisa": "önce C, sonra H, O",
@@ -190,15 +190,15 @@
       "baslik": "Sentez · analiz · +10 akçe",
       "formul": "A + B → AB · AB → A + B",
       "not": "Birleşen sentez, ayrışan analiz",
-      "kisa": "A + B → AB · AB → A + B",
+      "kisa": "birleşir · ayrışır",
       "durak": 4
     },
     {
       "kod": "H9",
       "renk": "erg",
-      "baslik": "Net iyon denklemi · +10 akçe",
+      "baslik": "Net iyon · +10 akçe",
       "formul": "Ag⁺ + Cl⁻ → AgCl(k)",
-      "not": "Yalnız çökeleği yapan iyonlar yazılır",
+      "not": "Yalnız çöken iyonlar yazılır",
       "kisa": "Ag⁺ + Cl⁻ → AgCl",
       "durak": 5
     },
@@ -207,7 +207,7 @@
       "renk": "gol",
       "baslik": "Eş değiştir · +10 akçe",
       "formul": "AB + CD → AD + CB",
-      "not": "Sonra çözünürlük tablosuna bak",
+      "not": "Sonra çözünürlüğe bak",
       "kisa": "AB + CD → AD + CB",
       "durak": 5
     },
@@ -217,7 +217,7 @@
       "baslik": "YB oku · +10 akçe",
       "formul": "e⁻ veren yükseltgenir",
       "not": "YB artar · e⁻ alan indirgenir, YB azalır",
-      "kisa": "e⁻ veren yükseltgenir",
+      "kisa": "veren yükseltgenir",
       "durak": 6
     },
     {

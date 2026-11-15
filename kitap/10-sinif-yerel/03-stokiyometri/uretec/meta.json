@@ -79,7 +79,7 @@
       "aciklama": "1. durak"
     },
     {
-      "ad": "Denge Bahçıvanı",
+      "ad": "Denge Bahçı­vanı",
       "ikon": "fidan",
       "renk": "zum",
       "aciklama": "2. durak"
@@ -126,9 +126,9 @@
     {
       "kod": "H1",
       "baslik": "Korunum · +10 akçe",
-      "formul": "Σm<sub>giren</sub> = Σm<sub>ürün</sub>",
+      "formul": "m<sub>tepkenler</sub> = m<sub>ürünler</sub>",
       "not": "Kapalı kapta kütle değişmez.",
-      "kisa": "Σm giren = Σm ürün",
+      "kisa": "m tepken = m ürün",
       "durak": 1
     },
     {
@@ -147,8 +147,8 @@
       "baslik": "Denkleştirme sırası · +10 akçe",
       "adimlar": [
         "<b>Kalabalık formüle 1 koy.</b>",
-        "<b>Sırayla eşitle:</b> metal → ametal → H → O.",
-        "<b>Kesir çıkarsa</b> hepsini paydayla çarp; sonra tek tek say."
+        "<b>Sırayla eşitle:</b> metal, ametal, H, O.",
+        "<b>Kesir çıkarsa</b> paydayla çarp; tek tek say."
       ],
       "kisa": "metal→ametal→H→O",
       "durak": 2
@@ -156,7 +156,7 @@
     {
       "kod": "H4",
       "renk": "mer",
-      "baslik": "Alt simgeye dokunma · +10 akçe",
+      "baslik": "Alt simge · +10 akçe",
       "formul": "2H<sub>2</sub>O, H<sub>4</sub>O<sub>2</sub> değil",
       "not": "Yalnız katsayı değişir; formül değişmez.",
       "kisa": "yalnız katsayı",
@@ -164,7 +164,7 @@
     },
     {
       "kod": "H5",
-      "baslik": "Katsayı köprüsü · +10 akçe",
+      "baslik": "Mol köprüsü · +10 akçe",
       "formul": "n<sub>B</sub> = n<sub>A</sub> · <span class=\"kesir\"><span>k<sub>B</sub></span><span>k<sub>A</sub></span></span>",
       "kisa": "n<sub>B</sub> = n<sub>A</sub>·k<sub>B</sub>/k<sub>A</sub>",
       "durak": 3
@@ -181,7 +181,7 @@
     {
       "kod": "H7",
       "renk": "mer",
-      "baslik": "Sınırlayıcıyı bul · +10 akçe",
+      "baslik": "Sınırlayıcı · +10 akçe",
       "formul": "en küçük <span class=\"kesir\"><span>n</span><span>katsayı</span></span>",
       "kisa": "en küçük n/k",
       "durak": 4
@@ -199,7 +199,7 @@
       "kod": "H9",
       "renk": "kob",
       "baslik": "Yüzde verim · +10 akçe",
-      "formul": "% verim = <span class=\"kesir\"><span>gerçek</span><span>teorik</span></span>·100",
+      "formul": "<span class=\"kesir\"><span>gerçek</span><span>teorik</span></span> × 100",
       "not": "Teorik: sınırlayıcıdan.",
       "kisa": "gerçek/teorik·100",
       "durak": 5
@@ -208,8 +208,8 @@
       "kod": "H10",
       "renk": "gol",
       "baslik": "Yüzde saflık · +10 akçe",
-      "formul": "% saflık = <span class=\"kesir\"><span>saf kütle</span><span>örnek</span></span>·100",
-      "not": "Yalnız saf kısım tepkimeye girer.",
+      "formul": "<span class=\"kesir\"><span>saf kütle</span><span>örnek</span></span> × 100",
+      "not": "Yalnız saf kısmı hesapla.",
       "kisa": "saf/örnek·100",
       "durak": 5
     },
@@ -241,7 +241,7 @@
     },
     {
       "ad": "el-Cezerî",
-      "yil": "? – y. 1206",
+      "yil": "12.–13. yy",
       "katki": "Âmid’de (Diyarbakır) Artuklu hükümdarlarının hizmetinde çalıştı; makinelerini anlattığı kitabını 1206’da tamamladı.",
       "sayfa": 4
     },

@@ -51,7 +51,7 @@ def duz(h):
     h = re.sub(r"<sup>(\d+)</sup>/<sub>(\d+)</sub>", r"\1/\2", h)
     h = re.sub(r"<sub>([^<]*)</sub>", r"\1", h)
     h = re.sub(r"<sup>([^<]*)</sup>", r"^\1", h)
-    h = re.sub(r"</?(b|i|em|u|strong|small|s)\b[^>]*>", "", h)
+    h = re.sub(r"</?(b|em|u|strong|small|s)\b[^>]*>", "", h)
     h = re.sub(r"<[^>]+>", " ", h)
     h = HT.unescape(h).replace("\xa0", " ")
     return re.sub(r"\s+", " ", h)
@@ -59,6 +59,9 @@ def duz(h):
 
 def tr(x, n=None):
     """Türkçe sayı yazımı: 12.8 → '12,8' · 24.0 → '24' · tr(1, 1) → '1,0'."""
+    if n is None and abs(x) >= 1e6:
+        us = math.floor(math.log10(abs(x)))
+        return f"{tr(round(x / 10 ** us, 6))}·10^{us}"
     s = f"{x:.{n}f}" if n is not None else f"{round(float(x), 6):.6f}".rstrip("0").rstrip(".")
     return s.replace(".", ",")
 
@@ -90,7 +93,7 @@ def sayfada(n, *parcalar):
 def siklar(kod):
     """{harf: düz metin} — data-soru="kod" kartındaki şıklar (sayfadan)."""
     return {h: duz(m).replace("%__", "").strip()
-            for h, m in re.findall(r'<div(?: class="(?:sik|tam)")?(?: data-dogru)?><b>([A-E])</b>(.*?)</div>', BLOK[kod], re.S)}
+            for h, m in re.findall(r'<div(?: class="sik")?(?: data-dogru)?><b>([A-E])</b>(.*?)</div>', BLOK[kod], re.S)}
 
 
 def sayisal(kod, deger, beklenen, t=1e-9):
@@ -162,7 +165,7 @@ for d in DENKLEMLER:
 # Sayfadan toplanan denklemler (SVG dışı bütün metin). Kasıtlı denk olmayanlar: denkleştirilecek sorular ve meclis hatası.
 KASITLI = {"C3H8+O2→CO2+H2O", "C4H10+O2→CO2+H2O", "Fe+O2→Fe2O3", "C4H10+13O2→4CO2+5H2O"}
 ELEMENT = set(M) | {"Sn"}
-_T = r"(?:\d+(?:/\d+)?\s?)?(?:[A-Z][a-z]?\d*|\((?:[A-Z][a-z]?\d*)+\)\d*)+"
+_T = r"(?:\d+/\d+\s?|\d+)?(?:[A-Z][a-z]?\d*|\((?:[A-Z][a-z]?\d*)+\)\d*)+"
 _ZINCIR = re.compile(rf"(?<![A-Za-z0-9çğıöşüÇĞİÖŞÜ]){_T}(?:\s?\+\s?{_T})*(?:\s?→\s?{_T}(?:\s?\+\s?{_T})*)+(?![a-zçğıöşü])")
 metin = re.sub(r"\((?:k|s|g|suda)\)", "", " ".join(DUZ.values()))
 bulunan, bilinmeyenli = set(), set()
@@ -447,14 +450,14 @@ izgara = anahtar_izgarasi(SAYFA)
 kontrol(f"Cevaplar: anahtar ızgarası {izgara}", izgara == {i: T[f"I{i}"] for i in range(1, 13)})
 etiket = dict((int(a), int(b)) for a, b in re.findall(r"<i>(\d+)</i><b>[A-E]</b><small>(\d)\. durak</small>", BOLUM[15]))
 kontrol("Cevaplar: soru i'nin durak etiketi (i + 1) // 2", etiket == {i: (i + 1) // 2 for i in range(1, 13)})
-grup = dict(re.findall(r'<div class="grup"><h4>(.*?)</h4>(.*?)</div>', BOLUM[15], re.S))
+grup = dict(re.findall(r'<div class="grup[^"]*"><h4>(.*?)</h4>(.*?)</div>', BOLUM[15], re.S))
 for ad, onek, n in (("Büyük İmtihan", "I", 12), ("Kıssalar", "K", 4), ("Üstad soruları", "U", 6)):
     satir = dict((f"{onek}{a}", b) for a, b in re.findall(r"<b>(\d+) · ([A-E])</b>", grup.get(ad, "")))
     kontrol(f"Cevaplar · {ad}: çözüm satırları anahtarla aynı", satir == {f"{onek}{i}": T[f"{onek}{i}"] for i in range(1, n + 1)})
 kisa = re.findall(r'<span class="ck">(\d) ([A-E])</span>', grup.get("Hızlı görevler · kısa anahtar", ""))
 kontrol(f"Cevaplar · kısa kıssa anahtarı {kisa}", dict((f"K{a}", b) for a, b in kisa) == {k: T[k] for k in ("K1", "K2", "K3", "K4")})
-meclis_c = dict(re.findall(r"<b>(M\d) · (\w+)</b> Satır (\d)", BOLUM[15]))
-kontrol(f"Cevaplar · meclis satırları {meclis_c}", {k: v for k, v in meclis_c.items()} == {k: v[0] for k, v in MECLIS.items()})
+meclis_c = {k: (ad, int(s)) for k, ad, s in re.findall(r"<b>(M\d) · (\w+)</b> Satır (\d)", BOLUM[15])}
+kontrol(f"Cevaplar · meclis satırları {meclis_c}", meclis_c == MECLIS)
 sayfada(15, "1 · 23", "2 · 1,6 g S artar, 16 g Cu2S", "3 · 16 g CaCO3", "1 · 36 g, hayır", "2 · 9", "3 · 22 g",
         "4 · O2; 0,9 mol", "5 · 50 g", "6 · %32,5", "3,2 g S", "= 12", "C3H6", "= 24 g", "1,806·10^23", "8 g artar", "%60",
         "26,4 g CO2", "11,8 g", "38,4 g", "3,1 g", "X = 119", "toplam 32 g", "72 g CaCO3", "%40 Mg", "2,0 mol", "11,2 g CaO")
@@ -518,7 +521,10 @@ kontrol("8 nişan (6 durak + Sur Kapısı + bonus Üstad Mührü)",
 kontrol("12 hazine kartı, her durağa 2", sorted(h["durak"] for h in META["hazine"]) == sorted(list(range(1, 7)) * 2))
 for md in META["medeniyet"]:
     kutu = re.findall(r'<div class="medeniyet">(.*?)</p>\s*</div>', SBOLUM[md["sayfa"]], re.S)
-    kontrol(f"Medeniyetimizden · {md['ad']} ({md['yil']}) s{md['sayfa']}'de", any(md["ad"] in k_ and md["yil"] in k_ for k_ in kutu))
+    yy = re.search(r"(\d+)\.(?:–(\d+)\.)? yy", md["yil"])     # "12.–13. yy" → kutudaki yıl 1101–1300 arasında olmalı
+    aralik = range((int(yy.group(1)) - 1) * 100 + 1, int(yy.group(2) or yy.group(1)) * 100 + 1) if yy else range(0)
+    kontrol(f"Medeniyetimizden · {md['ad']} ({md['yil']}) s{md['sayfa']}'de",
+            any(md["ad"] in k_ and (md["yil"] in k_ or any(int(v) in aralik for v in re.findall(r"\d{4}", k_))) for k_ in kutu))
 for p, (hud, _, _) in KSAYFA.items():
     ad = re.sub(r"<[^>]+>", "", hud)
     kontrol(f"s{p}: HUD “{ad}” sayfada", ad in DUZ[p])

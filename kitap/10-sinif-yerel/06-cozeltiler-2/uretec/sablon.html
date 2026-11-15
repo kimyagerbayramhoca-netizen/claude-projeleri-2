@@ -12,14 +12,16 @@
 .kavram p + p { margin-top: .9mm; }
 .kucuk-p { font-size: 9.5pt; line-height: 1.25; }
 .kiyidan .kucuk-p { margin-top: .8mm; }
-.hucre-ic { display: grid; grid-template-columns: 1fr 30mm; gap: 2mm; align-items: center; margin-top: .6mm; }
+.medeniyet .haz-ic.sag { grid-template-columns: 1fr 24mm; }
+.hucre-ic { display: grid; grid-template-columns: 1fr 22mm; gap: 2mm; align-items: center; margin-top: .6mm; }
 .hucre-ic svg.info { width: 100%; height: auto; display: block; }
 table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.1mm; font-size: 9.2pt; }
 table.gorev-tablo.tanecik td:first-child { text-align: left; }
 .mini-tablo { display: grid; grid-template-columns: auto 1fr; gap: .3mm 2mm; font-size: 9.5pt; line-height: 1.22; margin-top: .8mm; }
 .mini-tablo b { color: var(--mer-k); }
 .kissa-ic .ust-satir svg.info.grafik { width: 34mm; }
-.ustad-sekil svg.info { width: 33mm; height: auto; }
+.ustad-sekil svg.info { width: 29mm; height: auto; }
+.u3 { display: grid; grid-template-columns: 1fr 29mm; gap: 2mm; align-items: start; }
 .yol-seridi { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8mm 1.6mm; margin-top: 1.2mm; font-size: 8.6pt; font-weight: 800; line-height: 1.15; }
 .yol-seridi span { border: .3mm solid var(--gol-k); border-radius: 1.4mm; padding: .5mm 1mm; background: #fff; white-space: nowrap; }
 .yol-seridi span.son { background: var(--keh-a); border-color: var(--keh-k); }
@@ -138,15 +140,15 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
         <div class="kes-not">{{ikon|makas}}Kes · yapıştır · kart başı +10</div>
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:.95fr 1.1fr .95fr">
+    <div class="bento esnek" style="grid-template-columns:1fr 1.1fr .9fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
         <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Derişik çözelti, doymuş çözelti demektir.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p><b>Doymuş</b> çözelti, o sıcaklıkta çözebileceği kadar çözünen içerir. Az çözünen bir maddenin doymuş çözeltisi bile <b>seyreltik</b> olabilir.</p></div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p><b>Doymuş</b>: o sıcaklıkta çözebileceği kadar çözünen içerir. Az çözünen maddenin doymuş çözeltisi bile <b>seyreltik</b> olabilir.</p></div>
       </div>
       <div class="kart kiyidan">
         <span class="et">{{ikon|dalga}}Kıyıdan · hücrenin iki yanı</span>
-        <div class="hucre-ic"><p class="kucuk-p"><b>İzotonik:</b> derişimi karşılaştırılanla eşit · <b>hipertonik:</b> ondan yüksek · <b>hipotonik:</b> ondan düşük. Serum fizyolojik kanla izotoniktir; alyuvar saf suda su alıp şişer, çok tuzlu suda su kaybedip büzüşür.</p>{{info|alyuvarlar}}</div>
+        <div class="hucre-ic"><p class="kucuk-p"><b>İzotonik:</b> derişimi eşit · <b>hipertonik:</b> daha yüksek · <b>hipotonik:</b> daha düşük. Serum fizyolojik kanla izotoniktir; alyuvar saf suda şişer, çok tuzlu suda büzüşür.</p>{{info|alyuvarlar}}</div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+20 akçe</span></div>
@@ -204,15 +206,15 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
         <div class="kes-not">{{ikon|makas}}Kes · yapıştır · kart başı +10</div>
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:.9fr 1.2fr .9fr">
+    <div class="bento esnek" style="grid-template-columns:.88fr 1.3fr .82fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
         <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“ppm değeri küçükse madde zararsızdır.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Zarar <b>maddenin türüne</b> bağlıdır. Dünya Sağlık Örgütü içme suyu için nitrata 50 mg/L, arseniğe <b>0,01 mg/L</b> üst sınır önerir.</p></div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Zarar <b>türe</b> bağlıdır. Dünya Sağlık Örgütü içme suyunda nitrata 50 mg/L, arseniğe <b>0,01 mg/L</b> sınır önerir.</p></div>
       </div>
       <div class="medeniyet">{{kose}}
         <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
-        <div class="haz-ic sag"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><p class="metin"><b>el-Kindî</b> (9. yüzyıl) koku ve damıtma üzerine yazdığı kitabında (<i>Kitâbü Kîmyâi’l-ıtr</i>) <b>gül suyu</b> gibi kokulu suların <b>damıtılmasını</b> tarif etti.</p></div>{{info|imbik}}</div>
+        <div class="haz-ic sag"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><p class="metin"><b>el-Kindî</b> (9. yüzyıl), koku ve damıtma kitabında (<i>Kitâbü Kîmyâi’l-ıtr</i>) <b>gül suyu</b> gibi kokulu suların <b>damıtılmasını</b> tarif etti.</p></div>{{info|imbik}}</div>
         <p class="not">Isparta’nın imbiklerinde de buharla ayrılan yağ çok azdır: <b>ppm’i küçük, değeri büyük.</b></p>
       </div>
       <div class="kart hizli">
@@ -239,9 +241,9 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#kıyı-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
         <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Burdur Gölü’nün suyu acı ve tuzlu. Bu tuzlar nereden geliyor?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Göl <b>kapalı havzalı</b>: suyu dışarı akmaz, buharlaşarak azalır; tuzlar birikir. Suyunda <b>sodyum sülfat</b> gibi tuzlar bol. Kimyacı bunu <span class="vurgu">litrede kaç mol</span> diye anlatır.</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Göl <b>kapalı havzalı</b>: suyu dışarı akmaz, buharlaşır; tuzlar birikir. Suyunda <b>sodyum sülfat</b> gibi tuzlar bol. Bunu <span class="vurgu">litrede kaç mol</span> diye anlatırız.</div></div>
         <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>1 Na<sub>2</sub>SO<sub>4</sub> suda 3 iyona ayrılır: 2 Na<sup>+</sup> + 1 SO<sub>4</sub><sup>2−</sup>. İyonları da sayarım! Miyav.</div></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kışın nesli tehlikedeki dikkuyruk ördekleri de buraya geliyormuş. Önce derişimi çözelim!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kışın dikkuyruk ördekleri de buraya gelirmiş!</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · molarite</span></div>
@@ -254,7 +256,7 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
     <div class="bento" style="grid-template-columns:1fr 1fr 1fr">
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 5</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+25</span></span></div>
-        <div class="baglam">Kıyıda kurduğumuz seyyar laboratuvar</div>
+        <div class="baglam">Kıyıdaki seyyar laboratuvar</div>
         <p class="soru">14,2 g Na<sub>2</sub>SO<sub>4</sub> ile 500 mL çözelti hazırlanıyor. Molar derişim kaçtır? (Na: 23, S: 32, O: 16)</p>
         <ol class="akis"><li><i>1</i><span>M<sub>A</sub> = 46 + 32 + 64 = 142 g/mol → n = 0,1 mol</span></li><li><i>2</i><span><b>H5:</b> M = 0,1 / 0,5</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>0,2 M Na<sub>2</sub>SO<sub>4</sub></div>
@@ -262,13 +264,13 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 6</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+25</span></span></div>
         <div class="baglam">Aynı çözelti, iyon iyon</div>
-        <p class="soru">0,2 M Na<sub>2</sub>SO<sub>4</sub> çözeltisinde [Na<sup>+</sup>], [SO<sub>4</sub><sup>2−</sup>] ve toplam iyon derişimi kaçtır?</p>
+        <p class="soru">0,2 M Na<sub>2</sub>SO<sub>4</sub> çözeltisinde [Na<sup>+</sup>], [SO<sub>4</sub><sup>2−</sup>] ve toplam iyon kaç M?</p>
         <ol class="akis"><li><i>1</i><span>Na<sub>2</sub>SO<sub>4</sub> → 2Na<sup>+</sup> + SO<sub>4</sub><sup>2−</sup></span></li><li><i>2</i><span><b>H6:</b> 2 · 0,2 = 0,4 M · 1 · 0,2 = 0,2 M</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>0,4 M · 0,2 M · toplam 0,6 M</div>
       </div>
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 7</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+30</span></span></div>
-        <div class="baglam">Dolaptaki derişik sodyum hidroksit</div>
+        <div class="baglam">Dolaptaki derişik NaOH</div>
         <p class="soru">Kütlece %40’lık NaOH çözeltisinin yoğunluğu 1,43 g/mL’dir. Molar derişimi kaçtır? (NaOH: 40 g/mol)</p>
         <ol class="akis"><li><i>1</i><span>1 L = 1430 g; NaOH: 1430 · 0,40 = 572 g</span></li><li><i>2</i><span>572 / 40 = 14,3 mol · <b>H7:</b> 10·1,43·40/40</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>14,3 M NaOH</div>
@@ -303,44 +305,45 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
   {{hud|5}}
   {{cini}}
   <div class="bant" data-serbest>{{sahne|salda_golu}}
-    <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Salda Gölü · öğle</div><h1>Su ekle, <em>karıştır</em></h1><p class="alt-bas">Çözünenin molü değişmedikçe hesap <b>tek satır.</b></p><div class="hedef"><b>Hedef</b>Seyreltme, deriştirme ve karıştırmadan sonra derişimi bul.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Seyreltme Ustası</span></div></div></div>
+    <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Salda Gölü · öğle</div><h1>Su ekle, <em>karıştır</em></h1><p class="alt-bas">Çözünenin molü değişmedikçe hesap <b>tek satır.</b></p><div class="hedef"><b>Hedef</b>Seyreltme, deriştirme ve karıştırmadan sonra derişimi bul.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Mol Bekçisi</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
     <div class="bento" style="grid-template-columns:1.04fr .96fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#kıyı-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
         <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Salda’nın kıyısı bembeyaz! Kum mu bu?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span><b>Hidromanyezit</b> denen beyaz bir karbonat minerali. Göl suyu magnezyumca zengin ve bazik. NASA, Mars’taki <b>Jezero</b> kraterini anlamak için bu gölü inceledi.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Bir bardak çözeltiye bir bardak saf su katarsam iyonlar aynı kalır, hacim iki katına çıkar: derişim yarıya iner. Miyav!</div></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Demek seyreltince <span class="vurgu">mol değişmiyor</span>, yalnız hacim değişiyor.</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span><b>Hidromanyezit</b>: beyaz bir karbonat minerali. Su magnezyumca zengin ve bazik; NASA bu gölü Mars’taki <b>Jezero</b> kraterine benzetti.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Bir bardak çözeltiye bir bardak su: iyonlar aynı, hacim iki kat, derişim yarı! Miyav.</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Seyreltince <span class="vurgu">mol değişmiyor</span>, hacim değişiyor.</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · mol korunur</span></div>
         <p><b>Seyreltme:</b> çözücü eklemek. <b>Deriştirme:</b> çökme olmadan çözücüyü buharlaştırmak. İkisinde de çözünenin molü değişmez: n<sub>1</sub> = n<sub>2</sub> → <b>M<sub>1</sub>V<sub>1</sub> = M<sub>2</sub>V<sub>2</sub></b>.</p>
         {{info|seyreltme_karistirma}}
         <p><b>Karıştırma:</b> aynı çözünenin iki çözeltisi tepkimesiz karışırsa <b>moller ve hacimler toplanır</b>; sonuç iki derişimin arasındadır.</p>
+        <p class="kucuk-p"><b>Güvenlik:</b> derişik asit seyreltilirken çok ısı çıkar; <b>asit suya</b> yavaşça eklenir, asidin üstüne su dökülmez.</p>
       </div>
     </div>
     <div class="bento" style="grid-template-columns:1fr 1fr 1fr">
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 8</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+25</span></span></div>
         <div class="baglam">Magnezyumlu bir çözeltiyi seyreltiyoruz.</div>
-        <p class="soru">0,8 M 150 mL MgCl<sub>2</sub> çözeltisine su eklenerek hacim 600 mL’ye tamamlanıyor. Yeni derişim kaç M? Kaç mL su eklendi?</p>
-        <ol class="akis"><li><i>1</i><span><b>H8:</b> 0,8 · 150 = M<sub>2</sub> · 600 → M<sub>2</sub> = 0,2 M</span></li><li><i>2</i><span>Eklenen su: 600 − 150 = 450 mL</span></li></ol>
+        <p class="soru">0,8 M 150 mL MgCl<sub>2</sub> çözeltisi suyla 600 mL’ye tamamlanıyor. Yeni derişim ve eklenen su?</p>
+        <ol class="akis"><li><i>1</i><span><b>H8:</b> 0,8·150 = M<sub>2</sub>·600 → 0,2 M</span></li><li><i>2</i><span>Su: 600 − 150 = 450 mL</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>0,2 M · 450 mL su</div>
       </div>
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 9</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+25</span></span></div>
         <div class="baglam">Yaz güneşinde buharlaşma (çökme yok)</div>
-        <p class="soru">0,3 M 500 mL NaCl çözeltisinin derişimini 0,75 M yapmak için kaç mL su buharlaştırılmalıdır?</p>
-        <ol class="akis"><li><i>1</i><span>0,3 · 500 = 0,75 · V<sub>2</sub> → V<sub>2</sub> = 200 mL</span></li><li><i>2</i><span>Buharlaşan su: 500 − 200</span></li></ol>
+        <p class="soru">0,3 M 500 mL NaCl çözeltisini 0,75 M yapmak için kaç mL su buharlaşmalı?</p>
+        <ol class="akis"><li><i>1</i><span>0,3·500 = 0,75·V<sub>2</sub> → 200 mL</span></li><li><i>2</i><span>Buharlaşan su: 500 − 200</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>300 mL su</div>
       </div>
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 10</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+30</span></span></div>
         <div class="baglam">İki şişe, tek kap</div>
-        <p class="soru">0,5 M 200 mL ve 0,2 M 300 mL KCl çözeltileri karıştırılıyor (hacimler toplanır). Karışım kaç M’dir?</p>
-        <ol class="akis"><li><i>1</i><span>Moller: 0,5·0,2 + 0,2·0,3 = 0,16 mol</span></li><li><i>2</i><span><b>H9:</b> 0,16 / 0,5 L</span></li></ol>
+        <p class="soru">0,5 M 200 mL ile 0,2 M 300 mL KCl karıştırılıyor (hacimler toplanır). Karışım kaç M?</p>
+        <ol class="akis"><li><i>1</i><span>n: 0,10 + 0,06 = 0,16 mol</span></li><li><i>2</i><span><b>H9:</b> 0,16 / 0,5 L</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>0,32 M KCl</div>
       </div>
     </div>
@@ -353,7 +356,7 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
         <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“0,6 M ile 0,2 M karışırsa her zaman 0,4 M olur.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Yalnız <b>hacimler eşitse</b> doğrudur. Derişimler değil, <b>mol sayıları</b> toplanır; sonuç hacmi büyük olana yakın çıkar.</p></div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Yalnız <b>hacimler eşitse</b>. Derişimler değil, <b>moller</b> toplanır; sonuç hacmi büyük olana yakındır.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
@@ -362,15 +365,9 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
         <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">0,1 M</span></div><span class="ters-cevap"><span class="ters">Cevap: 0,1 M</span></span></div>
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:1.25fr .75fr">
-      <div class="medeniyet">{{kose}}
-        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
-        <div class="haz-ic sag"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><p class="metin"><b>Câbir bin Hayyân</b> (8. yüzyıl): adıyla anılan eserler <b>damıtma, kristallendirme ve süzme</b> gibi işlemleri sistemli biçimde anlatır.</p><p class="not">Deriştirmenin sonu kristaldir: su uçtukça çözelti <b>doyar</b>, fazlası katı olarak ayrılır.</p></div>{{info|kristal_kabi}}</div>
-      </div>
-      <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Laboratuvar güvenliği</span>
-        <p class="kucuk-p">Derişik asit seyreltilirken çok ısı açığa çıkar. Bu yüzden <b>asit suya</b>, yavaş yavaş ve karıştırarak eklenir; asidin üstüne su dökülmez. Gözlük ve eldiven tak.</p>
-      </div>
+    <div class="medeniyet esnek">{{kose}}
+      <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
+      <div class="haz-ic sag"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><p class="metin"><b>Câbir bin Hayyân</b> (8. yüzyıl): adıyla anılan eserler <b>damıtma, kristallendirme ve süzme</b> gibi işlemleri sistemli biçimde anlatır.</p><p class="not">Deriştirmenin sonu kristaldir: su uçtukça çözelti <b>doyar</b>, fazlası katı olarak ayrılır.</p></div>{{info|kristal_kabi}}</div>
     </div>
   </main>
   {{alt|5}}
@@ -609,7 +606,7 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
           <p class="metin">Eğirdir’deki bir elma bahçesinde teknisyen, <b>0,05 M’lik 200 L</b> Ca(NO<sub>3</sub>)<sub>2</sub> çözeltisini <b>0,01 M’lik 800 L</b> Ca(NO<sub>3</sub>)<sub>2</sub> çözeltisiyle karıştırıyor (tepkime yok, hacimler toplanıyor). Hedef: NO<sub>3</sub><sup>−</sup> derişimi <b>0,030–0,040 M</b>.</p>
           <p class="soru">Tanktaki NO<sub>3</sub><sup>−</sup> derişimi ve hedefe uygunluğu için hangisi doğrudur?</p>
           <div class="karalama"><span class="ogr">18 mol / 1000 L = 0,018 M → ×2 = 0,036 M</span></div>
-          <div class="siklar iki"><div class="sik"><b>A</b>0,018 M; hedefin altında</div><div class="sik" data-dogru><b>B</b>0,036 M; hedefte</div><div class="sik"><b>C</b>0,060 M; hedefin üstünde</div><div class="sik"><b>D</b>0,030 M; tam alt sınırda</div><div class="sik"><b>E</b>0,072 M; hedefin üstünde</div></div>
+          <div class="siklar iki"><div class="sik"><b>A</b>0,018 M; altında</div><div class="sik" data-dogru><b>B</b>0,036 M; hedefte</div><div class="sik"><b>C</b>0,060 M; üstünde</div><div class="sik"><b>D</b>0,030 M; alt sınırda</div><div class="sik"><b>E</b>0,072 M; üstünde</div></div>
           <div class="hisse"><b>Kıssadan hisse:</b> Önce molleri topla, sonra iyon sayısıyla çarp.</div>
         </div>
       </div>
@@ -724,7 +721,7 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
         <div class="mesveret-bas">{{sno|6}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
         <p class="soru">0,3 M Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> çözeltisi için (tam iyonlaşma) I. [Al<sup>3+</sup>] = 0,6 M, II. [SO<sub>4</sub><sup>2−</sup>] = 0,9 M, III. toplam iyon derişimi 1,2 M yargılarından hangileri doğrudur?</p>
         <div class="karalama"><span class="ogr">0,6 ✓ · 0,9 ✓ · toplam 1,5 (III ✗)</span></div>
-        <div class="oy"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div data-dogru><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
+        <div class="oy uc"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div data-dogru><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
     </div>
   </main>
@@ -761,21 +758,21 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
       </div>
       <div class="kart mesveret" data-soru="I10">
         <div class="mesveret-bas">{{sno|10}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Dibinde katısı olan doymuş KNO<sub>3</sub> çözeltisinden sabit sıcaklıkta bir miktar su buharlaşıyor, bir miktar katı çöküyor. I. Derişim değişmez. II. Çözünmüş KNO<sub>3</sub> kütlesi azalır. III. Dipteki katı kütlesi artar. Hangileri doğrudur?</p>
+        <p class="soru">Dibinde katısı olan doymuş KNO<sub>3</sub> çözeltisinden sabit sıcaklıkta su buharlaşıp bir miktar katı çöküyor. I. Derişim değişmez. II. Çözünmüş KNO<sub>3</sub> kütlesi azalır. III. Dipteki katı artar. Hangileri doğru?</p>
         <div class="karalama"><span class="ogr">Doymuş kalır (I ✓); çöken artar (II, III ✓)</span></div>
-        <div class="oy"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div data-dogru><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
+        <div class="oy uc"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div data-dogru><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I11">
         <div class="mesveret-bas">{{sno|11}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
         <p class="soru">Birer kg suda ayrı ayrı I. 0,2 mol NaCl, II. 0,1 mol Al(NO<sub>3</sub>)<sub>3</sub>, III. 0,5 mol glikoz çözülüyor. Donmaya başlama sıcaklıkları arasındaki ilişki hangisidir?</p>
         <div class="karalama"><span class="ogr">Tanecik: 0,4 · 0,4 · 0,5 mol</span></div>
-        <div class="oy"><div data-dogru><b>A</b><span>I = II &gt; III</span><em>%__</em></div><div><b>B</b><span>I &gt; II &gt; III</span><em>%__</em></div><div><b>C</b><span>III &gt; I = II</span><em>%__</em></div><div><b>D</b><span>II &gt; I &gt; III</span><em>%__</em></div><div><b>E</b><span>I = II = III</span><em>%__</em></div></div>
+        <div class="oy uc"><div data-dogru><b>A</b><span>I = II &gt; III</span><em>%__</em></div><div><b>B</b><span>I &gt; II &gt; III</span><em>%__</em></div><div><b>C</b><span>III &gt; I = II</span><em>%__</em></div><div><b>D</b><span>II &gt; I &gt; III</span><em>%__</em></div><div><b>E</b><span>I = II = III</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I12">
         <div class="mesveret-bas">{{sno|12}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Uçucu olmayan katılarla hazırlanan sulu çözeltiler için hangisi <b>yanlıştır</b>?</p>
-        <div class="karalama"><span class="ogr">Koligatif etki sayıya bağlı → E yanlış</span></div>
-        <div class="oy yatay"><div><b>A</b><span>Saf sudan yüksek sıcaklıkta kaynamaya başlar.</span><em>%__</em></div><div><b>B</b><span>Aynı sıcaklıkta buhar basıncı saf sudan düşüktür.</span><em>%__</em></div><div><b>C</b><span>1 kg suda 0,1 mol CaCl<sub>2</sub>, 0,1 mol NaCl’den düşük sıcaklıkta donar.</span><em>%__</em></div><div><b>D</b><span>Kaynarken su uçtukça sıcaklık (doyana dek) yükselir.</span><em>%__</em></div><div data-dogru><b>E</b><span>Koligatif etki tanecik sayısına değil, cinsine bağlıdır.</span><em>%__</em></div></div>
+        <p class="soru">1 kg suda 0,2 mol CaCl<sub>2</sub> çözülerek hazırlanan çözelti 1 atm’de yaklaşık kaç °C’ta kaynamaya başlar? (K<sub>k</sub> = 0,52 °C)</p>
+        <div class="karalama"><span class="ogr">0,6 mol tanecik · 0,52·0,6 = 0,312</span></div>
+        <div class="oy uc"><div><b>A</b><span>99,69</span><em>%__</em></div><div><b>B</b><span>100,10</span><em>%__</em></div><div><b>C</b><span>100,21</span><em>%__</em></div><div><b>D</b><span>100,26</span><em>%__</em></div><div data-dogru><b>E</b><span>100,31</span><em>%__</em></div></div>
       </div>
     </div>
     <div class="kart mer-z skor">
@@ -811,8 +808,7 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
       </div>
       <div class="ustad-soru" data-soru="U3">
         <div class="ustad-bas">{{sno|3|laj}}<span class="et">Grafik · deriştirme</span><span class="ustad-zor">AYT</span></div>
-        <div class="ustad-sekil" style="float:right;margin:0 0 .6mm 2mm">{{info|ustad_buharlasma}}</div>
-        <p class="soru">Sabit sıcaklıkta 500 mL X tuzu çözeltisinden su buharlaştırılıyor; derişimin buharlaşan suya göre değişimi grafikte. 450 mL su buharlaştığında kaç gram X katısı çökmüş olur? (X: 100 g/mol; hacim azalması buharlaşan suya eşit)</p>
+        <div class="u3"><p class="soru">Sabit sıcaklıkta 500 mL X çözeltisinden su buharlaştırılıyor (grafik). 450 mL su buharlaşınca kaç gram X çöker? (X: 100 g/mol; hacim azalması = buharlaşan su)</p><div class="ustad-sekil">{{info|ustad_buharlasma}}</div></div>
         <div class="karalama"><span class="ogr">n = 0,2 mol; 50 mL’de 2·0,05 = 0,1 mol kalır → 10 g</span></div>
         <div class="siklar"><div class="sik" data-dogru><b>A</b>10</div><div class="sik"><b>B</b>15</div><div class="sik"><b>C</b>20</div><div class="sik"><b>D</b>30</div><div class="sik"><b>E</b>40</div></div>
       </div>
@@ -879,7 +875,7 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
           <p class="c"><b>9 · B</b> (0,09 + 0,035) mol / 0,5 L = 0,25 M.</p>
           <p class="c"><b>10 · E</b> Doymuş kalır, derişim sabit (I ✓); çözünen çöker (II ✓); dipteki katı artar (III ✓).</p>
           <p class="c"><b>11 · A</b> Tanecik: I 0,4 · II 0,1·4 = 0,4 · III 0,5 → I = II &gt; III.</p>
-          <p class="c"><b>12 · E</b> Koligatif etki tanecik <b>sayısına</b> bağlıdır, cinsine değil.</p>
+          <p class="c"><b>12 · E</b> CaCl<sub>2</sub> → 3 tanecik: 0,6 mol; ΔT<sub>k</sub> = 0,52·0,6 = 0,312 → ≈ 100,31 °C.</p>
         </div>
         <div class="grup"><h4>Kıssalar</h4>
           <p class="c"><b>1 · C</b> 5 g/100 mL → 50 g/L (I ✓); 50/180 ≈ 0,28 M (II ✓); 500 mL’de 25 g ≈ 0,14 mol (III ✗).</p>
@@ -954,11 +950,11 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
         <span class="et keh">{{ikon|hulasa}}Akçe defteri</span>
         <table class="defter">
           <tr><th>Durak</th><th>En çok</th><th>Senin</th></tr>
-          <tr><td>1. durak · Eğirdir Gölü · Derişim ve yüzde</td><td class="n">100</td><td class="k"><span></span></td></tr>
+          <tr><td>1. durak · Eğirdir · yüzde</td><td class="n">100</td><td class="k"><span></span></td></tr>
           <tr><td>2. durak · Isparta · ppm</td><td class="n">150</td><td class="k"><span></span></td></tr>
-          <tr><td>3. durak · Burdur Gölü · Molarite</td><td class="n">150</td><td class="k"><span></span></td></tr>
-          <tr><td>4. durak · Salda Gölü · Seyreltme</td><td class="n">150</td><td class="k"><span></span></td></tr>
-          <tr><td>5. durak · Davraz · Koligatif</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>3. durak · Burdur · molarite</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>4. durak · Salda · seyreltme</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>5. durak · Davraz · koligatif</td><td class="n">150</td><td class="k"><span></span></td></tr>
           <tr><td>Hülasa · muhasebe</td><td class="n">40</td><td class="k"><span></span></td></tr>
           <tr><td>Yan yol · Meclis</td><td class="n">120</td><td class="k"><span></span></td></tr>
           <tr><td>Yan yol · Kıssalar</td><td class="n">120</td><td class="k"><span></span></td></tr>
@@ -980,7 +976,7 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
           <span class="et">{{ikon|harita}}Yolculuk tamamlandı → Nişan albümü</span>
           <b>Altı yol, bir yolculuk</b>
           <div class="yol-seridi"><span><i>1</i>Kars–Erzurum</span><span><i>2</i>Van Gölü</span><span><i>3</i>Dicle</span><span><i>4</i>Kapadokya</span><span><i>5</i>Pamukkale–Afyon</span><span class="son"><i>6</i>Göller ✓</span></div>
-          <p class="kucuk-p">Kitabın sonundaki <b>Nişan albümü</b>’nde bütün yolların nişanlarını bir araya topla, Ahilik toplamını hesapla.</p>
+          <p class="kucuk-p">Kitabın sonundaki <strong>Nişan albümü</strong>’nde bütün yolların nişanlarını topla, Ahilik toplamını hesapla.</p>
         </div>
       </div>
     </div>

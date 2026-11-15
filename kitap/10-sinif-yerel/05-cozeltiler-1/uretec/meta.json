@@ -6,63 +6,306 @@
   "klasor": "05-cozeltiler-1",
   "tema": "Tema 2 · Bölüm 1",
   "bolge": "Denizli · Afyonkarahisar",
-  "merkez": {"enlem": 38.4, "boylam": 29.85},
+  "merkez": {
+    "enlem": 38.4,
+    "boylam": 29.85
+  },
   "duraklar": [
-    {"no": 1, "yer": "Pamukkale", "baslik": "Çözünme nasıl olur?", "enlem": 37.921, "boylam": 29.12, "sayfa": 2, "akce": 100},
-    {"no": 2, "yer": "Karahayıt", "baslik": "Benzer benzeri çözer", "enlem": 37.965, "boylam": 29.103, "sayfa": 3, "akce": 120},
-    {"no": 3, "yer": "Acıgöl", "baslik": "İyonlar ve iletkenlik", "enlem": 37.83, "boylam": 29.87, "sayfa": 4, "akce": 120},
-    {"no": 4, "yer": "Ömer–Gecek", "baslik": "Çözünürlük ve etkenleri", "enlem": 38.85, "boylam": 30.42, "sayfa": 5, "akce": 120},
-    {"no": 5, "yer": "Gazlıgöl", "baslik": "Doygunluk ve hız", "enlem": 38.94, "boylam": 30.48, "sayfa": 6, "akce": 120},
-    {"no": 6, "yer": "Afyon çarşısı", "baslik": "Çözünürlük hesapları", "enlem": 38.755, "boylam": 30.545, "sayfa": 7, "akce": 120}
+    {
+      "no": 1,
+      "yer": "Pamukkale",
+      "baslik": "Çözünme nasıl olur?",
+      "enlem": 37.921,
+      "boylam": 29.12,
+      "sayfa": 2,
+      "akce": 100
+    },
+    {
+      "no": 2,
+      "yer": "Karahayıt",
+      "baslik": "Benzer benzeri çözer",
+      "enlem": 37.965,
+      "boylam": 29.103,
+      "sayfa": 3,
+      "akce": 120
+    },
+    {
+      "no": 3,
+      "yer": "Acıgöl",
+      "baslik": "İyonlar ve iletkenlik",
+      "enlem": 37.83,
+      "boylam": 29.87,
+      "sayfa": 4,
+      "akce": 120
+    },
+    {
+      "no": 4,
+      "yer": "Ömer–Gecek",
+      "baslik": "Çözünürlük ve etkenleri",
+      "enlem": 38.85,
+      "boylam": 30.42,
+      "sayfa": 5,
+      "akce": 120
+    },
+    {
+      "no": 5,
+      "yer": "Gazlıgöl",
+      "baslik": "Doygunluk ve hız",
+      "enlem": 38.94,
+      "boylam": 30.48,
+      "sayfa": 6,
+      "akce": 120
+    },
+    {
+      "no": 6,
+      "yer": "Afyon çarşısı",
+      "baslik": "Çözünürlük hesapları",
+      "enlem": 38.755,
+      "boylam": 30.545,
+      "sayfa": 7,
+      "akce": 120
+    }
   ],
   "kale": "Afyonkarahisar Kalesi",
-  "kale_konum": {"enlem": 38.762, "boylam": 30.537},
+  "kale_konum": {
+    "enlem": 38.762,
+    "boylam": 30.537
+  },
   "nisanlar": [
-    {"ad": "Traverten Kâşifi", "ikon": "traverten", "renk": "gol", "aciklama": "1. durak · çözünme"},
-    {"ad": "Sabun Ustası", "ikon": "sabun", "renk": "kob", "aciklama": "2. durak · benzer benzeri"},
-    {"ad": "Ampul Bekçisi", "ikon": "ampul", "renk": "keh", "aciklama": "3. durak · iletkenlik"},
-    {"ad": "Kaplıca Bilgini", "ikon": "termometre", "renk": "mer", "aciklama": "4. durak · çözünürlük"},
-    {"ad": "Kabarcık Avcısı", "ikon": "kabarcik", "renk": "gol", "aciklama": "5. durak · doygunluk"},
-    {"ad": "Şerbet Ustası", "ikon": "kristal", "renk": "erg", "aciklama": "6. durak · hesaplar"},
-    {"ad": "Kale Kapısı", "ikon": "kale", "renk": "keh", "aciklama": "İmtihan · 10+ doğru"},
-    {"ad": "Üstad Mührü", "ikon": "ustad", "renk": "laj", "aciklama": "Üstad · 6/6 doğru", "bonus": true}
+    {
+      "ad": "Traverten Kâşifi",
+      "ikon": "traverten",
+      "renk": "gol",
+      "aciklama": "1. durak · çözünme"
+    },
+    {
+      "ad": "Sabun Ustası",
+      "ikon": "sabun",
+      "renk": "kob",
+      "aciklama": "2. durak · benzer benzeri"
+    },
+    {
+      "ad": "Ampul Bekçisi",
+      "ikon": "ampul",
+      "renk": "keh",
+      "aciklama": "3. durak · iletkenlik"
+    },
+    {
+      "ad": "Kaplıca Bilgini",
+      "ikon": "termometre",
+      "renk": "mer",
+      "aciklama": "4. durak · çözünürlük"
+    },
+    {
+      "ad": "Kabarcık Avcısı",
+      "ikon": "kabarcik",
+      "renk": "gol",
+      "aciklama": "5. durak · doygunluk"
+    },
+    {
+      "ad": "Şerbet Ustası",
+      "ikon": "kristal",
+      "renk": "erg",
+      "aciklama": "6. durak · hesaplar"
+    },
+    {
+      "ad": "Kale Kapısı",
+      "ikon": "kale",
+      "renk": "keh",
+      "aciklama": "İmtihan · 10+ doğru"
+    },
+    {
+      "ad": "Üstad Mührü",
+      "ikon": "ustad",
+      "renk": "laj",
+      "aciklama": "Üstad · 6/6 doğru",
+      "bonus": true
+    }
   ],
   "hazine": [
-    {"kod": "H1", "renk": "gol", "baslik": "Çözeltinin kütlesi", "formul": "m_{çözelti} = m_{çözücü} + m_{çözünen}", "not": "Kütle korunur; hacim toplanmayabilir · +10 akçe", "kisa": "m_{çözelti} = toplam", "durak": 1},
-    {"kod": "H2", "renk": "mer", "baslik": "Isı alır mı, verir mi?", "formul": "açığa çıkan &gt; harcanan → ısı verir", "not": "Tersi: ısı alır (soğuk paket) · +10 akçe", "kisa": "açığa çıkan &gt; harcanan: ekzo", "durak": 1},
-    {"kod": "H3", "renk": "kob", "baslik": "Benzer benzeri çözer", "formul": "polar ile polar · apolar ile apolar", "not": "İyonik bileşik → su (polar) · +10 akçe", "kisa": "polar–polar · apolar–apolar", "durak": 2},
-    {"kod": "H4", "renk": "gol", "baslik": "Hidrojen bağı şartı", "formul": "H, F · O · N’ye bağlı", "not": "Karşıda da F, O ya da N olmalı · +10 akçe", "kisa": "H–F · H–O · H–N", "durak": 2},
-    {"kod": "H5", "baslik": "İyon molü", "formul": "n_{iyon} = n · (iyon sayısı)", "not": "1 Na₂SO₄ → 2 Na⁺ + 1 SO₄²⁻: 3 iyon · +10 akçe", "kisa": "n_{iyon} = n · iyon sayısı", "durak": 3},
-    {"kod": "H6", "renk": "keh", "baslik": "Ampul testi", "formul": "serbest iyon varsa akım geçer", "not": "Şekerli su, alkollü su iletmez · +10 akçe", "kisa": "serbest iyon → iletir", "durak": 3},
-    {"kod": "H7", "renk": "gol", "baslik": "Çözünürlük satırı", "formul": "100 g su + S g → (100 + S) g", "not": "S: o sıcaklıktaki çözünürlük · doymuş çözelti · +10 akçe", "kisa": "100 + S = doymuş çözelti", "durak": 4},
-    {"kod": "H8", "renk": "mer", "baslik": "Gaz çözünürlüğü", "formul": "soğuk + yüksek basınç → çok gaz", "not": "Katı ve sıvıda basınç etkisizdir · +10 akçe", "kisa": "gaz: T düşük, P yüksek", "durak": 4},
-    {"kod": "H9", "renk": "kob", "baslik": "Doygunluk testi", "formul": "100 g sudaki çözünen ? S", "not": "&lt; S doymamış · = S doymuş · &gt; S aşırı doymuş", "kisa": "&lt; S · = S · &gt; S", "durak": 5},
-    {"kod": "H10", "renk": "keh", "baslik": "Hız ≠ sınır", "formul": "karıştır, toz et → yalnız hız artar", "not": "Sıcaklık hem hızı hem sınırı değiştirir · +10 akçe", "kisa": "hız ≠ çözünürlük", "durak": 5},
-    {"kod": "H11", "renk": "kob", "sinif": "strateji", "baslik": "3 adımlık strateji · +10 akçe",
-     "adimlar": ["<b>S’yi oku:</b> sıcaklığı seç, grafikten çözünürlüğü bul.",
-                 "<b>Satırı yaz:</b> 100 g su · S g çözünen · (100 + S) g çözelti.",
-                 "<b>Sütunu eşle:</b> verilen su mu, çözünen mi, çözelti mi? Orantı kur."],
-     "kisa": "S oku · satır yaz · sütun eşle", "durak": 6},
-    {"kod": "H12", "renk": "mer", "baslik": "Çöken madde", "formul": "çöken = içindeki − suyun çözebildiği", "not": "Soğutmada su kütlesi değişmez · +10 akçe", "kisa": "çöken = içindeki − alabildiği", "durak": 6}
+    {
+      "kod": "H1",
+      "renk": "gol",
+      "baslik": "Çözeltinin kütlesi",
+      "formul": "m_{çözelti} = m_{çözücü} + m_{çözünen}",
+      "not": "Kütle korunur; hacim toplanmayabilir · +10 akçe",
+      "kisa": "kütle toplanır",
+      "durak": 1
+    },
+    {
+      "kod": "H2",
+      "renk": "mer",
+      "baslik": "Isı alır mı, verir mi?",
+      "formul": "açığa çıkan &gt; harcanan → ısı verir",
+      "not": "Tersi: ısı alır (soğuk paket) · +10 akçe",
+      "kisa": "çıkan &gt; harcanan",
+      "durak": 1
+    },
+    {
+      "kod": "H3",
+      "renk": "kob",
+      "baslik": "Benzer benzeri çözer",
+      "formul": "polar ile polar · apolar ile apolar",
+      "not": "İyonik bileşik → su (polar) · +10 akçe",
+      "kisa": "benzer–benzer",
+      "durak": 2
+    },
+    {
+      "kod": "H4",
+      "renk": "gol",
+      "baslik": "Hidrojen bağı şartı",
+      "formul": "H, F · O · N’ye bağlı",
+      "not": "Karşıda da F, O ya da N olmalı · +10 akçe",
+      "kisa": "H–F · H–O · H–N",
+      "durak": 2
+    },
+    {
+      "kod": "H5",
+      "baslik": "İyon molü",
+      "formul": "n_{iyon} = n · (iyon sayısı)",
+      "not": "1 Na₂SO₄ → 2 Na⁺ + 1 SO₄²⁻: 3 iyon · +10 akçe",
+      "kisa": "n · iyon sayısı",
+      "durak": 3
+    },
+    {
+      "kod": "H6",
+      "renk": "keh",
+      "baslik": "Ampul testi",
+      "formul": "serbest iyon varsa akım geçer",
+      "not": "Şekerli su, alkollü su iletmez · +10 akçe",
+      "kisa": "iyon → iletir",
+      "durak": 3
+    },
+    {
+      "kod": "H7",
+      "renk": "gol",
+      "baslik": "Çözünürlük satırı",
+      "formul": "100 g su + S g → (100 + S) g",
+      "not": "S: o sıcaklıktaki çözünürlük · doymuş çözelti · +10 akçe",
+      "kisa": "100 + S",
+      "durak": 4
+    },
+    {
+      "kod": "H8",
+      "renk": "mer",
+      "baslik": "Gaz çözünürlüğü",
+      "formul": "soğuk + yüksek basınç → çok gaz",
+      "not": "Katı ve sıvıda basınç etkisizdir · +10 akçe",
+      "kisa": "soğuk + basınç",
+      "durak": 4
+    },
+    {
+      "kod": "H9",
+      "renk": "kob",
+      "baslik": "Doygunluk testi",
+      "formul": "100 g sudaki çözünen ? S",
+      "not": "&lt; S doymamış · = S doymuş · &gt; S aşırı doymuş",
+      "kisa": "&lt; S · = S · &gt; S",
+      "durak": 5
+    },
+    {
+      "kod": "H10",
+      "renk": "keh",
+      "baslik": "Hız ≠ sınır",
+      "formul": "karıştır, toz et → yalnız hız artar",
+      "not": "Sıcaklık hem hızı hem sınırı değiştirir · +10 akçe",
+      "kisa": "hız ≠ sınır",
+      "durak": 5
+    },
+    {
+      "kod": "H11",
+      "renk": "kob",
+      "sinif": "strateji",
+      "baslik": "3 adımlık strateji · +10 akçe",
+      "adimlar": [
+        "<b>S’yi oku:</b> sıcaklığı seç, grafikten çözünürlüğü bul.",
+        "<b>Satırı yaz:</b> 100 g su · S g çözünen · (100 + S) g çözelti.",
+        "<b>Sütunu eşle:</b> verilen su mu, çözünen mi, çözelti mi? Orantı kur."
+      ],
+      "kisa": "S · satır · sütun",
+      "durak": 6
+    },
+    {
+      "kod": "H12",
+      "renk": "mer",
+      "baslik": "Çöken madde",
+      "formul": "çöken = içindeki − suyun çözebildiği",
+      "not": "Soğutmada su kütlesi değişmez · +10 akçe",
+      "kisa": "var − sığan",
+      "durak": 6
+    }
   ],
   "medeniyet": [
-    {"ad": "İbn Sînâ", "yil": "980–1037", "katki": "Kitâbü’ş-Şifâ’da taşların bir kısmının sudan oluştuğunu yazdı: çamurun sertleşmesi ve suyun taşa dönüşmesi.", "sayfa": 2},
-    {"ad": "Câbir bin Hayyân", "yil": "8. yy", "katki": "Adıyla anılan eserler damıtma, kristallendirme ve süzme gibi işlemleri sistemli biçimde anlatır.", "sayfa": 6},
-    {"ad": "Ebû Bekir er-Râzî", "yil": "865–925", "katki": "Maddeleri sınıflandırdı; laboratuvar araçlarını ve işlemlerini tek tek tarif etti.", "sayfa": 9},
-    {"ad": "el-Bîrûnî", "yil": "973–1048", "katki": "Birçok metal ve değerli taşın özgül ağırlığını hassas biçimde ölçtü.", "sayfa": 15}
+    {
+      "ad": "İbn Sînâ",
+      "yil": "980–1037",
+      "katki": "Kitâbü’ş-Şifâ’da taşların bir kısmının sudan oluştuğunu yazdı: çamurun sertleşmesi ve suyun taşa dönüşmesi.",
+      "sayfa": 2
+    },
+    {
+      "ad": "Câbir bin Hayyân",
+      "yil": "8. yy",
+      "katki": "Adıyla anılan eserler damıtma, kristallendirme ve süzme gibi işlemleri sistemli biçimde anlatır.",
+      "sayfa": 6
+    },
+    {
+      "ad": "Ebû Bekir er-Râzî",
+      "yil": "865–925",
+      "katki": "Maddeleri sınıflandırdı; laboratuvar araçlarını ve işlemlerini tek tek tarif etti.",
+      "sayfa": 9
+    },
+    {
+      "ad": "el-Bîrûnî",
+      "yil": "973–1048",
+      "katki": "Birçok metal ve değerli taşın özgül ağırlığını hassas biçimde ölçtü.",
+      "sayfa": 15
+    }
   ],
   "kavramlar": [
-    {"terim": "çözünme", "tanim": "Bir maddenin taneciklerinin başka bir maddenin tanecikleri arasına tek tek dağılması."},
-    {"terim": "çözelti", "tanim": "Tanecik düzeyinde homojen karışım; her noktasında aynı bileşim ve özellik."},
-    {"terim": "çözücü · çözünen", "tanim": "Çözücü, diğer bileşeni dağıtan (genellikle çok olan) bileşendir; çözünen onun içinde dağılır. Sulu çözeltide çözücü sudur."},
-    {"terim": "hidratasyon · solvatasyon", "tanim": "Çözünen taneciklerinin çözücü tanecikleriyle sarılması solvatasyondur; çözücü su ise hidratasyon denir."},
-    {"terim": "polar · apolar", "tanim": "Yük dağılımı simetrik olmayan molekül polar, simetrik olan apolardır. Benzer benzeri çözer."},
-    {"terim": "elektrolit", "tanim": "Suda serbest iyon oluşturan ve çözeltisi elektrik akımını ileten madde."},
-    {"terim": "çözünürlük", "tanim": "Belirli sıcaklık ve basınçta 100 g çözücüde çözünebilen en fazla madde kütlesi (g/100 g su)."},
-    {"terim": "doymuş çözelti", "tanim": "O koşullarda çözebileceği en fazla çözüneni içeren çözelti; daha azı doymamış, fazlası aşırı doymuştur."},
-    {"terim": "çözünme hızı", "tanim": "Birim zamanda çözünen madde miktarı; karıştırma ve toz etme hızı artırır ama çözünürlüğü değiştirmez."},
-    {"terim": "kristallendirme", "tanim": "Çözücüyü buharlaştırarak ya da sıcaklığı değiştirerek çözüneni kristal hâlinde ayırma."},
-    {"terim": "traverten", "tanim": "Kalsiyum karbonatça zengin suyun CO₂ kaybedince çökelttiği CaCO₃’tan oluşan tortul kayaç (Pamukkale)."}
+    {
+      "terim": "çözünme",
+      "tanim": "Bir maddenin taneciklerinin başka bir maddenin tanecikleri arasına tek tek dağılması."
+    },
+    {
+      "terim": "çözelti",
+      "tanim": "Tanecik düzeyinde homojen karışım; her noktasında aynı bileşim ve özellik."
+    },
+    {
+      "terim": "çözücü · çözünen",
+      "tanim": "Çözücü, diğer bileşeni dağıtan (genellikle çok olan) bileşendir; çözünen onun içinde dağılır. Sulu çözeltide çözücü sudur."
+    },
+    {
+      "terim": "hidratasyon · solvatasyon",
+      "tanim": "Çözünen taneciklerinin çözücü tanecikleriyle sarılması solvatasyondur; çözücü su ise hidratasyon denir."
+    },
+    {
+      "terim": "polar · apolar",
+      "tanim": "Yük dağılımı simetrik olmayan molekül polar, simetrik olan apolardır. Benzer benzeri çözer."
+    },
+    {
+      "terim": "elektrolit",
+      "tanim": "Suda serbest iyon oluşturan ve çözeltisi elektrik akımını ileten madde."
+    },
+    {
+      "terim": "çözünürlük",
+      "tanim": "Belirli sıcaklık ve basınçta 100 g çözücüde çözünebilen en fazla madde kütlesi (g/100 g su)."
+    },
+    {
+      "terim": "doymuş çözelti",
+      "tanim": "O koşullarda çözebileceği en fazla çözüneni içeren çözelti; daha azı doymamış, fazlası aşırı doymuştur."
+    },
+    {
+      "terim": "çözünme hızı",
+      "tanim": "Birim zamanda çözünen madde miktarı; karıştırma ve toz etme hızı artırır ama çözünürlüğü değiştirmez."
+    },
+    {
+      "terim": "kristallendirme",
+      "tanim": "Çözücüyü buharlaştırarak ya da sıcaklığı değiştirerek çözüneni kristal hâlinde ayırma."
+    },
+    {
+      "terim": "traverten",
+      "tanim": "Kalsiyum karbonatça zengin suyun CO₂ kaybedince çökelttiği CaCO₃’tan oluşan tortul kayaç (Pamukkale)."
+    }
   ],
   "akce_toplam": 1400,
   "sayfa_sayisi": 16

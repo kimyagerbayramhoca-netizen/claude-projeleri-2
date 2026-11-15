@@ -53,17 +53,55 @@ import sahneler_unite as SU  # noqa: E402  (KO.Unite uretec/'i sys.path'e ekledi
 
 
 # ------------------------------------------------------------------ açılış panoraması: durak etiketleri (HTML)
+# duraklar meta.json'dan; yan yollar ve kale burada. Yerleşim: her etiket için tercih sırasıyla 8 aday yer denenir;
+# harita dışına, başlık/pusula üstüne, başka etikete ya da rozete binmeyen ilk yer seçilir (kur_ortak'taki açgözlü yöntem).
+YAN = {"H": ("KOVADA GÖLÜ", "Hülasa", "7", 40, "hul"), "M": ("EĞİRDİR", "Meclis", "8", 120, "yan"),
+       "K": ("YEŞİLADA", "Kıssa", "9", 120, "yan"), "A": ("EĞİRDİR İSKELESİ", "Anahtar", "10", 120, "yan"),
+       "V": ("EĞİRDİR KALESİ", "Büyük İmtihan", "11–12", 300, "kale")}
+TERCIH = {"1": "sol üst-sol alt-sol", "2": "üst üst-sağ üst-sol", "3": "üst üst-sol sol", "4": "üst-sağ sağ üst", "5": "alt alt-sol alt-sağ",
+          "H": "sağ alt-sağ alt", "M": "sağ üst-sağ alt-sağ", "K": "üst üst-sağ sağ", "A": "sol alt-sol üst-sol", "V": "alt alt-sağ alt-sol"}
+
+
 def panorama_etiket():
-    """Göller Yolu panoramasındaki etiketler. Konumlar sahnenin izdüşümünden (SU.panorama_goller), yerleşim mm
-    ofsetiyle (rozet merkezine göre); sayfa numaraları kitapta kayar (YEREL_SAYFA_BASLANGIC)."""
+    """Göller Yolu panoramasındaki etiketler. Konum: sahnenin izdüşümü (SU.panorama_goller); sayfa no kitapta kayar."""
     _, konum = SU.panorama_goller()
-    out = []
-    for (k, _a, _b, ust, ad, sayfa, akce, tur, (dx, dy)) in SU.PAN_DURAKLAR:
-        x, y = konum[k]
-        cls = {"durak": "", "hulasa": "hul", "yan": "yan", "kale": "kale"}[tur]
+    rozet = {k: (x / 10, y / 10) for k, (x, y) in konum.items()}
+    yasak = [(0, 0, 84, 18), (181, 81, 210, 110)]          # "Tur haritası" başlığı, pusula
+    yerlesik, out = [], []
+
+    def carpisir(p, q):
+        return not (p[2] <= q[0] or q[2] <= p[0] or p[3] <= q[1] or q[3] <= p[1])
+
+    for k in SU.SIRA:
+        if k.isdigit():
+            d = u.meta["duraklar"][int(k) - 1]
+            ust, ad, sayfa, akce, cls = f"{k}. DURAK · {KO.tr_buyuk(d['yer'])}", d["baslik"], str(d["sayfa"]), d["akce"], ""
+        else:
+            ust, ad, sayfa, akce, cls = YAN[k]
         s_ = "–".join(str(u.sayfa_no(int(p))) for p in sayfa.split("–"))
-        out.append(f'<div class="durak-et {cls}" style="left:{f(x / 10 + dx, 2)}mm;top:{f(y / 10 + dy, 2)}mm">'
-                   f'<i>{ust} · s.{s_}</i><b>{ad}<small>+{akce} akçe</small></b></div>'.replace('class="durak-et "', 'class="durak-et"'))
+        ust = f"{ust} · s.{s_}"
+        x, y = rozet[k]
+        w = max(len(ust) * 1.53, len(KO.duz_metin(ad)) * 1.62 + len(f"+{akce} akçe") * 1.4 + 1) + 4.2
+        h = 8.4
+        aday = {"sağ": (x + 4.4, y - h / 2), "sol": (x - 4.4 - w, y - h / 2), "üst": (x - w / 2, y - 4.4 - h), "alt": (x - w / 2, y + 4.4),
+                "üst-sağ": (x + 3, y - 3.4 - h), "alt-sağ": (x + 3, y + 3.4), "üst-sol": (x - w - 3, y - 3.4 - h), "alt-sol": (x - w - 3, y + 3.4)}
+        sira = TERCIH[k].split() + [a for a in aday if a not in TERCIH[k].split()]
+        secim = aday[sira[0]]
+        for ad_ in sira:
+            lx, ly = aday[ad_]
+            kutu = (lx, ly, lx + w, ly + h)
+            if kutu[0] < 1.5 or kutu[1] < 1.5 or kutu[2] > 208.5 or kutu[3] > 108.5:
+                continue
+            if any(carpisir(kutu, q) for q in yasak + yerlesik):
+                continue
+            if any(kk != k and kutu[0] - 3.6 < rx < kutu[2] + 3.6 and kutu[1] - 3.6 < ry < kutu[3] + 3.6 for kk, (rx, ry) in rozet.items()):
+                continue
+            secim = (lx, ly)
+            break
+        yerlesik.append((secim[0], secim[1], secim[0] + w, secim[1] + h))
+        sinif = f"durak-et {cls}".strip()
+        out.append(f'<div class="{sinif}" style="left:{f(secim[0], 2)}mm;top:{f(secim[1], 2)}mm">'
+                   f'<i>{ust}</i><b>{KO.zengin(ad)}<small>+{akce} akçe</small></b></div>')
     return "".join(out)
 
 

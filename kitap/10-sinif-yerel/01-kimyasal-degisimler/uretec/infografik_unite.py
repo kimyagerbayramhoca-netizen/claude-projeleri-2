@@ -257,30 +257,30 @@ def asit_baz_model(onek="kz-ab"):
 # ------------------------------------------------------------------ 4. DURAK · kireç döngüsü (Ani harcı)
 
 def kirec_dongusu(onek="kz-kd"):
+    """Kireç döngüsü: CaCO₃ —ısı (analiz)→ CaO —+H₂O (sentez)→ Ca(OH)₂ —+CO₂→ CaCO₃. ~42 mm genişlikte okunsun diye iri yazı."""
     s = Svg(onek)
-    W, H = 900, 640
+    W, H = 900, 660
     g = s.rad([(0, "#FFF7E6"), (1, "#F4E4C6")], .5, .5, .7, ad="zm")
     s += f'<rect width="{W}" height="{H}" rx="26" fill="{g}"/>'
-    dugum = [(450, 140, "CaCO_3", "kireç taşı"), (740, 470, "CaO", "sönmemiş kireç"), (160, 470, "Ca(OH)_2", "sönmüş kireç")]
-    # oklar (yay)
-    for (x0, y0, x1, y1, et, renk) in ((540, 170, 720, 360, "ısı · analiz", MER_K), (630, 520, 270, 520, "+ H₂O · sentez", GOL_K), (170, 360, 360, 170, "+ CO₂ · asit-baz", KOB_K)):
+    dugum = [(450, 120, "CaCO_3"), (720, 470, "CaO"), (180, 470, "Ca(OH)_2")]
+    for (x0, y0, x1, y1, et, renk, tx, ty) in ((560, 170, 715, 360, "ısı: analiz", MER_K, 715, 250),
+                                              (610, 545, 290, 545, "+ H₂O: sentez", GOL_K, 450, 625),
+                                              (185, 360, 340, 170, "+ CO₂", KOB_K, 175, 250)):
         mx, my = (x0 + x1) / 2, (y0 + y1) / 2
-        cx_, cy_ = 450, 360
-        bx, by = mx + (mx - cx_) * .35, my + (my - cy_) * .35
-        s += f'<path d="M{x0} {y0} Q{f(bx)} {f(by)} {x1} {y1}" fill="none" stroke="{renk}" stroke-width="8" stroke-linecap="round"/>'
-        a = math.atan2(y1 - by, x1 - bx)
-        s += f'<path d="M{x1} {y1} L{f(x1 - 26 * math.cos(a - .45))} {f(y1 - 26 * math.sin(a - .45))} L{f(x1 - 26 * math.cos(a + .45))} {f(y1 - 26 * math.sin(a + .45))} Z" fill="{renk}"/>'
-        tx, ty = mx + (mx - cx_) * .62, my + (my - cy_) * .62
-        s += f'<rect x="{f(tx - 118)}" y="{f(ty - 24)}" width="236" height="40" rx="20" fill="#FFFFFF" stroke="{renk}" stroke-width="2.6"/>'
-        s += f'<text x="{f(tx)}" y="{f(ty + 6)}" text-anchor="middle" {T} font-size="22" fill="{renk}">{et}</text>'
-    # düğümler: resim + formül
-    s += f'<path d="M390 110 L420 70 L470 62 L512 90 L520 140 L470 168 L410 160 Z" fill="#D9CDB8" stroke="{OBS}" stroke-width="3"/><path d="M420 90 L460 84 M440 120 L490 112" stroke="#A89C88" stroke-width="3"/>'
-    s += f'<path d="M690 440 q20 -30 50 -20 q30 -20 50 10 q10 30 -20 40 h-70 q-20 -10 -10 -30 Z" fill="#FFFFFF" stroke="{OBS}" stroke-width="3"/>'
-    s += f'<path d="M110 430 h100 l-10 60 h-80 Z" fill="#9A6B42" stroke="{OBS}" stroke-width="3"/><path d="M114 432 q36 -26 92 0 Z" fill="#F4F2EC" stroke="{OBS}" stroke-width="2"/>'
-    for (x, y, fm, ad), dy in zip(dugum, (64, 70, 70)):
-        s += _alt(fm, x, y + dy, 40, OBS)
-        s += f'<text x="{x}" y="{y + dy + 34}" text-anchor="middle" {T} font-size="22" fill="{GUM_K}">{ad}</text>'
-    s += f'<text x="450" y="352" text-anchor="middle" {B} font-size="30" fill="{ALTIN_K}">kireç</text><text x="450" y="388" text-anchor="middle" {B} font-size="30" fill="{ALTIN_K}">döngüsü</text>'
+        bx, by = mx + (mx - 450) * .3, my + (my - 380) * .3
+        s += f'<path d="M{x0} {y0} Q{f(bx)} {f(by)} {x1} {y1}" fill="none" stroke="{renk}" stroke-width="10" stroke-linecap="round"/>'
+        a_ = math.atan2(y1 - by, x1 - bx)
+        s += f'<path d="M{x1} {y1} L{f(x1 - 32 * math.cos(a_ - .45))} {f(y1 - 32 * math.sin(a_ - .45))} L{f(x1 - 32 * math.cos(a_ + .45))} {f(y1 - 32 * math.sin(a_ + .45))} Z" fill="{renk}"/>'
+        gw = 30 + 22 * len(et)
+        s += f'<rect x="{f(tx - gw / 2)}" y="{f(ty - 34)}" width="{f(gw)}" height="56" rx="28" fill="#FFFFFF" stroke="{renk}" stroke-width="3"/>'
+        s += f'<text x="{f(tx)}" y="{f(ty + 7)}" text-anchor="middle" {B} font-size="38" fill="{renk}">{et}</text>'
+    for (x, y, fm), dy in zip(dugum, (78, 86, 86)):
+        s += _alt(fm, x, y + dy, 56, OBS)
+    # küçük resimler: taş, beyaz toz, kova
+    s += f'<path d="M405 92 L430 58 L472 52 L506 76 L512 116 L472 138 L420 132 Z" fill="#D9CDB8" stroke="{OBS}" stroke-width="3"/>'
+    s += f'<path d="M680 444 q18 -26 44 -18 q26 -18 44 8 q8 26 -18 36 h-62 q-18 -8 -8 -26 Z" fill="#FFFFFF" stroke="{OBS}" stroke-width="3"/>'
+    s += f'<path d="M136 430 h88 l-9 52 h-70 Z" fill="#9A6B42" stroke="{OBS}" stroke-width="3"/><path d="M140 432 q32 -22 80 0 Z" fill="#F4F2EC" stroke="{OBS}" stroke-width="2"/>'
+    s += f'<text x="450" y="360" text-anchor="middle" {B} font-size="40" fill="{ALTIN_K}">kireç</text><text x="450" y="402" text-anchor="middle" {B} font-size="40" fill="{ALTIN_K}">döngüsü</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info kirec")
 
 

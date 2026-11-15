@@ -108,7 +108,7 @@ def kars_mandira():
                       dag=[(-60, 900, 380, 170, "tepe"), (700, 1700, 1150, 150, "tepe"), (1400, 2240, 1900, 130, "sivri")])
     # Kars yaylası: karlı geniş düzlük, uzakta kale tepesi
     s += P.kar_zemin(s, 0, W, ufuk + 6, 72, ust="#F7FAFD", alt="#D9E6F4", dalga=8, n=8)
-    kale, _ = P.bazalt_kale(s, 1240, 1500, ufuk + 26, 92, 73, bayrak=True)
+    kale, _ = P.bazalt_kale(s, 1300, 1540, ufuk + 26, 92, 73, bayrak=True)
     s += kale
     for i in range(7):
         x = 1520 + i * 34
@@ -149,7 +149,7 @@ def ani():
     s += P.kar_zemin(s, 0, W, ufuk + 8, 112, ust="#FFF8F0", alt="#E8DDE6", dalga=6, n=8, golge="#D2C2D6")
     s += P.ani_sur(s, 1190, 2120, 396, 186, 113, isik=-1)
     s += P.kar_zemin(s, 0, W, 392, 114, ust="#FFFFFF", alt="#E4E2EE", dalga=5, n=8, golge="#CBBFD8")
-    s += P.kirec_ocagi(s, 1260, 450, 96, 115)
+    s += P.kirec_ocagi(s, 1385, 446, 92, 115)
     s += P.harc_teknesi(s, 1960, 452, 150)
     for i, x in enumerate((1880, 2060)):
         s += P.ciplak_agac(x, 400, 120 + i * 20, 116 + i, renk="#6A5446")
@@ -230,18 +230,21 @@ def pasinler():
                       dag=[(800, 2240, 1560, 70, "sivri"), (-80, 900, 300, 190, "tepe")])
     s += P.kar_zemin(s, 0, W, ufuk + 6, 132, ust="#F6FAFE", alt="#D6E3F2", dalga=8, n=8)
     # Hasankale: tepede kale
-    tepe = [(1500, 360), (1560, 300), (1650, 262), (1760, 250), (1860, 266), (1960, 310), (2040, 360)]
-    gt = s.lin([(0, "#F4F7FB"), (1, "#C9D7E8")], 0, 250, 0, 370, kull="userSpaceOnUse", ad="ht")
+    # Hasankale: kayalık tepede, bugün yer yer yıkık kale surları
+    tepe = [(1470, 372), (1540, 318), (1620, 278), (1700, 262), (1800, 258), (1890, 270), (1980, 318), (2060, 372)]
+    gt = s.lin([(0, "#9A8774"), (.55, "#7E6B5B"), (1, "#5F5046")], 0, 255, 0, 372, kull="userSpaceOnUse", ad="ht")
     s += f'<path d="{egri_d(tepe)} Z" fill="{gt}"/>'
-    s += f'<path d="M1560 300 Q1600 330 1640 360 L1520 360 Z" fill="#A9B8CC" opacity=".5"/>'
-    s += Y.kucuk_kale(s, 1760, 262, 300, 170, 133, tas="#B49A7C")
-    s += f'<path d="M1625 220 h270" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>'
+    for (ax, ay, bx_, by_) in ((1560, 330, 1610, 300), (1700, 300, 1760, 290), (1880, 300, 1940, 330), (1640, 340, 1700, 326)):
+        s += f'<path d="M{ax} {ay} L{bx_} {by_}" stroke="#4E4138" stroke-width="3" stroke-linecap="round" opacity=".55"/>'
+    kar_t = [(1585, 300), (1640, 274), (1700, 262), (1800, 258), (1890, 270), (1950, 300), (1890, 288), (1800, 280), (1700, 284), (1640, 292)]
+    s += f'<path d="{egri_d(kar_t)} Z" fill="#FFFFFF" opacity=".92"/>'
+    s += P.ani_sur(s, 1630, 1920, 276, 92, 133, kirik=True, kum="#A99379", suslu=False, kapi=False, gedik_yer=(.36, .8))
     for i in range(6):
         x = 1460 + i * 52
         s += P.ev_tas(s, x, 372 + (i % 2) * 4, 40, 28, 140 + i, duvar=["#B8A792", "#A89C8E", "#C2B4A0"][i % 3], cati="#8E5A44", isik_pencere=i % 2 == 0)
     s += P.kar_zemin(s, 1100, W, 384, 134, ust="#FFFFFF", alt="#DCE7F4", dalga=5, n=6)
-    s += P.kaplica_havuz(s, 1560, 452, 400, 84, 135)
-    s += P.kaplica_havuz(s, 1960, 446, 230, 56, 136)
+    s += P.kaplica_havuz(s, 1560, 432, 400, 84, 135)
+    s += P.kaplica_havuz(s, 1960, 428, 230, 56, 136)
     for i, x in enumerate((1300, 1350, 2080)):
         s += P.ciplak_agac(x, 410, 130 + i * 15, 137 + i, renk="#6A5446")
     s += _cerceve(s)

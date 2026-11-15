@@ -66,7 +66,7 @@ ETIKET = {
     "M": ("DOĞU EKSPRESİ", "Meclis: Kim haklı?", "9|+120 akçe", "yan", (-16, 4.4)),
     "K": ("ÇOBANDEDE KÖPRÜSÜ", "Kıssa", "10|+120 akçe", "yan", (-14, 4.4)),
     "A": ("KARS GARI", "Anahtar merdiveni", "11|+120 akçe", "yan", (-20, 4.4)),
-    "V": ("KARS KALESİ", "Büyük İmtihan", "12–13|+300 akçe", "kale", (4.4, -4.2)),
+    "V": ("KARS KALESİ", "Büyük İmtihan", "12–13|+300 akçe", "kale", (-41, -2.2)),
 }
 
 
@@ -98,6 +98,18 @@ def muhur(tur, boy=""):
     """YANLIŞ / DOĞRU mührü; alt yayda bu yolun adı."""
     return U.muhur(u.yeni("mh"), tur, alt="KARS–ERZURUM YOLU")
 
+
+def _rozet_duzelt(html):
+    """Ortak hazine rozetinde yazı boyu sabit (30): üç haneli kodlar (H10–H12) dairenin dışına taşar. Burada küçültülür."""
+    return re.sub(r'<text x="50" y="60" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="30" fill="#1B1D26">(H\d\d)</text>',
+                  r'<text x="50" y="58" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="23" fill="#1B1D26">\1</text>', html)
+
+
+_html_kur = u.html_kur
+u.html_kur = lambda: _rozet_duzelt(_html_kur())
+import hazine_yapragi as _HY  # noqa: E402  (hazine-kartlari.html de aynı rozeti kullanır)
+_yaprak = _HY.yaprak_html
+_HY.yaprak_html = lambda birim: _rozet_duzelt(_yaprak(birim))
 
 u.yer_tutucu("panorama", panorama)
 u.yer_tutucu("panorama-etiket", panorama_etiket)
