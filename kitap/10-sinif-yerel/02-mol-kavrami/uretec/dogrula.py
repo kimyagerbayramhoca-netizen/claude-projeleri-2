@@ -242,7 +242,7 @@ if os.path.exists(HTML):
     us = re.search(r"<p><b>Üstad</b>(.*?)</p>", html)
     kontrol("s.14 hızlı anahtarda Üstad satırı hesapla aynı", bool(us) and re.findall(r'<span class="ck">(\d) ([A-E])</span>', us.group(1)) == [(str(k), h) for k, h in U.items()])
     ogr = ogretmen_metinleri(html)
-    kontrol(f"öğretmen metinleri: {len(ogr)} (5 CEVABIN + 3 boşluk + 8 meclis + 4 kıssa + 9 merdiven + 12 imtihan + 6 Üstad = 47)", len(ogr) == 47)
+    kontrol(f"öğretmen metinleri: {len(ogr)} (5 CEVABIN + 2 boşluk + 8 meclis + 4 kıssa + 9 merdiven + 12 imtihan + 6 Üstad = 46)", len(ogr) == 46)
     ciftler = re.findall(r'CEVABIN:<span class="ogr">(.*?)</span></div><span class="ters-cevap"><span class="ters">(?:Cevap: )?(.*?)</span></span>', html)
     kontrol(f"CEVABIN kutusundaki kırmızı cevap ters yazılı cevapla aynı ({len(ciftler)} kutu)",
             len(ciftler) == 5 and all(a == b or a.endswith("= " + b) for a, b in ciftler))

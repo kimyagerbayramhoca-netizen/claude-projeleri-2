@@ -45,6 +45,9 @@ kitap/
     render.js                    unite.html → PDF + onizleme/sNN.png + taşma denetimi (+ varyantlar, §12)
     dogrula_ortak.py             doğrulama yardımcıları: mk, formul, tek_sik, sayfadan işaret okuma (§10)
     yeni_unite.py                yeni ünite iskeleti üretir (§15)
+    fotokopi.py                  fotokopi varyantı: SVG renklerini kurulumda griye eşler (§12)
+    hazine_yapragi.py            meta.json H kartlarından A4 kesme yaprağı (§12)
+    pdf_kutular.py               baskı PDF'ine TrimBox/BleedBox yazar (pypdf; §12)
     katalog.py, katalog/*.png    görsel katalog
     fotograf.js                  HTML → PNG (katalog için)
     gorsel/ebru-*.jpg            ÜRETİLİR (kur_ortak, yoksa)
@@ -309,7 +312,7 @@ u.calistir()
 
 ```sh
 YEREL_SAYFA_BASLANGIC=37 YEREL_CIKTI=/tmp/kitap/mol.html python3 kitap/10-sinif-yerel/02-mol-kavrami/uretec/kur.py
-node kitap/yerel-ortak/render.js /tmp/kitap/mol.html --pdfsiz
+node kitap/yerel-ortak/render.js /tmp/kitap/mol.html --pngsiz     # yalnız /tmp/kitap/mol.pdf
 ```
 
 ---
@@ -360,8 +363,9 @@ Düz metin isteyen araçlar `kur_ortak.duz_metin(...)` kullanır.
 | `data-dogru` | meclis: haklı yorum `<div class="yorum" data-dogru>`, hatalı satırın kutucuğu `<span class="kutucuk" data-dogru></span>2` | kutucuk kırmızı, içinde beyaz tik |
 | `<span class="ogr">…</span>` | öğretmene özel cevap/çözüm: `.cevap-kutu` (CEVABIN), `.karalama`, `.hukum .cizgili` (neden, doğrusu), `.cozum-alani > div` (merdiven), `.bos-satir` | kırmızı (`--ogr`); öğrenci baskısında `display:none` → **yerleşimi hiç etkilemez** |
 
-Kırmızı metin yerleşimi bozmaz: karalama, hüküm çizgisi ve merdiven satırında mutlak konumla üste basılır; sığmayacak kadar uzun yazma
-(karalamada 2–3 kısa satır). Öğretmen baskısının her sayfasında sağ üstte "ÖĞRETMEN NÜSHASI" sekmesi vardır.
+Kırmızı metin yerleşimi bozmaz: karalama, hüküm çizgisi ve merdiven satırında mutlak konumla üste basılır; sığmayacak kadar uzun yazma:
+karalamada 1–2 kısa satır (dar karalamada tek satır ≈ 40 harf), meclis NEDEN çizgisinde ≤ 12 harf (≈ 17 mm; ör. “çeşit sayılmış”),
+DOĞRUSU çizgisinde ≤ 45 harf, merdiven satırında ≤ 50 harf. `render.js --ogretmen` taşan kırmızı metni sayfa ve metinle bildirir. Öğretmen baskısının her sayfasında sağ üstte "ÖĞRETMEN NÜSHASI" sekmesi vardır.
 
 `dogrula_ortak` yardımcıları: `isaretli_dogrular(html)` → `{kod: ['C']}`, `sik_harfleri(html)`, `sayfa_isaretleri_ayni(html, {"I1": "D", …})`
 (her kartta tek işaret + A–E beş şık), `meclis_hukumleri(html)` → `{kod: (kişi, satır)}`, `anahtar_izgarasi(html)` (Cevaplar ızgarası),
@@ -399,7 +403,28 @@ lacivert-altın çift çerçeveli kartlar, Reem Kufi "AYT" etiketi. HUD noktası
 
 ## 12. Varyantlar (öğretmen, fotokopi, baskı, hazine kartları)
 
-Bu bölüm adım 2'de tamamlanır (`render.js --hepsi`).
+Tek komut bütün çıktıları üretir (ünite klasöründen ya da herhangi bir yerden):
+
+```sh
+node kitap/yerel-ortak/render.js <ünite-klasörü> --hepsi            # önce python3 uretec/kur.py --hepsi, sonra beş PDF
+node kitap/yerel-ortak/render.js <ünite-klasörü> --hepsi --onizleme  # + varyant PNG'leri: onizleme/varyant/<ad>/sNN.png
+node kitap/yerel-ortak/render.js <ünite-klasörü> --ogretmen          # tek tek: --ogretmen --fotokopi --baski --hazine
+```
+
+| PDF | Ne | Nasıl üretilir |
+|---|---|---|
+| `<klasör>.pdf` | öğrenci baskısı (A4) + `onizleme/sNN.png` + taşma raporu | `unite.html` |
+| `<klasör>-ogretmen.pdf` | öğretmen nüshası: doğru şıklar kırmızı çerçeve + kırmızı harf, CEVABIN kutuları dolu, meclis hükmü (haklı kişi, satır, neden, doğrusu), merdiven çözüm satırları, karalamalarda kısa çözümler; her sayfada "ÖĞRETMEN NÜSHASI" sekmesi | aynı `unite.html`, `<html class="ogretmen">` (stil.css §31); işaretler §10. render.js kırmızı metnin kutusundan taşmasını ayrıca denetler |
+| `<klasör>-fotokopi.pdf` | siyah-beyaz fotokopi ana nüshası: metin saf siyah; kutular beyaz/çok açık gri, siyah çerçeve; koyu hap ve şeritler (HUD, SONUÇ, Tuzak başlığı, Medeniyetimizden başlığı, koyu özet kartı) beyaz + siyah çerçeve; ebru yok; sahneler çok açık ton + koyu çizgi; molekül ve karakterler açık dolgu + koyu kontur | `unite-fotokopi.html` (kur.py --fotokopi): **kurulumda palet eşlemesi** (`yerel-ortak/fotokopi.py`: SVG dolgusu → mürekkebin %22'si, çizgi → koyu, SVG yazısı → siyah) + stil.css §34 tokenları. CSS `filter` kullanılmaz (PDF'te rasterleşir). render.js sayfa başına **ortalama mürekkep** yazar (`onizleme/fotokopi-murekkep.json`; hedef < %15) |
+| `<klasör>-baski.pdf` | matbaa: kâğıt 9,21×12,64 inç, kesim 210×297 mm, **3,2 mm taşma**, kesim izleri taşmanın dışında, kenarda künye satırı; **TrimBox ve BleedBox** pypdf ile yazılır (`yerel-ortak/pdf_kutular.py`) | aynı `unite.html`, `<html class="baski">` (stil.css §35) + render.js DOM hazırlığı: kenara değen her şey taşma payına uzar — sayfa zemini, HUD, çini şeridi (sola bir karo), sahne bantları ve panorama (viewBox kenarında **ayna kopya**), altbilgi ebru şeridi, Hülasa ebru zemini. Kesim kutusunun içi öğrenci baskısıyla aynı (piksel karşılaştırmasıyla denetlendi) |
+| `<klasör>-hazine-kartlari.pdf` | tek A4 kesme yaprağı: meta.json'daki bütün H kartları, sayfadaki `.hazine` bileşeniyle aynı (1,3×), her hücrede yol adı ve durak, kesik çizgiler ve makaslar (≤ 10 kart 2×5, ≤ 14 kart 2×7, daha çoksa 3 sütun) | `hazine-kartlari.html` (kur.py --hazine; `yerel-ortak/hazine_yapragi.py`); önizleme `onizleme/hazine-kartlari.png` |
+
+Her PDF'te Type 3 font sayısı tablo hâlinde yazılır (`pdffonts`); hepsi **0** olmalı. Ara dosyalar (`unite-fotokopi.html`,
+`hazine-kartlari.html`, `onizleme/varyant/`) her çalıştırmada yeniden üretilir; ünitenin `.gitignore`'unda durur.
+
+**Fotokopiye uygun tasarım için:** koyu zemin üstüne açık yazıyı yalnız stil.css'teki bileşenlerle yap (hepsinin fotokopi kuralı var);
+satır içi `style="background:#…"` ile yeni koyu kutu açma. Sahne çizerken renkleri `renkler.py`'den al; fotokopi eşlemesi rolüne
+göre (dolgu/çizgi/yazı) otomatik çalışır.
 
 ---
 
@@ -437,7 +462,8 @@ Toplam değişirse `kur.py:SAYFA`, `dogrula.py` akçe bölümü, açılış roze
   3. Fontta olmayan sembol (✶ ★ ✓ ✗ → ⇄ gibi) kalın bağlamda yedek fonta düşüp sahte kalınlık alırsa Type 3 olur.
      Mühürde ✶ yerine • kullanılır; yeni sembolü ya fontta olan bir karakterle ya da SVG path / CSS kenarlığıyla çiz (öğretmen tiki CSS'tir).
   Denetim: `pdffonts <klasor>.pdf | grep -c "Type 3"` → `0` olmalı.
-- Mol: 14 sayfa ≈ 8,0 MB (hedef ≤ 25 MB), bütün yazı tipleri CID TrueType olarak gömülü. `unite.html` ≈ 3,8 MB (satır içi SVG'ler).
+- Mol: 15 sayfa ≈ 8,4 MB (hedef ≤ 25 MB), bütün yazı tipleri CID TrueType olarak gömülü. `unite.html` ≈ 4 MB (satır içi SVG'ler).
+  Varyantlar: öğretmen ≈ 8,4 MB, fotokopi ≈ 7,7 MB, baskı ≈ 9 MB, hazine kartları ≈ 0,25 MB.
 - Her SVG'nin kimlik öneki benzersizdir (`Svg(onek)`, `u.yeni()` sayacı); çakışırsa Chrome ilk tanımı kullanır ve renkler bozulur.
 
 ---

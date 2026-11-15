@@ -1,2 +1,10 @@
 __pycache__/
 *.pyc
+# Yeni tasarım: ünite başına ek sürümler ve ara dosyalar (render.js --hepsi yeniden üretir)
+kitap/*-yerel/*/*-ogretmen.pdf
+kitap/*-yerel/*/*-fotokopi.pdf
+kitap/*-yerel/*/*-baski.pdf
+kitap/*-yerel/*/unite-fotokopi.html
+kitap/*-yerel/*/hazine-kartlari.html
+kitap/*-yerel/*/onizleme/varyant/
+kitap/*-yerel/*/onizleme/fotokopi-murekkep.json

@@ -319,10 +319,10 @@ async function pngYaz(page, klasor, secim = []) {
   await tarayici.close();
 
   if (ozet.length > 1 || yalnizVaryant) {
-    console.log('\nPDF                         boyut      Type 3');
+    console.log('\nPDF                                   boyut      Type 3');
     for (const [ad, p] of ozet) {
       const t = type3(p);
-      console.log(`${path.basename(p).padEnd(28)}${boyut(p).padEnd(11)}${t === null ? '?' : t}${t ? '  ← HATA: Type 3 font' : ''}`);
+      console.log(`${path.basename(p).padEnd(38)}${boyut(p).padEnd(11)}${t === null ? '?' : t}${t ? '  ← HATA: Type 3 font' : ''}`);
     }
   }
 })();

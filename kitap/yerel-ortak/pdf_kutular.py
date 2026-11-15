@@ -4,11 +4,13 @@
 render.js --baski kâğıdı 234×321 mm basar: 210×297 mm kesim kutusu ortada (her yanda 12 mm), taşma payı 3 mm,
 kesim izleri taşmanın dışında. Matbaa yazılımları kesim/taşmayı bu kutulardan okur.
 """
+import logging
 import sys
 from pypdf import PdfReader, PdfWriter
 from pypdf.generic import RectangleObject
 
 MM = 72 / 25.4
+logging.getLogger("pypdf").setLevel(logging.ERROR)   # Chromium PDF'lerindeki zararsız 'trailer size' uyarısı
 
 
 def kutula(yol, kenar=12.0, tasma=3.0, en=210.0, boy=297.0):
