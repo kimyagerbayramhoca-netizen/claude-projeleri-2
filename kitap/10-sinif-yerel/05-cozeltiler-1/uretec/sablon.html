@@ -8,7 +8,7 @@
 /* üniteye özel küçük ayarlar (yalnız bu ünite; ortak stil.css değişmez) */
 .s1 .dev-baslik .mol { font-size: .74em; }
 table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-size: 9pt; }
-.basamak-kart { padding: 2mm 2.6mm; } .basamak-kart svg.info { width: 100%; height: 33mm; display: block; margin-top: .6mm; }
+.basamak-kart { padding: 2mm 2.6mm; } .basamak-kart svg.info { width: 100%; height: 41mm; display: block; margin-top: .6mm; }
 .info-yan { display: grid; grid-template-columns: 1fr 52mm; gap: 2.6mm; align-items: center; }
 .info-yan svg.info { width: 100%; height: 30mm; display: block; }
 .grafik-kart svg.info { width: 100%; height: auto; max-height: 52mm; display: block; }
@@ -116,14 +116,15 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
         <div class="bos-satir" style="border-bottom:.3mm dotted var(--obs-2);height:5.4mm"><span class="ogr">Bir maddenin tanecikleri diğerinin tanecikleri arasına dağılır.</span></div>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.5fr .5fr">
+    <div class="bento" style="grid-template-columns:1.52fr .48fr">
       <div class="kart basamak-kart">
         <span class="et">{{ikon|harita}}Çözünmenin üç basamağı · tanecik gözüyle</span>
         {{info|cozunme_basamaklari}}
       </div>
-      <div class="bento dikey">
-        {{hazine|H2}}
-        <div class="kart kiyidan" style="flex:1;padding:1.6mm 2.4mm"><p class="kucuk-not">Çıkan &gt; harcanan: <b>ısı veren</b> · çıkan &lt; harcanan: <b>ısı alan</b>.</p></div>
+      <div class="kart kiyidan">
+        <span class="et">{{ikon|dalga}}Yoldan · soğuk paket</span>
+        <p class="kucuk-not" style="margin-top:.6mm">Anlık soğuk paketteki amonyum nitrat suda <b>ısı alarak</b> çözünür; paket dakikalar içinde soğur.</p>
+        <p class="kucuk-not" style="margin-top:.8mm">Çıkan &gt; harcanan: <b>ısı veren</b> · çıkan &lt; harcanan: <b>ısı alan</b>.</p>
       </div>
     </div>
     <div class="bento" style="grid-template-columns:1.25fr .75fr">
@@ -132,10 +133,10 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
         <div class="iki-sutun">
           <div><p class="soru"><span class="harf-r">A</span>X tuzu: ayrılma + yer açma 790 kJ, hidratasyon 786 kJ.</p>
             <ol class="akis"><li><i>1</i><span>Açığa çıkan &lt; harcanan: 4 kJ ısı alır</span></li></ol>
-            <div class="sonuc"><span>SONUÇ</span>Endotermik · su soğur</div></div>
+            <div class="sonuc"><span>SONUÇ</span>Endotermik: soğur</div></div>
           <div><p class="soru"><span class="harf-r">B</span>Y tuzu: ayrılma + yer açma 600 kJ, hidratasyon 650 kJ.</p>
             <ol class="akis"><li><i>1</i><span>Açığa çıkan &gt; harcanan: 50 kJ ısı verir</span></li></ol>
-            <div class="sonuc"><span>SONUÇ</span>Ekzotermik · su ısınır</div></div>
+            <div class="sonuc"><span>SONUÇ</span>Ekzotermik: ısınır</div></div>
         </div>
       </div>
       <div class="tuzak">
@@ -144,10 +145,10 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
         <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p><b>Erime</b>, tek bir maddenin ısıyla katıdan sıvıya geçmesidir. Şeker su molekülleri arasına dağılır: <b>çözünür</b>.</p></div>
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:.78fr .92fr 1.3fr">
+    <div class="bento esnek" style="grid-template-columns:.98fr .9fr 1.12fr">
       <div class="bento dikey">
         {{hazine|H1}}
-        <div class="kes-not">{{ikon|makas}}Kes · yapıştır</div>
+        {{hazine|H2}}
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+20 akçe</span></div>
