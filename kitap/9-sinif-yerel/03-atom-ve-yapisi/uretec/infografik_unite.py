@@ -244,7 +244,7 @@ def altin_levha(onek="ay-al"):
     s += f'<text x="{ax0 + 230}" y="226" text-anchor="middle" {T} font-size="22" fill="{OBS}">çoğu düz geçer</text>'
     s += f'<text x="{ax0 + 400}" y="128" text-anchor="middle" {T} font-size="22" fill="{OBS}">azı sapar</text>'
     s += f'<text x="{ax0 + 200}" y="420" text-anchor="middle" {T} font-size="22" fill="{MER_K}">çok azı geri döner</text>'
-    return s.cikti(f"0 0 {W} {H}", cls="info levha")
+    return s.cikti(f"0 0 {W} {H}", cls="info altinlevha")
 
 
 # ------------------------------------------------------------------ 2. DURAK · kümbetin halkaları ↔ Bohr katmanları
@@ -274,8 +274,7 @@ def bohr_kumbet(onek="ay-bk"):
         for j in range(n):
             a = a0 + j * 2 * math.pi / n
             s += _elektron(cx + rr * math.cos(a), cy + rr * math.sin(a), 10)
-    s += _nk("Na", 450, 422, 34, Z=11, renk=OBS)
-    s += f'<text x="510" y="422" {T} font-size="25" fill="{OBS}">: K 2 · L 8 · M 1</text>'
+XX
     for rr, ad, c in ((60, "K", KOB), (112, "L", GOL_K), (164, "M", KEH_K)):
         s += f'<text x="{cx + rr * .7 + 6}" y="{cy - rr * .7 - 6}" {B} font-size="28" fill="{c}">{ad}</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info bohr")
@@ -323,7 +322,7 @@ def spektrum(onek="ay-sp"):
     for nm in (400, 500, 600, 700):
         x = _nm_x(nm, xa, xb)
         s += f'<path d="M{f(x)} 156 v10" stroke="{OBS}" stroke-width="2"/><text x="{f(x)}" y="186" text-anchor="middle" {T7} font-size="17" fill="{GUM_K}">{nm}</text>'
-    s += f'<text x="{xb}" y="186" text-anchor="end" {T7} font-size="17" fill="{GUM_K}">nm</text>'
+    s += f'<text x="{xa - 8}" y="186" text-anchor="end" {T7} font-size="17" fill="{GUM_K}">nm</text>'
     s += f'<text x="{(xa + xb) / 2}" y="352" text-anchor="middle" {T} font-size="21" fill="{KOB_K}">Her çizgi, iki düzey arasındaki bir sıçrama.</text>'
     s += f'<text x="{(xa + xb) / 2}" y="384" text-anchor="middle" {T} font-size="21" fill="{KOB_K}">Çizgiler her elementte farklı: atomun parmak izi.</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info spektrum")

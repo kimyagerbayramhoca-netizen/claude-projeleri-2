@@ -129,6 +129,52 @@ def final():
     return SU.final_amasra(nisanlar=ns)
 
 
+# ------------------------------------------------------------------ GHS ve güvenlik işaretleri: TEK KAYNAK guvenlik_veri.py
+import guvenlik_veri as V  # noqa: E402
+import infografik_unite as IU  # noqa: E402
+ROMA = ["I", "II", "III", "IV", "V", "VI"]
+
+
+def ghs_izgara():
+    """Dokuz GHS kartı: piktogram (data-ghs) + tehlike adı + simge adı + anlam + örnek."""
+    kartlar = []
+    for kod, ad, simge, anlam, ornek in V.GHS:
+        kartlar.append(f'<div class="ghs-kart">{IU.ghs(u.yeni("gh"), kod)}<div><b>{ad}<small>{simge}</small></b>'
+                       f'<p>{anlam} <i>Örn. {ornek}.</i></p></div></div>')
+    return '<div class="ghs-izgara">' + "".join(kartlar) + "</div>"
+
+
+def isaret_izgara():
+    """Beş işaret ailesi (renk + biçim) ve örnek işaretler."""
+    out = []
+    for aile in ("zor", "uya", "yas", "acil", "yan"):
+        ad, bicim, anlam = V.ISARET_AILE[aile]
+        isr = "".join(f'<div>{IU.isaret(u.yeni("is"), k)}<span>{v[1]}</span></div>' for k, v in V.ISARET.items() if v[0] == aile)
+        out.append(f'<div class="isaret-aile {aile}"><div class="ab">{ad}<small>{bicim} · {anlam}</small></div><div class="isr">{isr}</div></div>')
+    return '<div class="isaret-izgara">' + "".join(out) + "</div>"
+
+
+def isaret_dizi(*simgeler):
+    """Soru içi işaret sırası: I, II, III … altında."""
+    return '<div class="isaret-dizi">' + "".join(f'<div>{IU.isaret(u.yeni("is"), s)}<span>{ROMA[i]}</span></div>'
+                                                for i, s in enumerate(simgeler)) + "</div>"
+
+
+def ghs_dizi(*kodlar):
+    """Piktogram sırası. 'GHS02:X' → altına X yazılır; son argüman 'mini' ise küçük boy."""
+    mini = bool(kodlar) and kodlar[-1] == "mini"
+    kodlar = [k for k in kodlar if k != "mini"]
+    parca = []
+    for k in kodlar:
+        kod, _, et = k.partition(":")
+        parca.append(f'<div>{IU.ghs(u.yeni("gh"), kod)}{f"<span>{et}</span>" if et else ""}</div>')
+    return f'<div class="ghs-dizi{" mini" if mini else ""}">' + "".join(parca) + "</div>"
+
+
+u.yer_tutucu("ghs-izgara", ghs_izgara)
+u.yer_tutucu("isaret-izgara", isaret_izgara)
+u.yer_tutucu("isaret-dizi", isaret_dizi)
+u.yer_tutucu("ghs-dizi", ghs_dizi)
 u.yer_tutucu("panorama-etiket", panorama_etiket)
 u.yer_tutucu("panorama-karadeniz", panorama)
 u.yer_tutucu("muhur", muhur)
