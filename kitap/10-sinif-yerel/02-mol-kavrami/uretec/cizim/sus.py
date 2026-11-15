@@ -114,7 +114,7 @@ def tezhip_kose(onek, zemin=LAJVER, altin=ALTIN):
 # ------------------------------------------------------------------ kilim ayracı
 
 def kilim_serit(onek, en=1880, boy=60, renkler=None):
-    """Dokuma kilim şeridi: basamaklı baklava (göz), koçboynuzu, elibelinde; viewBox en×boy."""
+    """Dokuma kilim şeridi: basamaklı baklava (göz) ile elibelinde dönüşümlü; dişli kenar; viewBox en×boy."""
     k = renkler or {"kok": "#B23A2E", "civit": "#253C78", "asi": "#D99A2B", "zemin": "#F5E8D0", "cam": "#1E8A86"}
     s = Svg(onek)
     s += f'<rect width="{en}" height="{boy}" fill="{k["zemin"]}"/>'
@@ -135,11 +135,16 @@ def kilim_serit(onek, en=1880, boy=60, renkler=None):
                 s += f'<path d="M{nok(st[0])} L{nok(st[1])} L{nok(st[2])} L{nok(st[3])} Z" fill="{c}"/>'
             s += f'<rect x="{f(cx - 2)}" y="{f(cy - 2)}" width="4" height="4" fill="{k["zemin"]}"/>'
         else:
-            # koçboynuzu (iki kıvrık boynuz)
-            s += (f'<path d="M{f(cx - 26)} {f(cy + 13)} V{f(cy - 9)} H{f(cx - 12)} V{f(cy + 4)} H{f(cx - 19)} V{f(cy - 2)} '
-                  f'M{f(cx + 26)} {f(cy + 13)} V{f(cy - 9)} H{f(cx + 12)} V{f(cy + 4)} H{f(cx + 19)} V{f(cy - 2)}" fill="none" stroke="{k["cam"]}" stroke-width="6" stroke-linejoin="miter"/>'
-                  f'<rect x="{f(cx - 5)}" y="{f(cy - 15)}" width="10" height="30" fill="{k["kok"]}"/>'
-                  f'<rect x="{f(cx - 2)}" y="{f(cy - 9)}" width="4" height="18" fill="{k["asi"]}"/>')
+            # elibelinde: kum saati gövde + bele dayanan kollar (harf gibi okunmayan, simetrik geometrik motif)
+            g, k2 = boy * .36, boy * .11
+            govde = [(cx - g * .62, cy - g), (cx + g * .62, cy - g), (cx + k2 * .45, cy), (cx + g * .62, cy + g), (cx - g * .62, cy + g), (cx - k2 * .45, cy)]
+            s += f'<path d="M{nok(govde[0])} L{nok(govde[1])} L{nok(govde[2])} L{nok(govde[3])} L{nok(govde[4])} L{nok(govde[5])} Z" fill="{k["kok"]}"/>'
+            for yon in (-1, 1):
+                kol = [(cx + yon * k2 * .45, cy), (cx + yon * g * 1.05, cy), (cx + yon * g * 1.05, cy + yon * 0 - g * .42), (cx + yon * g * .82, cy - g * .42),
+                       (cx + yon * g * .82, cy - g * .16), (cx + yon * k2 * .45, cy - g * .16)]
+                s += f'<path d="M{nok(kol[0])} L{nok(kol[1])} L{nok(kol[2])} L{nok(kol[3])} L{nok(kol[4])} L{nok(kol[5])} Z" fill="{k["cam"]}"/>'
+            s += f'<path d="M{f(cx)} {f(cy - g * .62)} L{f(cx + g * .3)} {f(cy - g * .3)} L{f(cx)} {f(cy)} L{f(cx - g * .3)} {f(cy - g * .3)} Z" fill="{k["asi"]}"/>'
+            s += f'<path d="M{f(cx)} {f(cy)} L{f(cx + g * .3)} {f(cy + g * .3)} L{f(cx)} {f(cy + g * .62)} L{f(cx - g * .3)} {f(cy + g * .3)} Z" fill="{k["asi"]}"/>'
         i += 1
     return s.cikti(f"0 0 {en} {boy}", cls="kilim", par="xMidYMid slice")
 

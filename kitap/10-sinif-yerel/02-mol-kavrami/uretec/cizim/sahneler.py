@@ -293,36 +293,36 @@ def ercis():
     s += f'<rect y="0" width="{W}" height="34" fill="#7A4E2E"/><rect y="34" width="{W}" height="8" fill="#5E3A20"/>'
     for x in range(0, W, 120):
         s += f'<rect x="{x}" y="0" width="60" height="34" fill="#8C5A35"/>'
-    # pencere: göl ve Süphan (sağda)
-    wx, wy, ww, wh = 1390, 66, 420, 230
+    # pencere: göl ve Süphan (sağda) — sedir yastığının (y=246) üstünde biter
+    wx, wy, ww, wh = 1360, 52, 440, 180
     pen = Svg("sh-erc-p")
-    pen += S.gokyuzu(pen, wx, wy, ww, wh * .62, "gun")
-    pd, _ = S.dag(pen, wx - 40, wx + ww + 40, wy + wh * .62, wx + ww * .55, wy + 30, 181, renk="#7C93B5", golge="#55709A",
-                  bicim="volkan", kar_y=wy + 88, kar="#FFFFFF", kar_golge="#C9D8EE", sis="#C4E2EE", isik=-1, sirt=4, puruz=6)
+    pen += S.gokyuzu(pen, wx, wy, ww, wh * .6, "gun")
+    pd, _ = S.dag(pen, wx - 40, wx + ww + 40, wy + wh * .6, wx + ww * .55, wy + 22, 181, renk="#7C93B5", golge="#55709A",
+                  bicim="volkan", kar_y=wy + 66, kar="#FFFFFF", kar_golge="#C9D8EE", sis="#C4E2EE", isik=-1, sirt=4, puruz=6)
     pen += pd
-    pen += S.gol(pen, wx, wy + wh * .62, ww, wh * .38, 182, ufuk="#C8EEF0", orta="#22AEB0", derin="#0B6B78")
-    pen += S.tekne(pen, wx + 110, wy + wh * .76, 44, govde="#C8442F", yelken="#FFF6E6")
-    pen += S.marti(wx + 300, wy + 52, .6, 2)
+    pen += S.gol(pen, wx, wy + wh * .6, ww, wh * .4, 182, ufuk="#C8EEF0", orta="#22AEB0", derin="#0B6B78")
+    pen += S.tekne(pen, wx + 110, wy + wh * .8, 40, govde="#C8442F", yelken="#FFF6E6")
+    pen += S.marti(wx + 310, wy + 40, .6, 2)
     s.defs += pen.defs
     kl = s.klip(f'<rect x="{wx}" y="{wy}" width="{ww}" height="{wh}"/>', ad="pk")
     s += f'<g clip-path="{kl}">{"".join(pen.parca)}</g>'
-    s += f'<rect x="{wx}" y="{wy}" width="{ww}" height="{wh}" fill="none" stroke="#6E4422" stroke-width="16"/>'
-    s += f'<path d="M{wx + ww / 2} {wy} V{wy + wh} M{wx} {wy + wh * .45} H{wx + ww}" stroke="#6E4422" stroke-width="9"/>'
-    s += f'<rect x="{wx - 26}" y="{wy + wh + 2}" width="{ww + 52}" height="14" fill="#8C5A35"/>'
-    for sx, x0 in ((-1, wx - 62), (1, wx + ww + 6)):
-        s += (f'<path d="M{x0} 50 h56 C{x0 + 56} 150 {x0 + 28 + sx * 10} 240 {x0 + 46} 316 L{x0 + 10} 316 C{x0 - 8} 232 {x0 + 10} 140 {x0} 50 Z" fill="#B23A2E"/>'
-              f'<path d="M{x0 + 16} 58 C{x0 + 18} 150 {x0 + 12} 234 {x0 + 22} 310" stroke="#8E2A22" stroke-width="5" fill="none"/>'
-              f'<path d="M{x0} 50 h56" stroke="#F0A21A" stroke-width="8"/>')
-        for k in range(5):
-            s += f'<circle cx="{x0 + 13 + k * 8}" cy="{104 + k * 42}" r="4" fill="#F0A21A" opacity=".9"/>'
-    # duvarda kilim (en sağ)
-    s += f'<g transform="translate(1900 64)"><rect width="180" height="226" fill="#F5E8D0" stroke="#6E4422" stroke-width="4"/>'
-    s += f'<rect x="9" y="9" width="162" height="208" fill="#B23A2E"/>'
-    for k in range(3):
-        cy = 46 + k * 68
-        s += f'<path d="M90 {cy - 28} L130 {cy} L90 {cy + 28} L50 {cy} Z" fill="#253C78"/><path d="M90 {cy - 16} L112 {cy} L90 {cy + 16} L68 {cy} Z" fill="#D99A2B"/><rect x="85" y="{cy - 5}" width="10" height="10" fill="#F5E8D0"/>'
-        s += f'<path d="M24 {cy - 18} v36 M156 {cy - 18} v36" stroke="#1E8A86" stroke-width="9"/>'
-    s += "".join(f'<path d="M{k * 18} 226 v18" stroke="#F5E8D0" stroke-width="4"/>' for k in range(11)) + '</g>'
+    s += f'<rect x="{wx}" y="{wy}" width="{ww}" height="{wh}" fill="none" stroke="#6E4422" stroke-width="14"/>'
+    s += f'<path d="M{wx + ww / 2} {wy} V{wy + wh} M{wx} {wy + wh * .45} H{wx + ww}" stroke="#6E4422" stroke-width="8"/>'
+    s += f'<rect x="{wx - 22}" y="{wy + wh + 2}" width="{ww + 44}" height="12" fill="#8C5A35"/>'
+    for sx, x0 in ((-1, wx - 58), (1, wx + ww + 6)):
+        s += (f'<path d="M{x0} 46 h52 C{x0 + 52} 120 {x0 + 26 + sx * 9} 190 {x0 + 42} 240 L{x0 + 8} 240 C{x0 - 8} 186 {x0 + 8} 116 {x0} 46 Z" fill="#B23A2E"/>'
+              f'<path d="M{x0 + 15} 54 C{x0 + 17} 124 {x0 + 11} 192 {x0 + 20} 236" stroke="#8E2A22" stroke-width="5" fill="none"/>'
+              f'<path d="M{x0} 46 h52" stroke="#F0A21A" stroke-width="7"/>')
+        for k in range(4):
+            s += f'<circle cx="{x0 + 12 + k * 8}" cy="{92 + k * 40}" r="3.6" fill="#F0A21A" opacity=".9"/>'
+    # duvarda kilim (en sağ, sedirin üstünde biter)
+    s += f'<g transform="translate(1912 52)"><rect width="168" height="168" fill="#F5E8D0" stroke="#6E4422" stroke-width="4"/>'
+    s += f'<rect x="8" y="8" width="152" height="152" fill="#B23A2E"/>'
+    for k in range(2):
+        cy = 48 + k * 72
+        s += f'<path d="M84 {cy - 30} L124 {cy} L84 {cy + 30} L44 {cy} Z" fill="#253C78"/><path d="M84 {cy - 17} L106 {cy} L84 {cy + 17} L62 {cy} Z" fill="#D99A2B"/><rect x="79" y="{cy - 5}" width="10" height="10" fill="#F5E8D0"/>'
+        s += f'<path d="M22 {cy - 18} v36 M146 {cy - 18} v36" stroke="#1E8A86" stroke-width="9"/>'
+    s += "".join(f'<path d="M{6 + k * 17} 168 v14" stroke="#F5E8D0" stroke-width="4"/>' for k in range(10)) + '</g>'
     # sol duvar: raf, kitaplar, semaver (levhanın arkasında kalsa da doku verir)
     s += f'<rect x="760" y="150" width="260" height="12" fill="#7A4E2E"/>'
     for k, (c, h) in enumerate([("#2B50B5", 60), ("#E2533D", 70), ("#13A3A6", 54), ("#F0A21A", 66), ("#1D3A8A", 60), ("#7B3F8C", 72)]):
@@ -332,10 +332,14 @@ def ercis():
     s += f'<rect x="0" y="322" width="{W}" height="62" fill="#8E2A22"/>'
     kil = kilim_serit("sh-erc-k", 2100, 60).replace("<svg ", '<svg width="2100" height="60" ')
     s += f'<g transform="translate(0 324)">{kil}</g>'
-    for k, x in enumerate(range(40, 2100, 260)):
-        c = ["#253C78", "#B23A2E", "#1E8A86", "#D99A2B"][k % 4]
-        s += f'<rect x="{x}" y="244" width="180" height="88" rx="22" fill="{c}" stroke="#1B1D26" stroke-width="3"/>'
-        s += f'<path d="M{x + 90} 256 L{x + 140} 288 L{x + 90} 320 L{x + 40} 288 Z" fill="none" stroke="#F5E8D0" stroke-width="4"/>'
+    # sedirin sırt yastığı: kesintisiz uzun minder (yer yer örtülse de tek parça okunur) + kilim deseni
+    s += f'<rect x="-20" y="246" width="{W + 40}" height="84" rx="26" fill="#253C78" stroke="#1B1D26" stroke-width="3"/>'
+    s += f'<rect x="-20" y="258" width="{W + 40}" height="60" fill="#2E4A8E"/>'
+    s += f'<path d="M-20 262 H{W + 20} M-20 314 H{W + 20}" stroke="#D99A2B" stroke-width="4"/>'
+    for x in range(30, W, 72):
+        s += f'<path d="M{x} 266 L{x + 22} 288 L{x} 310 L{x - 22} 288 Z" fill="#B23A2E" stroke="#F5E8D0" stroke-width="2.4"/><rect x="{x - 4}" y="284" width="8" height="8" fill="#F5E8D0"/>'
+    for x in range(66, W, 72):
+        s += f'<path d="M{x} 280 l8 8 l-8 8 l-8 -8 Z" fill="#D99A2B"/>'
     s += f'<path d="M0 384 H{W} V{H} H0 Z" fill="#7A2A22"/>'
     s += f'<path d="M80 394 H{W - 80} L{W} {H} H0 Z" fill="#B23A2E"/>'
     for x in range(120, W - 100, 90):
