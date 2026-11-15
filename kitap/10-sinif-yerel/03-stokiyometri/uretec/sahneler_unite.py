@@ -791,6 +791,24 @@ def sur_etegi():
 
 # ------------------------------------------------------------------ BÜYÜK İMTİHAN 1 · DİYARBAKIR SURLARI (62 mm)
 
+def iskele(s, cx, y_ust, y_alt, w, renk="#C9A86E"):
+    """Onarım iskelesi: dikmeler, kat kirişleri, çapraz bağlar ve kalaslar (deprem hasarlı burç için)."""
+    o = []
+    xs = [cx - w / 2 + i * w / 3 for i in range(4)]
+    for x in xs:
+        o.append(f'<rect x="{f(x - 3)}" y="{f(y_ust)}" width="6" height="{f(y_alt - y_ust)}" fill="{renk}" stroke="{OBS}" stroke-width="1.6"/>')
+    y = y_ust + 20
+    k = 0
+    while y < y_alt - 10:
+        o.append(f'<rect x="{f(xs[0] - 8)}" y="{f(y)}" width="{f(w + 16)}" height="6" fill="{renk}" stroke="{OBS}" stroke-width="1.6"/>')
+        a, b = (xs[0], xs[1]) if k % 2 == 0 else (xs[2], xs[3])
+        o.append(f'<path d="M{f(a)} {f(y + 6)} L{f(b)} {f(min(y + 50, y_alt))}" stroke="{OBS}" stroke-width="2.4" opacity=".7"/>')
+        o.append(f'<rect x="{f(xs[1] - 4)}" y="{f(y - 7)}" width="{f(w / 3 + 8)}" height="7" fill="#9C7A4E" stroke="{OBS}" stroke-width="1.2"/>')
+        y += 50
+        k += 1
+    return "".join(o)
+
+
 def kale_sur(h=620):
     s = Svg("sd-kal")
     ufuk = 360
@@ -806,6 +824,7 @@ def kale_sur(h=620):
     s += f'<path d="{egri_d(yar[:-1])}" stroke="{BAZALT_A}" stroke-width="4" fill="none"/>'
     tb = lambda x: 318 - (x - 900) * .04 + 8 * math.sin(x / 140)  # noqa: E731
     s += bazalt_sur(s, 900, 2160, tb, 110, burclar=[(1000, 170, 110), (1300, 182, 116), (1600, 176, 112), (1900, 190, 120), (2120, 170, 100)], tohum=142)
+    s += iskele(s, 1900, tb(1900) - 170, tb(1900) + 70, 150)   # 2023 depremlerinden sonraki onarım (sağlam gösterilmez)
     bx = 1600
     by = tb(bx) - 176 - 24
     s += f'<path d="M{bx} {f(by + 10)} v-74" stroke="#3A2E26" stroke-width="7"/>'

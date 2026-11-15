@@ -154,25 +154,25 @@ def kristal_kabi(onek="inf-kri"):
 def donma_termometreleri(onek="inf-ter"):
     """1 kg suda 1'er mol: saf su 0 · glikoz −1,86 · NaCl −3,72 · CaCl2 −5,58 °C (ideal; K_d = 1,86)."""
     s = Svg(onek)
-    Wd, Hd = 400, 128
+    Wd, Hd = 400, 138
     s += f'<rect width="{Wd}" height="{Hd}" rx="12" fill="#F2F7FC"/>'
-    veri = [("saf su", 0, 0), ("glikoz", 1, -1.86), ("NaCl", 2, -3.72), ("CaCl₂", 3, -5.58)]
-    y0, y1 = 22, 92            # 0 °C ve −6 °C konumu
+    s += f'<text x="200" y="15" text-anchor="middle" {T} font-size="12" fill="{SOLUK}">1 kg suda 1 mol madde · donmaya başlama sıcaklığı</text>'
+    veri = [("saf su", "", 0), ("glikoz", "1 tanecik", -1.86), ("NaCl", "2 tanecik", -3.72), ("CaCl", "3 tanecik", -5.58)]
+    y0, y1 = 30, 96
     Y = lambda t: y0 + (y1 - y0) * (-t) / 6
-    for k, (ad, n, t) in enumerate(veri):
-        x = 46 + k * 92
-        s += f'<rect x="{x - 7}" y="12" width="14" height="88" rx="7" fill="#FFFFFF" stroke="{OBS}" stroke-width="2"/>'
-        s += f'<circle cx="{x}" cy="104" r="11" fill="{MER}" stroke="{OBS}" stroke-width="2"/>'
-        s += f'<rect x="{x - 3.5}" y="{f(Y(t))}" width="7" height="{f(104 - Y(t))}" fill="{MER}"/>'
+    for k, (ad, alt, t) in enumerate(veri):
+        x = 30 + k * 98
+        s += f'<rect x="{x - 7}" y="22" width="14" height="86" rx="7" fill="#FFFFFF" stroke="{OBS}" stroke-width="2"/>'
+        s += f'<circle cx="{x}" cy="110" r="10" fill="{MER}" stroke="{OBS}" stroke-width="2"/>'
+        s += f'<rect x="{x - 3.5}" y="{f(Y(t))}" width="7" height="{f(110 - Y(t))}" fill="{MER}"/>'
         for j in range(0, 7, 2):
             s += f'<path d="M{x + 7} {f(Y(-j))} h5" stroke="{OBS}" stroke-width="1.2"/>'
         deger = "0 °C" if t == 0 else f"{t:.2f}".replace(".", ",").replace("-", "−") + " °C"
-        s += f'<text x="{x + 16}" y="{f(Y(t) + 5)}" {T} font-size="13" fill="{KOB_K}">{deger}</text>'
-        alt = ad.replace("₂", '<tspan font-size="9" dy="3">2</tspan>')
-        s += f'<text x="{x + 16}" y="{f(Y(t) + 20)}" {T} font-size="12" fill="{OBS}">{alt}</text>'
-        if n:
-            s += f'<text x="{x + 16}" y="{f(Y(t) + 34)}" {T} font-size="11" fill="{SOLUK}">{n} mol tanecik</text>'
-    s += f'<text x="392" y="122" text-anchor="end" {T} font-size="11" fill="{SOLUK}">1 kg su · 1 mol madde · donmaya başlama</text>'
+        s += f'<text x="{x + 15}" y="{f(Y(t) + 5)}" {T} font-size="14" fill="{KOB_K}">{deger}</text>'
+        adt = ad + ('<tspan font-size="9" dy="3">2</tspan>' if ad == "CaCl" else "")
+        s += f'<text x="{x + 15}" y="{f(min(Y(t) + 22, 118))}" {T} font-size="12" fill="{OBS}">{adt}</text>'
+        if alt:
+            s += f'<text x="{x}" y="132" text-anchor="middle" {T} font-size="11" fill="{SOLUK}">{alt}</text>'
     return s.cikti(f"0 0 {Wd} {Hd}", cls="info")
 
 

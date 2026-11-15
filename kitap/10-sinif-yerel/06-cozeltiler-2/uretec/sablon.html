@@ -71,13 +71,13 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
       <div class="kart">
         <span class="et">{{ikon|hedef}}Yolun sonunda · hedefler</span>
         <ol class="hedefler">
-          <li>Derişimi yüzde, ppm ve molariteyle hesaplayıp birbirine çevireceksin.</li>
-          <li>Seyreltme, deriştirme ve karıştırmadan sonra yeni derişimi bulacaksın.</li>
-          <li>Tanecik sayısının donma ve kaynama sıcaklığını nasıl değiştirdiğini açıklayacaksın.</li>
+          <li>Derişimi %, ppm ve molariteyle hesaplayacaksın.</li>
+          <li>Seyreltme ve karıştırmada derişimi bulacaksın.</li>
+          <li>Donma ve kaynamayı tanecikle açıklayacaksın.</li>
         </ol>
         <div class="et keh" style="margin-top:2.4mm">Ahilik basamakları · toplam akçene göre</div>
         <div class="basamak-unvan" style="margin-top:3mm">
-          <div><b>Çırak</b><small>0+</small></div><div><b>Kalfa</b><small>400+</small></div><div><b>Usta</b><small>800+</small></div><div><b>Derişim Üstadı</b><small>1150+</small></div>
+          <div><b>Çırak</b><small>0+</small></div><div><b>Kalfa</b><small>400+</small></div><div><b>Usta</b><small>800+</small></div><div><b>Üstad</b><small>1150+</small></div>
         </div>
       </div>
     </div>
@@ -281,7 +281,6 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
         {{hazine|H5}}
         {{hazine|H6}}
         {{hazine|H7}}
-        <div class="kes-not">{{ikon|makas}}Kes · yapıştır · kart başı +10</div>
       </div>
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
@@ -403,7 +402,7 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
         <div class="baglam">Tuzlama aracının deposu (ideal kabul)</div>
         <p class="soru">1 kg suda 117 g NaCl çözülmüş. Çözelti yaklaşık kaç °C’ta donmaya, kaç °C’ta kaynamaya başlar? (Na: 23, Cl: 35,5 · K<sub>d</sub> = 1,86 · K<sub>k</sub> = 0,52 °C)</p>
         <ol class="akis"><li><i>1</i><span>117 / 58,5 = 2 mol NaCl → 4 mol tanecik</span></li><li><i>2</i><span><b>H10:</b> ΔT<sub>d</sub> = 1,86·4 = 7,44 · ΔT<sub>k</sub> = 0,52·4 = 2,08</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>≈ −7,44 °C · ≈ 102,08 °C</div>
+        <div class="sonuc"><span>SONUÇ</span>−7,44 °C · 102,08 °C</div>
       </div>
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 12</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30</span></span></div>
@@ -459,7 +458,7 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
       <div class="ozet-kart keh"><span class="sira">04/06</span><span class="et keh">Seyrelt · karıştır</span><h3>Mol korunur</h3><ul class="ozet-liste"><li>Su ekle / uçur: M<sub>1</sub>V<sub>1</sub> = M<sub>2</sub>V<sub>2</sub></li><li>Katı ekle: yeni n, sonra M = n / V</li><li>Karıştır: Σn / ΣV</li><li>Dibinde katısı olan doymuş çözelti (sabit T): derişim değişmez</li></ul></div>
       <div class="ozet-kart mer"><span class="sira">05/06</span><span class="et mer">Tanecik say</span><h3>Koligatif üçlü</h3><ul class="ozet-liste"><li>X<sub>a</sub>Y<sub>b</sub>, c M → (a + b)·c M iyon</li><li>Tanecik ↑ → buhar basıncı ↓</li><li>Kaynama ↑, donma ↓ (ΔT = K·n)</li><li>Kıyasta çözücüyü eşitle (1 kg)</li></ul></div>
       <div class="ozet-kart"><span class="sira">06/06</span><span class="et mer">{{ikon|tuzak}}En sık 4 hata</span>
-        <ul class="ozet-liste no"><li>Yüzdede paydaya çözücüyü yazmak</li><li>Molaritede mL’yi litreye çevirmemek</li><li>Seyreltmede V<sub>2</sub> yerine eklenen suyu yazmak</li><li>Koligatifte iyonları saymamak</li></ul>
+        <ul class="ozet-liste no"><li>Yüzdede paydaya çözücüyü yazmak</li><li>mL’yi litreye çevirmemek</li><li>V<sub>2</sub> yerine eklenen suyu almak</li><li>İyonları saymamak (koligatif)</li></ul>
         <div class="muhur-kose">{{muhur|yanlis}}</div></div>
     </div>
     <div class="kart keh-z sandik">
@@ -721,7 +720,7 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
         <div class="mesveret-bas">{{sno|6}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
         <p class="soru">0,3 M Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> çözeltisi için (tam iyonlaşma) I. [Al<sup>3+</sup>] = 0,6 M, II. [SO<sub>4</sub><sup>2−</sup>] = 0,9 M, III. toplam iyon derişimi 1,2 M yargılarından hangileri doğrudur?</p>
         <div class="karalama"><span class="ogr">0,6 ✓ · 0,9 ✓ · toplam 1,5 (III ✗)</span></div>
-        <div class="oy uc"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div data-dogru><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
+        <div class="oy uc"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div data-dogru><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div><b>E</b><span>I, II, III</span><em>%__</em></div></div>
       </div>
     </div>
   </main>
@@ -760,7 +759,7 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
         <div class="mesveret-bas">{{sno|10}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
         <p class="soru">Dibinde katısı olan doymuş KNO<sub>3</sub> çözeltisinden sabit sıcaklıkta su buharlaşıp bir miktar katı çöküyor. I. Derişim değişmez. II. Çözünmüş KNO<sub>3</sub> kütlesi azalır. III. Dipteki katı artar. Hangileri doğru?</p>
         <div class="karalama"><span class="ogr">Doymuş kalır (I ✓); çöken artar (II, III ✓)</span></div>
-        <div class="oy uc"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div data-dogru><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
+        <div class="oy uc"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div data-dogru><b>E</b><span>I, II, III</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I11">
         <div class="mesveret-bas">{{sno|11}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
@@ -908,6 +907,13 @@ table.gorev-tablo.tanecik td:first-child { text-align: left; }
           <p class="c"><b>Ü4 · C</b> 1,674/1,86 = 0,9 mol tanecik; CaCl<sub>2</sub> 0,3 → NaCl 0,6 tanecik = 0,3 mol = 17,55 g.</p>
           <p class="c"><b>Ü5 · B</b> 1,9 mg/L = 1,9·10<sup>−3</sup> g/L; ÷ 19 = 1·10<sup>−4</sup> M.</p>
           <p class="c"><b>Ü6 · E</b> m = 400 g; 800 g çözeltide 160 g şeker; %16 için 1000 g → 200 g su.</p>
+        </div>
+        <div class="grup"><h4>Hatırla · sabit sıcaklıkta ne değişir?</h4>
+          <table class="gorev-tablo dar"><tr><th>İşlem</th><th>n<sub>çözünen</sub></th><th>Derişim</th><th>m<sub>çözelti</sub></th></tr>
+            <tr><td>Doymamışa su ekle</td><td>aynı</td><td>azalır</td><td>artar</td></tr>
+            <tr><td>Doymamıştan su uçur</td><td>aynı</td><td>artar</td><td>azalır</td></tr>
+            <tr><td>Katılı doymuşa su ekle</td><td>artar</td><td>aynı</td><td>artar</td></tr>
+            <tr><td>Doymuştan su uçur (çöker)</td><td>azalır</td><td>aynı</td><td>azalır</td></tr></table>
         </div>
       </div>
     </div>

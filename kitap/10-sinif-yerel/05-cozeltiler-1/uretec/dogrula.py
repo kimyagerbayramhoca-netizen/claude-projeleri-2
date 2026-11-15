@@ -94,7 +94,7 @@ g2 = {"I": iyi_cozunur("C2H5OH", "H2O"), "II": iyi_cozunur("I2", "CCl4"), "III":
 kontrol(f"Görev 2: iyi çözünenler I ve II {g2}", yargi(g2) == {"I", "II"})
 en_iyi = [m for m in ("NH3", "CCl4", "I2") if etkilesim(m, "H2O") == "hidrojen bağı"]
 kontrol("Hızlı görev: suda en iyi NH3 (hidrojen bağı)", en_iyi == ["NH3"])
-kontrol("Hızlı kontrol: HCl–H2S → dipol–dipol", etkilesim("HCl", "H2S") == "dipol–dipol")
+kontrol("Tablo: HCl–H2S → dipol–dipol", etkilesim("HCl", "H2S") == "dipol–dipol")
 kontrol("Tuzak: CH4–H2O hidrojen bağı DEĞİL (dipol–indüklenmiş dipol)", etkilesim("CH4", "H2O") == "dipol–indüklenmiş dipol")
 tablo = {("KBr", "H2O"): "iyon–dipol", ("HCl", "H2S"): "dipol–dipol", ("NH3", "H2O"): "hidrojen bağı",
          ("O2", "H2O"): "dipol–indüklenmiş dipol", ("NaCl", "CCl4"): "iyon–indüklenmiş dipol", ("I2", "CCl4"): "London"}
@@ -104,7 +104,7 @@ kontrol("Etkileşim tablosu (6 satır) modelle aynı", all(etkilesim(a, b) == v 
 kontrol("Görev 3: 0,2 mol Na2SO4 → 0,6 mol iyon; 0,4 mol Na+ = 2,408e23", yakin(.2 * IYON["Na2SO4"], .6) and yakin(.4 * NA, 2.408e23))
 sira = sorted(("NaCl", "CaCl2", "C6H12O6"), key=lambda m: -IYON[m])
 kontrol(f"Hızlı görev: iletkenlik CaCl2 > NaCl > glikoz {sira}", sira == ["CaCl2", "NaCl", "C6H12O6"])
-kontrol("Kendini yokla: KOH (iyonik) ve SO2 (suyla tepkime → iyon) elektrolit; CH3OH değil", IYON["KOH"] > 0 and IYON["CH3OH"] == 0)
+kontrol("Elektrolit: KOH (iyonik) evet, CH3OH hayır", IYON["KOH"] > 0 and IYON["CH3OH"] == 0)
 
 # ------------------------------------------------------------------ 4. durak · Ömer–Gecek
 kontrol("Kavram: 20 °C KNO3 32 → 132 g doymuş çözelti", 100 + oku("KNO3", 20) == 132)
@@ -187,7 +187,7 @@ T[3] = tek_sik("İmtihan 3 (hekzanda çözünen)", {"A": "NaCl", "B": "H2O", "C"
 iletken = yargi({"I": IYON["C6H12O6"] > 0, "II": IYON["KCl"] > 0, "III": True, "IV": IYON["C2H5OH"] > 0})   # HCl suda iyonlaşır
 T[4] = tek_sik("İmtihan 4 (iletenler)", {"A": {"II", "III"}, "B": {"I", "II"}, "C": {"III", "IV"}, "D": {"I", "II", "III"}, "E": {"II", "III", "IV"}},
                lambda v: v == iletken, "A")
-kimyasal = {"Sakkaroz": False, "NaNO3": False, "Etil alkol": False, "KBr": False, "HCl": True}
+kimyasal = {"şeker": False, "NaNO3": False, "etanol": False, "KBr": False, "HCl": True}
 T[5] = tek_sik("İmtihan 5 (kimyasal çözünme)", dict(zip("ABCDE", kimyasal.values())), lambda v: v, "E")
 i6 = yargi({"I": all(b[1] > a[1] for a, b in zip(VERI["A"], VERI["A"][1:])),
             "II": all(b[1] < a[1] for a, b in zip(VERI["B"], VERI["B"][1:])), "III": False})
@@ -260,13 +260,13 @@ if html:
     for i, kisi in enumerate(("Yusuf", "Pamuk", "Elif", "Yusuf"), 1):
         kontrol(f"s.15 meclis çözümü '{i} · {kisi}' var", f"<b>{i} · {kisi}</b>" in html)
     ogr = ogretmen_metinleri(html)
-    kontrol(f"öğretmen metinleri: {len(ogr)} (1 boşluk + 6 CEVABIN + 2 hızlı kontrol + 8 meclis + 4 kıssa + 9 merdiven + 12 imtihan + 6 Üstad = 48)", len(ogr) == 48)
+    kontrol(f"öğretmen metinleri: {len(ogr)} (1 boşluk + 6 CEVABIN + 8 meclis + 4 kıssa + 9 merdiven + 12 imtihan + 6 Üstad = 46)", len(ogr) == 46)
     ciftler = re.findall(r'CEVABIN:<span class="ogr">(.*?)</span></div><span class="ters-cevap"><span class="ters">(?:Cevap: )?(.*?)</span></span>', html)
     kontrol(f"CEVABIN kutusundaki kırmızı cevap ters yazılı cevapla aynı ({len(ciftler)} kutu)", len(ciftler) == 6 and all(a == b for a, b in ciftler))
     kontrol("Üstad sayfası: 6 kart, Üstad Mührü, akçe yok", html.count('class="ustad-soru"') == 6 and "Üstad Mührü" in html)
     kontrol("Üstad: en az bir grafik (Na2SO4) ve bir tablo", "ustad-graf" in html and 'class="ustad-tablo"' in html)
     kontrol("12 meşveret + 4 kıssa kartı", html.count('class="kart mesveret"') == 12 and html.count('class="kart kissa"') == 4)
-    for metin in ("140 g KNO<sub>3</sub> ve 30 g NaCl", "375 · 25 / 100", "yaklaşık 58 °C", "yaklaşık 700 basamak", "80 °C’ta 360, 20 °C’ta 200",
+    for metin in ("140 g KNO<sub>3</sub> ve 30 g NaCl", "375 · 25 / 100", "yaklaşık 700 basamak", "80 °C’ta 360, 20 °C’ta 200",
                   "0,2 mol Na<sub>2</sub>SO<sub>4</sub>", "≈ 1,7 g CO<sub>2</sub>", "10 °C’tan 20 °C’a", "60 g X ile"):
         kontrol(f"sayfada '{metin}' var", metin in html)
     for h in ("H" + str(i) for i in range(1, 13)):
@@ -277,8 +277,8 @@ else:
 # ------------------------------------------------------------------ akçe muhasebesi
 durak = {
     "1. durak": dict(kavram=20, gorev1=30, H1=10, H2=10, tuzak=10, hizli=20),
-    "2. durak": dict(gorev2=40, H3=10, H4=10, tuzak=20, hizli=30, hizli_kontrol=10),
-    "3. durak": dict(gorev3=40, H5=10, H6=10, tuzak=20, hizli=30, kendini_yokla=10),
+    "2. durak": dict(gorev2=40, H3=10, H4=10, tuzak=20, hizli=40),
+    "3. durak": dict(gorev3=40, H5=10, H6=10, tuzak=20, hizli=40),
     "4. durak": dict(gorev4=30, gorev5=30, H7=10, H8=10, tuzak=10, hizli=30),
     "5. durak": dict(gorev6=40, H9=10, H10=10, tuzak=20, hizli=40),
     "6. durak": dict(gorev7=20, gorev8=25, gorev9=25, H11=10, H12=10, tuzak=10, hizli=20),

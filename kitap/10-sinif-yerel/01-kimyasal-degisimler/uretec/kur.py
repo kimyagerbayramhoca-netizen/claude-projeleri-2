@@ -109,7 +109,8 @@ _html_kur = u.html_kur
 u.html_kur = lambda: _rozet_duzelt(_html_kur())
 import hazine_yapragi as _HY  # noqa: E402  (hazine-kartlari.html de aynı rozeti kullanır)
 _yaprak = _HY.yaprak_html
-_HY.yaprak_html = lambda birim: _rozet_duzelt(_yaprak(birim))
+# kesme yaprağının üst satırına uzun rota adı sığmıyor: "Yol 1 · Kars–Erzurum"
+_HY.yaprak_html = lambda birim: _rozet_duzelt(_yaprak(birim)).replace("<span>Yol 1 · Kars–Erzurum Yolu</span>", "<span>Yol 1 · Kars–Erzurum</span>")
 
 u.yer_tutucu("panorama", panorama)
 u.yer_tutucu("panorama-etiket", panorama_etiket)

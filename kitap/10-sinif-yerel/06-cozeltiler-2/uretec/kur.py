@@ -58,15 +58,15 @@ import sahneler_unite as SU  # noqa: E402  (KO.Unite uretec/'i sys.path'e ekledi
 YAN = {"H": ("KOVADA GÖLÜ", "Hülasa", "7", 40, "hul"), "M": ("EĞİRDİR", "Meclis", "8", 120, "yan"),
        "K": ("YEŞİLADA", "Kıssa", "9", 120, "yan"), "A": ("EĞİRDİR İSKELESİ", "Anahtar", "10", 120, "yan"),
        "V": ("EĞİRDİR KALESİ", "Büyük İmtihan", "11–12", 300, "kale")}
-TERCIH = {"1": "sol üst-sol alt-sol", "2": "üst üst-sağ üst-sol", "3": "üst üst-sol sol", "4": "üst-sağ sağ üst", "5": "alt alt-sol alt-sağ",
-          "H": "sağ alt-sağ alt", "M": "sağ üst-sağ alt-sağ", "K": "üst üst-sağ sağ", "A": "sol alt-sol üst-sol", "V": "alt alt-sağ alt-sol"}
+TERCIH = {"1": "sağ üst-sağ alt-sağ", "2": "üst üst-sol üst-sağ", "3": "üst-sol sol üst", "4": "üst üst-sağ", "5": "alt-sol alt sol",
+          "H": "sağ alt-sağ alt", "M": "sağ alt-sağ alt", "K": "sol alt-sol üst-sol", "A": "sol üst-sol alt-sol", "V": "sağ alt-sağ üst-sağ"}
 
 
 def panorama_etiket():
     """Göller Yolu panoramasındaki etiketler. Konum: sahnenin izdüşümü (SU.panorama_goller); sayfa no kitapta kayar."""
     _, konum = SU.panorama_goller()
     rozet = {k: (x / 10, y / 10) for k, (x, y) in konum.items()}
-    yasak = [(0, 0, 84, 18), (181, 81, 210, 110)]          # "Tur haritası" başlığı, pusula
+    yasak = [(0, 0, 84, 18), (7, 24, 25, 42)]              # "Tur haritası" başlığı, pusula (sol üst)
     yerlesik, out = [], []
 
     def carpisir(p, q):
@@ -86,7 +86,7 @@ def panorama_etiket():
         aday = {"sağ": (x + 4.4, y - h / 2), "sol": (x - 4.4 - w, y - h / 2), "üst": (x - w / 2, y - 4.4 - h), "alt": (x - w / 2, y + 4.4),
                 "üst-sağ": (x + 3, y - 3.4 - h), "alt-sağ": (x + 3, y + 3.4), "üst-sol": (x - w - 3, y - 3.4 - h), "alt-sol": (x - w - 3, y + 3.4)}
         sira = TERCIH[k].split() + [a for a in aday if a not in TERCIH[k].split()]
-        secim = aday[sira[0]]
+        secim = None
         for ad_ in sira:
             lx, ly = aday[ad_]
             kutu = (lx, ly, lx + w, ly + h)
@@ -98,6 +98,9 @@ def panorama_etiket():
                 continue
             secim = (lx, ly)
             break
+        if secim is None:
+            print(f"UYARI: panorama etiketi {k} için boş yer bulunamadı", file=sys.stderr)
+            secim = aday[sira[0]]
         yerlesik.append((secim[0], secim[1], secim[0] + w, secim[1] + h))
         sinif = f"durak-et {cls}".strip()
         out.append(f'<div class="{sinif}" style="left:{f(secim[0], 2)}mm;top:{f(secim[1], 2)}mm">'

@@ -502,13 +502,13 @@ def model_soru(onek="kz-ms"):
     for p, x0 in enumerate((0, 300)):
         s += _kutu(x0, 44, 220, 220, "#F6FAFC", "#7F94A2", 18)
         s += f'<text x="{x0 + 110}" y="34" text-anchor="middle" {T} font-size="34" fill="{GUM_K}">{["ÖNCE", "SONRA"][p]}</text>'
-    for (x, y) in ((42, 92), (120, 128), (44, 200), (118, 236)):
-        s += _mol(s, "H2", x, y, 34, (0, 0, 20))
-    for (x, y) in ((182, 92), (178, 168), (184, 236)):
-        s += _mol(s, "O2", x, y, 28, (10, 25, 15))
-    for (x, y) in ((350, 96), (450, 100), (352, 186), (452, 182)):
-        s += _mol(s, "H2O", x, y, 30, (0, 0, 10))
-    s += _mol(s, "O2", 418, 244, 26, (10, 25, -15))
+    for (x, y) in ((52, 88), (60, 150), (52, 212), (112, 248)):
+        s += _mol(s, "H2", x, y, 44, (0, 0, 20))
+    for (x, y) in ((168, 86), (160, 160), (176, 226)):
+        s += _mol(s, "O2", x, y, 38, (10, 25, 15))
+    for (x, y) in ((356, 100), (456, 104), (358, 192), (458, 188)):
+        s += _mol(s, "H2O", x, y, 40, (0, 0, 10))
+    s += _mol(s, "O2", 412, 246, 34, (10, 25, -15))
     s += _ok(228, 154, 292, 154, OBS, 6, 18)
     s += f'<g transform="translate(260 306)"><circle cx="-96" cy="-2" r="13" fill="{ATOM["H"]}" stroke="{OBS}" stroke-width="2.5"/><text x="-76" y="9" {T} font-size="32">H</text><circle cx="40" cy="-2" r="13" fill="{ATOM["O"]}" stroke="{OBS}" stroke-width="2.5"/><text x="60" y="9" {T} font-size="32">O</text></g>'
     return s.cikti(f"0 0 {W} {H}", cls="info model-soru")

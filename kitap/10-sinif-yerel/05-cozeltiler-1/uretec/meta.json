@@ -76,37 +76,37 @@
       "ad": "Traverten Kâşifi",
       "ikon": "traverten",
       "renk": "gol",
-      "aciklama": "1. durak · çözünme"
+      "aciklama": "1. durak"
     },
     {
       "ad": "Sabun Ustası",
       "ikon": "sabun",
       "renk": "kob",
-      "aciklama": "2. durak · benzer benzeri"
+      "aciklama": "2. durak"
     },
     {
       "ad": "Ampul Bekçisi",
       "ikon": "ampul",
       "renk": "keh",
-      "aciklama": "3. durak · iletkenlik"
+      "aciklama": "3. durak"
     },
     {
       "ad": "Kaplıca Bilgini",
       "ikon": "termometre",
       "renk": "mer",
-      "aciklama": "4. durak · çözünürlük"
+      "aciklama": "4. durak"
     },
     {
       "ad": "Kabarcık Avcısı",
       "ikon": "kabarcik",
       "renk": "gol",
-      "aciklama": "5. durak · doygunluk"
+      "aciklama": "5. durak"
     },
     {
       "ad": "Şerbet Ustası",
       "ikon": "kristal",
       "renk": "erg",
-      "aciklama": "6. durak · hesaplar"
+      "aciklama": "6. durak"
     },
     {
       "ad": "Kale Kapısı",
@@ -138,7 +138,7 @@
       "baslik": "Isı alır mı, verir mi?",
       "formul": "açığa çıkan &gt; harcanan → ısı verir",
       "not": "Tersi: ısı alır (soğuk paket) · +10 akçe",
-      "kisa": "çıkan &gt; harcanan",
+      "kisa": "ekzo · endo",
       "durak": 1
     },
     {

@@ -12,11 +12,18 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
 .info-yan { display: grid; grid-template-columns: 1fr 52mm; gap: 2.6mm; align-items: center; }
 .info-yan svg.info { width: 100%; height: 30mm; display: block; }
 .grafik-kart svg.info { width: 100%; height: auto; max-height: 52mm; display: block; }
+.g-alcak svg.info { height: 39mm; max-height: none; }
 .sabun-kart svg.info { height: 31mm; }
 .kiyidan .kucuk-not { font-size: 9.5pt; }
 .denklem { font-size: 9.6pt; line-height: 1.5; margin-top: .8mm; }
 .denklem div { white-space: nowrap; }
 .kucuk-not { font-size: 9.5pt; line-height: 1.28; }
+.dar .ic { gap: 2mm; } .dar .mesaj .balon { font-size: 9.5pt; line-height: 1.22; } .dar .mesaj { margin-bottom: 1mm; }
+.dar .kavram p { font-size: 9.6pt; line-height: 1.26; } .dar .tuzak-dogru p { font-size: 9.5pt; line-height: 1.25; }
+.dar .gorev .soru, .dar .hizli .soru { font-size: 9.6pt; line-height: 1.24; } .dar .hazine .hf { font-size: 12.4pt; }
+.kavram .hazine { margin-top: 1.4mm; }
+.s1 .ic { gap: 1.5mm; } .s1 .nisanlar b { font-size: 9.4pt; } .s1 .nisanlar span { font-size: 7.4pt; }
+.s12 .mesveret .soru, .s13 .mesveret .soru { font-size: 9.6pt; line-height: 1.23; }
 .iki-tablo td, .iki-tablo th { font-size: 9pt !important; }
 </style>
 </head>
@@ -62,8 +69,8 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
         <span class="et">{{ikon|hedef}}Yolun sonunda · hedefler</span>
         <ol class="hedefler">
           <li>Çözünmeyi tanecikler arası etkileşimlerle açıklayacaksın.</li>
-          <li>Çözünme türlerini, iletkenliği ve çözünürlüğe etki eden etkenleri ayırt edeceksin.</li>
-          <li>Çözünürlük grafiklerinden çökme, ekleme ve buharlaştırma hesabı yapacaksın.</li>
+          <li>Çözünme türlerini ve çözünürlüğün etkenlerini ayırt edeceksin.</li>
+          <li>Grafikten çökme, ekleme, buharlaştırma hesabı yapacaksın.</li>
         </ol>
         <div class="et keh" style="margin-top:2.4mm">Ahilik basamakları · toplam akçene göre</div>
         <div class="basamak-unvan" style="margin-top:3mm">
@@ -85,7 +92,7 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
 </section>
 
 <!-- ================================================================ SAYFA 2 · 1. DURAK · PAMUKKALE · ÇÖZÜNME NASIL OLUR? -->
-<section class="sayfa s2">
+<section class="sayfa s2 dar">
   {{zemin}}
   {{hud|2}}
   {{cini}}
@@ -97,8 +104,8 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
         <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Teraslar kar gibi bembeyaz ama su ılık! Bu beyaz taş nereden geldi?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Suyun içinden! Su yer altında kireçtaşını <span class="vurgu">çözmüş</span>, tanecikleri gözle görülmeyecek kadar dağılmış: bu su bir <b>çözelti</b>.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Çaydaki şeker de kaybolur ama yok olmaz; tadı her yudumda. Erir mi, çözünür mü? Tuzak’a bak. Miyav!</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Suyun içinden! Su yer altında kireçtaşını <span class="vurgu">çözmüş</span>; tanecikleri suya dağılmış. Bu su bir <b>çözelti</b>.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Çaydaki şeker erir mi, çözünür mü? Tuzak’a bak. Miyav!</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · çözelti</span><span class="cip akce">+20 akçe</span></div>
@@ -109,11 +116,17 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
         <div class="bos-satir" style="border-bottom:.3mm dotted var(--obs-2);height:5.4mm"><span class="ogr">Bir maddenin tanecikleri diğerinin tanecikleri arasına dağılır.</span></div>
       </div>
     </div>
-    <div class="kart basamak-kart">
-      <div class="kart-bas"><span class="et">{{ikon|harita}}Çözünmenin üç basamağı · tanecik gözüyle</span><span class="kes-not">Açığa çıkan &gt; harcanan: ısı veren · açığa çıkan &lt; harcanan: ısı alan</span></div>
-      {{info|cozunme_basamaklari}}
+    <div class="bento" style="grid-template-columns:1.5fr .5fr">
+      <div class="kart basamak-kart">
+        <span class="et">{{ikon|harita}}Çözünmenin üç basamağı · tanecik gözüyle</span>
+        {{info|cozunme_basamaklari}}
+      </div>
+      <div class="bento dikey">
+        {{hazine|H2}}
+        <div class="kart kiyidan" style="flex:1;padding:1.6mm 2.4mm"><p class="kucuk-not">Çıkan &gt; harcanan: <b>ısı veren</b> · çıkan &lt; harcanan: <b>ısı alan</b>.</p></div>
+      </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.2fr .8fr">
+    <div class="bento" style="grid-template-columns:1.25fr .75fr">
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · çözümlü · A ve B</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+15 +15</span></span></div>
         <div class="iki-sutun">
@@ -124,30 +137,28 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
             <ol class="akis"><li><i>1</i><span>Açığa çıkan &gt; harcanan: 50 kJ ısı verir</span></li></ol>
             <div class="sonuc"><span>SONUÇ</span>Ekzotermik · su ısınır</div></div>
         </div>
-        <p class="kucuk-not" style="margin-top:1mm"><b>Yoldan:</b> anlık soğuk paketteki amonyum nitrat suda ısı alarak çözünür; paket dakikalar içinde soğur.</p>
       </div>
-      <div class="bento dikey">
-        {{hazine|H1}}
-        {{hazine|H2}}
-        <div class="kes-not">{{ikon|makas}}Kes · yapıştır · kart başı +10</div>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr 1fr 1.08fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
         <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Şeker çayın içinde eridi.”</p>{{muhur|yanlis}}</div>
         <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p><b>Erime</b>, tek bir maddenin ısıyla katıdan sıvıya geçmesidir. Şeker su molekülleri arasına dağılır: <b>çözünür</b>.</p></div>
       </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:.78fr .92fr 1.3fr">
+      <div class="bento dikey">
+        {{hazine|H1}}
+        <div class="kes-not">{{ikon|makas}}Kes · yapıştır</div>
+      </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+20 akçe</span></div>
-        <p class="soru">Tunç katı bir çözeltidir. 88 g bakır ile 12 g kalaydan yapılan tunçta çözücü hangisidir? Tunç kaç gramdır?</p>
+        <p class="soru">Tunç katı çözeltidir: 88 g bakır + 12 g kalay. Çözücü hangisi? Tunç kaç gram?</p>
         <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Çok olan çözücü; kütleler toplanır.</span></span></div>
         <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Bakır · 100 g</span></div><span class="ters-cevap"><span class="ters">Bakır · 100 g</span></span></div>
       </div>
       <div class="medeniyet">{{kose}}
         <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
-        <div class="haz-ic sag"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><p class="metin"><b>İbn Sînâ</b> (980–1037) <i>Kitâbü’ş-Şifâ</i>’da taşların oluşumunu inceledi: bazıları çamurun sertleşmesiyle, bazıları <b>suyun taşa dönüşmesiyle</b> oluşur.</p></div>{{info|ibni_sina}}</div>
-        <p class="not">Travertenler de böyle: suda çözünmüş kireç yeniden <b>taş</b> olur (s.{{sayfa|5}}).</p>
+        <div class="haz-ic sag"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><p class="metin"><b>İbn Sînâ</b> (980–1037) <i>Kitâbü’ş-Şifâ</i>’da taşların bir kısmının çamurdan, bir kısmının <b>sudan</b> oluştuğunu yazdı.</p></div>{{info|ibni_sina}}</div>
+        <p class="not">Traverten de sudaki kireçten doğan taştır (s.{{sayfa|5}}).</p>
       </div>
     </div>
   </main>
@@ -155,7 +166,7 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
 </section>
 
 <!-- ================================================================ SAYFA 3 · 2. DURAK · KARAHAYIT · BENZER BENZERİ ÇÖZER -->
-<section class="sayfa s3">
+<section class="sayfa s3 dar">
   {{zemin}}
   {{hud|3}}
   {{cini}}
@@ -168,7 +179,7 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
         <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kaplıcada elimdeki yağı su çıkarmadı, sabun hemen çıkardı. Neden?</div></div>
         <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Su <b>polar</b>, yağ <b>apolar</b>. Tanecikler arası çekim benzer değilse karışmazlar: <span class="vurgu">benzer benzeri çözer</span>.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Sabunun bir ucu suyu, öbür ucu yağı sever: iki dilli tercüman! Miyav.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Bu su yaklaşık 58 °C ve demirli; demir havada kızıl pasa döner. Sabun ise iki dilli tercüman! Miyav.</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · polar mı, apolar mı?</span></div>
@@ -180,6 +191,7 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
           <li>Yalnız C ve H içerenler <b>apolar</b>: hekzan (C<sub>6</sub>H<sub>14</sub>)</li>
           <li>Tuzlar (iyonik) polar olan suda genellikle iyi çözünür.</li>
         </ul>
+        {{hazine|H3}}
       </div>
     </div>
     <div class="bento" style="grid-template-columns:1.25fr .75fr">
@@ -213,25 +225,22 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
         <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Hidrojen bağı için H’nin <b>F, O ya da N</b>’ye bağlı olması gerekir. CH<sub>4</sub> apolardır, suda çok az çözünür.</p></div>
       </div>
       <div class="bento dikey">
-        {{hazine|H3}}
         {{hazine|H4}}
         <div class="kes-not">{{ikon|makas}}Kes · yapıştır · kart başı +10</div>
       </div>
       <div class="kart hizli">
-        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+40 akçe</span></div>
         <p class="soru">NH<sub>3</sub>, CCl<sub>4</sub> ve I<sub>2</sub>’den hangisi suda en iyi çözünür? Suyla etkin etkileşimi nedir?</p>
         <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Hangisinde H, N’ye bağlı?</span></span></div>
         <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">NH<sub>3</sub> · hidrojen bağı</span></div><span class="ters-cevap"><span class="ters">NH<sub>3</sub> · hidrojen bağı</span></span></div>
-        <div class="hizli-kontrol"><span class="cip akce">+10 akçe</span><span><b>Hızlı kontrol:</b> HCl – H<sub>2</sub>S etkileşimi ……</span><span class="ogr">dipol–dipol</span><span class="ters-cevap"><span class="ters">dipol–dipol</span></span></div>
       </div>
     </div>
-    <div class="kart kiyidan"><span class="et">{{ikon|dalga}}Yoldan · Kırmızı Su</span> <span class="kucuk-not">Karahayıt’ın suyu yaklaşık 58 °C’ta çıkar; içinde çözünmüş demir, havayla karşılaşınca kırmızı demir oksitler hâlinde çöker ve taşları boyar.</span></div>
   </main>
   {{alt|3}}
 </section>
 
 <!-- ================================================================ SAYFA 4 · 3. DURAK · ACIGÖL · İYONLAR VE İLETKENLİK -->
-<section class="sayfa s4">
+<section class="sayfa s4 dar">
   {{zemin}}
   {{hud|4}}
   {{cini}}
@@ -242,7 +251,7 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Göl kıyısı bembeyaz kabuk tutmuş. Su çok mu tuzlu?</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kıyı bembeyaz kabuk tutmuş! Acıgöl, Türkiye’nin başlıca doğal sodyum sülfat kaynağıymış.</div></div>
         <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Evet! Suda Na<sup>+</sup>, SO<sub>4</sub><sup>2−</sup> ve Cl<sup>−</sup> iyonları dolaşıyor. Tuz suda <span class="vurgu">iyonlarına ayrılarak</span> çözünür.</div></div>
         <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Serbest iyon varsa ampul yanar. Şekerli suda mı? Hiç yanmaz. Miyav!</div></div>
       </div>
@@ -262,7 +271,7 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart">
         <span class="et">{{ikon|kitap}}Fiziksel mi, kimyasal mı?</span>
-        <p class="kucuk-not" style="margin-top:.6mm"><b>Fiziksel:</b> çözünen kimliğini korur; su uzaklaşınca aynı madde geri gelir (NaCl, Na<sub>2</sub>SO<sub>4</sub>, şeker, etanol).</p>
+        <p class="kucuk-not" style="margin-top:.6mm"><b>Fiziksel:</b> çözünen kimliğini korur; su uzaklaşınca aynı madde geri gelir (NaCl, Na<sub>2</sub>SO<sub>4</sub>, şeker). Acıgöl tesisleri göl suyunu buharlaştırıp soğutarak tuzu böyle geri alır.</p>
         <p class="kucuk-not" style="margin-top:.6mm"><b>Kimyasal:</b> çözünen suyla etkileşip yeni tanecikler oluşturur (HCl, HNO<sub>3</sub>, CO<sub>2</sub>, SO<sub>3</sub>, CaO).</p>
         <div class="denklem"><div>HCl(g) + H<sub>2</sub>O(s) → H<sub>3</sub>O<sup>+</sup>(suda) + Cl<sup>−</sup>(suda)</div></div>
       </div>
@@ -285,20 +294,18 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
         <div class="kes-not">{{ikon|makas}}Kes · yapıştır · kart başı +10</div>
       </div>
       <div class="kart hizli">
-        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+40 akçe</span></div>
         <p class="soru">Aynı sıcaklık ve hacimde eşit mol NaCl, CaCl<sub>2</sub> ve glikoz çözülüyor. İletkenlik sırası?</p>
         <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Birimdeki iyonlar: 2, 3, 0.</span></span></div>
         <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">CaCl<sub>2</sub> &gt; NaCl &gt; glikoz</span></div><span class="ters-cevap"><span class="ters">CaCl<sub>2</sub> &gt; NaCl &gt; glikoz</span></span></div>
-        <div class="hizli-kontrol"><span class="cip akce">+10 akçe</span><span><b>Kendini yokla:</b> KOH, CH<sub>3</sub>OH, SO<sub>2</sub>: elektrolit olanlar ……</span><span class="ogr">KOH ve SO<sub>2</sub></span><span class="ters-cevap"><span class="ters">KOH ve SO<sub>2</sub></span></span></div>
       </div>
     </div>
-    <div class="kart kiyidan"><span class="et">{{ikon|dalga}}Yoldan · Acıgöl</span> <span class="kucuk-not">Türkiye’nin başlıca doğal sodyum sülfat kaynağıdır. Tesislerde göl suyu buharlaştırılır ve soğutulur; tuz yeniden kristal olur: fiziksel çözünme geri döner.</span></div>
   </main>
   {{alt|4}}
 </section>
 
 <!-- ================================================================ SAYFA 5 · 4. DURAK · ÖMER–GECEK · ÇÖZÜNÜRLÜK VE ETKENLERİ -->
-<section class="sayfa s5">
+<section class="sayfa s5 dar">
   {{zemin}}
   {{hud|5}}
   {{cini}}
@@ -309,34 +316,31 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kuyudan çıkan su kaynıyor gibi! Sıcak suda her şey daha çok mu çözünür?</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Su yer yer 90 °C’u aşıyor, şehri ısıtıyormuş! Sıcakta her şey çok mu çözünür?</div></div>
         <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Hepsi değil: KNO<sub>3</sub> çok daha fazla, NaCl neredeyse aynı. <span class="vurgu">Gazlar</span> ise sıcakta daha az çözünür.</div></div>
         <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Pamukkale’nin sırrı da gazda: basınç düşer, CO<sub>2</sub> kaçar, kireç çöker. Miyav!</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · çözünürlük</span></div>
-        <p>Belirli sıcaklık ve basınçta <b>100 g çözücüde</b> çözünebilen en fazla madde kütlesi (<b>g / 100 g su</b>). Aynı koşulda her saf madde için sabittir: ayırt edici özelliktir.</p>
+        <p>Belirli sıcaklık ve basınçta <b>100 g çözücüde</b> çözünebilen en fazla madde kütlesi (<b>g / 100 g su</b>); ayırt edici özelliktir.</p>
         <p style="margin-top:.8mm">20 °C’ta KNO<sub>3</sub> için 32: 100 g su en çok 32 g çözer, <b>132 g doymuş çözelti</b> oluşur.</p>
         {{hazine|H7}}
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.06fr .94fr">
-      <div class="kart grafik-kart">
+    <div class="bento" style="grid-template-columns:1.12fr .88fr">
+      <div class="kart grafik-kart g-alcak">
         <span class="et">{{ikon|harita}}Katıların çözünürlüğü · yaklaşık değerler</span>
         {{info|cozunurluk_egrileri}}
       </div>
-      <div class="bento dikey">
-        <div class="kart">
-          <span class="et mer">Sıcaklık · basınç · tür</span>
-          <p class="kucuk-not" style="margin-top:.4mm"><b>Endotermik</b> çözünmede T↑ çözünürlük↑ (KNO<sub>3</sub>); <b>ekzotermikte</b> azalır (Li<sub>2</sub>SO<sub>4</sub>). Gazların çözünmesi ekzotermiktir. <b>Basınç</b> yalnız gazı etkiler: çözünürlük, gazın kısmi basıncıyla doğru orantılıdır. <b>Tür:</b> benzer benzeri çözer.</p>
-        </div>
-        <div class="kart grafik-kart">{{info|gaz_egrisi}}</div>
+      <div class="kart grafik-kart g-alcak">
+        <span class="et">{{ikon|harita}}Bir gaz: CO<sub>2</sub> · 1 atm</span>
+        {{info|gaz_egrisi}}
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1fr 1fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr 1.05fr">
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 4 · doymuş çözelti</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+30</span></span></div>
-        <p class="soru">60 °C’ta KNO<sub>3</sub>’ün çözünürlüğü 110. 40 g su ile en çok kaç g doymuş çözelti hazırlanır?</p>
+        <p class="soru">60 °C’ta KNO<sub>3</sub> için S = 110. 40 g su ile en çok kaç g doymuş çözelti olur?</p>
         <ol class="akis"><li><i>1</i><span><b>H7:</b> 40 g su → 110·0,4 = 44 g KNO<sub>3</sub></span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>40 + 44 = 84 g çözelti</div>
       </div>
@@ -345,6 +349,11 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
         <p class="soru">20 °C’ta 1 atm CO<sub>2</sub> altında 1 L suda ≈ 1,7 g CO<sub>2</sub> çözünür. 3 atm’de kaç g? 1 atm’e inince kaç g ayrılır?</p>
         <ol class="akis"><li><i>1</i><span>Doğru orantı: 3·1,7 = 5,1 g → 5,1 − 1,7</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>5,1 g · 3,4 g kabarcık</div>
+      </div>
+      <div class="kart kiyidan">
+        <span class="et">{{ikon|dalga}}Pamukkale’nin sırrı</span>
+        <p class="kucuk-not">Basınçlı yer altı suyu bol CO<sub>2</sub> ve kireç çözer; yüzeyde CO<sub>2</sub> kaçar:</p>
+        <div class="denklem" style="font-size:9pt"><div>Ca<sup>2+</sup> + 2HCO<sub>3</sub><sup>−</sup> → CaCO<sub>3</sub>(k) + CO<sub>2</sub> + H<sub>2</sub>O</div></div>
       </div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1fr .92fr 1.08fr">
@@ -355,10 +364,7 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
       </div>
       <div class="bento dikey">
         {{hazine|H8}}
-        <div class="kart kiyidan" style="flex:1">
-          <span class="et">{{ikon|dalga}}Pamukkale’nin sırrı</span>
-          <p class="kucuk-not">Yer altında basınç altındaki su bol CO<sub>2</sub> çözer ve kireçtaşını çözer. Yüzeyde basınç düşer, CO<sub>2</sub> kaçar, CaCO<sub>3</sub> çöker.</p>
-        </div>
+        <div class="kart" style="flex:1;padding:1.6mm 2.4mm"><p class="kucuk-not"><b>Endotermik</b>: T↑ çözünürlük↑ (KNO<sub>3</sub>) · <b>ekzotermik</b> ve gazlar: T↑ çözünürlük↓ (Li<sub>2</sub>SO<sub>4</sub>, CO<sub>2</sub>).</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
@@ -367,13 +373,12 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
         <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">18 g</span></div><span class="ters-cevap"><span class="ters">Cevap: 18 g</span></span></div>
       </div>
     </div>
-    <div class="kart kiyidan"><span class="et">{{ikon|dalga}}Yoldan · Ömer–Gecek</span> <span class="kucuk-not">Afyon–Kütahya yolundaki bu kaynakların suyu yer yer 90 °C’u aşar; kaplıcalarda ve Afyon’un jeotermal ısıtmasında kullanılır.</span></div>
   </main>
   {{alt|5}}
 </section>
 
 <!-- ================================================================ SAYFA 6 · 5. DURAK · GAZLIGÖL · DOYGUNLUK VE HIZ -->
-<section class="sayfa s6">
+<section class="sayfa s6 dar">
   {{zemin}}
   {{hud|6}}
   {{cini}}
@@ -385,48 +390,43 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
         <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Şişeyi açtım, fışşş! Kapalıyken kabarcık yoktu.</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Kapalı şişede su CO<sub>2</sub> ile <b>doymuştu</b>. Açınca sınır düştü; su bir an <span class="vurgu">aşırı doymuş</span> oldu, fazlası kabarcıkla çıkıyor.</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Kapalı şişede su CO<sub>2</sub> ile <b>doymuştu</b>. Açınca sınır düştü; su <span class="vurgu">aşırı doymuş</span> oldu, fazlası kabarcık oluyor.</div></div>
         <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Toz şeker çayda çabuk biter. Daha çok mu çözünür? Hayır! Miyav.</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · doygunluk</span></div>
         <p><b>Doymamış:</b> çözebileceğinden azını içerir (A).</p>
-        <p><b>Doymuş:</b> en fazlasını içerir (B, eğrinin üstü). Dipte katı varsa çözünme ve çökme aynı hızla sürer: <b>katısıyla dengede doymuş</b>.</p>
-        <p><b>Aşırı doymuş:</b> fazlasını içerir (C); kararsızdır, sarsılınca ya da kristal atılınca fazlası çöker.</p>
+        <p><b>Doymuş:</b> en fazlasını içerir (B). Dipte katı varsa çözünme ve çökme aynı hızla sürer.</p>
+        <p><b>Aşırı doymuş:</b> fazlasını içerir (C); kararsızdır, sarsılınca ya da kristal atılınca fazlası çöker. Bal böyledir: zamanla “şekerlenir”.</p>
+        <p class="kucuk-not"><b>Doyurmak:</b> çözünen ekle · su buharlaştır · endoyu soğut, ekzoyu ısıt.</p>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="kart grafik-kart">
+    <div class="bento" style="grid-template-columns:.95fr 1.05fr">
+      <div class="kart grafik-kart g-alcak">
         <span class="et">{{ikon|harita}}A, B, C · aynı sıcaklıkta</span>
         {{info|doygunluk_grafigi}}
-      </div>
-      <div class="bento dikey">
-        <div class="kart">
-          <span class="et keh">{{ikon|hedef}}Doymamışı doymuş yapmak</span>
-          <p class="kucuk-not" style="margin-top:.4mm">Aynı sıcaklıkta çözünen ekle · çözücü buharlaştır · sıcaklığı değiştir (endotermikse soğut, ekzotermikse ısıt).</p>
-        </div>
-        <div class="kart">
-          <span class="et mer">Çözünme hızı ≠ çözünürlük</span>
-          <table class="gorev-tablo dar"><tr><th>İşlem (katı – sıvı)</th><th>Hız</th><th>Çözünürlük</th></tr>
-            <tr><td>karıştırmak</td><td>artar</td><td>değişmez</td></tr>
-            <tr><td>toz hâline getirmek</td><td>artar</td><td>değişmez</td></tr>
-            <tr><td>ısıtmak</td><td>artar</td><td>endo ↑ · ekzo ↓</td></tr></table>
-        </div>
-      </div>
-    </div>
-    <div class="bento" style="grid-template-columns:1.2fr .8fr">
-      <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 6 · sınıflandır</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <p class="soru">20 °C’ta 50’şer g suda I. 80 g · II. 100 g · III. 130 g şeker çözülmüş; dipte katı yok. (20 °C’ta şekerin çözünürlüğü yaklaşık 200)</p>
-        <ol class="akis"><li><i>1</i><span><b>H9:</b> 100 g suya düşen: I 160 · II 200 · III 260</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>I doymamış · II doymuş · III aşırı doymuş</div>
       </div>
       <div class="bento dikey">
         {{hazine|H9}}
         {{hazine|H10}}
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:1fr 1fr 1.1fr">
+    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 6 · sınıflandır</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
+        <p class="soru">20 °C’ta 50’şer g suda I. 80 g · II. 100 g · III. 130 g şeker çözülmüş; dipte katı yok. (20 °C’ta şekerin çözünürlüğü yaklaşık 200)</p>
+        <ol class="akis"><li><i>1</i><span><b>H9:</b> 100 g suya düşen: I 160 · II 200 · III 260</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>I doymamış · II doymuş · III aşırı doymuş</div>
+      </div>
+      <div class="kart">
+        <span class="et mer">Çözünme hızı ≠ çözünürlük</span>
+        <table class="gorev-tablo dar"><tr><th>İşlem (katı – sıvı)</th><th>Hız</th><th>Çözünürlük</th></tr>
+          <tr><td>karıştırmak</td><td>artar</td><td>değişmez</td></tr>
+          <tr><td>toz hâline getirmek</td><td>artar</td><td>değişmez</td></tr>
+          <tr><td>ısıtmak</td><td>artar</td><td>endo ↑ · ekzo ↓</td></tr></table>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:.92fr .92fr 1.36fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
         <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Dipte katı varsa çözelti aşırı doymuştur.”</p>{{muhur|yanlis}}</div>
@@ -434,23 +434,22 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+40 akçe</span></div>
-        <p class="soru">Küp, toz ve pudra şekeri aynı sıcaklıkta eşit suya atılıyor. Hangisi sınıra en çabuk varır? Çözünürlükleri?</p>
+        <p class="soru">Küp, toz, pudra şekeri eşit suya atılıyor. Hangisi sınıra en çabuk varır? Çözünürlükleri?</p>
         <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Yüzey büyürse hız artar; madde aynı.</span></span></div>
         <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Pudra şekeri · eşit</span></div><span class="ters-cevap"><span class="ters">Pudra şekeri · eşit</span></span></div>
       </div>
       <div class="medeniyet">{{kose}}
         <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
-        <div class="haz-ic sag"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><p class="metin"><b>Câbir bin Hayyân</b> (8. yy) adıyla anılan eserler <b>damıtma, kristallendirme ve süzme</b> işlemlerini sistemli biçimde anlatır.</p></div>{{info|imbik}}</div>
-        <p class="not"><b>Kristallendirme:</b> çözücüyü buharlaştırıp ya da sıcaklığı değiştirip çözüneni kristal olarak ayırmak.</p>
+        <div class="haz-ic sag"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><p class="metin"><b>Câbir bin Hayyân</b> (8. yy) adıyla anılan eserler <b>damıtma, kristallendirme ve süzme</b> işlemlerini sistemli anlatır.</p></div>{{info|imbik}}</div>
+        <p class="not"><b>Kristallendirme:</b> buharlaştırarak ya da soğutarak çözüneni kristal olarak ayırmak.</p>
       </div>
     </div>
-    <div class="kart kiyidan"><span class="et">{{ikon|dalga}}Hayatın içinden · bal</span> <span class="kucuk-not">Bal, şeker oranı çok yüksek, aşırı doymuş bir çözeltidir; zamanla kristallenir (“şekerlenir”). Hafifçe ısıtınca kristaller yeniden çözünür.</span></div>
   </main>
   {{alt|6}}
 </section>
 
 <!-- ================================================================ SAYFA 7 · 6. DURAK · AFYON ÇARŞISI · ÇÖZÜNÜRLÜK HESAPLARI -->
-<section class="sayfa s7">
+<section class="sayfa s7 dar">
   {{zemin}}
   {{hud|7}}
   {{cini}}
@@ -485,7 +484,7 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
         <div class="kart gorev">
           <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 8 · soğutunca çöken</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+25</span></span></div>
           <p class="soru">80 °C’taki 400 g doymuş X çözeltisi 20 °C’a soğutulursa kaç g X çöker?</p>
-          <ol class="akis"><li><i>1</i><span>200 g çözeltide 100 g su + 100 g X → 400 g: 200 + 200</span></li><li><i>2</i><span>20 °C’ta 200 g su 60 g çözer · <b>H12:</b> 200 − 60</span></li></ol>
+          <ol class="akis"><li><i>1</i><span>400 g = 200 g su + 200 g X; 20 °C’ta 200 g su 60 g tutar · <b>H12</b></span></li></ol>
           <div class="sonuc"><span>SONUÇ</span>140 g X çöker</div>
         </div>
       </div>
@@ -754,12 +753,12 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
   {{zemin}}
   {{hud|12}}
   {{cini}}
-  <div class="bant b62" data-serbest>{{sahne|afyon_kalesi}}
+  <div class="bant" style="height:55mm" data-serbest>{{sahne|afyon_kalesi}}
     <div class="levha mer">{{rozet|K|-|mer}}<div><div class="ust">Afyonkarahisar Kalesi · Büyük İmtihan · 1. bölüm</div><h1>Kale <em>kapısı</em></h1><p class="alt-bas">12 soru · 25 dakika. Her doğru <b>+25 akçe</b>; 10+ doğru: <b>Kale Kapısı</b> nişanı.</p>
       <div class="hedef"><b>Azık</b>Çözünürlükler g / 100 g su · buharlaşma yazmıyorsa su kütlesi değişmez</div>
       <div class="hedef"><b>Meşveret</b>Sınıfça oylayın, şıklara tahmin yüzdesi (%__) yazın, sonra çözün.</div></div></div>
   </div>
-  <main class="ic" style="top:76.5mm">
+  <main class="ic" style="top:69.5mm">
     <div class="mesveret-izgara esnek">
       <div class="kart mesveret" data-soru="I1">
         <div class="mesveret-bas">{{sno|1}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
@@ -769,20 +768,19 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
       </div>
       <div class="kart mesveret" data-soru="I2">
         <div class="mesveret-bas">{{sno|2}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Hangisinde iki madde arasındaki etkin etkileşim <u>yanlış</u> verilmiştir?</p>
+        <p class="soru">Hangisinde etkin etkileşim <u>yanlış</u> verilmiştir?</p>
         <div class="karalama"><span class="ogr">HCl, H₂S: H, F/O/N’ye bağlı değil → dipol–dipol</span></div>
         <div class="oy"><div><b>A</b><span>KBr – H<sub>2</sub>O: iyon–dipol</span><em>%__</em></div><div><b>B</b><span>I<sub>2</sub> – C<sub>6</sub>H<sub>6</sub>: London</span><em>%__</em></div><div><b>C</b><span>NH<sub>3</sub> – H<sub>2</sub>O: hidrojen bağı</span><em>%__</em></div><div data-dogru><b>D</b><span>HCl – H<sub>2</sub>S: hidrojen bağı</span><em>%__</em></div><div><b>E</b><span>O<sub>2</sub> – H<sub>2</sub>O: dipol–indüklenmiş dipol</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I3">
         <div class="mesveret-bas">{{sno|3}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru"><span class="resim-sag">{{mol|CH4|10,20,5|14mm}}</span>Aşağıdakilerden hangisinin hekzanda (C<sub>6</sub>H<sub>14</sub>) iyi çözünmesi beklenir?</p>
+        <p class="soru">Hangisinin hekzanda (C<sub>6</sub>H<sub>14</sub>) iyi çözünmesi beklenir?</p>
         <div class="karalama"><span class="ogr">Hekzan apolar → apolar madde: simetrik CCl₄ (London)</span></div>
-        <div class="oy uc"><div><b>A</b><span>NaCl</span><em>%__</em></div><div><b>B</b><span>H<sub>2</sub>O</span><em>%__</em></div><div data-dogru><b>C</b><span>CCl<sub>4</sub></span><em>%__</em></div><div><b>D</b><span>KNO<sub>3</sub></span><em>%__</em></div><div><b>E</b><span>NH<sub>3</sub></span><em>%__</em></div></div>
+        <div class="oy yatay"><div><b>A</b><span>NaCl</span><em>%__</em></div><div><b>B</b><span>H<sub>2</sub>O</span><em>%__</em></div><div data-dogru><b>C</b><span>CCl<sub>4</sub></span><em>%__</em></div><div><b>D</b><span>KNO<sub>3</sub></span><em>%__</em></div><div><b>E</b><span>NH<sub>3</sub></span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I4">
         <div class="mesveret-bas">{{sno|4}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Aşağıdaki maddelerin sulu çözeltilerinden hangileri elektrik akımını iletir?</p>
-        <ul class="yargi"><li><b>I.</b>Glikoz (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>)</li><li><b>II.</b>Potasyum klorür (KCl)</li><li><b>III.</b>Hidrojen klorür (HCl)</li><li><b>IV.</b>Etil alkol (C<sub>2</sub>H<sub>5</sub>OH)</li></ul>
+        <p class="soru">I. glikoz · II. KCl · III. HCl · IV. etil alkol: sulu çözeltilerinden hangileri akımı iletir?</p>
         <div class="karalama"><span class="ogr">KCl ve HCl suda iyon verir; glikoz, alkol moleküler</span></div>
         <div class="oy yatay"><div data-dogru><b>A</b><span>II ve III</span><em>%__</em></div><div><b>B</b><span>I ve II</span><em>%__</em></div><div><b>C</b><span>III ve IV</span><em>%__</em></div><div><b>D</b><span>I, II ve III</span><em>%__</em></div><div><b>E</b><span>II, III ve IV</span><em>%__</em></div></div>
       </div>
@@ -790,11 +788,11 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
         <div class="mesveret-bas">{{sno|5}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
         <p class="soru">Aşağıdaki maddelerden hangisinin suda çözünmesi <b>kimyasal</b> çözünmedir?</p>
         <div class="karalama"><span class="ogr">HCl suyla H<sub>3</sub>O<sup>+</sup> ve Cl<sup>−</sup> oluşturur; diğerleri fiziksel</span></div>
-        <div class="oy uc"><div><b>A</b><span>Sakkaroz</span><em>%__</em></div><div><b>B</b><span>NaNO<sub>3</sub></span><em>%__</em></div><div><b>C</b><span>Etil alkol</span><em>%__</em></div><div><b>D</b><span>KBr</span><em>%__</em></div><div data-dogru><b>E</b><span>HCl</span><em>%__</em></div></div>
+        <div class="oy yatay"><div><b>A</b><span>şeker</span><em>%__</em></div><div><b>B</b><span>NaNO<sub>3</sub></span><em>%__</em></div><div><b>C</b><span>etanol</span><em>%__</em></div><div><b>D</b><span>KBr</span><em>%__</em></div><div data-dogru><b>E</b><span>HCl</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I6">
         <div class="mesveret-bas">{{sno|6}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru"><span class="resim-sag" style="width:27mm">{{info|ab_grafik}}</span>A ve B katılarının çözünürlük grafiğine göre: I. A endotermik çözünür. II. B’nin katısız doymuş çözeltisi ısıtılırsa katı çöker. III. Isıtınca B’nin çözünme hızı azalır.</p>
+        <p class="soru"><span class="resim-sag" style="width:22mm">{{info|ab_grafik}}</span>I. A endotermik çözünür. II. B’nin katısız doymuş çözeltisi ısıtılırsa katı çöker. III. Isıtınca B’nin çözünme hızı azalır.</p>
         <div class="karalama"><span class="ogr">I ✓ · II ✓ (B: T↑ S↓) · ısıtma hızı artırır (III ✗)</span></div>
         <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div data-dogru><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
@@ -815,8 +813,7 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
     <div class="mesveret-izgara esnek">
       <div class="kart mesveret" data-soru="I7">
         <div class="mesveret-bas">{{sno|7}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru"><span class="resim-sag">{{mol|CO2|15,30,0|15mm}}</span>Bir kapta su ile CO<sub>2</sub> gazı dengededir. Hangi işlemler sudaki çözünmüş CO<sub>2</sub> miktarını artırır?</p>
-        <ul class="yargi"><li><b>I.</b>Sıcaklığı düşürmek</li><li><b>II.</b>Sabit sıcaklıkta CO<sub>2</sub> basıncını artırmak</li><li><b>III.</b>Kabı çalkalamak</li></ul>
+        <p class="soru">Su ile CO<sub>2</sub> dengede. I. Sıcaklığı düşürmek · II. Sabit sıcaklıkta CO<sub>2</sub> basıncını artırmak · III. Kabı çalkalamak. Hangileri çözünmüş CO<sub>2</sub>’yi artırır?</p>
         <div class="karalama"><span class="ogr">Gaz: soğukta ve yüksek basınçta çok çözünür; çalkalama yalnız hız</span></div>
         <div class="oy yatay"><div data-dogru><b>A</b><span>I ve II</span><em>%__</em></div><div><b>B</b><span>Yalnız I</span><em>%__</em></div><div><b>C</b><span>Yalnız II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
@@ -824,11 +821,11 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
         <div class="mesveret-bas">{{sno|8}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
         <p class="soru">Suda <b>endotermik</b> çözünen bir katı için hangisi hem çözünme hızını hem de çözünürlüğü artırır?</p>
         <div class="karalama"><span class="ogr">Karıştırma, toz etme yalnız hız; su, katı ekleme sınırı değiştirmez</span></div>
-        <div class="oy"><div><b>A</b><span>Çözeltiyi karıştırmak</span><em>%__</em></div><div><b>B</b><span>Katıyı toz hâline getirmek</span><em>%__</em></div><div><b>C</b><span>Kaba su eklemek</span><em>%__</em></div><div><b>D</b><span>Kaba daha fazla katı eklemek</span><em>%__</em></div><div data-dogru><b>E</b><span>Sıcaklığı artırmak</span><em>%__</em></div></div>
+        <div class="oy yatay"><div><b>A</b><span>karıştırmak</span><em>%__</em></div><div><b>B</b><span>toz etmek</span><em>%__</em></div><div><b>C</b><span>su eklemek</span><em>%__</em></div><div><b>D</b><span>katı eklemek</span><em>%__</em></div><div data-dogru><b>E</b><span>ısıtmak</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I9">
         <div class="mesveret-bas">{{sno|9}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">25 °C’ta çözünürlüğü 40 olan bir tuzdan 45 g, 25 °C’taki 80 g suya ekleniyor ve iyice karıştırılıyor. Kabın dibinde çözünmeden kaç gram tuz kalır?</p>
+        <p class="soru">25 °C’ta çözünürlüğü 40 olan tuzdan 45 g, 25 °C’taki 80 g suya atılıp karıştırılıyor. Dipte kaç gram tuz kalır?</p>
         <div class="karalama"><span class="ogr">80 g su en çok 80·40/100 = 32 g çözer → 45 − 32 = 13 g</span></div>
         <div class="oy uc"><div><b>A</b><span>0</span><em>%__</em></div><div><b>B</b><span>5</span><em>%__</em></div><div><b>C</b><span>8</span><em>%__</em></div><div data-dogru><b>D</b><span>13</span><em>%__</em></div><div><b>E</b><span>32</span><em>%__</em></div></div>
       </div>
@@ -970,11 +967,6 @@ table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .45mm 1.2mm; font-
           <p class="c"><b>1 · 100 g</b> 400/160 = 2,5 → 250 g su + 150 g Q; 10 °C’ta 50 g kalır.</p>
           <p class="c"><b>2 · 140 g, 10 g</b> 40 g tuza 80 g su yeter: 120 + 20 = 140 g; 60 g su 30 g tutar.</p>
           <p class="c"><b>3 · 40 °C, 84 g</b> 120/300 = 40/100 → 40 °C. 0 °C’ta 300 g su 36 g çözer: 120 − 36 = 84 g.</p>
-        </div>
-        <div class="grup"><h4>Hızlı görevler</h4>
-          <p class="c"><b>1–2. durak</b> Bakır, 100 g · NH<sub>3</sub>: hidrojen bağı · HCl–H<sub>2</sub>S: dipol–dipol.</p>
-          <p class="c"><b>3–4. durak</b> CaCl<sub>2</sub> &gt; NaCl &gt; glikoz · KOH, SO<sub>2</sub> · 36·0,5 = 18 g.</p>
-          <p class="c"><b>5–6. durak</b> Pudra şekeri, çözünürlük eşit · 40 g/100 g su → 30 °C.</p>
         </div>
         <div class="grup"><h4>Üstad soruları · bonus</h4>
           <p class="c"><b>Ü1 · E</b> 32 °C’a kadar artar (I ✓), sonra azalır (II ✓); tepede her değişim çöktürür (III ✓).</p>
