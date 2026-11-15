@@ -424,8 +424,8 @@ def mini_sayfa(onek, tur):
     # altbilgi
     o.append(f'<path d="M12 286 h40 M86 286 h40" stroke="{GOL_K}" stroke-width="2.4" stroke-linecap="round"/>' + _m_yildiz(196, 286, 5, GOL))
     o.append(f'<rect x="0" y="292" width="210" height="5" fill="#BFE7E3"/><path d="M0 292 H210" stroke="{OBS}" stroke-width=".8"/>')
-    o.append(f'<rect x=".5" y=".5" width="209" height="296" fill="none" stroke="{OBS}" stroke-width="1.2"/>')
-    s += "".join(o)
+    kl = s.klip('<rect x="0" y="0" width="210" height="297"/>', ad="mk")
+    s += f'<g clip-path="{kl}">{"".join(o)}</g><rect x=".5" y=".5" width="209" height="296" fill="none" stroke="{OBS}" stroke-width="1.2"/>'
     return s.cikti("0 0 210 297", cls="mini-sayfa")
 
 
@@ -460,4 +460,111 @@ def cini_pano_bandi(onek="cp-bant", h=360):
     g = s.lin([(0, "#0E2A3A", 0), (1, "#0E2A3A", .25)], 0, h - 70, 0, h, kull="userSpaceOnUse", ad="cg")
     o.append(f'<rect x="0" y="{h - 70}" width="{W}" height="70" fill="{g}"/>')
     s += "".join(o)
+    return s.cikti(f"0 0 {W} {h}", cls="sahne", par="xMidYMid slice")
+
+
+# ------------------------------------------------------------------ ZAMAN ŞERİDİ MADALYONLARI (100×100; lacivert zemin, altın çizgi)
+
+_ZI = {
+    "imbik": ('<path d="M30 70 C22 70 18 60 22 52 C26 44 36 42 40 46 L42 34 H52 L52 46 C58 46 62 54 60 62 C58 70 48 72 40 70 Z"/>'
+              '<path d="M50 38 C60 30 70 32 78 40 L80 44"/><path d="M80 46 v8"/><circle cx="80" cy="60" r="2.6" fill="{a}"/>'
+              '<path d="M26 60 h30"/>'),
+    "cebir": ('<path d="M50 24 V70 M34 76 H66 M22 34 H78"/><path d="M22 34 L14 52 H30 Z M78 34 L70 52 H86 Z"/>'
+              '<rect x="16" y="54" width="12" height="9" rx="1.5"/><text x="22" y="61.5" text-anchor="middle" font-family="Baloo Bhaijaan 2" '
+              'font-weight="800" font-size="9" fill="{a}" stroke="none">x</text><circle cx="74" cy="58" r="3"/><circle cx="82" cy="58" r="3"/>'),
+    "gul": ('<circle cx="40" cy="44" r="15"/><path d="M40 32 C48 38 46 50 38 52 C30 50 30 40 40 36 C44 40 42 46 38 46"/>'
+            '<path d="M40 59 C40 66 42 74 44 80 M41 66 C34 62 28 64 26 68 M42 72 C48 68 54 70 56 74"/>'
+            '<path d="M68 30 C68 30 60 42 60 48 C60 53 64 56 68 56 C72 56 76 53 76 48 C76 42 68 30 68 30 Z"/>'),
+    "razi": ('<path d="M14 58 H46 L42 74 H18 Z"/><path d="M30 58 L40 36" stroke-width="4"/>'
+             '<path d="M62 30 h12 M66 30 V44 C58 48 56 58 58 66 C60 74 68 78 74 76 C82 74 86 66 84 58 C82 50 78 46 72 44 V30"/><path d="M59 62 H83"/>'),
+    "goz": ('<path d="M22 54 C34 38 66 38 78 54 C66 70 34 70 22 54 Z"/><circle cx="50" cy="54" r="9"/><circle cx="50" cy="54" r="3.4" fill="{a}"/>'
+            '<path d="M80 22 L60 42 M88 34 L66 46 M68 16 L56 36"/>'),
+    "ozgul": ('<path d="M18 42 L30 30 H50 L62 42 L40 70 Z"/><path d="M18 42 H62 M30 30 L36 42 L40 70 L44 42 L50 30 M36 42 H44"/>'
+              '<path d="M68 34 V70 C68 76 86 76 86 70 V34"/><path d="M68 52 H86"/><path d="M64 34 H90"/>'),
+    "sina": ('<path d="M18 66 C28 62 40 62 50 68 C60 62 72 62 82 66 V34 C72 30 60 30 50 36 C40 30 28 30 18 34 Z"/><path d="M50 36 V68"/>'
+             '<path d="M30 26 L36 14 L42 26 Z M60 24 L66 10 L72 24 Z M42 24 L48 18 L52 24"/>'),
+    "terazi": ('<path d="M50 18 V76 M36 80 H64 M16 30 H84"/><circle cx="50" cy="18" r="3"/><path d="M16 30 L10 50 H22 Z M84 30 L78 50 H90 Z"/>'
+               '<path d="M50 30 L50 30"/><path d="M38 30 L34 46 H42 Z"/><path d="M62 30 L58 46 H66 Z"/>'),
+    "cark": ('<circle cx="42" cy="54" r="16"/><circle cx="42" cy="54" r="5"/>'
+             + "".join(f'<path d="M{f(42 + 16 * math.cos(a))} {f(54 + 16 * math.sin(a))} L{f(42 + 23 * math.cos(a))} {f(54 + 23 * math.sin(a))}" stroke-width="5"/>' for a in [i * math.pi / 4 for i in range(8)])
+             + '<path d="M72 22 C72 22 64 34 64 40 C64 45 68 48 72 48 C76 48 80 45 80 40 C80 34 72 22 72 22 Z"/><path d="M72 52 V64"/>'),
+    "rasat": ('<circle cx="50" cy="46" r="24"/><ellipse cx="50" cy="46" rx="24" ry="9"/><ellipse cx="50" cy="46" rx="9" ry="24"/>'
+              '<path d="M30 30 L70 62"/><circle cx="50" cy="46" r="3.4" fill="{a}"/><path d="M50 70 V80 M38 82 H62"/>'),
+    "yildiz": ('<path d="M18 76 A58 58 0 0 1 76 18"/><path d="M18 76 L76 18" stroke-dasharray="3 3"/>'
+               + "".join(f'<path d="M{f(18 + 58 * math.cos(-a))} {f(76 + 58 * math.sin(-a))} l{f(-6 * math.cos(-a))} {f(-6 * math.sin(-a))}"/>' for a in [i * math.pi / 16 for i in range(1, 8)])
+               + f'<path d="{cizgi_d(yildiz_noktalari(70, 64, 9, 3.6, 5, -math.pi / 2), True)}" fill="{{a}}"/>'
+               + f'<path d="{cizgi_d(yildiz_noktalari(56, 44, 5, 2, 5, -math.pi / 2), True)}" fill="{{a}}"/>'),
+    "saat": ('<circle cx="46" cy="50" r="24"/><circle cx="46" cy="50" r="2.6" fill="{a}"/><path d="M46 50 V34 M46 50 L58 56"/>'
+             + "".join(f'<path d="M{f(46 + 20 * math.cos(a))} {f(50 + 20 * math.sin(a))} L{f(46 + 23 * math.cos(a))} {f(50 + 23 * math.sin(a))}"/>' for a in [i * math.pi / 6 for i in range(12)])
+             + '<path d="M70 22 L80 14 M74 30 L86 26"/><path d="M38 76 L34 84 M54 76 L58 84"/>'),
+    "kure": ('<circle cx="46" cy="44" r="22"/><path d="M24 44 H68 M46 22 C36 32 36 56 46 66 M46 22 C56 32 56 56 46 66"/>'
+             '<path d="M28 32 C40 36 52 36 64 32 M28 56 C40 52 52 52 64 56"/><path d="M14 80 C30 74 46 74 52 80 C58 74 74 74 88 80"/>'),
+    "marifet": ('<path d="M16 72 C28 68 40 68 50 74 C60 68 72 68 84 72 V44 C72 40 60 40 50 46 C40 40 28 40 16 44 Z"/><path d="M50 46 V74"/>'
+                '<circle cx="50" cy="22" r="6"/><ellipse cx="50" cy="22" rx="18" ry="6"/><circle cx="68" cy="22" r="2.4" fill="{a}"/>'),
+    "dna": ("".join(f'<path d="M{f(30 + 22 * math.sin(t / 6))} {f(14 + t * 2.4)} L{f(30 - 22 * math.sin(t / 6) + 40)} {f(14 + t * 2.4)}" stroke-width="2.2"/>'
+                    for t in range(2, 30, 4))
+            + '<path d="M30 14 C52 28 52 42 30 50 C8 58 8 72 30 86" transform="translate(20 0)"/>'
+            + '<path d="M70 14 C48 28 48 42 70 50 C92 58 92 72 70 86" transform="translate(-20 0)"/>'),
+    "sifa": ('<path d="M22 80 V44 C22 26 78 26 78 44 V80"/><path d="M34 80 V50 C34 38 66 38 66 50 V80"/><path d="M16 80 H84"/>'
+             f'<path d="{cizgi_d(selcuklu_yildizi(50, 30, 7), True)}" fill="{{a}}"/><path d="M42 58 H58 M50 50 V66"/>'),
+}
+
+
+def zaman_ikonu(onek, ad, kucuk=False):
+    """Zaman şeridi madalyonu: lacivert daire, altın halka, altın-beyaz çizgi resim."""
+    s = Svg(onek)
+    g = s.rad([(0, "#2D4FA8"), (1, LAJVER)], .4, .35, .7, ad="zm")
+    ga = s.lin([(0, "#F6DE95"), (.5, ALTIN), (1, ALTIN_K)], 0, 0, 1, 1, ad="za")
+    s += f'<circle cx="50" cy="50" r="48" fill="{ga}" stroke="{OBS}" stroke-width="2.4"/>'
+    s += f'<circle cx="50" cy="50" r="41" fill="{g}" stroke="{OBS}" stroke-width="1.6"/>'
+    for k in range(16):
+        a = 2 * math.pi * k / 16
+        s += f'<circle cx="{f(50 + 44.6 * math.cos(a))}" cy="{f(50 + 44.6 * math.sin(a))}" r="1.3" fill="{ALTIN_A}"/>'
+    ic = _ZI.get(ad, _ZI["sifa"]).replace("{a}", ALTIN_A)
+    s += f'<g transform="translate(14 14) scale(.72)" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">{ic}</g>'
+    return s.cikti("0 0 100 100", cls="zaman-ikon")
+
+
+# ------------------------------------------------------------------ MEDENİYETİMİZDEN BANDI (2100×h): lacivert gece, altın aletler
+
+def medeniyet_bandi(onek="md-bant", h=420, sag_odak="rasat"):
+    s = Svg(onek)
+    W = 2100
+    g = s.lin([(0, "#0B1440"), (.6, "#1D3A8A"), (1, "#2D4FA8")], 0, 0, 0, h, kull="userSpaceOnUse", ad="mg")
+    s += f'<rect width="{W}" height="{h}" fill="{g}"/>'
+    # altın Selçuklu geçmesi (soluk)
+    yd = []
+    for j in range(-1, h // 90 + 2):
+        for i in range(-1, W // 90 + 2):
+            yd.append(cizgi_d(selcuklu_yildizi(i * 90 + (45 if j % 2 else 0), j * 90, 20), True, 1))
+    s += f'<path d="{" ".join(yd)}" fill="none" stroke="{ALTIN}" stroke-opacity=".22" stroke-width="2"/>'
+    s += S.yildizlar(s, 0, 0, W, h * .8, 60, 431, "#FFF4D6")
+    ga = s.lin([(0, "#FFF0B8"), (.5, ALTIN), (1, ALTIN_K)], 0, 0, 1, 1, ad="ma")
+    if sag_odak == "rasat":
+        # halkalı küre (armiller) + kitap yığını + imbik silueti
+        cx, cy, R = 1660, 205, 130
+        s += f'<circle cx="{cx}" cy="{cy}" r="{R + 40}" fill="#FFE7A8" opacity=".08"/>'
+        for rx, ry, don in ((R, R, 0), (R, R * .36, -20), (R * .36, R, 0), (R, R * .36, 40)):
+            s += f'<ellipse cx="{cx}" cy="{cy}" rx="{f(rx)}" ry="{f(ry)}" transform="rotate({don} {cx} {cy})" fill="none" stroke="{ga}" stroke-width="9"/>'
+        s += f'<circle cx="{cx}" cy="{cy}" r="16" fill="#13A3A6" stroke="{OBS}" stroke-width="3"/>'
+        s += f'<path d="M{cx} {cy + R} V{h - 36} M{cx - 70} {h - 30} H{cx + 70}" stroke="{ga}" stroke-width="14" stroke-linecap="round"/>'
+        for i, (w_, c) in enumerate(((240, "#E2533D"), (210, "#13A3A6"), (250, "#F0A21A"))):
+            y0 = h - 40 - (i + 1) * 30
+            s += f'<rect x="{1260 - w_ / 2}" y="{y0}" width="{w_}" height="28" rx="5" fill="{c}" stroke="{OBS}" stroke-width="3"/>'
+            s += f'<path d="M{1260 - w_ / 2 + 12} {y0 + 8} h{w_ - 24}" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="3"/>'
+        s += f'<rect x="1150" y="{h - 40}" width="220" height="12" rx="4" fill="{ALTIN_K}"/>'
+    else:
+        # mekanik saat + yıldız kadranı
+        cx, cy, R = 1660, 210, 120
+        s += f'<circle cx="{cx}" cy="{cy}" r="{R + 40}" fill="#FFE7A8" opacity=".08"/>'
+        s += f'<circle cx="{cx}" cy="{cy}" r="{R}" fill="{LAJVER}" stroke="{ga}" stroke-width="12"/>'
+        for k in range(12):
+            a = k * math.pi / 6
+            s += f'<path d="M{f(cx + (R - 30) * math.cos(a))} {f(cy + (R - 30) * math.sin(a))} L{f(cx + (R - 12) * math.cos(a))} {f(cy + (R - 12) * math.sin(a))}" stroke="{ALTIN_A}" stroke-width="7" stroke-linecap="round"/>'
+        s += f'<path d="M{cx} {cy} V{cy - 80} M{cx} {cy} L{cx + 56} {cy + 30}" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>'
+        s += f'<circle cx="{cx}" cy="{cy}" r="12" fill="{ALTIN}" stroke="{OBS}" stroke-width="3"/>'
+        s += f'<path d="M1180 {h - 40} A260 260 0 0 1 1440 {h - 300}" fill="none" stroke="{ga}" stroke-width="10"/>'
+        s += f'<path d="M1180 {h - 40} L1440 {h - 300}" stroke="{ALTIN_A}" stroke-width="4" stroke-dasharray="10 8"/>'
+    gk = s.lin([(0, "#000000", 0), (1, "#000000", .25)], 0, h - 70, 0, h, kull="userSpaceOnUse", ad="mk")
+    s += f'<rect x="0" y="{h - 70}" width="{W}" height="70" fill="{gk}"/>'
     return s.cikti(f"0 0 {W} {h}", cls="sahne", par="xMidYMid slice")

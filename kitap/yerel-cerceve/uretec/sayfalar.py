@@ -274,7 +274,10 @@ KUTULAR = [("kavram", "kitap", "Kavram", "Tanım kutusu. Önce bunu anla."),
            ("hizli", "anahtar", "Hızlı görev", "Kısa soru. Anahtar ipucu −10 akçe, cevap ters yazılı."),
            ("medeniyet", "medeniyet", "Medeniyetimizden", "Zeynep Hoca’dan bilim tarihimizden bir sayfa."),
            ("mesveret", "meclis", "Meşveret", "Sınıfça tahmin: şıklara %__ yaz, sonra çöz."),
-           ("muhasebe", "cay", "Muhasebe", "Kendini muhasebe et: çay bardağını doldur.")]
+           ("muhasebe", "cay", "Muhasebe", "Kendini muhasebe et: Tamam, Yarım ya da Tekrar."),
+           ("sohbet", "meclis", "#kıyı-sohbeti", "Elif sorar, Yusuf anlatır, Pamuk sayıyı söyler."),
+           ("hisse", "kissa", "Kıssadan hisse", "Bağlam sorusunun sonunda akılda kalacak ders."),
+           ("karalama", "hulasa", "Karalama", "Noktalı alan senin: işlem adımlarını göster.")]
 
 
 def _rehber2(k, p):
@@ -299,12 +302,110 @@ def bos(k, p):
     return _gecici(k, p, "notlar", "Notlar")
 
 
+def _yuzyil(sira):
+    y = int(sira)
+    n = (y - 1) // 100 + 1
+    rom = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI"][n]
+    return f"{rom}. yy"
+
+
+def _zs_yuksek(kayit, eser):
+    """Kartın tahmini yüksekliği (mm): katkı metninin satır sayısından."""
+    import math as _m
+    if eser:
+        return 19.0
+    satir = _m.ceil(len(kayit["katki"]) / 40)
+    return 17.2 + satir * 4.25
+
+
 def zaman(k, p):
-    return _gecici(k, p, f"zaman-{p['parca']}", "Medeniyetimizden")
+    import medeniyet as MD
+    no = p["no"]
+    parca = p["parca"]
+    sinif_yollari = {9: V.yollar(9), 10: V.yollar(10)} if k.sinif == 10 else {9: k.yollar, 10: V.yollar(10)}
+    sinif_yollari[k.sinif] = k.yollar
+    hepsi = sorted([dict(x, eser=False) for x in MD.KISILER] + [dict(x, eser=True) for x in MD.ESERLER], key=lambda x: x["sira"])
+    bol = 8
+    ogeler = hepsi[:bol] if parca == 1 else hepsi[bol:]
+    # dikey yerleşim: sol/sağ sırayla, eksen düğümleri kronolojik
+    UST, ALT_SINIR = 0.0, 212.0 if parca == 1 else 203.0
+    GAP, ADIM, DUGUM = 3.0, 12.0, 8.5
+    yer, son = [], {"sol": -99.0, "sag": -99.0}
+    y = 0.0
+    for i, o in enumerate(ogeler):
+        taraf = "sol" if i % 2 == 0 else "sag"
+        h = _zs_yuksek(o, o["eser"])
+        y = max(y + (ADIM if i else 0), son[taraf] + GAP)
+        yer.append((o, taraf, y, h))
+        son[taraf] = y + h
+    toplam = max(son.values())
+    fazla = max(0.0, ALT_SINIR - toplam)
+    kaydir = fazla / max(1, len(ogeler) - 1)
+    kartlar, dugumler, yuzyillar = [], [], []
+    onceki_yy = None
+    for i, (o, taraf, y0, h) in enumerate(yer):
+        y0 += kaydir * i
+        roz = MD.yol_rozetleri(o, sinif_yollari)
+        cip = []
+        for (sn, yl, renk, hazir) in sorted(roz, key=lambda r: (r[0] != k.sinif, r[0], r[1])):
+            if sn == k.sinif:
+                cip.append(f'<span class="ychip" style="--r:{renk}">Yol {yl}</span>')
+            else:
+                cip.append(f'<span class="ychip diger">{sn}. sınıf · Yol {yl}</span>')
+        if not cip:
+            cip.append('<span class="ychip yok">rotalarda yok · ek okuma</span>')
+        ikon = CZ.zaman_ikonu(yeni("zi"), "sifa" if o["eser"] else o["ikon"])
+        if o["eser"]:
+            govde = (f'<div class="zs-bas"><b>{e(o["ad"])}</b><span>{e(o["tarih"])} · {e(o["yer"])}</span></div>'
+                     f'<p>{e(o["katki"])}</p>')
+        else:
+            govde = f'<div class="zs-bas"><b>{e(o["ad"])}</b><span>{e(o["tarih"])}</span></div><p>{e(o["katki"])}</p>'
+        kartlar.append(f'<div class="zs-kart {taraf}{" eser" if o["eser"] else ""}" data-tasma-yatay style="top:{f(y0, 2)}mm">{ikon}<div>{govde}'
+                       f'<div class="zs-yol">{"".join(cip)}</div></div></div>')
+        dy = y0 + DUGUM
+        yy = _yuzyil(o["sira"])
+        if yy != onceki_yy:
+            yuzyillar.append(f'<div class="zs-yy" style="top:{f(dy - 2.6, 2)}mm">{yy}</div>')
+            onceki_yy = yy
+        else:
+            dugumler.append(dy)
+    eksen_h = ALT_SINIR + 4
+    eksen = ('<svg class="zs-eksen" viewBox="0 0 16 {h}" preserveAspectRatio="none" style="height:{h}mm">'
+             '<rect x="5.6" y="0" width="4.8" height="{h}" fill="#1D3A8A"/><rect x="5.6" y="0" width=".7" height="{h}" fill="#C9952B"/>'
+             '<rect x="9.7" y="0" width=".7" height="{h}" fill="#C9952B"/>').format(h=f(eksen_h, 1))
+    from cizim.temel import cizgi_d as _cd, selcuklu_yildizi as _sy
+    for dy in dugumler:
+        eksen += f'<path d="{_cd(_sy(8, dy, 3.2), True, 2)}" fill="#F0C14A" stroke="#1B1D26" stroke-width=".35"/>'
+    eksen += "</svg>"
+    if parca == 1:
+        levha = (f'<div class="levha ustad">{_rozet_ic(CZ.zaman_ikonu(yeni("zl"), "rasat").replace("<svg", "<svg x=\"22\" y=\"22\" width=\"56\" height=\"56\"", 1), "laj")}'
+                 f'<div><div class="ust">Medeniyetimizden · zaman şeridi 1/2</div><h1>Bilim <em>zinciri</em></h1>'
+                 f'<p class="alt-bas">Kitapta andığımız bilginler ve eserler, <b>zaman sırasıyla</b>.</p></div></div>')
+        bant = f'<div class="bant b40" data-serbest>{CZ.medeniyet_bandi(yeni("mb"), 400, "rasat")}{levha}</div>'
+        alt_not = ('<div class="zs-not">Rozetler, kişinin hangi yolda anlatıldığını gösterir. '
+                   '<span class="ychip" style="--r:#13A3A6">Yol</span> bu kitapta · <span class="ychip diger">sınıf · Yol</span> öbür kitapta.</div>')
+    else:
+        levha = (f'<div class="levha ustad">{_rozet_ic(CZ.zaman_ikonu(yeni("zl"), "saat").replace("<svg", "<svg x=\"22\" y=\"22\" width=\"56\" height=\"56\"", 1), "laj")}'
+                 f'<div><div class="ust">Medeniyetimizden · zaman şeridi 2/2</div><h1>…ve <em>bugüne</em></h1>'
+                 f'<p class="alt-bas">Rasathanelerden Nobel’e; zincirin yeni halkası <b>sen</b> olabilirsin.</p></div></div>')
+        bant = f'<div class="bant b40" data-serbest>{CZ.medeniyet_bandi(yeni("mb"), 400, "saat")}{levha}</div>'
+        alt_not = ('<div class="zs-not son"><svg viewBox="0 0 200 210"><use href="#av-zeynep"/></svg><span><b>Zeynep Hoca:</b> Bilim bir bayrak yarışı gibidir; '
+                   'her kuşak öncekinin ölçtüğünü, yazdığını devralır. Kitaptaki tarihler yaklaşıktır; “y.” yaklaşık demektir.</span></div>')
+    ic = (f'<main class="ic" style="top:56mm"><div class="zaman" style="height:{f(eksen_h, 1)}mm">{eksen}{"".join(yuzyillar)}{"".join(kartlar)}</div>'
+          f'{alt_not}</main>')
+    return k.sayfa("zaman-sayfa", f"zaman-{parca}", no, bant + ic, hud=("Medeniyetimizden", "Zaman şeridi"),
+                   konu=f"Medeniyetimizden · zaman şeridi {parca}/2")
 
 
 def periyodik(k, p):
-    return _gecici(k, p, "periyodik", "Periyodik tablo")
+    import periyodik as PT
+    yol_renk = {(sn, y["yol"]): y["renk"] for sn in (9, 10) for y in (k.yollar if sn == k.sinif else V.yollar(sn))}
+    svg = PT.tablo_svg(yeni("pt"), k.sinif, yol_renk)
+    ic = (f'<div class="pt-kutu">{svg}</div>'
+          f'<div class="pt-cevir"><svg viewBox="0 0 24 24"><path d="M5 12 A7 7 0 1 1 12 19" fill="none" stroke="currentColor" stroke-width="2.2" '
+          f'stroke-linecap="round"/><path d="M12 15 L12 19 L8 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" '
+          f'stroke-linejoin="round"/></svg>Kitabı çevir</div>')
+    return k.sayfa("periyodik-sayfa", "periyodik", p["no"], ic, hud=("Kaynak", "Periyodik tablo"), konu="Periyodik tablo")
 
 
 def sozluk(k, p):

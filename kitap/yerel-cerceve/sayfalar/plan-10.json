@@ -167,7 +167,11 @@
    "klasor": "02-mol-kavrami",
    "dizin": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/02-mol-kavrami",
    "sayfa_sayisi": 14,
-   "varyantlar": {}
+   "varyantlar": {
+    "fotokopi": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/02-mol-kavrami/02-mol-kavrami-fotokopi.pdf",
+    "ogretmen": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/02-mol-kavrami/02-mol-kavrami-ogretmen.pdf",
+    "hazine-kartlari": "/home/user/claude-projeleri-2/kitap/10-sinif-yerel/02-mol-kavrami/02-mol-kavrami-hazine-kartlari.pdf"
+   }
   }
  ]
 }

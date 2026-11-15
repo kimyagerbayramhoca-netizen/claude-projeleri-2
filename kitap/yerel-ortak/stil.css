@@ -779,3 +779,47 @@ html.fotokopi .panorama-bas h2, html.fotokopi .panorama-bas p { background: rgba
 html.fotokopi .durak-et { box-shadow: .5mm .6mm 0 #BDBDBD; }
 html.fotokopi .levha.ustad { box-shadow: inset 0 0 0 .9mm #fff, inset 0 0 0 1.25mm #6A6A6A, var(--golge-k); }
 html.fotokopi .iskelet-alan { background: #fff; }
+
+/* ------------------------------------------------------------------ 35. BASKI (matbaa) · render.js --baski
+   Kâğıt 9,21 × 12,64 inç (233,9 × 321,1 mm); kesim kutusu 210×297 mm, sol üstten 45 px (11,9 mm) içeride; taşma payı 12 px (3,2 mm);
+   kesim izleri taşmanın dışında (pdf_kutular.py TrimBox/BleedBox yazar). Ölçüler CSS px: sayfa tam piksele oturur, kesim içi
+   öğrenci baskısıyla aynı dizilir. Kenara değen her şey taşma payına gerçekten uzar: sayfa zemini, HUD, çini şeridi (bir karo
+   eklenir), sahne bantları ve panorama (viewBox kenarında ayna kopya), altbilgi ebru şeridi, Hülasa ebru zemini. */
+html.baski, html.baski body { background: #fff; }
+html.baski .baski-kagit { position: relative; width: 884.16px; height: 1213.44px; overflow: hidden; background: #fff; break-after: page; page-break-after: always; }
+html.baski .baski-kagit:last-child { break-after: auto; page-break-after: auto; }
+html.baski .baski-tasma { position: absolute; left: 33px; top: 33px; width: calc(210mm + 24px); height: calc(297mm + 24px); overflow: hidden; background: var(--kar); }
+html.baski .sayfa { position: absolute; left: 12px; top: 12px; margin: 0 !important; overflow: visible; break-after: auto; page-break-after: auto; }
+html.baski .hud { top: -12px; left: -12px; right: -12px; height: calc(9.6mm + 12px); padding: 12px calc(11mm + 12px) 0; }
+html.baski .ebru-alt { left: -12px; right: -12px; bottom: -12px; height: calc(4.4mm + 12px); background-size: 210mm auto; background-position: 12px -19.68mm; }  /* kesim içinde öğrenci baskısıyla aynı ölçek ve konum; taşma payına desen tekrarlanır */
+html.baski .bant, html.baski .panorama-kutu { overflow: visible; clip-path: inset(0 -13px); }
+html.baski .bant::after, html.baski .panorama-kutu::after { content: ""; position: absolute; left: -13px; right: -13px; bottom: -.45mm; height: .45mm; background: var(--obs); z-index: 5; }
+html.baski .panorama-kutu::before { content: ""; position: absolute; left: -13px; right: -13px; top: -.45mm; height: .45mm; background: var(--obs); z-index: 5; }
+html.baski .ozetler::before { left: calc(-11mm - 13px); right: calc(-11mm - 13px); background-size: 210mm auto; background-position: 13px center; }
+html.baski svg.kesim-izleri { position: absolute; left: 0; top: 0; width: 884.16px; height: 1213.44px; }
+html.baski .baski-kunye { position: absolute; left: 60px; bottom: 12px; font-family: var(--govde); font-weight: 700; font-size: 6pt; letter-spacing: .03em; color: #000; }
+
+/* ------------------------------------------------------------------ 36. HAZİNE KARTLARI KESME YAPRAĞI (kur.py --hazine → hazine-kartlari.html → render.js --hazine)
+   Kartlar sayfadaki .hazine bileşeninin aynısı (meta.json), 1,3 kat; hücreler kesik çizgili, çizgi başlarında makas. */
+.hazine-yaprak .hy-bas { position: absolute; left: 12mm; right: 12mm; top: 9mm; display: grid; grid-template-columns: 13mm 1fr auto; gap: 3.2mm;
+  align-items: center; padding-bottom: 2.6mm; border-bottom: .45mm solid var(--obs); z-index: 2; }
+.hazine-yaprak .hy-logo { width: 13mm; height: 13mm; }
+.hazine-yaprak .hy-bas h1 { font-family: var(--baslik); font-weight: 800; font-size: 20pt; line-height: 1; margin-top: .8mm; }
+.hazine-yaprak .hy-bas h1 em { font-style: normal; color: var(--keh-k); }
+.hazine-yaprak .hy-bas p { font-size: 9.5pt; font-weight: 700; color: var(--soluk); margin-top: .6mm; }
+.hazine-yaprak .hy-sayi { display: grid; justify-items: center; font-family: var(--baslik); line-height: 1; }
+.hazine-yaprak .hy-sayi svg { width: 8mm; height: 8mm; }
+.hazine-yaprak .hy-sayi b { font-size: 18pt; padding-top: .6mm; } .hazine-yaprak .hy-sayi small { font-family: var(--govde); font-weight: 900; font-size: 7pt; letter-spacing: .08em; text-transform: uppercase; color: var(--gum-k); }
+.hy-izgara { position: absolute; left: 12mm; right: 12mm; top: 34mm; bottom: 16mm; display: grid; border: .4mm dashed var(--obs-2); z-index: 2; }
+.hy-hucre { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 1.8mm; padding: 3mm 5mm; min-height: 0; overflow: hidden;
+  border-right: .4mm dashed var(--obs-2); border-bottom: .4mm dashed var(--obs-2); background: rgba(255, 255, 255, .6); }
+.hy-ust { display: flex; justify-content: space-between; gap: 2mm; font-weight: 900; font-size: 7.2pt; letter-spacing: .08em; text-transform: uppercase; color: var(--gol-k); }
+.hy-ust span:last-child { color: var(--keh-k); }
+.hy-kart { zoom: 1.3; }
+.hy-kart.uzun { zoom: 1.02; }   /* adım listeli kart (ör. strateji) hücreye sığsın */
+.hy-makas { position: absolute; width: 5.2mm; height: 5.2mm; color: var(--obs); background: var(--kar); border-radius: 50%; }
+.hy-makas.yatay { left: -2.6mm; }
+.hy-makas.dikey { top: -2.6mm; transform: rotate(90deg); }
+.hy-makas.kose { left: -2.6mm; top: -2.6mm; transform: rotate(45deg); }
+.hazine-yaprak .hy-alt { position: absolute; left: 12mm; right: 12mm; bottom: 8mm; display: flex; justify-content: space-between; font-size: 7.2pt;
+  font-weight: 900; letter-spacing: .09em; text-transform: uppercase; color: var(--gol-k); }

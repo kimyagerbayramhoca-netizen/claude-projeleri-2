@@ -172,19 +172,22 @@
 .nisan-ikili small { font-size: 7pt; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--gum-k); }
 .nisan-ikili .ok-svg { width: 9mm; height: 4.5mm; }
 .arkadaslar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.4mm; margin-top: 1.4mm; }
-.ark { display: grid; grid-template-columns: 17mm 1fr; gap: 1.6mm; align-items: center; }
-.ark > svg { width: 17mm; height: 18mm; }
+.ark { display: grid; grid-template-columns: 19mm 1fr; gap: 1.6mm; align-items: center; }
+.ark > svg { width: 19mm; height: 20mm; }
 .ark b { display: block; font-family: var(--baslik); font-size: 12pt; line-height: 1; padding-top: .4mm; }
 .ark small { display: block; font-size: 7.4pt; font-weight: 800; color: var(--gum-k); margin: .2mm 0 .3mm; }
 .ark p { font-size: 8.6pt; line-height: 1.2; }
 .ark-mer b { color: var(--mer-k); } .ark-gol b { color: var(--gol-k); } .ark-keh b { color: var(--keh-k); } .ark-kob b { color: var(--kob-k); }
 
-.isaretler.isaret-8 { gap: 2mm; } .isaretler.isaret-8 .is { font-size: 8.3pt; }
+.isaretler.isaret-8 { display: grid; grid-template-columns: auto repeat(4, 1fr); gap: 1.8mm 3mm; padding: 2.4mm 3.4mm; }
+.isaretler.isaret-8 > .et { grid-row: span 2; align-self: center; }
+.isaretler.isaret-8 .is { font-size: 8.8pt; } .isaretler.isaret-8 .is b { display: inline; margin-right: 1mm; }
+.isaretler.isaret-8 .is svg { width: 6.6mm; height: 6.6mm; }
 
 /* rehber 2: sayfa türleri ızgarası ve kutu örnekleri */
 .sayfa-turleri { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.4mm 2.6mm; }
 .sayfa-turu { text-align: center; }
-.sayfa-turu svg.mini-sayfa { width: 25mm; height: 35.4mm; display: block; margin: 0 auto 1mm; box-shadow: .9mm 1mm 0 var(--derin); border-radius: .6mm; }
+.sayfa-turu svg.mini-sayfa { width: 27.4mm; height: 38.7mm; display: block; margin: 0 auto 1mm; box-shadow: .9mm 1mm 0 var(--derin); border-radius: .6mm; }
 .sayfa-turu b { display: block; font-family: var(--baslik); font-weight: 800; font-size: 10.6pt; line-height: 1; padding-top: .6mm; }
 .sayfa-turu span { display: block; font-size: 8pt; font-weight: 700; color: var(--obs-2); line-height: 1.2; margin-top: .5mm; }
 .kutu-izgara { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2mm 2.4mm; }
@@ -202,6 +205,50 @@
 .ko-medeniyet .kb { color: var(--lajver); font-family: var(--kufi); letter-spacing: .06em; }
 .ko-mesveret .kb { color: var(--mer-k); }
 .ko-muhasebe .kb { color: var(--keh-k); }
+.ko-sohbet { background: var(--gol-a); } .ko-sohbet .kb { color: var(--gol-k); text-transform: none; letter-spacing: .02em; font-size: 8.6pt; }
+.ko-hisse { background: var(--keh-a); border-style: dashed; } .ko-hisse .kb { color: var(--keh-k); }
+.ko-karalama { background: radial-gradient(circle, #B8C5CC .32mm, transparent .4mm) 0 0 / 3mm 3mm, #fff; border-style: dashed; border-color: var(--gum-k); }
+.ko-karalama .kb { color: var(--gum-k); }
 .oneri-kart { background: var(--keh-a); }
 .oneri-kart .pamuk-not { grid-template-columns: 13mm 1fr; }
 .oneri-kart .pamuk-not svg { width: 13mm; height: 14.8mm; }
+
+/* ------------------------------------------------------------------ 6. MEDENİYETİMİZDEN ZAMAN ŞERİDİ (karşılıklı iki sayfa) */
+.zaman-sayfa { background: var(--kirec); }
+.zaman { position: relative; flex: none; }
+.zaman > svg.zs-eksen { position: absolute; left: calc(50% - 8mm); top: 0; width: 16mm; }
+.zs-yy { position: absolute; left: 50%; transform: translateX(-50%); z-index: 2; background: var(--lajver); color: var(--altin-a); border: .35mm solid var(--altin);
+  border-radius: 3mm; padding: .5mm 1.6mm .4mm; font-family: var(--kufi); font-weight: 700; font-size: 7.6pt; letter-spacing: .06em; white-space: nowrap; }
+.zs-kart { position: absolute; width: calc(50% - 10.5mm); display: grid; grid-template-columns: 13mm 1fr; gap: 2mm; align-items: start;
+  background: #fff; border: .45mm solid var(--lajver); border-radius: 1.2mm; padding: 2.2mm 2.6mm 2.2mm 2.2mm;
+  box-shadow: inset 0 0 0 .7mm #fff, inset 0 0 0 1mm var(--altin), var(--golge-k); }
+.zs-kart.sol { left: 0; } .zs-kart.sag { right: 0; }
+.zs-kart::after { content: ""; position: absolute; top: 8.3mm; width: 9.6mm; border-top: .5mm solid var(--altin); }
+.zs-kart.sol::after { right: -10mm; } .zs-kart.sag::after { left: -10mm; }
+.zs-kart > svg.zaman-ikon { width: 13mm; height: 13mm; }
+.zs-bas b { display: block; font-family: var(--amiri); font-weight: 700; font-size: 13.2pt; line-height: 1.05; color: var(--lajver); }
+.zs-bas span { display: block; font-family: var(--kufi); font-weight: 700; font-size: 8pt; letter-spacing: .05em; color: var(--altin-k); margin-top: .3mm; }
+.zs-kart p { font-size: 9.2pt; line-height: 1.24; margin-top: .9mm; }
+.zs-yol { display: flex; flex-wrap: wrap; gap: 1mm; margin-top: 1.2mm; }
+.ychip { display: inline-block; border-radius: 3mm; padding: .25mm 1.6mm .2mm; font-weight: 900; font-size: 7.2pt; letter-spacing: .03em; color: #fff;
+  background: var(--r, var(--gol)); border: .3mm solid var(--obs); white-space: nowrap; }
+.ychip.diger { background: #fff; color: var(--obs-2); border-color: var(--gum-k); border-style: dashed; }
+.ychip.yok { background: none; color: var(--gum-k); border-color: var(--gum); font-weight: 800; }
+.zs-kart.eser { background: var(--kirec); grid-template-columns: 10mm 1fr; padding-top: 1.6mm; padding-bottom: 1.6mm; }
+.zs-kart.eser > svg.zaman-ikon { width: 10mm; height: 10mm; }
+.zs-kart.eser .zs-bas b { font-size: 11pt; }
+.zs-kart.eser p { font-size: 8.8pt; margin-top: .4mm; }
+.zs-kart.eser .zs-yol { margin-top: .6mm; }
+.zs-kart.eser::after { top: 6.6mm; }
+.zs-not { font-size: 8.6pt; font-weight: 700; color: var(--obs-2); display: flex; align-items: center; gap: 1.4mm; flex-wrap: wrap; }
+.zs-not.son { display: grid; grid-template-columns: 10mm 1fr; gap: 2mm; background: #fff; border: .35mm solid var(--lajver); border-radius: 1.2mm; padding: 1.6mm 2.4mm;
+  box-shadow: inset 0 0 0 .6mm #fff, inset 0 0 0 .85mm var(--altin); font-size: 9.2pt; }
+.zs-not.son svg { width: 10mm; height: 10mm; }
+.zs-not.son b { color: var(--lajver); }
+
+/* ------------------------------------------------------------------ 7. PERİYODİK TABLO (yatay tablo, −90° döndürülmüş tek SVG) */
+.pt-kutu { position: absolute; left: 12mm; top: 14.6mm; width: 186mm; height: 266mm; z-index: 2; }
+.pt-kutu > svg.pt-svg { width: 186mm; height: 266mm; display: block; }
+.pt-cevir { position: absolute; right: 11mm; top: 13.6mm; z-index: 3; display: flex; align-items: center; gap: 1mm; font-size: 6.8pt; font-weight: 900;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--gum-k); }
+.pt-cevir svg { width: 4mm; height: 4mm; color: var(--gum-k); }
