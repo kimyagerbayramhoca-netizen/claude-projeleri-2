@@ -617,49 +617,58 @@ def panorama_kars(h=1100):
     uzak = _uzak_daglar(s, ufuk + 8, 301, renk=("#A78CCE", "#6C5AA8"), sis="#F2C2D8",
                         dag=[(-120, 820, 330, 150, "tepe"), (560, 1560, 1050, 96, "sivri"), (1300, 2260, 1760, 140, "tepe")])
     s += uzak
-    # karlı yayla (bütün zemin): ufukta pembe, önde mavi gölgeli beyaz
-    gk = s.lin([(0, "#F7DCE6"), (.15, "#F4EEF6"), (.5, "#EEF4FB"), (1, "#D4E2F2")], 0, ufuk, 0, h, kull="userSpaceOnUse", ad="kara")
+    # karlı yayla (bütün zemin): ufukta gün doğumu pembesi, ortada lavanta gölgeler, önde mavi
+    gk = s.lin([(0, "#F4C6D6"), (.12, "#EED8EC"), (.45, "#DCE4F6"), (1, "#B9CDEA")], 0, ufuk, 0, h, kull="userSpaceOnUse", ad="kara")
     s += f'<rect x="0" y="{ufuk + 4}" width="{W}" height="{h - ufuk}" fill="{gk}"/>'
     r = RNG(302)
-    for k in range(80):
+    # orta plan tepe sıraları (derinlik)
+    for i, (yy, genlik, c1, c2) in enumerate(((ufuk + 30, 26, "#D9B8DA", "#E8D2E6"), (ufuk + 80, 30, "#C8C2E6", "#DDE0F4"), (ufuk + 150, 26, "#BFD0EE", "#D6E2F4"))):
+        tb, _ = S.tepe_bandi(s, 0, W, yy, genlik, 303 + i, c1, c2, dalga=6, olcek=40)
+        s += tb
+    for k in range(70):
         x = r.uniform(0, W)
-        y = r.uniform(ufuk + 20, h)
+        y = r.uniform(ufuk + 60, h)
         sc = .4 + (y - ufuk) / (h - ufuk)
         w_ = r.uniform(80, 220) * sc
-        s += f'<ellipse cx="{f(x)}" cy="{f(y)}" rx="{f(w_)}" ry="{f(w_ * .08)}" fill="{r.choice(["#C8D8EC", "#D9E2F2", "#E8D8E8"])}" opacity=".5"/>'
+        s += f'<ellipse cx="{f(x)}" cy="{f(y)}" rx="{f(w_)}" ry="{f(w_ * .08)}" fill="{r.choice(["#A9BEE0", "#BCC8EA", "#D8C4E0"])}" opacity=".45"/>'
     # Çıldır Gölü (kuzeyde, buz tutmuş)
     cx, cy = 1470, 455
-    s += f'<ellipse cx="{cx}" cy="{cy}" rx="250" ry="52" fill="#B9D6EA" stroke="#FFFFFF" stroke-width="6"/>'
-    s += f'<ellipse cx="{cx - 20}" cy="{cy - 6}" rx="200" ry="34" fill="#DCEBF6"/>'
+    s += f'<ellipse cx="{cx}" cy="{cy}" rx="250" ry="52" fill="#9CC6E4" stroke="#FFFFFF" stroke-width="6"/>'
+    s += f'<ellipse cx="{cx - 20}" cy="{cy - 6}" rx="200" ry="34" fill="#D2E6F6"/>'
     for k in range(6):
         x0 = cx - 180 + k * 60
-        s += f'<path d="M{x0} {cy + r.uniform(-20, 20)} l{r.uniform(20, 40)} {r.uniform(-6, 6)} l{r.uniform(20, 30)} {r.uniform(-6, 6)}" stroke="#7FA6C8" stroke-width="2" fill="none"/>'
+        s += f'<path d="M{x0} {cy + r.uniform(-20, 20)} l{r.uniform(20, 40)} {r.uniform(-6, 6)} l{r.uniform(20, 30)} {r.uniform(-6, 6)}" stroke="#6E98C2" stroke-width="2" fill="none"/>'
     s += P.at_kizak(s, cx + 150, cy + 20, .3, yolcu=False)
     # ırmaklar: Aras (güney), Kars Çayı, Arpaçay (doğu sınırı)
     aras = [(0, 1020), (300, 990), (620, 1010), (880, 975), (1180, 1000), (1500, 980), (1820, 1010), (2100, 990)]
-    s += f'<path d="{egri_d(aras)}" fill="none" stroke="#3E9CB0" stroke-width="22" stroke-linecap="round" opacity=".7"/><path d="{egri_d(aras)}" fill="none" stroke="#A8E0EA" stroke-width="8" stroke-linecap="round"/>'
+    s += f'<path d="{egri_d(aras)}" fill="none" stroke="#2E8CA6" stroke-width="24" stroke-linecap="round" opacity=".8"/><path d="{egri_d(aras)}" fill="none" stroke="#8ED6E4" stroke-width="9" stroke-linecap="round"/>'
     arpa = [(2000, 380), (1990, 520), (2030, 660), (2010, 800), (2060, 980)]
-    s += f'<path d="{egri_d(arpa)}" fill="none" stroke="#3E9CB0" stroke-width="12" stroke-linecap="round" opacity=".7"/><path d="{egri_d(arpa)}" fill="none" stroke="#A8E0EA" stroke-width="5" stroke-linecap="round"/>'
+    s += f'<path d="{egri_d(arpa)}" fill="none" stroke="#2E8CA6" stroke-width="13" stroke-linecap="round" opacity=".8"/><path d="{egri_d(arpa)}" fill="none" stroke="#8ED6E4" stroke-width="5" stroke-linecap="round"/>'
     karscay = [(1300, 560), (1500, 700), (1640, 760), (1760, 820)]
-    s += f'<path d="{egri_d(karscay)}" fill="none" stroke="#5FB0C0" stroke-width="8" stroke-linecap="round" opacity=".8"/>'
-    # sarıçam ormanları (Sarıkamış çevresi) ve dağınık ağaçlar
-    for k in range(70):
-        x = r.uniform(820, 1380)
-        y = r.uniform(560, 860)
-        if any(math.hypot(x - a, y - b) < 70 for _, a, b, _t in DURAKLAR):
-            continue
-        sc = .45 + (y - ufuk) / (h - ufuk) * .7
-        s += P.cam(s, x, y, 44 * sc, 310 + k, renk=r.choice(["#2F6B4C", "#2A5E44", "#376F50"]))
-    for k in range(40):
+    s += f'<path d="{egri_d(karscay)}" fill="none" stroke="#3E9CB4" stroke-width="9" stroke-linecap="round" opacity=".85"/>'
+    # sarıçam ormanları: Sarıkamış çevresinde koyu yeşil kütle, kuzeyde Allahuekber eteklerinde şerit
+    orman = [(860, 1360, 560, 860, 120), (520, 900, 420, 560, 50), (1600, 1900, 400, 520, 24), (60, 300, 430, 600, 22)]
+    for oi, (xa, xb, ya, yb, n_) in enumerate(orman):
+        for k in range(n_):
+            x = r.uniform(xa, xb)
+            y = r.uniform(ya, yb)
+            if any(math.hypot(x - a, y - b) < 64 for _, a, b, _t in DURAKLAR):
+                continue
+            sc = .5 + (y - ufuk) / (h - ufuk) * .8
+            s += P.cam(s, x, y, r.uniform(50, 74) * sc, 310 + oi * 200 + k, renk=r.choice(["#2F6B4C", "#245A40", "#3A7653"]))
+    for k in range(26):
         x = r.uniform(40, 2060)
-        y = r.uniform(ufuk + 40, h - 40)
-        if any(math.hypot(x - a, y - b) < 110 for _, a, b, _t in DURAKLAR) or 820 < x < 1380 and 560 < y < 860:
+        y = r.uniform(ufuk + 60, h - 60)
+        if any(math.hypot(x - a, y - b) < 110 for _, a, b, _t in DURAKLAR) or (820 < x < 1400 and 540 < y < 880):
             continue
-        sc = .4 + (y - ufuk) / (h - ufuk) * .7
+        sc = .45 + (y - ufuk) / (h - ufuk) * .8
         for j in range(3):
-            s += P.cam(s, x + j * 18 * sc, y + (j % 2) * 4, 40 * sc, 400 + k * 3 + j, renk="#2F6B4C")
+            s += P.cam(s, x + j * 20 * sc, y + (j % 2) * 4, 52 * sc, 900 + k * 3 + j, renk="#2F6B4C")
+    # köyler (kırmızı damlı, sıcak renk)
+    for k, (vx, vy) in enumerate(((620, 520), (1180, 470), (300, 600), (880, 800), (1820, 900))):
+        for j in range(4):
+            s += P.ev_tas(s, vx + j * 30, vy + (j % 2) * 5, 24, 16, 1000 + k * 4 + j, duvar=["#C9B49A", "#B8A08C"][j % 2], cati="#B8553A", baca=False)
     # simge yapılar
-    s += P.kirec_ocagi(s, 1840, 560, 44, 320) if False else ""
     s += P.ani_sur(s, 1820, 2040, 596, 60, 321, kirik=True)
     kale, _ = P.bazalt_kale(s, 1560, 1790, 790, 118, 322, bayrak=True)
     s += kale
@@ -671,7 +680,6 @@ def panorama_kars(h=1100):
     s += P.buhar(s, 760, 660, 90, 343, op=.7, en=1.2)
     for i in range(6):
         s += P.ev_tas(s, 250 + i * 36, 724 + (i % 2) * 6, 30, 22, 350 + i, duvar=["#C4B29A", "#B1A08C"][i % 2], cati="#8E5A44", baca=False)
-    s += P.tashan(s, 330, 790, 120, 44, 356)
     # Palandöken (önde, sol alt): karlı kayak tepesi
     d, _ = S.dag(s, 20, 380, 1000, 210, 820, 357, renk="#8199BB", golge="#5A74A0", bicim="sivri", kar_y=880, kar="#FFFFFF",
                  kar_golge="#C6D6EE", isik=-1, sirt=3, puruz=8)
