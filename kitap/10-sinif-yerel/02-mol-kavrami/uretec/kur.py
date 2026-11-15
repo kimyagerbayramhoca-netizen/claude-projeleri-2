@@ -14,6 +14,8 @@ import sys
 
 BURA = os.path.dirname(os.path.abspath(__file__))
 UNITE = os.path.dirname(BURA)
+ORTAK = os.path.normpath(os.path.join(BURA, "..", "..", "..", "yerel-ortak"))
+sys.path.insert(0, ORTAK)
 sys.path.insert(0, BURA)
 
 from cizim.temel import Svg, f, cizgi_d, selcuklu_yildizi            # noqa: E402
@@ -233,7 +235,7 @@ YT = {
 
 
 def kur():
-    gorsel = os.path.join(UNITE, "gorsel")
+    gorsel = os.path.join(ORTAK, "gorsel")
     os.makedirs(gorsel, exist_ok=True)
     if "--ebru" in sys.argv or not os.path.exists(os.path.join(gorsel, "ebru-gol.jpg")):
         print("ebru dokuları üretiliyor…")

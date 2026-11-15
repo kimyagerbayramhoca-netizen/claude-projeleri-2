@@ -14,28 +14,28 @@
 /* ------------------------------------------------------------------ 1. YAZI TİPLERİ (kitap/fontlar, OFL) */
 /* Değişken (variable) fontlar Chromium PDF'inde Type 3 gömülür; matbaa için sabit kalınlıklı kopyalar
    kullanılır (üretmek için: python3 kitap/araclar/statik_fontlar.py). İstenen kalınlık yoksa en yakını seçilir. */
-@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../../fontlar/baloobhaijaan2/static/BalooBhaijaan2-400.ttf") format("truetype"); font-weight: 400; font-style: normal; }
-@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../../fontlar/baloobhaijaan2/static/BalooBhaijaan2-500.ttf") format("truetype"); font-weight: 500; font-style: normal; }
-@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../../fontlar/baloobhaijaan2/static/BalooBhaijaan2-600.ttf") format("truetype"); font-weight: 600; font-style: normal; }
-@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../../fontlar/baloobhaijaan2/static/BalooBhaijaan2-700.ttf") format("truetype"); font-weight: 700; font-style: normal; }
-@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../../fontlar/baloobhaijaan2/static/BalooBhaijaan2-800.ttf") format("truetype"); font-weight: 800; font-style: normal; }
-@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-400.ttf") format("truetype"); font-weight: 400; font-style: normal; }
-@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-500.ttf") format("truetype"); font-weight: 500; font-style: normal; }
-@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-600.ttf") format("truetype"); font-weight: 600; font-style: normal; }
-@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-700.ttf") format("truetype"); font-weight: 700; font-style: normal; }
-@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-800.ttf") format("truetype"); font-weight: 800; font-style: normal; }
-@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-900.ttf") format("truetype"); font-weight: 900; font-style: normal; }
-@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-Italic-400.ttf") format("truetype"); font-weight: 400; font-style: italic; }
-@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-Italic-600.ttf") format("truetype"); font-weight: 600; font-style: italic; }
-@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-Italic-700.ttf") format("truetype"); font-weight: 700; font-style: italic; }
-@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-Italic-800.ttf") format("truetype"); font-weight: 800; font-style: italic; }
-@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/static/Nunito-Italic-900.ttf") format("truetype"); font-weight: 900; font-style: italic; }
-@font-face { font-family: "Amiri"; src: url("../../fontlar/amiri/Amiri-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; }
-@font-face { font-family: "Amiri"; src: url("../../fontlar/amiri/Amiri-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; }
-@font-face { font-family: "Reem Kufi"; src: url("../../fontlar/reemkufi/static/ReemKufi-400.ttf") format("truetype"); font-weight: 400; font-style: normal; }
-@font-face { font-family: "Reem Kufi"; src: url("../../fontlar/reemkufi/static/ReemKufi-500.ttf") format("truetype"); font-weight: 500; font-style: normal; }
-@font-face { font-family: "Reem Kufi"; src: url("../../fontlar/reemkufi/static/ReemKufi-600.ttf") format("truetype"); font-weight: 600; font-style: normal; }
-@font-face { font-family: "Reem Kufi"; src: url("../../fontlar/reemkufi/static/ReemKufi-700.ttf") format("truetype"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../fontlar/baloobhaijaan2/static/BalooBhaijaan2-400.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../fontlar/baloobhaijaan2/static/BalooBhaijaan2-500.ttf") format("truetype"); font-weight: 500; font-style: normal; }
+@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../fontlar/baloobhaijaan2/static/BalooBhaijaan2-600.ttf") format("truetype"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../fontlar/baloobhaijaan2/static/BalooBhaijaan2-700.ttf") format("truetype"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../fontlar/baloobhaijaan2/static/BalooBhaijaan2-800.ttf") format("truetype"); font-weight: 800; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../fontlar/nunito/static/Nunito-400.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../fontlar/nunito/static/Nunito-500.ttf") format("truetype"); font-weight: 500; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../fontlar/nunito/static/Nunito-600.ttf") format("truetype"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../fontlar/nunito/static/Nunito-700.ttf") format("truetype"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../fontlar/nunito/static/Nunito-800.ttf") format("truetype"); font-weight: 800; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../fontlar/nunito/static/Nunito-900.ttf") format("truetype"); font-weight: 900; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../fontlar/nunito/static/Nunito-Italic-400.ttf") format("truetype"); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Nunito"; src: url("../fontlar/nunito/static/Nunito-Italic-600.ttf") format("truetype"); font-weight: 600; font-style: italic; }
+@font-face { font-family: "Nunito"; src: url("../fontlar/nunito/static/Nunito-Italic-700.ttf") format("truetype"); font-weight: 700; font-style: italic; }
+@font-face { font-family: "Nunito"; src: url("../fontlar/nunito/static/Nunito-Italic-800.ttf") format("truetype"); font-weight: 800; font-style: italic; }
+@font-face { font-family: "Nunito"; src: url("../fontlar/nunito/static/Nunito-Italic-900.ttf") format("truetype"); font-weight: 900; font-style: italic; }
+@font-face { font-family: "Amiri"; src: url("../fontlar/amiri/Amiri-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Amiri"; src: url("../fontlar/amiri/Amiri-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Reem Kufi"; src: url("../fontlar/reemkufi/static/ReemKufi-400.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Reem Kufi"; src: url("../fontlar/reemkufi/static/ReemKufi-500.ttf") format("truetype"); font-weight: 500; font-style: normal; }
+@font-face { font-family: "Reem Kufi"; src: url("../fontlar/reemkufi/static/ReemKufi-600.ttf") format("truetype"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "Reem Kufi"; src: url("../fontlar/reemkufi/static/ReemKufi-700.ttf") format("truetype"); font-weight: 700; font-style: normal; }
 
 /* ------------------------------------------------------------------ 2. TOKENLAR */
 :root {

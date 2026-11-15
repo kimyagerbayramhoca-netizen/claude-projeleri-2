@@ -2,7 +2,7 @@
 # Taşma özeti: sayfa başına "alan dışı" en alt kenar ve kutu taşmaları (boşsa her şey sığıyor).
 # Kullanım: uretec/olc.sh            → bütün sayfalar (PDF de yazılır)
 #           uretec/olc.sh 3 4        → yalnızca 3. ve 4. sayfanın PNG'si
-cd "$(dirname "$0")/.." && node uretec/render.js "$@" 2>&1 | python3 -c "
+cd "$(dirname "$0")/.." && node ../../yerel-ortak/render.js . "$@" 2>&1 | python3 -c "
 import sys,re
 mx={}
 for l in sys.stdin:

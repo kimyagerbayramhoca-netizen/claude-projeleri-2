@@ -17,6 +17,8 @@ import sys
 BURA = os.path.dirname(os.path.abspath(__file__))
 UNITE = os.path.dirname(BURA)
 KATALOG = os.path.normpath(os.path.join(UNITE, "..", "katalog"))
+ORTAK = os.path.normpath(os.path.join(BURA, "..", "..", "..", "yerel-ortak"))
+sys.path.insert(0, ORTAK)
 sys.path.insert(0, BURA)
 
 from cizim import sahneler as SH, karakter as K, sus as U, molekul as M, infografik as I  # noqa: E402
@@ -44,7 +46,7 @@ def sayfa(ad, baslik, aciklama, govde, defs=False, genislik=1400):
             f'<h1>{baslik}</h1><p class="al">{aciklama}</p>{govde}</body></html>')
     yol = os.path.join(KATALOG, f"{ad}.html")
     open(yol, "w", encoding="utf-8").write(html)
-    subprocess.run(["node", os.path.join(BURA, "fotograf.js"), yol, os.path.join(KATALOG, f"{ad}.png"), str(genislik), "1"], check=True)
+    subprocess.run(["node", os.path.join(ORTAK, "fotograf.js"), yol, os.path.join(KATALOG, f"{ad}.png"), str(genislik), "1"], check=True)
     os.remove(yol)
     print("yazıldı:", os.path.relpath(os.path.join(KATALOG, f"{ad}.png"), UNITE))
 
@@ -138,8 +140,8 @@ def infografikler():
 
 
 def ebru_sayfasi():
-    gov = ('<div class="izgara"><div class="oge" style="width:640px"><img src="../02-mol-kavrami/gorsel/ebru-gol.jpg" style="width:100%"><code>ebru.ebru_gol() · gorsel/ebru-gol.jpg</code><small>battal + gelgit + dalga · altbilgi şeridi, Medeniyetimizden üst şeridi</small></div>'
-           '<div class="oge" style="width:420px"><img src="../02-mol-kavrami/gorsel/ebru-gun.jpg" style="width:100%"><code>ebru.ebru_gun() · gorsel/ebru-gun.jpg</code><small>gün batımı paleti · Hülasa kart zemini</small></div></div>')
+    gov = ('<div class="izgara"><div class="oge" style="width:640px"><img src="../../yerel-ortak/gorsel/ebru-gol.jpg" style="width:100%"><code>ebru.ebru_gol() · gorsel/ebru-gol.jpg</code><small>battal + gelgit + dalga · altbilgi şeridi, Medeniyetimizden üst şeridi</small></div>'
+           '<div class="oge" style="width:420px"><img src="../../yerel-ortak/gorsel/ebru-gun.jpg" style="width:100%"><code>ebru.ebru_gun() · gorsel/ebru-gun.jpg</code><small>gün batımı paleti · Hülasa kart zemini</small></div></div>')
     sayfa("ebru", "Ebru dokuları", "Matematiksel marmorlama (damla + biz/tarak dönüşümleri) → JPEG; PDF'e bir kez gömülür.", gov)
 
 

@@ -1,8 +1,9 @@
 // Ünite render betiği: unite.html → PDF + onizleme/sNN.png (deviceScaleFactor 2) + taşma denetimi
 // Çalıştır (ünite klasöründen ya da herhangi bir yerden):
-//   node uretec/render.js            → PDF + bütün PNG'ler
-//   node uretec/render.js 3 4        → yalnızca 3. ve 4. sayfanın PNG'si (PDF yine üretilir)
-//   node uretec/render.js --pdfsiz 3 → yalnızca PNG (hızlı deneme)
+//   node yerel-ortak/render.js <ünite-klasörü>            → PDF + bütün PNG'ler
+//   node yerel-ortak/render.js <ünite-klasörü> 3 4        → yalnızca 3. ve 4. sayfanın PNG'si (PDF yine üretilir)
+//   node yerel-ortak/render.js <ünite-klasörü> --pdfsiz 3 → yalnızca PNG (hızlı deneme)
+//   Ünite klasörü verilmezse içinde bulunulan klasör kullanılır.
 // Denetim iki tür sorunu listeler (yatayda bilerek taşan dekorlu kapsayıcılar data-tasma-yatay ile işaretlenir):
 //   • alan dışı   : HUD+çini şeridi altı (12 mm) ile altbilgi üstü (283 mm) arasındaki alandan taşan öğe
 //                   (sahne bantları, panorama gibi [data-serbest] öğeler hariç)
@@ -11,13 +12,15 @@ const path = require('path');
 const fs = require('fs');
 const { chromium } = require('playwright');
 
-const UNITE = path.resolve(__dirname, '..');
+const _arg = process.argv.slice(2);
+const _klasor = _arg.find(a => !a.startsWith('--') && fs.existsSync(a) && fs.statSync(a).isDirectory());
+const UNITE = path.resolve(_klasor || process.cwd());
 const HTML = path.join(UNITE, 'unite.html');
 const PDF = path.join(UNITE, path.basename(UNITE) + '.pdf');
 const ONIZ = path.join(UNITE, 'onizleme');
 
 (async () => {
-  const argv = process.argv.slice(2);
+  const argv = process.argv.slice(2).filter(a => a !== _klasor);
   const pdfsiz = argv.includes('--pdfsiz');
   const sec = argv.filter(a => !a.startsWith('--')).map(Number);
   fs.mkdirSync(ONIZ, { recursive: true });
