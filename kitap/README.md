@@ -31,6 +31,19 @@ Sayfa numaraları baştan sona süreklidir. Baskıda her ünite sağ sayfada ba�
 | 10 | Tema 2 · 1 | `10-sinif/05-cozeltiler-1` |
 | 10 | Tema 2 · 2 | `10-sinif/06-cozeltiler-2` |
 
+## Yeni tasarım prototipleri (Mol ünitesi üzerinde)
+Klasik tasarımdaki üniteler yukarıdaki tablodadır. Aşağıdaki iki klasör, sonraki kitaplara temel olacak yeni tasarımı aynı ünite (10. sınıf Mol Kavramı) üzerinde gösterir:
+
+| Klasör | Tasarım |
+|---|---|
+| `10-sinif-yeni/02-mol-kavrami` | Görev Rotası + Sohbet + Bento harmanı (XP, Boss gibi oyun dili) |
+| `10-sinif-yerel/02-mol-kavrami` | **Yerel prototip:** Van Gölü Turu + Medrese defteri. Akçe, durak, Hülasa, Meclis, Kıssa, Büyük İmtihan; Elif, Yusuf, Pamuk (Van kedisi), Zeynep Hoca; "Medeniyetimizden" köşeleri |
+
+- Yerel tasarımın dili, karakterleri ve örnek havuzu: `YEREL-KIMLIK.md`
+- Çizim kütüphanesi, renk ve yazı tipi sistemi: `10-sinif-yerel/TASARIM-SISTEMI-YEREL.md`
+- Yazı tipleri `fontlar/` klasöründedir (hepsi OFL lisanslı, Türkçe karakterleri tam).
+- Konsept denemeleri: `tasarim-onerileri/` ve `tasarim-onerileri-yerel/`
+
 ## Yapı
 - `stil/kitap.css`: ortak sayfa tasarımı, renk sistemi ve kutu tipleri
 - `araclar/derle.py`: `kaynak.html` → `unite.html` → PDF

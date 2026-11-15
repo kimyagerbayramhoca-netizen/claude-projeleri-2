@@ -1,0 +1,620 @@
+/* =====================================================================
+   KİMYA ROTASI · YEREL TASARIM SİSTEMİ  ("Van Gölü" iskelet + "Medrese Defteri" tezhibi)
+   ---------------------------------------------------------------------
+   Bu dosya bileşen bazlıdır. Her blok başında: ne işe yarar, hangi HTML ile kullanılır.
+   Renk tokenları uretec/cizim/renkler.py ile AYNIDIR (SVG illüstrasyonları da bu paleti kullanır).
+
+   PDF kuralları (deneyle bulundu):
+   • CSS background-image ile tekrar eden SVG desenleri PDF'te sayfa başına ~400 KB raster olur → KULLANMA.
+     Tekrar eden doku = satır içi vektör SVG (tek path) ya da tek bir JPEG (PDF'e bir kez gömülür).
+   • Satır içi SVG gradyanları ve maskeleri vektör kalır.
+   • Metin alanları açık zeminde; koyu/yoğun bloklar yalnız illüstrasyon alanlarında.
+   ===================================================================== */
+
+/* ------------------------------------------------------------------ 1. YAZI TİPLERİ (kitap/fontlar, OFL) */
+@font-face { font-family: "Baloo Bhaijaan 2"; src: url("../../fontlar/baloobhaijaan2/BalooBhaijaan2%5Bwght%5D.ttf") format("truetype"); font-weight: 400 800; }
+@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/Nunito%5Bwght%5D.ttf") format("truetype"); font-weight: 200 1000; font-style: normal; }
+@font-face { font-family: "Nunito"; src: url("../../fontlar/nunito/Nunito-Italic%5Bwght%5D.ttf") format("truetype"); font-weight: 200 1000; font-style: italic; }
+@font-face { font-family: "Amiri"; src: url("../../fontlar/amiri/Amiri-Regular.ttf") format("truetype"); font-weight: 400; }
+@font-face { font-family: "Amiri"; src: url("../../fontlar/amiri/Amiri-Bold.ttf") format("truetype"); font-weight: 700; }
+@font-face { font-family: "Reem Kufi"; src: url("../../fontlar/reemkufi/ReemKufi%5Bwght%5D.ttf") format("truetype"); font-weight: 400 700; }
+
+/* ------------------------------------------------------------------ 2. TOKENLAR */
+:root {
+  /* zemin + mürekkep */
+  --kar: #FBFDFD;  --kirec: #FFFDF7;  --beyaz: #FFFFFF;
+  --obs: #1B1D26;  --obs-2: #343947;  --soluk: #56636E;  --cizgi: #CFDCE0;
+  /* Van Gölü turkuazı */
+  --gol: #13A3A6;  --gol-k: #0A6C74;  --gol-a: #DCF3F1;  --gol-aa: #EEF9F8;  --derin: #0E4C5A;
+  /* kehribar (akçe, hazine, Pamuk) */
+  --keh: #F0A21A;  --keh-k: #8C5500;  --keh-a: #FFF0CF;
+  /* İznik mercanı (Tuzak, Elif) */
+  --mer: #E2533D;  --mer-k: #A12817;  --mer-a: #FDE7E1;
+  /* İznik kobaltı (Medeniyetimizden, Zeynep Hoca) */
+  --kob: #2B50B5;  --kob-k: #1B3584;  --kob-a: #E6ECFB;
+  /* gün batımı */
+  --gun: #FF7A3D;  --pembe: #FF5C8A;  --erguvan: #7B3F8C;
+  /* tezhip */
+  --altin: #C9952B;  --altin-k: #8A6212;  --altin-a: #F6E7BF;  --lajver: #1D3A8A;
+  /* çini yeşili, kefal gümüşü */
+  --zumrut: #1F8A5B;  --gum: #A3B3BE;  --gum-k: #586874;  --gum-a: #EDF2F5;
+
+  /* çizgi, köşe, gölge */
+  --cz: .45mm;  --cz-i: .3mm;  --r: 3.6mm;  --r-k: 2.4mm;
+  --golge: 1.1mm 1.3mm 0 var(--derin);
+  --golge-k: .7mm .8mm 0 var(--derin);
+
+  /* yazı aileleri */
+  --baslik: "Baloo Bhaijaan 2", "Nunito", "DejaVu Sans", sans-serif;
+  --govde: "Nunito", "DejaVu Sans", sans-serif;
+  --amiri: "Amiri", "DejaVu Serif", serif;
+  --kufi: "Reem Kufi", "Baloo Bhaijaan 2", "DejaVu Sans", sans-serif;
+}
+
+/* ------------------------------------------------------------------ 3. TEMEL */
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #D5E0E3; }
+body { font-family: var(--govde); font-size: 10pt; line-height: 1.3; color: var(--obs);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; font-variant-numeric: lining-nums; }
+@media print { html, body { background: none; } .sayfa { margin: 0 !important; } }
+sub, sup { font-size: .68em; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -.5em; }  sub { bottom: -.22em; }
+b, strong { font-weight: 800; }
+svg { overflow: visible; }
+.gizli-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ------------------------------------------------------------------ 4. SAYFA ÇERÇEVESİ
+   <section class="sayfa"> zemin-svg · hud · cini-serit · (bant) · ic · alt · ebru-alt </section> */
+.sayfa { position: relative; width: 210mm; height: 297mm; overflow: hidden; margin: 8mm auto;
+  background: var(--kar); page-break-after: always; break-after: page; }
+.sayfa:last-child { page-break-after: auto; break-after: auto; }
+.sayfa > svg.zemin { position: absolute; left: 0; top: 0; width: 210mm; height: 297mm; z-index: 0; }
+
+/* içerik alanı: üstten bandın altına, alttan altbilginin üstüne kadar (sınırlar render.js'de denetlenir) */
+.ic { position: absolute; left: 11mm; right: 11mm; top: 14.5mm; bottom: 14.5mm; display: flex; flex-direction: column; gap: 2.3mm; z-index: 2; }
+.ic > * { flex: none; }
+.ic .esnek { flex: 1 1 auto; min-height: 0; }
+
+/* HUD: üst gösterge şeridi */
+.hud { position: absolute; left: 0; right: 0; top: 0; height: 9.6mm; background: var(--obs); color: #fff;
+  display: flex; align-items: center; gap: 4mm; padding: 0 11mm; z-index: 4;
+  font-weight: 900; font-size: 7.6pt; letter-spacing: .07em; text-transform: uppercase; }
+.hud .logo { display: flex; align-items: center; gap: 1.8mm; font-family: var(--baslik); font-size: 9.6pt; letter-spacing: .02em; line-height: 1; padding-top: .7mm; white-space: nowrap; }
+.hud .logo svg { width: 4.8mm; height: 4.8mm; margin-top: -.7mm; }
+.hud .yer { color: #C9D6DC; white-space: nowrap; }
+.hud .yer b { color: var(--keh); font-weight: 900; }
+.hud .noktalar { margin-left: auto; display: flex; align-items: center; gap: 1.25mm; }
+.hud .noktalar i { display: block; width: 2.6mm; height: 2.6mm; border-radius: 50%; border: .3mm solid #8FA3AD; }
+.hud .noktalar i.tam { background: var(--gol); border-color: var(--gol); }
+.hud .noktalar i.simdi { background: #fff; border-color: var(--keh); box-shadow: 0 0 0 .55mm var(--keh); }
+.hud .noktalar i.hul { border-radius: .5mm; }
+.hud .noktalar i.yan { border-radius: .5mm; transform: rotate(45deg); width: 2.2mm; height: 2.2mm; }
+.hud .noktalar i.kale { border: 0; border-radius: 0; width: 3.4mm; height: 3.1mm; background: none; box-shadow: none; }
+.hud .noktalar i.kale svg { width: 100%; height: 100%; display: block; }
+.hud .akce { display: flex; align-items: center; gap: 1.6mm; }
+.hud .akce svg { width: 4.2mm; height: 4.2mm; }
+.hud .akce .yaz { width: 11mm; height: 5mm; background: #fff; border-radius: 1.4mm; }
+.hud .akce .bar { width: 16mm; height: 2mm; border-radius: 1mm; background: #3B4352; overflow: hidden; }
+.hud .akce .bar i { display: block; height: 100%; background: var(--keh); border-radius: 1mm; }
+/* HUD altındaki İznik çini şeridi (satır içi vektör) */
+.sayfa > svg.cini-serit { position: absolute; left: 0; top: 9.6mm; width: 210mm; height: 2.4mm; z-index: 4; }
+
+/* altbilgi + ebru kenar suyu */
+.alt { position: absolute; left: 11mm; right: 11mm; bottom: 6.6mm; display: flex; align-items: center; justify-content: space-between;
+  font-size: 7.2pt; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; color: var(--gol-k); z-index: 3; }
+.alt .no { position: relative; width: 10mm; height: 10mm; display: grid; place-items: center; margin-bottom: -1.2mm; }
+.alt .no svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.alt .no b { position: relative; color: #fff; font-family: var(--baslik); font-size: 11pt; letter-spacing: 0; padding-top: .7mm; }
+.ebru-alt { position: absolute; left: 0; right: 0; bottom: 0; height: 4.4mm; z-index: 1;
+  background: url("gorsel/ebru-gol.jpg") center 30% / 210mm auto; border-top: .45mm solid var(--obs); }
+
+/* ------------------------------------------------------------------ 5. SAHNE BANDI + BAŞLIK LEVHASI
+   <div class="bant" data-serbest> <svg class="sahne">…</svg> <div class="levha">…</div> </div>
+   Bant tam taşmalı (kenardan kenara); sol üstteki gökyüzü alanına beyaz levha oturur. */
+.bant { position: absolute; left: 0; top: 12mm; width: 210mm; height: 46mm; overflow: hidden; z-index: 1;
+  border-bottom: .45mm solid var(--obs); }
+.bant > svg.sahne { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.bant.b30 { height: 30mm; } .bant.b28 { height: 28mm; } .bant.b36 { height: 36mm; } .bant.b62 { height: 62mm; } .bant.b40 { height: 40mm; }
+.levha { position: absolute; left: 11mm; top: 4mm; display: grid; grid-template-columns: 19mm 1fr; gap: 2.6mm; align-items: center;
+  background: rgba(255, 255, 255, .93); border: var(--cz) solid var(--obs); border-radius: 4mm; padding: 2.2mm 4.4mm 2.4mm 2.4mm;
+  box-shadow: var(--golge-k); max-width: 118mm; z-index: 2; }
+.levha .hedef + .hedef { margin-top: .6mm; padding-top: .6mm; }
+.levha .hedef { display: block; margin-top: 1.4mm; padding-top: 1.2mm; border-top: .3mm dashed var(--keh); font-size: 9.5pt; line-height: 1.32; font-weight: 700; }
+.levha .hedef > b { color: var(--keh-k); font-weight: 900; font-size: 7.4pt; letter-spacing: .08em; text-transform: uppercase; margin-right: 1.4mm; }
+.levha .hedef .cip { font-size: 7.4pt; padding: .3mm 1.8mm .2mm; margin: .6mm 1.2mm 0 0; vertical-align: .2mm; }
+.levha .hedef .cip:first-of-type { margin-left: 1.2mm; }
+.levha > svg { width: 19mm; height: 19mm; }
+.levha .ust { font-weight: 900; font-size: 7.6pt; letter-spacing: .09em; text-transform: uppercase; color: var(--gol-k); }
+.levha h1 { font-family: var(--baslik); font-weight: 800; font-size: 25pt; line-height: .95; margin-top: .9mm; letter-spacing: -.005em; white-space: nowrap; }
+.levha h1 em { font-style: normal; color: var(--gol); }
+.levha .alt-bas { font-size: 9.6pt; font-weight: 700; color: var(--soluk); margin-top: .7mm; line-height: 1.2; }
+.levha .alt-bas b { color: var(--gol-k); }
+.levha.keh .ust { color: var(--keh-k); } .levha.keh h1 em { color: var(--keh); }
+.levha.mer .ust { color: var(--mer-k); } .levha.mer h1 em { color: var(--mer); }
+.levha.kob .ust { color: var(--kob-k); } .levha.kob h1 em { color: var(--kob); }
+
+/* Durağın hedefi şeridi (bandın hemen altında, tek satır) */
+.hedef-serit { display: flex; align-items: center; gap: 2.4mm; background: var(--keh-a); border: var(--cz) solid var(--obs); border-radius: var(--r-k);
+  padding: 1.3mm 2.6mm; box-shadow: var(--golge-k); font-size: 9.8pt; font-weight: 700; }
+.hedef-serit .et { flex: none; }
+.hedef-serit p { flex: 1; line-height: 1.2; }
+.hedef-serit .cipler { display: flex; gap: 1.4mm; flex: none; }
+
+/* ------------------------------------------------------------------ 6. TEMEL PARÇALAR */
+.kart { position: relative; background: var(--beyaz); border: var(--cz) solid var(--obs); border-radius: var(--r); box-shadow: var(--golge); padding: 2.4mm 3mm; }
+.kart.duz { box-shadow: none; }
+.kart.gol-z { background: var(--gol-aa); } .kart.keh-z { background: var(--keh-a); } .kart.mer-z { background: var(--mer-a); }
+.kart.kob-z { background: var(--kob-a); } .kart.gum-z { background: var(--gum-a); } .kart.kirec-z { background: var(--kirec); }
+.kart-bas { display: flex; align-items: center; justify-content: space-between; gap: 2mm; margin-bottom: 1.4mm; }
+.kart-bas .sag { display: flex; align-items: center; gap: 1.4mm; }
+
+/* .et satır içi blok olmalı: inline-flex olursa <sub>/<sup> ayrı flex öğesi olur ve "N  A" gibi kopar */
+.et { display: inline-block; font-weight: 900; font-size: 7.8pt; letter-spacing: .085em; text-transform: uppercase; line-height: 1.15; color: var(--gol-k); }
+.et svg { width: 4.2mm; height: 4.2mm; vertical-align: -1.15mm; margin-right: 1.3mm; }
+.et sub, .et sup, .had sub, .had sup { text-transform: none; letter-spacing: 0; }
+.et.keh { color: var(--keh-k); } .et.mer { color: var(--mer-k); } .et.kob { color: var(--kob-k); } .et.gum { color: var(--gum-k); } .et.obs { color: var(--obs); }
+
+.cip { display: inline-flex; align-items: center; gap: 1mm; border: var(--cz-i) solid var(--obs); border-radius: 9mm; padding: .45mm 2.2mm .35mm;
+  font-weight: 900; font-size: 7.8pt; letter-spacing: .03em; background: #fff; white-space: nowrap; line-height: 1.25; }
+.cip svg { width: 3.4mm; height: 3.4mm; }
+.cip.akce { background: var(--keh-a); color: var(--keh-k); border-color: var(--keh-k); }
+.cip.koyu { background: var(--obs); color: #fff; } .cip.gol { background: var(--gol); color: #fff; border-color: var(--gol-k); }
+.cip.mer { background: var(--mer); color: #fff; border-color: var(--mer-k); } .cip.kob { background: var(--kob); color: #fff; border-color: var(--kob-k); }
+.cip.eksi { background: #fff; color: var(--mer-k); border-color: var(--mer-k); } .cip.buyuk { font-size: 9pt; padding: .8mm 3mm .6mm; }
+
+.yildiz { color: var(--keh); font-size: 9pt; letter-spacing: .02em; } .yildiz s { text-decoration: none; color: #D3DCE0; }
+.vurgu { background: linear-gradient(transparent 52%, #FFD978 52%, #FFD978 92%, transparent 92%); padding: 0 .4mm; }
+.var { font-style: italic; }
+.kesir { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; line-height: 1.08; margin: 0 .6mm; }
+.kesir > span:first-child { border-bottom: .3mm solid currentColor; padding: 0 .8mm .2mm; } .kesir > span:last-child { padding-top: .3mm; }
+.izo { display: inline-flex; flex-direction: column; vertical-align: middle; line-height: .9; font-size: .62em; text-align: right; margin-right: .2mm; }
+.bento { display: grid; gap: 2.5mm; } .bento.dikey { display: flex; flex-direction: column; }
+.ara-bas { display: flex; align-items: center; gap: 2mm; font-family: var(--baslik); font-weight: 800; font-size: 14pt; line-height: 1; }
+.ara-bas svg.ikon { width: 5.6mm; height: 5.6mm; color: var(--gol-k); }
+.ara-bas .kilim { flex: 1; height: 3.2mm; }
+.ara-bas small { font-family: var(--govde); font-size: 8.4pt; font-weight: 700; color: var(--soluk); }
+
+/* ------------------------------------------------------------------ 7. SOHBET (kıyı sohbeti)
+   .sohbet > .sohbet-bas + .mesaj.(elif|yusuf|pamuk|zeynep) > svg.av + .balon > .kim */
+.sohbet { padding: 2.6mm 3mm; }
+.sohbet-bas { display: flex; align-items: center; justify-content: space-between; padding-bottom: 1.4mm; margin-bottom: 1.8mm; border-bottom: .3mm dashed var(--cizgi); }
+.sohbet-bas b { font-family: var(--baslik); font-size: 12pt; color: var(--gol-k); line-height: 1; padding-top: .6mm; }
+.sohbet-bas .yigin { display: flex; } .sohbet-bas .yigin svg { width: 7mm; height: 7mm; margin-left: -1.6mm; }
+.mesaj { display: flex; align-items: flex-end; gap: 1.8mm; margin-bottom: 1.3mm; }
+.mesaj:last-child { margin-bottom: 0; }
+.mesaj > svg.av { width: 8.4mm; height: 8.4mm; flex: none; }
+.mesaj .balon { border: var(--cz) solid var(--obs); border-radius: 3.4mm; padding: 1.1mm 2.5mm 1.3mm; font-size: 9.7pt; line-height: 1.24; }
+.mesaj .kim { display: block; font-weight: 900; font-size: 8pt; letter-spacing: .02em; margin-bottom: .2mm; }
+.mesaj.sag { flex-direction: row-reverse; } .mesaj.sag .balon { border-bottom-right-radius: .5mm; }
+.mesaj.elif .balon { background: var(--mer-a); } .mesaj.elif .kim { color: var(--mer-k); }
+.mesaj.yusuf .balon { background: var(--gol-a); border-bottom-left-radius: .5mm; } .mesaj.yusuf .kim { color: var(--gol-k); }
+.mesaj.pamuk .balon { background: var(--keh-a); border-style: dashed; border-bottom-left-radius: .5mm; } .mesaj.pamuk .kim { color: var(--keh-k); }
+.mesaj.zeynep .balon { background: var(--kob-a); border-bottom-left-radius: .5mm; } .mesaj.zeynep .kim { color: var(--kob-k); }
+.mesaj .balon .vurgu { font-weight: 800; }
+
+/* ------------------------------------------------------------------ 8. MEDENİYETİMİZDEN (tezhipli köşe; C konseptinden)
+   .medeniyet > svg.kose (4 köşe) + .med-bas + .med-ic > (.zh avatar satırı) + .metin (Amiri) */
+.medeniyet { position: relative; background: var(--kirec); border: .5mm solid var(--lajver); border-radius: .8mm;
+  padding: 5.2mm 5.4mm 3.6mm; box-shadow: inset 0 0 0 1mm var(--kirec), inset 0 0 0 1.4mm var(--altin), var(--golge); }
+.medeniyet::before { content: ""; position: absolute; left: 1.4mm; right: 1.4mm; top: 1.4mm; height: 2.2mm;
+  background: url("gorsel/ebru-gol.jpg") center 60% / 140mm auto; border-bottom: .3mm solid var(--altin); }
+.medeniyet > svg.kose { position: absolute; width: 8mm; height: 8mm; z-index: 1; }
+.medeniyet > svg.kose.k1 { left: .2mm; top: .2mm; } .medeniyet > svg.kose.k2 { right: .2mm; top: .2mm; transform: scaleX(-1); }
+.medeniyet > svg.kose.k3 { left: .2mm; bottom: .2mm; transform: scaleY(-1); } .medeniyet > svg.kose.k4 { right: .2mm; bottom: .2mm; transform: scale(-1, -1); }
+.med-bas { position: absolute; left: 50%; top: -3.2mm; transform: translateX(-50%); z-index: 2; display: flex; align-items: center; gap: 1.4mm;
+  background: var(--lajver); color: var(--altin-a); border: .45mm solid var(--altin); border-radius: 4mm; padding: .6mm 3.6mm .8mm;
+  font-family: var(--kufi); font-weight: 700; font-size: 9.4pt; letter-spacing: .1em; white-space: nowrap; }
+.med-bas svg { width: 3.8mm; height: 3.8mm; color: var(--altin-a); }
+.medeniyet .zh { display: flex; align-items: center; gap: 1.8mm; font-family: var(--kufi); font-size: 7.8pt; letter-spacing: .06em; color: var(--altin-k); text-transform: uppercase; margin-bottom: .8mm; }
+.medeniyet .zh svg { width: 7.4mm; height: 7.4mm; }
+.medeniyet .metin { font-family: var(--amiri); font-size: 10.6pt; line-height: 1.22; }
+.medeniyet .metin b { color: var(--lajver); }
+.medeniyet .metin i { color: var(--altin-k); }
+.medeniyet .not { margin-top: 1.4mm; padding-top: 1.2mm; border-top: .3mm dashed var(--altin); font-family: var(--govde); font-size: 9.6pt; line-height: 1.25; }
+
+/* ------------------------------------------------------------------ 9. KAVRAM, KIYIDAN (günlük hayat), MOL HARİTASI */
+.kavram { background: var(--kob-a); }
+.kavram p { font-size: 10pt; line-height: 1.3; } .kavram p + p { margin-top: 1mm; }
+.kiyidan { background: var(--gol-aa); }
+.harita-kart { padding: 2.4mm 2.8mm; }
+.harita-kart svg.mol-haritasi { width: 100%; height: auto; display: block; }
+
+/* ------------------------------------------------------------------ 10. HAZİNE KARTI (formül; kes, deftere yapıştır)
+   .hazine > svg.hno (yıldız + Hn) + div > .had + .hf + .hac ;  sağ üstte svg.sikke */
+.hazine { position: relative; display: grid; grid-template-columns: 10.5mm 1fr; gap: 2mm; align-items: center;
+  background: #fff; border: .4mm dashed var(--obs); border-radius: var(--r); padding: 1.5mm 6.4mm 1.5mm 2mm; }
+.hazine > svg.hno { width: 10.5mm; height: 10.5mm; }
+.hazine .had { font-weight: 900; font-size: 7.6pt; letter-spacing: .08em; text-transform: uppercase; color: var(--keh-k); }
+.hazine .hf { font-family: var(--baslik); font-weight: 800; font-size: 14.4pt; line-height: 1.05; margin-top: .5mm; }
+.hazine .hf .kesir { font-size: 13pt; }
+.hazine .hac { font-size: 8.6pt; font-weight: 700; color: var(--soluk); margin-top: .5mm; }
+.hazine > svg.sikke { position: absolute; right: 1.2mm; top: 1.2mm; width: 5mm; height: 5mm; }
+.kes-not { display: flex; align-items: center; gap: 1.4mm; font-size: 7.6pt; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; color: var(--gum-k); }
+.kes-not svg { width: 4mm; height: 4mm; color: var(--gum-k); }
+
+/* ------------------------------------------------------------------ 11. GÖREV (çözümlü örnek) */
+.gorev .baglam { font-size: 8.6pt; font-weight: 800; color: var(--keh-k); margin-bottom: .4mm; }
+.gorev .soru, .hizli .soru, .mesveret .soru, .kissa .soru { font-weight: 800; font-size: 10pt; line-height: 1.26; }
+ol.akis { list-style: none; margin-top: 1.6mm; }
+ol.akis li { position: relative; display: grid; grid-template-columns: 6mm 1fr; gap: 1.6mm; align-items: start; font-size: 9.6pt; line-height: 1.27; padding-bottom: 1.1mm; }
+ol.akis li > i { width: 5.6mm; height: 5.6mm; border-radius: 50%; border: var(--cz) solid var(--gol-k); background: #fff; color: var(--gol-k);
+  display: grid; place-items: center; font-style: normal; font-weight: 900; font-size: 8.4pt; padding-top: .2mm; }
+ol.akis li:not(:last-child)::after { content: ""; position: absolute; left: 2.75mm; top: 6mm; bottom: -.2mm; border-left: .35mm dotted var(--gol-k); }
+.sonuc { display: inline-block; background: var(--obs); color: #fff; border-radius: 6mm; padding: 1mm 3.2mm 1.1mm 1.2mm; font-weight: 800; font-size: 9.8pt; line-height: 1.25; margin-top: .6mm; }
+.sonuc > span:first-child { display: inline-block; background: var(--keh); color: var(--obs); border-radius: 5mm; padding: .35mm 2.2mm .25mm; margin-right: 1.8mm; font-size: 7.4pt; font-weight: 900; letter-spacing: .08em; vertical-align: .3mm; }
+table.gorev-tablo { border-collapse: collapse; width: 100%; font-size: 9.4pt; margin-top: 1.4mm; }
+table.gorev-tablo th, table.gorev-tablo td { border: .3mm solid var(--obs-2); padding: .7mm 1.4mm; text-align: center; }
+table.gorev-tablo th { background: var(--gol-a); font-weight: 900; }
+table.gorev-tablo td:first-child { text-align: left; font-weight: 800; background: var(--gum-a); }
+
+/* ------------------------------------------------------------------ 12. TUZAK (mühürlü yanlış/doğru) */
+.tuzak { position: relative; background: #fff; border: var(--cz) solid var(--obs); border-radius: var(--r); box-shadow: var(--golge); overflow: hidden; }
+.tuzak-ust { display: flex; align-items: center; justify-content: space-between; background: var(--mer); color: #fff; padding: 1.3mm 2.8mm; border-bottom: var(--cz) solid var(--obs); }
+.tuzak-ust b { display: flex; align-items: center; gap: 1.6mm; font-family: var(--baslik); font-size: 13.4pt; line-height: 1; padding-top: .6mm; }
+.tuzak-ust b svg { width: 5mm; height: 5mm; color: #fff; margin-top: -.6mm; }
+.tuzak-iddia { position: relative; background: var(--mer-a); padding: 1.6mm 20mm 1.8mm 2.8mm; min-height: 15mm; border-bottom: .3mm dashed var(--mer); }
+.tuzak-iddia small { display: block; font-weight: 900; font-size: 7.4pt; letter-spacing: .08em; text-transform: uppercase; color: var(--mer-k); }
+.tuzak-iddia p { font-weight: 800; font-size: 10pt; text-decoration: line-through; text-decoration-color: var(--mer); text-decoration-thickness: .4mm; margin-top: .5mm; }
+.tuzak-iddia svg.muhur { position: absolute; right: 1.4mm; top: 50%; width: 18.5mm; height: 18.5mm; transform: translateY(-50%) rotate(-11deg); }
+.tuzak-dogru { position: relative; padding: 1.8mm 2.8mm 2.2mm; }
+.tuzak-dogru .bas { display: flex; align-items: center; gap: 1.2mm; font-weight: 900; font-size: 7.8pt; letter-spacing: .08em; text-transform: uppercase; color: var(--zumrut); }
+.tuzak-dogru .bas svg { width: 4mm; height: 4mm; color: var(--zumrut); }
+.tuzak-dogru p { font-size: 9.8pt; line-height: 1.3; margin-top: .5mm; }
+.tuzak-dogru svg.muhur { position: absolute; right: 1.6mm; bottom: 1.4mm; width: 12mm; height: 12mm; transform: rotate(9deg); opacity: .9; }
+
+/* ------------------------------------------------------------------ 13. HIZLI GÖREV (anahtarlı ipucu, ters cevap) */
+.hizli { background: var(--keh-a); }
+.anahtar-ipucu { display: flex; align-items: center; gap: 2mm; margin-top: 1.6mm; border: .35mm dashed var(--keh-k); border-radius: 2.4mm; padding: 1.2mm 2.2mm;
+  background: repeating-linear-gradient(135deg, #fff 0 2.2mm, #FFF6E2 2.2mm 4.4mm); font-size: 9.5pt; }
+.anahtar-ipucu svg { width: 5.4mm; height: 5.4mm; color: var(--keh-k); flex: none; }
+.anahtar-ipucu b { color: var(--mer-k); }
+.ters { display: inline-block; transform: rotate(180deg); }
+.cevap-satir { display: flex; align-items: center; justify-content: space-between; gap: 2mm; margin-top: 1.6mm; }
+.cevap-kutu { flex: 1; border: var(--cz) solid var(--obs); border-radius: 2.2mm; background: #fff; height: 7.4mm; padding: 1.4mm 2.4mm; font-size: 7.6pt; font-weight: 900; letter-spacing: .08em; color: var(--gum-k); }
+.ters-cevap { font-size: 8.4pt; font-weight: 800; color: var(--gum-k); white-space: nowrap; }
+
+/* ------------------------------------------------------------------ 14. HÜLASA (özet kart serisi) + MUHASEBE (çay bardakları) */
+.ozet-kart { position: relative; background: #fff; border: var(--cz) solid var(--obs); border-radius: var(--r); box-shadow: var(--golge); padding: 2.6mm 3mm; }
+.ozet-kart .sira { position: absolute; right: 2.4mm; top: 2mm; font-family: var(--baslik); font-weight: 800; font-size: 9pt; color: var(--gum-k); }
+.ozet-kart h3 { font-family: var(--baslik); font-weight: 800; font-size: 13pt; line-height: 1.05; margin: .6mm 0 1.2mm; }
+.ozet-kart.koyu { background: var(--derin); color: #fff; } .ozet-kart.koyu .sira { color: var(--gol-a); } .ozet-kart.koyu .et { color: var(--keh); }
+.ozet-kart.gol { background: var(--gol-aa); } .ozet-kart.keh { background: var(--keh-a); } .ozet-kart.mer { background: var(--mer-a); } .ozet-kart.kob { background: var(--kob-a); }
+ul.ozet-liste { list-style: none; font-size: 9.6pt; line-height: 1.28; }
+ul.ozet-liste li { position: relative; padding-left: 3.6mm; margin-bottom: .7mm; }
+ul.ozet-liste li::before { content: ""; position: absolute; left: .3mm; top: 1.6mm; width: 1.6mm; height: 1.6mm; background: var(--gol); transform: rotate(45deg); }
+ul.ozet-liste.no { counter-reset: n; } ul.ozet-liste.no li { padding-left: 5.4mm; }
+ul.ozet-liste.no li::before { counter-increment: n; content: "0" counter(n); background: none; transform: none; width: auto; height: auto; top: 0; left: 0;
+  font-weight: 900; font-size: 8pt; color: var(--mer-k); }
+.muhasebe .satir { display: grid; grid-template-columns: 1fr 13mm 13mm 13mm; gap: .6mm; align-items: center; padding: .5mm 0; border-bottom: .3mm dashed var(--cizgi); font-size: 9.6pt; line-height: 1.22; }
+.muhasebe .satir:last-child { border-bottom: 0; }
+.muhasebe .satir svg.cay { width: 5.4mm; height: 7.2mm; justify-self: center; }
+.muhasebe .bas { font-size: 7pt; font-weight: 900; letter-spacing: .03em; text-transform: uppercase; color: var(--keh-k); text-align: center; border-bottom: .35mm solid var(--obs); }
+.muhasebe .bas span:first-child { text-align: left; }
+.muhasebe .bas svg.cay { width: 6mm; height: 8mm; display: block; margin: 0 auto .4mm; }
+
+/* ------------------------------------------------------------------ 15. MECLİS (hatalı çözüm: kim haklı?) */
+.meclis { padding: 0; overflow: hidden; }
+.meclis-bas { display: flex; align-items: center; gap: 2mm; padding: 1.8mm 2.8mm; background: var(--gol-aa); border-bottom: var(--cz) solid var(--obs); }
+.meclis-bas .harf { width: 7.4mm; height: 7.4mm; border-radius: 50%; border: var(--cz) solid var(--obs); display: grid; place-items: center; color: #fff;
+  font-family: var(--baslik); font-weight: 800; font-size: 11pt; padding-top: .7mm; flex: none; }
+.meclis-bas b { font-family: var(--baslik); font-size: 12.4pt; line-height: 1; padding-top: .6mm; }
+.meclis-bas small { font-size: 8pt; font-weight: 700; color: var(--soluk); }
+.meclis-bas .cip { margin-left: auto; }
+.meclis .ic2 { padding: 2mm 2.8mm 2.4mm; }
+.meclis .psoru { font-weight: 800; font-size: 10pt; line-height: 1.26; }
+.cozum-defter { margin: 1.4mm 0; border: .35mm solid var(--obs); border-radius: 2mm; background: #fff;
+  background-image: linear-gradient(90deg, transparent 6.4mm, rgba(226, 83, 61, .55) 6.4mm, rgba(226, 83, 61, .55) 6.7mm, transparent 6.7mm); }
+.cozum-defter div { position: relative; padding: .7mm 2mm .7mm 8.2mm; font-size: 9.6pt; line-height: 1.26; border-bottom: .3mm dashed var(--cizgi); }
+.cozum-defter div:last-child { border-bottom: 0; }
+.cozum-defter i { position: absolute; left: 0; top: .7mm; width: 6.4mm; font-style: normal; font-weight: 900; color: var(--gol-k); text-align: center; }
+.yorum { display: flex; align-items: center; gap: 1.6mm; font-size: 9.6pt; margin-top: .9mm; }
+.yorum svg { width: 7mm; height: 7mm; flex: none; }
+.yorum .k { margin-left: auto; display: inline-flex; align-items: center; gap: 1mm; font-size: 7.4pt; font-weight: 900; color: var(--gum-k); text-transform: uppercase; letter-spacing: .06em; }
+.kutucuk { display: inline-block; width: 3.6mm; height: 3.6mm; border: .35mm solid var(--obs); border-radius: .8mm; background: #fff; vertical-align: -.7mm; }
+.hukum { margin-top: 1.6mm; border: .35mm dashed var(--gol-k); border-radius: 2.4mm; padding: 1.2mm 2.2mm 1.4mm; background: var(--gol-aa); font-size: 8.4pt; font-weight: 900; color: var(--gol-k); }
+.hukum .s { display: flex; align-items: center; gap: 1.2mm; flex-wrap: wrap; letter-spacing: .03em; }
+.hukum .s + .s { margin-top: 1.4mm; }
+.hukum .s .cizgili { flex: 1; border-bottom: .3mm dotted var(--obs-2); height: 3.6mm; }
+
+/* ------------------------------------------------------------------ 16. KISSA (bağlam sorusu) */
+.kissa { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.kissa-bas { display: flex; align-items: center; justify-content: space-between; gap: 2mm; padding: 1.5mm 2.8mm; border-bottom: var(--cz) solid var(--obs); background: var(--gol-aa); }
+.kissa-bas.keh { background: var(--keh-a); } .kissa-bas.mer { background: var(--mer-a); } .kissa-bas.kob { background: var(--kob-a); }
+.kissa-ic { padding: 2mm 2.8mm 2.2mm; display: flex; flex-direction: column; gap: 1.2mm; flex: 1; }
+.kissa-ic .ust-satir { display: grid; grid-template-columns: 1fr auto; gap: 2.4mm; align-items: start; }
+.kissa-ic .metin { font-size: 9.8pt; line-height: 1.3; }
+.kissa-ic .metin b { color: var(--gol-k); }
+ul.yargi { list-style: none; font-size: 9.8pt; line-height: 1.3; }
+ul.yargi li { position: relative; padding-left: 6.4mm; } ul.yargi li b { position: absolute; left: 0; color: var(--kob-k); }
+.siklar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4mm; margin-top: auto; }
+.siklar.iki { grid-template-columns: repeat(2, 1fr); }
+.sik { display: block; border: .35mm solid var(--obs); border-radius: 5mm; padding: .65mm 2mm .65mm .8mm; background: #fff; font-size: 9.6pt; font-weight: 700; line-height: 1.3; white-space: nowrap; }
+.sik b { display: inline-grid; place-items: center; width: 5mm; height: 5mm; border-radius: 50%; border: .35mm solid var(--obs); font-size: 8pt; font-weight: 900; margin-right: 1.2mm; vertical-align: -.3mm; line-height: 1; }
+.hisse { display: block; padding-top: 1.1mm; border-top: .3mm dashed var(--cizgi); font-size: 9.5pt; line-height: 1.25; }
+.hisse b { color: var(--keh-k); white-space: nowrap; margin-right: 1mm; }
+.yol-cip { display: flex; align-items: center; gap: 1mm; font-size: 7.6pt; font-weight: 900; letter-spacing: .06em; color: var(--soluk); }
+.yol-cip span { border: .35mm solid var(--obs); border-radius: 4mm; padding: .2mm 2mm; background: #fff; color: var(--obs); }
+.yol-cip span.on { background: var(--gol); color: #fff; border-color: var(--gol-k); }
+.karalama { border: .3mm dashed var(--gum); border-radius: 2mm; background-image: radial-gradient(circle, #C9D4DA .28mm, transparent .3mm); background-size: 3mm 3mm; min-height: 9mm; position: relative; }
+.karalama::after { content: "karalama"; position: absolute; right: 1.6mm; top: .8mm; font-size: 6.8pt; font-weight: 900; letter-spacing: .1em; color: var(--gum); text-transform: uppercase; }
+
+/* ------------------------------------------------------------------ 17. ANAHTAR MERDİVENİ */
+.merdiven { display: grid; grid-template-columns: 1fr 78mm; gap: 3mm; padding: 2.6mm 3mm; }
+.merdiven .no { font-family: var(--baslik); font-weight: 800; font-size: 26pt; line-height: .9; color: var(--gol); }
+.merdiven .soru { font-weight: 800; font-size: 10pt; line-height: 1.27; }
+.merdiven .mol-sira { float: right; margin: 0 0 .6mm 2mm; }
+.merdiven .bas-satir { display: grid; grid-template-columns: 9mm 1fr; gap: 1.6mm; align-items: start; }
+.merdiven .cozum-alani { margin-top: 1.6mm; border-top: .3mm dotted var(--obs-2); }
+.merdiven .cozum-alani div { height: 6.2mm; border-bottom: .3mm dotted var(--obs-2); }
+.merdiven .indigim { margin-top: 1.6mm; font-size: 8.6pt; font-weight: 900; white-space: nowrap; }
+.merdiven .indigim .kutucuk { margin: 0 .4mm 0 1.2mm; }
+.merdiven .indigim .kk { width: 7mm; height: 5.4mm; border: .35mm solid var(--obs); border-radius: 1.4mm; background: #fff; display: inline-block; vertical-align: middle; }
+.basamaklar { display: flex; flex-direction: column; gap: 1.5mm; }
+.basamak { display: grid; grid-template-columns: 6.6mm 1fr auto; gap: 1.6mm; align-items: center; border: .35mm solid var(--obs); border-radius: 2.4mm; padding: 1mm 2mm; background: var(--gol-aa); font-size: 9.5pt; line-height: 1.2; }
+.basamak:nth-child(2) { margin-left: 4mm; background: var(--gol-a); } .basamak:nth-child(3) { margin-left: 8mm; background: #C6EBE8; }
+.basamak svg { width: 6mm; height: 6mm; color: var(--gol-k); }
+.basamak small { display: block; font-size: 7.2pt; font-weight: 900; letter-spacing: .08em; color: var(--gol-k); text-transform: uppercase; }
+.basamak .eksi { font-weight: 900; color: var(--mer-k); font-size: 8.4pt; }
+
+/* ------------------------------------------------------------------ 18. MEŞVERET (anket/test kartı) */
+.mesveret { display: flex; flex-direction: column; gap: 1.2mm; padding: 2.4mm 2.8mm; }
+.mesveret-bas { display: flex; align-items: center; gap: 1.8mm; }
+.mesveret-bas svg.sno { width: 9mm; height: 9mm; flex: none; }
+.mesveret-bas .et { flex: 1; }
+.oy { display: grid; grid-template-columns: 1fr; gap: 1mm; margin-top: auto; }
+.oy.yatay { grid-template-columns: 1fr 1fr; } .oy.uc { grid-template-columns: 1fr 1fr 1fr; }
+.oy.uc > div { padding-right: 1.6mm; }
+.oy > div { display: grid; grid-template-columns: 5mm 1fr auto; gap: 1.4mm; align-items: center; border: .35mm solid var(--obs); border-radius: 5mm; padding: .6mm 2mm .6mm .7mm; background: #fff; font-size: 9.6pt; font-weight: 700; line-height: 1.2; }
+.oy > div b { width: 5mm; height: 5mm; border-radius: 50%; border: .35mm solid var(--obs); display: grid; place-items: center; font-size: 8pt; font-weight: 900; }
+.oy > div em { font-style: normal; font-size: 7.4pt; font-weight: 900; color: var(--gum); letter-spacing: .04em; }
+.mesveret .karalama { flex: 1; min-height: 10mm; }
+.mesveret .resim { float: right; margin: 0 0 1mm 2mm; }
+
+/* ------------------------------------------------------------------ 19. CEVAPLAR */
+.anahtar-izgara { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.4mm; }
+.anahtar-izgara div { border: var(--cz) solid var(--obs); border-radius: 2.4mm; background: #fff; text-align: center; padding: 1mm 0 1.2mm; box-shadow: var(--golge-k); }
+.anahtar-izgara i { display: block; font-style: normal; font-size: 7.4pt; font-weight: 900; color: var(--gum-k); }
+.anahtar-izgara b { display: block; font-family: var(--baslik); font-size: 17pt; line-height: 1; color: var(--gol-k); padding-top: .8mm; }
+.anahtar-izgara small { display: block; font-size: 6.8pt; font-weight: 900; color: var(--keh-k); letter-spacing: .04em; }
+.cozumler { columns: 2; column-gap: 5mm; font-size: 9.2pt; line-height: 1.3; }
+.cozumler .grup { break-inside: avoid; margin-bottom: 2mm; }
+.cozumler h4 { font-family: var(--baslik); font-weight: 800; font-size: 11.4pt; color: var(--gol-k); border-bottom: .35mm solid var(--gol); margin-bottom: 1mm; padding-top: .4mm; }
+.cozumler p.c { margin-bottom: .7mm; } .cozumler p.c b { color: var(--mer-k); }
+
+/* ------------------------------------------------------------------ 20. FİNAL: akçe rayı, unvanlar, akçe defteri, nişan sayımı */
+.ray { position: relative; height: 26mm; }
+.ray svg { width: 100%; height: 100%; display: block; }
+.unvanlar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.4mm; }
+.unvan { border: var(--cz) solid var(--obs); border-radius: var(--r); background: #fff; box-shadow: var(--golge-k); padding: 2mm 2.4mm; text-align: center; }
+.unvan svg { width: 13mm; height: 13mm; display: block; margin: 0 auto .6mm; }
+.unvan b { display: block; font-family: var(--baslik); font-size: 12.4pt; line-height: 1; padding-top: .5mm; }
+.unvan small { display: block; font-size: 7.8pt; font-weight: 900; color: var(--keh-k); letter-spacing: .05em; }
+.unvan p { font-size: 9.2pt; line-height: 1.2; margin-top: .6mm; color: var(--obs-2); }
+table.defter { width: 100%; border-collapse: collapse; font-size: 9.6pt; }
+table.defter td, table.defter th { border-bottom: .3mm dashed var(--cizgi); padding: .8mm 1mm; text-align: left; }
+table.defter th { font-size: 7.4pt; font-weight: 900; letter-spacing: .07em; text-transform: uppercase; color: var(--keh-k); border-bottom: .35mm solid var(--obs); }
+table.defter td.n { text-align: right; font-weight: 800; color: var(--soluk); width: 14mm; }
+table.defter td.k { width: 17mm; } table.defter td.k span { display: block; height: 5.4mm; border: .35mm solid var(--obs); border-radius: 1.4mm; background: #fff; }
+table.defter tr.top td { border-bottom: 0; border-top: .35mm solid var(--obs); font-weight: 900; font-size: 10.4pt; }
+.nisan-say { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.6mm; text-align: center; }
+.nisan-say svg { width: 13mm; height: 15.6mm; display: block; margin: 0 auto; }
+.nisan-say b { display: block; font-size: 8.4pt; line-height: 1.1; margin-top: .4mm; }
+.nisan-say small { display: flex; align-items: center; justify-content: center; gap: 1mm; font-size: 7.4pt; font-weight: 800; color: var(--gum-k); margin-top: .4mm; }
+
+/* ------------------------------------------------------------------ 21. AÇILIŞ (sayfa 1) */
+.acilis { position: absolute; left: 11mm; right: 11mm; top: 14.5mm; height: 44mm; display: grid; grid-template-columns: 1fr 76mm; gap: 3mm; z-index: 2; }
+.acilis .cipler { display: flex; gap: 1.8mm; flex-wrap: wrap; }
+.dev-baslik { font-family: var(--baslik); font-weight: 800; font-size: 54pt; line-height: .86; letter-spacing: -.012em; margin-top: 2mm; white-space: nowrap; }
+.dev-baslik .mol { color: var(--gol); }
+.dev-baslik .kav { position: relative; display: inline-block; }
+.dev-baslik .kav svg { position: absolute; left: -1mm; bottom: -2.4mm; width: calc(100% + 2mm); height: 5mm; z-index: -1; }
+.acilis .slogan { font-size: 12.6pt; font-weight: 800; color: var(--soluk); margin-top: 3.4mm; }
+.acilis .slogan b { color: var(--gol-k); }
+.pamuk-sahne { position: relative; }
+.pamuk-sahne svg.pamuk-buyuk { position: absolute; right: -3mm; bottom: -4mm; width: 36mm; height: 41mm; }
+.balon-buyuk { position: absolute; left: -6mm; top: 0; width: 45mm; background: #fff; border: var(--cz) solid var(--obs); border-radius: 4.4mm; box-shadow: var(--golge-k); padding: 2.2mm 2.8mm; font-size: 9.8pt; line-height: 1.28; z-index: 2; }
+.balon-buyuk::after { content: ""; position: absolute; right: -2.5mm; top: 14mm; width: 4mm; height: 4mm; background: #fff; border-right: var(--cz) solid var(--obs); border-top: var(--cz) solid var(--obs); transform: rotate(45deg) skew(8deg, 8deg); }
+.balon-buyuk b { color: var(--keh-k); }
+.panorama-kutu { position: absolute; left: 0; top: 60mm; width: 210mm; height: 110mm; overflow: hidden; z-index: 1; border-top: .45mm solid var(--obs); border-bottom: .45mm solid var(--obs); }
+.panorama-kutu > svg.sahne { position: absolute; inset: 0; width: 100%; height: 100%; }
+.durak-et { position: absolute; z-index: 2; background: rgba(255, 255, 255, .95); border: .35mm solid var(--obs); border-radius: 2mm; padding: .6mm 1.7mm .7mm; line-height: 1.06; white-space: nowrap; box-shadow: .5mm .6mm 0 rgba(14, 76, 90, .85); }
+.durak-et i { display: block; font-style: normal; font-size: 6.2pt; font-weight: 900; letter-spacing: .06em; color: var(--gol-k); }
+.durak-et b { display: block; font-family: var(--baslik); font-weight: 800; font-size: 9.2pt; line-height: 1.02; padding-top: .35mm; }
+.durak-et b small { font-family: var(--govde); font-size: 6.6pt; font-weight: 900; color: var(--keh-k); margin-left: 1mm; letter-spacing: .02em; }
+.durak-et.yan i { color: var(--keh-k); } .durak-et.kale i { color: var(--mer-k); } .durak-et.hul i { color: var(--erguvan); }
+.panorama-bas { position: absolute; left: 4mm; top: 3.4mm; z-index: 2; color: #fff; text-shadow: 0 .4mm 1.4mm rgba(30, 20, 60, .6); }
+.panorama-bas h2 { font-family: var(--baslik); font-weight: 800; font-size: 17pt; line-height: 1; }
+.panorama-bas p { font-size: 8.8pt; font-weight: 800; }
+.nisanlar { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2mm; text-align: center; }
+.nisanlar svg { width: 12.6mm; height: 15.1mm; display: block; margin: 0 auto; }
+.nisanlar b { display: block; font-family: var(--baslik); font-size: 10.6pt; line-height: 1; padding-top: .8mm; }
+.nisanlar span { display: block; font-size: 8pt; font-weight: 700; color: var(--soluk); line-height: 1.15; }
+.karakterler .kisiler { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6mm 3mm; }
+.karakterler .kisi { display: grid; grid-template-columns: 10mm 1fr; gap: 1.8mm; align-items: center; margin-top: 1.2mm; }
+.karakterler .kisi svg { width: 10mm; height: 10mm; }
+.karakterler .kisi b { font-family: var(--baslik); font-size: 12pt; line-height: 1; } .karakterler .kisi b small { display: block; font-family: var(--govde); font-size: 7.6pt; font-weight: 800; color: var(--gum-k); margin: .3mm 0 .2mm; }
+.karakterler .kisi p { font-size: 9.5pt; line-height: 1.2; }
+ol.hedefler { list-style: none; counter-reset: h; }
+ol.hedefler li { display: grid; grid-template-columns: 6mm 1fr; gap: 1.8mm; font-size: 9.8pt; line-height: 1.25; margin-top: 1.2mm; }
+ol.hedefler li::before { counter-increment: h; content: counter(h); width: 5.6mm; height: 5.6mm; border-radius: 50%; background: var(--gol); color: #fff; font-weight: 900; font-size: 8.4pt; display: grid; place-items: center; }
+.basamak-unvan { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4mm; margin-top: 1.2mm; }
+.basamak-unvan div { border: .35mm solid var(--obs); border-radius: 2.2mm; text-align: center; padding: .8mm 0 1mm; background: #fff; }
+.basamak-unvan div:nth-child(2) { background: var(--gol-aa); margin-top: -1mm; } .basamak-unvan div:nth-child(3) { background: var(--gol-a); margin-top: -2mm; }
+.basamak-unvan div:nth-child(4) { background: var(--keh-a); margin-top: -3mm; border-color: var(--keh-k); }
+.basamak-unvan b { display: block; font-family: var(--baslik); font-size: 10.6pt; line-height: 1; padding-top: .4mm; }
+.basamak-unvan small { font-size: 7.6pt; font-weight: 800; color: var(--soluk); }
+.isaretler { display: flex; align-items: center; gap: 2.6mm; padding: 1.8mm 3mm; }
+.isaretler > .et { flex: none; }
+.isaretler .is { display: flex; align-items: center; gap: 1.2mm; font-size: 8pt; line-height: 1.12; }
+.isaretler .is svg { width: 6mm; height: 6mm; color: var(--gol-k); flex: none; }
+.isaretler .is b { display: block; font-size: 8.6pt; }
+
+/* ------------------------------------------------------------------ 22. İLLÜSTRASYON YERLEŞİMİ (genel) */
+svg.mol { display: block; height: auto; }
+.resim-sag { float: right; margin: 0 0 1mm 2mm; }
+.pamuk-not { display: grid; grid-template-columns: 12mm 1fr; gap: 2mm; align-items: center; font-size: 9.6pt; line-height: 1.25; }
+.pamuk-not svg { width: 12mm; height: 13.7mm; }
+.ortala { text-align: center; }
+
+/* ------------------------------------------------------------------ 23. DURAK SAYFASI EKLERİ */
+/* Avogadro kartı: dev sayı + iki olgu + log cetvel */
+.avogadro-kart { padding: 2.4mm 3mm 2.4mm; display: grid; grid-template-columns: 52mm 1fr; gap: 3mm; align-items: center; }
+.avo-bas { display: flex; flex-direction: column; gap: 2mm; }
+.dev-sayi { font-family: var(--baslik); font-weight: 800; font-size: 34pt; line-height: .95; color: var(--derin); letter-spacing: -.01em; margin-top: .6mm; }
+.dev-sayi sup { font-size: .5em; top: -.85em; color: var(--keh); }
+.avo-olgu { border-left: .7mm solid var(--keh); padding-left: 2.2mm; font-size: 9.5pt; line-height: 1.24; }
+.avo-olgu b { display: block; font-family: var(--baslik); font-size: 14pt; line-height: 1; color: var(--keh-k); padding-top: .4mm; }
+.avogadro-kart svg.info { width: 100%; height: auto; display: block; }
+table.destetab { margin-top: 1mm; } table.destetab td:last-child { font-family: var(--baslik); font-size: 12pt; text-align: right; padding-right: 2mm; }
+table.destetab tr:last-child td { background: var(--keh-a); }
+/* hızlı kontrol satırı (kavram kartı içinde) */
+.hizli-kontrol { display: flex; align-items: center; gap: 2mm; margin-top: 1.6mm; padding-top: 1.4mm; border-top: .3mm dashed var(--kob); font-size: 9.6pt; }
+.hizli-kontrol .ters-cevap { margin-left: auto; }
+svg.info.cek { width: 70%; height: auto; display: block; margin: .4mm auto .2mm; }
+/* mini kavram kartları */
+.mini { padding: 1.7mm 2.8mm 1.8mm; } .mini .mini-f { font-family: var(--baslik); font-weight: 800; font-size: 14pt; line-height: 1; margin: .6mm 0 .4mm; padding-top: .4mm; }
+.mini p { font-size: 9.5pt; line-height: 1.24; }
+/* görev içi iki sütun (çözüm + grafik) */
+.gorev-iki { display: grid; grid-template-columns: 1fr 56mm; gap: 2mm; align-items: center; }
+.gorev-iki svg.info { width: 100%; height: auto; display: block; }
+/* Na2CO3 birim kartı */
+.na2co3 { display: grid; grid-template-columns: 36mm 1fr; gap: 1mm 2.4mm; align-items: center; padding: 2mm 2.8mm; }
+.na2co3 .na-et { grid-column: 1 / -1; }
+.na2co3 p { font-size: 9.6pt; line-height: 1.28; }
+.resim-sol svg { width: 100%; height: auto; }
+.kose-mol { float: right; margin: -.6mm -1mm .4mm 1.4mm; }
+.gorev { padding-bottom: 3mm; }
+/* tuz kristali + doğrusu */
+.tuz-ic { display: grid; grid-template-columns: 15mm 1fr; gap: 2mm; align-items: center; margin-top: .6mm; }
+.tuz-ic p { margin-top: 0 !important; font-size: 9.5pt !important; }
+
+/* ------------------------------------------------------------------ 24. 4–6. DURAK EKLERİ */
+table.mk th { font-size: 7.6pt; } table.mk td { font-size: 9.2pt; } table.mk td:last-child { font-family: var(--baslik); font-size: 11pt; background: var(--keh-a); }
+p.atom-serit { margin-top: 1.4mm; font-size: 9pt !important; font-weight: 800; color: var(--kob-k); letter-spacing: .01em; }
+.haz-ic { display: grid; grid-template-columns: 30mm 1fr; gap: 2.4mm; align-items: center; }
+.haz-ic svg.info { width: 100%; height: auto; display: block; border-radius: 2mm; border: .3mm solid var(--altin); }
+.haz-ic.sag { grid-template-columns: 1fr 30mm; }
+.harf-r { display: inline-grid; place-items: center; width: 5mm; height: 5mm; border-radius: 1.2mm; background: var(--gol); color: #fff; font-size: 8pt; margin-right: .8mm; vertical-align: .2mm; }
+.mol-cift { float: right; display: flex; gap: 1mm; margin: -1mm 0 0 1mm; }
+.mol-cift svg { width: 11mm; }
+.hazine.strateji { align-items: start; }
+ol.adimlar { list-style: none; counter-reset: a; margin-top: .6mm; }
+ol.adimlar li { position: relative; padding-left: 5.6mm; font-size: 9.4pt; line-height: 1.24; margin-top: .7mm; }
+ol.adimlar li::before { counter-increment: a; content: "0" counter(a); position: absolute; left: 0; top: .1mm; font-weight: 900; font-size: 8pt; color: var(--mer-k); }
+.g7-ic { display: grid; grid-template-columns: 1fr 64mm; gap: 3mm; align-items: center; }
+.g7-ic svg.info { width: 100%; height: auto; display: block; }
+.g8-ic { display: grid; grid-template-columns: 1fr 40mm; gap: 2mm; align-items: center; }
+.g8-ic svg.info { width: 100%; height: auto; display: block; }
+
+/* ------------------------------------------------------------------ 25. HÜLASA SAYFASI (ebru zemin + 6 kart + muhasebe) */
+.ozetler { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.8mm; padding: 3.6mm 0 3.8mm; }
+.ozetler::before { content: ""; position: absolute; left: -11mm; right: -11mm; top: 0; bottom: 0; z-index: -1;
+  background: url("gorsel/ebru-gun.jpg") center / cover; border-bottom: .45mm solid var(--obs); }
+.dev-sayi.acik { color: #fff; font-size: 27pt; margin: 1.6mm 0 1mm; } .dev-sayi.acik sup { color: var(--keh); }
+.ozet-kart.koyu p { font-size: 9.6pt; line-height: 1.26; }
+.ozet-mol { display: flex; align-items: flex-end; justify-content: space-around; margin-top: 2mm; padding: 1.4mm 1mm .6mm; background: rgba(255, 255, 255, .92); border-radius: 2.4mm; }
+.ozet-f { font-family: var(--baslik); font-weight: 800; font-size: 17pt; line-height: 1.1; margin: 1.6mm 0; text-align: center; }
+.ozet-kart svg.info { width: 100%; height: auto; display: block; margin: 1mm 0 1.2mm; }
+.ozet-kart .muhur-kose { position: absolute; right: 1.6mm; bottom: 1.6mm; width: 15mm; transform: rotate(-12deg); opacity: .85; }
+.ozet-kart .muhur-kose svg { width: 100%; height: auto; }
+.not-kart { display: flex; flex-direction: column; }
+.not-kart .kucuk { font-size: 9.5pt; line-height: 1.22; margin-top: .8mm; }
+.cizgiler div { height: 5.8mm; border-bottom: .3mm dotted var(--obs-2); }
+svg.pamuk-oku { width: 20mm; height: 22.8mm; align-self: center; margin-top: auto; }
+
+/* ------------------------------------------------------------------ 26. MECLİS / KISSA / ANAHTAR SAYFALARI */
+.meclis-bas.mer { background: var(--mer-a); } .meclis-bas.kob { background: var(--kob-a); } .meclis-bas.keh { background: var(--keh-a); }
+.meclis-not { display: grid; grid-template-columns: 15mm 1fr; gap: 2.4mm; align-items: center; padding: 2.4mm 3mm; }
+.meclis-not .muhur-yer { grid-column: 1 / -1; justify-self: end; margin-top: -4mm; }
+.meclis-not svg.pn { width: 15mm; height: 17mm; }
+.meclis-not p { font-size: 9.8pt; line-height: 1.28; }
+.muhur-yer svg { width: 18mm; height: 18mm; transform: rotate(10deg); }
+.kissa-izgara .kissa { min-height: 0; }
+.kissa-ic .ust-satir svg.info { width: 31mm; height: auto; border-radius: 2mm; border: .3mm solid var(--obs); }
+.raf-ic { display: grid; grid-template-columns: 37mm 1fr; gap: 2mm; align-items: center; }
+.raf-ic svg.info { width: 100%; height: auto; }
+table.gorev-tablo.raf { margin-top: 0; } table.gorev-tablo.raf td:first-child { text-align: center; width: 9mm; }
+.mol-sira { display: flex; gap: 3mm; align-items: flex-end; justify-content: center; margin-top: 1.2mm; }
+.yan-toplam .toplam-satir { display: flex; align-items: center; gap: 1.6mm; margin-top: 1.6mm; font-weight: 900; font-size: 9.6pt; }
+.yan-toplam .kk, .merdiven .kk { display: inline-block; width: 12mm; height: 6.6mm; border: .35mm solid var(--obs); border-radius: 1.6mm; background: #fff; vertical-align: middle; }
+.yan-toplam .kk.b { width: 16mm; background: var(--keh-a); }
+.siradaki { display: grid; grid-template-columns: 14mm 1fr; gap: 2.4mm; align-items: center; }
+.siradaki svg.ps { width: 14mm; height: 16mm; }
+.siradaki b { display: block; font-family: var(--baslik); font-size: 12.4pt; line-height: 1.05; padding-top: .6mm; }
+.siradaki p { font-size: 9.5pt; line-height: 1.2; }
+.merdiven .basamaklar .et { margin-bottom: .4mm; }
+
+.iki-sutun { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+.iki-sutun > div { display: flex; flex-direction: column; }
+.iki-sutun .sonuc { align-self: flex-start; margin-top: auto; }
+.g7-alt { display: grid; grid-template-columns: 1fr auto; gap: 3mm; align-items: center; margin-top: 1.2mm; }
+.g7-alt .sonuc { margin-top: 0; }
+ol.akis.yatay { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2mm; margin-top: 0; }
+ol.akis.yatay li { padding-bottom: 0; } ol.akis.yatay li::after { display: none; }
+.medeniyet.hazini .haz-ic { grid-template-columns: 34mm 1fr; }
+.medeniyet .haz-ic .zh { margin-bottom: .4mm; }
+
+.kissa-ic .karalama { flex: 1 1 auto; min-height: 9mm; }
+.yan-toplam .toplam-satir { flex-wrap: wrap; row-gap: 1mm; }
+
+/* ------------------------------------------------------------------ 27. HÜLASA hazine sandığı, ANAHTAR akçe merdiveni */
+.sandik { padding: 2mm 3mm 2.4mm; }
+.sandik .kart-bas { margin-bottom: 1.2mm; }
+.sandik-izgara { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.4mm; }
+.sandik-izgara div { background: #fff; border: .35mm dashed var(--obs); border-radius: 2mm; padding: .8mm 1.4mm; font-family: var(--baslik); font-weight: 800; font-size: 9.8pt; line-height: 1.15; white-space: nowrap; overflow: hidden; }
+.sandik-izgara b { display: inline-grid; place-items: center; min-width: 7.6mm; height: 5mm; border-radius: 1.2mm; background: var(--keh); color: var(--obs); font-size: 8pt; margin-right: 1.2mm; vertical-align: .2mm; }
+.mrd-kart { padding: 1.6mm; } .mrd-kart svg.info { width: 100%; height: auto; display: block; }
+.yan-toplam { padding: 2mm 3mm; }
+.yan-toplam .tablo { display: grid; grid-template-columns: 1fr auto; gap: 1mm 2mm; align-items: center; margin-top: 1.2mm; font-weight: 900; font-size: 9.6pt; }
+.yan-toplam .kk { width: 14mm; height: 5.8mm; }
+.yan-toplam .tablo .top { border-top: .35mm solid var(--obs); padding-top: .8mm; }
+
+/* ------------------------------------------------------------------ 28. BÜYÜK İMTİHAN */
+.levha.kucuk { padding: 1.6mm 4mm 1.8mm 2mm; grid-template-columns: 15mm 1fr; }
+.levha.kucuk > svg { width: 15mm; height: 15mm; }
+.levha.kucuk h1 { font-size: 21pt; }
+.azik { padding: 1.8mm 3mm; } .azik p { font-size: 9.6pt; line-height: 1.25; margin-top: .6mm; }
+.mesveret-izgara { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, auto); grid-auto-flow: column; align-content: stretch; gap: 2.5mm; }
+.oy .tam { grid-column: 1 / -1; }
+.mesveret-bas svg.sno { width: 9mm; height: 9mm; flex: none; }
+.mesveret .resim-sag { float: right; margin: -.6mm 0 .6mm 2mm; }
+.mesveret .resim-sag svg { height: auto; }
+.mesveret .resim-sag svg.balon { width: 9mm; } .mesveret .resim-sag svg.elmas { width: 13mm; }
+.mesveret .kucuk-soru { font-size: 9.6pt; }
+.mesveret ul.yargi { font-size: 9.6pt; }
+.oy > div span { line-height: 1.2; }
+.skor { display: grid; grid-template-columns: 14mm 1fr auto; gap: 3mm; align-items: center; padding: 2mm 3mm; }
+.skor svg.ps { width: 14mm; height: 16mm; }
+.skor p { font-size: 9.6pt; line-height: 1.25; margin-top: .4mm; }
+.skor-kutu { font-weight: 900; font-size: 9.6pt; white-space: nowrap; }
+.skor-kutu .kk { display: inline-block; width: 11mm; height: 6.4mm; border: .35mm solid var(--obs); border-radius: 1.6mm; background: #fff; vertical-align: middle; }
+.skor-kutu .kk.b { width: 15mm; background: var(--keh-a); }
+
+/* ------------------------------------------------------------------ 29. CEVAPLAR */
+.anahtar-kart { padding: 2.2mm 3mm 2.6mm; }
+.anahtar-izgara small { font-size: 6.4pt; }
+.cozum-kart { padding: 2.4mm 3.4mm; }
+.cozumler { font-size: 9.6pt; line-height: 1.27; }
+.cozumler h4 { font-size: 11pt; }
+.puan p, .tekrar ul { font-size: 9.6pt; line-height: 1.26; margin-top: .8mm; }
+.puan .skor-kutu { margin-top: 1.4mm; }
+
+/* ------------------------------------------------------------------ 30. FİNAL */
+.bant.final-bant { height: 89mm; }
+.final-levha { top: 4mm; }
+.final-balon { left: auto; right: 52mm; top: 58mm; width: 52mm; z-index: 3; }
+.final-balon::after { right: -2.5mm; top: 7mm; }
+.ray-kart { padding: 2mm 3mm 1mm; } .ray-kart svg.info { width: 100%; height: auto; display: block; }
+.unvan svg { width: 12mm; height: 12mm; }
+.unvan.ust { background: var(--keh-a); border-color: var(--keh-k); }
+.defter-kart { padding: 2.2mm 3mm; }
+.nisan-kart { padding: 2.2mm 3mm; }
+.nisan-say svg { width: 11.6mm; height: 13.9mm; }
+.nisan-say b { font-size: 7.8pt; }
+.unvan-kartim .satirlar div { height: 7mm; border-bottom: .3mm dotted var(--obs-2); font-size: 9pt; font-weight: 900; color: var(--soluk); padding-top: 2mm; }
+.siradaki-yol b { display: block; font-family: var(--baslik); font-size: 14pt; line-height: 1.05; margin-top: .8mm; padding-top: .4mm; }
+.siradaki-yol p { font-size: 9.5pt; line-height: 1.22; }
+.kucuk-med { margin-top: 5mm; padding: 5.2mm 5.6mm 3.8mm; }
+.kucuk-med .haz-ic.sag { grid-template-columns: 1fr 19mm; }
+.kucuk-med .metin { font-size: 10.4pt; }
