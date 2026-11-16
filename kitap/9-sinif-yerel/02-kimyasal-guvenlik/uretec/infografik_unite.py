@@ -371,7 +371,7 @@ def ekipman(onek):
         y = 168 + sira * 232
         s += f'<ellipse cx="{x}" cy="{y + 3}" rx="62" ry="7" fill="{OBS}" opacity=".1"/>'
         s += ekipman_parca(s, kod, x, y, .56 if kod in ("spor", "termometre", "spatul", "baget", "ayirma", "sogutucu", "damlalik") else .62)
-        s += _yazi(x, y + 34, ad, 29, OBS, "middle", T9)
+        s += _yazi(x, y + 34, ad, 27, OBS, "middle", T9)
         s += _yazi(x, y + 61, is_, 26, "#343947", "middle", T7)
     return s.cikti(f"0 0 {W} {H}", cls="info ekipman")
 
@@ -461,19 +461,16 @@ def etiket_aseton(onek):
     s += f'<rect x="470" y="148" width="270" height="78" rx="12" fill="{MER_A}" stroke="{MER_K}" stroke-width="4"/>'
     s += _yazi(605, 204, "TEHLİKE", 54, MER_K, "middle", B)
     for i, t in enumerate(("Kolay alevlenir sıvı ve buhar.", "Ciddi göz tahrişine yol açar.", "Rehavete ya da baş dönmesine", "yol açabilir.")):
-        s += _yazi(470, 270 + i * 38, t, 33, OBS, "start", T9)
-    s += f'<path d="M60 420 H970" stroke="{GUM}" stroke-width="3" stroke-dasharray="10 8"/>'
+        s += _yazi(470, 290 + i * 38, t, 33, OBS, "start", T9)
+    s += f'<path d="M60 428 H970" stroke="{GUM}" stroke-width="3" stroke-dasharray="10 8"/>'
     for i, t in enumerate(("Isıdan, kıvılcımdan, açık alevden uzak tutun.", "Kabı sıkıca kapalı tutun.", "Göz koruması kullanın.")):
-        s += _yazi(60, 466 + i * 40, t, 33, "#343947", "start", T)
-    s += f'<path d="M60 566 H970" stroke="{GUM}" stroke-width="3"/>'
-    s += _yazi(60, 604, "Tedarikçi: Örnek Kimya · Tel: 0 000 000 00 00", 29, "#56636E", "start", T)
-    # açıklamalar (sağ sütun): numara + ad + kılavuz çizgisi
-    acik_ = [(1, "ÜRÜN ADI", 68), (2, "UYARI KELİMESİ", 187), (3, "PİKTOGRAMLAR", 300), (4, "ZARARLILIK (H)", 386),
-             (5, "ÖNLEM (P)", 486), (6, "TEDARİKÇİ", 594)]
-    hedef = {1: (300, 68), 2: (740, 187), 3: (436, 236), 4: (1000, 316), 5: (1000, 486), 6: (1000, 594)}
-    for n, ad, y in acik_:
-        hx, hy = hedef[n]
-        s += f'<path d="M{hx + 6} {hy} L1040 {y}" stroke="{KEH_K}" stroke-width="3.4" stroke-dasharray="8 6"/>'
+        s += _yazi(60, 474 + i * 38, t, 33, "#343947", "start", T)
+    s += f'<path d="M60 572 H970" stroke="{GUM}" stroke-width="3"/>'
+    s += _yazi(60, 606, "Tedarikçi: Örnek Kimya · Tel: 0 000 000 00 00", 29, "#56636E", "start", T)
+    for n, (x, y) in enumerate(((960, 66), (772, 187), (440, 150), (960, 300), (960, 486), (960, 598)), 1):
+        s += _rakam(x, y, n, 21)
+    for n, ad in enumerate(("ÜRÜN ADI", "UYARI KELİMESİ", "PİKTOGRAMLAR", "ZARARLILIK (H)", "ÖNLEM (P)", "TEDARİKÇİ"), 1):
+        y = 96 + (n - 1) * 92
         s += _rakam(1062, y, n, 23) + _yazi(1098, y + 13, ad, 36, OBS, "start", T9)
     return s.cikti(f"0 0 {W} {H}", cls="info etiket")
 
@@ -721,7 +718,7 @@ def metan_seridi(onek):
 def razi_kirpik(onek):
     """Ortak razi_araclari çiziminin, küçük boyda okunmayan üst yazısı kırpılmış hâli (yalnız araçlar)."""
     from cizim import infografik as I
-    return I.razi_araclari(onek).replace('viewBox="0 0 560 360"', 'viewBox="0 86 560 274"', 1)
+    return I.razi_araclari(onek).replace('viewBox="0 0 560 360"', 'viewBox="0 86 560 274" style="overflow:hidden"', 1)
 
 
 def imbik_kirpik(onek):

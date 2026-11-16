@@ -570,8 +570,8 @@ def karabuk():
     s += f'<path d="M1950 250 V282" stroke="#2A2E3A" stroke-width="5"/>'
     s += pota(s, 1950, 318, 52, 34, 47)
     s += f'<rect x="1880" y="432" width="160" height="26" fill="#3A3F4B" stroke="{OBS_}" stroke-width="3"/>'
-    s += isaret_diregi(s, 1300, 456, ["baret", "sicak"], 62)
-    s += _karakter("yusuf-anlatan", 1356, 300, 110)
+    s += isaret_diregi(s, 1350, 456, ["baret", "sicak"], 62)
+    s += _karakter("yusuf-anlatan", 1400, 300, 110)
     s += _cerceve_golge(s)
     return _bitir(s)
 

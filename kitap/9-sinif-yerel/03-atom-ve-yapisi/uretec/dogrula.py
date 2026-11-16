@@ -358,7 +358,7 @@ if HTML:
     ogr = ogretmen_metinleri(HTML)
     for beklenen in ("2", "8", "10", "13", "3", "4 · 2", "H ve Na", "K 2 · L 8 · M 1", "deney (yeni gözlem)",
                      "a izoelektronik · b izobar · c izoton · d izotop", "Al: [Ne] 3s2 3p1 · Ti: [Ar] 4s2 3d2", "Cl: p5, yok · Cl−: p6, var",
-                     "n = A − Z", "n = 59 − 27 = 32", "anyon e− alır", "e = 15 + 3 = 18", "4s önce dolar", "Ca: [Ar] 4s2", "4s1 unutulmuş",
+                     "n = A − Z", "n = 59 − 27 = 32", "anyon e− alır", "e = 15 + 3 = 18", "4s önce dolar", "Ca: [Ar] 4s2", "4s1 eksik",
                      "6 yarı dolu orbital", "A = 16 + 18 = 34", "Z = 24 · değerlik 1 + 5 = 6", "A = 56 · Fe: [Ar] 4s2 3d6"):
         kontrol(f"öğretmen metni var: {beklenen}", any(beklenen in o.replace(" (kükürdün 34S izotopu)", "") for o in ogr))
     kontrol("her cevap kutusunda öğretmen metni (6 hızlı görev)", HTML.count('<div class="cevap-kutu">CEVABIN:<span class="ogr">') == 6)

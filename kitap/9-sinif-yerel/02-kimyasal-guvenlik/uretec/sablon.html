@@ -91,7 +91,8 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
 .hizli-ic { display: grid; grid-template-columns: 1fr 11mm; gap: 1.6mm; align-items: center; }
 .hizli-ic svg.info { width: 11mm; height: 11mm; }
 .kissa-ic .ust-satir .ghs-dizi { flex-wrap: nowrap; }
-.kissa .sik { white-space: normal; }
+.kissa .sik, .ustad-soru .sik { white-space: normal; display: flex; align-items: center; border-radius: 3mm; }
+.kissa .sik b, .ustad-soru .sik b { flex: none; }
 .oy.yatay > div:nth-child(5) { grid-column: 1 / -1; }
 .yan-resim { display: grid; grid-template-columns: 1fr auto; gap: 2mm; align-items: start; }
 .yan-resim .sol { display: flex; flex-direction: column; gap: 1.2mm; align-self: stretch; }
@@ -134,7 +135,7 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
     <div>
       <div class="cipler"><span class="cip koyu buyuk">Yol 2 · Batı Karadeniz Maden Yolu</span><span class="cip buyuk">9. sınıf · {{meta|tema}}</span></div>
       <h1 class="dev-baslik" style="font-size:34pt"><span class="mol">Kimyasal</span> <span class="kav"><svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12 C40 2 70 2 100 11 S160 20 200 10 S270 2 296 10" fill="none" stroke="#F0A21A" stroke-width="9" stroke-linecap="round"/></svg>Güvenlik</span></h1>
-      <p class="slogan">Önce tedbir, sonra deney: <b>her kural bir kimya bilgisidir.</b></p>
+      <p class="slogan">Önce tedbir: <b>her kural bir kimya bilgisi.</b></p>
       <div class="cipler" style="margin-top:2.6mm"><span class="cip">5 durak</span><span class="cip">3 yan yol</span><span class="cip mer">1 kale</span><span class="cip akce">{{sikke|}} {{meta|akce_toplam}} akçe</span></div>
     </div>
     <div class="pamuk-sahne">
@@ -316,10 +317,13 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
         <span class="et keh">{{ikon|isik}}Isıtma takımı</span>
         <div class="resim-tam">{{info|isitma}}</div>
       </div>
-      <div class="tuzak">
+      <div class="bento dikey">
+        <div class="tuzak" style="flex:1">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+30 akçe</span></div>
         <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Asit sıçrarsa baz dökerim.”</p>{{muhur|yanlis}}</div>
         <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Nötrleşme ısı verir; önce 15–20 dk su.</p></div>
+      </div>
+        <div class="kart kiyidan" style="padding:1.6mm 2.4mm"><span class="et">{{ikon|dalga}}Yoldan · Karabük</span><p class="kucuk-p">İlk entegre demir-çelik fabrikamızın temeli 1937’de atıldı.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
@@ -405,7 +409,7 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
   {{hud|5}}
   {{cini}}
   <div class="bant" data-serbest>{{sahne|yorukkoy}}
-    <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Yörük Köyü · tarihî çamaşırhane · akşamüstü</div><h1>Etiketi <em>oku</em></h1><p class="alt-bas">Etiket konuşur, depo düzen ister, atık <b>yerini</b> bilir.</p><div class="hedef"><b>Hedef</b>Etiketi oku; kimyasalı doğru sakla, atığı doğru kaba ayır.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Etiket Kâşifi</span></div></div></div>
+    <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Yörük Köyü · çamaşırhane · akşamüstü</div><h1>Etiketi <em>oku</em></h1><p class="alt-bas">Etiket konuşur, depo düzen ister, atık <b>yerini</b> bilir.</p><div class="hedef"><b>Hedef</b>Etiketi oku; kimyasalı doğru sakla, atığı doğru kaba ayır.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Etiket Kâşifi</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
     <div class="bento" style="grid-template-columns:.96fr 1.04fr">
@@ -427,7 +431,7 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
     </div>
     <div class="bento" style="grid-template-columns:1.12fr .88fr">
       <div class="kart" style="padding:1.6mm 2mm">
-        <div class="kart-bas" style="margin-bottom:.6mm"><span class="et kob">{{ikon|kitap}}Kavram · etiketi okumak</span><span class="kes-not">Oje çıkarıcıda da aseton olur</span></div>
+        <div class="kart-bas" style="margin-bottom:.6mm"><span class="et kob">{{ikon|kitap}}Etiketi okumak</span><span class="kes-not">Oje çıkarıcıda da var</span></div>
         {{info|etiket_aseton}}
       </div>
       <div class="kart" style="padding:1.6mm 2mm">
@@ -543,8 +547,7 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
       <div class="ozet-kart"><span class="sira">03/06</span><span class="et">İşaretin dili</span><h3>Renk + biçim</h3><ul class="ozet-liste"><li>Mavi daire: yap · sarı üçgen: dikkat et</li><li>Kırmızı çizgili daire: yapma</li><li>Yeşil kare: yardım burada</li><li>Kırmızı kare: yangın ekipmanı</li></ul></div>
       <div class="ozet-kart keh"><span class="sira">04/06</span><span class="et keh">Dokuz elmas</span><h3>Kırmızı elmas: kimyasal tehlike</h3>{{ghs-dizi|GHS01|GHS02|GHS03|GHS04|GHS05|GHS06|GHS07|GHS08|GHS09|mini}}<p class="kucuk-p">Alev yanar, çember üstünde alev yakar. Kurukafa yok diye zararsız değil.</p></div>
       <div class="ozet-kart mer"><span class="sira">05/06</span><span class="et mer">Etiket · depo · atık</span><h3>Oku, ayır, topla</h3><ul class="ozet-liste"><li>TEHLİKE &gt; DİKKAT · H: zarar, P: önlem</li><li>Yakıcı (oksitleyici) herkesten ayrı</li><li>Asit ile baz, asit ile çamaşır suyu ayrı</li><li>Atık lavaboya değil, etiketli kaba</li></ul></div>
-      <div class="ozet-kart"><span class="sira">06/06</span><span class="et">Malzeme seç</span><h3>Her işe bir kap</h3><ul class="ozet-liste"><li>Hassas hacim: pipet, büret, balon joje</li><li>Isıtılır: tüp, beher, erlen, cam balon</li><li>Ayırma: huni + süzgeç, ayırma hunisi</li><li>Menisküs: göz hizası, çukurun dibi</li></ul>
-        <div class="muhur-kose">{{muhur|dogru}}</div></div>
+      <div class="ozet-kart"><span class="sira">06/06</span><span class="et">Malzeme seç</span><h3>Her işe bir kap</h3><ul class="ozet-liste"><li>Hassas hacim: pipet, büret, balon joje</li><li>Isıtılır: tüp, beher, erlen, cam balon</li><li>Ayırma: huni + süzgeç, ayırma hunisi</li><li>Menisküs: göz hizası, çukurun dibi</li></ul></div>
     </div>
     <div class="kart keh-z sandik">
       <div class="kart-bas"><span class="et keh">{{ikon|hazine}}Hazine sandığın · {{meta|hazine_sayisi}} kart</span><span class="kes-not">{{ikon|makas}}Hepsini kesip defterine yapıştırdın mı?</span></div>

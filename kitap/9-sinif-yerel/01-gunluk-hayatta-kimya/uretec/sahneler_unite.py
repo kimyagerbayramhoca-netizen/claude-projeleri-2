@@ -49,6 +49,51 @@ def _zemin(s, y, renk, h=H):
     return f'<rect x="0" y="{f(y)}" width="{W}" height="{f(h - y + 2)}" fill="{renk}"/>'
 
 
+
+def dag_k(s, sol, sag, taban, tx, ty, tohum, kar_y=None, kar="#FFFFFF", kar_golge="#C7D3EA", isik=-1, **kw):
+    """Ortak S.dag + yumuşak kar örtüsü: kar sınırı birkaç yuvarlak dille iner (testere dişi yok)."""
+    d, pts = S.dag(s, sol, sag, taban, tx, ty, tohum, isik=isik, **kw)
+    if kar_y is None:
+        return d, pts
+    r = RNG(tohum + 500)
+    Hd = taban - ty
+    ti = min(range(len(pts)), key=lambda i: pts[i][1])
+    if pts[ti][1] >= kar_y:
+        return d, pts
+    i0 = ti
+    while i0 > 0 and pts[i0 - 1][1] < kar_y:
+        i0 -= 1
+    i1 = ti
+    while i1 < len(pts) - 1 and pts[i1 + 1][1] < kar_y:
+        i1 += 1
+
+    def kes(a, b):
+        u = (kar_y - a[1]) / ((b[1] - a[1]) or 1)
+        return (a[0] + (b[0] - a[0]) * u, kar_y)
+    sk = kes(pts[i0 - 1], pts[i0]) if i0 > 0 else pts[0]
+    gk = kes(pts[i1], pts[i1 + 1]) if i1 < len(pts) - 1 else pts[-1]
+    ust = [sk] + pts[i0:i1 + 1] + [gk]
+    gen = gk[0] - sk[0]
+    n = max(2, int(gen / 150))
+    alt = [gk]
+    for i in range(1, 2 * n):
+        x = gk[0] - gen * i / (2 * n)
+        yak = 1 - abs(x - pts[ti][0]) / max(gen, 1)
+        y = kar_y + (Hd * r.uniform(.05, .11) * (.5 + yak) if i % 2 else Hd * r.uniform(-.01, .02))
+        alt.append((x + r.uniform(-6, 6), y))
+    alt.append(sk)
+    dk = cizgi_d(ust) + " " + "L" + egri_d(alt)[1:] + " Z"
+    g = s.lin([(0, kar), (1, karis(kar, kar_golge, .3))], 0, ty, 0, kar_y + Hd * .15, kull="userSpaceOnUse", ad="kk")
+    o = [f'<path d="{dk}" fill="{g}"/>']
+    kl = s.klip(f'<path d="{dk}"/>', ad="kkk")
+    tx2, ty2 = pts[ti]
+    if isik < 0:
+        gol = [(tx2, ty2)] + pts[ti:] + [(sag, taban), (tx2 + (sag - tx2) * .1, taban)]
+    else:
+        gol = [(tx2, ty2)] + list(reversed(pts[:ti])) + [(sol, taban), (tx2 - (tx2 - sol) * .1, taban)]
+    o.append(f'<path d="{cizgi_d(gol, True)}" fill="{kar_golge}" opacity=".9" clip-path="{kl}"/>')
+    return d + "".join(o), pts
+
 def goknar(x, y, h, tohum=0, renk=GOKNAR, golge=GOKNAR_K, isik=-1, op=1.0):
     """Uludağ göknarı: katlı üçgen taç. (x, y) gövde tabanı, h boy."""
     r = RNG(tohum)
@@ -601,7 +646,7 @@ def cekirge():
     s += S.gunes(s, 300, 74, 30, hale="#FFF2C2", hale_r=300, guc=.75)
     for i, (x, y, w_) in enumerate(((620, 120, 220), (980, 70, 280), (1980, 120, 200))):
         s += S.bulut(s, x, y, w_, 30 + i, ust="#FFFFFF", alt="#CFE3F1", op=.95)
-    d, _ = S.dag(s, 760, 2340, ufuk + 6, 1640, 34, 31, renk="#8396C2", golge="#5C6FA0", bicim="sivri", kar_y=130, kar="#FFFFFF",
+    d, _ = dag_k(s, 760, 2340, ufuk + 6, 1640, 34, 31, renk="#8396C2", golge="#5C6FA0", bicim="sivri", kar_y=130, kar="#FFFFFF",
                  kar_golge="#C6D4EE", sis="#C8E4F2", isik=-1, sirt=7, puruz=12, kenar_isik="#F4F9FF")
     s += d
     d, _ = S.dag(s, -120, 1100, ufuk + 6, 420, 170, 32, renk="#9DB8D2", golge="#7C9CBE", bicim="tepe", sis="#D8EEF6", isik=-1, sirt=2, puruz=6)
@@ -686,10 +731,10 @@ def uludag():
     s += S.gunes(s, 380, 70, 30, hale="#FFF6D0", hale_r=280, guc=.7)
     for i, (x, y, w_) in enumerate(((760, 90, 200), (1120, 50, 240))):
         s += S.bulut(s, x, y, w_, 70 + i, ust="#FFFFFF", alt="#D2E6F4", op=.95)
-    d, _ = S.dag(s, 620, 1900, ufuk + 8, 1260, 40, 71, renk="#8D97BC", golge="#646F9A", bicim="sivri", kar_y=150, kar="#FFFFFF",
+    d, _ = dag_k(s, 620, 1900, ufuk + 8, 1260, 40, 71, renk="#8D97BC", golge="#646F9A", bicim="sivri", kar_y=150, kar="#FFFFFF",
                  kar_golge="#C8D4EE", sis="#CDE6F4", isik=-1, sirt=8, puruz=16, kenar_isik="#F6FAFF")
     s += d
-    d, _ = S.dag(s, 1300, 2360, ufuk + 8, 1880, 70, 72, renk="#8690B6", golge="#5D6894", bicim="sivri", kar_y=170, kar="#FFFFFF",
+    d, _ = dag_k(s, 1300, 2360, ufuk + 8, 1880, 70, 72, renk="#8690B6", golge="#5D6894", bicim="sivri", kar_y=170, kar="#FFFFFF",
                  kar_golge="#C3D0EC", sis="#CDE6F4", isik=-1, sirt=6, puruz=14)
     s += d
     # teleferik halatı ve kabin (uzakta)
@@ -859,8 +904,7 @@ def teleferik():
     ufuk = 330
     s += S.gokyuzu(s, 0, 0, W, ufuk + 6, duraklar=[(0, "#3A4FA6"), (.35, "#8C78C6"), (.62, "#F59CA8"), (.85, "#FFC88E"), (1, "#FFE2B8")])
     s += S.gunes(s, 520, 250, 40, cekirdek="#FFF3DA", hale="#FFB870", hale_r=520, guc=.9)
-    for (x, y, w_, k) in ((900, 120, 520, 130), (1500, 80, 480, 131)):
-        s += S.bulut_serit(s, x, y, w_, k, "#FFD7CF", "#F094AE", .65)
+    s += S.bulut_serit(s, 820, 120, 420, 130, "#FFE6DC", "#F6B4C0", .55)
     # uzakta Bursa ovası ve şehir
     s += _ova(s, ufuk, "#C9B98A", "#8C9A62", ad="tov")
     r = RNG(132)
@@ -902,7 +946,7 @@ def hisar_buyuk(h=620):
     s += S.gunes(s, 520, ufuk - 30, 54, cekirdek="#FFF3D6", hale="#FFB36B", hale_r=640, guc=.95)
     for (x, y, w_, k) in ((300, 150, 520, 140), (1000, 90, 560, 141), (1500, 200, 420, 142)):
         s += S.bulut_serit(s, x, y, w_, k, "#FFC9B8", "#E2709A", .7)
-    d, _ = S.dag(s, 300, 2300, ufuk + 6, 1200, 80, 143, renk="#9A6E9E", golge="#6A4A7E", bicim="sivri", kar_y=170, kar="#FFE6EE",
+    d, _ = dag_k(s, 300, 2300, ufuk + 6, 1200, 80, 143, renk="#9A6E9E", golge="#6A4A7E", bicim="sivri", kar_y=170, kar="#FFE6EE",
                  kar_golge="#D6A9C6", sis="#FF9E8A", isik=-1, sirt=7, puruz=14, kenar_isik="#FFD7C2")
     s += d
     tb, _ = S.tepe_bandi(s, 0, W, ufuk + 20, 40, 144, "#4E7A58", "#2E5A3E", dalga=5)
@@ -976,7 +1020,7 @@ def bursa_gece(h=360):
     s += S.gokyuzu(s, 0, 0, W, h, "gece")
     s += S.yildizlar(s, 0, 0, W, ufuk, 160, 170)
     s += S.ay(s, 1200, 80, 32, golge_renk="#13204A")
-    d, _ = S.dag(s, 300, 2300, ufuk + 6, 1100, 60, 171, renk="#2E3A70", golge="#232C5A", bicim="sivri", kar_y=150, kar="#B8C4E8",
+    d, _ = dag_k(s, 300, 2300, ufuk + 6, 1100, 60, 171, renk="#2E3A70", golge="#232C5A", bicim="sivri", kar_y=150, kar="#B8C4E8",
                  kar_golge="#7E8CC0", isik=-1, sirt=6, puruz=12)
     s += d
     g = s.lin([(0, "#1C2350"), (1, "#0E1230")], 0, ufuk, 0, h, kull="userSpaceOnUse", ad="sg")
@@ -1008,7 +1052,7 @@ def final_bursa(h=900, nisanlar=None):
     s += S.gunes(s, gx, gy, 64, hale="#FFC98A", hale_r=680, guc=.95)
     for (x, y, w_, k) in ((200, 240, 520, 20), (1100, 160, 600, 24), (1500, 330, 460, 14)):
         s += S.bulut_serit(s, x, y, w_, k, "#FFE0E6", "#F7A6BC", .7)
-    d, _ = S.dag(s, 500, 2400, ufuk + 6, 1460, 120, 180, renk="#A07AA8", golge="#6E5288", bicim="sivri", kar_y=230, kar="#FFEAF0",
+    d, _ = dag_k(s, 500, 2400, ufuk + 6, 1460, 120, 180, renk="#A07AA8", golge="#6E5288", bicim="sivri", kar_y=230, kar="#FFEAF0",
                  kar_golge="#D8B0CC", sis="#FFA18E", isik=-1, sirt=8, puruz=16, kenar_isik="#FFD7C2")
     s += d
     tb, _ = S.tepe_bandi(s, 0, W, ufuk + 40, 50, 181, "#5E8A58", "#3E6A44", dalga=5)
@@ -1020,13 +1064,13 @@ def final_bursa(h=900, nisanlar=None):
     gk = s.lin([(0, "#C2A27E"), (1, "#8A6A4A")], 0, 620, 0, h, kull="userSpaceOnUse", ad="fk")
     s += f'<path d="M1200 {h} C1300 760 1420 700 1600 684 C1800 668 2000 664 2140 666 V{h} Z" fill="{gk}"/>'
     s += sur(s, 1320, 2140, 712, 110, 183, tas="#EAD4AC", burc_ara=220)
-    kule, tepe = saat_kulesi(s, 1800, 640, 380, 184, bayrak=False)
+    kule, tepe = saat_kulesi(s, 1800, 690, 270, 184, bayrak=False)
     s += kule
     s += f'<use href="#pamuk-bayrak" x="{f(tepe[0] - 150)}" y="{f(tepe[1] - 330)}" width="300" height="353"/>'
     # dut ağacı (sol): ipek böceğinin yaprağı; ipek iplikten nişan çelengi
     s += S.agac(s, 240, h - 10, 150, 185, renk="#3E8A3E", golge="#245A2A", meyve="#4A1E3A")
     sx, sy = 360, h - 330
-    ex, ey = tepe[0] - 120, tepe[1] - 60
+    ex, ey = tepe[0] - 110, tepe[1] + 40
     kx, ky = (sx + ex) / 2, max(sy, ey) + 60
     s += f'<path d="M{f(sx)} {f(sy)} Q{f(kx)} {f(ky)} {f(ex)} {f(ey)}" stroke="#F6E7BF" stroke-width="6" fill="none"/>'
     s += f'<path d="M{f(sx)} {f(sy)} Q{f(kx)} {f(ky)} {f(ex)} {f(ey)}" stroke="#C9952B" stroke-width="2" fill="none" stroke-dasharray="10 8"/>'
@@ -1037,9 +1081,6 @@ def final_bursa(h=900, nisanlar=None):
             y = (1 - t) ** 2 * sy + 2 * (1 - t) * t * ky + t * t * ey
             s += f'<path d="M{f(x)} {f(y)} v16" stroke="#C9952B" stroke-width="3"/>'
             s += f'<g transform="translate({f(x - 56)} {f(y + 12)}) rotate({f((k % 2 * 2 - 1) * 5)} 56 64)">{ns}</g>'
-    for k, (x, y) in enumerate(((300, h - 360), (210, h - 300), (330, h - 270))):
-        s += f'<ellipse cx="{x}" cy="{y}" rx="16" ry="10" fill="#FFF8E6" stroke="#B8A780" stroke-width="2" transform="rotate({k * 30 - 20} {x} {y})"/>'
-    s += cini_pano(560, h - 120, 9, 1, 104, kenar=False)
     r = RNG(186)
     for k in range(60):
         x, y = r.uniform(300, 1900), r.uniform(80, 640)
@@ -1144,17 +1185,17 @@ def bursa_panorama(h=1100):
     for (x, y, w_, k) in ((700, 150, 480, 201), (1180, 90, 420, 202)):
         s += S.bulut_serit(s, x, y, w_, k, "#FFFFFF", "#F6CFC4", .6)
     # Uludağ (arkada, karlı) ve ön sırtlar
-    d, _ = S.dag(s, 160, 1820, ufuk + 6, 900, 96, 203, renk="#8A98C4", golge="#5F6EA0", bicim="sivri", kar_y=210, kar="#FFFFFF",
+    d, _ = dag_k(s, 160, 1820, ufuk + 6, 900, 96, 203, renk="#8A98C4", golge="#5F6EA0", bicim="sivri", kar_y=210, kar="#FFFFFF",
                  kar_golge="#C6D2EE", sis="#D6E8F4", isik=-1, sirt=9, puruz=18, kenar_isik="#F6FAFF")
     s += d
-    d, _ = S.dag(s, 1100, 2200, ufuk + 6, 1520, 200, 204, renk="#8FA4CA", golge="#6A7EAA", bicim="tepe", kar_y=230, kar="#FFFFFF",
+    d, _ = dag_k(s, 1100, 2200, ufuk + 6, 1520, 200, 204, renk="#8FA4CA", golge="#6A7EAA", bicim="tepe", kar_y=230, kar="#FFFFFF",
                  kar_golge="#C6D2EE", sis="#D6E8F4", isik=-1, sirt=4, puruz=10)
     s += d
     d, _ = S.dag(s, -120, 700, ufuk + 6, 260, 250, 205, renk="#9AB0D2", golge="#7A92BA", bicim="tepe", sis="#E2F0F8", isik=-1, sirt=2, puruz=6)
     s += d
     gk = s.lin([(0, "#6FAE5A"), (.35, "#9CC86A"), (.7, "#C8D27E"), (1, "#B9CF7A")], 0, ufuk, 0, h, kull="userSpaceOnUse", ad="kara")
     s += f'<rect x="0" y="{ufuk + 4}" width="{W}" height="{h - ufuk}" fill="{gk}"/>'
-    tb, _ = S.tepe_bandi(s, 160, 1900, ufuk + 60, 70, 206, "#4E8E4C", "#3E7A40", dalga=6)
+    tb, _ = S.tepe_bandi(s, -40, 2140, ufuk + 56, 50, 206, "#5E9E52", "#86BB62", dalga=6, olcek=84)
     s += tb
     s += _orman(s, 220, 1820, ufuk + 40, 90, 207, boy=(30, 50), renk="#2F6B4A", golge="#1C4A33", op=.95)
     r = RNG(208)

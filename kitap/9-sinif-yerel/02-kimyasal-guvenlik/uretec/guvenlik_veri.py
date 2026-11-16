@@ -114,31 +114,31 @@ def en_az_bolme(maddeler):
 # ------------------------------------------------------------------ cam malzemeler (ad, ısıtılır mı, hacim duyarlılığı)
 # duyarlılık: "hassas" (pipet, büret, balon joje) · "orta" (mezür) · "yaklaşık" (beher, erlen çizgileri) · None (ölçmez)
 CAM = [
-    ("tup", "Deney tüpü", True, None, "az madde ısıtır, karıştırır"),
-    ("beher", "Beherglas", True, "yaklaşık", "karıştırır, ısıtır, aktarır"),
-    ("erlen", "Erlenmayer", True, "yaklaşık", "çalkalarken sıçratmaz"),
-    ("balon", "Cam balon", True, None, "ısıtır, kaynatır, damıtır"),
-    ("joje", "Balon joje", False, "hassas", "tek ve kesin hacim hazırlar"),
-    ("mezur", "Mezür", False, "orta", "hacim ölçer, aktarır"),
-    ("pipet", "Pipet + puar", False, "hassas", "az sıvıyı hassas aktarır"),
-    ("buret", "Büret", False, "hassas", "titrasyonda hacim ölçer"),
+    ("tup", "Deney tüpü", True, None, "az madde ısıtır"),
+    ("beher", "Beherglas", True, "yaklaşık", "karıştırır, ısıtır"),
+    ("erlen", "Erlenmayer", True, "yaklaşık", "çalkalanır"),
+    ("balon", "Cam balon", True, None, "kaynatır, damıtır"),
+    ("joje", "Balon joje", False, "hassas", "tek kesin hacim"),
+    ("mezur", "Mezür", False, "orta", "hacim ölçer"),
+    ("pipet", "Pipet + puar", False, "hassas", "hassas aktarır"),
+    ("buret", "Büret", False, "hassas", "musluklu ölçer"),
 ]
 HASSAS = {ad for _k, ad, _i, d, _ in CAM if d == "hassas"}
 ISITILIR = {ad for _k, ad, i, *_ in CAM if i}
 
 # ------------------------------------------------------------------ diğer malzemeler (kısa görev)
 EKIPMAN = [
-    ("huni", "Huni + süzgeç kâğıdı", "katıyı sıvıdan süzer"),
-    ("ayirma", "Ayırma hunisi", "karışmayan sıvıları ayırır"),
+    ("huni", "Huni + süzgeç kâğıdı", "katıyı süzer"),
+    ("ayirma", "Ayırma hunisi", "sıvıları ayırır"),
     ("sogutucu", "Soğutucu", "buharı yoğuşturur"),
     ("piset", "Piset", "saf suyla yıkar"),
-    ("damlalik", "Damlalık", "damla damla aktarır"),
+    ("damlalik", "Damlalık", "damla aktarır"),
     ("termometre", "Termometre", "sıcaklık ölçer"),
-    ("spor", "Spor + kıskaç", "düzeneği dik tutar"),
+    ("spor", "Spor + kıskaç", "düzeneği tutar"),
     ("havan", "Havan", "katıyı toz eder"),
     ("spatul", "Spatül", "katı alır"),
     ("baget", "Baget", "karıştırır"),
-    ("saatcami", "Saat camı", "az katı tartar, örter"),
+    ("saatcami", "Saat camı", "tartar, örter"),
     ("kroze", "Kroze", "katıyı çok ısıtır"),
 ]
 ISITMA = [

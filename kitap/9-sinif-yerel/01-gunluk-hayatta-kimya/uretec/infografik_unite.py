@@ -191,7 +191,7 @@ def cini_renkleri(onek="ui-cin"):
         x = 62 + i * 120
         s += f'<path d="M{x - 34} 52 Q{x} 84 {x + 34} 52 Z" fill="#FFFFFF" stroke="{OBS}" stroke-width="2.4"/>'
         s += f'<path d="M{x - 26} 52 Q{x - 10} 30 {x} 34 Q{x + 14} 30 {x + 26} 52 Z" fill="{ham_r}" stroke="{OBS}" stroke-width="2"/>'
-        s += _yazi(x, 22, ham, 21, OBS, font=TK)
+        s += _yazi(x, 22, ham, 18, OBS, font=TK)
         s += _ok(x, 82, x, 108, ALTIN_K, 3.6, 11)
         s += f'<rect x="{x - 30}" y="112" width="60" height="44" rx="5" fill="{pis_r}" stroke="{OBS}" stroke-width="2.4"/>'
         if pis_r != "#FBFDFD":

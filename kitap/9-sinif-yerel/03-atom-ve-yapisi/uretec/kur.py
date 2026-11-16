@@ -108,12 +108,11 @@ OBS = "#1B1D26"
 
 
 def _ok(x, y0, y1, yukari=True):
-    """Dikey ok (çizgi + üçgen uç); fonttaki ↑↓ işaretine bağlı değil."""
-    if yukari:
-        return (f'<path d="M{f(x)} {f(y1)} V{f(y0 + 4.5)}" stroke="{OBS}" stroke-width="2" stroke-linecap="round"/>'
-                f'<path d="M{f(x - 3.6)} {f(y0 + 5.2)} L{f(x)} {f(y0)} L{f(x + 3.6)} {f(y0 + 5.2)} Z" fill="{OBS}"/>')
-    return (f'<path d="M{f(x)} {f(y0)} V{f(y1 - 4.5)}" stroke="{OBS}" stroke-width="2" stroke-linecap="round"/>'
-            f'<path d="M{f(x - 3.6)} {f(y1 - 5.2)} L{f(x)} {f(y1)} L{f(x + 3.6)} {f(y1 - 5.2)} Z" fill="{OBS}"/>')
+    """Dikey ok: gövde ve uç ÇİZGİ (fotokopide dolgular açılır, çizgiler koyu kalır); fonttaki ↑↓ işaretine bağlı değil."""
+    u = (f'M{f(x - 3.4)} {f(y0 + 4.8)} L{f(x)} {f(y0 + .8)} L{f(x + 3.4)} {f(y0 + 4.8)}' if yukari else
+         f'M{f(x - 3.4)} {f(y1 - 4.8)} L{f(x)} {f(y1 - .8)} L{f(x + 3.4)} {f(y1 - 4.8)}')
+    return (f'<path d="M{f(x)} {f(y0 + 1)} V{f(y1 - 1)}" stroke="{OBS}" stroke-width="2" stroke-linecap="round"/>'
+            f'<path d="{u}" fill="none" stroke="{OBS}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>')
 
 
 def orb_svg(kodlar, cls="orb", renk="#FFFFFF"):

@@ -560,7 +560,7 @@ def iyon_olusumu(onek="pt-iyn"):
     s += _alt("Na", 110, y1 + 112, 30, OBS)
     s += f'<text x="110" y="{y1 + 140}" text-anchor="middle" {T9} font-size="24" fill="{KOB_K}">2 · 8 · 1</text>'
     s += _ok(220, y1, 330, y1, OBS, 4, 16)
-    s += f'<text x="275" y="{y1 - 16}" text-anchor="middle" {T9} font-size="24" fill="{MER_K}">1 e⁻ verir</text>'
+    s += _alt("1 e^{−} verir", 275, y1 - 16, 24, MER_K, font=T9)
     s += _atom_kabuk(430, y1, 11, [2, 8], "#8E5BD0")
     s += _alt("Na^{+}", 430, y1 + 112, 30, OBS)
     s += f'<text x="430" y="{y1 + 140}" text-anchor="middle" {T9} font-size="24" fill="{KOB_K}">2 · 8 (Ne gibi)</text>'
@@ -665,7 +665,7 @@ def ustad_grafik(onek="pt-ugr"):
         s += f'<circle cx="{f(x)}" cy="{f(y)}" r="17" fill="{LAJVER}" stroke="{OBS}" stroke-width="2"/>'
         s += f'<text x="{f(x + 22)}" y="{f(y - 10)}" {B} font-size="38" fill="{LAJVER}">{ad}</text>'
     s += f'<text x="{(x0 + x1) / 2}" y="{H - 6}" text-anchor="middle" {T9} font-size="27" fill="{GUM_K}">katman sayısı</text>'
-    s += f'<text x="22" y="{(y0 + y1) / 2}" text-anchor="middle" {T9} font-size="27" fill="{GUM_K}" transform="rotate(-90 22 {(y0 + y1) / 2})">değerlik e⁻</text>'
+    s += f'<text x="22" y="{(y0 + y1) / 2}" text-anchor="middle" {T9} font-size="27" fill="{GUM_K}" transform="rotate(-90 22 {(y0 + y1) / 2})">değerlik e<tspan dy="-9" font-size="18">−</tspan></text>'
     return s.cikti(f"0 0 {W} {H}", cls="info grafik")
 
 

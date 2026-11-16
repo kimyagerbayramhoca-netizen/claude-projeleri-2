@@ -264,7 +264,7 @@ if html:
     Y5 = {"Yalnız I": {"I"}, "Yalnız II": {"II"}, "Yalnız III": {"III"}, "I ve II": {"I", "II"}, "I ve III": {"I", "III"},
           "II ve III": {"II", "III"}, "I, II ve III": {"I", "II", "III"}, "I, II, III": {"I", "II", "III"}}
     for kod, tablo in (("I3", {"A": {"I", "II"}, "B": {"I"}, "C": {"II"}, "D": {"I", "III"}, "E": {"I", "II", "III"}}),
-                       ("I4", {"A": {"I"}, "B": {"III"}, "C": {"I", "II"}, "D": {"II", "III"}, "E": {"I", "III"}}),
+                       ("I4", {"A": {"I"}, "B": {"II"}, "C": {"I", "II"}, "D": {"II", "III"}, "E": {"I", "III"}}),
                        ("I7", {"A": {"I"}, "B": {"II"}, "C": {"I", "II"}, "D": {"II", "III"}, "E": {"I", "II", "III"}}),
                        ("I10", {"A": {"I"}, "B": {"II"}, "C": {"I", "II"}, "D": {"I", "III"}, "E": {"II", "III"}}),
                        ("K1", YARGI_SIK),
