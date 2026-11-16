@@ -1,0 +1,242 @@
+/* =====================================================================
+   KİMYA ROTASI · GELİŞTİRME ÖRNEĞİ (atom modelleri) · yerel bileşenler
+   stil.css'ten SONRA gelir; ortak dosyaya dokunmaz. Onaylanırsa stil.css'e yeni bölüm olarak taşınır (README).
+   Renkler yalnız tokenlarla (var(--…)) ya da tema.py'nin eşleyebildiği onaltılık renklerle yazılır.
+   PDF kuralları: CSS filter yok; desen/doku için yalnız doğrusal gradyan; metin hep açık zeminde.
+   ===================================================================== */
+
+/* ------------------------------------------------------------------ A. HAP BİLGİ AİLESİ (6 seçenek)
+   ortak: .hb + tür sınıfı · ikonlar {{hbi|ad}} (hap_bilgi.py) · metin ≥ 9,5 pt */
+.hb { position: relative; font-size: 9.8pt; line-height: 1.28; }
+.hb p b, .hb li b { font-weight: 900; }
+.hb .hbi { display: block; flex: none; }
+
+/* A1. HAP BİLGİ · iki renkli kapsül: kısa, net tek bilgi */
+.hb-hap { display: grid; grid-template-columns: auto 1fr; align-items: stretch; background: var(--beyaz);
+  border: var(--cz) solid var(--obs); border-radius: 30mm; box-shadow: var(--golge-k); overflow: hidden; }
+.hb-hap .kap { display: flex; align-items: center; gap: 1.3mm; background: var(--keh); border-right: var(--cz) solid var(--obs);
+  padding: 1.2mm 2.6mm 1.2mm 3.4mm; font-weight: 900; font-size: 7.2pt; letter-spacing: .09em; line-height: 1.02; text-transform: uppercase; color: var(--obs); }
+.hb-hap .kap .hbi { width: 6.6mm; height: 6.6mm; }
+.hb-hap p { display: flex; align-items: center; padding: 1.3mm 5mm 1.3mm 3mm; font-family: var(--baslik); font-weight: 800; font-size: 11.4pt; line-height: 1.08; }
+.hb-hap p { flex-direction: column; align-items: flex-start; justify-content: center; }
+.hb-hap p small { display: block; font-family: var(--govde); font-size: 8.8pt; font-weight: 700; color: var(--soluk); margin-top: .3mm; }
+.hb-hap.gol .kap { background: var(--gol-a); } .hb-hap.kob .kap { background: var(--kob-a); } .hb-hap.mer .kap { background: var(--mer-a); }
+.hb-hap::after { content: ""; position: absolute; left: 7%; right: 7%; top: .7mm; height: .8mm; border-radius: 1mm; background: var(--beyaz); opacity: .55; }
+
+/* A2. ALTIN KURAL · tezhipli altın kart: ünitenin taşıyıcı kuralı */
+.hb-kural { background: var(--kirec); border: .5mm solid var(--lajver); border-radius: 1mm; padding: 5mm 6mm 3.2mm; text-align: center;
+  box-shadow: inset 0 0 0 .9mm var(--kirec), inset 0 0 0 1.3mm var(--altin), var(--golge); }
+.hb-kural > svg.kose { position: absolute; width: 7mm; height: 7mm; z-index: 1; }
+.hb-kural > svg.kose.k1 { left: .2mm; top: .2mm; } .hb-kural > svg.kose.k2 { right: .2mm; top: .2mm; transform: scaleX(-1); }
+.hb-kural > svg.kose.k3 { left: .2mm; bottom: .2mm; transform: scaleY(-1); } .hb-kural > svg.kose.k4 { right: .2mm; bottom: .2mm; transform: scale(-1, -1); }
+.hb-kural .serit { position: absolute; left: 50%; top: -3.3mm; transform: translateX(-50%); z-index: 2; display: flex; align-items: center; gap: 1.4mm;
+  background: var(--lajver); color: var(--altin-a); padding: .7mm 6mm .8mm; white-space: nowrap;
+  font-family: var(--kufi); font-weight: 700; font-size: 9.2pt; letter-spacing: .12em;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 2.6mm) 50%, 100% 100%, 0 100%, 2.6mm 50%); }
+.hb-kural .serit .hbi { width: 3.8mm; height: 3.8mm; }
+.hb-kural .kural { font-family: var(--baslik); font-weight: 800; font-size: 12pt; line-height: 1.16; color: var(--obs); }
+.hb-kural .kural em { font-style: normal; color: var(--lajver); }
+.hb-kural .kural .ok-y { display: inline-block; width: 6mm; height: 3.2mm; vertical-align: .2mm; }
+.hb-kural .alt-not { margin-top: 1.2mm; padding-top: 1mm; border-top: .3mm dashed var(--altin); font-size: 9.5pt; font-weight: 700; color: var(--altin-k); }
+
+/* A3. UNUTMA! · yapışkan not / defter kenarı: kolay unutulan küçük ayrıntı */
+.hb-unutma { background: #FFF6C9; border: .35mm solid #C9B25A; border-left: 1.4mm solid var(--mer); border-radius: .6mm;
+  padding: 3.6mm 3.4mm 2.6mm 3.6mm; transform: rotate(-1.2deg); margin: 1mm .8mm;
+  background-image: repeating-linear-gradient(180deg, transparent 0 5.05mm, #E8D98E 5.05mm 5.3mm); background-position: 0 2.9mm;
+  box-shadow: .8mm 1mm 0 #D8C77C; }
+.hb-unutma::before { content: ""; position: absolute; left: 50%; top: -2.6mm; width: 17mm; height: 5mm; transform: translateX(-50%) rotate(2.5deg);
+  background: repeating-linear-gradient(90deg, #BFE6E2 0 2mm, #D6F0EC 2mm 4mm); border: .25mm solid #8CCFC8; opacity: .92; }
+.hb-unutma::after { content: ""; position: absolute; right: -.35mm; bottom: -.35mm; width: 5.2mm; height: 5.2mm;
+  background: linear-gradient(135deg, #E5D27C 0 50%, var(--kar) 50% 100%); }
+.hb-unutma b.bas { display: block; font-family: var(--baslik); font-weight: 800; font-size: 13pt; line-height: 1; color: var(--mer-k);
+  text-decoration: underline wavy var(--mer); text-decoration-thickness: .35mm; text-underline-offset: 1.2mm; margin-bottom: 1.6mm; }
+.hb-unutma p { font-weight: 700; font-size: 9.8pt; line-height: 1.33; }
+
+/* A4. SINAV RADARI · köşe kurdeleli rozet: sınavda sık çıkan bilgi (TYT / AYT) */
+.hb-radar { display: grid; grid-template-columns: 11.5mm 1fr; gap: 2mm; align-items: start; background: var(--beyaz);
+  border: var(--cz) solid var(--obs); border-radius: var(--r); box-shadow: var(--golge); padding: 2.2mm 3mm 2.2mm 2.4mm; overflow: hidden; }
+.hb-radar .hbi { width: 11.5mm; height: 11.5mm; margin-top: .4mm; }
+.hb-radar .kurdele { position: absolute; right: 3mm; top: -.45mm; z-index: 1; display: flex; gap: 1.2mm; align-items: center;
+  background: var(--kob); color: #fff; font-weight: 900; font-size: 6.8pt; letter-spacing: .08em; line-height: 1; padding: 1.1mm 2mm 2.5mm;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 74%, 0 100%); }
+.hb-radar .bas { display: block; font-weight: 900; font-size: 7.8pt; letter-spacing: .09em; text-transform: uppercase; color: var(--kob-k); margin-bottom: .9mm; padding-right: 11mm; }
+.hb-radar p { padding-right: 1mm; }
+.hb-radar .siklik { display: flex; align-items: center; gap: .9mm; margin-top: 1mm; font-weight: 900; font-size: 7pt; letter-spacing: .08em; text-transform: uppercase; color: var(--soluk); }
+.hb-radar .siklik i { width: 2.4mm; height: 2.4mm; border-radius: 50%; border: .3mm solid var(--kob-k); background: var(--kob); }
+.hb-radar .siklik i.bos { background: var(--beyaz); }
+
+/* A5. DİKKAT! · kırmızı çizgi + uyarı üçgeni: işlem/okuma hatası (Tuzak! yanlış inancı, Dikkat! dikkatsizliği yakalar) */
+.hb-dikkat { display: grid; grid-template-columns: 9mm 1fr; gap: 2mm; align-items: start; background: var(--beyaz);
+  border: .35mm solid var(--mer); border-left: 2.2mm solid var(--mer); border-radius: .8mm var(--r) var(--r) .8mm; padding: 2.2mm 3mm 2.4mm 2.2mm;
+  box-shadow: var(--golge-k); }
+.hb-dikkat .hbi { width: 9mm; height: 8.2mm; }
+.hb-dikkat .bas { display: block; font-family: var(--baslik); font-weight: 800; font-size: 12pt; line-height: 1; color: var(--mer-k); letter-spacing: .02em; margin: .4mm 0 .8mm; }
+.hb-dikkat .cizgi-alti { text-decoration: underline; text-decoration-color: var(--mer); text-decoration-thickness: .5mm; text-underline-offset: .7mm; font-weight: 800; }
+
+/* A6. KİLİT BİLGİ · anahtar madalyonu: konuyu açan tek fikir */
+.hb-kilit { display: grid; grid-template-columns: 13mm 1fr; gap: 2.4mm; align-items: center; background: var(--gol-aa);
+  border: var(--cz) solid var(--obs); border-radius: 7mm var(--r) var(--r) 7mm; box-shadow: var(--golge-k); padding: 1.8mm 3.4mm 1.8mm 1.8mm; }
+.hb-kilit .madalyon { width: 13mm; height: 13mm; border-radius: 50%; background: var(--gol); border: var(--cz) solid var(--obs); display: grid; place-items: center;
+  box-shadow: inset 0 0 0 .8mm var(--gol-a); }
+.hb-kilit .madalyon .hbi { width: 8.2mm; height: 8.2mm; }
+.hb-kilit .bas { display: block; font-weight: 900; font-size: 7.8pt; letter-spacing: .09em; text-transform: uppercase; color: var(--gol-k); margin-bottom: .4mm; }
+.hb-kilit p { font-weight: 700; }
+.hb-kilit { padding-right: 7mm; }
+.hb-kilit .anahtar-delik { position: absolute; right: 2mm; bottom: 2mm; width: 3.6mm; height: 5.4mm; opacity: .55; }
+
+/* ------------------------------------------------------------------ B. SOHBET ŞERİDİ (yatay, tek satır) */
+.sohbet-serit { display: grid; grid-template-columns: auto .95fr 1.25fr .9fr; gap: 2.4mm; align-items: center; padding: 2mm 3mm; }
+.sohbet-serit > b { font-family: var(--baslik); font-size: 11.6pt; color: var(--gol-k); line-height: 1.05; padding-top: .5mm; }
+.sohbet-serit .mesaj { margin: 0; }
+.sohbet-serit .mesaj .balon { font-size: 9.5pt; line-height: 1.22; }
+
+/* ------------------------------------------------------------------ C. MODEL ZİNCİRİ (6 kişileştirilmiş model, 12 sütunluk ızgara) */
+.zincir-kart { padding: 2.2mm 3mm 2.4mm; }
+.zincir-kart .kart-bas { margin-bottom: .6mm; }
+.zincir { position: relative; display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: auto auto auto; column-gap: 1.6mm; row-gap: 1.4mm; }
+.zincir > svg.yol { position: absolute; left: -3mm; right: -3mm; top: 50%; width: calc(100% + 6mm); height: 22mm; transform: translateY(-3mm); z-index: 0; }
+.zincir .model { grid-row: 2; position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+.zincir .model > svg { width: 25mm; height: 25mm; display: block; }
+.zincir .plaka { margin-top: -.6mm; text-align: center; background: var(--kirec); border: .35mm solid var(--altin-k); border-radius: 1.6mm; padding: .5mm 2mm .6mm;
+  box-shadow: .5mm .6mm 0 var(--altin); min-width: 24mm; }
+.zincir .plaka b { display: block; font-family: var(--baslik); font-weight: 800; font-size: 10.6pt; line-height: 1.05; padding-top: .4mm; white-space: nowrap; }
+.zincir .plaka.uzun b { font-size: 9.6pt; }
+.zincir .plaka span { display: block; font-weight: 900; font-size: 7.6pt; letter-spacing: .04em; color: var(--altin-k); }
+.zincir .no { position: absolute; left: 1mm; top: .6mm; width: 5.2mm; height: 5.2mm; border-radius: 50%; background: var(--obs); color: #fff;
+  font-weight: 900; font-size: 7.6pt; display: grid; place-items: center; padding-top: .2mm; }
+.zincir .konusma { position: relative; z-index: 2; background: var(--beyaz); border: var(--cz) solid var(--obs); border-radius: 3mm; padding: 1.3mm 2.4mm 1.4mm;
+  font-size: 9.4pt; line-height: 1.22; }
+.zincir .konusma.k-ust { grid-row: 1; align-self: end; } .zincir .konusma.k-alt { grid-row: 3; align-self: start; }
+.zincir .konusma::after { content: ""; position: absolute; left: var(--k, 50%); width: 3.4mm; height: 3.4mm; background: inherit;
+  border: var(--cz) solid var(--obs); transform: translateX(-50%) rotate(45deg); }
+.zincir .konusma.k-ust::after { bottom: -2.05mm; border-top: 0; border-left: 0; }
+.zincir .konusma.k-alt::after { top: -2.05mm; border-bottom: 0; border-right: 0; }
+.zincir .konusma .olay { display: block; font-weight: 900; font-size: 7pt; letter-spacing: .07em; text-transform: uppercase; color: var(--gol-k); margin-bottom: .3mm; }
+.zincir .konusma .ama { display: block; margin-top: .6mm; padding-top: .5mm; border-top: .3mm dashed var(--mer); color: var(--mer-k); font-weight: 700; }
+.zincir .konusma .ama b { font-weight: 900; }
+.zincir .konusma.bugun .ama { border-top-color: var(--zumrut); color: var(--zumrut); }
+
+/* ------------------------------------------------------------------ D. ÇİZGİ ROMAN (altın levha) */
+.roman-kart { padding: 2.2mm 3mm 2.6mm; }
+.roman-kart .anlatan { display: flex; align-items: center; gap: 1mm; font-weight: 900; font-size: 7.4pt; letter-spacing: .06em; text-transform: uppercase; color: var(--keh-k); white-space: nowrap; }
+.roman-kart .anlatan svg { width: 4.4mm; height: 4.4mm; margin: -.6mm 0; }
+.roman { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 57mm 57mm; gap: 2.2mm; margin-top: 1mm; }
+.pano { position: relative; border: .6mm solid var(--obs); border-radius: 1.6mm; background: var(--beyaz); overflow: hidden; }
+.pano > svg.resim { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.pano .pno { position: absolute; left: 1.4mm; top: 1.4mm; z-index: 3; width: 5.6mm; height: 5.6mm; border-radius: 50%; background: var(--obs); color: #fff;
+  display: grid; place-items: center; font-family: var(--baslik); font-weight: 800; font-size: 9pt; padding-top: .5mm; }
+.pano .anlatici { position: absolute; left: 0; right: 0; top: 0; z-index: 2; background: var(--keh-a); border-bottom: .4mm solid var(--obs);
+  padding: 1.1mm 2.2mm 1.2mm 8.2mm; font-size: 8.6pt; line-height: 1.2; font-weight: 700; min-height: 8.2mm; }
+.pano .anlatici b { font-weight: 900; color: var(--keh-k); }
+.pano .konus { position: absolute; z-index: 2; background: var(--beyaz); border: .4mm solid var(--obs); border-radius: 3.4mm; padding: .9mm 2mm 1mm;
+  font-family: var(--baslik); font-weight: 800; font-size: 9.6pt; line-height: 1.06; }
+.pano .konus::after { content: ""; position: absolute; width: 2.8mm; height: 2.8mm; background: inherit; border: .4mm solid var(--obs);
+  left: var(--k, 30%); transform: translateX(-50%) rotate(45deg); }
+.pano .konus.asagi::after { bottom: -1.75mm; border-top: 0; border-left: 0; }
+.pano .konus.yukari::after { top: -1.75mm; border-bottom: 0; border-right: 0; }
+.pano .konus.sola::after { left: -1.75mm; top: var(--ky, 50%); transform: translateY(-50%) rotate(45deg); border-top: 0; border-right: 0; }
+.pano .konus.bagir { background: var(--keh-a); }
+.pano .etiket { position: absolute; z-index: 2; font-weight: 900; font-size: 7.8pt; letter-spacing: .01em; color: var(--obs-2);
+  background: rgba(255, 255, 255, .85); border-radius: 1mm; padding: .2mm .9mm; }
+.pano.sonuc-pano { background: var(--gol-aa); }
+.pano.sonuc-pano .anlatici { background: var(--gol); color: #fff; font-family: var(--baslik); font-size: 10.4pt; font-weight: 800; padding-top: 1.5mm; }
+.pano.sonuc-pano ol { position: absolute; left: 2.4mm; right: 2.4mm; bottom: 2mm; list-style: none; font-size: 8.7pt; line-height: 1.2; font-weight: 700; }
+.pano.sonuc-pano ol li { display: grid; grid-template-columns: 4.6mm 1fr; gap: 1.2mm; margin-top: .9mm; }
+.pano.sonuc-pano ol li > i { width: 4.4mm; height: 4.4mm; border-radius: 50%; background: var(--beyaz); border: .35mm solid var(--gol-k); color: var(--gol-k);
+  font-style: normal; font-weight: 900; font-size: 7.4pt; display: grid; place-items: center; padding-top: .15mm; }
+.pano.sonuc-pano ol b { color: var(--gol-k); }
+
+/* ------------------------------------------------------------------ E. ENERJİ MERDİVENİ (Bohr) */
+.merdiven-kart { padding: 2.2mm 3mm 2.4mm; }
+.merdiven-kart svg.info { width: 100%; height: auto; display: block; margin-top: .6mm; }
+.adim-serit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2mm; margin-top: 1.2mm; }
+.adim-serit > div { display: grid; grid-template-columns: 6mm 1fr; gap: 1.4mm; align-items: start; background: var(--gum-a); border-radius: 2mm; padding: 1.1mm 2mm 1.2mm 1.4mm;
+  font-size: 9.2pt; line-height: 1.22; }
+.adim-serit > div > i { width: 5.6mm; height: 5.6mm; border-radius: 50%; border: var(--cz) solid var(--gol-k); background: #fff; color: var(--gol-k);
+  display: grid; place-items: center; font-style: normal; font-weight: 900; font-size: 8.4pt; padding-top: .2mm; }
+.adim-serit b { font-weight: 900; }
+
+/* ------------------------------------------------------------------ F. ÖNERİLER (README'de "öneri") */
+/* F1. Bir bakışta: 3 maddelik mini özet */
+.bakista { background: var(--obs); color: #fff; border-radius: var(--r); padding: 2.4mm 3.2mm 2.6mm; box-shadow: var(--golge); }
+.bakista .et { color: var(--keh); }
+.bakista ol { list-style: none; margin-top: 1.2mm; }
+.bakista ol li { display: grid; grid-template-columns: 5.6mm 1fr; gap: 1.6mm; align-items: start; font-size: 9.6pt; line-height: 1.24; margin-top: .8mm; }
+.bakista ol li > i { width: 5.4mm; height: 5.4mm; border-radius: 50%; background: var(--keh); color: var(--obs); font-style: normal; font-weight: 900; font-size: 8.2pt;
+  display: grid; place-items: center; padding-top: .2mm; }
+.bakista ol li b { color: var(--keh-a); }
+/* F2. Kendini dene: 2 soru, cevaplar ters */
+.kendini-dene .soru-k { display: grid; grid-template-columns: 5.4mm 1fr; gap: 1.4mm; font-size: 9.6pt; line-height: 1.26; margin-top: 1.2mm; }
+.kendini-dene .soru-k > i { width: 5.2mm; height: 5.2mm; border-radius: 1.2mm; background: var(--kob); color: #fff; font-style: normal; font-weight: 900; font-size: 8pt;
+  display: grid; place-items: center; padding-top: .2mm; }
+.kendini-dene .soru-k b { font-weight: 800; }
+.kendini-dene .yaz { display: block; border-bottom: .3mm dotted var(--obs-2); height: 4mm; margin-top: .1mm; }
+.kendini-dene .ters-alan { margin-top: 1mm; padding-top: 1mm; border-top: .3mm dashed var(--cizgi); text-align: right; font-size: 8.6pt; font-weight: 800; color: var(--gum-k); }
+/* F3. Yanlış bilinen ↔ Doğrusu: yan yana görsel çift */
+.ikili-kart { padding: 2.2mm 2.6mm 2.4mm; }
+.ikili { display: grid; grid-template-columns: 1fr 6mm 1fr; align-items: stretch; }
+.ikili .yan { border-radius: 2.6mm; padding: 1.4mm 2mm 1.6mm; font-size: 9.5pt; line-height: 1.24; }
+.ikili .yan.y { background: var(--mer-a); } .ikili .yan.d { background: var(--gol-aa); }
+.ikili .yan .bas { display: flex; align-items: center; gap: 1.2mm; font-weight: 900; font-size: 7.6pt; letter-spacing: .08em; text-transform: uppercase; margin-bottom: .6mm; }
+.ikili .yan.y .bas { color: var(--mer-k); } .ikili .yan.d .bas { color: var(--zumrut); }
+.ikili .yan .bas svg { width: 4.4mm; height: 4.4mm; }
+.ikili .yan.y p { text-decoration: line-through; text-decoration-color: var(--mer); text-decoration-thickness: .35mm; }
+.ikili .yan svg.mini { display: block; width: 100%; height: 14.5mm; margin-top: 1.2mm; }
+.ikili .ara { display: grid; place-items: center; }
+.ikili .ara svg { width: 6mm; height: 6mm; }
+/* F4. Tahmin et → gözle: beklenen ve gözlenen */
+.tahmin { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4mm; }
+.tahmin .yan { border: .3mm solid var(--cizgi); border-radius: 2.4mm; padding: 1.2mm 1.8mm 1.4mm; background: var(--beyaz); }
+.tahmin .yan .bas { display: block; font-weight: 900; font-size: 7.6pt; letter-spacing: .08em; text-transform: uppercase; }
+.tahmin .yan.b .bas { color: var(--kob-k); } .tahmin .yan.g .bas { color: var(--mer-k); }
+.tahmin .yan svg { display: block; width: 100%; height: 15mm; margin: .6mm 0 .4mm; }
+.tahmin .yan p { font-size: 9.4pt; line-height: 1.22; }
+
+/* ------------------------------------------------------------------ G. SAYFA İÇİ KÜÇÜK YARDIMCILAR */
+.kk { display: block; }
+.iki-sutun { display: grid; gap: 2.4mm; align-items: start; }
+.ust-not { font-size: 8.6pt; font-weight: 700; color: var(--soluk); }
+.mavi-not { font-size: 9.4pt; font-weight: 800; color: var(--kob-k); }
+.kart.sik-kart { padding: 2.2mm 3mm 2.4mm; }
+
+/* ------------------------------------------------------------------ H. KATALOG SAYFALARI (tasarım panosu) */
+.pano-baslik { display: grid; grid-template-columns: 1fr auto; gap: 4mm; align-items: end; }
+.pano-baslik h2 { font-family: var(--baslik); font-weight: 800; font-size: 17pt; line-height: 1; }
+.pano-baslik p { font-size: 9.6pt; color: var(--soluk); font-weight: 700; margin-top: .8mm; }
+.secenek-izgara { display: grid; grid-template-columns: 1fr 1fr; gap: 2.6mm 3.4mm; }
+.secenek { position: relative; background: var(--beyaz); border: .3mm solid var(--cizgi); border-radius: var(--r); padding: 2mm 3mm 2.2mm; display: flex; flex-direction: column; gap: 1.6mm; }
+.secenek .s-bas { display: flex; align-items: baseline; gap: 2mm; }
+.secenek .s-bas .sno-k { width: 6mm; height: 6mm; border-radius: 50%; background: var(--obs); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 8.4pt; padding-top: .2mm; flex: none; align-self: center; }
+.secenek .s-bas h3 { font-family: var(--baslik); font-weight: 800; font-size: 13pt; line-height: 1; padding-top: .6mm; }
+.secenek .s-bas small { margin-left: auto; font-weight: 900; font-size: 7.2pt; letter-spacing: .08em; text-transform: uppercase; color: var(--gum-k); white-space: nowrap; }
+.secenek .ne-zaman { font-size: 9.5pt; line-height: 1.22; }
+.secenek .ne-zaman b { font-weight: 900; color: var(--gol-k); }
+.secenek .ornek { padding: 3.4mm 1.4mm .6mm; }
+.secenek .anatomi { display: flex; flex-wrap: wrap; gap: 1mm 1.2mm; }
+.secenek .anatomi span { font-size: 7.4pt; font-weight: 800; color: var(--obs-2); background: var(--gum-a); border-radius: 1.2mm; padding: .3mm 1.4mm .2mm; }
+.secenek.vs { background: var(--gum-a); border-style: dashed; }
+.tema-tablo { width: 100%; border-collapse: separate; border-spacing: 0 1.4mm; }
+.tema-tablo td { vertical-align: middle; }
+.tema-tablo td.ad { width: 31mm; padding-right: 2mm; }
+.tema-tablo td.ad b { display: block; font-family: var(--baslik); font-weight: 800; font-size: 11.6pt; line-height: 1.05; }
+.tema-tablo td.ad small { display: block; font-size: 7.6pt; line-height: 1.2; color: var(--soluk); font-weight: 700; margin-top: .4mm; }
+.renk-sira { display: grid; grid-template-columns: repeat(12, 1fr); gap: .9mm; }
+.renk-sira .rk { border: .3mm solid var(--obs); border-radius: 1.2mm; overflow: hidden; background: #fff; }
+.renk-sira .rk i { display: block; height: 8.4mm; }
+.renk-sira .rk span { display: block; font-size: 6.2pt; font-weight: 900; line-height: 1.1; padding: .4mm .5mm .3mm; letter-spacing: .02em; color: var(--obs); text-align: center; }
+.renk-sira .rk span em { display: block; font-style: normal; font-weight: 700; color: var(--soluk); font-size: 5.8pt; }
+.kontrast-tablo { width: 100%; border-collapse: collapse; font-size: 8pt; line-height: 1.15; }
+.kontrast-tablo th, .kontrast-tablo td { border: .25mm solid var(--cizgi); padding: .35mm .9mm; text-align: center; }
+.kontrast-tablo td small { font-size: 6.6pt; color: var(--soluk); font-weight: 700; }
+.kontrast-tablo th { background: var(--gum-a); font-weight: 900; font-size: 7.6pt; }
+.kontrast-tablo td:first-child { text-align: left; font-weight: 800; white-space: nowrap; font-size: 7.6pt; }
+.kontrast-tablo td.zayif { background: #FDE7E1; color: #A12817; font-weight: 900; }
+.kk-izgara { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2.4mm; }
+.kk-hucre { background: var(--beyaz); border: .3mm solid var(--cizgi); border-radius: 2.6mm; padding: 1.6mm 1.2mm 1.4mm; text-align: center; }
+.kk-hucre svg { display: block; width: 100%; height: 19mm; margin: 0 auto .6mm; }
+.kk-hucre b { display: block; font-family: var(--baslik); font-weight: 800; font-size: 9.6pt; line-height: 1.05; padding-top: .3mm; }
+.kk-hucre code { display: block; font-family: var(--govde); font-weight: 900; font-size: 6.6pt; color: var(--gol-k); letter-spacing: .02em; }
+.kk-hucre small { display: block; font-size: 7pt; line-height: 1.15; color: var(--soluk); font-weight: 700; margin-top: .3mm; }
+.ifade-serit { display: grid; grid-template-columns: repeat(12, 1fr); align-items: end; gap: 1mm; }
+.ifade-serit div { text-align: center; font-size: 6.8pt; line-height: 1.1; font-weight: 800; color: var(--soluk); }
+.ifade-serit svg { display: block; width: 100%; height: 12mm; margin: 0 auto .4mm; }

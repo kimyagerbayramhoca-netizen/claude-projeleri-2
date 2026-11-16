@@ -1,0 +1,5 @@
+# ara dosyalar (python3 uretec/kur.py her seferinde yeniden üretir)
+*.html
+onizleme-*/
+gorsel/
+__pycache__/

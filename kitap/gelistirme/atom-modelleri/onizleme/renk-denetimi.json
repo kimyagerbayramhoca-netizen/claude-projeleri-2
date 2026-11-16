@@ -1,0 +1,597 @@
+{
+ "van-golu": {
+  "kontrast": [
+   {
+    "ad": "gövde · obs / kar",
+    "oran": 16.45,
+    "esik": 7.0
+   },
+   {
+    "ad": "etiket · gol-k / beyaz",
+    "oran": 6.16,
+    "esik": 4.5
+   },
+   {
+    "ad": "etiket · gol-k / gol-aa",
+    "oran": 5.73,
+    "esik": 4.5
+   },
+   {
+    "ad": "akçe · keh-k / keh-a",
+    "oran": 5.45,
+    "esik": 4.5
+   },
+   {
+    "ad": "Tuzak · mer-k / mer-a",
+    "oran": 6.25,
+    "esik": 4.5
+   },
+   {
+    "ad": "kavram · kob-k / kob-a",
+    "oran": 9.4,
+    "esik": 4.5
+   },
+   {
+    "ad": "Doğrusu · zumrut / beyaz",
+    "oran": 4.33,
+    "esik": 4.5
+   },
+   {
+    "ad": "HUD · beyaz / obs",
+    "oran": 16.8,
+    "esik": 7.0
+   },
+   {
+    "ad": "HUD · keh / obs",
+    "oran": 7.91,
+    "esik": 4.5
+   },
+   {
+    "ad": "çip · beyaz / gol",
+    "oran": 3.08,
+    "esik": 3.0
+   },
+   {
+    "ad": "Tuzak başlığı · beyaz / mer",
+    "oran": 3.79,
+    "esik": 3.0
+   },
+   {
+    "ad": "kurdele · beyaz / kob",
+    "oran": 7.2,
+    "esik": 3.0
+   },
+   {
+    "ad": "tezhip · altin-a / lajver",
+    "oran": 8.45,
+    "esik": 4.5
+   }
+  ],
+  "ciftler": [
+   {
+    "ad": "Yanlış ↔ Doğru",
+    "normal": 28.0,
+    "doteranopi": 10.9,
+    "ipucu": "çarpı/tik, mühür"
+   },
+   {
+    "ad": "Tuzak ↔ ana renk",
+    "normal": 28.9,
+    "doteranopi": 14.8,
+    "ipucu": "başlık şeridi"
+   },
+   {
+    "ad": "Akçe ↔ Tuzak",
+    "normal": 18.7,
+    "doteranopi": 14.4,
+    "ipucu": "çip / başlık"
+   },
+   {
+    "ad": "Ana renk ↔ kavram",
+    "normal": 24.4,
+    "doteranopi": 23.0,
+    "ipucu": "etiket renkleri"
+   },
+   {
+    "ad": "Ana renk ↔ akçe",
+    "normal": 26.5,
+    "doteranopi": 23.8,
+    "ipucu": "kapsül kapakları"
+   },
+   {
+    "ad": "Elif ↔ Pamuk balonu",
+    "normal": 3.9,
+    "doteranopi": 3.4,
+    "ipucu": "balon zemini"
+   },
+   {
+    "ad": "Yanlış ↔ doğru zemini",
+    "normal": 4.7,
+    "doteranopi": 3.3,
+    "ipucu": "ikili kart"
+   },
+   {
+    "ad": "Kavram ↔ erguvan",
+    "normal": 13.8,
+    "doteranopi": 8.9,
+    "ipucu": "gün batımı / rozet"
+   }
+  ]
+ },
+ "iznik-cini": {
+  "kontrast": [
+   {
+    "ad": "gövde · obs / kar",
+    "oran": 17.17,
+    "esik": 7.0
+   },
+   {
+    "ad": "etiket · gol-k / beyaz",
+    "oran": 11.25,
+    "esik": 4.5
+   },
+   {
+    "ad": "etiket · gol-k / gol-aa",
+    "oran": 10.12,
+    "esik": 4.5
+   },
+   {
+    "ad": "akçe · keh-k / keh-a",
+    "oran": 5.65,
+    "esik": 4.5
+   },
+   {
+    "ad": "Tuzak · mer-k / mer-a",
+    "oran": 6.4,
+    "esik": 4.5
+   },
+   {
+    "ad": "kavram · kob-k / kob-a",
+    "oran": 6.86,
+    "esik": 4.5
+   },
+   {
+    "ad": "Doğrusu · zumrut / beyaz",
+    "oran": 5.35,
+    "esik": 4.5
+   },
+   {
+    "ad": "HUD · beyaz / obs",
+    "oran": 17.17,
+    "esik": 7.0
+   },
+   {
+    "ad": "HUD · keh / obs",
+    "oran": 8.31,
+    "esik": 4.5
+   },
+   {
+    "ad": "çip · beyaz / gol",
+    "oran": 7.66,
+    "esik": 3.0
+   },
+   {
+    "ad": "Tuzak başlığı · beyaz / mer",
+    "oran": 4.04,
+    "esik": 3.0
+   },
+   {
+    "ad": "kurdele · beyaz / kob",
+    "oran": 4.6,
+    "esik": 3.0
+   },
+   {
+    "ad": "tezhip · altin-a / lajver",
+    "oran": 8.39,
+    "esik": 4.5
+   }
+  ],
+  "ciftler": [
+   {
+    "ad": "Yanlış ↔ Doğru",
+    "normal": 29.3,
+    "doteranopi": 14.3,
+    "ipucu": "çarpı/tik, mühür"
+   },
+   {
+    "ad": "Tuzak ↔ ana renk",
+    "normal": 35.2,
+    "doteranopi": 32.9,
+    "ipucu": "başlık şeridi"
+   },
+   {
+    "ad": "Akçe ↔ Tuzak",
+    "normal": 20.9,
+    "doteranopi": 16.5,
+    "ipucu": "çip / başlık"
+   },
+   {
+    "ad": "Ana renk ↔ kavram",
+    "normal": 23.0,
+    "doteranopi": 21.8,
+    "ipucu": "etiket renkleri"
+   },
+   {
+    "ad": "Ana renk ↔ akçe",
+    "normal": 45.4,
+    "doteranopi": 47.0,
+    "ipucu": "kapsül kapakları"
+   },
+   {
+    "ad": "Elif ↔ Pamuk balonu",
+    "normal": 4.6,
+    "doteranopi": 4.0,
+    "ipucu": "balon zemini"
+   },
+   {
+    "ad": "Yanlış ↔ doğru zemini",
+    "normal": 4.5,
+    "doteranopi": 3.7,
+    "ipucu": "ikili kart"
+   },
+   {
+    "ad": "Kavram ↔ erguvan",
+    "normal": 25.7,
+    "doteranopi": 19.2,
+    "ipucu": "gün batımı / rozet"
+   }
+  ]
+ },
+ "selcuklu-toprak": {
+  "kontrast": [
+   {
+    "ad": "gövde · obs / kar",
+    "oran": 15.54,
+    "esik": 7.0
+   },
+   {
+    "ad": "etiket · gol-k / beyaz",
+    "oran": 8.9,
+    "esik": 4.5
+   },
+   {
+    "ad": "etiket · gol-k / gol-aa",
+    "oran": 8.0,
+    "esik": 4.5
+   },
+   {
+    "ad": "akçe · keh-k / keh-a",
+    "oran": 5.78,
+    "esik": 4.5
+   },
+   {
+    "ad": "Tuzak · mer-k / mer-a",
+    "oran": 9.86,
+    "esik": 4.5
+   },
+   {
+    "ad": "kavram · kob-k / kob-a",
+    "oran": 10.14,
+    "esik": 4.5
+   },
+   {
+    "ad": "Doğrusu · zumrut / beyaz",
+    "oran": 5.49,
+    "esik": 4.5
+   },
+   {
+    "ad": "HUD · beyaz / obs",
+    "oran": 16.33,
+    "esik": 7.0
+   },
+   {
+    "ad": "HUD · keh / obs",
+    "oran": 6.82,
+    "esik": 4.5
+   },
+   {
+    "ad": "çip · beyaz / gol",
+    "oran": 4.98,
+    "esik": 3.0
+   },
+   {
+    "ad": "Tuzak başlığı · beyaz / mer",
+    "oran": 8.89,
+    "esik": 3.0
+   },
+   {
+    "ad": "kurdele · beyaz / kob",
+    "oran": 8.56,
+    "esik": 3.0
+   },
+   {
+    "ad": "tezhip · altin-a / lajver",
+    "oran": 8.44,
+    "esik": 4.5
+   }
+  ],
+  "ciftler": [
+   {
+    "ad": "Yanlış ↔ Doğru",
+    "normal": 24.9,
+    "doteranopi": 10.1,
+    "ipucu": "çarpı/tik, mühür"
+   },
+   {
+    "ad": "Tuzak ↔ ana renk",
+    "normal": 14.2,
+    "doteranopi": 13.4,
+    "ipucu": "başlık şeridi"
+   },
+   {
+    "ad": "Akçe ↔ Tuzak",
+    "normal": 34.2,
+    "doteranopi": 31.5,
+    "ipucu": "çip / başlık"
+   },
+   {
+    "ad": "Ana renk ↔ kavram",
+    "normal": 29.3,
+    "doteranopi": 28.8,
+    "ipucu": "etiket renkleri"
+   },
+   {
+    "ad": "Ana renk ↔ akçe",
+    "normal": 20.1,
+    "doteranopi": 18.1,
+    "ipucu": "kapsül kapakları"
+   },
+   {
+    "ad": "Elif ↔ Pamuk balonu",
+    "normal": 6.1,
+    "doteranopi": 5.5,
+    "ipucu": "balon zemini"
+   },
+   {
+    "ad": "Yanlış ↔ doğru zemini",
+    "normal": 4.2,
+    "doteranopi": 3.8,
+    "ipucu": "ikili kart"
+   },
+   {
+    "ad": "Kavram ↔ erguvan",
+    "normal": 14.7,
+    "doteranopi": 12.2,
+    "ipucu": "gün batımı / rozet"
+   }
+  ]
+ },
+ "rasathane-gecesi": {
+  "kontrast": [
+   {
+    "ad": "gövde · obs / kar",
+    "oran": 16.4,
+    "esik": 7.0
+   },
+   {
+    "ad": "etiket · gol-k / beyaz",
+    "oran": 12.65,
+    "esik": 4.5
+   },
+   {
+    "ad": "etiket · gol-k / gol-aa",
+    "oran": 11.26,
+    "esik": 4.5
+   },
+   {
+    "ad": "akçe · keh-k / keh-a",
+    "oran": 5.48,
+    "esik": 4.5
+   },
+   {
+    "ad": "Tuzak · mer-k / mer-a",
+    "oran": 6.81,
+    "esik": 4.5
+   },
+   {
+    "ad": "kavram · kob-k / kob-a",
+    "oran": 8.08,
+    "esik": 4.5
+   },
+   {
+    "ad": "Doğrusu · zumrut / beyaz",
+    "oran": 5.65,
+    "esik": 4.5
+   },
+   {
+    "ad": "HUD · beyaz / obs",
+    "oran": 17.36,
+    "esik": 7.0
+   },
+   {
+    "ad": "HUD · keh / obs",
+    "oran": 8.15,
+    "esik": 4.5
+   },
+   {
+    "ad": "çip · beyaz / gol",
+    "oran": 8.35,
+    "esik": 3.0
+   },
+   {
+    "ad": "Tuzak başlığı · beyaz / mer",
+    "oran": 4.36,
+    "esik": 3.0
+   },
+   {
+    "ad": "kurdele · beyaz / kob",
+    "oran": 4.8,
+    "esik": 3.0
+   },
+   {
+    "ad": "tezhip · altin-a / lajver",
+    "oran": 11.72,
+    "esik": 4.5
+   }
+  ],
+  "ciftler": [
+   {
+    "ad": "Yanlış ↔ Doğru",
+    "normal": 29.1,
+    "doteranopi": 13.2,
+    "ipucu": "çarpı/tik, mühür"
+   },
+   {
+    "ad": "Tuzak ↔ ana renk",
+    "normal": 32.9,
+    "doteranopi": 30.3,
+    "ipucu": "başlık şeridi"
+   },
+   {
+    "ad": "Akçe ↔ Tuzak",
+    "normal": 24.5,
+    "doteranopi": 17.9,
+    "ipucu": "çip / başlık"
+   },
+   {
+    "ad": "Ana renk ↔ kavram",
+    "normal": 16.0,
+    "doteranopi": 13.3,
+    "ipucu": "etiket renkleri"
+   },
+   {
+    "ad": "Ana renk ↔ akçe",
+    "normal": 45.6,
+    "doteranopi": 46.7,
+    "ipucu": "kapsül kapakları"
+   },
+   {
+    "ad": "Elif ↔ Pamuk balonu",
+    "normal": 5.7,
+    "doteranopi": 5.0,
+    "ipucu": "balon zemini"
+   },
+   {
+    "ad": "Yanlış ↔ doğru zemini",
+    "normal": 3.9,
+    "doteranopi": 3.0,
+    "ipucu": "ikili kart"
+   },
+   {
+    "ad": "Kavram ↔ erguvan",
+    "normal": 18.2,
+    "doteranopi": 17.2,
+    "ipucu": "gün batımı / rozet"
+   }
+  ]
+ },
+ "yumusak-pastel": {
+  "kontrast": [
+   {
+    "ad": "gövde · obs / kar",
+    "oran": 13.21,
+    "esik": 7.0
+   },
+   {
+    "ad": "etiket · gol-k / beyaz",
+    "oran": 6.65,
+    "esik": 4.5
+   },
+   {
+    "ad": "etiket · gol-k / gol-aa",
+    "oran": 6.17,
+    "esik": 4.5
+   },
+   {
+    "ad": "akçe · keh-k / keh-a",
+    "oran": 5.97,
+    "esik": 4.5
+   },
+   {
+    "ad": "Tuzak · mer-k / mer-a",
+    "oran": 5.87,
+    "esik": 4.5
+   },
+   {
+    "ad": "kavram · kob-k / kob-a",
+    "oran": 6.7,
+    "esik": 4.5
+   },
+   {
+    "ad": "Doğrusu · zumrut / beyaz",
+    "oran": 5.5,
+    "esik": 4.5
+   },
+   {
+    "ad": "HUD · beyaz / obs",
+    "oran": 13.56,
+    "esik": 7.0
+   },
+   {
+    "ad": "HUD · keh / obs",
+    "oran": 6.75,
+    "esik": 4.5
+   },
+   {
+    "ad": "çip · beyaz / gol",
+    "oran": 3.3,
+    "esik": 3.0
+   },
+   {
+    "ad": "Tuzak başlığı · beyaz / mer",
+    "oran": 3.11,
+    "esik": 3.0
+   },
+   {
+    "ad": "kurdele · beyaz / kob",
+    "oran": 3.48,
+    "esik": 3.0
+   },
+   {
+    "ad": "tezhip · altin-a / lajver",
+    "oran": 6.29,
+    "esik": 4.5
+   }
+  ],
+  "ciftler": [
+   {
+    "ad": "Yanlış ↔ Doğru",
+    "normal": 26.1,
+    "doteranopi": 19.0,
+    "ipucu": "çarpı/tik, mühür"
+   },
+   {
+    "ad": "Tuzak ↔ ana renk",
+    "normal": 19.9,
+    "doteranopi": 7.3,
+    "ipucu": "başlık şeridi"
+   },
+   {
+    "ad": "Akçe ↔ Tuzak",
+    "normal": 13.9,
+    "doteranopi": 11.5,
+    "ipucu": "çip / başlık"
+   },
+   {
+    "ad": "Ana renk ↔ kavram",
+    "normal": 15.0,
+    "doteranopi": 12.1,
+    "ipucu": "etiket renkleri"
+   },
+   {
+    "ad": "Ana renk ↔ akçe",
+    "normal": 20.8,
+    "doteranopi": 18.3,
+    "ipucu": "kapsül kapakları"
+   },
+   {
+    "ad": "Elif ↔ Pamuk balonu",
+    "normal": 2.3,
+    "doteranopi": 2.1,
+    "ipucu": "balon zemini"
+   },
+   {
+    "ad": "Yanlış ↔ doğru zemini",
+    "normal": 3.5,
+    "doteranopi": 2.3,
+    "ipucu": "ikili kart"
+   },
+   {
+    "ad": "Kavram ↔ erguvan",
+    "normal": 13.1,
+    "doteranopi": 10.8,
+    "ipucu": "gün batımı / rozet"
+   }
+  ]
+ }
+}
