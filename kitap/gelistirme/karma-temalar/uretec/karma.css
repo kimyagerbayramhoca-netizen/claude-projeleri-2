@@ -1,0 +1,15 @@
+/* KARMA TEMALAR · gaz sayfalarına özel küçük düzenler (gelistirme.css'ten sonra) */
+.roman.alcak { grid-template-rows: 49mm 49mm; }
+.pano .konus.saga::after { left: auto; right: -1.75mm; top: var(--ky, 50%); transform: translateY(-50%) rotate(45deg); border-bottom: 0; border-left: 0; }
+.piston-kart { padding: 2.2mm 3mm 2mm; }
+.piston-kart svg.info, .kinetik-kart svg.info, .tunel-kart svg.info { width: 100%; height: auto; display: block; margin-top: .8mm; }
+.kinetik-kart, .tunel-kart { padding: 2.2mm 3mm 2.2mm; }
+.ozet-liste.siki li { margin-bottom: .3mm; }
+.kucuk-p { font-size: 9.5pt; line-height: 1.24; }
+table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .4mm 1.1mm; font-size: 9.2pt; }
+.resim svg { width: 100%; height: auto; display: block; }
+
+/* renk denetimi düzeltmesi: yanlış/doğru ikili kartında pastel zeminler döteranopta ayrışmaz (ΔE < 6) →
+   biçim ipucu: yanlış tarafı kesik mercan çerçeve, doğru tarafı düz yeşil çerçeve */
+.ikili .yan.y { border: .4mm dashed var(--mer); }
+.ikili .yan.d { border: .4mm solid var(--zumrut); }
