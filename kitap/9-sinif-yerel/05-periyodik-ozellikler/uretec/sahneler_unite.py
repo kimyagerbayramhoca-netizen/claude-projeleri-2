@@ -884,7 +884,7 @@ def panorama_rota(h=1100):
     s += cevher_yigini(s, 2000, 900, 90, 30, 931, renk="#1E2224", parilti="#6FD08A", n=5)
     # Elazığ (şehir işareti) ve kavak kümeleri
     for i in range(7):
-        s += S.ev(1120 + i * 26 + (i % 2) * 4, 820 + (i % 3) * 10, 20, 16, 940 + i, duvar="#F2E6D0", cati="#B8553A", duz=True)
+        s += S.ev(1140 + i * 26 + (i % 2) * 4, 770 + (i % 3) * 8, 20, 16, 940 + i, duvar="#F2E6D0", cati="#B8553A", duz=True)
     for _ in range(36):
         x, y = r.uniform(60, 2050), r.uniform(ufuk + 50, h - 30)
         if any(math.hypot(x - a, y - b) < 120 for a, b in HARITA.values()) or 1150 < x < 1500 and 860 < y < 990:
@@ -913,11 +913,10 @@ def panorama_rota(h=1100):
             s += f'<text x="{x}" y="{y + 11}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="32" fill="#FFFFFF">{k}</text>'
     x, y = HARITA["1"]
     s += f'<path d="M{x + 36} {y + 40} v-64" stroke="#1B1D26" stroke-width="4"/><path d="M{x + 38} {y - 22} h44 l-10 13 l10 13 h-44 Z" fill="#E2533D" stroke="#1B1D26" stroke-width="2.4"/>'
-    for (tx, ty, ad, hale) in ((1330, 1010, "Hazar Gölü", "#0A3A66"), (1250, 800, "Elazığ", "#5A3A1A"), (180, 640, "Divriği", "#5A2A1A"),
-                               (1060, 650, "Keban Baraj Gölü", "#0A5A66"), (1880, 640, "Murat", "#0A5A66"), (760, 380, "Karasu", "#0A5A66")):
+    for (tx, ty, ad, hale) in ((1330, 1010, "Hazar Gölü", "#0A3A66"), (1235, 748, "Elazığ", "#5A3A1A"), (180, 640, "Divriği", "#5A2A1A"),
+                               (1880, 640, "Murat", "#0A5A66"), (760, 380, "Karasu", "#0A5A66")):
         s += halolu_yazi(f'x="{tx}" y="{ty}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="34"', ad, "#FFFFFF", hale, 1.4)
     s += f'<text x="360" y="1080" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="22" letter-spacing="1.5" fill="#FFFFFF" opacity=".95">FIRAT</text>'
-    s += f'<text x="1760" y="1080" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="22" letter-spacing="1.5" fill="#FFFFFF" opacity=".95">DİCLE</text>'
     for k, (x, y, o) in enumerate(((1000, 200, 1.1), (1066, 232, .8), (1500, 150, .7), (820, 290, .6))):
         s += S.marti(x, y, o, 3 - k, renk="#3A2550")
     px, py = 2000, 400

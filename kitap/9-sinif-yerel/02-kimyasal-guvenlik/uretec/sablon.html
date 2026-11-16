@@ -19,7 +19,7 @@ html.ogretmen .bos > .ogr { font-size: 8.8pt; }
 .kural-uc h4 { font-family: var(--baslik); font-weight: 800; font-size: 11pt; color: var(--gol-k); line-height: 1; padding-top: .5mm; margin-bottom: .8mm; border-bottom: .35mm solid var(--gol); }
 .kural-uc ul.ozet-liste { font-size: 9.5pt; line-height: 1.22; }
 .kural-uc ul.ozet-liste li { margin-bottom: .45mm; }
-.isaret-izgara { display: grid; grid-template-columns: 1.42fr 1.08fr 1.08fr .76fr .58fr; gap: 1.8mm; margin-top: 1.2mm; }
+.isaret-izgara { display: grid; grid-template-columns: 1.24fr .98fr 1.16fr .98fr .7fr; gap: 1.8mm; margin-top: 1.2mm; }
 .isaret-aile { border: .35mm solid var(--obs); border-radius: 2.2mm; padding: 1.1mm 1.4mm 1.2mm; background: #fff; }
 .isaret-aile .ab { font-weight: 900; font-size: 7.6pt; letter-spacing: .06em; text-transform: uppercase; line-height: 1.1; }
 .isaret-aile .ab small { display: block; font-size: 7.2pt; letter-spacing: .01em; text-transform: none; color: var(--soluk); font-weight: 800; margin-top: .2mm; }
@@ -42,8 +42,8 @@ html.ogretmen .bos > .ogr { font-size: 8.8pt; }
 table.kaza { border-collapse: collapse; width: 100%; font-size: 9.5pt; line-height: 1.2; }
 table.kaza th, table.kaza td { border: .3mm solid var(--obs-2); padding: .55mm 1.4mm; text-align: left; vertical-align: top; }
 table.kaza th { background: var(--mer-a); font-size: 7.6pt; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; color: var(--mer-k); }
-table.kaza td:first-child { font-weight: 900; background: var(--gum-a); width: 27mm; }
-.gorev-iki.dar { grid-template-columns: 1fr 44mm; }
+table.kaza td:first-child { font-weight: 900; background: var(--gum-a); width: 41mm; }
+.gorev-iki.dar { grid-template-columns: 1fr 40mm; }
 /* durak 3 · GHS ızgarası */
 .ghs-izgara { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.7mm; }
 .ghs-kart { display: grid; grid-template-columns: 14mm 1fr; gap: 1.8mm; align-items: center; border: .35mm solid var(--obs); border-radius: 2.4mm; padding: 1mm 1.8mm 1.1mm 1.1mm; background: #fff; }
@@ -68,21 +68,55 @@ ol.etiket-ol li::before { counter-increment: e; content: counter(e); position: a
 .lejant span { display: inline-flex; align-items: center; gap: .8mm; }
 .lejant i { display: inline-block; width: 3.6mm; height: 3.6mm; border-radius: 50%; border: .35mm solid; }
 /* durak 5 · cam, ekipman, menisküs */
-.men-ic { display: grid; grid-template-columns: 1fr 42mm; gap: 2mm; align-items: center; }
+.men-ic { display: grid; grid-template-columns: 1fr 30mm; gap: 2mm; align-items: center; }
 .men-ic svg.info { width: 100%; height: auto; }
 .raz-ic { display: grid; grid-template-columns: 1fr 27mm; gap: 2mm; align-items: center; }
 .raz-ic svg.info { width: 100%; height: auto; border-radius: 2mm; border: .3mm solid var(--altin); }
 /* kıssa, imtihan, üstad küçük şekiller */
-.kissa-ic .ust-satir svg.info.grafik { width: 40mm; }
+.kissa-ic .ust-satir svg.info.grafik { width: 44mm; }
 .mesveret .resim-sag svg.ghs { width: 12mm; height: 12mm; }
-.mesveret .resim-sag svg.mezur { width: 12mm; height: auto; }
-.ustad-sekil svg.info.grafik { width: 38mm; }
-.ustad-sekil svg.info.damitma { width: 40mm; }
+.mesveret .resim-sag svg.mezur { width: 15mm; height: auto; }
+.ustad-sekil svg.info.grafik { width: 42mm; }
+.ustad-sekil svg.info.damitma { width: 38mm; }
 table.eslesme { border-collapse: collapse; width: 100%; font-size: 9.5pt; margin: .4mm 0 .2mm; }
 table.eslesme td { border: .3mm solid var(--obs-2); padding: .4mm 1.4mm; line-height: 1.2; }
 table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width: 34%; }
 .sandik-izgara div { font-size: 9.2pt; }
 .final-balon { top: 60mm; }
+.ghs-dizi svg.info.ghs, .kissa-ic .ust-satir .ghs-dizi svg.info.ghs { width: 9mm !important; height: 9mm !important; border: 0 !important; border-radius: 0 !important; }
+.ghs-dizi.mini svg.info.ghs { width: 6.4mm !important; height: 6.4mm !important; }
+.isaret-g { display: grid; grid-template-columns: 1fr auto; gap: 2mm; align-items: center; }
+.isaret-dizi.kare { display: grid; grid-template-columns: 1fr 1fr; gap: .6mm 1.8mm; margin: 0; }
+.isaret-dizi.kare svg { width: 9.4mm; height: 9.4mm; }
+.hizli-ic { display: grid; grid-template-columns: 1fr 11mm; gap: 1.6mm; align-items: center; }
+.hizli-ic svg.info { width: 11mm; height: 11mm; }
+.kissa-ic .ust-satir .ghs-dizi { flex-wrap: nowrap; }
+.kissa .sik { white-space: normal; }
+.oy.yatay > div:nth-child(5) { grid-column: 1 / -1; }
+.yan-resim { display: grid; grid-template-columns: 1fr auto; gap: 2mm; align-items: start; }
+.yan-resim .sol { display: flex; flex-direction: column; gap: 1.2mm; align-self: stretch; }
+.yan-resim .sol .karalama { flex: 1; }
+.yan-resim svg.info.mezur { width: 14mm; height: auto; }
+.yan-resim svg.info.grafik { width: 37mm; height: auto; }
+.yan-resim svg.info.damitma { width: 34mm; height: auto; }
+.ustad-izgara { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.mesveret.kisa-kar .karalama { min-height: 7mm; }
+.ustad-soru .sik { white-space: normal; }
+.mesveret .resim-sag svg.ghs { width: 11mm; height: 11mm; }
+.ghs-kart { grid-template-columns: 12mm 1fr; padding: .8mm 1.6mm .9mm 1mm; }
+.ghs-kart svg { width: 12mm; height: 12mm; }
+.ghs-kart b small { display: none; }
+.ghs-kart b { font-size: 10.4pt; }
+.medeniyet .raz-ic .metin { font-size: 10.2pt; }
+.raz-ic { grid-template-columns: 1fr 23mm; }
+.hazine.uzun .hf { font-size: 11.8pt; }
+.tuzak-iddia { padding-right: 15mm; min-height: 12mm; }
+.tuzak-iddia svg.muhur { width: 14mm; height: 14mm; right: .8mm; }
+.isaret-aile .ab small { display: block; margin: .1mm 0 0; white-space: nowrap; }
+.isaret-aile .isr > div span { white-space: nowrap; }
+.depo-svg svg { width: 62mm; max-width: 100%; height: auto; display: block; margin: .2mm auto 0; }
+.hazine.uzun .hac { font-size: 8.4pt; }
+.hz-satir .hazine { padding-top: .9mm; padding-bottom: .9mm; }
 </style>
 </head>
 <body>
@@ -127,9 +161,9 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
       <div class="kart">
         <span class="et">{{ikon|hedef}}Yolun sonunda · hedefler</span>
         <ol class="hedefler">
-          <li>Laboratuvar kurallarını ve koruyucu donanımı gerekçesiyle açıklayacaksın.</li>
-          <li>Güvenlik işaretlerini ve dokuz tehlike piktogramını okuyup önlem seçeceksin.</li>
-          <li>Etiketi okuyup kimyasalı doğru saklayacak, işe uygun malzemeyi seçeceksin.</li>
+          <li>Kuralları ve KKD’yi gerekçesiyle açıklayacaksın.</li>
+          <li>İşaretleri ve dokuz piktogramı okuyacaksın.</li>
+          <li>Etiketi okuyup doğru malzemeyi seçeceksin.</li>
         </ol>
         <div class="et keh" style="margin-top:3mm">Ahilik basamakları · toplam akçene göre</div>
         <div class="basamak-unvan" style="margin-top:3.4mm">
@@ -159,76 +193,64 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
     <div class="levha">{{rozet|1}}<div><div class="ust">1. durak · Zonguldak · maden ocağı · sabah</div><h1>Önce <em>tedbir</em></h1><p class="alt-bas">Madenci ocağa <b>hazırlanarak</b> girer; sen de laboratuvara.</p><div class="hedef"><b>Hedef</b>KKD’yi ve kuralları gerekçesiyle say; işareti renginden ve biçiminden tanı.<span class="cip akce">+100 akçe</span><span class="cip">Nişan: Emniyet Lambası</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1.1fr .9fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Madenciler ocağa inmeden önce baretini, lambasını, gaz ölçerini tek tek denetliyor. Her gün aynı işi yapmak neden bu kadar önemli?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Ocakta grizu birikebilir; çoğu metandır, renksiz ve kokusuzdur. Ölçer onu sezer, havalandırma seyreltir, eğitim doğruyu alışkanlık yapar. Laboratuvarda da <span class="vurgu">kural, kazayı olmadan durdurur</span>.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Metan havada yaklaşık %5–15 arasındaysa tutuşabilir. Ölçer hep açık, havalandırma hep çalışır. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Madenci her gün ölçerini denetliyor. Neden?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Kokusuz grizu (metan) birikebilir; ölçer sezer, hava seyreltir. <span class="vurgu">Kural kazayı önler.</span></div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Metan %5–15 arasında tutuşur. Miyav!</div></div>
       </div>
-      <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · laboratuvar ve KKD</span></div>
-          <p class="kucuk-p"><b>Laboratuvar:</b> Deney, gözlem ve ölçümlerin kontrollü koşullarda yapıldığı, araç gereçle donatılmış çalışma ortamı.</p>
-          <p class="kucuk-p"><b>Kişisel koruyucu donanım (KKD):</b> Seni sıçramaya, ısıya, kesiğe ve zararlı buhara karşı koruyan önlük, gözlük, eldiven, maske.</p>
-          <div class="hizli-kontrol"><span class="cip akce">+20 akçe</span><span><b>Hızlı kontrol:</b> Uzun saç neden toplanır? <span class="bos g"><span class="ogr">alev alır, düzeneğe takılır</span></span></span></div>
-        </div>
-        {{hazine|H1}}
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · laboratuvar ve KKD</span></div>
+        <p class="kucuk-p"><b>Laboratuvar:</b> Deney ve ölçümlerin kontrollü yapıldığı, araç gereçle donatılmış ortam.</p>
+        <p class="kucuk-p"><b>Kişisel koruyucu donanım (KKD):</b> Sıçramaya, ısıya, kesiğe, buhara karşı önlük, gözlük, eldiven, maske.</p>
+        <div class="hizli-kontrol"><span class="cip akce">+20 akçe</span><span><b>Hızlı kontrol:</b> Uzun saç neden toplanır? <span class="bos g"><span class="ogr">alev alır, düzeneğe takılır</span></span></span></div>
       </div>
     </div>
     <div class="kart gol-z">
-      <div class="kart-bas"><span class="et">{{ikon|kitap}}Laboratuvarın üç vakti · kural ve nedeni</span><span class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</span></div>
+      <div class="kart-bas"><span class="et">{{ikon|kitap}}Laboratuvarın üç vakti</span><span class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</span></div>
       <div class="kural-uc">
-        <div><h4>Deneyden önce</h4><ul class="ozet-liste">
-          <li>Yönergeyi baştan sona oku; adımları kafana göre değiştirme.</li>
-          <li>Önlüğü giy, düğmele; saçını topla, takını çıkar, kapalı ayakkabı giy.</li>
-          <li>Etiketi oku; göz duşu, söndürücü ve yangın battaniyesinin yerini öğren.</li></ul></div>
-        <div><h4>Deney sırasında</h4><ul class="ozet-liste">
-          <li>Yeme, içme; elini yüzüne, gözüne götürme.</li>
-          <li>Kimyasala çıplak elle dokunma; koklama, tatma.</li>
-          <li>Koşma, şaka yapma; deneyin başından ayrılma.</li></ul></div>
-        <div><h4>Deneyden sonra</h4><ul class="ozet-liste">
-          <li>Malzemeyi temizle, yerine koy; metal gereçleri kurula.</li>
-          <li>Elektriği, suyu ve gazı kapat.</li>
-          <li>Atığı lavaboya değil, atık kabına koy; ellerini sabunla yıka.</li></ul></div>
+        <div><h4>Deneyden önce</h4><ul class="ozet-liste"><li>Yönergeyi baştan sona oku.</li><li>Önlük giy, saçını topla.</li><li>Etiketi oku, göz duşunu bul.</li></ul></div>
+        <div><h4>Deney sırasında</h4><ul class="ozet-liste"><li>Yeme, içme, koklama, tatma.</li><li>Kimyasala elle dokunma.</li><li>Koşma; deneyi bırakıp gitme.</li></ul></div>
+        <div><h4>Deneyden sonra</h4><ul class="ozet-liste"><li>Malzemeyi temizle, yerine koy.</li><li>Elektriği, suyu, gazı kapat.</li><li>Atık kaba; elini sabunla yıka.</li></ul></div>
       </div>
     </div>
-    <div class="kart kavram">
-      <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · güvenlik işareti</span><span class="kucuk-p" style="font-weight:700">Rengi ve biçimi <b>türünü</b>, içindeki çizim <b>konusunu</b> söyler; yazı okumadan anlaşılır.</span></div>
+    <div class="kart kavram" style="padding:1.8mm 2.4mm">
+      <div class="kart-bas" style="margin-bottom:.4mm"><span class="et kob">{{ikon|kitap}}Kavram · güvenlik işareti</span><span class="kucuk-p" style="font-weight:700">Rengi ve biçimi <b>türünü</b>, içindeki çizim <b>konusunu</b> söyler.</span></div>
       {{isaret-izgara}}
     </div>
-    <div class="bento" style="grid-template-columns:1.12fr .9fr .98fr">
+    <div class="bento" style="grid-template-columns:1.3fr .7fr">
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · çözümlü</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+30 akçe</span></span></div>
-        <div class="baglam">Zonguldak · ocak girişindeki levha</div>
-        <p class="soru">Dört işaretin türünü ve mesajını söyle. Ocakta en kritik olanı hangisi?</p>
-        {{isaret-dizi|baret|elektrik|alev_yok|ilkyardim}}
-        <ol class="akis"><li><i>1</i><span>Önce renk ve biçim: I mavi daire, zorunluluk · II sarı üçgen, uyarı · III kırmızı çizgili daire, yasak · IV yeşil kare, acil durum.</span></li>
-          <li><i>2</i><span>Sonra çizim: I baret tak · II elektrik tehlikesi · III açık alev yok · IV ilk yardım burada.</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>III · grizu olan yerde alev ve kıvılcım olmaz</div>
+        <div class="isaret-g">
+          <div><p class="soru">Ocak girişindeki dört işaret ne der? En kritiği hangisi?</p>
+            <ol class="akis"><li><i>1</i><span>Biçim: I zorunlu · II uyarı · III yasak · IV acil.</span></li>
+              <li><i>2</i><span>Çizim: I baret · II elektrik · III alev yok · IV ilk yardım.</span></li></ol></div>
+          {{isaret-dizi|baret|elektrik|alev_yok|ilkyardim|kare}}
+        </div>
+        <div class="sonuc"><span>SONUÇ</span>III · grizu olan yerde alev olmaz</div>
+      </div>
+      <div class="bento dikey">
+        {{hazine|H1}}
+        {{hazine|H2}}
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1.05fr 1fr .95fr">
+      <div class="kart kiyidan metan-ic">
+        <span class="et">{{ikon|dalga}}Yoldan · ocakta emniyet</span>
+        <p class="kucuk-p">Madenci eğitimle başlar; lamba, gaz ölçer ve acil durumda hava veren <b>ferdi kurtarıcı</b> taşır. Havalandırma grizuyu seyreltir.</p>
+        {{info|metan_seridi}}
       </div>
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Gözlüğü yalnız patlama ya da alev olan deneylerde takarım.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Sıçrama en sıradan işte, şişeden sıvı dökerken bile olur. Kimyasal ve camla çalışılan her deneyde gözlük takılır.</p></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Gözlük yalnız alevli deneyde!”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Sıçrama her işte olur; hep gözlük takılır.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+20 akçe</span></div>
-        <p class="soru">Yeşil kare içinde bir göz ve su damlaları çizili işaret ne anlatır?</p>
-        <div class="isaret-dizi buyuk" style="justify-content:flex-start;margin:1mm 0 0">{{info|isaret|gozdusu}}</div>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Yeşil kare = acil durum.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Göz duşu burada</span></div><span class="ters-cevap"><span class="ters">Cevap: göz duşu</span></span></div>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1.25fr .75fr">
-      <div class="kart kiyidan metan-ic">
-        <span class="et">{{ikon|dalga}}Yoldan · ocakta emniyet kültürü</span>
-        <p class="kucuk-p">Madenciler vardiyaya eğitimle başlar; baret lambası, toz maskesi, gaz ölçer ve acil durumda bir süre solunabilir hava sağlayan <b>ferdi kurtarıcı</b> taşır. Havalandırma ocağa sürekli temiz hava basar, grizuyu seyreltip dışarı atar.</p>
-        {{info|metan_seridi}}
-      </div>
-      <div class="bento dikey">
-        {{hazine|H2}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
+        <div class="hizli-ic"><p class="soru">Yeşil karede göz ve damla: ne demek?</p>{{info|isaret|gozdusu}}</div>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Yeşil kare: acil durum.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Göz duşu burada</span></div></div>
       </div>
     </div>
   </main>
@@ -244,78 +266,66 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
     <div class="levha">{{rozet|2}}<div><div class="ust">2. durak · Karabük · demir-çelik · öğle</div><h1>Sıcağa <em>saygı</em></h1><p class="alt-bas">Erimiş metal suyu affetmez; derişik asit de. <b>Asit suya</b> eklenir.</p><div class="hedef"><b>Hedef</b>Kimyasal ve cam malzemeyle güvenli çalış; kaza anında ilk adımı doğru seç.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Pota Bekçisi</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:.95fr 1.05fr">
+    <div class="bento" style="grid-template-columns:.94fr 1.06fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Erimiş çelik potadan dökülürken zemin kupkuru tutuluyor. Bir damla su neden bu kadar tehlikeli?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Su o sıcakta bir anda buhara döner; buhar, sıvı suyun yaklaşık 1700 katı yer kaplar ve metali sıçratır. Derişik asidi seyreltirken de benzeri olur: <span class="vurgu">az su, çok ısı</span>.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>1 damla su, 1700 damlalık buhar! Kural kısa: asit suya, tersi asla. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Erimiş çelikte su neden tehlikeli?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Su anında buhar olur, ≈ 1700 kat büyür, metali sıçratır. Asitte de <span class="vurgu">az su, çok ısı</span>.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>1 damla su, 1700 damla buhar!</div></div>
       </div>
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <div class="baglam">Okul laboratuvarı · derişik sülfürik asit seyreltilecek</div>
+        <div class="baglam">Okul laboratuvarı · derişik asit seyreltilecek</div>
         <p class="soru">Asit mi suya, su mu aside eklenir? Neden?</p>
         <div class="gorev-iki dar">
-          <ol class="akis"><li><i>1</i><span>Derişik asit suyla karışırken çok ısı açığa çıkar.</span></li>
-            <li><i>2</i><span>Az su asidin üstüne dökülürse ısıyı o az su alır, anında kaynar; buhar asidi sıçratır.</span></li>
-            <li><i>3</i><span>Asit bol suya azar azar eklenirse ısıyı çok su emer; karıştırarak güvenle seyreltilir.</span></li></ol>
+          <ol class="akis"><li><i>1</i><span>Karışırken çok ısı açığa çıkar.</span></li>
+            <li><i>2</i><span>Az su, asidin üstünde anında kaynar; asit sıçrar.</span></li>
+            <li><i>3</i><span>Asit bol suya azar azar: ısıyı çok su emer.</span></li></ol>
           {{info|asit_su}}
         </div>
         <div class="sonuc"><span>SONUÇ</span>Asit suya; yavaşça, karıştırarak</div>
       </div>
     </div>
-    <div class="kart keh-z">
-      <div class="kart-bas"><span class="et keh">{{ikon|kitap}}Kimyasalla ve camla çalışırken · kural ve nedeni</span></div>
-      <div class="iki-liste">
-        <div><h4>Kimyasal maddelerle</h4><ul class="ozet-liste">
-          <li>Gerektiği kadar al, kapağı hemen kapat: uçucu madde buharlaşıp yayılır.</li>
-          <li>Artanı stok şişesine geri dökme; bütün şişe kirlenir.</li>
-          <li>Katıyı spatülle, sıvıyı puarlı pipetle al; pipet ağızla çekilmez.</li>
-          <li>Zararlı buhar çıkaran işi çeker ocakta yap; yanıcıyı alevden uzak tut.</li></ul></div>
-        <div><h4>Cam malzemelerle</h4><ul class="ozet-liste">
-          <li>Çatlak, kırık ya da kirli cam kullanma.</li>
-          <li>Kırılan camı fırça ve faraşla al, kırık cam kutusuna at.</li>
-          <li>Sıcak camı soğuk yüzeye ya da suya koyma: ani soğuma camı çatlatır (ısıl şok).</li>
-          <li>Isıtılan tüpü maşayla tut; ağzını kimseye çevirme.</li></ul></div>
-      </div>
-      <div class="hizli-kontrol"><span class="cip akce">+30 akçe</span><span><b>Hızlı kontrol:</b> Aseton şişesi neden kullanılır kullanılmaz kapatılır? <span class="bos g"><span class="ogr">buharı yayılır, solunur, tutuşur</span></span></span></div>
-    </div>
-    <div class="bento" style="grid-template-columns:1.18fr .82fr">
-      <div class="kart">
-        <div class="kart-bas"><span class="et mer">{{ikon|tuzak}}Kaza olursa · ilk adım</span><span class="kes-not">112 acil · 114 zehir danışma</span></div>
-        <table class="kaza">
-          <tr><th>Durum</th><th>İlk yapılacak</th></tr>
-          <tr><td>Göze kimyasal sıçradı</td><td>Göz duşunda, kapaklar açık, 15–20 dakika bol akan suyla yıka; ovma.</td></tr>
-          <tr><td>Deriye kimyasal döküldü</td><td>Bulaşan giysiyi çıkar; 15–20 dakika bol akan su. Asit de baz da olsa önce su.</td></tr>
-          <tr><td>Isı yanığı</td><td>Yaklaşık 20 dakika serin (buzlu değil) akan su; buz, diş macunu, yağ sürme.</td></tr>
-          <tr><td>Cam kesiği</td><td>Öğretmene haber ver; temiz bezle bastır; batan camı kendin çıkarma.</td></tr>
-          <tr><td>Giysi alev aldı</td><td>Koşma: dur, yere yat, yuvarlan; yangın battaniyesiyle sar.</td></tr>
-          <tr><td>Yutma ya da soluma</td><td>Kusturma; temiz havaya çık. 112’yi ara, 114’ten bilgi al; etiketi götür.</td></tr>
-        </table>
+    <div class="bento" style="grid-template-columns:1.22fr .78fr">
+      <div class="kart keh-z">
+        <div class="kart-bas"><span class="et keh">{{ikon|kitap}}Kimyasalla ve camla · kural ve nedeni</span></div>
+        <div class="iki-liste">
+          <div><h4>Kimyasal maddelerle</h4><ul class="ozet-liste"><li>Az al, kapağı kapat: buhar yayılır.</li><li>Artanı stok şişesine dökme.</li><li>Sıvıyı puarla çek, ağızla değil.</li></ul></div>
+          <div><h4>Cam malzemelerle</h4><ul class="ozet-liste"><li>Çatlak, kırık camı kullanma.</li><li>Kırık camı fırça, faraşla topla.</li><li>Sıcak camı suya koyma: çatlar.</li></ul></div>
+        </div>
+        <div class="hizli-kontrol"><span class="cip akce">+30 akçe</span><span><b>Hızlı kontrol:</b> Aseton şişesi neden hemen kapatılır? <span class="bos g"><span class="ogr">buhar yayılır, tutuşur</span></span></span></div>
       </div>
       <div class="bento dikey">
-        <div class="kart keh-z" style="flex:1;padding:2mm 2.4mm">
-          <span class="et keh">{{ikon|isik}}Isıtma takımı</span>
-          <div class="resim-tam">{{info|isitma}}</div>
-        </div>
         {{hazine|H3}}
+        {{hazine|H4}}
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:1fr 1fr .92fr">
+    <div class="kart" style="padding:1.8mm 2.6mm">
+      <div class="kart-bas" style="margin-bottom:.8mm"><span class="et mer">{{ikon|tuzak}}Kaza olursa · ilk adım</span><span class="kes-not">112 acil · 114 zehir danışma</span></div>
+      <table class="kaza">
+        <tr><td>Göze kimyasal sıçradı</td><td>Göz duşunda, kapaklar açık, 15–20 dakika bol akan suyla yıka; ovma.</td></tr>
+        <tr><td>Deriye kimyasal döküldü</td><td>Bulaşan giysiyi çıkar; 15–20 dakika bol akan su. Asit de baz da olsa önce su.</td></tr>
+        <tr><td>Isı yanığı</td><td>Yaklaşık 20 dakika serin (buzlu değil) akan su; buz, diş macunu, yağ sürme.</td></tr>
+        <tr><td>Cam kesiği</td><td>Öğretmene haber ver; temiz bezle bastır; batan camı kendin çıkarma.</td></tr>
+        <tr><td>Giysi alev aldı</td><td>Koşma: dur, yere yat, yuvarlan; yangın battaniyesiyle sar.</td></tr>
+        <tr><td>Yutma ya da soluma</td><td>Kusturma; temiz havaya çık. 112’yi ara, 114’ten bilgi al; etiketi götür.</td></tr>
+      </table>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="kart keh-z" style="padding:1.8mm 2.2mm">
+        <span class="et keh">{{ikon|isik}}Isıtma takımı</span>
+        <div class="resim-tam">{{info|isitma}}</div>
+      </div>
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+30 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Elime asit sıçrarsa üstüne baz döküp nötrleştiririm.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Nötrleşme de ısı verir; yanlış baz deriyi ayrıca yakar. Önce 15–20 dakika bol akan su; sonrası sağlık görevlisinin işi.</p></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Asit sıçrarsa baz dökerim.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Nötrleşme ısı verir; önce 15–20 dk su.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Ocaktan yeni alınan sıcak beheri, çabuk soğusun diye soğuk su dolu kaba koymak doğru mu?</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Cam ani sıcaklık değişimine dayanamaz.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Hayır, ısıl şokla çatlar</span></div><span class="ters-cevap"><span class="ters">Cevap: hayır</span></span></div>
-      </div>
-      <div class="bento dikey">
-        {{hazine|H4}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
+        <p class="soru">Sıcak beher soğuk suya konur mu?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Cam ani soğumaya dayanmaz.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Hayır, ısıl şokla çatlar</span></div></div>
       </div>
     </div>
   </main>
@@ -334,51 +344,51 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Konağın kilerinde tuz ruhu, ispirto, böcek ilacı yan yana. Şişelerdeki kırmızı çerçeveli elmaslar ne diyor?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Her biri bir tehlike türü: alev tutuşur, kurukafa zehirler, aşındırıcı yakar. Dünyanın her yerinde aynı dokuz <span class="vurgu">piktogram</span> kullanılır; dil bilmesen de okursun.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>9 elmas, 9 uyarı. Burnumla değil, gözümle okurum. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kırmızı elmaslar ne diyor?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Her elmas bir tehlike: alev tutuşur, kurukafa zehirler. Dokuz <span class="vurgu">piktogram</span> var.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>9 elmas, 9 uyarı! Miyav!</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · tehlike piktogramı</span></div>
-        <p class="kucuk-p"><b>Tehlike piktogramı:</b> Kimyasalın ambalajında, maddenin hangi yolla zarar verebileceğini gösteren simge. Birleşmiş Milletler’in <b>Küresel Uyumlaştırılmış Sistemi</b>’nde (GHS) dokuz piktogram vardır: beyaz zemin, kırmızı elmas çerçeve, siyah simge.</p>
-        <p class="kucuk-p">Türkiye’de de kimyasallar bu sisteme göre etiketlenir. Bir şişede birden çok piktogram olabilir; her biri ayrı okunur.</p>
-        <div class="hizli-kontrol"><span class="cip akce">+30 akçe</span><span><b>Hızlı kontrol:</b> Oksijen tüpünde hangi iki piktogram bulunur? <span class="bos g"><span class="ogr">gaz tüpü, çember üstünde alev</span></span></span></div>
+        <p class="kucuk-p"><b>Tehlike piktogramı:</b> Ambalajda, maddenin nasıl zarar verebileceğini gösteren simge. <b>Küresel Uyumlaştırılmış Sistem</b>’de (GHS) dokuz tane vardır: beyaz zemin, kırmızı elmas çerçeve, siyah simge. Türkiye’de de etiketler böyledir.</p>
+        <div class="hizli-kontrol"><span class="cip akce">+30 akçe</span><span><b>Hızlı kontrol:</b> Oksijen tüpünde hangi iki piktogram olur? <span class="bos g"><span class="ogr">gaz tüpü, çember üstünde alev</span></span></span></div>
       </div>
     </div>
-    <div class="kart">
-      <div class="kart-bas"><span class="et mer">{{ikon|tuzak}}GHS · dokuz tehlike piktogramı</span><span class="kes-not">Önce simgeyi gör, sonra önlemi seç</span></div>
+    <div class="kart" style="padding:1.8mm 2.2mm">
+      <div class="kart-bas" style="margin-bottom:.8mm"><span class="et mer">{{ikon|tuzak}}GHS · dokuz tehlike piktogramı</span><span class="kes-not">Önce simgeyi gör, sonra önlemi seç</span></div>
       {{ghs-izgara}}
     </div>
     <div class="bento" style="grid-template-columns:1.06fr .94fr">
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <div class="baglam">Konağın deposu · bir şişe metanol</div>
-        <p class="soru">Etikette alev, kurukafa ve sağlık tehlikesi var. Hangi önlemler birlikte alınır?</p>
-        {{ghs-dizi|GHS02|GHS06|GHS08}}
-        <ol class="akis"><li><i>1</i><span>Alev: kolay tutuşur. Isıdan ve alevden uzak, ağzı kapalı saklanır.</span></li>
-          <li><i>2</i><span>Kurukafa: az miktarı bile zehirler. Yutma, soluma, deriye değme yok: eldiven, gözlük, çeker ocak.</span></li>
-          <li><i>3</i><span>Sağlık tehlikesi: organlara zarar verebilir. Sık ve uzun temastan kaçınılır.</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Alevsiz, havalandırılan ortam + eldiven ve gözlük</div>
+        <div class="isaret-g">
+          <div><div class="baglam">Konağın deposu · bir şişe metanol</div>
+            <p class="soru">Etikette alev, kurukafa, sağlık tehlikesi var. Önlemler?</p></div>
+          {{ghs-dizi|GHS02|GHS06|GHS08}}
+        </div>
+        <ol class="akis"><li><i>1</i><span>Alev: ısıdan uzak, ağzı kapalı.</span></li>
+          <li><i>2</i><span>Kurukafa ve sağlık: eldiven, gözlük, çeker ocak.</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>Alevsiz, havadar ortam + eldiven, gözlük</div>
       </div>
       <div class="bento dikey">
         <div class="kart kiyidan" style="flex:1">
           <span class="et">{{ikon|dalga}}Yoldan · sobada sessiz tehlike</span>
-          <p class="kucuk-p">Konaklarda kışın soba yanar. Kömür ya da odun iyi yanmazsa renksiz, kokusuz <b>karbon monoksit</b> (CO) oluşur; kanın oksijen taşımasını engeller. Baca temiz ve çekiyor olmalı, soba yatmadan önce sönmeli; <b>CO dedektörü</b> sessiz tehlikeyi duyurur. Baş ağrısı, baş dönmesi, bulantı başlarsa hemen temiz havaya çık, 112’yi ara.</p>
+          <p class="kucuk-p">Soba iyi yanmazsa renksiz, kokusuz <b>karbon monoksit</b> (CO) oluşur; kanın oksijen taşımasını engeller. Baca temiz olmalı, soba yatmadan sönmeli; <b>CO dedektörü</b> uyarır. Baş ağrısı başlarsa temiz hava, 112.</p>
         </div>
         {{hazine|H6}}
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:1fr 1fr .92fr">
+    <div class="bento esnek" style="grid-template-columns:1fr 1fr 1fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+30 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Etikette kurukafa yoksa madde zararsızdır.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Her piktogram başka bir tehlike anlatır; alev ya da aşındırıcı taşıyan madde de ağır kaza yapabilir.</p></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Kurukafa yoksa zararsızdır.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Her elmas ayrı tehlike; alev de yakar.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Lavabo açıcının ambalajında hangi piktogram beklenir? Hangi önlemi alırsın?</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Deriyi ve metali yakan madde.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Aşınma · eldiven, gözlük</span></div><span class="ters-cevap"><span class="ters">Cevap: aşındırıcı</span></span></div>
+        <p class="soru">Lavabo açıcıda hangi piktogram var?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Deriyi, metali yakar.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Aşınma · eldiven, gözlük</span></div></div>
       </div>
       <div class="bento dikey">
         {{hazine|H5}}
@@ -398,65 +408,58 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
     <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Yörük Köyü · tarihî çamaşırhane · akşamüstü</div><h1>Etiketi <em>oku</em></h1><p class="alt-bas">Etiket konuşur, depo düzen ister, atık <b>yerini</b> bilir.</p><div class="hedef"><b>Hedef</b>Etiketi oku; kimyasalı doğru sakla, atığı doğru kaba ayır.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Etiket Kâşifi</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1fr 1fr">
+    <div class="bento" style="grid-template-columns:.96fr 1.04fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Bu taş tezgâhta çamaşır, kazanda ısıtılan suyla yıkanırmış. Çamaşır suyuyla kireç çözücüyü aynı kovaya koysak iş çabuk biter, değil mi?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Asla! Çamaşır suyundaki hipoklorit asitle tepkimeye girer, <span class="vurgu">klor gazı</span> çıkar; gözü yakar, akciğeri tahriş eder. Etiket de uyarır: “Diğer ürünlerle birlikte kullanmayın.”</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>1 şişe + 1 şişe, 2 kat temizlik değil; 1 bulut zehir. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Çamaşır suyu + kireç çözücü olur mu?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Asla! Asitle <span class="vurgu">klor gazı</span> verir; gözü, akciğeri yakar.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>1 + 1 ≠ 2 kat temizlik! Miyav!</div></div>
       </div>
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <div class="baglam">Ev temizliği · çamaşır suyu (NaOCl) ile tuz ruhu (HCl) aynı kovada</div>
+        <div class="baglam">Çamaşır suyu (NaOCl) ile tuz ruhu (HCl) aynı kovada</div>
         <p class="soru">Hangi gaz çıkar? İlk ne yapılır?</p>
-        <ol class="akis"><li><i>1</i><span>Tepkime: <span class="denk">NaOCl + 2HCl → NaCl + Cl<sub>2</sub> + H<sub>2</sub>O</span></span></li>
-          <li><i>2</i><span>Klor (Cl<sub>2</sub>): sarımsı yeşil, keskin kokulu, zehirli bir gaz. Havadan yoğundur; yere yakın birikir.</span></li>
-          <li><i>3</i><span>Kovayı bırak, ortamı hemen terk et, pencereleri aç. Belirti varsa 112, bilgi için 114.</span></li></ol>
+        <ol class="akis"><li><i>1</i><span><span class="denk">NaOCl + 2HCl → NaCl + Cl<sub>2</sub> + H<sub>2</sub>O</span></span></li>
+          <li><i>2</i><span>Klor: sarımsı yeşil, zehirli; havadan yoğun, yerde birikir.</span></li>
+          <li><i>3</i><span>Ortamı terk et, pencereyi aç; belirti varsa 112, bilgi 114.</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>Klor gazı · önce temiz hava, sonra yardım</div>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:84mm 1fr">
-      <div class="kart" style="padding:1.6mm 2mm">{{info|etiket_aseton}}</div>
+    <div class="bento" style="grid-template-columns:1.12fr .88fr">
+      <div class="kart" style="padding:1.6mm 2mm">
+        <div class="kart-bas" style="margin-bottom:.6mm"><span class="et kob">{{ikon|kitap}}Kavram · etiketi okumak</span><span class="kes-not">Oje çıkarıcıda da aseton olur</span></div>
+        {{info|etiket_aseton}}
+      </div>
+      <div class="kart" style="padding:1.6mm 2mm">
+        <div class="kart-bas" style="margin-bottom:.4mm"><span class="et mer">{{ikon|kitap}}Depolama matrisi · örnek</span></div>
+        <div class="depo-svg">{{info|depo_matrisi}}</div>
+        <div class="lejant"><span><i style="background:#DFF3E8;border-color:#1F8A5B"></i>birlikte</span><span><i style="background:#FDE7E1;border-color:#A12817"></i>ayrı</span><span><i style="background:#FFF0CF;border-color:#8C5500"></i>özel önlemle</span></div>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
+      <div class="kart kavram">
+        <p class="kucuk-p"><b>Depolama matrisi</b> (sadeleştirilmiş) birlikte durabilecek sınıfları gösterir; gerçek depoda güvenlik bilgi formu esas alınır. Evde kimyasal kendi kabında, etiketiyle, çocuklardan uzak durur. <b>Asit ile baz, asit ile çamaşır suyu ayrı raf.</b></p>
+        <div class="hizli-kontrol"><span class="cip akce">+30 akçe</span><span><b>Hızlı kontrol:</b> Yanıcı ile tahriş edici aynı rafa konur mu? <span class="bos g"><span class="ogr">evet, birlikte durur</span></span></span></div>
+      </div>
       <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · etiketi okumak</span></div>
-          <ol class="etiket-ol">
-            <li><b>Ürünün adı</b> (ve içeriği)</li>
-            <li><b>Uyarı kelimesi:</b> ciddi tehlikede TEHLİKE, daha hafifinde DİKKAT</li>
-            <li><b>Piktogramlar:</b> tehlikenin türü</li>
-            <li><b>Zararlılık ifadeleri (H):</b> nasıl zarar verir?</li>
-            <li><b>Önlem ifadeleri (P):</b> ne yapmalıyım?</li>
-            <li><b>Tedarikçi:</b> adı ve telefonu</li>
-          </ol>
-          <p class="kucuk-p" style="margin-top:.8mm">Birçok oje çıkarıcıda bulunan aseton, örnekteki gibi etiketlenir.</p>
+        <div class="kart" style="padding:1.4mm 2mm">
+          <div class="kart-bas" style="margin-bottom:.6mm"><span class="et">{{ikon|dalga}}Atık nereye? · türüne göre ayrı kap</span></div>
+          {{info|atik_semasi}}
         </div>
         {{hazine|H8}}
       </div>
     </div>
-    <div class="kart">
-      <div class="depo-ic">
-        <div>{{info|depo_matrisi}}
-          <div class="lejant"><span><i style="background:#DFF3E8;border-color:#1F8A5B"></i>birlikte</span><span><i style="background:#FDE7E1;border-color:#A12817"></i>ayrı</span><span><i style="background:#FFF0CF;border-color:#8C5500"></i>! özel önlemle</span></div></div>
-        <div>
-          <div class="kart-bas"><span class="et mer">{{ikon|kitap}}Depolama matrisi · sadeleştirilmiş örnek</span></div>
-          <p class="kucuk-p">Hangi tehlike sınıflarının birlikte durabileceğini gösterir; gerçek depoda güvenlik bilgi formu esas alınır. Evde de kural aynı: kimyasal kendi kabında, etiketiyle; içecek şişesine asla aktarılmaz; çocukların erişemeyeceği serin bir yerde durur. <b>Aynı sınıf bile her zaman yan yana durmaz:</b> asit ile baz, asit ile çamaşır suyu ayrı rafa konur.</p>
-          <div class="hizli-kontrol"><span class="cip akce">+30 akçe</span><span><b>Hızlı kontrol:</b> Yanıcı bir sıvı ile tahriş edici bir madde aynı rafa konabilir mi? <span class="bos g"><span class="ogr">evet, birlikte durur</span></span></span></div>
-          <div class="kart-bas" style="margin:1.4mm 0 .6mm"><span class="et">{{ikon|dalga}}Atık nereye?</span></div>
-          {{info|atik_semasi}}
-        </div>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr 1fr .92fr">
+    <div class="bento esnek" style="grid-template-columns:1fr 1fr 1fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+30 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Artan çözeltiyi bol suyla seyreltip lavaboya dökersem zararsız olur.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Seyreltmek maddeyi yok etmez; çevreye zararlı madde suya karışır. Türüne göre etiketli atık kabına konur.</p></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Seyreltirsem lavaboya dökerim.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Seyreltmek yok etmez; atık kabına.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Çamaşır suyu ile amonyaklı cam temizleyici neden karıştırılmaz?</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Klorlu ürün başka ürünle tepkimeye girer.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Zehirli kloramin gazı çıkar</span></div><span class="ters-cevap"><span class="ters">Cevap: zehirli gaz</span></span></div>
+        <p class="soru">Çamaşır suyu + amonyak neden olmaz?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Klorlu ürün tepkimeye girer.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Zehirli kloramin gazı çıkar</span></div></div>
       </div>
       <div class="bento dikey">
         {{hazine|H7}}
@@ -476,56 +479,49 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
     <div class="levha">{{rozet|5}}<div><div class="ust">5. durak · Bartın · okul laboratuvarı · öğle</div><h1>Her işe <em>bir kap</em></h1><p class="alt-bas">Kimi tutar, kimi ısıtır, kimi <b>tam ölçer</b>.</p><div class="hedef"><b>Hedef</b>Malzemeleri tanı, işe uygun olanı seç, hacmi doğru oku.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Cam Ustası</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:.92fr 1.08fr">
+    <div class="bento" style="grid-template-columns:.88fr 1.12fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Raflar dolu: beher, erlen, balon joje… Hepsi cam. Hangisini ne zaman seçeceğim?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Her biri bir iş için yapılmış: kimi tutar ve ısıtır, kimi <span class="vurgu">tam hacim ölçer</span>. Ölçen cam ısıtılmaz; ısınınca genleşir, ölçüsü bozulur.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Tam 10,0 mL mi? Pipet! Göz hizası, çukurun dibi. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Hepsi cam. Hangisini seçerim?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Kimi tutar, ısıtır; kimi <span class="vurgu">tam hacim ölçer</span>. Ölçen cam ısıtılmaz.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Tam 10,0 mL? Pipet! Miyav!</div></div>
       </div>
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <div class="baglam">Bartın · su analizine hazırlık</div>
-        <p class="soru">Üç işe kap seç: (a) çözeltiyi kaynatmak, (b) tam 250 mL çözelti hazırlamak, (c) 10,0 mL’yi başka kaba aktarmak.</p>
-        <ol class="akis"><li><i>1</i><span>Isıtılacak iş, ısıya dayanıklı kap ister: (a) beher, erlen ya da cam balon.</span></li>
-          <li><i>2</i><span>Tek ve kesin hacim: (b) 250 mL’lik balon joje.</span></li>
-          <li><i>3</i><span>Az ve hassas aktarma: (c) puarlı pipet.</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>a: beher, erlen · b: balon joje · c: pipet</div>
+        <div class="men-ic">
+          <div><p class="soru">Bartın’daki su analizinde mezürdeki hacim nasıl okunur?</p>
+            <ol class="akis"><li><i>1</i><span>Düz masa; göz, sıvı yüzeyi hizasında.</span></li>
+              <li><i>2</i><span>Suda çukurun dibi, cıvada tümseğin tepesi; yukarıdan bakan fazla okur.</span></li></ol></div>
+          {{info|meniskus}}
+        </div>
+        <div class="sonuc"><span>SONUÇ</span>Göz hizasında, çukurun dibi</div>
       </div>
     </div>
     <div class="resim-tam">{{info|cam_takimi}}</div>
     <div class="resim-tam">{{info|ekipman}}</div>
-    <div class="bento" style="grid-template-columns:1.1fr .9fr">
-      <div class="kart kavram">
-        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · hacim nasıl okunur?</span></div>
-        <div class="men-ic">
-          <div><p class="kucuk-p">Ölçü kabını düz, sabit bir masaya koy; gözünü sıvı yüzeyinin hizasına getir. Su camı ıslatır, yüzeyi çukurdur: <b>çukurun en alt noktası</b> okunur. Cıvanın yüzeyi tümsektir: en üst noktası okunur. Terazide kimyasal kefeye doğrudan konmaz, tartım kabı kullanılır.</p>
-            <div class="hizli-kontrol"><span class="cip akce">+30 akçe</span><span><b>Hızlı kontrol:</b> Yukarıdan bakan, mezürde hacmi nasıl okur? <span class="bos g"><span class="ogr">olduğundan fazla</span></span></span></div></div>
-          {{info|meniskus}}
-        </div>
-      </div>
+    <div class="bento" style="grid-template-columns:1.16fr .92fr .92fr">
       <div class="medeniyet">{{kose}}
         <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
         <div class="raz-ic"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
-          <p class="metin"><b>Ebû Bekir er-Râzî</b> (865–925) maddeleri <b>sınıflandırdı</b>; laboratuvar araçlarını ve işlemlerini tek tek <b>tarif etti</b>.</p></div>{{info|razi_araclari}}</div>
-        <p class="not">Doğru araç, doğru iş: bugünkü malzeme listemiz aynı fikrin devamı.</p>
+          <p class="metin"><b>Ebû Bekir er-Râzî</b> (865–925) maddeleri <b>sınıflandırdı</b>; laboratuvar araçlarını ve işlemlerini tek tek <b>tarif etti</b>.</p></div>{{info|razi_kirpik}}</div>
       </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr 1fr .92fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+30 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Balon joje camdan yapıldığı için bek alevinde ısıtılabilir.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Hacim ölçen cam (balon joje, mezür, pipet, büret) ısıtılmaz. Isıtmak için beher, erlen ya da cam balon.</p></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Balon joje alevde ısıtılır.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Ölçen cam ısıtılmaz; beher, erlen seç.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Zeytinyağını sudan ayırmak için hangi malzemeyi seçersin?</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Birbirinde çözünmeyen iki sıvı, iki katman.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Ayırma hunisi</span></div><span class="ters-cevap"><span class="ters">Cevap: ayırma hunisi</span></span></div>
+        <p class="soru">Zeytinyağını sudan ne ayırır?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Karışmayan iki sıvı.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Ayırma hunisi</span></div></div>
       </div>
-      <div class="bento dikey">
-        {{hazine|H9}}
-        {{hazine|H10}}
+    </div>
+    <div class="bento esnek hz-satir" style="grid-template-columns:1.05fr .95fr 1.1fr">
+      {{hazine|H9}}
+      {{hazine|H10}}
+      <div class="kart kavram" style="display:flex;align-items:center">
+        <div class="hizli-kontrol" style="margin:0;padding:0;border:0"><span class="cip akce">+30 akçe</span><span><b>Hızlı kontrol:</b> Tam 250 mL hangi kapta? <span class="bos g"><span class="ogr">balon joje</span></span></span></div>
       </div>
     </div>
   </main>
@@ -678,11 +674,11 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
       <div class="kart kissa" data-soru="K3">
         <div class="kissa-bas kob"><span class="et kob">{{ikon|kissa}}Kıssa 3 · okulda kaza kaydı</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
-          <div class="ust-satir"><p class="metin">Bir okul, 1. dönemden sonra laboratuvarda <b>gözlüğü zorunlu</b> yaptı, kırık cam için fırça, faraş ve ayrı kutu koydu, tüpü maşayla tutmayı kural yaptı. Kaza kayıtları grafikte.</p>{{info|kaza_grafigi}}</div>
+          <div class="ust-satir"><p class="metin">Bir okul, 2. dönemde <b>gözlüğü zorunlu</b> yaptı, kırık cam için fırça, faraş ve kutu koydu, tüpü maşayla tutmayı kural yaptı. Kaza kayıtları grafikte.</p>{{info|kaza_grafigi}}</div>
           <p class="soru">Grafiğe göre hangisi söylenebilir?</p>
           <div class="karalama"><span class="ogr">göz 8’den 1’e (%87,5); kesik %60, yanık ve deri %50 · toplam 30’dan 11’e</span></div>
-          <div class="siklar iki"><div class="sik" data-dogru><b>A</b>Oransal en büyük azalma göze sıçramadadır.</div><div class="sik"><b>B</b>Bütün türler yarı yarıya azalmıştır.</div><div class="sik"><b>C</b>Isı yanıkları hiç azalmamıştır.</div><div class="sik"><b>D</b>2. dönemde en sık kaza deriye temastır.</div><div class="sik"><b>E</b>Toplam kaza sayısı yarıya inmemiştir.</div></div>
-          <div class="hisse"><b>Kıssadan hisse:</b> Kural koyduğun yerde kaza azalır; en çok da gözü koruyan gözlükte.</div>
+          <div class="siklar iki"><div class="sik" data-dogru><b>A</b>Oranca en çok göze sıçrama azaldı.</div><div class="sik"><b>B</b>Her tür yarı yarıya azaldı.</div><div class="sik"><b>C</b>Isı yanığı hiç azalmadı.</div><div class="sik"><b>D</b>2. dönemde en sık: deriye temas.</div><div class="sik"><b>E</b>Toplam, yarıya inmedi.</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Kural konan yerde kaza azalır.</div>
         </div>
       </div>
       <div class="kart kissa" data-soru="K4">
@@ -712,41 +708,41 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
   <main class="ic" style="top:60mm">
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">1</span><p class="soru">Bir öğrenci, etiketinde alev ve ünlem piktogramı olan bir sıvıyı ağzı açık bir beherde, bunzen bekinin alevinde ısıtmayı planlıyor. Plandaki tehlikeyi bul; planı güvenli hâle getir.</p></div>
+        <div class="bas-satir"><span class="no">1</span><p class="soru">Bir öğrenci, etiketinde alev ve ünlem olan bir sıvıyı ağzı açık beherde, bek alevinde ısıtmayı planlıyor. Tehlikeyi bul; planı güvenli yap.</p></div>
         <div class="cozum-alani"><div><span class="ogr">Buhar açık alevde tutuşur; açık kap buharı salar.</span></div><div><span class="ogr">Alevsiz ısıtıcı ya da sıcak su banyosu, çeker ocak</span></div><div><span class="ogr"><b>Sonuç:</b> alev yok, havalandırma, gözlük + eldiven</span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
         <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Her piktogramı ayrı oku: alev neyi, ünlem neyi anlatır?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Isınan yanıcı sıvının buharı artar. Buhar alevle buluşursa? Açık kap bunu nasıl etkiler?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Alevsiz ısıtıcı ya da su banyosu seç; buharı çeker ocakta uzaklaştır; KKD ekle.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Isınan sıvının buharı artar; buhar alevle buluşursa?</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Alevsiz ısıtıcı ya da su banyosu, çeker ocak, KKD.</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">2</span><p class="soru">Okul deposuna yanıcı, yakıcı (oksitleyici), zehirli, aşındırıcı ve tahriş edici birer madde geldi. s.{{sayfa|5}}’{{ek|5|de}}ki matrise göre, “!” eşleşmelerinden de kaçınarak, bu beş madde en az kaç bölmeye konur? Bir yerleşim yaz.</p></div>
+        <div class="bas-satir"><span class="no">2</span><p class="soru">Depoya yanıcı, yakıcı, zehirli, aşındırıcı ve tahriş edici birer madde geldi. s.{{sayfa|5}}’{{ek|5|de}}ki matrise göre (“!” de ayrı) en az kaç bölme gerekir? Yerleşimi yaz.</p></div>
         <div class="cozum-alani"><div><span class="ogr">Yakıcı tek başına: herkesle ayrı</span></div><div><span class="ogr">Yanıcı, zehirli, aşındırıcı birbirinden ayrı</span></div><div><span class="ogr"><b>Sonuç:</b> en az 4 bölme; tahriş edici birinin yanında</span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
         <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Kimseyle aynı bölmeye giremeyen maddeyi bul; o tek başına kalır.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Yanıcı, zehirli ve aşındırıcı arasındaki işaretlere bak: biri ötekiyle durabilir mi?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Tahriş edici üçüyle de durabilir: birinin yanına koy, bölmeleri say.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Yanıcı, zehirli, aşındırıcı birbiriyle durabilir mi?</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Tahriş edici üçüyle de durur: birinin yanına koy.</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">3</span><p class="soru">Amasra kıyısından alınan kumlu deniz suyundan tuz elde etmek isteyen grubun planı: “Karışımı huni ve süzgeç kâğıdıyla süzeceğiz; süzüntüyü balon jojeye alıp bek alevinde doğrudan ısıtacağız.” Hatalı malzeme seçimini bul; yerine ne kullanılacağını gerekçesiyle yaz.</p></div>
+        <div class="bas-satir"><span class="no">3</span><p class="soru">Amasra’dan alınan kumlu deniz suyundan tuz elde etme planı: “Huni ve süzgeç kâğıdıyla süzüp süzüntüyü balon jojede, bek alevinde ısıtacağız.” Hatalı malzemeyi bul, yerine ne kullanılacağını yaz.</p></div>
         <div class="cozum-alani"><div><span class="ogr">Hata: balon joje ısıtılmaz; ölçüsü bozulur, kırılır.</span></div><div><span class="ogr">Yerine: geniş ağızlı beher ya da porselen kapsül</span></div><div><span class="ogr"><b>Sonuç:</b> sacayağı + tel kafes üstünde ısıtılır</span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Her malzemenin asıl işini yaz: huni, süzgeç kâğıdı, balon joje, bunzen beki.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Her malzemenin asıl işini yaz.</span><span class="eksi">−10</span></div>
         <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Balon joje ne için yapılmıştır? Hacim ölçen cam ısıtılırsa ne olur?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Isıya dayanıklı, geniş ağızlı kap seç; camı alevden ayıracak düzeneği ekle.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Isıya dayanıklı, geniş ağızlı kap + tel kafes.</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1fr .62fr .7fr">
@@ -773,45 +769,42 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
   </div>
   <main class="ic" style="top:76.5mm">
     <div class="mesveret-izgara esnek">
-      <div class="kart mesveret" data-soru="I1">
+      <div class="kart mesveret kisa-kar" data-soru="I1">
         <div class="mesveret-bas">{{sno|1}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <div class="resim-sag">{{info|ghs|GHS03}}</div>
-        <p class="soru">Bir şişenin etiketinde yandaki piktogram var. Bu piktogram neyi anlatır?</p>
-        <div class="karalama"><span class="ogr">çember üstünde alev: yanmayı başlatır, şiddetlendirir</span></div>
-        <div class="oy yatay"><div><b>A</b><span>Yanıcı</span><em>%__</em></div><div data-dogru><b>B</b><span>Yakıcı (oksitleyici)</span><em>%__</em></div><div><b>C</b><span>Patlayıcı</span><em>%__</em></div><div><b>D</b><span>Basınçlı gaz</span><em>%__</em></div><div class="tam"><b>E</b><span>Tahriş edici</span><em>%__</em></div></div>
+        <p class="soru"><span class="resim-sag">{{info|ghs|GHS03}}</span>Bir şişenin etiketinde yandaki piktogram var. Bu piktogram neyi anlatır?</p>
+        <div class="karalama"><span class="ogr">çember üstünde alev: yanmayı şiddetlendirir</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Yanıcı</span><em>%__</em></div><div data-dogru><b>B</b><span>Yakıcı (oksitleyici)</span><em>%__</em></div><div><b>C</b><span>Patlayıcı</span><em>%__</em></div><div><b>D</b><span>Basınçlı gaz</span><em>%__</em></div><div><b>E</b><span>Tahriş edici</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I2">
         <div class="mesveret-bas">{{sno|2}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Aşağıdaki davranışlardan hangisi laboratuvar kurallarına uygundur?</p>
-        <div class="karalama"><span class="ogr">A stoğu kirletir, B kırık cam kutusu, C yangın, E koklanmaz</span></div>
-        <div class="oy"><div><b>A</b><span>Artan çözeltiyi stok şişesine geri dökmek</span><em>%__</em></div><div><b>B</b><span>Kırılan beheri eldivenle toplayıp normal çöpe atmak</span><em>%__</em></div><div><b>C</b><span>Uçucu çözücünün kapağını yanan bekin yanında açık bırakmak</span><em>%__</em></div><div data-dogru><b>D</b><span>Isıtılan tüpün ağzını kimseye yöneltmemek</span><em>%__</em></div><div><b>E</b><span>Bilmediği bir kimyasalı koklayarak tanımaya çalışmak</span><em>%__</em></div></div>
+        <p class="soru">Hangisi laboratuvar kurallarına uygundur?</p>
+        <div class="karalama"><span class="ogr">A stoğu kirletir · B cam kutusu · C yangın · E koklanmaz</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Artanı stoğa geri dökmek</span><em>%__</em></div><div><b>B</b><span>Kırık beheri çöpe atmak</span><em>%__</em></div><div><b>C</b><span>Uçucuyu açık bırakmak</span><em>%__</em></div><div data-dogru><b>D</b><span>Tüpü kimseye yöneltmemek</span><em>%__</em></div><div><b>E</b><span>Kimyasalı koklayarak tanımak</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I3">
         <div class="mesveret-bas">{{sno|3}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <div class="resim-sag">{{info|mezur}}</div>
-        <p class="soru">Yandaki mezürdeki suyun hacmi, kurala uygun okunduğunda kaç mL’dir? (Her küçük çizgi 1 mL.)</p>
-        <div class="karalama"><span class="ogr">göz hizasında çukurun dibi 36 mL’de</span></div>
+        <div class="yan-resim"><div class="sol"><p class="soru">Yandaki mezürde su, kurala uygun okunursa kaç mL? (Her çizgi 1 mL.)</p>
+          <div class="karalama"><span class="ogr">çukurun dibi 36 mL’de</span></div></div>{{info|mezur}}</div>
         <div class="oy uc"><div><b>A</b><span>34</span><em>%__</em></div><div><b>B</b><span>35</span><em>%__</em></div><div data-dogru><b>C</b><span>36</span><em>%__</em></div><div><b>D</b><span>37</span><em>%__</em></div><div><b>E</b><span>38</span><em>%__</em></div></div>
       </div>
-      <div class="kart mesveret" data-soru="I4">
+      <div class="kart mesveret kisa-kar" data-soru="I4">
         <div class="mesveret-bas">{{sno|4}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <table class="eslesme"><tr><td>I. Kroze</td><td>a. Buharı yoğuşturup sıvıya çevirmek</td></tr><tr><td>II. Soğutucu</td><td>b. Katıyı yüksek sıcaklıkta ısıtmak</td></tr><tr><td>III. Piset</td><td>c. Saf suyla yıkamak, aktarmak</td></tr></table>
-        <p class="soru">Malzemeler ile işlerinin doğru eşleştirmesi hangisidir?</p>
+        <table class="eslesme"><tr><td>I. Kroze</td><td>a. Buharı yoğuşturmak</td></tr><tr><td>II. Soğutucu</td><td>b. Katıyı çok ısıtmak</td></tr><tr><td>III. Piset</td><td>c. Saf suyla yıkamak</td></tr></table>
+        <p class="soru">Doğru eşleştirme hangisidir?</p>
         <div class="karalama"><span class="ogr">kroze b · soğutucu a · piset c</span></div>
-        <div class="oy uc"><div data-dogru><b>A</b><span>I-b, II-a, III-c</span><em>%__</em></div><div><b>B</b><span>I-a, II-b, III-c</span><em>%__</em></div><div><b>C</b><span>I-c, II-a, III-b</span><em>%__</em></div><div><b>D</b><span>I-b, II-c, III-a</span><em>%__</em></div><div><b>E</b><span>I-a, II-c, III-b</span><em>%__</em></div></div>
+        <div class="oy uc"><div data-dogru><b>A</b><span>I-b II-a III-c</span><em>%__</em></div><div><b>B</b><span>I-a II-b III-c</span><em>%__</em></div><div><b>C</b><span>I-c II-a III-b</span><em>%__</em></div><div><b>D</b><span>I-b II-c III-a</span><em>%__</em></div><div><b>E</b><span>I-a II-c III-b</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I5">
         <div class="mesveret-bas">{{sno|5}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Beherdeki su bunzen bekiyle ısıtılacak. Beher alevin üstünde hangi düzeneğe konur?</p>
-        <div class="karalama"><span class="ogr">sacayağı kabı taşır, tel kafes ısıyı yayar</span></div>
-        <div class="oy yatay"><div><b>A</b><span>Saat camı</span><em>%__</em></div><div data-dogru><b>B</b><span>Sacayağı ve tel kafes</span><em>%__</em></div><div><b>C</b><span>Kroze</span><em>%__</em></div><div><b>D</b><span>Havan</span><em>%__</em></div><div class="tam"><b>E</b><span>Piset</span><em>%__</em></div></div>
+        <p class="soru">Beherdeki su bunzen bekiyle ısıtılacak. Beher alevin üstünde neye konur?</p>
+        <div class="karalama"><span class="ogr">sacayağı taşır, tel kafes ısıyı yayar</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Saat camı</span><em>%__</em></div><div data-dogru><b>B</b><span>Sacayağı ve tel kafes</span><em>%__</em></div><div><b>C</b><span>Kroze</span><em>%__</em></div><div><b>D</b><span>Havan</span><em>%__</em></div><div><b>E</b><span>Piset</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I6">
         <div class="mesveret-bas">{{sno|6}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <div class="resim-sag">{{info|ghs|GHS05}}</div>
-        <p class="soru">Bir lavabo açıcının ambalajında yandaki piktogram var.</p>
-        <ul class="yargi"><li><b>I.</b>Deriye ve göze değerse yanık yapabilir.</li><li><b>II.</b>Kullanırken eldiven ve gözlük takılmalıdır.</li><li><b>III.</b>Piktogram ürünün kolay alev aldığını gösterir.</li></ul>
-        <p class="soru kucuk-soru">Yargılardan hangileri doğrudur?</p>
+        <p class="soru kucuk-soru"><span class="resim-sag">{{info|ghs|GHS05}}</span>Bir lavabo açıcının ambalajında yandaki piktogram var.</p>
+        <ul class="yargi"><li><b>I.</b>Deriye, göze değerse yakar.</li><li><b>II.</b>Eldiven ve gözlük gerekir.</li><li><b>III.</b>Kolay alev aldığını gösterir.</li></ul>
+        <p class="soru kucuk-soru">Hangileri doğrudur?</p>
         <div class="oy uc"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız III</span><em>%__</em></div><div data-dogru><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
     </div>
@@ -831,40 +824,40 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
     <div class="mesveret-izgara esnek">
       <div class="kart mesveret" data-soru="I7">
         <div class="mesveret-bas">{{sno|7}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Etiketinde yalnız alev piktogramı bulunan aseton, s.{{sayfa|5}}’{{ek|5|de}}ki matrise göre hangisiyle özel önlem gerekmeden aynı rafa konabilir?</p>
-        <div class="karalama"><span class="ogr">yanıcı–yanıcı birlikte; yakıcı, aşındırıcı ayrı; zehirli “!”</span></div>
-        <div class="oy"><div><b>A</b><span>Çember üstünde alev taşıyan potasyum permanganat</span><em>%__</em></div><div><b>B</b><span>Aşınma piktogramlı tuz ruhu</span><em>%__</em></div><div><b>C</b><span>Kurukafa piktogramlı zehirli bir tuz</span><em>%__</em></div><div><b>D</b><span>Aşınma piktogramlı sud kostik</span><em>%__</em></div><div data-dogru><b>E</b><span>Yalnız alev piktogramlı etil alkol</span><em>%__</em></div></div>
+        <p class="soru">Etiketinde yalnız alev olan bir sıvı, s.{{sayfa|5}}’{{ek|5|de}}ki matrise göre hangisiyle özel önlemsiz aynı rafa konur?</p>
+        <div class="karalama"><span class="ogr">yanıcı ile yanıcı birlikte · zehirli “!”</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Yakıcı tuz (çember)</span><em>%__</em></div><div><b>B</b><span>Asit (aşınma)</span><em>%__</em></div><div><b>C</b><span>Zehirli tuz (kurukafa)</span><em>%__</em></div><div><b>D</b><span>Baz (aşınma)</span><em>%__</em></div><div data-dogru><b>E</b><span>Başka bir yanıcı sıvı (alev)</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I8">
         <div class="mesveret-bas">{{sno|8}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Aşağıdakilerden hangisi tıbbi atık sınıfına girer?</p>
-        <div class="karalama"><span class="ogr">enfeksiyon riski taşıyan sağlık atığı: kırmızı torba</span></div>
-        <div class="oy"><div><b>A</b><span>Okulda artan bakır(II) sülfat çözeltisi</span><em>%__</em></div><div><b>B</b><span>Bitmiş kalem pil</span><em>%__</em></div><div><b>C</b><span>Laboratuvarda kırılan beher</span><em>%__</em></div><div><b>D</b><span>Boşalmış deterjan şişesi</span><em>%__</em></div><div data-dogru><b>E</b><span>Hastanede kullanılmış enjektör ve kanlı pamuk</span><em>%__</em></div></div>
+        <p class="soru">Okul ve hastane atıklarından hangisi tıbbi atıktır?</p>
+        <div class="karalama"><span class="ogr">enfeksiyon riski: kırmızı torba</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Artan CuSO₄ çözeltisi</span><em>%__</em></div><div><b>B</b><span>Bitmiş kalem pil</span><em>%__</em></div><div><b>C</b><span>Kırılan beher</span><em>%__</em></div><div><b>D</b><span>Boş deterjan şişesi</span><em>%__</em></div><div data-dogru><b>E</b><span>Kullanılmış enjektör</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I9">
         <div class="mesveret-bas">{{sno|9}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Deney sırasında bir öğrencinin gözüne kimyasal sıçradı. İlk ve en doğru davranış hangisidir?</p>
-        <div class="karalama"><span class="ogr">önce bol akan su; ovmak ve baz damlatmak zarar</span></div>
-        <div class="oy"><div data-dogru><b>A</b><span>Göz duşunda, kapakları açık, 15–20 dakika yıkamak</span><em>%__</em></div><div><b>B</b><span>Kimyasalı çıkarmak için gözü ovmak</span><em>%__</em></div><div><b>C</b><span>Nötrleştirmek için göze zayıf baz damlatmak</span><em>%__</em></div><div><b>D</b><span>Gözü kapatıp ağrı geçene kadar beklemek</span><em>%__</em></div><div><b>E</b><span>Yıkamadan önce kimyasalın adını araştırmak</span><em>%__</em></div></div>
+        <p class="soru">Gözüne kimyasal sıçrayan öğrenci için ilk ve en doğru davranış hangisidir?</p>
+        <div class="karalama"><span class="ogr">önce bol akan su; ovmak, baz zarar</span></div>
+        <div class="oy yatay"><div data-dogru><b>A</b><span>Göz duşunda 15–20 dk yıkamak</span><em>%__</em></div><div><b>B</b><span>Gözü ovmak</span><em>%__</em></div><div><b>C</b><span>Göze baz damlatmak</span><em>%__</em></div><div><b>D</b><span>Gözü kapatıp beklemek</span><em>%__</em></div><div><b>E</b><span>Önce maddenin adını araştırmak</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I10">
         <div class="mesveret-bas">{{sno|10}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
         {{isaret-dizi|elektrik|gozluk|sicak|ilkyardim}}
         <p class="soru">Yukarıdaki işaretlerden hangileri uyarı işaretidir?</p>
-        <div class="karalama"><span class="ogr">sarı üçgen: I ve III · II zorunluluk · IV acil durum</span></div>
+        <div class="karalama"><span class="ogr">sarı üçgen: I ve III</span></div>
         <div class="oy uc"><div><b>A</b><span>I ve II</span><em>%__</em></div><div data-dogru><b>B</b><span>I ve III</span><em>%__</em></div><div><b>C</b><span>II ve IV</span><em>%__</em></div><div><b>D</b><span>III ve IV</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I11">
         <div class="mesveret-bas">{{sno|11}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Piktogram ile anlamının eşleştirilmesi hangisinde <u>yanlış</u> verilmiştir?</p>
-        <div class="karalama"><span class="ogr">ünlem: tahriş edici, zararlı · patlama: patlayan bomba</span></div>
-        <div class="oy"><div><b>A</b><span>Kurukafa – az miktarı bile zehirleyebilir</span><em>%__</em></div><div><b>B</b><span>Alev – kolay tutuşur</span><em>%__</em></div><div><b>C</b><span>Gaz tüpü – basınç altında gaz içerir</span><em>%__</em></div><div data-dogru><b>D</b><span>Ünlem – darbe ve kıvılcımla patlar</span><em>%__</em></div><div><b>E</b><span>Ağaç ve balık – su canlılarına zararlıdır</span><em>%__</em></div></div>
+        <p class="soru">Piktogram ile anlamı hangisinde <u>yanlış</u> eşleştirilmiştir?</p>
+        <div class="karalama"><span class="ogr">ünlem: tahriş edici · patlama: bomba</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Kurukafa: zehirler</span><em>%__</em></div><div><b>B</b><span>Alev: kolay tutuşur</span><em>%__</em></div><div><b>C</b><span>Gaz tüpü: basınçlı gaz</span><em>%__</em></div><div data-dogru><b>D</b><span>Ünlem: darbeyle patlar</span><em>%__</em></div><div><b>E</b><span>Ağaç ve balık: su canlılarına zararlı</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I12">
         <div class="mesveret-bas">{{sno|12}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Çamaşır suyu ile kireç çözücü aynı kovada karıştı.</p>
-        <ul class="yargi"><li><b>I.</b>Zehirli klor gazı açığa çıkabilir.</li><li><b>II.</b>Klor havadan hafif olduğu için tavanda toplanır.</li><li><b>III.</b>Kova bırakılmalı, ortam havalandırılıp terk edilmelidir.</li></ul>
-        <p class="soru kucuk-soru">Yargılardan hangileri doğrudur?</p>
+        <p class="soru kucuk-soru">Çamaşır suyu ile kireç çözücü aynı kovada karıştı.</p>
+        <ul class="yargi"><li><b>I.</b>Zehirli klor gazı çıkabilir.</li><li><b>II.</b>Klor havadan hafiftir, tavanda toplanır.</li><li><b>III.</b>Ortam havalandırılıp terk edilmelidir.</li></ul>
+        <p class="soru kucuk-soru">Hangileri doğrudur?</p>
         <div class="oy uc"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div><b>C</b><span>I ve II</span><em>%__</em></div><div data-dogru><b>D</b><span>I ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
     </div>
@@ -889,43 +882,41 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
     <div class="ustad-izgara esnek">
       <div class="ustad-soru" data-soru="U1">
         <div class="ustad-bas">{{sno|1|laj}}<span class="et">Etiket · piktogram</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Bir maddenin güvenlik bilgi formunda şu üç ifade var: “Kolay alevlenir sıvı ve buhar.” “Yutulması, cilt ile teması ya da solunması hâlinde toksiktir.” “Organlarda hasara yol açar.” Etiketinde hangi piktogramlar bulunmalıdır?</p>
-        <div class="karalama"><span class="ogr">alevlenir: alev · toksik: kurukafa · organ hasarı: sağlık</span></div>
-        <div class="siklar iki"><div class="sik"><b>A</b>Alev · ünlem · çevre</div><div class="sik" data-dogru><b>B</b>Alev · kurukafa · sağlık tehlikesi</div><div class="sik"><b>C</b>Çember üstünde alev · kurukafa · aşınma</div><div class="sik"><b>D</b>Alev · gaz tüpü · kurukafa</div><div class="sik"><b>E</b>Patlayan bomba · kurukafa · sağlık tehlikesi</div></div>
+        <p class="soru">Güvenlik bilgi formunda: “Kolay alevlenir sıvı ve buhar.” “Yutulması, cilt ile teması ya da solunması hâlinde toksiktir.” “Organlarda hasara yol açar.” Etikette hangi piktogramlar olmalı?</p>
+        <div class="karalama"><span class="ogr">alevlenir: alev · toksik: kurukafa · organ: sağlık</span></div>
+        <div class="siklar iki"><div class="sik"><b>A</b>Alev, ünlem, çevre</div><div class="sik" data-dogru><b>B</b>Alev, kurukafa, sağlık</div><div class="sik"><b>C</b>Çember, kurukafa, aşınma</div><div class="sik"><b>D</b>Alev, gaz tüpü, kurukafa</div><div class="sik"><b>E</b>Bomba, kurukafa, sağlık</div></div>
       </div>
       <div class="ustad-soru" data-soru="U2">
         <div class="ustad-bas">{{sno|2|laj}}<span class="et">Depolama · matris</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">s.{{sayfa|5}}’{{ek|5|de}}ki matrise göre, “!” eşleşmesinden de kaçınarak altı madde yerleşecek. Parantezde matriste bulunan piktogramlar var: etil alkol (alev), aseton (alev, ünlem), potasyum nitrat (çember üstünde alev), sud kostik (aşınma), metanol (alev, kurukafa), bakır(II) sülfat (ünlem). Aynı bölmedeki iki madde, piktogramlarının hepsinde “birlikte” olmalıdır. En az kaç bölme gerekir?</p>
-        <div class="karalama"><span class="ogr">nitrat tek · sud kostik, metanol, alkol+aseton ayrı · CuSO₄ herhangi birine: 4</span></div>
+        <p class="soru">s.{{sayfa|5}}’{{ek|5|de}}ki matrise göre (“!” de ayrı sayılır) altı madde yerleşecek. Parantezde matristeki piktogramlar: etil alkol (alev, ünlem), aseton (alev, ünlem), potasyum nitrat (çember), sud kostik (aşınma), metanol (alev, kurukafa), bakır(II) sülfat (ünlem). Bir bölmedeki her çift, bütün piktogramlarında “birlikte” olmalı. En az kaç bölme gerekir?</p>
+        <div class="karalama"><span class="ogr">nitrat · sud kostik · metanol · alkol+aseton (+CuSO₄): 4</span></div>
         <div class="siklar"><div class="sik"><b>A</b>2</div><div class="sik"><b>B</b>3</div><div class="sik" data-dogru><b>C</b>4</div><div class="sik"><b>D</b>5</div><div class="sik"><b>E</b>6</div></div>
       </div>
       <div class="ustad-soru" data-soru="U3">
         <div class="ustad-bas">{{sno|3|laj}}<span class="et">Grafik · karbon monoksit</span><span class="ustad-zor">AYT</span></div>
-        <div class="ustad-sekil">{{info|co_grafigi}}</div>
-        <p class="soru">Bacası iyi çekmeyen sobalı bir odada CO derişimi grafikteki gibi değişiyor. Dedektör, derişim 50 ppm’e ulaşınca ötüyor; 40. dakikada pencere açılıyor.</p>
-        <ul class="yargi"><li><b>I.</b>Dedektör ilk kez 20. dakikada öter.</li><li><b>II.</b>Pencere açıldıktan 10 dakika sonra derişim eşiğin altındadır.</li><li><b>III.</b>30. ve 40. dakikalar arasında derişim artmıştır.</li></ul>
-        <div class="karalama"><span class="ogr">I doğru · 50. dk’da 60 ppm (II yanlış) · 80’den 100’e (III doğru)</span></div>
+        <div class="yan-resim"><div><p class="soru">Bacası çekmeyen sobalı odada CO grafikteki gibi; dedektör 50 ppm’de öter, 40. dk’da pencere açılır.</p>
+          <ul class="yargi"><li><b>I.</b>İlk kez 20. dk’da öter.</li><li><b>II.</b>50. dk’da eşiğin altında.</li><li><b>III.</b>30–40. dk’da artmış.</li></ul></div>{{info|co_grafigi}}</div>
+        <div class="karalama"><span class="ogr">50. dk’da 60 ppm (II yanlış)</span></div>
         <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız III</div><div class="sik"><b>C</b>I ve II</div><div class="sik" data-dogru><b>D</b>I ve III</div><div class="sik"><b>E</b>I, II ve III</div></div>
       </div>
       <div class="ustad-soru" data-soru="U4">
         <div class="ustad-bas">{{sno|4|laj}}<span class="et">Ölçüm · göz hizası</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Bir öğrenci, gözünü sıvı yüzeyinin biraz üstünde tutarak okuma yapıyor.</p>
-        <ul class="yargi"><li><b>I.</b>Suda çukurun alt noktası, cıvada tümseğin üst noktası okunur.</li><li><b>II.</b>Bu öğrenci mezürdeki suyun hacmini olduğundan fazla okur.</li><li><b>III.</b>Aynı hatayı sıfırı üstte olan bir bürette yaparsa hacmi yine olduğundan fazla okur.</li></ul>
-        <div class="karalama"><span class="ogr">bürette sayılar aşağı artar: yukarıdan bakan az okur (III yanlış)</span></div>
+        <p class="soru">Bir öğrenci gözünü sıvı yüzeyinin biraz üstünde tutarak okuyor.</p>
+        <ul class="yargi"><li><b>I.</b>Suda çukurun dibi, cıvada tümseğin tepesi okunur.</li><li><b>II.</b>Mezürdeki hacmi olduğundan fazla okur.</li><li><b>III.</b>Sıfırı üstte olan bürette de fazla okur.</li></ul>
+        <div class="karalama"><span class="ogr">bürette sayılar aşağı artar: az okur</span></div>
         <div class="siklar"><div class="sik" data-dogru><b>A</b>I ve II</div><div class="sik"><b>B</b>Yalnız I</div><div class="sik"><b>C</b>I ve III</div><div class="sik"><b>D</b>II ve III</div><div class="sik"><b>E</b>I, II ve III</div></div>
       </div>
       <div class="ustad-soru" data-soru="U5">
         <div class="ustad-bas">{{sno|5|laj}}<span class="et">Etiket · uyarı kelimesi</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">İki temizlik ürününün etiketinden: <b>X</b> · uyarı kelimesi DİKKAT, “Ciddi göz tahrişine yol açar.” <b>Y</b> · uyarı kelimesi TEHLİKE, “Ciddi cilt yanıklarına ve göz hasarına yol açar.”</p>
-        <ul class="yargi"><li><b>I.</b>Y’nin tehlikesi X’inkinden daha ciddidir.</li><li><b>II.</b>Y’nin etiketinde aşınma piktogramı beklenir.</li><li><b>III.</b>X’in uyarı kelimesi DİKKAT olduğu için gözlüksüz kullanılabilir.</li></ul>
-        <div class="karalama"><span class="ogr">TEHLİKE daha ciddi · cilt yanığı: aşınma · DİKKAT de gözlük ister</span></div>
+        <p class="soru"><b>X</b>: DİKKAT, “Ciddi göz tahrişine yol açar.” <b>Y</b>: TEHLİKE, “Ciddi cilt yanıklarına ve göz hasarına yol açar.”</p>
+        <ul class="yargi"><li><b>I.</b>Y’nin tehlikesi daha ciddidir.</li><li><b>II.</b>Y’de aşınma piktogramı beklenir.</li><li><b>III.</b>X gözlüksüz kullanılabilir.</li></ul>
+        <div class="karalama"><span class="ogr">DİKKAT de göz koruması ister (III yanlış)</span></div>
         <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik" data-dogru><b>B</b>I ve II</div><div class="sik"><b>C</b>I ve III</div><div class="sik"><b>D</b>II ve III</div><div class="sik"><b>E</b>I, II ve III</div></div>
       </div>
       <div class="ustad-soru" data-soru="U6">
         <div class="ustad-bas">{{sno|6|laj}}<span class="et">Düzenek · damıtma</span><span class="ustad-zor">AYT</span></div>
-        <div class="ustad-sekil">{{info|damitma}}</div>
-        <p class="soru">Şekildeki basit damıtma düzeneğinde <b>I</b> termometre haznesi yan borunun hizasında, <b>II</b> soğutucu suyu üstten girip alttan çıkıyor, <b>III</b> toplama erleninin ağzı tıpayla sıkıca kapalı. Hangileri düzeltilmelidir?</p>
-        <div class="karalama"><span class="ogr">su alttan girmeli (II) · kapalı düzenek basınçla patlar (III)</span></div>
+        <div class="yan-resim"><p class="soru">I termometre haznesi yan boru hizasında, II soğutucu suyu üstten girip alttan çıkıyor, III toplama kabı tıpalı. Hangileri düzeltilmeli?</p>{{info|damitma}}</div>
+        <div class="karalama"><span class="ogr">su alttan girmeli · kapalı kap basınçla patlar</span></div>
         <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız II</div><div class="sik"><b>C</b>I ve II</div><div class="sik"><b>D</b>I ve III</div><div class="sik" data-dogru><b>E</b>II ve III</div></div>
       </div>
     </div>
@@ -967,24 +958,24 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
     <div class="kart cozum-kart esnek">
       <div class="cozumler">
         <div class="grup"><h4>Büyük İmtihan</h4>
-          <p class="c"><b>1 · B</b> Çember üstünde alev, yanmayı başlatan ya da şiddetlendiren yakıcı (oksitleyici) maddeyi gösterir; yalnız alev yanıcıdır.</p>
-          <p class="c"><b>2 · D</b> Isıtılan tüpün ağzı kimseye çevrilmez. A stoğu kirletir, B’de cam kırık cam kutusuna gider, C yangın riski, E kimyasal koklanmaz.</p>
-          <p class="c"><b>3 · C</b> Göz hizasında çukurun dibi 36 mL çizgisinde; kenarlar 37’ye tırmanır, 37 okumak yaygın hatadır.</p>
-          <p class="c"><b>4 · A</b> Kroze katıyı çok ısıtır (b), soğutucu buharı yoğuşturur (a), piset saf suyla yıkar (c).</p>
-          <p class="c"><b>5 · B</b> Beher, alevin üstünde sacayağındaki tel kafese konur; tel kafes ısıyı yayar.</p>
-          <p class="c"><b>6 · C</b> Aşınma piktogramı deri, göz ve metal hasarı anlatır (I); eldiven ve gözlük gerekir (II). Tutuşma alevle gösterilir (III yanlış).</p>
-          <p class="c"><b>7 · E</b> Yanıcı ile yanıcı birlikte durur. Yakıcı ve aşındırıcı ayrı; zehirli ile yanıcı yalnız özel önlemle.</p>
-          <p class="c"><b>8 · E</b> Enfeksiyon riski taşıyan sağlık atığı tıbbi atıktır. A kimyasal atık, B atık pil, C kırık cam, D ambalaj.</p>
-          <p class="c"><b>9 · A</b> İlk adım bol akan sudur. Ovmak yarayı büyütür, baz ikinci bir yanık yapar, beklemek ve araştırmak zaman kaybettirir.</p>
-          <p class="c"><b>10 · B</b> Sarı üçgenler (elektrik, sıcak yüzey) uyarıdır; gözlük zorunluluk, ilk yardım acil durum işaretidir.</p>
-          <p class="c"><b>11 · D</b> Ünlem tahriş edici ve zararlıyı gösterir; patlamayı patlayan bomba anlatır.</p>
-          <p class="c"><b>12 · D</b> Klorlu ürün ile asit klor gazı verir (I). Klor havadan yoğundur, aşağıda birikir (II yanlış). Temiz hava ilk adımdır (III).</p>
+          <p class="c"><b>1 · B</b> Çember üstünde alev yakıcıyı (oksitleyici) gösterir; yalnız alev yanıcıdır.</p>
+          <p class="c"><b>2 · D</b> Tüp ağzı kimseye çevrilmez. A stoğu kirletir, B kırık cam kutusuna, C yangın, E kimyasal koklanmaz.</p>
+          <p class="c"><b>3 · C</b> Göz hizasında çukurun dibi 36 mL; kenarı (37) okumak yaygın hatadır.</p>
+          <p class="c"><b>4 · A</b> Kroze katıyı çok ısıtır, soğutucu buharı yoğuşturur, piset saf suyla yıkar.</p>
+          <p class="c"><b>5 · B</b> Beher, sacayağındaki tel kafese konur; tel kafes ısıyı yayar.</p>
+          <p class="c"><b>6 · C</b> Aşınma: deri, göz, metal yanığı (I); eldiven, gözlük (II). Tutuşmayı alev anlatır.</p>
+          <p class="c"><b>7 · E</b> Yanıcı ile yanıcı birlikte; yakıcı, aşındırıcı ayrı; zehirli yalnız özel önlemle.</p>
+          <p class="c"><b>8 · E</b> Enfeksiyon riski taşıyan sağlık atığı tıbbidir; A kimyasal, B pil, C cam, D ambalaj.</p>
+          <p class="c"><b>9 · A</b> İlk adım 15–20 dk bol akan su; ovmak ve baz ikinci yanık yapar.</p>
+          <p class="c"><b>10 · B</b> Sarı üçgenler (I, III) uyarı; gözlük zorunluluk, ilk yardım acil durum.</p>
+          <p class="c"><b>11 · D</b> Ünlem tahriş edici, zararlıdır; patlamayı patlayan bomba anlatır.</p>
+          <p class="c"><b>12 · D</b> Klorlu ürün + asit: klor (I). Klor havadan yoğun, aşağıda birikir (II yanlış). Temiz hava (III).</p>
         </div>
         <div class="grup"><h4>Kıssalar</h4>
-          <p class="c"><b>1 · E</b> Buhar yanıcıdır: kapalı kap, havalandırma, alevsiz ortam ve çözücülü bezler için kapaklı metal kutu; üçü de doğru.</p>
-          <p class="c"><b>2 · D</b> Hassas aktarma pipet, çalkalanan kap erlen, musluklu hacim ölçümü büret. Balon joje tek bir hacmi hazırlar, aktarmaz.</p>
-          <p class="c"><b>3 · A</b> Azalma: göz 8’den 1’e %87,5, kesik 10’dan 4’e %60, yanık ve deri %50. Toplam 30’dan 11’e indi (E yanlış); 2. dönemde en sık kesik (D yanlış).</p>
-          <p class="c"><b>4 · C</b> Yanıcı–yakıcı ayrı (I), aşındırıcı–tahriş edici birlikte (II), yanıcı–tahriş edici birlikte (III yanlış).</p>
+          <p class="c"><b>1 · E</b> Buhar yanıcı: kapalı kap, havalandırma, kapaklı metal kutu; üçü de doğru.</p>
+          <p class="c"><b>2 · D</b> Hassas aktarma pipet, çalkalama erlen, musluklu ölçüm büret.</p>
+          <p class="c"><b>3 · A</b> Göz 8’den 1’e (%87,5); kesik %60, yanık ve deri %50. Toplam 30’dan 11’e (E yanlış).</p>
+          <p class="c"><b>4 · C</b> Yanıcı–yakıcı ayrı (I), aşındırıcı–tahriş birlikte (II), yanıcı–tahriş birlikte (III yanlış).</p>
         </div>
         <div class="grup yan-anahtar"><h4>Yan yollar · hızlı anahtar</h4>
           <p><b>Kıssa</b><span class="ck">1 E</span><span class="ck">2 D</span><span class="ck">3 A</span><span class="ck">4 C</span></p>
@@ -992,23 +983,21 @@ table.eslesme td:first-child { font-weight: 800; background: var(--gum-a); width
           <p><b>Merdiven</b><span class="ck">1 · alevsiz ısıt</span><span class="ck">2 · 4 bölme</span><span class="ck">3 · beher</span></p>
         </div>
         <div class="grup"><h4>Üstad soruları</h4>
-          <p class="c"><b>1 · B</b> “Alevlenir” alev, “toksik” kurukafa, “organ hasarı” sağlık tehlikesi piktogramı ister (metanol böyle etiketlenir).</p>
-          <p class="c"><b>2 · C</b> Potasyum nitrat herkesle ayrı. Sud kostik, metanol ve alkol–aseton ikilisi birbiriyle ayrı (yanıcı–aşındırıcı ayrı, yanıcı–zehirli “!”). Bakır(II) sülfat herhangi birine girer: en az 4 bölme.</p>
-          <p class="c"><b>3 · D</b> 20. dakikada 50 ppm: dedektör öter (I). 50. dakikada 60 ppm; eşik ancak 52,5. dakikada geçilir (II yanlış). 80’den 100 ppm’e çıkmış (III).</p>
-          <p class="c"><b>4 · A</b> I tanımdır. Mezürde sayılar yukarı artar, yukarıdan bakan fazla okur (II). Bürette sayılar aşağı artar, aynı hata az okutur (III yanlış).</p>
-          <p class="c"><b>5 · B</b> TEHLİKE, DİKKAT’ten ciddidir (I). Cilt yanığı ve göz hasarı aşındırıcı demektir (II). DİKKAT de göz koruması ister (III yanlış).</p>
-          <p class="c"><b>6 · E</b> Termometre doğru yerde (I). Su alttan girip üstten çıkmalı (II). Kapalı düzenekte basınç artar, cam patlar (III).</p>
+          <p class="c"><b>1 · B</b> Alevlenir: alev · toksik: kurukafa · organ hasarı: sağlık tehlikesi (metanol).</p>
+          <p class="c"><b>2 · C</b> Nitrat tek; sud kostik, metanol, alkol–aseton birbirinden ayrı; CuSO₄ birine katılır: 4.</p>
+          <p class="c"><b>3 · D</b> 20. dk’da 50 ppm (I). 50. dk’da 60 ppm; eşik ≈ 53. dk’da geçilir (II yanlış). 80’den 100’e (III).</p>
+          <p class="c"><b>4 · A</b> Mezürde sayılar yukarı artar: fazla okur (II). Bürette aşağı artar: az okur (III yanlış).</p>
+          <p class="c"><b>5 · B</b> TEHLİKE daha ciddi (I); cilt yanığı aşındırıcı demek (II); DİKKAT de gözlük ister.</p>
+          <p class="c"><b>6 · E</b> Termometre doğru (I); su alttan girmeli (II); kapalı düzenek basınçla patlar (III).</p>
         </div>
         <div class="grup"><h4>Meclis · merdiven · hızlı görevler</h4>
-          <p class="c"><b>Meclis 1 · Yusuf, satır 3</b> Su aside dökülmez; behere önce su, asit suya yavaşça ve karıştırarak.</p>
-          <p class="c"><b>Meclis 2 · Pamuk, satır 1</b> Kurukafa yok diye zararsız değil; kimyasal koklanmaz.</p>
-          <p class="c"><b>Meclis 3 · Yusuf, satır 2</b> Su çukur menisküs yapar; çukurun dibi okunur.</p>
-          <p class="c"><b>Meclis 4 · Elif, satır 2</b> Bakır(II) sülfat çevreye zararlıdır; atık kabına konur.</p>
-          <p class="c"><b>Merdiven 1</b> Buhar alevde tutuşur: alevsiz ısıtıcı ya da su banyosu, çeker ocak, gözlük ve eldiven.</p>
-          <p class="c"><b>Merdiven 2</b> En az 4 bölme: [yakıcı] · [yanıcı + tahriş edici] · [zehirli] · [aşındırıcı] (tahriş edici zehirli ya da aşındırıcının yanına da gidebilir).</p>
-          <p class="c"><b>Merdiven 3</b> Balon joje ısıtılmaz; süzüntü beherde ya da porselen kapsülde, sacayağı ve tel kafes üstünde ısıtılır.</p>
-          <p class="c"><b>Hızlı görevler</b> s.{{sayfa|2}} göz duşu · s.{{sayfa|3}} hayır, ısıl şok · s.{{sayfa|4}} aşınma; eldiven, gözlük · s.{{sayfa|5}} zehirli kloramin · s.{{sayfa|6}} ayırma hunisi.</p>
-          <p class="c"><b>Hızlı kontroller</b> s.{{sayfa|2}} saç alev alır, takılır · s.{{sayfa|3}} buhar yayılır, tutuşur · s.{{sayfa|4}} gaz tüpü ve çember üstünde alev · s.{{sayfa|5}} evet, birlikte · s.{{sayfa|6}} olduğundan fazla.</p>
+          <p class="c"><b>Meclis 1 · Yusuf, satır 3</b> Önce su; asit suya yavaşça.</p>
+          <p class="c"><b>Meclis 2 · Pamuk, satır 1</b> Kurukafa yok ≠ zararsız; koklanmaz.</p>
+          <p class="c"><b>Meclis 3 · Yusuf, satır 2</b> Suda çukurun dibi okunur.</p>
+          <p class="c"><b>Meclis 4 · Elif, satır 2</b> CuSO₄ çevreye zararlı: atık kabına.</p>
+          <p class="c"><b>Merdiven</b> 1 · buhar alevde tutuşur: alevsiz ısıtıcı, çeker ocak, KKD · 2 · [yakıcı] [yanıcı + tahriş] [zehirli] [aşındırıcı] · 3 · balon joje ısıtılmaz: beher ya da kapsül, sacayağı + tel kafes.</p>
+          <p class="c"><b>Hızlı görevler</b> s.{{sayfa|2}} göz duşu · s.{{sayfa|3}} hayır, ısıl şok · s.{{sayfa|4}} aşınma · s.{{sayfa|5}} kloramin · s.{{sayfa|6}} ayırma hunisi.</p>
+          <p class="c"><b>Hızlı kontroller</b> s.{{sayfa|2}} alev alır · s.{{sayfa|3}} buhar tutuşur · s.{{sayfa|4}} gaz tüpü + çember · s.{{sayfa|5}} evet · s.{{sayfa|6}} fazla; balon joje.</p>
         </div>
       </div>
     </div>

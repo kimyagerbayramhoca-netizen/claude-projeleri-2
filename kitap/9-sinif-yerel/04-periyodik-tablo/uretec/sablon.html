@@ -4,11 +4,44 @@
 <meta charset="utf-8">
 <title>Kimya Rotası 9 · Periyodik Tablo · Maden Yolu I · Batı Anadolu</title>
 <link rel="stylesheet" href="../../yerel-ortak/stil.css">
+<style>
+/* Periyodik Tablo · üniteye özel küçük kurallar (ortak stil.css değişmez) */
+svg.info { display: block; width: 100%; height: auto; }
+.bilgi-kart { padding: 2mm 2.8mm 2.2mm; }
+.bilgi-kart > .et { margin-bottom: 1mm; }
+.yanyana { display: grid; gap: 2.6mm; align-items: center; }
+.kucuk-p { font-size: 9.5pt; line-height: 1.26; }
+ul.nokta { list-style: none; font-size: 9.5pt; line-height: 1.27; }
+ul.nokta li { position: relative; padding-left: 3.4mm; }
+ul.nokta li::before { content: ""; position: absolute; left: .4mm; top: 1.75mm; width: 1.5mm; height: 1.5mm; border-radius: 50%; background: var(--gol); }
+ul.nokta li + li { margin-top: .5mm; }
+table.gorev-tablo.dar { margin-top: .8mm; }
+table.gorev-tablo.dar th, table.gorev-tablo.dar td { padding: .32mm 1.2mm; font-size: 9.2pt; line-height: 1.2; }
+table.gorev-tablo td.sol { text-align: left; }
+.dizi { font-weight: 800; letter-spacing: .01em; white-space: nowrap; }
+.ozet-f.kucuk { font-size: 12pt; }
+.mesveret .resim-sag.iskelet { width: 52mm; }
+.ustad-sekil svg.info { width: 38mm; }
+.ustad-soru .ust-satir { display: grid; grid-template-columns: 1fr 38mm; gap: 2mm; align-items: center; }
+.iskelet-sekil { margin: .2mm auto 0; width: 82%; }
+.ozetler .ozet-kart:last-child .ozet-liste.no { padding-right: 15mm; }
+.yokla { margin-top: auto; }
+.kissa-ic .ust-satir { display: grid; grid-template-columns: 1fr 34mm; gap: 2mm; align-items: center; }
+.kissa-ic .ust-satir svg.info.grafik { width: 34mm; }
+.kissa table.gorev-tablo { margin-top: .6mm; }
+.final-balon.yukari { top: 6mm; right: 50mm; width: 50mm; }
+.sandik-izgara.bes { grid-template-columns: repeat(5, 1fr); }
+.kale-not { font-size: 9.5pt; line-height: 1.25; }
+.bos { display: inline-block; min-width: 12mm; border-bottom: .3mm dotted var(--obs-2); text-align: center; line-height: 1.05; }
+.bos.g { min-width: 16mm; }
+html.ogretmen .bos > .ogr { font-size: 9pt; }
+.sandik-izgara div { font-size: 9pt; }
+.isaret-satir { display: flex; flex-wrap: wrap; gap: 1mm 1.6mm; margin-top: .8mm; }
+</style>
 </head>
 <body>
-<!-- Bu dosyadan uretec/kur.py ile unite.html üretilir. İçerik burada; çizimler {{yer-tutucu}} ile gelir.
-     Yer tutucular ve bileşenler: yerel-ortak/TASARIM-SISTEMI.md (§5 bileşenler, §8 yer tutucular, §9 cevap işaretleme).
-     HTML yorumları olduğu gibi kalır; yorum içindeki {{…}} çözülmez (örnek bileşenler bu yüzden yorumda durur). -->
+<!-- Bu dosyadan uretec/kur.py ile unite.html üretilir. Düzeltmeyi burada yap, sonra kur.py'yi çalıştır.
+     Yer tutucular ve bileşenler: yerel-ortak/TASARIM-SISTEMI.md (§5 bileşenler, §8 yer tutucular, §10 cevap işaretleme, §11 Üstad). -->
 {{defs}}
 
 <!-- ================================================================ SAYFA 1 · YOLA ÇIKIŞ -->
@@ -18,22 +51,20 @@
   {{cini}}
   <div class="acilis">
     <div>
-      <div class="cipler"><span class="cip koyu buyuk">Yol 4 · Maden Yolu I · Batı Anadolu</span><span class="cip buyuk">9. sınıf · {{meta|tema}}</span></div>
-      <h1 class="dev-baslik" style="font-size:38pt"><span class="mol">Periyodik</span> <span class="kav"><svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12 C40 2 70 2 100 11 S160 20 200 10 S270 2 296 10" fill="none" stroke="#F0A21A" stroke-width="9" stroke-linecap="round"/></svg>Tablo</span></h1>
-      <p class="slogan">Ünitenin sloganı: bir atasözü ya da <b>yerel bir cümle.</b></p>
+      <div class="cipler"><span class="cip koyu buyuk">Yol 4 · Maden Yolu I</span><span class="cip buyuk">9. sınıf · {{meta|tema}}</span></div>
+      <h1 class="dev-baslik" style="font-size:37pt"><span class="mol">Periyodik</span> <span class="kav"><svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12 C40 2 70 2 100 11 S160 20 200 10 S270 2 296 10" fill="none" stroke="#F0A21A" stroke-width="9" stroke-linecap="round"/></svg>Tablo</span></h1>
+      <p class="slogan">Madenden tabloya: <b>her elementin bir adresi var.</b></p>
       <div class="cipler" style="margin-top:2.6mm"><span class="cip">5 durak</span><span class="cip">3 yan yol</span><span class="cip mer">1 kale</span><span class="cip akce">{{sikke|}} {{meta|akce_toplam}} akçe</span></div>
     </div>
     <div class="pamuk-sahne">
-      <div class="balon-buyuk"><span class="et keh">Pamuk · tur rehberin</span><br>Miyav, hoş geldin! Bu yolda <b>neyi</b> öğreneceğimizi bir cümleyle söyle.</div>
+      <div class="balon-buyuk"><span class="et keh">Pamuk · tur rehberin</span><br>Miyav, hoş geldin! Batı Anadolu’nun madenlerinde alüminyumun, kobaltın, gümüşün ve borun <b>tablodaki adresini</b> okuyacağız.</div>
       {{poz|pamuk-selam|pamuk-buyuk}}
     </div>
   </div>
-  <!-- Tur haritası: meta.json duraklarının enlem–boylamından genel harita. Bölgeye özel panorama çizince
-       {{rota-haritasi}} yerine {{sahne|panorama_adi}}, {{rota-etiket}} yerine kendi etiket yer tutucunu koy (Mol: panorama). -->
   <div class="panorama-kutu" data-serbest>
-    {{rota-haritasi}}
-    <div class="panorama-bas"><h2>Tur haritası</h2><p>Yer 1’den başla, Kütahya Kalesi’ne çık.</p></div>
-    {{rota-etiket}}
+    {{panorama}}
+    <div class="panorama-bas"><h2>Tur haritası</h2><p>Seydişehir’den başla, madenleri dolaş, Kütahya Kalesi’ne çık.</p></div>
+    {{panorama-etiket}}
   </div>
   <main class="ic" style="top:173mm">
     <div class="ara-bas">Kazanılacak nişanlar <small>Durağı bitirince nişanını kendin boya. Kalem senden, nişan bizden.</small></div>
@@ -49,13 +80,13 @@
       <div class="kart">
         <span class="et">{{ikon|hedef}}Yolun sonunda · hedefler</span>
         <ol class="hedefler">
-          <li>Birinci kazanım (öğrencinin yapacağı iş).</li>
-          <li>İkinci kazanım.</li>
-          <li>Üçüncü kazanım.</li>
+          <li>Tablonun hikâyesini ve düzenini açıklayacaksın.</li>
+          <li>Dizilimden periyot, grup ve bloğu bulacaksın.</li>
+          <li>Sınıfları, aileleri ve iyonları tanıyacaksın.</li>
         </ol>
         <div class="et keh" style="margin-top:3mm">Ahilik basamakları · toplam akçene göre</div>
         <div class="basamak-unvan" style="margin-top:3.4mm">
-          <div><b>Çırak</b><small>0+</small></div><div><b>Kalfa</b><small>400+</small></div><div><b>Usta</b><small>800+</small></div><div><b>Üstad</b><small>1150+</small></div>
+          <div><b>Çırak</b><small>0+</small></div><div><b>Kalfa</b><small>400+</small></div><div><b>Usta</b><small>800+</small></div><div><b>Tablo Üstadı</b><small>1150+</small></div>
         </div>
       </div>
     </div>
@@ -72,373 +103,363 @@
   {{alt|1}}
 </section>
 
-<!-- ================================================================ SAYFA 2 · 1. DURAK · YER 1 -->
+<!-- ================================================================ SAYFA 2 · 1. DURAK · SEYDİŞEHİR · TABLONUN HİKÂYESİ VE YAPISI -->
 <section class="sayfa s2">
   {{zemin}}
   {{hud|2}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|safak|1}}
-    <div class="levha">{{rozet|1}}<div><div class="ust">1. durak · Yer 1 · sabah</div><h1>1. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+100 akçe</span><span class="cip">Nişan: 1. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|seydisehir}}
+    <div class="levha">{{rozet|1}}<div><div class="ust">1. durak · Konya · Seydişehir · sabah</div><h1>Boşluktan <em>tabloya</em></h1><p class="alt-bas">Mendeleyev boş bıraktı, galyum doldurdu: <b>tablo tahmin eder.</b></p><div class="hedef"><b>Hedef</b>Tablonun gelişimini sırala; periyot, grup ve bloğu tanı.<span class="cip akce">+100 akçe</span><span class="cip">Nişan: Boşluk Kâşifi</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1.06fr .94fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kırmızı toprak mı? Alüminyum bundan mı çıkıyor?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Boksitten alümina (Al<sub>2</sub>O<sub>3</sub>), ondan elektrolizle alüminyum. Mendeleyev alüminyumun altına bir <span class="vurgu">boşluk</span> bırakmıştı.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Tahmini ≈ 68, bulunan galyum ≈ 70. Miyav!</div></div>
       </div>
       <div class="bento dikey">
         <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
+          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · periyodik yasa</span><span class="cip akce">+20 akçe</span></div>
+          <p>Elementler artan <b>atom numarasına</b> göre dizildiğinde özellikleri <b>belirli aralıklarla tekrar eder</b>. Mendeleyev (1869) atom kütlesini kullandı; Moseley (1913) atom numarasını ölçtü.</p>
         </div>
         {{hazine|H1}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
-      <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
-      </div>
-      <div class="kart hizli">
-        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
-      </div>
+    <div class="kart bilgi-kart">
+      <span class="et">{{ikon|harita}}Tablonun hikâyesi · sıralama ölçütü nasıl değişti?</span>
+      {{info|tarih_seridi}}
+      <p class="kucuk-p" style="margin-top:.6mm"><b>Tahmin tuttu:</b> Mendeleyev (1871) “eka-alüminyum” için kütle ≈ 68, yoğunluk ≈ 5,9 g/cm<sup>3</sup>, oksit Ea<sub>2</sub>O<sub>3</sub> dedi; 1875’te bulunan galyum: ≈ 70, ≈ 5,9 g/cm<sup>3</sup>, Ga<sub>2</sub>O<sub>3</sub>. Galyum 30 °C’ye yakın erir.</p>
     </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
+    <div class="bento" style="grid-template-columns:1.5fr .5fr">
+      <div class="kart bilgi-kart yanyana" style="grid-template-columns:92mm 1fr;align-items:start">
+        {{info|blok_haritasi}}
+        <div>
+          <span class="et kob">{{ikon|kitap}}Modern tablo</span>
+          <ul class="nokta" style="margin-top:1mm">
+            <li>Yatay sıra <b>periyot</b> (7), düşey sütun <b>grup</b> (18).</li>
+            <li>2, 8, 8, 18, 18, 32, 32 element.</li>
+            <li>Her periyot 8A ile biter.</li>
+            <li>8 A + 8 B grubu; 8B üç sütun.</li>
+          </ul>
+        </div>
       </div>
-      <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Yoldan</span>
-        <p>Bölgeden, doğrulanmış bir günlük hayat bilgisi. Emin değilsen “yaklaşık” de.</p>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
       <div class="bento dikey">
         {{hazine|H2}}
         <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1.08fr .96fr .96fr">
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · üçlü</span><span class="sag"><span class="cip akce">+30 akçe</span></span></div>
+        <div class="baglam">Döbereiner’in fark ettiği üçlü: Ca, Sr, Ba.</div>
+        <p class="soru">Ca (40) ile Ba (137) arasındaki Sr’nin atom kütlesini tahmin ediniz.</p>
+        <ol class="akis"><li><i>1</i><span>Ortadaki ≈ uçtakilerin ortalaması: (40 + 137) / 2</span></li><li><i>2</i><span>177 / 2 = 88,5; tablodaki 88’e çok yakın.</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>≈ 88,5 (tabloda 88)</div>
+      </div>
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+10 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Mendeleyev atom numarasına göre dizdi.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>1869’da atom numarası bilinmiyordu; kütleyi kullandı. Te (128) ile I’yı (127) ters dizmesi atom numarasıyla açıklandı.</p></div>
+      </div>
+      <div class="kart hizli">
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+20 akçe</span></div>
+        <p class="soru">Seydişehir’in alüminyumu (Z = 13) 3. periyot 13. gruptadır. A/B adıyla grubu ve hemen altındaki elementin Z’si?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Alta inince 4. periyodun 18’ini ekle.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">3A · 13 + 18 = 31 (Ga)</span></div><span class="ters-cevap"><span class="ters">Cevap: 3A · 31</span></span></div>
       </div>
     </div>
   </main>
   {{alt|2}}
 </section>
 
-<!-- ================================================================ SAYFA 3 · 2. DURAK · YER 2 -->
+<!-- ================================================================ SAYFA 3 · 2. DURAK · KÜTAHYA · DİZİLİMDEN ADRESE -->
 <section class="sayfa s3">
   {{zemin}}
   {{hud|3}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|gun|2}}
-    <div class="levha">{{rozet|2}}<div><div class="ust">2. durak · Yer 2 · öğle</div><h1>2. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: 2. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|kutahya_cini}}
+    <div class="levha kob">{{rozet|2|DURAK|kob}}<div><div class="ust">2. durak · Kütahya · çini atölyesi · öğle</div><h1>Dizilimden <em>adrese</em></h1><p class="alt-bas">En büyük n <b>periyodu</b>, son orbital <b>bloğu</b>, değerlik elektronları <b>grubu</b> söyler.</p><div class="hedef"><b>Hedef</b>Temel hâl diziliminden periyot, grup ve bloğu bul.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Adres Ustası</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Mavi kobalttan, turkuaz bakırdan. Tablodaki adresleri ne?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Dizilimi yaz, sonra oku: <span class="vurgu">en büyük n</span> periyot, son orbital blok, değerlik e<sup>−</sup> grup.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kobaltta 4s<sup>2</sup> 3d<sup>7</sup>: 2 + 7 = 9. Miyav!</div></div>
       </div>
-      <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
-        </div>
-        {{hazine|H3}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · blok ve değerlik</span><span class="cip akce">+20 akçe</span></div>
+        <p><b>Blok:</b> en son yazılan orbitalin türü: s, p → A grupları · d → B (geçiş metalleri) · f → lantanit, aktinit. <b>Değerlik e<sup>−</sup>:</b> A’da ns + np, B’de ns + (n−1)d.</p>
+        <div style="width:47mm;margin:.6mm auto 0">{{info|dolma_sirasi}}</div>
+      </div>
+    </div>
+    <div class="bento" style="grid-template-columns:1.3fr .7fr">
+      <div class="kart bilgi-kart"><span class="et kob">{{ikon|harita}}Adres okuma · çinideki mavinin kaynağı kobalt</span>{{info|adres_okuma}}</div>
+      <div class="kart">
+        <span class="et kob">{{ikon|kitap}}Son terimden gruba</span>
+        <table class="gorev-tablo dar"><tr><th>Son terim</th><th>A/B</th><th>IUPAC</th></tr>
+          <tr><td>s<sup>1</sup> · s<sup>2</sup></td><td>1A · 2A</td><td>1 · 2</td></tr>
+          <tr><td>s<sup>2</sup>p<sup>1–5</sup></td><td>3A–7A</td><td>13–17</td></tr>
+          <tr><td>s<sup>2</sup>p<sup>6</sup>, He</td><td>8A</td><td>18</td></tr>
+          <tr><td>s<sup>2</sup>d<sup>1–5</sup></td><td>3B–7B</td><td>3–7</td></tr>
+          <tr><td>s<sup>2</sup>d<sup>6, 7, 8</sup></td><td>8B</td><td>8, 9, 10</td></tr>
+          <tr><td>s<sup>1</sup>d<sup>10</sup> · s<sup>2</sup>d<sup>10</sup></td><td>1B · 2B</td><td>11 · 12</td></tr></table>
+        <p class="kucuk-p" style="margin-top:.6mm">4s<sup>2</sup> 3d<sup>10</sup> 4p<sup>4</sup> → 2 + 10 + 4 = 16 (IUPAC).</p>
       </div>
     </div>
     <div class="bento" style="grid-template-columns:1.15fr .85fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 2 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 2 · sır ve boya</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+50 akçe</span></span></div>
+        <div class="baglam">Sırın ana maddesi SiO<sub>2</sub>; kırmızı-kahverengi tonlar çoğunlukla demirden.</div>
+        <p class="soru"><sub>14</sub>Si, <sub>8</sub>O ve <sub>26</sub>Fe’nin yerlerini bulunuz.</p>
+        <ol class="akis"><li><i>1</i><span>Si: …3s<sup>2</sup> 3p<sup>2</sup> → n = 3, p, 2 + 2 = 4 → 4A (14)</span></li><li><i>2</i><span>O: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>4</sup> → n = 2, p, 2 + 4 = 6 → 6A (16)</span></li><li><i>3</i><span>Fe: …4s<sup>2</sup> 3d<sup>6</sup> → n = 4, d, 2 + 6 = 8 → 8B (8)</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>Si 3. per. 4A · O 2. per. 6A · Fe 4. per. 8B</div>
+      </div>
+      <div class="bento dikey">
+        {{hazine|H3}}
+        {{hazine|H4}}
+        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1fr 1fr .95fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+30 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“<sub>16</sub>S’nin son terimi 3p<sup>4</sup>; S 4A’dadır.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Grup dış katmanın bütün elektronlarıyla bulunur: 3s<sup>2</sup> 3p<sup>4</sup> → 6A.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
+        <p class="soru">Seramikte mor-kahverengi veren <sub>25</sub>Mn’nin periyodu ve grubu?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">…4s² 3d⁵ → 2 + 5</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">4. periyot 7B (7)</span></div><span class="ters-cevap"><span class="ters">Cevap: 4. periyot 7B</span></span></div>
       </div>
-    </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
-      </div>
-      <div class="medeniyet">{{kose}}
-        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
-        <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
-        <p class="metin"><b>Âlimin adı</b> (yıl): YEREL-KIMLIK.md’deki doğrulanmış bilgi, iki cümle.</p>
-        <p class="not">Konuya bağlayan tek cümle.</p>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
-      <div class="bento dikey">
-        {{hazine|H4}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
+      <div class="kart kiyidan">
+        <span class="et">{{ikon|dalga}}Yoldan · çini renkleri</span>
+        <p class="kucuk-p">Kütahya çinisinde kobalt bileşikleri <b>maviyi</b>, bakır bileşikleri <b>turkuaz-yeşili</b> verir. Bu metallerin hepsi <b>d blokundadır</b>. Bakırın dizilimindeki sürpriz: s.{{sayfa|4}}.</p>
       </div>
     </div>
   </main>
   {{alt|3}}
 </section>
 
-<!-- ================================================================ SAYFA 4 · 3. DURAK · YER 3 -->
+<!-- ================================================================ SAYFA 4 · 3. DURAK · GÜMÜŞKÖY · KISA YOLLAR VE ÖZEL DURUMLAR -->
 <section class="sayfa s4">
   {{zemin}}
   {{hud|4}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|altin|3}}
-    <div class="levha">{{rozet|3}}<div><div class="ust">3. durak · Yer 3 · ikindi</div><h1>3. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: 3. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|gumuskoy}}
+    <div class="levha keh">{{rozet|3|DURAK|keh}}<div><div class="ust">3. durak · Kütahya · Gümüşköy · ikindi</div><h1>Kestirme <em>yollar</em></h1><p class="alt-bas">Önceki soy gaza bak, farkı say; <b>istisnaları</b> unutma.</p><div class="hedef"><b>Hedef</b>Katman ve soy gaz yöntemiyle hızlı yer bul; He, Cr, Cu, Ag istisnalarını tanı.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Kestirmeci</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Gümüş 47 numara. Dizilimi yazmadan yerini bulabilir miyiz?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>47’den küçük en yakın <span class="vurgu">soy gaz</span> kripton (36). Gümüş bir alt periyotta, 11. sütunda.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Akçe de gümüştendi! Miyav!</div></div>
       </div>
-      <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
-        </div>
-        {{hazine|H5}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · ilk 20 element</span><span class="cip akce">+20 akçe</span></div>
+        <p>Z = 1–20’nin hepsi A grubundadır: <b>katman sayısı = periyot</b>, <b>son katmandaki e<sup>−</sup> = A grubu</b>. K’nin 19. elektronu 3d’ye değil 4s’ye girer.</p>
+        {{info|katman_modeli}}
       </div>
+    </div>
+    <div class="kart bilgi-kart">
+      <span class="et">{{ikon|harita}}Soy gaz yöntemi · Z’den küçük en yakın soy gaz, bir alt periyot</span>
+      {{info|soygaz_cetveli}}
+      <p class="kucuk-p" style="margin-top:.4mm">4. ve 5. periyotta fark = <b>IUPAC grup no.</b>; 2. ve 3. periyotta fark 3–8 ise <b>10 ekle</b>. <b>Özel durumlar:</b> He 1s<sup>2</sup> ama <b>8A</b> · Cr 4s<sup>1</sup> 3d<sup>5</sup> → 6B · Cu 4s<sup>1</sup> 3d<sup>10</sup> ve Ag 5s<sup>1</sup> 4d<sup>10</sup> → 1B (yarı dolu ve tam dolu d kararlı) · 2A’dan sonra 2.–3. periyotta 3A, 4. periyottan sonra 3B gelir.</p>
     </div>
     <div class="bento" style="grid-template-columns:1.15fr .85fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 3 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 3 · gümüşün adresi</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
+        <p class="soru"><sub>47</sub>Ag’nin yerini kestirmeyle bulunuz, dizilimle doğrulayınız.</p>
+        <ol class="akis"><li><i>1</i><span>47 − 36 = 11 → 5. periyot, 11. grup (1B)</span></li><li><i>2</i><span>[Kr] 5s<sup>1</sup> 4d<sup>10</sup> (bakır gibi istisna): 1 + 10 = 11 ✓</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>5. periyot 1B (11), d bloku</div>
       </div>
-      <div class="kart hizli">
-        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
-      </div>
-    </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
-      </div>
-      <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Yoldan</span>
-        <p>Bölgeden, doğrulanmış bir günlük hayat bilgisi. Emin değilsen “yaklaşık” de.</p>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
       <div class="bento dikey">
+        {{hazine|H5}}
         {{hazine|H6}}
         <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:.86fr .8fr 1.34fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+30 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yeri bilirsem nötron sayısını da bulurum.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Yer Z’yi verir; nötron izotopa göre değişir: <sup>107</sup>Ag, <sup>109</sup>Ag.</p></div>
+      </div>
+      <div class="kart hizli">
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+40 akçe</span></div>
+        <p class="soru">Değerlik e<sup>−</sup> dizilimi 4s<sup>2</sup> 4p<sup>5</sup> olan elementin Z’si?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">18 + 17. sütun</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">18 + 17 = 35 (Br)</span></div><span class="ters-cevap"><span class="ters">Cevap: 35</span></span></div>
+      </div>
+      <div class="medeniyet">{{kose}}
+        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
+        <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
+        <p class="metin"><b>el-Bîrûnî</b> (973–1048) birçok metal ve değerli taşın <b>özgül ağırlığını</b> hassas biçimde ölçtü: maddenin, aynı hacimdeki suya göre kaç kat ağır olduğunu. <i>el-Cemâhir</i>’de kıymetli taşları ve madenleri anlattı.</p>
+        <p class="not">Ölçmek, tanımaktır: bugün gümüşü <b>47</b> numarasıyla tanırız.</p>
       </div>
     </div>
   </main>
   {{alt|4}}
 </section>
 
-<!-- ================================================================ SAYFA 5 · 4. DURAK · YER 4 -->
+<!-- ================================================================ SAYFA 5 · 4. DURAK · KIRKA · METAL, AMETAL, YARI METAL, SOY GAZ -->
 <section class="sayfa s5">
   {{zemin}}
   {{hud|5}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|gun|4}}
-    <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Yer 4 · öğle</div><h1>4. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: 4. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|kirka}}
+    <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Eskişehir · Kırka · sabah</div><h1>Metal mi, <em>yarı metal mi?</em></h1><p class="alt-bas">Solu ve ortası metal, sağ üstü ametal; arada <b>merdiven</b>.</p><div class="hedef"><b>Hedef</b>Elementleri metal, ametal, yarı metal ve soy gaz diye sınıflandır.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Sınır Bekçisi</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
     <div class="bento" style="grid-template-columns:1.05fr .95fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
-      </div>
-      <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
-        </div>
-        {{hazine|H7}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-      </div>
-    </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
-      <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 4 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
-      </div>
-      <div class="kart hizli">
-        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
-      </div>
-    </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kar değil, bor! Bor bir metal mi?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Bor bir <span class="vurgu">yarı metal</span>: metal–ametal merdiveninin en üst basamağında.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Dünya bor rezervinin yaklaşık %70’i Türkiye’de! Miyav!</div></div>
       </div>
       <div class="medeniyet">{{kose}}
         <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
-        <div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
-        <p class="metin"><b>Âlimin adı</b> (yıl): YEREL-KIMLIK.md’deki doğrulanmış bilgi, iki cümle.</p>
-        <p class="not">Konuya bağlayan tek cümle.</p>
+        <div class="haz-ic sag"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div><p class="metin"><b>Ebû Bekir er-Râzî</b> (865–925) maddeleri <b>sınıflandırdı</b>; laboratuvar araçlarını ve işlemlerini tek tek <b>tarif etti</b>.</p></div>{{info|razi_araclari}}</div>
+        <p class="not">Periyodik tablo da bir sınıflandırmadır.</p>
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
+    <div class="kart bilgi-kart">
+      <span class="et">{{ikon|harita}}Sınıf haritası · çoğu element metal; ametaller sağ üstte; merdiven boyunca yarı metaller</span>
+      {{info|sinif_haritasi}}
+    </div>
+    <div class="bento" style="grid-template-columns:1.12fr .88fr">
+      <div class="kart bilgi-kart"><span class="et kob">{{ikon|kitap}}Özellik çizelgesi</span>{{info|ozellik_tablosu}}
+        <div class="hizli-kontrol"><span class="cip akce">+30 akçe</span><span><b>Hızlı kontrol:</b> Bakır tel olur: <span class="bos g"><span class="ogr">metal</span></span> · Kükürt ufalanır: <span class="bos g"><span class="ogr">ametal</span></span></span></div>
+      </div>
+      <div class="kart gorev">
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 4 · sınıflandır</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
+        <div class="baglam">Saf silisyuma çok az bor katılır: çipin yarı iletkeni.</div>
+        <p class="soru">Z = 5, 13, 15 ve 18 olan X, Y, Z, T’yi sınıflandırınız.</p>
+        <ol class="akis"><li><i>1</i><span>X 2·3 ve Y 2·8·3: 3A · Z 2·8·5: 5A · T 2·8·8: 8A</span></li><li><i>2</i><span>X (B) merdivende, Y (Al) solunda, Z (P) sağ üstte.</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>X yarı metal · Y metal · Z ametal · T soy gaz</div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1fr .92fr .98fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+30 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Hidrojen 1A’da; o hâlde metaldir.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Tek değerlik elektronu yüzünden 1A’dadır ama <b>ametaldir</b>: H<sub>2</sub> gazı, iletmez.</p></div>
+      </div>
+      <div class="kart hizli">
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
+        <p class="soru"><sub>51</sub>Sb’nin yeri ve sınıfı nedir?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">51 − 36; merdivene bak.</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">5. per. 5A · yarı metal</span></div><span class="ters-cevap"><span class="ters">Cevap: 5A, yarı metal</span></span></div>
+      </div>
       <div class="bento dikey">
+        {{hazine|H7}}
         {{hazine|H8}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
       </div>
     </div>
   </main>
   {{alt|5}}
 </section>
 
-<!-- ================================================================ SAYFA 6 · 5. DURAK · YER 5 -->
+<!-- ================================================================ SAYFA 6 · 5. DURAK · BANDIRMA · AİLELER VE İYONLAR -->
 <section class="sayfa s6">
   {{zemin}}
   {{hud|6}}
   {{cini}}
-  <!-- Sahne bandı: uretec/sahneler_unite.py içine bu durağa özel bir sahne yaz (odak sağda, sol üst levhaya boş) ve adını buraya koy. -->
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|altin|5}}
-    <div class="levha">{{rozet|5}}<div><div class="ust">5. durak · Yer 5 · ikindi</div><h1>5. durak <em>başlığı</em></h1><p class="alt-bas">Durağın tek cümlelik özeti: <b>anahtar fikir</b>.</p><div class="hedef"><b>Hedef</b>Bu durakta öğrencinin yapacağı iş.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: 5. Durak Nişanı</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|bandirma}}
+    <div class="levha mer">{{rozet|5|DURAK|mer}}<div><div class="ust">5. durak · Balıkesir · Bandırma · akşam</div><h1>Aileler ve <em>iyonlar</em></h1><p class="alt-bas">Aynı grup, aynı değerlik e<sup>−</sup> sayısı; <b>soy gaza benzemek</b> için e<sup>−</sup> verir ya da alırlar.</p><div class="hedef"><b>Hedef</b>Grup adlarını kullan; iyon yükünü ve e<sup>−</sup> sayısını bul.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: İyon Kaptanı</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+    <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Yerden bir gözlemle açılan soru: “Neden …?”</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Adım adım, yerel bir benzetmeyle cevap; <span class="vurgu">kavramın adı</span> burada geçer.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Kısa, sayılı bir espri. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Boraksta sodyum var; o iyon mu?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Na 1A’da: tek değerlik e<sup>−</sup>’unu verip <span class="vurgu">Na<sup>+</sup></span> olur, neona benzer.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk</span>Denizde Na<sup>+</sup> da var Cl<sup>−</sup> de. Miyav!</div></div>
       </div>
-      <div class="bento dikey">
-        <div class="kart kavram" style="flex:1">
-          <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram</span><span class="cip akce">+30 akçe</span></div>
-          <p><b>Terim:</b> tek cümlelik tanım. Formülde alt/üst simge: H<sub>2</sub>O, 10<sup>23</sup>.</p>
-          <!-- sağa 3B molekül:  <div class="resim-sag" style="width:20mm">{{mol|H2O|0,0,0|20mm|e}}</div> -->
-        </div>
-        {{hazine|H9}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
+      <div class="kart kavram">
+        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · iyon</span><span class="cip akce">+20 akçe</span></div>
+        <p><b>İyon:</b> e<sup>−</sup> vermiş ya da almış yüklü tanecik: <b>katyon</b> (Na<sup>+</sup>, Mg<sup>2+</sup>), <b>anyon</b> (Cl<sup>−</sup>, O<sup>2−</sup>). <b>Yük = p − e</b>.</p>
+        <table class="gorev-tablo dar"><tr><th>Grup</th><th>1A</th><th>2A</th><th>3A (Al)</th><th>5A</th><th>6A</th><th>7A</th></tr><tr><td>İyon</td><td>1+</td><td>2+</td><td>3+</td><td>3−</td><td>2−</td><td>1−</td></tr></table>
+        <p class="kucuk-p" style="margin-top:1mm">Metaller e<sup>−</sup> verip <b>katyon</b>, ametaller e<sup>−</sup> alıp <b>anyon</b> olur; böylece soy gaz dizilimine benzerler. Proton ve nötron sayısı değişmez.</p>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1.15fr .85fr">
+    <div class="kart bilgi-kart">
+      <span class="et">{{ikon|harita}}Grupların özel adları · aynı ailede aynı sayıda değerlik elektronu</span>
+      {{info|aileler}}
+    </div>
+    <div class="bento" style="grid-template-columns:1.05fr .95fr">
+      <div class="kart bilgi-kart"><span class="et kob">{{ikon|kitap}}Atomdan iyona · soy gaz düzeni</span>{{info|iyon_olusumu}}
+        <p class="kucuk-p"><b>İzoelektronik:</b> e<sup>−</sup> sayısı ve dizilimi aynı tanecikler: O<sup>2−</sup>, F<sup>−</sup>, Ne, Na<sup>+</sup>, Mg<sup>2+</sup>, Al<sup>3+</sup> (10 e<sup>−</sup>).</p>
+      </div>
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 5 · çözümlü</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
-        <!-- köşeye molekül:  <div class="kose-mol">{{mol|CO2|15,30,0|15mm}}</div> -->
-        <div class="baglam">Yerel bağlam: tek kısa cümle.</div>
-        <p class="soru">Soru kökü. Kullanılan değerleri parantezde ver (C: 12, O: 16 g/mol).</p>
-        <ol class="akis"><li><i>1</i><span>Birinci adım (hangi hazine kartı?)</span></li><li><i>2</i><span>İkinci adım</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>Cevap ve birimi</div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 5 · deniz ve tuz</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+40 akçe</span></span></div>
+        <p class="soru">(a) <sub>12</sub>Mg<sup>2+</sup>, <sub>17</sub>Cl<sup>−</sup>: kaç e<sup>−</sup>, hangi soy gaz? (b) X<sup>2−</sup> 18 e<sup>−</sup>’lu: X nerede?</p>
+        <ol class="akis"><li><i>1</i><span>Mg<sup>2+</sup>: 2 = 12 − e → e = 10 (Ne)</span></li><li><i>2</i><span>Cl<sup>−</sup>: −1 = 17 − e → e = 18 (Ar)</span></li><li><i>3</i><span>X<sup>2−</sup>: −2 = p − 18 → p = 16 → 2 · 8 · 6</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>10 (Ne) · 18 (Ar) · X: 3. periyot 6A</div>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1fr .95fr .95fr">
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+30 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Na<sup>+</sup> neon gibi; Na 2. periyot 8A’da.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Yer nötr atomdan bulunur: Na 2 · 8 · 1 → 3. periyot 1A.</p></div>
       </div>
       <div class="kart hizli">
-        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kısa bir soru.</p>
-        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">İpucu ters yazılır.</span></span></div>
-        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">öğretmen cevabı</span></div><span class="ters-cevap"><span class="ters">Cevap: …</span></span></div>
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+40 akçe</span></div>
+        <p class="soru"><sub>8</sub>O<sup>2−</sup>, <sub>9</sub>F<sup>−</sup>, <sub>11</sub>Na<sup>+</sup>, <sub>17</sub>Cl<sup>−</sup>: hangisi ötekilerle izoelektronik değil?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">e = p − yük</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">Cl⁻ (18 e⁻; ötekiler 10)</span></div><span class="ters-cevap"><span class="ters">Cevap: Cl⁻</span></span></div>
       </div>
-    </div>
-    <div class="bento" style="grid-template-columns:.9fr 1.1fr">
-      <div class="tuzak">
-        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Yaygın yanlış inanış.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Doğru bilgi, kısa ve net.</p></div>
-      </div>
-      <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Yoldan</span>
-        <p>Bölgeden, doğrulanmış bir günlük hayat bilgisi. Emin değilsen “yaklaşık” de.</p>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1fr .62fr">
-      <div class="kart iskelet-alan"><span class="et gum">Yer tutucu</span><p>Bilgi grafiği (info yer tutucusu), ikinci görev ya da tablo alanı. Boşluk bırakma: kalan yeri doldur.</p></div>
       <div class="bento dikey">
+        {{hazine|H9}}
         {{hazine|H10}}
-        <div class="kes-not">{{ikon|makas}}Kes · defterine yapıştır</div>
-        <div class="kart iskelet-alan" style="flex:1"><p>Mini kavram, 3B molekül ya da ikinci hızlı görev.</p></div>
       </div>
     </div>
   </main>
   {{alt|6}}
 </section>
 
-<!-- ================================================================ SAYFA 7 · HÜLASA -->
+<!-- ================================================================ SAYFA 7 · HÜLASA · KUŞCENNETİ -->
 <section class="sayfa s7">
   {{zemin}}
   {{hud|7}}
   {{cini}}
-  <div class="bant b40" data-serbest>{{sahne|ornek_sahne|altin|21}}
-    <div class="levha kob">{{rozet|H|-|erg}}<div><div class="ust" style="color:var(--erguvan)">Hülasa · konaklama yeri</div><h1>Periyodik <em style="color:var(--erguvan)">Hülasası</em></h1><p class="alt-bas">Yolun altı kartı. Sınavdan önceki gece bu sayfa yeter.</p></div></div>
+  <div class="bant b40" data-serbest>{{sahne|kuscenneti}}
+    <div class="levha kob">{{rozet|H|-|erg}}<div><div class="ust" style="color:var(--erguvan)">Hülasa · Manyas Gölü · Kuşcenneti · şafak</div><h1>Tablo <em style="color:var(--erguvan)">Hülasası</em></h1><p class="alt-bas">Yolun altı kartı. Sınavdan önceki gece bu sayfa yeter.</p></div></div>
   </div>
   <main class="ic" style="top:52.2mm">
     <div class="ozetler" data-tasma-yatay>
-      <div class="ozet-kart koyu"><span class="sira">01/06</span><span class="et">Ünitenin sayısı</span><div class="dev-sayi acik">1400</div><p>Koyu kart: ünitenin simge sayısı ya da denklemi.</p></div>
-      <div class="ozet-kart gol"><span class="sira">02/06</span><span class="et">Tek kural</span><h3>Kural cümlesi.</h3><div class="ozet-f">a = b / c</div><p>Kısa açıklama.</p></div>
-      <div class="ozet-kart"><span class="sira">03/06</span><span class="et">Okuma</span><h3>Başlık</h3><ul class="ozet-liste"><li>Madde</li><li>Madde</li><li>Madde</li></ul></div>
-      <div class="ozet-kart keh"><span class="sira">04/06</span><span class="et keh">Konu</span><h3>Başlık</h3><ul class="ozet-liste"><li>Madde</li><li>Madde</li></ul></div>
-      <div class="ozet-kart mer"><span class="sira">05/06</span><span class="et mer">Karşılaştırma</span><h3>Başlık</h3><p>İki şeyin farkı, tek cümle.</p></div>
+      <div class="ozet-kart koyu"><span class="sira">01/06</span><span class="et">Tablonun sayıları</span><div class="dev-sayi acik">118</div><p>element · 7 periyot · 18 grup · 4 blok: s, p, d, f. Sıra ölçütü: <b>atom numarası</b>.</p></div>
+      <div class="ozet-kart gol"><span class="sira">02/06</span><span class="et">Yer bulma</span><h3>Üç adımda adres</h3><div class="ozet-f kucuk">n → periyot</div><ul class="ozet-liste"><li>son orbital → blok</li><li>s, p: ns + np → A</li><li>d: ns + (n−1)d → B</li></ul></div>
+      <div class="ozet-kart"><span class="sira">03/06</span><span class="et">Kestirme</span><h3>Soy gaza bak</h3><ul class="ozet-liste"><li>2 · 10 · 18 · 36 · 54 · 86</li><li>Z − soy gaz = sütun</li><li>He 8A · Cr 6B · Cu, Ag 1B</li></ul></div>
+      <div class="ozet-kart keh"><span class="sira">04/06</span><span class="et keh">Sınıflar</span><h3>Merdivenin iki yanı</h3><ul class="ozet-liste"><li>solu, ortası: metal</li><li>sağ üstü: ametal (H de)</li><li>merdiven: B Si Ge As Sb Te</li></ul></div>
+      <div class="ozet-kart mer"><span class="sira">05/06</span><span class="et mer">Aileler ve iyonlar</span><h3>Yük = p − e</h3><ul class="ozet-liste"><li>1A alkali 1+ · 2A t. alkali 2+</li><li>Al 3+ · 5A 3− · 6A 2−</li><li>7A halojen 1− · 8A soy gaz</li></ul></div>
       <div class="ozet-kart"><span class="sira">06/06</span><span class="et mer">{{ikon|tuzak}}En sık 4 hata</span>
-        <ul class="ozet-liste no"><li>Hata</li><li>Hata</li><li>Hata</li><li>Hata</li></ul>
+        <ul class="ozet-liste no"><li>Mendeleyev atom numarası kullandı sanmak</li><li>3d’yi 4s’den önce doldurmak</li><li>d ile biteni A’ya yazmak (Fe “8A”)</li><li>İyonun ya da He’nin dizilimiyle yer bulmak</li></ul>
         <div class="muhur-kose">{{muhur|yanlis}}</div></div>
     </div>
     <div class="kart keh-z sandik">
       <div class="kart-bas"><span class="et keh">{{ikon|hazine}}Hazine sandığın · {{meta|hazine_sayisi}} kart</span><span class="kes-not">{{ikon|makas}}Hepsini kesip defterine yapıştırdın mı?</span></div>
-      <div class="sandik-izgara">{{sandik}}</div>
+      <div class="sandik-izgara bes">{{sandik}}</div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1.5fr .5fr">
       <div class="kart muhasebe">
         <div class="kart-bas"><span class="et keh">{{ikon|cay}}Muhasebe · kendimi muhasebe ediyorum</span><span class="cip akce">6 satır = +40 akçe</span></div>
         <div class="satir bas"><span>Bardağını ne kadar doldurabilirsin?</span><span>{{cay|1}}Tamam</span><span>{{cay|.5}}Yarım</span><span>{{cay|0}}Tekrar</span></div>
-        <div class="satir"><span>Kazanım cümlesi 1 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 2 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 3 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 4 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 5 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
-        <div class="satir"><span>Kazanım cümlesi 6 (… yapabilirim).</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Döbereiner’den Moseley’e tablonun gelişimini sıralayabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>A/B ve IUPAC grup adlarını birbirine çevirebilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Temel hâl diziliminden periyot, grup ve bloğu bulabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Soy gaz yöntemini ve He, Cr, Cu, Ag istisnalarını kullanabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Elementleri metal, ametal, yarı metal, soy gaz diye ayırabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="satir"><span>Grup adlarını kullanır, iyonun yükünü ve e<sup>−</sup> sayısını bulabilirim.</span>{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}</div>
+        <div class="hizli-kontrol yokla"><span class="cip">Kendini yokla</span><span><sub>34</sub>X: <span class="bos g"><span class="ogr">4. per. 6A</span></span> · <sub>13</sub>Al<sup>3+</sup>: <span class="bos"><span class="ogr">10</span></span> e<sup>−</sup> · <sub>52</sub>Te: <span class="bos g"><span class="ogr">yarı metal</span></span></span><span class="ters-cevap"><span class="ters">4. per. 6A · 10 · yarı metal</span></span></div>
       </div>
       <div class="kart not-kart">
         <span class="et">{{ikon|kitap}}Kendime not</span>
@@ -451,121 +472,121 @@
   {{alt|7}}
 </section>
 
-<!-- ================================================================ SAYFA 8 · YAN YOL 1 · MECLİS -->
+<!-- ================================================================ SAYFA 8 · YAN YOL 1 · MECLİS · BİGADİÇ -->
 <section class="sayfa s8">
   {{zemin}}
   {{hud|8}}
   {{cini}}
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|gun|31}}
-    <div class="levha keh">{{rozet|M|-|keh}}<div><div class="ust">Yan yol 1 · yer adı</div><h1>Meclis: <em>kim haklı?</em></h1><p class="alt-bas">Dört çözüm meclise geldi; her birinde <b>tek hata</b> var.</p><div class="hedef"><b>Usul</b>Doğru kişi +10, neden +10, doğrusu +10.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|bigadic}}
+    <div class="levha keh">{{rozet|M|-|keh}}<div><div class="ust">Yan yol 1 · Balıkesir · Bigadiç maden kampı · öğle</div><h1>Meclis: <em>kim haklı?</em></h1><p class="alt-bas">Dört çözüm meclise geldi; her birinde <b>tek hata</b> var.</p><div class="hedef"><b>Usul</b>Doğru kişi +10, neden +10, doğrusu +10.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <!-- Cevap işaretleme: haklı yorumda <div class="yorum" data-dogru>, hatalı satırın kutucuğunda <span class="kutucuk" data-dogru>,
-         neden ve doğrusu <span class="ogr">…</span> içinde (öğrenci baskısında görünmez). -->
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart meclis" data-soru="M1">
         <div class="meclis-bas"><span class="harf" style="background:var(--gol)">A</span><div><b>Ahmet</b> <small>çözümünü meclise getirdi · Hata 1</small></div><span class="cip akce">+30</span></div>
         <div class="ic2">
-          <p class="psoru">Soru kökü (değerler parantezde).</p>
-          <div class="cozum-defter"><div><i>1</i>Doğru bir adım.</div><div><i>2</i>Hatalı adım (tek, net bir hata).</div><div><i>3</i>Hatanın taşıdığı sonuç.</div></div>
-          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Bence sorun 2. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">kısa neden</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">doğru sonuç</span></span></div></div>
+          <p class="psoru">Soru: <sub>20</sub>Ca’nın periyodik tablodaki yeri neresidir?</p>
+          <div class="cozum-defter"><div><i>1</i>Ca: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 3d<sup>2</sup></div><div><i>2</i>En büyük enerji düzeyi 3 → 3. periyot</div><div><i>3</i>d ile bitiyor → 4B grubu</div></div>
+          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Sorun 1. satırda: 4s, 3d’den önce dolar.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum">{{av|elif}}<span><b>Elif:</b> 3. satırda: d ile bitiyorsa 2B olmalı.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk" data-dogru></span>1 <span class="kutucuk"></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">4s önce dolar</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">…3p⁶ 4s² → 4. periyot 2A</span></span></div></div>
         </div>
       </div>
       <div class="kart meclis" data-soru="M2">
         <div class="meclis-bas mer"><span class="harf" style="background:var(--mer)">Z</span><div><b>Zehra</b> <small>çözümünü meclise getirdi · Hata 2</small></div><span class="cip akce">+30</span></div>
         <div class="ic2">
-          <p class="psoru">Soru kökü (değerler parantezde).</p>
-          <div class="cozum-defter"><div><i>1</i>Doğru bir adım.</div><div><i>2</i>Hatalı adım (tek, net bir hata).</div><div><i>3</i>Hatanın taşıdığı sonuç.</div></div>
-          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Bence sorun 2. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">kısa neden</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">doğru sonuç</span></span></div></div>
+          <p class="psoru">Soru: <sub>28</sub>Ni’nin grubu ve periyodu nedir?</p>
+          <div class="cozum-defter"><div><i>1</i>Ni: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup> 3d<sup>8</sup></div><div><i>2</i>Değerlik e<sup>−</sup> = 2 + 8 = 10 → 8A grubu</div><div><i>3</i>En büyük enerji düzeyi 4 → 4. periyot</div></div>
+          <div class="yorum">{{av|pamuk}}<span><b>Pamuk:</b> 1. satırda: 3d, 4s’den önce yazılmalı.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum" data-dogru>{{av|elif}}<span><b>Elif:</b> 2. satırda: d ile biten A grubunda olamaz.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">d → B grubu</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">4. periyot 8B (10. grup)</span></span></div></div>
         </div>
       </div>
       <div class="kart meclis" data-soru="M3">
         <div class="meclis-bas kob"><span class="harf" style="background:var(--kob)">M</span><div><b>Mehmet Emin</b> <small>çözümünü meclise getirdi · Hata 3</small></div><span class="cip akce">+30</span></div>
         <div class="ic2">
-          <p class="psoru">Soru kökü (değerler parantezde).</p>
-          <div class="cozum-defter"><div><i>1</i>Doğru bir adım.</div><div><i>2</i>Hatalı adım (tek, net bir hata).</div><div><i>3</i>Hatanın taşıdığı sonuç.</div></div>
-          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Bence sorun 2. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">kısa neden</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">doğru sonuç</span></span></div></div>
+          <p class="psoru">Soru: <sub>8</sub>O’nun grubu nedir?</p>
+          <div class="cozum-defter"><div><i>1</i>O, 2 e<sup>−</sup> alırsa O<sup>2−</sup> iyonu 10 e<sup>−</sup> olur.</div><div><i>2</i>Yer için O<sup>2−</sup> dizilimini kullanırım: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup></div><div><i>3</i>Değerlik e<sup>−</sup> 8 → 2. periyot 8A</div></div>
+          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> 2. satır: yer iyondan değil, nötr atomdan bulunur.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum">{{av|elif}}<span><b>Elif:</b> 1. satır: oksijen 2 e<sup>−</sup> vermeli.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">nötr atomdan</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">1s² 2s² 2p⁴ → 2. periyot 6A</span></span></div></div>
         </div>
       </div>
       <div class="kart meclis" data-soru="M4">
         <div class="meclis-bas keh"><span class="harf" style="background:var(--keh)">R</span><div><b>Rabia</b> <small>çözümünü meclise getirdi · Hata 4</small></div><span class="cip akce">+30</span></div>
         <div class="ic2">
-          <p class="psoru">Soru kökü (değerler parantezde).</p>
-          <div class="cozum-defter"><div><i>1</i>Doğru bir adım.</div><div><i>2</i>Hatalı adım (tek, net bir hata).</div><div><i>3</i>Hatanın taşıdığı sonuç.</div></div>
-          <div class="yorum" data-dogru>{{av|yusuf}}<span><b>Yusuf:</b> Bence sorun 2. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="yorum">{{av|elif}}<span><b>Elif:</b> Hata 3. satırda.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
-          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk" data-dogru></span>2 <span class="kutucuk"></span>3 · NEDEN?<span class="cizgili"><span class="ogr">kısa neden</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">doğru sonuç</span></span></div></div>
+          <p class="psoru">Soru: <sub>2</sub>He hangi grupta, hangi sınıftadır?</p>
+          <div class="cozum-defter"><div><i>1</i>He: 1s<sup>2</sup> → 1. periyot</div><div><i>2</i>Son orbital s, değerlik e<sup>−</sup> sayısı 2</div><div><i>3</i>s<sup>2</sup> ile bittiği için 2A, toprak alkali metal</div></div>
+          <div class="yorum">{{av|yusuf}}<span><b>Yusuf:</b> 2. satırda: He’nin değerlik e<sup>−</sup> sayısı 8’dir.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="yorum" data-dogru>{{av|pamuk}}<span><b>Pamuk:</b> 3. satırda: He soy gazdır, 8A’dadır.</span><span class="k"><span class="kutucuk"></span>haklı</span></div>
+          <div class="hukum"><div class="s">HÜKMÜN · SATIR <span class="kutucuk"></span>1 <span class="kutucuk"></span>2 <span class="kutucuk" data-dogru></span>3 · NEDEN?<span class="cizgili"><span class="ogr">He soy gazdır</span></span></div><div class="s">DOĞRUSU<span class="cizgili"><span class="ogr">1. periyot 8A, soy gaz</span></span></div></div>
         </div>
       </div>
     </div>
+    <div class="kart bilgi-kart">
+      <span class="et">{{ikon|harita}}Hata avı · bir yer bulma çözümünü beş soruyla denetle</span>
+      {{info|meclis_denetim}}
+    </div>
     <div class="kart keh-z meclis-not esnek">
       {{poz|pamuk-dusunen|pn}}
-      <p><b>Meclis notu (Pamuk):</b> Bir çözümü kontrol etmenin en hızlı yolu birimlere bakmaktır. Hükmünü verince cevapları <b>s.{{sayfa|14}}</b>’{{ek|14|de}} kontrol et.</p>
+      <p><b>Meclis notu (Pamuk):</b> Bigadiç’te kolemanit gibi bor mineralleri çıkarılır; meclis maden kampında toplandı. Hükmünü verince cevapları <b>s.{{sayfa|14}}</b>’{{ek|14|de}} kontrol et.</p>
       <div class="muhur-yer">{{muhur|dogru}}</div>
     </div>
   </main>
   {{alt|8}}
 </section>
 
-<!-- ================================================================ SAYFA 9 · YAN YOL 2 · KISSALAR -->
+<!-- ================================================================ SAYFA 9 · YAN YOL 2 · KISSALAR · EMET -->
 <section class="sayfa s9">
   {{zemin}}
   {{hud|9}}
   {{cini}}
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|safak|41}}
-    <div class="levha keh">{{rozet|K|-|keh}}<div><div class="ust">Yan yol 2 · yer adı</div><h1><em>Kıssalar</em></h1><p class="alt-bas">Önce oku, sonra gereken bilgiyi seç. <b>Kıssadan hisse!</b></p><div class="hedef"><b>Usul</b>Çözümünü kartın boş yerine yaz; şıkkı sonra işaretle.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|emet}}
+    <div class="levha keh">{{rozet|K|-|keh}}<div><div class="ust">Yan yol 2 · Kütahya · Emet · ikindi</div><h1><em>Kıssalar</em></h1><p class="alt-bas">Önce oku, sonra gereken bilgiyi seç. <b>Kıssadan hisse!</b></p><div class="hedef"><b>Usul</b>Çözümünü kartın boş yerine yaz; şıkkı sonra işaretle.<span class="cip akce">4 × 30 = +120 akçe</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
-    <!-- En az bir kıssada grafik, birinde tablo. Doğru şık: <div class="sik" data-dogru>. Karalamadaki <span class="ogr"> öğretmen çözümüdür. -->
     <div class="bento kissa-izgara esnek" style="grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
       <div class="kart kissa" data-soru="K1">
-        <div class="kissa-bas"><span class="et">{{ikon|kissa}}Kıssa 1 · başlık</span><span class="cip akce">+30</span></div>
+        <div class="kissa-bas"><span class="et">{{ikon|kissa}}Kıssa 1 · maden suyu etiketi</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
-          <p class="metin">Bağlam metni: günlük hayat, sağlık, endüstri, çevre ya da laboratuvar (doğrulanabilir bilgi). <b>Gerekli veri</b> kalın.</p>
-          <!-- resimli üst satır:  <div class="ust-satir"><p class="metin">…</p>{{info|ad}}</div> · yargılı soru: <ul class="yargi"><li><b>I.</b>…</li></ul> -->
-          <p class="soru">Soru kökü?</p>
-          <div class="karalama"><span class="ogr">Kısa çözüm (öğretmen baskısında kırmızı).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik" data-dogru><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
-          <div class="hisse"><b>Kıssadan hisse:</b> Tek cümlelik ders.</div>
+          <p class="metin">Bir maden suyunun etiketinde şu iyonlar yazılıdır (parantezde elementin atom numarası):</p>
+          <table class="gorev-tablo dar"><tr><th>Na<sup>+</sup> (11)</th><th>K<sup>+</sup> (19)</th><th>Mg<sup>2+</sup> (12)</th><th>Ca<sup>2+</sup> (20)</th><th>Cl<sup>−</sup> (17)</th><th>F<sup>−</sup> (9)</th></tr></table>
+          <ul class="yargi"><li><b>I.</b>Na<sup>+</sup> ile Mg<sup>2+</sup> izoelektroniktir.</li><li><b>II.</b>K<sup>+</sup> ile Cl<sup>−</sup> izoelektroniktir.</li><li><b>III.</b>Ca<sup>2+</sup> ile F<sup>−</sup> aynı sayıda elektron taşır.</li></ul>
+          <p class="soru">yargılarından hangileri doğrudur?</p>
+          <div class="karalama"><span class="ogr">Na⁺ 10, Mg²⁺ 10 ✓ · K⁺ 18, Cl⁻ 18 ✓ · Ca²⁺ 18, F⁻ 10 ✗</span></div>
+          <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız II</div><div class="sik" data-dogru><b>C</b>I ve II</div><div class="sik"><b>D</b>II ve III</div><div class="sik"><b>E</b>I, II ve III</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> İyonu tanımak için önce elektronunu say: e = p − yük.</div>
         </div>
       </div>
       <div class="kart kissa" data-soru="K2">
-        <div class="kissa-bas keh"><span class="et keh">{{ikon|kissa}}Kıssa 2 · başlık</span><span class="cip akce">+30</span></div>
+        <div class="kissa-bas keh"><span class="et keh">{{ikon|kissa}}Kıssa 2 · Döbereiner’in üçlüsü</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
-          <p class="metin">Bağlam metni: günlük hayat, sağlık, endüstri, çevre ya da laboratuvar (doğrulanabilir bilgi). <b>Gerekli veri</b> kalın.</p>
-          <!-- resimli üst satır:  <div class="ust-satir"><p class="metin">…</p>{{info|ad}}</div> · yargılı soru: <ul class="yargi"><li><b>I.</b>…</li></ul> -->
-          <p class="soru">Soru kökü?</p>
-          <div class="karalama"><span class="ogr">Kısa çözüm (öğretmen baskısında kırmızı).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik" data-dogru><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
-          <div class="hisse"><b>Kıssadan hisse:</b> Tek cümlelik ders.</div>
+          <div class="ust-satir"><p class="metin">Klor, brom ve iyot benzer özellikli bir üçlüdür: üçü de halojendir. Grafikte Cl ve I’nın atom kütleleri verilmiş, <b>Br’nin değeri silinmiştir</b>.</p>{{info|triad_grafik}}</div>
+          <p class="soru">Döbereiner’in yaklaşımına göre bromun atom kütlesi yaklaşık kaçtır?</p>
+          <div class="karalama"><span class="ogr">(35,5 + 127) / 2 = 81,25 ≈ 81,3 (tabloda 80)</span></div>
+          <div class="siklar"><div class="sik"><b>A</b>63,5</div><div class="sik" data-dogru><b>B</b>81,3</div><div class="sik"><b>C</b>91,5</div><div class="sik"><b>D</b>127,0</div><div class="sik"><b>E</b>162,5</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Düzeni gören, eksik olanı da tahmin eder.</div>
         </div>
       </div>
       <div class="kart kissa" data-soru="K3">
-        <div class="kissa-bas kob"><span class="et kob">{{ikon|kissa}}Kıssa 3 · başlık</span><span class="cip akce">+30</span></div>
+        <div class="kissa-bas kob"><span class="et kob">{{ikon|kissa}}Kıssa 3 · güneş pili</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
-          <p class="metin">Bağlam metni: günlük hayat, sağlık, endüstri, çevre ya da laboratuvar (doğrulanabilir bilgi). <b>Gerekli veri</b> kalın.</p>
-          <!-- resimli üst satır:  <div class="ust-satir"><p class="metin">…</p>{{info|ad}}</div> · yargılı soru: <ul class="yargi"><li><b>I.</b>…</li></ul> -->
-          <p class="soru">Soru kökü?</p>
-          <div class="karalama"><span class="ogr">Kısa çözüm (öğretmen baskısında kırmızı).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik" data-dogru><b>E</b>Seçenek E</div></div>
-          <div class="hisse"><b>Kıssadan hisse:</b> Tek cümlelik ders.</div>
+          <p class="metin">İnce film güneş pillerinin bir türünde bakır (<sub>29</sub>Cu), indiyum (<sub>49</sub>In), galyum (<sub>31</sub>Ga) ve selenyum (<sub>34</sub>Se) kullanılır. Bu elementlerle ilgili;</p>
+          <ul class="yargi"><li><b>I.</b>Ga ve In aynı gruptadır.</li><li><b>II.</b>Cu, d bloku elementidir.</li><li><b>III.</b>Se bir ametaldir.</li></ul>
+          <p class="soru">yargılarından hangileri doğrudur?</p>
+          <div class="karalama"><span class="ogr">Ga, In: 13. grup ✓ · Cu 4s¹3d¹⁰ d ✓ · Se 6A ametal ✓</span></div>
+          <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız II</div><div class="sik"><b>C</b>I ve II</div><div class="sik"><b>D</b>II ve III</div><div class="sik" data-dogru><b>E</b>I, II ve III</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Teknoloji de tablonun dilini konuşur: blok, grup, sınıf.</div>
         </div>
       </div>
       <div class="kart kissa" data-soru="K4">
-        <div class="kissa-bas mer"><span class="et mer">{{ikon|kissa}}Kıssa 4 · başlık</span><span class="cip akce">+30</span></div>
+        <div class="kissa-bas mer"><span class="et mer">{{ikon|kissa}}Kıssa 4 · seramik boyaları</span><span class="cip akce">+30</span></div>
         <div class="kissa-ic">
-          <p class="metin">Bağlam metni: günlük hayat, sağlık, endüstri, çevre ya da laboratuvar (doğrulanabilir bilgi). <b>Gerekli veri</b> kalın.</p>
-          <!-- resimli üst satır:  <div class="ust-satir"><p class="metin">…</p>{{info|ad}}</div> · yargılı soru: <ul class="yargi"><li><b>I.</b>…</li></ul> -->
-          <p class="soru">Soru kökü?</p>
-          <div class="karalama"><span class="ogr">Kısa çözüm (öğretmen baskısında kırmızı).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik" data-dogru><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
-          <div class="hisse"><b>Kıssadan hisse:</b> Tek cümlelik ders.</div>
+          <p class="metin">Seramik boyalarında mavi için kobalt (<sub>27</sub>Co), turkuaz için bakır (<sub>29</sub>Cu), kırmızı-kahverengi için demir (<sub>26</sub>Fe), mor-kahverengi için mangan (<sub>25</sub>Mn) bileşikleri kullanılır.</p>
+          <p class="soru">Bu dört elementle ilgili hangisi <u>yanlıştır</u>?</p>
+          <div class="karalama"><span class="ogr">Cu istisna: 4s¹ 3d¹⁰ (tam dolu d)</span></div>
+          <div class="siklar iki"><div class="sik"><b>A</b>Dördü de 4. periyotta.</div><div class="sik"><b>B</b>Dördü de d blokunda.</div><div class="sik"><b>C</b>Fe ve Co 8B’de.</div><div class="sik" data-dogru><b>D</b>Cu’nun sonu 4s<sup>2</sup> 3d<sup>9</sup>.</div><div class="sik"><b>E</b>Mn 7B’de.</div></div>
+          <div class="hisse"><b>Kıssadan hisse:</b> Kural kadar istisnayı da bil: bakır ve gümüş 1B’dir.</div>
         </div>
       </div>
     </div>
@@ -573,52 +594,52 @@
   {{alt|9}}
 </section>
 
-<!-- ================================================================ SAYFA 10 · YAN YOL 3 · ANAHTAR MERDİVENİ -->
+<!-- ================================================================ SAYFA 10 · YAN YOL 3 · ANAHTAR MERDİVENİ · GERMİYAN SOKAĞI -->
 <section class="sayfa s10">
   {{zemin}}
   {{hud|10}}
   {{cini}}
-  <div class="bant" data-serbest>{{sahne|ornek_sahne|gunbatimi|51}}
-    <div class="levha keh">{{rozet|A|-|keh}}<div><div class="ust">Yan yol 3 · yer adı</div><h1>Anahtar <em>merdiveni</em></h1><p class="alt-bas">Önce anahtarsız dene. Takılırsan <b>bir basamak in</b>, yeniden dene.</p><div class="hedef"><b>Usul</b>Her problem +40 akçe; açtığın her anahtar −10.<span class="cip akce">3 × 40 = +120 akçe</span></div></div></div>
+  <div class="bant" data-serbest>{{sahne|germiyan}}
+    <div class="levha keh">{{rozet|A|-|keh}}<div><div class="ust">Yan yol 3 · Kütahya · Germiyan Sokağı · akşam</div><h1>Anahtar <em>merdiveni</em></h1><p class="alt-bas">Önce anahtarsız dene. Takılırsan <b>bir basamak in</b>, yeniden dene.</p><div class="hedef"><b>Usul</b>Her problem +40 akçe; açtığın her anahtar −10.<span class="cip akce">3 × 40 = +120 akçe</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">1</span><p class="soru">Problem 1: iki-üç adımlı bir soru. Değerler parantezde (H: 1, C: 12 g/mol).</p></div>
-        <div class="cozum-alani"><div><span class="ogr">1. adım (öğretmen)</span></div><div><span class="ogr">2. adım</span></div><div><span class="ogr"><b>Sonuç</b></span></div></div>
+        <div class="bas-satir"><span class="no">1</span><p class="soru">X<sup>2+</sup> iyonunun 18 elektronu vardır. X’in periyodik tablodaki yeri neresidir? X ile aynı grupta, bir üst periyotta bulunan elementin atom numarası kaçtır?</p></div>
+        <div class="cozum-alani"><div><span class="ogr">2 = p − 18 → p = 20 (Ca)</span></div><div><span class="ogr">2 · 8 · 8 · 2 → 4. periyot 2A</span></div><div><span class="ogr"><b>Bir üstü: 20 − 8 = 12 (Mg)</b></span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Hangi kavram? Hangi hazine kartı?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Denklemi kur.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Son adım, neredeyse çözüm.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Yük = p − e: 2 = p − 18.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Nötr atomun (iyonun değil!) katman dizilimini yaz.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>1A ve 2A’da bir üste çıkarken üstteki periyodun element sayısını çıkar (3. periyot: 8).</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">2</span><p class="soru">Problem 2: iki-üç adımlı bir soru. Değerler parantezde (H: 1, C: 12 g/mol).</p></div>
-        <div class="cozum-alani"><div><span class="ogr">1. adım (öğretmen)</span></div><div><span class="ogr">2. adım</span></div><div><span class="ogr"><b>Sonuç</b></span></div></div>
+        <div class="bas-satir"><span class="no">2</span><p class="soru">Periyodik tabloda 5. periyot 6B grubunda bulunan elementin atom numarası kaçtır?</p></div>
+        <div class="cozum-alani"><div><span class="ogr">6B = IUPAC 6. grup</span></div><div><span class="ogr">5. periyot 36’dan (Kr) sonra başlar</span></div><div><span class="ogr"><b>36 + 6 = 42 (molibden)</b></span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Hangi kavram? Hangi hazine kartı?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Denklemi kur.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Son adım, neredeyse çözüm.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>5. periyot, kriptondan (Z = 36) hemen sonra başlar.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>6B’nin IUPAC numarasını bul: 3B–7B → 3–7.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>4. ve 5. periyotta sütun sırası IUPAC numarasıdır: 36’ya ekle.</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">3</span><p class="soru">Problem 3: iki-üç adımlı bir soru. Değerler parantezde (H: 1, C: 12 g/mol).</p></div>
-        <div class="cozum-alani"><div><span class="ogr">1. adım (öğretmen)</span></div><div><span class="ogr">2. adım</span></div><div><span class="ogr"><b>Sonuç</b></span></div></div>
+        <div class="bas-satir"><span class="no">3</span><p class="soru">Bakır kapları kalaylayan ustanın kullandığı kalayın atom numarası 50’dir. Kalayın periyodunu, grubunu (A/B ve IUPAC), bloğunu ve sınıfını bulunuz.</p></div>
+        <div class="cozum-alani"><div><span class="ogr">50 − 36 = 14 → 5. periyot, 14. grup</span></div><div><span class="ogr">4A, p bloku (…5s² 4d¹⁰ 5p²)</span></div><div><span class="ogr"><b>Merdivenin solunda → metal</b></span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Hangi kavram? Hangi hazine kartı?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Denklemi kur.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Son adım, neredeyse çözüm.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>50’den küçük en yakın soy gaz hangisi? (2, 10, 18, 36, 54, 86)</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Farkı hesapla; 5. periyotta fark IUPAC grup numarasıdır.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>13–18 A gruplarıdır (p bloku). Merdivenin hangi yanında?</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1fr .62fr .7fr">
@@ -638,49 +659,48 @@
   {{zemin}}
   {{hud|11}}
   {{cini}}
-  <div class="bant b62" data-serbest>{{sahne|ornek_sahne|gunbatimi|61}}
+  <div class="bant b62" data-serbest>{{sahne|kale_kutahya}}
     <div class="levha mer">{{rozet|K|-|mer}}<div><div class="ust">Kütahya Kalesi · Büyük İmtihan · 1. bölüm</div><h1>Kale <em>kapısı</em></h1><p class="alt-bas">12 soru · 25 dakika. Her doğru <b>+25 akçe</b>; 10+ doğru: <b>Kale Kapısı</b> nişanı.</p>
-      <div class="hedef"><b>Azık</b>Soruda kullanılan sabitler ve mol kütleleri.</div>
+      <div class="hedef"><b>Azık</b>Soy gazlar: 2, 10, 18, 36, 54, 86 · 3A–8A → 13–18 · 3B–7B → 3–7.</div>
       <div class="hedef"><b>Meşveret</b>Sınıfça oylayın, şıklara tahmin yüzdesi (%__) yazın, sonra çözün.</div></div></div>
   </div>
   <main class="ic" style="top:76.5mm">
-    <!-- 12 soru, 5 şık, A–E her biri en az bir kez. Doğru şık: <div data-dogru><b>D</b>…  Uzun şıklar: class="oy yatay" ya da "oy". -->
     <div class="mesveret-izgara esnek">
       <div class="kart mesveret" data-soru="I1">
         <div class="mesveret-bas">{{sno|1}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 1. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div data-dogru><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Modern tabloda sıralama ölçütü nedir, bunu kim önermiştir?</p>
+        <div class="karalama"><span class="ogr">Moseley (1913): atom numarası</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Kütle · Mendeleyev</span><em>%__</em></div><div data-dogru><b>B</b><span>Atom no. · Moseley</span><em>%__</em></div><div><b>C</b><span>Atom no. · Mendeleyev</span><em>%__</em></div><div><b>D</b><span>Hacim · Meyer</span><em>%__</em></div><div><b>E</b><span>Kütle no. · Newlands</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I2">
         <div class="mesveret-bas">{{sno|2}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 2. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div data-dogru><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Modern periyodik tabloyla ilgili hangisi <u>yanlıştır</u>?</p>
+        <div class="karalama"><span class="ogr">1. periyot H ile başlar; H alkali değil</span></div>
+        <div class="oy yatay"><div><b>A</b><span>7 periyot, 18 sütun var.</span><em>%__</em></div><div><b>B</b><span>8B grubu üç sütundur.</span><em>%__</em></div><div><b>C</b><span>İlk 3 periyotta geçiş metali yok.</span><em>%__</em></div><div><b>D</b><span>6. ve 7. periyotta 32’şer element.</span><em>%__</em></div><div data-dogru><b>E</b><span>Her periyot alkali metalle başlar.</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I3">
         <div class="mesveret-bas">{{sno|3}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 3. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div data-dogru><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Mendeleyev’in “eka-alüminyum” dediği galyumun (<sub>31</sub>Ga) yeri neresidir?</p>
+        <div class="karalama"><span class="ogr">…4s² 3d¹⁰ 4p¹ → n = 4, p, 2 + 1 = 3</span></div>
+        <div class="oy yatay"><div><b>A</b><span>4. periyot 3B</span><em>%__</em></div><div><b>B</b><span>3. periyot 3A</span><em>%__</em></div><div><b>C</b><span>4. periyot 1A</span><em>%__</em></div><div data-dogru><b>D</b><span>4. periyot 3A</span><em>%__</em></div><div><b>E</b><span>5. periyot 3A</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I4">
         <div class="mesveret-bas">{{sno|4}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 4. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div data-dogru><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Kütahya çinisine turkuaz veren bakırın (<sub>29</sub>Cu) temel hâl diziliminin son kısmı hangisidir?</p>
+        <div class="karalama"><span class="ogr">tam dolu d kararlı: 4s¹ 3d¹⁰</span></div>
+        <div class="oy yatay"><div><b>A</b><span>4s<sup>2</sup> 3d<sup>9</sup></span><em>%__</em></div><div data-dogru><b>B</b><span>4s<sup>1</sup> 3d<sup>10</sup></span><em>%__</em></div><div><b>C</b><span>4s<sup>2</sup> 4p<sup>9</sup></span><em>%__</em></div><div><b>D</b><span>3d<sup>11</sup></span><em>%__</em></div><div><b>E</b><span>4s<sup>2</sup> 3d<sup>8</sup> 4p<sup>1</sup></span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I5">
         <div class="mesveret-bas">{{sno|5}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 5. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div data-dogru><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru"><sub>14</sub>Si ile ilgili: <b>I.</b> Yarı metaldir. <b>II.</b> p bloku elementidir. <b>III.</b> Elektriği metaller kadar iyi iletir. Hangileri doğrudur?</p>
+        <div class="karalama"><span class="ogr">3s² 3p² → p ✓ · yarı metal ✓ · yarı iletken ✗</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div data-dogru><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>I ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I6">
         <div class="mesveret-bas">{{sno|6}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 6. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div data-dogru><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Halojenlerle ilgili hangisi <u>yanlıştır</u>?</p>
+        <div class="karalama"><span class="ogr">Yalnız F hep 1−; Cl, Br, I + de alır</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Değerlik e<sup>−</sup> sayıları 7.</span><em>%__</em></div><div><b>B</b><span>F, Cl, Br, I iki atomlu.</span><em>%__</em></div><div><b>C</b><span>Brom oda koşulunda sıvı.</span><em>%__</em></div><div data-dogru><b>D</b><span>Hep yalnız 1− değer alırlar.</span><em>%__</em></div><div><b>E</b><span>Metallerle tuz yaparlar.</span><em>%__</em></div></div>
       </div>
     </div>
   </main>
@@ -692,46 +712,47 @@
   {{zemin}}
   {{hud|12}}
   {{cini}}
-  <div class="bant b30" data-serbest>{{sahne|ornek_sahne|gunbatimi|62}}
+  <div class="bant b30" data-serbest>{{sahne|kale_kapi_kutahya}}
     <div class="levha mer kucuk">{{rozet|K|-|mer}}<div><div class="ust">Büyük İmtihan · 2. bölüm</div><h1>Kapı <em>aralandı</em></h1><p class="alt-bas">Sorular 7–12 · sabrın sonu selamettir.</p></div></div>
   </div>
   <main class="ic" style="top:44.5mm">
     <div class="mesveret-izgara esnek">
       <div class="kart mesveret" data-soru="I7">
         <div class="mesveret-bas">{{sno|7}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 7. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div data-dogru><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Atom numaraları verilen elementlerden hangisi bir toprak alkali metaldir?</p>
+        <div class="karalama"><span class="ogr">38 − 36 = 2 → 5. periyot 2A (Sr)</span></div>
+        <div class="oy uc"><div data-dogru><b>A</b><span>38</span><em>%__</em></div><div><b>B</b><span>3</span><em>%__</em></div><div><b>C</b><span>13</span><em>%__</em></div><div><b>D</b><span>2</span><em>%__</em></div><div><b>E</b><span>30</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I8">
         <div class="mesveret-bas">{{sno|8}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 8. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div data-dogru><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru"><sub>20</sub>Ca<sup>2+</sup>: <b>I.</b> 18 e<sup>−</sup>’u var. <b>II.</b> <sub>18</sub>Ar ile izoelektronik. <b>III.</b> Ca 3. periyotta. Hangileri doğru?</p>
+        <div class="karalama"><span class="ogr">e = 20 − 2 = 18 ✓ · Ar ✓ · Ca 4. periyot ✗</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız III</span><em>%__</em></div><div data-dogru><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I9">
         <div class="mesveret-bas">{{sno|9}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 9. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div data-dogru><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Aşağıdaki tanecik çiftlerinden hangisi izoelektroniktir?</p>
+        <div class="karalama"><span class="ogr">Mg²⁺: 12 − 2 = 10 · F⁻: 9 + 1 = 10</span></div>
+        <div class="oy yatay"><div><b>A</b><span><sub>11</sub>Na ve <sub>10</sub>Ne</span><em>%__</em></div><div data-dogru><b>B</b><span><sub>12</sub>Mg<sup>2+</sup> ve <sub>9</sub>F<sup>−</sup></span><em>%__</em></div><div><b>C</b><span><sub>17</sub>Cl<sup>−</sup> ve <sub>10</sub>Ne</span><em>%__</em></div><div><b>D</b><span><sub>19</sub>K<sup>+</sup> ve <sub>10</sub>Ne</span><em>%__</em></div><div><b>E</b><span><sub>8</sub>O<sup>2−</sup> ve <sub>18</sub>Ar</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I10">
         <div class="mesveret-bas">{{sno|10}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 10. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div data-dogru><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <div class="iskelet-sekil">{{info|iskelet}}</div>
+        <p class="soru">Şekle göre <b>I.</b> X ve T s blokunda. <b>II.</b> Y geçiş metali. <b>III.</b> Z ve Q aynı periyotta. Hangileri doğru?</p>
+        <div class="karalama"><span class="ogr">X 1A, T 2A: s ✓ · Y 8B ✓ · Z 3., Q 2. periyot ✗</span></div>
+        <div class="oy uc"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div><b>C</b><span>I ve III</span><em>%__</em></div><div data-dogru><b>D</b><span>I ve II</span><em>%__</em></div><div><b>E</b><span>II ve III</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I11">
         <div class="mesveret-bas">{{sno|11}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 11. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div data-dogru><b>C</b><span>sayı</span><em>%__</em></div><div><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">X<sup>3+</sup> iyonunun temel hâl elektron dizilimi 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> şeklindedir. X’in yeri neresidir?</p>
+        <div class="karalama"><span class="ogr">p = 10 + 3 = 13 → 2 · 8 · 3 (Al)</span></div>
+        <div class="oy yatay"><div><b>A</b><span>2. periyot 8A</span><em>%__</em></div><div><b>B</b><span>2. periyot 5A</span><em>%__</em></div><div><b>C</b><span>3. periyot 3B</span><em>%__</em></div><div><b>D</b><span>4. periyot 3A</span><em>%__</em></div><div data-dogru><b>E</b><span>3. periyot 3A</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I12">
         <div class="mesveret-bas">{{sno|12}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Örnek soru 12. Soru kökü; gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Kısa çözüm.</span></div>
-        <div class="oy uc"><div><b>A</b><span>sayı</span><em>%__</em></div><div><b>B</b><span>sayı</span><em>%__</em></div><div><b>C</b><span>sayı</span><em>%__</em></div><div data-dogru><b>D</b><span>sayı</span><em>%__</em></div><div><b>E</b><span>sayı</span><em>%__</em></div></div>
+        <p class="soru">Oda koşulunda katı üç örnek: X parlak, tel olur, iyi iletir; Y parlak gri, kırılgan, zayıf iletir; Z sarı, mat, ufalanır, iletmez. Sınıfları?</p>
+        <div class="karalama"><span class="ogr">X metal · Y yarı metal · Z ametal</span></div>
+        <div class="oy"><div data-dogru><b>A</b><span>X metal · Y yarı metal · Z ametal</span><em>%__</em></div><div><b>B</b><span>X metal · Y ametal · Z yarı metal</span><em>%__</em></div><div><b>C</b><span>X yarı metal · Y metal · Z ametal</span><em>%__</em></div><div><b>D</b><span>X metal · Y metal · Z ametal</span><em>%__</em></div><div><b>E</b><span>X ametal · Y yarı metal · Z metal</span><em>%__</em></div></div>
       </div>
     </div>
     <div class="kart mer-z skor">
@@ -752,44 +773,43 @@
     <div class="levha ustad">{{rozet|Ü|-|laj}}<div><div class="ust">Üstad soruları · bonus · YKS/AYT tarzı</div><h1>Üstad <em>soruları</em></h1><p class="alt-bas">Altı zor soru. Akçe yok; <b>6/6</b> doğru: <b>Üstad Mührü</b>.</p></div></div>
   </div>
   <main class="ic" style="top:54mm">
-    <!-- 6 soru · 5 şık · tek doğru (data-dogru) · cevaplar dağınık · en az birinde grafik ya da tablo (<div class="ustad-sekil">…</div>
-         ya da <table class="ustad-tablo">). Çözümler Cevaplar sayfasına da yazılır. Akçeye dahil DEĞİL (toplam 1400 kalır). -->
     <div class="ustad-izgara esnek">
       <div class="ustad-soru" data-soru="U1">
-        <div class="ustad-bas">{{sno|1|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 1: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik" data-dogru><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|1|laj}}<span class="et">İyon · izoelektronik</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">X<sup>2−</sup> ve Y<sup>3+</sup> izoelektronik; X 2. periyotta. <b>I.</b> Y metaldir. <b>II.</b> X ile Y aynı periyotta. <b>III.</b> Y’nin protonu X’inkinden 5 fazla. Hangileri doğru?</p>
+        <div class="karalama"><span class="ogr">X = O (8), O²⁻ 10 e⁻ → Y = 13 (Al): I ✓ II ✗ III ✓</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız II</div><div class="sik"><b>C</b>I ve II</div><div class="sik" data-dogru><b>D</b>I ve III</div><div class="sik"><b>E</b>II ve III</div></div>
       </div>
       <div class="ustad-soru" data-soru="U2">
-        <div class="ustad-bas">{{sno|2|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 2: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik" data-dogru><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|2|laj}}<span class="et">Dizilim · istisna</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">4. periyotta bulunan ve temel hâlde <b>6 yarı dolu orbitali</b> olan elementin grubu hangisidir?</p>
+        <div class="karalama"><span class="ogr">Cr: 4s¹ 3d⁵ → 1 + 5 = 6 yarı dolu → 6B</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>6A</div><div class="sik" data-dogru><b>B</b>6B</div><div class="sik"><b>C</b>7B</div><div class="sik"><b>D</b>8B</div><div class="sik"><b>E</b>1B</div></div>
       </div>
       <div class="ustad-soru" data-soru="U3">
-        <div class="ustad-bas">{{sno|3|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 3: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik" data-dogru><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|3|laj}}<span class="et">Grafik · sınıf ve iyon</span><span class="ustad-zor">AYT</span></div>
+        <div class="ust-satir"><p class="soru">Grafik: A grubundaki nötr X, Y, Z, T atomları. <b>I.</b> X ve Y aynı grupta. <b>II.</b> X yarı metal, Y metal. <b>III.</b> Z<sup>2−</sup> ile T<sup>2+</sup> izoelektronik. Hangileri doğru?</p><div class="ustad-sekil">{{info|ustad_grafik}}</div></div>
+        <div class="karalama"><span class="ogr">X B, Y Al, Z S, T Ca: I ✓ II ✓ III (18, 18) ✓</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız II</div><div class="sik"><b>C</b>I ve II</div><div class="sik"><b>D</b>II ve III</div><div class="sik" data-dogru><b>E</b>I, II ve III</div></div>
       </div>
       <div class="ustad-soru" data-soru="U4">
-        <div class="ustad-bas">{{sno|4|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 4: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik" data-dogru><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|4|laj}}<span class="et">Gümüş · d bloku</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru"><sub>47</sub>Ag: <b>I.</b> 5. periyot 1B’dedir. <b>II.</b> Temel hâlde 5s’de 2 e<sup>−</sup> vardır. <b>III.</b> Ag<sup>+</sup> dizilimi [Kr] 4d<sup>10</sup>’dur. Hangileri doğru?</p>
+        <div class="karalama"><span class="ogr">[Kr] 5s¹ 4d¹⁰: I ✓ · II ✗ · Ag⁺ 5s’yi verir ✓</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>I ve II</div><div class="sik" data-dogru><b>C</b>I ve III</div><div class="sik"><b>D</b>II ve III</div><div class="sik"><b>E</b>I, II ve III</div></div>
       </div>
       <div class="ustad-soru" data-soru="U5">
-        <div class="ustad-bas">{{sno|5|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 5: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik"><b>B</b>Seçenek B</div><div class="sik" data-dogru><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|5|laj}}<span class="et">Tablo · tanecikler</span><span class="ustad-zor">AYT</span></div>
+        <table class="ustad-tablo"><tr><th>TANECİK</th><th>X</th><th>Y</th><th>Z</th><th>T</th></tr><tr><td>p</td><td>11</td><td>16</td><td>13</td><td>17</td></tr><tr><td>e</td><td>10</td><td>18</td><td>10</td><td>17</td></tr></table>
+        <p class="soru">Tanecikler için hangisi <u>yanlıştır</u> (elementler kastedilir)?</p>
+        <div class="karalama"><span class="ogr">X Na⁺ (1A), Y S²⁻ (6A): aynı grup değil</span></div>
+        <div class="siklar iki"><div class="sik" data-dogru><b>A</b>X, Y aynı grupta</div><div class="sik"><b>B</b>X, Z izoelektronik</div><div class="sik"><b>C</b>Y: 2− anyon</div><div class="sik"><b>D</b>T: nötr halojen</div><div class="sik"><b>E</b>Z: 3. periyot 3A</div></div>
       </div>
       <div class="ustad-soru" data-soru="U6">
-        <div class="ustad-bas">{{sno|6|laj}}<span class="et">Konu · konu</span><span class="ustad-zor">AYT</span></div>
-        <p class="soru">Üstad sorusu 6: çok adımlı, YKS/AYT düzeyinde bir soru kökü. Gerekli değerler parantezde.</p>
-        <div class="karalama"><span class="ogr">Çözümün iki satırlık özeti.</span></div>
-        <div class="siklar"><div class="sik"><b>A</b>Seçenek A</div><div class="sik" data-dogru><b>B</b>Seçenek B</div><div class="sik"><b>C</b>Seçenek C</div><div class="sik"><b>D</b>Seçenek D</div><div class="sik"><b>E</b>Seçenek E</div></div>
+        <div class="ustad-bas">{{sno|6|laj}}<span class="et">Konum hesabı</span><span class="ustad-zor">AYT</span></div>
+        <p class="soru">X 4. periyot 7A’da. Y, X’in grubunda bir üst periyotta; Z, X’in periyodunda 2A’da. Z’nin atom numarası Y’ninkinden kaç fazla?</p>
+        <div class="karalama"><span class="ogr">X 35 (Br), Y 35 − 18 = 17, Z 20 → 3</span></div>
+        <div class="siklar"><div class="sik"><b>A</b>2</div><div class="sik" data-dogru><b>B</b>3</div><div class="sik"><b>C</b>5</div><div class="sik"><b>D</b>15</div><div class="sik"><b>E</b>18</div></div>
       </div>
     </div>
     <div class="ustad-muhur">
@@ -806,67 +826,70 @@
   {{zemin}}
   {{hud|14}}
   {{cini}}
-  <div class="bant b36" data-serbest>{{sahne|ornek_sahne|gece|71}}
-    <div class="levha kucuk">{{rozet|✓|-|gol}}<div><div class="ust">Turun sonu · gece nöbeti</div><h1>Cevaplar &amp; <em>çözümler</em></h1></div></div>
+  <div class="bant b36" data-serbest>{{sahne|kutahya_gece}}
+    <div class="levha kucuk">{{rozet|✓|-|gol}}<div><div class="ust">Turun sonu · Kütahya’da gece</div><h1>Cevaplar &amp; <em>çözümler</em></h1></div></div>
   </div>
   <main class="ic" style="top:50.5mm">
-    <!-- dogrula.py bu ızgarayı okur ve soru sayfalarındaki data-dogru işaretleriyle karşılaştırır. -->
     <div class="kart anahtar-kart">
       <div class="kart-bas"><span class="et">{{ikon|anahtar}}Büyük İmtihan anahtarı · durak etiketiyle</span><span class="kes-not">Yanlışın hangi duraktan? Etikete bak.</span></div>
       <div class="anahtar-izgara">
-        <div><i>1</i><b>D</b><small>1. durak</small></div>
-        <div><i>2</i><b>C</b><small>2. durak</small></div>
-        <div><i>3</i><b>B</b><small>3. durak</small></div>
-        <div><i>4</i><b>E</b><small>4. durak</small></div>
-        <div><i>5</i><b>A</b><small>5. durak</small></div>
-        <div><i>6</i><b>C</b><small>1. durak</small></div>
-        <div><i>7</i><b>C</b><small>2. durak</small></div>
-        <div><i>8</i><b>D</b><small>3. durak</small></div>
-        <div><i>9</i><b>B</b><small>4. durak</small></div>
-        <div><i>10</i><b>E</b><small>5. durak</small></div>
-        <div><i>11</i><b>C</b><small>1. durak</small></div>
-        <div><i>12</i><b>D</b><small>2. durak</small></div>
+        <div><i>1</i><b>B</b><small>1. durak</small></div>
+        <div><i>2</i><b>E</b><small>1. durak</small></div>
+        <div><i>3</i><b>D</b><small>2. durak</small></div>
+        <div><i>4</i><b>B</b><small>3. durak</small></div>
+        <div><i>5</i><b>C</b><small>4. durak</small></div>
+        <div><i>6</i><b>D</b><small>5. durak</small></div>
+        <div><i>7</i><b>A</b><small>3. durak</small></div>
+        <div><i>8</i><b>C</b><small>5. durak</small></div>
+        <div><i>9</i><b>B</b><small>5. durak</small></div>
+        <div><i>10</i><b>D</b><small>2. durak</small></div>
+        <div><i>11</i><b>E</b><small>5. durak</small></div>
+        <div><i>12</i><b>A</b><small>4. durak</small></div>
       </div>
     </div>
     <div class="kart cozum-kart esnek">
       <div class="cozumler">
         <div class="grup"><h4>Büyük İmtihan</h4>
-          <p class="c"><b>1 · D</b> Kısa çözüm.</p>
-          <p class="c"><b>2 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>3 · B</b> Kısa çözüm.</p>
-          <p class="c"><b>4 · E</b> Kısa çözüm.</p>
-          <p class="c"><b>5 · A</b> Kısa çözüm.</p>
-          <p class="c"><b>6 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>7 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>8 · D</b> Kısa çözüm.</p>
-          <p class="c"><b>9 · B</b> Kısa çözüm.</p>
-          <p class="c"><b>10 · E</b> Kısa çözüm.</p>
-          <p class="c"><b>11 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>12 · D</b> Kısa çözüm.</p>
+          <p class="c"><b>1 · B</b> Moseley (1913) atom numaralarını ölçtü; Mendeleyev kütleyi kullanmıştı.</p>
+          <p class="c"><b>2 · E</b> 1. periyot H ile başlar; H 1A’dadır ama alkali metal değildir.</p>
+          <p class="c"><b>3 · D</b> …4s<sup>2</sup> 3d<sup>10</sup> 4p<sup>1</sup>: n = 4, p bloku, 2 + 1 = 3 → 4. periyot 3A (13).</p>
+          <p class="c"><b>4 · B</b> Tam dolu d daha kararlı: 4s<sup>1</sup> 3d<sup>10</sup> (1 + 10 = 11 → 1B).</p>
+          <p class="c"><b>5 · C</b> Si: 3s<sup>2</sup> 3p<sup>2</sup> → p bloku (II), yarı metal (I); yarı iletkendir (III ✗).</p>
+          <p class="c"><b>6 · D</b> Yalnız flor her bileşiğinde 1−; Cl, Br ve I pozitif değer de alır.</p>
+          <p class="c"><b>7 · A</b> 38 − 36 = 2 → 5. periyot 2A (Sr). 3 alkali, 13 toprak metali, 2 soy gaz, 30 ise 2B.</p>
+          <p class="c"><b>8 · C</b> e = 20 − 2 = 18 (I), Ar ile aynı (II); Ca 2 · 8 · 8 · 2 → 4. periyot (III ✗).</p>
+          <p class="c"><b>9 · B</b> Mg<sup>2+</sup> 10, F<sup>−</sup> 10. A) 11–10 · C) 18–10 · D) 18–10 · E) 10–18.</p>
+          <p class="c"><b>10 · D</b> X 2. periyot 1A, T 4. periyot 2A: s (I ✓); Y 8B: geçiş metali (II ✓); Z 3., Q 2. periyot (III ✗).</p>
+          <p class="c"><b>11 · E</b> p − 3 = 10 → p = 13; nötr atom 2 · 8 · 3 → 3. periyot 3A (alüminyum).</p>
+          <p class="c"><b>12 · A</b> Parlak, tel, iyi iletken: metal; parlak ama kırılgan, zayıf iletken: yarı metal; mat, ufalanan, iletmeyen: ametal.</p>
         </div>
         <div class="grup"><h4>Kıssalar</h4>
-          <p class="c"><b>1 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>2 · B</b> Kısa çözüm.</p>
-          <p class="c"><b>3 · E</b> Kısa çözüm.</p>
-          <p class="c"><b>4 · D</b> Kısa çözüm.</p>
+          <p class="c"><b>1 · C</b> Na<sup>+</sup> 10 ve Mg<sup>2+</sup> 10 (I ✓); K<sup>+</sup> 18 ve Cl<sup>−</sup> 18 (II ✓); Ca<sup>2+</sup> 18, F<sup>−</sup> 10 (III ✗).</p>
+          <p class="c"><b>2 · B</b> (35,5 + 127) / 2 = 81,25 ≈ 81,3; tablodaki değer 80.</p>
+          <p class="c"><b>3 · E</b> Ga ve In 13. grup (I); Cu 4s<sup>1</sup> 3d<sup>10</sup>, d bloku (II); Se 6A, ametal (III).</p>
+          <p class="c"><b>4 · D</b> Cu: 4s<sup>1</sup> 3d<sup>10</sup>. Dördü de 4. periyot d bloku; Fe 8, Co 9 → 8B; Mn 7B.</p>
+        </div>
+        <div class="grup"><h4>Üstad soruları</h4>
+          <p class="c"><b>1 · D</b> 2. periyotta X<sup>2−</sup> → O; 10 e<sup>−</sup> → Y<sup>3+</sup>: p = 13 (Al, metal); 13 − 8 = 5; O 2., Al 3. periyot.</p>
+          <p class="c"><b>2 · B</b> Cr 4s<sup>1</sup> 3d<sup>5</sup>: 6 yarı dolu orbital (Mn 5, Fe 4) → 6B.</p>
+          <p class="c"><b>3 · E</b> X (2, 3) B · Y (3, 3) Al · Z (3, 6) S · T (4, 2) Ca; S<sup>2−</sup> ve Ca<sup>2+</sup> 18’er e<sup>−</sup>.</p>
+          <p class="c"><b>4 · C</b> [Kr] 5s<sup>1</sup> 4d<sup>10</sup>: 1B (I); 5s’de 1 e<sup>−</sup> (II ✗); Ag<sup>+</sup> 5s elektronunu verir (III).</p>
+          <p class="c"><b>5 · A</b> X Na<sup>+</sup>, Y S<sup>2−</sup>, Z Al<sup>3+</sup>, T Cl: Na 1A, S 6A → aynı grup değil.</p>
+          <p class="c"><b>6 · B</b> X Br (35), Y Cl (35 − 18 = 17), Z Ca (20): 20 − 17 = 3.</p>
         </div>
         <div class="grup yan-anahtar"><h4>Yan yollar · hızlı anahtar</h4>
           <p><b>Kıssa</b><span class="ck">1 C</span><span class="ck">2 B</span><span class="ck">3 E</span><span class="ck">4 D</span></p>
-          <p><b>Meclis</b><span class="ck">1 Yusuf</span><span class="ck">2 Yusuf</span><span class="ck">3 Yusuf</span><span class="ck">4 Yusuf</span></p>
-          <p><b>Merdiven</b><span class="ck">1 · …</span><span class="ck">2 · …</span><span class="ck">3 · …</span></p>
-        </div>
-        <div class="grup"><h4>Üstad soruları</h4>
-          <p class="c"><b>1 · B</b> Kısa çözüm.</p>
-          <p class="c"><b>2 · E</b> Kısa çözüm.</p>
-          <p class="c"><b>3 · A</b> Kısa çözüm.</p>
-          <p class="c"><b>4 · D</b> Kısa çözüm.</p>
-          <p class="c"><b>5 · C</b> Kısa çözüm.</p>
-          <p class="c"><b>6 · B</b> Kısa çözüm.</p>
+          <p><b>Meclis</b><span class="ck">1 Yusuf · 1</span><span class="ck">2 Elif · 2</span><span class="ck">3 Yusuf · 2</span><span class="ck">4 Pamuk · 3</span></p>
+          <p><b>Merdiven</b><span class="ck">1 · Ca, 12</span><span class="ck">2 · 42</span><span class="ck">3 · 4A, metal</span></p>
         </div>
         <div class="grup"><h4>Meclis · merdiven · hızlı görevler</h4>
-          <p class="c"><b>Meclis 1 · Yusuf</b> Hatalı satır ve doğrusu.</p>
-          <p class="c"><b>Merdiven 1</b> Kısa çözüm.</p>
-          <p class="c"><b>1. durak</b> Hızlı görev cevabı.</p>
+          <p class="c"><b>Meclis 1 · Yusuf, satır 1</b> 4s, 3d’den önce: …3p<sup>6</sup> 4s<sup>2</sup> → 4. periyot 2A.</p>
+          <p class="c"><b>Meclis 2 · Elif, satır 2</b> d ile biten B grubundadır: 4. periyot 8B (10. grup).</p>
+          <p class="c"><b>Meclis 3 · Yusuf, satır 2</b> Yer nötr atomdan: 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>4</sup> → 2. periyot 6A.</p>
+          <p class="c"><b>Meclis 4 · Pamuk, satır 3</b> He soy gazdır: 1. periyot 8A.</p>
+          <p class="c"><b>Merdiven</b> 1) p = 20, Ca: 4. periyot 2A; üstü 12 (Mg) · 2) 36 + 6 = 42 (Mo) · 3) Sn: 5. periyot 4A (14), p, metal.</p>
+          <p class="c"><b>Görevler</b> 1) ≈ 88,5 · 2) Si 3. per. 4A, O 2. per. 6A, Fe 4. per. 8B · 3) Ag 5. per. 1B · 4) yarı metal, metal, ametal, soy gaz · 5) 10 (Ne), 18 (Ar), X: 3. per. 6A.</p>
+          <p class="c"><b>Hızlı</b> s.{{sayfa|2}} 3A, 31 (Ga) · s.{{sayfa|3}} 4. periyot 7B · s.{{sayfa|4}} 35 (Br) · s.{{sayfa|5}} Sb: 5. periyot 5A, yarı metal · s.{{sayfa|6}} Cl<sup>−</sup> (18 e<sup>−</sup>).</p>
         </div>
       </div>
     </div>
@@ -878,7 +901,7 @@
       </div>
       <div class="kart tekrar">
         <span class="et">{{ikon|harita}}Tekrar rotası · yanlışın nereden?</span>
-        <ul class="ozet-liste"><li><b>1. durak (s.{{sayfa|2}})</b> · konu → soru …</li><li><b>2. durak (s.{{sayfa|3}})</b> · konu → soru …</li><li><b>3. durak (s.{{sayfa|4}})</b> · konu → soru …</li><li><b>4. durak (s.{{sayfa|5}})</b> · konu → soru …</li><li><b>5. durak (s.{{sayfa|6}})</b> · konu → soru …</li></ul>
+        <ul class="ozet-liste"><li><b>1. durak (s.{{sayfa|2}})</b> · tarih, A/B ↔ IUPAC → soru 1, 2</li><li><b>2. durak (s.{{sayfa|3}})</b> · dizilimden adres → soru 3, 10</li><li><b>3. durak (s.{{sayfa|4}})</b> · soy gaz yöntemi, istisna → soru 4, 7</li><li><b>4. durak (s.{{sayfa|5}})</b> · sınıflar → soru 5, 12</li><li><b>5. durak (s.{{sayfa|6}})</b> · aileler, iyonlar → soru 6, 8, 9, 11</li></ul>
       </div>
     </div>
   </main>
@@ -891,30 +914,30 @@
   {{hud|15}}
   {{cini}}
   <div class="bant final-bant" data-serbest>{{final}}
-    <div class="levha final-levha">{{rozet|★|-|keh}}<div><div class="ust">Maden Yolu I · Batı anadolu tamam · Yol 4 final</div><h1>Yol <em>tamamlandı!</em></h1><p class="alt-bas">Akçeni topla, unvanını al, nişanlarını say.</p></div></div>
-    <div class="balon-buyuk final-balon"><span class="et keh">Pamuk</span><br>Ünitenin özünü tek cümleyle söyleyen kapanış. Miyav!</div>
+    <div class="levha final-levha">{{rozet|★|-|keh}}<div><div class="ust">Maden Yolu I tamam · Yol 4 final</div><h1>Yol <em>tamamlandı!</em></h1><p class="alt-bas">Akçeni topla, unvanını al, nişanlarını say.</p></div></div>
+    <div class="balon-buyuk final-balon"><span class="et keh">Pamuk</span><br>Madenden tabloya geldik: adresi oku, aileyi tanı, iyonu bil. Miyav!</div>
   </div>
   <main class="ic" style="top:103mm">
     <div class="kart ray-kart">
       <div class="kart-bas"><span class="et keh">{{ikon|akce}}Akçe rayı</span><span class="kes-not">Toplamını raya işaretle · unvanını yuvarlak içine al</span></div>
-      {{info|akce_rayi|ÜSTAD}}
+      {{info|akce_rayi|TABLO ÜSTADI}}
     </div>
     <div class="unvanlar">
       <div class="unvan">{{info|unvan_rozeti|1|#A3B3BE}}<b>Çırak</b><small>0–399 akçe</small><p>Yola çıktın. Durak görevlerini tekrar dene.</p></div>
       <div class="unvan">{{info|unvan_rozeti|2|#13A3A6}}<b>Kalfa</b><small>400–799 akçe</small><p>Haritayı biliyorsun. Yan yollarla güçlen.</p></div>
-      <div class="unvan">{{info|unvan_rozeti|3|#0E4C5A}}<b>Usta</b><small>800–1149 akçe</small><p>Her yönde geçiş yapıyorsun. Tuzaklara dikkat.</p></div>
-      <div class="unvan ust">{{info|unvan_rozeti|4|#F0A21A}}<b>Üstad</b><small>1150–1400 akçe</small><p>Kale kapısını açtın. Sıradaki yol seni bekliyor.</p></div>
+      <div class="unvan">{{info|unvan_rozeti|3|#0E4C5A}}<b>Usta</b><small>800–1149 akçe</small><p>Adresleri okuyorsun. İstisnalara dikkat.</p></div>
+      <div class="unvan ust">{{info|unvan_rozeti|4|#F0A21A}}<b>Tablo Üstadı</b><small>1150–1400 akçe</small><p>Kale kapısını açtın. Sıradaki yol seni bekliyor.</p></div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1.06fr .94fr">
       <div class="kart defter-kart">
         <span class="et keh">{{ikon|hulasa}}Akçe defteri</span>
         <table class="defter">
           <tr><th>Durak</th><th>En çok</th><th>Senin</th></tr>
-          <tr><td>1. durak · Yer 1</td><td class="n">100</td><td class="k"><span></span></td></tr>
-          <tr><td>2. durak · Yer 2</td><td class="n">150</td><td class="k"><span></span></td></tr>
-          <tr><td>3. durak · Yer 3</td><td class="n">150</td><td class="k"><span></span></td></tr>
-          <tr><td>4. durak · Yer 4</td><td class="n">150</td><td class="k"><span></span></td></tr>
-          <tr><td>5. durak · Yer 5</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>1. durak · Seydişehir</td><td class="n">100</td><td class="k"><span></span></td></tr>
+          <tr><td>2. durak · Kütahya</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>3. durak · Gümüşköy</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>4. durak · Kırka</td><td class="n">150</td><td class="k"><span></span></td></tr>
+          <tr><td>5. durak · Bandırma</td><td class="n">150</td><td class="k"><span></span></td></tr>
           <tr><td>Hülasa · muhasebe</td><td class="n">40</td><td class="k"><span></span></td></tr>
           <tr><td>Yan yol · Meclis</td><td class="n">120</td><td class="k"><span></span></td></tr>
           <tr><td>Yan yol · Kıssalar</td><td class="n">120</td><td class="k"><span></span></td></tr>
@@ -934,8 +957,8 @@
         </div>
         <div class="kart gol-z siradaki-yol">
           <span class="et">{{ikon|harita}}Sıradaki yol →</span>
-          <b>Yol 5 · sıradaki ünite</b>
-          <p>Bir sonraki yolun merak uyandıran tek cümlesi.</p>
+          <b>Yol 5 · Maden Yolu II · Doğu Anadolu</b>
+          <p>Divriği’nin demiri, Guleman’ın kromu: atom yarıçapı ve iyonlaşma seni bekliyor.</p>
         </div>
       </div>
     </div>

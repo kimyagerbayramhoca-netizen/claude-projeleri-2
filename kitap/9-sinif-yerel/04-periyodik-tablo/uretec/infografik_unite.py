@@ -58,7 +58,7 @@ def _kutu(x, y, w, h, renk="#FFFFFF", cz=OBS, r=14, k=3, kesik=False, ek=""):
 
 def _hap(x, y, metin, renk, yazi="#FFFFFF", fs=24, h=34, pad=14, font=T9):
     """Yuvarlak uçlu etiket hapı (x: sol kenar, y: üst kenar); genişliği yazı boyuna göre."""
-    w = len(metin) * fs * .56 + 2 * pad
+    w = len(metin) * fs * .74 + 2 * pad
     return (f'<rect x="{f(x)}" y="{f(y)}" width="{f(w)}" height="{h}" rx="{h / 2}" fill="{renk}"/>'
             f'<text x="{f(x + w / 2)}" y="{f(y + h / 2 + fs * .36)}" text-anchor="middle" {font} font-size="{fs}" fill="{yazi}" letter-spacing="1">{metin}</text>'), w
 
@@ -131,30 +131,29 @@ def _tarih_ikon(tur, x, y, s):
 
 
 def tarih_seridi(onek="pt-tar"):
-    """Döbereiner → Newlands → Mendeleyev → Meyer → Moseley. Genişlik 1860 (≈ 186 mm)."""
+    """Döbereiner → Newlands → Mendeleyev → Meyer → Moseley: yatay şerit (madalyon + yazı). Genişlik 1860 (≈ 186 mm)."""
     s = Svg(onek)
-    W, H = 1860, 330
-    yol_y = 92
-    g = s.lin([(0, "#E9D8B8"), (1, "#D9C29A")], 0, 0, 1, 0, ad="yol")
-    s += f'<path d="M20 {yol_y} H{W - 40}" stroke="{OBS}" stroke-width="30" stroke-linecap="round"/>'
-    s += f'<path d="M20 {yol_y} H{W - 40}" stroke="{g}" stroke-width="22" stroke-linecap="round"/>'
-    s += f'<path d="M30 {yol_y} H{W - 50}" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="16 12"/>'
-    s += f'<path d="M{W - 46} {yol_y - 26} L{W - 6} {yol_y} L{W - 46} {yol_y + 26} Z" fill="{OBS}"/>'
+    W, H = 1860, 182
     n = len(TARIH)
+    sw = W / n
     for i, (yil, ad, fikir, olcut, ikon) in enumerate(TARIH):
-        x = 170 + i * (W - 380) / (n - 1)
+        x0 = i * sw
         son = i == n - 1
+        cx, cy = x0 + 62, 88
         dolgu = GOL if son else (KEH if i == 2 else "#FFFFFF")
-        s += f'<circle cx="{f(x)}" cy="{yol_y}" r="62" fill="{ALTIN}" stroke="{OBS}" stroke-width="3"/>'
-        s += f'<circle cx="{f(x)}" cy="{yol_y}" r="54" fill="{acik(dolgu, .55) if dolgu != "#FFFFFF" else "#FFFFFF"}" stroke="{OBS}" stroke-width="2"/>'
-        s += _tarih_ikon(ikon, x, yol_y, s)
-        s += f'<text x="{f(x)}" y="{yol_y + 112}" text-anchor="middle" {B} font-size="44" fill="{GOL_K if son else OBS}">{yil}</text>'
-        s += f'<text x="{f(x)}" y="{yol_y + 148}" text-anchor="middle" {T9} font-size="31" fill="{OBS}">{ad}</text>'
+        s += f'<circle cx="{f(cx)}" cy="{cy}" r="56" fill="{ALTIN}" stroke="{OBS}" stroke-width="3"/>'
+        s += f'<circle cx="{f(cx)}" cy="{cy}" r="48" fill="{acik(dolgu, .55) if dolgu != "#FFFFFF" else "#FFFFFF"}" stroke="{OBS}" stroke-width="2"/>'
+        s += _tarih_ikon(ikon, cx, cy, s)
+        tx = x0 + 130
+        s += f'<text x="{f(tx)}" y="42" {B} font-size="40" fill="{GOL_K if son else OBS}">{yil}</text>'
+        s += f'<text x="{f(tx)}" y="76" {T9} font-size="28" fill="{OBS}">{ad}</text>'
         for k, satir in enumerate(fikir):
-            s += f'<text x="{f(x)}" y="{yol_y + 182 + k * 30}" text-anchor="middle" {T} font-size="27" fill="#343947">{satir}</text>'
-        h_, w_ = _hap(0, 0, olcut.upper(), GOL if son else GUM_K, fs=21, h=30, pad=12)
-        s += f'<g transform="translate({f(x - w_ / 2)} {yol_y + 228})">{h_}</g>'
-    s += f'<text x="{W - 8}" y="{H - 6}" text-anchor="end" {T} font-size="24" fill="{SOLUK}">Mendeleyev (1871): alüminyumun altındaki boşluk “eka-alüminyum” → 1875’te galyum bulundu.</text>'
+            s += f'<text x="{f(tx)}" y="{106 + k * 27}" {T} font-size="24" fill="#343947">{satir}</text>'
+        h_, w_ = _hap(0, 0, olcut.upper(), GOL if son else GUM_K, fs=18, h=26, pad=10)
+        s += f'<g transform="translate({f(tx)} 150)">{h_}</g>'
+        if not son:
+            ax = x0 + sw - 14
+            s += f'<path d="M{f(ax - 12)} {cy - 16} L{f(ax + 2)} {cy} L{f(ax - 12)} {cy + 16}" stroke="{ALTIN_K}" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
     return s.cikti(f"0 0 {W} {H}", cls="info")
 
 
@@ -163,8 +162,8 @@ def tarih_seridi(onek="pt-tar"):
 def blok_haritasi(onek="pt-blk"):
     """Periyot × grup iskeleti, bloklara göre renkli; sağda periyottaki element sayısı. Al ve Ga işaretli."""
     s = Svg(onek)
-    X0, Y0, CW, RH, W_, H_ = 62, 74, 50, 44, 46, 40
-    W, H = X0 + 18 * CW + 96, Y0 + 7 * RH + 26 + 2 * RH + 44
+    X0, Y0, CW, RH, W_, H_ = 62, 66, 50, 40, 46, 36
+    W, H = X0 + 18 * CW + 96, Y0 + 7 * RH + 18 + 2 * RH + 40
     for g in range(1, 19):
         x = X0 + (g - 1) * CW + W_ / 2
         s += f'<text x="{f(x)}" y="{Y0 - 38}" text-anchor="middle" {B} font-size="25" fill="{LAJVER}">{g}</text>'
@@ -180,27 +179,27 @@ def blok_haritasi(onek="pt-blk"):
         z = el["z"]
         sut, sat = TV.hucre_konum(z)
         x = X0 + (sut - 1) * CW
-        y = Y0 + (sat - 1) * RH + (26 if sat > 7 else 0)
+        y = Y0 + (sat - 1) * RH + (18 if sat > 7 else 0)
         dol, cz = TV.BLOK_RENK[TV.blok(z)]
         s += f'<rect x="{f(x)}" y="{f(y)}" width="{W_}" height="{H_}" rx="6" fill="{dol}" stroke="{cz}" stroke-width="2"/>'
         if el["sembol"] in ("Al", "Ga"):
             s += f'<rect x="{f(x - 3)}" y="{f(y - 3)}" width="{W_ + 6}" height="{H_ + 6}" rx="8" fill="none" stroke="{OBS}" stroke-width="4.4"/>'
-            s += f'<text x="{f(x + W_ / 2)}" y="{f(y + 29)}" text-anchor="middle" {B} font-size="25" fill="{OBS}">{el["sembol"]}</text>'
+            s += f'<text x="{f(x + W_ / 2)}" y="{f(y + 27)}" text-anchor="middle" {B} font-size="24" fill="{OBS}">{el["sembol"]}</text>'
     for p in (6, 7):
         x, y = X0 + 2 * CW, Y0 + (p - 1) * RH
         dol, cz = TV.BLOK_RENK["f"]
         s += f'<rect x="{f(x)}" y="{f(y)}" width="{W_}" height="{H_}" rx="6" fill="#FFFFFF" stroke="{cz}" stroke-width="2.4" stroke-dasharray="5 4"/>'
-        s += f'<text x="{f(x + W_ / 2)}" y="{f(y + 28)}" text-anchor="middle" {B} font-size="24" fill="{cz}">{"*" if p == 6 else "**"}</text>'
+        s += f'<text x="{f(x + W_ / 2)}" y="{f(y + 27)}" text-anchor="middle" {B} font-size="24" fill="{cz}">{"*" if p == 6 else "**"}</text>'
     # blok harfleri
     for b, (sut, sat, renk) in {"s": (1.5, 2.6, "#D63F72"), "d": (7.5, 4.6, "#C17F06"), "p": (15.5, 2.6, KOB), "f": (10, 8.55, ZUMRUT)}.items():
         x = X0 + (sut - 1) * CW + W_ / 2
-        y = Y0 + (sat - 1) * RH + (26 if sat > 7 else 0) + 30
+        y = Y0 + (sat - 1) * RH + (18 if sat > 7 else 0) + 28
         s += f'<text x="{f(x)}" y="{f(y)}" text-anchor="middle" {B} font-size="54" fill="{renk}" opacity=".9">{b}</text>'
     s += f'<text x="{f(X0 + 3.6 * CW)}" y="{f(Y0 + 0.62 * RH + 2)}" {T} font-size="23" fill="{SOLUK}">1–3. periyotta geçiş elementi yok:</text>'
     s += f'<text x="{f(X0 + 3.6 * CW)}" y="{f(Y0 + 1.28 * RH + 2)}" {T} font-size="23" fill="{SOLUK}">2A’dan sonra doğrudan 3A gelir.</text>'
-    yf = Y0 + 7 * RH + 26
+    yf = Y0 + 7 * RH + 18
     for r, ad in enumerate(("* Lantanitler (57–71)", "** Aktinitler (89–103)")):
-        s += f'<text x="{f(X0 + 2 * CW - 10)}" y="{f(yf + r * RH + 28)}" text-anchor="end" {T9} font-size="20" fill="{ZUMRUT}">{ad.split(" (")[0]}</text>'
+        s += f'<text x="{f(X0 + 2 * CW - 10)}" y="{f(yf + r * RH + 25)}" text-anchor="end" {T9} font-size="20" fill="{ZUMRUT}">{ad.split(" (")[0]}</text>'
     # ok: Al → Ga (eka-alüminyum)
     xa = X0 + 12 * CW + W_ + 6
     ya1, ya2 = Y0 + 2 * RH + H_ / 2, Y0 + 3 * RH + H_ / 2
@@ -224,8 +223,8 @@ def adres_okuma(onek="pt-adr"):
     s = Svg(onek)
     W, H = 1240, 400
     terim = [("1s", 2), ("2s", 2), ("2p", 6), ("3s", 2), ("3p", 6), ("4s", 2), ("3d", 7)]
-    s += _alt("_{27}Co", 18, 70, 54, KOB_K, "start")
-    s += f'<text x="20" y="104" {T9} font-size="20" fill="{GUM_K}" letter-spacing="1">KOBALT · ÇİNİNİN MAVİSİ</text>'
+    s += _alt("_27Co", 18, 70, 54, KOB_K, "start")
+    s += f'<text x="20" y="104" {T9} font-size="20" fill="{GUM_K}" letter-spacing="1">KOBALT</text>'
     x0, y0, kw, kh, ara = 190, 26, 136, 92, 10
     for i, (o, n) in enumerate(terim):
         x = x0 + i * (kw + ara)
@@ -259,13 +258,13 @@ def adres_okuma(onek="pt-adr"):
 def dolma_sirasi(onek="pt-dol"):
     """Orbitallerin dolma sırası (köşegen kuralı): 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s …"""
     s = Svg(onek)
-    W, H = 560, 430
-    satir = [["1s"], ["2s", "2p"], ["3s", "3p", "3d"], ["4s", "4p", "4d", "4f"], ["5s", "5p", "5d", "5f"], ["6s", "6p", "6d"], ["7s", "7p"]]
+    W, H = 560, 318
+    satir = [["1s"], ["2s", "2p"], ["3s", "3p", "3d"], ["4s", "4p", "4d", "4f"], ["5s", "5p", "5d", "5f"]]
     x0, y0, dx, dy = 66, 52, 108, 52
     renk = {"s": TV.BLOK_RENK["s"], "p": TV.BLOK_RENK["p"], "d": TV.BLOK_RENK["d"], "f": TV.BLOK_RENK["f"]}
-    for k in range(9):
+    for k in range(6):
         # köşegen oklar: (n, l) → n + l = sabit, sağ üstten sol alta
-        ust = [(n, l) for n in range(1, 8) for l in range(4) if n + l == k + 1 and l < len(satir[n - 1])]
+        ust = [(n, l) for n in range(1, len(satir) + 1) for l in range(4) if n + l == k + 1 and l < len(satir[n - 1])]
         if not ust:
             continue
         a = min(ust, key=lambda t: t[0])
@@ -281,7 +280,7 @@ def dolma_sirasi(onek="pt-dol"):
             dol, cz = renk[o[-1]]
             s += f'<rect x="{x - 34}" y="{y - 30}" width="68" height="40" rx="9" fill="{dol}" stroke="{cz}" stroke-width="2.2"/>'
             s += f'<text x="{x}" y="{y}" text-anchor="middle" {B} font-size="29" fill="{OBS}">{o}</text>'
-    s += f'<text x="{W - 6}" y="{H - 12}" text-anchor="end" {T9} font-size="22" fill="{MER_K}">4s, 3d’den önce dolar</text>'
+    s += f'<text x="{W - 6}" y="{H - 6}" text-anchor="end" {T9} font-size="24" fill="{MER_K}">4s, 3d’den önce dolar</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info")
 
 
@@ -290,8 +289,8 @@ def dolma_sirasi(onek="pt-dol"):
 def soygaz_cetveli(onek="pt-soy"):
     """0–118 sayı doğrusu: soy gazlar periyot sonu; Ag (47) = 36 + 11 ve P (15) = 10 + 5 örnekleri."""
     s = Svg(onek)
-    W, H = 1860, 300
-    x0, x1, y = 40, 1820, 150
+    W, H = 1860, 262
+    x0, x1, y = 40, 1820, 128
 
     def X(z):
         return x0 + (x1 - x0) * z / 118
@@ -312,20 +311,18 @@ def soygaz_cetveli(onek="pt-soy"):
         s += f'<text x="{f(X(z))}" y="{y + 70}" text-anchor="middle" {B} font-size="30" fill="{ERGUVAN}">{z}</text>'
     # örnek: Ag 47
     xa, xb = X(36), X(47)
-    s += f'<path d="M{f(xa)} {y + 92} C{f(xa)} {y + 128} {f(xb)} {y + 128} {f(xb)} {y + 92}" stroke="{GOL_K}" stroke-width="4" fill="none"/>'
-    s += f'<path d="M{f(xb)} {y + 88} l-9 15 h18 Z" fill="{GOL_K}"/>'
-    s += f'<circle cx="{f(xb)}" cy="{y}" r="17" fill="#FFFFFF" stroke="{GOL_K}" stroke-width="4"/>'
-    s += f'<text x="{f(xb)}" y="{y + 8}" text-anchor="middle" {B} font-size="21" fill="{GOL_K}">Ag</text>'
-    s += f'<text x="{f(xb + 30)}" y="{y + 132}" {T9} font-size="26" fill="{GOL_K}">Ag: 47 − 36 = 11 → 5. periyot, 11. grup (1B)</text>'
+    s += f'<path d="M{f(xa)} {y + 86} C{f(xa)} {y + 116} {f(xb)} {y + 116} {f(xb)} {y + 86}" stroke="{GOL_K}" stroke-width="4" fill="none"/>'
+    s += f'<path d="M{f(xb)} {y + 82} l-9 15 h18 Z" fill="{GOL_K}"/>'
+    s += f'<text x="{f(xb + 30)}" y="{y + 122}" {T9} font-size="26" fill="{GOL_K}">Ag: 47 − 36 = 11 → 5. periyot, 11. grup (1B)</text>'
     # örnek: P 15
     xa, xb = X(10), X(15)
-    s += f'<path d="M{f(xa)} {y - 86} C{f(xa)} {y - 118} {f(xb)} {y - 118} {f(xb)} {y - 86}" stroke="{MER_K}" stroke-width="4" fill="none"/>'
+    s += f'<path d="M{f(xa)} {y - 86} C{f(xa)} {y - 112} {f(xb)} {y - 112} {f(xb)} {y - 86}" stroke="{MER_K}" stroke-width="4" fill="none"/>'
     s += f'<path d="M{f(xb)} {y - 82} l-9 -15 h18 Z" fill="{MER_K}"/>'
-    s += f'<text x="{f(xb + 26)}" y="{y - 104}" {T9} font-size="26" fill="{MER_K}">P: 15 − 10 = 5 → 3. periyot · 5 + 10 = 15. grup (5A)</text>'
+    s += f'<text x="{f(xb + 26)}" y="{y - 98}" {T9} font-size="26" fill="{MER_K}">P: 15 − 10 = 5 → 3. periyot · 5 + 10 = 15. grup (5A)</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info")
 
 
-def _katman(s, cx, cy, z, dizi, etiket, renk, r0=30, ara=26, e_r=7.5):
+def _katman(s, cx, cy, z, dizi, etiket, renk, r0=30, ara=26, e_r=7.5, yazilar=True):
     o = [f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{r0 - 6}" fill="{renk}" stroke="{OBS}" stroke-width="2.4"/>',
          f'<text x="{f(cx)}" y="{f(cy + 9)}" text-anchor="middle" {B} font-size="25" fill="#FFFFFF">{z}+</text>']
     for k, n in enumerate(dizi):
@@ -336,19 +333,23 @@ def _katman(s, cx, cy, z, dizi, etiket, renk, r0=30, ara=26, e_r=7.5):
             son = k == len(dizi) - 1
             o.append(f'<circle cx="{f(cx + r * math.cos(a))}" cy="{f(cy + r * math.sin(a))}" r="{e_r}" fill="{KEH if son else KOB}" stroke="{OBS}" stroke-width="1.6"/>')
     rmax = r0 + 10 + (len(dizi) - 1) * ara
+    if not yazilar:
+        return "".join(o)
     o.append(_alt(etiket, cx, cy + rmax + 42, 32, OBS))
     o.append(f'<text x="{f(cx)}" y="{f(cy + rmax + 76)}" text-anchor="middle" {T9} font-size="25" fill="{KOB_K}">{" · ".join(str(n) for n in dizi)}</text>')
     return "".join(o)
 
 
 def katman_modeli(onek="pt-kat"):
-    """İlk 20 element: katman sayısı = periyot, son katmandaki e⁻ = A grubu. Al (2·8·3) ve K (2·8·8·1)."""
+    """İlk 20 element: katman sayısı = periyot, son katmandaki e⁻ = A grubu. Al (2·8·3) ve K (2·8·8·1), yan yana."""
     s = Svg(onek)
-    W, H = 800, 420
-    s += _katman(s, 190, 172, 13, [2, 8, 3], "_{13}Al", "#9DA9B5")
-    s += f'<text x="190" y="404" text-anchor="middle" {T9} font-size="24" fill="{MER_K}">3 katman → 3. periyot · 3A</text>'
-    s += _katman(s, 590, 172, 19, [2, 8, 8, 1], "_{19}K", "#A57BE0", ara=24)
-    s += f'<text x="590" y="404" text-anchor="middle" {T9} font-size="24" fill="{MER_K}">4 katman → 4. periyot · 1A</text>'
+    W, H = 900, 300
+    s += _katman(s, 150, 146, 13, [2, 8, 3], "", "#9DA9B5", r0=26, ara=24, e_r=7, yazilar=False)
+    s += _katman(s, 590, 146, 19, [2, 8, 8, 1], "", "#A57BE0", r0=26, ara=22, e_r=7, yazilar=False)
+    for x, ad, dz, sonuc in ((300, "_13Al", "2 · 8 · 3", "3 katman → 3. periyot · 3A"), (720, "_19K", "2 · 8 · 8 · 1", "4 katman → 4. periyot · 1A")):
+        s += _alt(ad, x, 120, 40, OBS, "start")
+        s += f'<text x="{x}" y="160" {T9} font-size="30" fill="{KOB_K}">{dz}</text>'
+    s += f'<text x="20" y="292" {T9} font-size="27" fill="{MER_K}">Al: 3 katman → 3. periyot 3A · K: 4 katman → 4. periyot 1A</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info")
 
 
@@ -357,8 +358,8 @@ def katman_modeli(onek="pt-kat"):
 def sinif_haritasi(onek="pt-sin"):
     """118 elementin metal / ametal / yarı metal / soy gaz haritası (çerçevenin renkleri), merdiven çizgisi, rota iğneleri."""
     s = Svg(onek)
-    X0, Y0, CW, RH, W_, H_ = 46, 28, 100, 58, 95, 53
-    YF = Y0 + 7 * RH + 22
+    X0, Y0, CW, RH, W_, H_ = 46, 28, 100, 41, 95, 37
+    YF = Y0 + 7 * RH + 14
     W, H = X0 + 18 * CW + 6, YF + 2 * RH + 8
     for p in range(1, 8):
         s += f'<text x="{X0 - 22}" y="{f(Y0 + (p - 1) * RH + H_ / 2 + 10)}" text-anchor="middle" {B} font-size="28" fill="{LAJVER}">{p}</text>'
@@ -375,16 +376,16 @@ def sinif_haritasi(onek="pt-sin"):
         rota = sem in ROTA_EL
         s += f'<rect x="{f(x)}" y="{f(y)}" width="{W_}" height="{H_}" rx="7" fill="{dol}" stroke="{OBS if rota else cz}" stroke-width="{4.2 if rota else 1.8}"/>'
         s += f'<rect x="{f(x + 1)}" y="{f(y + 1)}" width="{W_ - 2}" height="7" rx="4" fill="{cz}"/>'
-        s += f'<text x="{f(x + 7)}" y="{f(y + 27)}" {T9} font-size="16" fill="{GUM_K}">{z}</text>'
-        s += f'<text x="{f(x + W_ / 2 + 10)}" y="{f(y + 44)}" text-anchor="middle" {B} font-size="{33 if len(sem) == 1 else 30}" fill="{OBS}">{sem}</text>'
+        s += f'<text x="{f(x + 7)}" y="{f(y + 22)}" {T9} font-size="16" fill="{GUM_K}">{z}</text>'
+        s += f'<text x="{f(x + W_ / 2 + 10)}" y="{f(y + 33)}" text-anchor="middle" {B} font-size="{33 if len(sem) == 1 else 30}" fill="{OBS}">{sem}</text>'
         if rota:
             s += _yildiz_rozet(x + W_ - 6, y + 4, 17, str(ROTA_EL[sem]), MER, fs=20)
     for p, metin in ((6, "57–71"), (7, "89–103")):
         x, y = X0 + 2 * CW, Y0 + (p - 1) * RH
         s += f'<rect x="{f(x)}" y="{f(y)}" width="{W_}" height="{H_}" rx="7" fill="#FFF4F0" stroke="{MER}" stroke-width="1.8" stroke-dasharray="6 4"/>'
-        s += f'<text x="{f(x + W_ / 2)}" y="{f(y + 35)}" text-anchor="middle" {T9} font-size="20" fill="{MER_K}">{metin}</text>'
+        s += f'<text x="{f(x + W_ / 2)}" y="{f(y + 26)}" text-anchor="middle" {T9} font-size="20" fill="{MER_K}">{metin}</text>'
     for r, ad in enumerate(("lantanitler", "aktinitler")):
-        s += f'<text x="{f(X0 + 2 * CW - 10)}" y="{f(YF + r * RH + 35)}" text-anchor="end" {T9} font-size="21" fill="{MER_K}">{ad}</text>'
+        s += f'<text x="{f(X0 + 2 * CW - 10)}" y="{f(YF + r * RH + 26)}" text-anchor="end" {T9} font-size="21" fill="{MER_K}">{ad}</text>'
     # merdiven (çerçevedeki periyodik tablo sayfasıyla aynı basamaklar)
     basamak = [(2, 13), (3, 14), (4, 14), (5, 15), (6, 16), (7, 16)]
     d = []
@@ -400,13 +401,12 @@ def sinif_haritasi(onek="pt-sin"):
     x = lx
     for k in ("metal", "ametal", "yari", "soy", "belirsiz"):
         dol, cz, ad = TV.SINIF_RENK[k]
-        ad = {"belirsiz": "Po, At, 113–117: kaynağa göre değişir"}.get(k, ad)
+        ad = {"belirsiz": "Po, At, 113–117: belirsiz"}.get(k, ad)
         s += f'<rect x="{x}" y="{ly + 22}" width="44" height="30" rx="5" fill="{dol}" stroke="{cz}" stroke-width="2"/><rect x="{x}" y="{ly + 22}" width="44" height="7" rx="3" fill="{cz}"/>'
         s += f'<text x="{x + 52}" y="{ly + 46}" {T9} font-size="23" fill="{OBS}">{ad}</text>'
         x += 72 + len(ad) * 12.6
-    s += _yildiz_rozet(lx + 14, ly + 92, 16, "1", MER, fs=19)
-    s += f'<text x="{lx + 40}" y="{ly + 100}" {T9} font-size="23" fill="{MER_K}">Rotamızın elementleri: 1 Al · 2 Co, Cu · 3 Ag · 4 B · 5 Na (durak no)</text>'
-    s += f'<text x="{lx}" y="{ly + 140}" {T} font-size="23" fill="{SOLUK}">Kalın çizgi: metal / yarı metal sınırı (merdiven). * 57–71 ve 89–103: hepsi metal.</text>'
+    s += _yildiz_rozet(lx + 14, ly + 80, 16, "1", MER, fs=19)
+    s += f'<text x="{lx + 40}" y="{ly + 88}" {T9} font-size="23" fill="{MER_K}">Rotamızın elementleri: 1 Al · 2 Co, Cu · 3 Ag · 4 B · 5 Na (durak no)</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info")
 
 
@@ -460,8 +460,8 @@ def _ozellik_ikon(sat, sut, x, y):
 def ozellik_tablosu(onek="pt-ozl"):
     """Metal · yarı metal · ametal · soy gaz: beş özellik, ikonlu çizelge (çerçeve renkleri)."""
     s = Svg(onek)
-    W, H = 1080, 470
-    X0, Y0, CW, RH = 190, 66, 222, 76
+    W, H = 1080, 380
+    X0, Y0, CW, RH = 190, 64, 222, 57
     basliklar = [("metal", "Metal", "Al, Ag, Cu"), ("yari", "Yarı metal", "B, Si"), ("ametal", "Ametal", "S, O, Cl"), ("soy", "Soy gaz", "Ne, Ar")]
     for j, (k, ad, ornek) in enumerate(basliklar):
         dol, cz, _ = TV.SINIF_RENK[k]
@@ -498,8 +498,8 @@ AILE = [
 def aileler(onek="pt-ail"):
     """Grupların özel adları: altı aile sütunu; Bandırma'da gördüklerimiz (Na, Mg, Cl) işaretli."""
     s = Svg(onek)
-    W, H = 1860, 452
-    HK = 408
+    W, H = 1860, 404
+    HK = 362
     cw = W / len(AILE)
     for i, (grp, ad, uyeler, notlar, dol, cz, vurgu) in enumerate(AILE):
         x = i * cw
@@ -509,10 +509,10 @@ def aileler(onek="pt-ail"):
         s += f'<text x="{f(x + cw / 2)}" y="62" text-anchor="middle" {B} font-size="{30 if len(ad) < 15 else 27}" fill="#FFFFFF">{ad}</text>'
         sx = x + 22
         for k, u in enumerate(uyeler):
-            yy = 82 + k * 52
+            yy = 78 + k * 46
             v = u == vurgu
-            s += f'<rect x="{f(sx)}" y="{yy}" width="78" height="44" rx="7" fill="#FFFFFF" stroke="{OBS if v else cz}" stroke-width="{4 if v else 1.8}"/>'
-            s += f'<text x="{f(sx + 39)}" y="{yy + 33}" text-anchor="middle" {B} font-size="29" fill="{OBS}">{u}</text>'
+            s += f'<rect x="{f(sx)}" y="{yy}" width="78" height="40" rx="7" fill="#FFFFFF" stroke="{OBS if v else cz}" stroke-width="{4 if v else 1.8}"/>'
+            s += f'<text x="{f(sx + 39)}" y="{yy + 30}" text-anchor="middle" {B} font-size="27" fill="{OBS}">{u}</text>'
         ix = x + 204
         if grp in ("1A", "2A", "7A"):
             yuk = {"1A": "1+", "2A": "2+", "7A": "1−"}[grp]
@@ -532,7 +532,7 @@ def aileler(onek="pt-ail"):
                 s += f'<rect x="{f(ix - 50 + k * 34)}" y="{112 + k * 8}" width="30" height="62" rx="6" fill="{c}" stroke="{OBS}" stroke-width="2"/>'
             s += f'<text x="{f(ix)}" y="222" text-anchor="middle" {T9} font-size="20" fill="{cz}" letter-spacing="1">RENKLİ</text>'
         for k, n_ in enumerate(notlar):
-            s += _alt(n_, ix, 290 + k * 36, 25, OBS, font=T9)
+            s += _alt(n_, ix, 270 + k * 34, 24, OBS, font=T9)
     s += f'<text x="{W / 2}" y="{H - 10}" text-anchor="middle" {T} font-size="23" fill="{SOLUK}">Kalın çerçeve: rotada karşımıza çıkanlar · boraksta Na, deniz suyunda Mg ve Cl · Kütahya’nın kobaltı · Seydişehir’in alüminyumu</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info")
 
@@ -558,36 +558,36 @@ def iyon_olusumu(onek="pt-iyn"):
     y1, y2 = 120, 360
     s += _atom_kabuk(110, y1, 11, [2, 8, 1], "#8E5BD0")
     s += _alt("Na", 110, y1 + 112, 30, OBS)
-    s += f'<text x="110" y="{y1 + 140}" text-anchor="middle" {T9} font-size="21" fill="{KOB_K}">2 · 8 · 1</text>'
+    s += f'<text x="110" y="{y1 + 140}" text-anchor="middle" {T9} font-size="24" fill="{KOB_K}">2 · 8 · 1</text>'
     s += _ok(220, y1, 330, y1, OBS, 4, 16)
-    s += f'<text x="275" y="{y1 - 16}" text-anchor="middle" {T9} font-size="20" fill="{MER_K}">1 e⁻ verir</text>'
+    s += f'<text x="275" y="{y1 - 16}" text-anchor="middle" {T9} font-size="24" fill="{MER_K}">1 e⁻ verir</text>'
     s += _atom_kabuk(430, y1, 11, [2, 8], "#8E5BD0")
     s += _alt("Na^{+}", 430, y1 + 112, 30, OBS)
-    s += f'<text x="430" y="{y1 + 140}" text-anchor="middle" {T9} font-size="21" fill="{KOB_K}">2 · 8 (Ne gibi)</text>'
+    s += f'<text x="430" y="{y1 + 140}" text-anchor="middle" {T9} font-size="24" fill="{KOB_K}">2 · 8 (Ne gibi)</text>'
     s += f'<text x="540" y="{y1 + 10}" {B} font-size="34" fill="{OBS}">+</text>'
     s += f'<circle cx="600" cy="{y1}" r="13" fill="{MER}" stroke="{OBS}" stroke-width="1.6"/>'
     s += _alt("e^{−}", 640, y1 + 10, 30, OBS, "start")
     # alt satır: klor
     s += _atom_kabuk(110, y2, 17, [2, 8, 7], "#39A85A")
     s += _alt("Cl", 110, y2 + 112, 30, OBS)
-    s += f'<text x="110" y="{y2 + 140}" text-anchor="middle" {T9} font-size="21" fill="{KOB_K}">2 · 8 · 7</text>'
+    s += f'<text x="110" y="{y2 + 140}" text-anchor="middle" {T9} font-size="24" fill="{KOB_K}">2 · 8 · 7</text>'
     s += f'<text x="215" y="{y2 + 10}" {B} font-size="34" fill="{OBS}">+</text>'
     s += f'<circle cx="262" cy="{y2}" r="13" fill="{MER}" stroke="{OBS}" stroke-width="1.6"/>'
     s += _alt("e^{−}", 282, y2 + 10, 28, OBS, "start")
     s += _ok(320, y2, 380, y2, OBS, 4, 16)
-    s += f'<text x="350" y="{y2 - 16}" text-anchor="middle" {T9} font-size="20" fill="{MER_K}">alır</text>'
+    s += f'<text x="350" y="{y2 - 16}" text-anchor="middle" {T9} font-size="24" fill="{MER_K}">alır</text>'
     s += _atom_kabuk(490, y2, 17, [2, 8, 8], "#39A85A", eklenen=1)
     s += _alt("Cl^{−}", 490, y2 + 112, 30, OBS)
-    s += f'<text x="490" y="{y2 + 140}" text-anchor="middle" {T9} font-size="21" fill="{KOB_K}">2 · 8 · 8 (Ar gibi)</text>'
+    s += f'<text x="490" y="{y2 + 140}" text-anchor="middle" {T9} font-size="24" fill="{KOB_K}">2 · 8 · 8 (Ar gibi)</text>'
     # sağ kutu: değişmeyenler / değişenler
     bx, by = 720, 210
     s += _kutu(bx, by, 330, 280, "#FFFFFF", OBS, 16, 2.6)
     s += f'<text x="{bx + 18}" y="{by + 38}" {T9} font-size="21" fill="{ZUMRUT}" letter-spacing="1">DEĞİŞMEZ</text>'
     for k, t in enumerate(("proton sayısı", "nötron sayısı", "çekirdek")):
-        s += f'<text x="{bx + 18}" y="{by + 72 + k * 30}" {T} font-size="23" fill="{OBS}">• {t}</text>'
+        s += f'<text x="{bx + 18}" y="{by + 74 + k * 32}" {T} font-size="26" fill="{OBS}">• {t}</text>'
     s += f'<text x="{bx + 18}" y="{by + 178}" {T9} font-size="21" fill="{MER_K}" letter-spacing="1">DEĞİŞİR</text>'
     for k, t in enumerate(("elektron sayısı, dizilim", "kimyasal özellik")):
-        s += f'<text x="{bx + 18}" y="{by + 212 + k * 30}" {T} font-size="23" fill="{OBS}">• {t}</text>'
+        s += f'<text x="{bx + 18}" y="{by + 214 + k * 32}" {T} font-size="26" fill="{OBS}">• {t}</text>'
     s += _alt("Na^{+}: 10 e^{−} · Cl^{−}: 18 e^{−}", bx + 165, 70, 27, KOB_K, font=T9)
     s += f'<text x="{bx + 165}" y="110" text-anchor="middle" {T} font-size="22" fill="{SOLUK}">yük = p − e</text>'
     s += f'<text x="{bx + 165}" y="140" text-anchor="middle" {T} font-size="22" fill="{SOLUK}">11 − 10 = 1+ · 17 − 18 = 1−</text>'
@@ -644,25 +644,55 @@ def iskelet(onek="pt-isk"):
 def ustad_grafik(onek="pt-ugr"):
     """Üstad 3: katman sayısı (x) ve değerlik elektron sayısı (y); X, Y, Z, T nötr atomları."""
     s = Svg(onek)
-    W, H = 560, 470
-    x0, y0, x1, y1 = 84, 30, 530, 390
+    W, H = 500, 440
+    x0, y0, x1, y1 = 70, 24, 486, 360
     nx, ny = 4, 8
 
     def P(k, d):
         return x0 + (x1 - x0) * k / (nx + .4), y1 - (y1 - y0) * d / (ny + .6)
-    s += f'<path d="M{x0} {y0} V{y1} H{x1}" stroke="{OBS}" stroke-width="3" fill="none"/>'
+    s += f'<path d="M{x0} {y0} V{y1} H{x1}" stroke="{OBS}" stroke-width="3.4" fill="none"/>'
     for d in range(1, ny + 1):
         _, y = P(0, d)
-        s += f'<path d="M{x0 - 7} {f(y)} H{x1}" stroke="{GUM}" stroke-width="1.2" stroke-dasharray="4 5"/>'
-        s += f'<text x="{x0 - 14}" y="{f(y + 8)}" text-anchor="end" {T9} font-size="21" fill="{GUM_K}">{d}</text>'
+        s += f'<path d="M{x0 - 7} {f(y)} H{x1}" stroke="{GUM}" stroke-width="1.4" stroke-dasharray="4 5"/>'
+        if d % 2 == 0 or d in (3,):
+            s += f'<text x="{x0 - 12}" y="{f(y + 10)}" text-anchor="end" {T9} font-size="28" fill="{GUM_K}">{d}</text>'
     for k in range(1, nx + 1):
         x, _ = P(k, 0)
-        s += f'<path d="M{f(x)} {y1} V{y1 + 8}" stroke="{OBS}" stroke-width="2.4"/>'
-        s += f'<text x="{f(x)}" y="{y1 + 34}" text-anchor="middle" {T9} font-size="23" fill="{OBS}">{k}</text>'
+        s += f'<path d="M{f(x)} {y1} V{y1 + 8}" stroke="{OBS}" stroke-width="2.6"/>'
+        s += f'<text x="{f(x)}" y="{y1 + 38}" text-anchor="middle" {T9} font-size="30" fill="{OBS}">{k}</text>'
     for (ad, k, d) in (("X", 2, 3), ("Y", 3, 3), ("Z", 3, 6), ("T", 4, 2)):
         x, y = P(k, d)
-        s += f'<circle cx="{f(x)}" cy="{f(y)}" r="16" fill="{LAJVER}" stroke="{OBS}" stroke-width="2"/>'
-        s += f'<text x="{f(x + 24)}" y="{f(y - 8)}" {B} font-size="29" fill="{LAJVER}">{ad}</text>'
-    s += f'<text x="{(x0 + x1) / 2}" y="{H - 8}" text-anchor="middle" {T9} font-size="21" fill="{GUM_K}">katman (enerji düzeyi) sayısı</text>'
-    s += f'<text x="24" y="{(y0 + y1) / 2}" text-anchor="middle" {T9} font-size="21" fill="{GUM_K}" transform="rotate(-90 24 {(y0 + y1) / 2})">değerlik e⁻ sayısı</text>'
+        s += f'<circle cx="{f(x)}" cy="{f(y)}" r="17" fill="{LAJVER}" stroke="{OBS}" stroke-width="2"/>'
+        s += f'<text x="{f(x + 22)}" y="{f(y - 10)}" {B} font-size="38" fill="{LAJVER}">{ad}</text>'
+    s += f'<text x="{(x0 + x1) / 2}" y="{H - 6}" text-anchor="middle" {T9} font-size="27" fill="{GUM_K}">katman sayısı</text>'
+    s += f'<text x="22" y="{(y0 + y1) / 2}" text-anchor="middle" {T9} font-size="27" fill="{GUM_K}" transform="rotate(-90 22 {(y0 + y1) / 2})">değerlik e⁻</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info grafik")
+
+
+MECLIS_DENETIM = [
+    ("Nötr atom mu?", ["Yer iyondan değil,", "atomdan: O^{2−} değil O"]),
+    ("Sıra doğru mu?", ["4s, 3d’den önce:", "K 2 · 8 · 8 · 1"]),
+    ("Son orbital d mi?", ["d ile biten B grubu:", "Ni → 8B"]),
+    ("Helyum mu?", ["1s^{2} ama soy gaz:", "He → 8A"]),
+    ("Kutu var mı?", ["3. periyotta 3B yok,", "8A’da metal yok"]),
+]
+
+
+def meclis_denetim(onek="pt-mcd"):
+    """Meclis: bir yer bulma çözümünü denetlemenin beş sorusu (hata avı kontrol listesi)."""
+    s = Svg(onek)
+    W, H = 1860, 196
+    n = len(MECLIS_DENETIM)
+    tw = W / n
+    renk = [MER, KOB, KEH_K, ERGUVAN, GOL_K]
+    for i, (bas, satir) in enumerate(MECLIS_DENETIM):
+        x = i * tw
+        s += f'<rect x="{f(x + 8)}" y="10" width="{f(tw - 16)}" height="{H - 20}" rx="18" fill="#FFFFFF" stroke="{renk[i]}" stroke-width="3"/>'
+        s += _yildiz_rozet(x + 50, 52, 28, str(i + 1), renk[i], fs=28)
+        s += f'<text x="{f(x + 90)}" y="64" {B} font-size="32" fill="{OBS}">{bas}</text>'
+        for k, t in enumerate(satir):
+            s += _alt(t, x + 28, 118 + k * 36, 27, "#343947", "start", font=T)
+        if i < n - 1:
+            ax = x + tw - 4
+            s += f'<path d="M{f(ax - 10)} 84 L{f(ax + 6)} 99 L{f(ax - 10)} 114" stroke="{ALTIN_K}" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+    return s.cikti(f"0 0 {W} {H}", cls="info")

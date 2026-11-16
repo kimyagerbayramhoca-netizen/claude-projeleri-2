@@ -7,64 +7,310 @@
   "klasor": "02-kimyasal-guvenlik",
   "tema": "Tema 1 · Bölüm 2",
   "bolge": "Zonguldak · Karabük · Bartın",
-  "merkez": {"enlem": 41.45, "boylam": 32.35},
+  "merkez": {
+    "enlem": 41.45,
+    "boylam": 32.35
+  },
   "duraklar": [
-    {"no": 1, "yer": "Zonguldak", "baslik": "Önce tedbir", "konu": "maden ocağı: emniyet kültürü, KKD, kurallar, güvenlik işaretleri", "enlem": 41.456, "boylam": 31.798, "sayfa": 2, "akce": 100},
-    {"no": 2, "yer": "Karabük", "baslik": "Sıcağa saygı", "konu": "demir-çelik: asit suya, kimyasal ve cam malzemeyle çalışma, kaza anı", "enlem": 41.204, "boylam": 32.626, "sayfa": 3, "akce": 150},
-    {"no": 3, "yer": "Safranbolu", "baslik": "Dokuz elmas", "konu": "konakta ev kimyasalları: GHS tehlike piktogramları, sobada CO", "enlem": 41.251, "boylam": 32.692, "sayfa": 4, "akce": 150},
-    {"no": 4, "yer": "Yörük Köyü", "baslik": "Etiketi oku", "konu": "tarihî çamaşırhane: çamaşır suyu ile asit karıştırılmaz; etiket, depolama, atık", "enlem": 41.276, "boylam": 32.796, "sayfa": 5, "akce": 150},
-    {"no": 5, "yer": "Bartın", "baslik": "Her işe bir kap", "konu": "okul laboratuvarı: cam malzemeler, yardımcı malzemeler, hacim okuma", "enlem": 41.634, "boylam": 32.337, "sayfa": 6, "akce": 150}
+    {
+      "no": 1,
+      "yer": "Zonguldak",
+      "baslik": "Önce tedbir",
+      "konu": "maden ocağı: emniyet kültürü, KKD, kurallar, güvenlik işaretleri",
+      "enlem": 41.456,
+      "boylam": 31.798,
+      "sayfa": 2,
+      "akce": 100
+    },
+    {
+      "no": 2,
+      "yer": "Karabük",
+      "baslik": "Sıcağa saygı",
+      "konu": "demir-çelik: asit suya, kimyasal ve cam malzemeyle çalışma, kaza anı",
+      "enlem": 41.204,
+      "boylam": 32.626,
+      "sayfa": 3,
+      "akce": 150
+    },
+    {
+      "no": 3,
+      "yer": "Safranbolu",
+      "baslik": "Dokuz elmas",
+      "konu": "konakta ev kimyasalları: GHS tehlike piktogramları, sobada CO",
+      "enlem": 41.251,
+      "boylam": 32.692,
+      "sayfa": 4,
+      "akce": 150
+    },
+    {
+      "no": 4,
+      "yer": "Yörük Köyü",
+      "baslik": "Etiketi oku",
+      "konu": "tarihî çamaşırhane: çamaşır suyu ile asit karıştırılmaz; etiket, depolama, atık",
+      "enlem": 41.276,
+      "boylam": 32.796,
+      "sayfa": 5,
+      "akce": 150
+    },
+    {
+      "no": 5,
+      "yer": "Bartın",
+      "baslik": "Her işe bir kap",
+      "konu": "okul laboratuvarı: cam malzemeler, yardımcı malzemeler, hacim okuma",
+      "enlem": 41.634,
+      "boylam": 32.337,
+      "sayfa": 6,
+      "akce": 150
+    }
   ],
   "kale": "Amasra Kalesi",
-  "kale_konum": {"enlem": 41.748, "boylam": 32.386},
+  "kale_konum": {
+    "enlem": 41.748,
+    "boylam": 32.386
+  },
   "yan_yollar": [
-    {"tur": "hulasa", "yer": "Bartın Irmağı", "sayfa": 7},
-    {"tur": "meclis", "yer": "Güzelcehisar lav sütunları", "sayfa": 8},
-    {"tur": "kissa", "yer": "Amasra · Çekiciler Çarşısı", "sayfa": 9},
-    {"tur": "anahtar", "yer": "Amasra · Kemere Köprüsü", "sayfa": 10}
+    {
+      "tur": "hulasa",
+      "yer": "Bartın Irmağı",
+      "sayfa": 7
+    },
+    {
+      "tur": "meclis",
+      "yer": "Güzelcehisar lav sütunları",
+      "sayfa": 8
+    },
+    {
+      "tur": "kissa",
+      "yer": "Amasra · Çekiciler Çarşısı",
+      "sayfa": 9
+    },
+    {
+      "tur": "anahtar",
+      "yer": "Amasra · Kemere Köprüsü",
+      "sayfa": 10
+    }
   ],
   "nisanlar": [
-    {"ad": "Emniyet Lambası", "ikon": "baret", "renk": "keh", "aciklama": "1. durak · tedbir"},
-    {"ad": "Pota Bekçisi", "ikon": "pota", "renk": "mer", "aciklama": "2. durak · ısı, kaza"},
-    {"ad": "Elmas Okuru", "ikon": "elmas", "renk": "kob", "aciklama": "3. durak · piktogram"},
-    {"ad": "Etiket Kâşifi", "ikon": "etiket", "renk": "erg", "aciklama": "4. durak · etiket, atık"},
-    {"ad": "Cam Ustası", "ikon": "erlen", "renk": "gol", "aciklama": "5. durak · malzeme"},
-    {"ad": "Kale Kapısı", "ikon": "kale", "renk": "keh", "aciklama": "İmtihan · 10+ doğru"},
-    {"ad": "Üstad Mührü", "ikon": "ustad", "renk": "laj", "aciklama": "Üstad · 6/6 doğru", "bonus": true}
+    {
+      "ad": "Emniyet Lambası",
+      "ikon": "baret",
+      "renk": "keh",
+      "aciklama": "1. durak · tedbir"
+    },
+    {
+      "ad": "Pota Bekçisi",
+      "ikon": "pota",
+      "renk": "mer",
+      "aciklama": "2. durak · ısı, kaza"
+    },
+    {
+      "ad": "Elmas Okuru",
+      "ikon": "elmas",
+      "renk": "kob",
+      "aciklama": "3. durak · piktogram"
+    },
+    {
+      "ad": "Etiket Kâşifi",
+      "ikon": "etiket",
+      "renk": "erg",
+      "aciklama": "4. durak · etiket, atık"
+    },
+    {
+      "ad": "Cam Ustası",
+      "ikon": "erlen",
+      "renk": "gol",
+      "aciklama": "5. durak · malzeme"
+    },
+    {
+      "ad": "Kale Kapısı",
+      "ikon": "kale",
+      "renk": "keh",
+      "aciklama": "İmtihan · 10+ doğru"
+    },
+    {
+      "ad": "Üstad Mührü",
+      "ikon": "ustad",
+      "renk": "laj",
+      "aciklama": "Üstad · 6/6 doğru",
+      "bonus": true
+    }
   ],
   "hazine": [
-    {"kod": "H1", "baslik": "Önce KKD", "formul": "önlük + gözlük + eldiven", "not": "saç toplu, takı yok, kapalı ayakkabı · +10 akçe", "kisa": "önlük + gözlük", "durak": 1},
-    {"kod": "H2", "renk": "kob", "sinif": "strateji", "baslik": "İşaretin dili · renk + biçim", "adimlar": ["Mavi daire: yap (zorunluluk)", "Sarı üçgen: dikkat et (uyarı)", "Kırmızı çizgili daire: yapma (yasak)", "Yeşil kare: yardım burada (acil)"], "not": "+10 akçe", "kisa": "renk + biçim", "durak": 1},
-    {"kod": "H3", "baslik": "Seyreltme kuralı", "formul": "asit → su", "not": "yavaşça, karıştırarak; tersi asla · +10 akçe", "kisa": "asit → su", "durak": 2},
-    {"kod": "H4", "renk": "mer", "baslik": "Kaza anında önce su", "formul": "15–20 dk akan su", "not": "göz ve deri; ovma, nötrleştirme yok · yanığa buz yok · +10 akçe", "kisa": "15–20 dk su", "durak": 2},
-    {"kod": "H5", "baslik": "Alev mi, çember mi?", "formul": "alev yanar · çember yakar", "not": "çember üstünde alev: yakıcı (oksitleyici) · +10 akçe", "kisa": "yanar ≠ yakar", "durak": 3},
-    {"kod": "H6", "renk": "gol", "baslik": "Sessiz tehlike: CO", "formul": "renksiz + kokusuz", "not": "baca çeksin, oda havalansın, dedektör ötsün · +10 akçe", "kisa": "CO: dedektör", "durak": 3},
-    {"kod": "H7", "renk": "mer", "baslik": "Asla karıştırma", "formul": "çamaşır suyu + asit → {Cl2}", "not": "tuz ruhu, kireç çözücü de asittir · +10 akçe", "kisa": "karıştırma!", "durak": 4},
-    {"kod": "H8", "baslik": "Uyarı kelimesi", "formul": "TEHLİKE > DİKKAT", "not": "etikette: ad, piktogram, H ve P ifadeleri · +10 akçe", "kisa": "Tehlike > Dikkat", "durak": 4},
-    {"kod": "H9", "renk": "kob", "baslik": "Hassas hacim", "formul": "pipet · büret · balon joje", "not": "hacim ölçen cam ısıtılmaz · +10 akçe", "kisa": "hassas: pipet", "durak": 5},
-    {"kod": "H10", "renk": "gol", "baslik": "Menisküsü oku", "formul": "göz hizası · çukurun dibi", "not": "cıvada tümseğin tepesi okunur · +10 akçe", "kisa": "çukurun dibi", "durak": 5}
+    {
+      "kod": "H1",
+      "baslik": "Önce KKD",
+      "formul": "önlük + gözlük + eldiven",
+      "not": "saç toplu, takı yok, kapalı ayakkabı · +10 akçe",
+      "kisa": "önlük + gözlük",
+      "durak": 1,
+      "sinif": "uzun"
+    },
+    {
+      "kod": "H2",
+      "renk": "kob",
+      "sinif": "uzun",
+      "baslik": "İşaretin dili",
+      "not": "mavi yap · sarı dikkat · kırmızı yapma · yeşil yardım · +10 akçe",
+      "kisa": "renk + biçim",
+      "durak": 1,
+      "formul": "renk + biçim = tür"
+    },
+    {
+      "kod": "H3",
+      "baslik": "Seyreltme kuralı",
+      "formul": "asit → su",
+      "not": "yavaşça, karıştırarak; tersi asla · +10 akçe",
+      "kisa": "asit → su",
+      "durak": 2
+    },
+    {
+      "kod": "H4",
+      "renk": "mer",
+      "baslik": "Kaza anında önce su",
+      "formul": "15–20 dk akan su",
+      "not": "göz ve deri; ovma, nötrleştirme yok · yanığa buz yok · +10 akçe",
+      "kisa": "15–20 dk su",
+      "durak": 2,
+      "sinif": "uzun"
+    },
+    {
+      "kod": "H5",
+      "baslik": "Alev mi, çember mi?",
+      "formul": "alev yanar · çember yakar",
+      "not": "çember üstünde alev: yakıcı (oksitleyici) · +10 akçe",
+      "kisa": "yanar ≠ yakar",
+      "durak": 3,
+      "sinif": "uzun"
+    },
+    {
+      "kod": "H6",
+      "renk": "gol",
+      "baslik": "Sessiz tehlike: CO",
+      "formul": "renksiz + kokusuz",
+      "not": "baca çeksin, oda havalansın, dedektör ötsün · +10 akçe",
+      "kisa": "CO: dedektör",
+      "durak": 3,
+      "sinif": "uzun"
+    },
+    {
+      "kod": "H7",
+      "renk": "mer",
+      "baslik": "Asla karıştırma: çamaşır suyu + asit",
+      "formul": "NaOCl + asit → {Cl2}",
+      "not": "tuz ruhu, kireç çözücü de asittir · +10 akçe",
+      "kisa": "karıştırma!",
+      "durak": 4,
+      "sinif": "uzun"
+    },
+    {
+      "kod": "H8",
+      "baslik": "Uyarı kelimesi",
+      "formul": "TEHLİKE > DİKKAT",
+      "not": "etikette: piktogram, H ve P ifadeleri · +10 akçe",
+      "kisa": "Tehlike > Dikkat",
+      "durak": 4,
+      "sinif": "uzun"
+    },
+    {
+      "kod": "H9",
+      "renk": "kob",
+      "baslik": "Hassas hacim",
+      "formul": "pipet · büret · joje",
+      "not": "ölçen cam ısıtılmaz · +10 akçe",
+      "kisa": "hassas: pipet",
+      "durak": 5,
+      "sinif": "uzun"
+    },
+    {
+      "kod": "H10",
+      "renk": "gol",
+      "baslik": "Menisküsü oku",
+      "formul": "çukurun dibi",
+      "not": "cıvada tümsek tepesi · +10 akçe",
+      "kisa": "çukurun dibi",
+      "durak": 5,
+      "sinif": "uzun"
+    }
   ],
   "medeniyet": [
-    {"ad": "Ebû Bekir er-Râzî", "yil": "865–925", "katki": "Maddeleri sınıflandırdı; laboratuvar araçlarını ve işlemlerini tek tek tarif etti.", "sayfa": 6},
-    {"ad": "Câbir bin Hayyân", "yil": "8. yy", "katki": "Adıyla anılan eserler damıtma, kristallendirme ve süzme gibi işlemleri sistemli biçimde anlatır.", "sayfa": 8}
+    {
+      "ad": "Ebû Bekir er-Râzî",
+      "yil": "865–925",
+      "katki": "Maddeleri sınıflandırdı; laboratuvar araçlarını ve işlemlerini tek tek tarif etti.",
+      "sayfa": 6
+    },
+    {
+      "ad": "Câbir bin Hayyân",
+      "yil": "8. yy",
+      "katki": "Adıyla anılan eserler damıtma, kristallendirme ve süzme gibi işlemleri sistemli biçimde anlatır.",
+      "sayfa": 8
+    }
   ],
   "kavramlar": [
-    {"terim": "laboratuvar", "tanim": "Deney, gözlem ve ölçümlerin kontrollü koşullarda yapıldığı, gerekli araç gereçle donatılmış çalışma ortamı."},
-    {"terim": "kişisel koruyucu donanım (KKD)", "tanim": "Çalışanı kimyasal sıçramasına, ısıya, kesilmeye ve zararlı buhara karşı koruyan önlük, gözlük, eldiven, maske gibi ekipman."},
-    {"terim": "grizu", "tanim": "Kömür ocaklarında biriken, çoğu metan olan yanıcı gaz; havada belirli oranda (yaklaşık %5–15) tutuşabilir."},
-    {"terim": "güvenlik işareti", "tanim": "Yapılması ya da yapılmaması gerekeni, bir tehlikeyi ya da yardımın yerini rengi, biçimi ve resmiyle anlatan işaret."},
-    {"terim": "çeker ocak", "tanim": "Zararlı gaz ve buhar çıkaran işlemlerin yapıldığı, havayı dışarı çeken kapalı çalışma bölmesi."},
-    {"terim": "tehlike piktogramı", "tanim": "Kimyasalın ambalajında, maddenin hangi yolla zarar verebileceğini gösteren kırmızı çerçeveli elmas simge."},
-    {"terim": "GHS", "tanim": "Birleşmiş Milletler'in Küresel Uyumlaştırılmış Sistemi; kimyasalların sınıflandırılması ve etiketlenmesi için dokuz piktogramlı ortak dil."},
-    {"terim": "uyarı kelimesi", "tanim": "Etikette tehlikenin derecesini gösteren kelime: ciddi tehlikede TEHLİKE, daha hafifinde DİKKAT."},
-    {"terim": "zararlılık ifadesi (H)", "tanim": "Maddenin nasıl zarar verdiğini anlatan etiket cümlesi (ör. Kolay alevlenir sıvı ve buhar)."},
-    {"terim": "önlem ifadesi (P)", "tanim": "Zararı önlemek ya da kaza anında yapılacakları anlatan etiket cümlesi (ör. Kabı sıkıca kapalı tutun)."},
-    {"terim": "depolama matrisi", "tanim": "Hangi tehlike sınıfındaki maddelerin birlikte saklanabileceğini gösteren tablo."},
-    {"terim": "kimyasal atık", "tanim": "Laboratuvarda artan ya da kullanılmış kimyasallar; lavaboya dökülmez, türüne göre etiketli kapta toplanır."},
-    {"terim": "tıbbi atık", "tanim": "Sağlık kuruluşlarında oluşan, enfeksiyon riski taşıyan atık (enjektör, kanlı pamuk); ayrı toplanır."},
-    {"terim": "karbon monoksit (CO)", "tanim": "Tam yanmayan yakıttan oluşan renksiz, kokusuz, zehirli gaz; kanda oksijen taşınmasını engeller."},
-    {"terim": "menisküs", "tanim": "Dar kaptaki sıvının eğri yüzeyi; suda çukurun alt noktası, cıvada tümseğin üst noktası göz hizasında okunur."},
-    {"terim": "ısıl şok", "tanim": "Camın ani sıcaklık değişiminde eşit genleşip büzülememesi; cam çatlar ya da kırılır."}
+    {
+      "terim": "laboratuvar",
+      "tanim": "Deney, gözlem ve ölçümlerin kontrollü koşullarda yapıldığı, gerekli araç gereçle donatılmış çalışma ortamı."
+    },
+    {
+      "terim": "kişisel koruyucu donanım (KKD)",
+      "tanim": "Çalışanı kimyasal sıçramasına, ısıya, kesilmeye ve zararlı buhara karşı koruyan önlük, gözlük, eldiven, maske gibi ekipman."
+    },
+    {
+      "terim": "grizu",
+      "tanim": "Kömür ocaklarında biriken, çoğu metan olan yanıcı gaz; havada belirli oranda (yaklaşık %5–15) tutuşabilir."
+    },
+    {
+      "terim": "güvenlik işareti",
+      "tanim": "Yapılması ya da yapılmaması gerekeni, bir tehlikeyi ya da yardımın yerini rengi, biçimi ve resmiyle anlatan işaret."
+    },
+    {
+      "terim": "çeker ocak",
+      "tanim": "Zararlı gaz ve buhar çıkaran işlemlerin yapıldığı, havayı dışarı çeken kapalı çalışma bölmesi."
+    },
+    {
+      "terim": "tehlike piktogramı",
+      "tanim": "Kimyasalın ambalajında, maddenin hangi yolla zarar verebileceğini gösteren kırmızı çerçeveli elmas simge."
+    },
+    {
+      "terim": "GHS",
+      "tanim": "Birleşmiş Milletler'in Küresel Uyumlaştırılmış Sistemi; kimyasalların sınıflandırılması ve etiketlenmesi için dokuz piktogramlı ortak dil."
+    },
+    {
+      "terim": "uyarı kelimesi",
+      "tanim": "Etikette tehlikenin derecesini gösteren kelime: ciddi tehlikede TEHLİKE, daha hafifinde DİKKAT."
+    },
+    {
+      "terim": "zararlılık ifadesi (H)",
+      "tanim": "Maddenin nasıl zarar verdiğini anlatan etiket cümlesi (ör. Kolay alevlenir sıvı ve buhar)."
+    },
+    {
+      "terim": "önlem ifadesi (P)",
+      "tanim": "Zararı önlemek ya da kaza anında yapılacakları anlatan etiket cümlesi (ör. Kabı sıkıca kapalı tutun)."
+    },
+    {
+      "terim": "depolama matrisi",
+      "tanim": "Hangi tehlike sınıfındaki maddelerin birlikte saklanabileceğini gösteren tablo."
+    },
+    {
+      "terim": "kimyasal atık",
+      "tanim": "Laboratuvarda artan ya da kullanılmış kimyasallar; lavaboya dökülmez, türüne göre etiketli kapta toplanır."
+    },
+    {
+      "terim": "tıbbi atık",
+      "tanim": "Sağlık kuruluşlarında oluşan, enfeksiyon riski taşıyan atık (enjektör, kanlı pamuk); ayrı toplanır."
+    },
+    {
+      "terim": "karbon monoksit (CO)",
+      "tanim": "Tam yanmayan yakıttan oluşan renksiz, kokusuz, zehirli gaz; kanda oksijen taşınmasını engeller."
+    },
+    {
+      "terim": "menisküs",
+      "tanim": "Dar kaptaki sıvının eğri yüzeyi; suda çukurun alt noktası, cıvada tümseğin üst noktası göz hizasında okunur."
+    },
+    {
+      "terim": "ısıl şok",
+      "tanim": "Camın ani sıcaklık değişiminde eşit genleşip büzülememesi; cam çatlar ya da kırılır."
+    }
   ],
   "sayfa_sayisi": 15,
   "akce_toplam": 1400

@@ -402,11 +402,20 @@ def mangal(s, x, y, w, tohum=0, paket=3):
         out.append(f'<path d="M{f(x - w * .44 + i * w * .08)} {f(y - h * 2.0)} v{f(-4)}" stroke="#8C96A2" stroke-width="2"/>')
     out.append(f'<path d="M{f(x - w * .46)} {f(y - h * 2.02)} H{f(x + w * .46)}" stroke="#8C96A2" stroke-width="3"/>')
     gf = s.lin([(0, "#FFFFFF"), (.5, "#C9D2DC"), (1, "#8E9AA8")], 0, y - h * 2.6, 0, y - h * 2, kull="userSpaceOnUse", ad="fl")
+    r = RNG(tohum + 7)
+    yb = y - h * 2.03
     for i in range(paket):
         px = x - w * .3 + i * w * .3
-        out.append(f'<path d="M{f(px - w * .12)} {f(y - h * 2.03)} Q{f(px - w * .13)} {f(y - h * 2.45)} {f(px)} {f(y - h * 2.5)} Q{f(px + w * .13)} {f(y - h * 2.45)} {f(px + w * .12)} {f(y - h * 2.03)} Z" fill="{gf}" stroke="#5A6470" stroke-width="2"/>')
-        out.append(f'<path d="M{f(px - w * .05)} {f(y - h * 2.48)} q{f(w * .05)} {f(-h * .25)} {f(w * .1)} 0" stroke="#5A6470" stroke-width="2" fill="#E9EEF2"/>')
-        out.append(f'<path d="M{f(px - w * .07)} {f(y - h * 2.2)} l{f(w * .04)} {f(-h * .1)} l{f(w * .03)} {f(h * .08)}" stroke="#FFFFFF" stroke-width="2" fill="none"/>')
+        pw, ph = w * .27, h * .44
+        # yassı, buruşuk folyo paketi: düz üst, kıvrık dikiş, kırışıklar
+        out.append(f'<path d="M{f(px - pw / 2)} {f(yb)} Q{f(px - pw / 2 - 3)} {f(yb - ph * .75)} {f(px - pw * .34)} {f(yb - ph)} '
+                   f'L{f(px - pw * .1)} {f(yb - ph - 2)} L{f(px + pw * .08)} {f(yb - ph + 1)} L{f(px + pw * .34)} {f(yb - ph - 1)} '
+                   f'Q{f(px + pw / 2 + 3)} {f(yb - ph * .75)} {f(px + pw / 2)} {f(yb)} Z" fill="{gf}" stroke="#5A6470" stroke-width="2"/>')
+        dis = " ".join(f"{f(px - pw * .32 + k * pw * .08)} {f(yb - ph - (6 if k % 2 else 1))}" for k in range(9))
+        out.append(f'<path d="M{f(px - pw * .32)} {f(yb - ph + 1)} L{dis} L{f(px + pw * .32)} {f(yb - ph + 1)} Z" fill="#E9EEF2" stroke="#5A6470" stroke-width="1.6" stroke-linejoin="round"/>')
+        for _ in range(3):
+            cx_, cy_ = px + r.uniform(-pw * .3, pw * .3), yb - r.uniform(ph * .25, ph * .75)
+            out.append(f'<path d="M{f(cx_ - 5)} {f(cy_ + 2)} l{f(r.uniform(3, 5))} {f(-r.uniform(2, 4))} l{f(r.uniform(3, 5))} {f(r.uniform(1, 4))}" stroke="{"#FFFFFF" if _ % 2 == 0 else "#8E9AA8"}" stroke-width="1.6" fill="none"/>')
     out.append(buhar(s, x + w * .05, y - h * 2.5, w * 1.3, tohum, w * .2, .55))
     return "".join(out)
 
@@ -648,9 +657,9 @@ def cumalikizik():
     for k in range(10):
         x = 1180 + k * 92 + r.uniform(-8, 8)
         s += mini_ev(x, 318 - (k % 2) * 10, 62, 38, EV_RENK[k % len(EV_RENK)])
-    s += S.agac(s, 1300, 446, 70, 55, renk="#4E9A40")
+    s += S.agac(s, 2060, 446, 70, 55, renk="#4E9A40")
     # ön sıra: renkli Cumalıkızık evleri (odak)
-    x = 1470
+    x = 1336
     for k, (w_, h_, c) in enumerate(((150, 170, EV_RENK[0]), (160, 186, EV_RENK[1]), (140, 160, EV_RENK[2]), (170, 194, EV_RENK[3]))):
         s += osmanli_ev(s, x, 432, w_, h_, duvar=c, tohum=56 + k)
         x += w_ + 26
@@ -661,8 +670,8 @@ def cumalikizik():
     for k in range(60):
         px, py = r.uniform(1320, 2100), r.uniform(444, 458)
         s += f'<ellipse cx="{f(px)}" cy="{f(py)}" rx="{f(r.uniform(6, 11))}" ry="3.4" fill="#D2C4AA" opacity=".8"/>'
-    s += kahvalti_masasi(s, 1310, 452, 230, 58)
-    s += '<use href="#pamuk-selam" x="1238" y="362" width="76" height="87"/>'
+    s += kahvalti_masasi(s, 1600, 454, 240, 58)
+    s += '<use href="#pamuk-selam" x="1846" y="368" width="76" height="87"/>'
     s += _cerceve_golge(s)
     return _bitir(s)
 

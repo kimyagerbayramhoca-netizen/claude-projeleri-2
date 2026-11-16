@@ -41,6 +41,14 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
 .pamuk-kucuk { float: right; width: 15mm; height: 17mm; margin: -1mm 0 0 1.4mm; }
 .not-satir { font-size: 9pt; line-height: 1.22; color: var(--soluk); margin-top: .8mm; }
 .kucuk { font-size: 8.8pt; font-weight: 700; color: var(--soluk); }
+.s11 .mesveret .karalama, .s12 .mesveret .karalama { min-height: 5mm; }
+.s11 .mesveret-izgara { gap: 2mm; }
+.s11 .resim-sag svg.info { width: 100%; }
+.ustad-soru table.ustad-tablo th, .ustad-soru table.ustad-tablo td { padding: .1mm 1mm; line-height: 1.12; }
+.siklar.tek { grid-template-columns: 1fr; gap: .9mm; } .siklar.tek .sik { white-space: normal; padding: .45mm 1.6mm .45mm .8mm; font-size: 9.2pt; }
+table.ev-tablo.sik-tablo { font-size: 8.4pt; line-height: 1.12; } table.ev-tablo.sik-tablo td { padding: .15mm 1.2mm; }
+.sandik-izgara.dort { grid-template-columns: repeat(4, 1fr); } .sandik-izgara.dort div { white-space: normal; font-size: 9.4pt; }
+.ustad-soru .soru { font-size: 9.4pt; line-height: 1.24; }
 </style>
 </head>
 <body>
@@ -56,7 +64,7 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
   <div class="acilis">
     <div>
       <div class="cipler"><span class="cip koyu buyuk">Yol 1 · İznik–Bursa Yolu</span><span class="cip buyuk">9. sınıf · {{meta|tema}}</span></div>
-      <h1 class="dev-baslik" style="font-size:31pt"><span class="mol">Günlük Hayatta</span> <span class="kav"><svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12 C40 2 70 2 100 11 S160 20 200 10 S270 2 296 10" fill="none" stroke="#F0A21A" stroke-width="9" stroke-linecap="round"/></svg>Kimya</span></h1>
+      <h1 class="dev-baslik" style="font-size:27pt"><span class="mol">Günlük Hayatta</span> <span class="kav"><svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12 C40 2 70 2 100 11 S160 20 200 10 S270 2 296 10" fill="none" stroke="#F0A21A" stroke-width="9" stroke-linecap="round"/></svg>Kimya</span></h1>
       <p class="slogan">Bir çini, bir kaşık pekmez, bir tutam ipek: <b>hepsi kimya.</b></p>
       <div class="cipler" style="margin-top:2.6mm"><span class="cip">5 durak</span><span class="cip">3 yan yol</span><span class="cip mer">1 kale</span><span class="cip akce">{{sikke|}} {{meta|akce_toplam}} akçe</span></div>
     </div>
@@ -84,12 +92,12 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
       <div class="kart">
         <span class="et">{{ikon|hedef}}Yolun sonunda · hedefler</span>
         <ol class="hedefler">
-          <li>Kimyanın hayattaki yerini örneklerle açıklayacak; pH ile asidik, bazik ve nötrü ayıracaksın.</li>
-          <li>Ev ve mutfak kimyasallarını amacına göre ayırıp güvenle kullanacak, adil bir deney kuracaksın.</li>
-          <li>Bir çalışmanın hangi kimya dalına ve hangi meslek alanına girdiğini bulacaksın.</li>
+          <li>Kimyanın hayattaki yerini örneklerle açıklayacak; pH ile asidik, bazik, nötrü ayıracaksın.</li>
+          <li>Ev ve mutfak kimyasallarını güvenle kullanacak, adil bir deney kuracaksın.</li>
+          <li>Bir çalışmanın kimya dalını ve meslek alanını bulacaksın.</li>
         </ol>
-        <div class="et keh" style="margin-top:3mm">Ahilik basamakları · toplam akçene göre</div>
-        <div class="basamak-unvan" style="margin-top:3.4mm">
+        <div class="et keh" style="margin-top:2mm">Ahilik basamakları · toplam akçene göre</div>
+        <div class="basamak-unvan" style="margin-top:2.6mm">
           <div><b>Çırak</b><small>0+</small></div><div><b>Kalfa</b><small>400+</small></div><div><b>Usta</b><small>800+</small></div><div><b>Kimya Üstadı</b><small>1150+</small></div>
         </div>
       </div>
@@ -119,61 +127,55 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Ustanın fırçasındaki boya koyu ve mattı; fırından parlak lacivert çıktı! Nasıl oldu?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Boyada <span class="vurgu">kobalt oksit</span> var. Fırının ısısında sırla birleşip kalıcı maviye döner: bu bir <b>dönüşüm</b>.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @SiO<sub>2</sub></span>Çini hamurunun yaklaşık %80’i kuvars. Kum bile kimya! Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Fırçadaki boya koyu ve mattı; fırından lacivert çıktı! Nasıl?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Boyada <span class="vurgu">kobalt oksit</span> var; fırında sırla birleşip maviye döner. Bu bir <b>dönüşüm</b>.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @SiO<sub>2</sub></span>Çini hamurunun ≈ %80’i kuvars. Kum bile kimya! Miyav!</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · madde ve kimya</span></div>
-        <p><b>Madde:</b> kütlesi ve hacmi olan, taneciklerden oluşan her şey. Çini, su, hava, ipek maddedir; ışık, ses ve ısı madde değildir.</p>
-        <p><b>Kimya:</b> maddenin <b>yapısını</b>, <b>özelliklerini</b>, birbiriyle <b>etkileşimini</b> ve <b>dönüşümlerini</b> inceleyen; bu bilgiyi üretimde ve günlük hayatta kullanan bilim.</p>
-        <p class="not-satir">Kimya yalnız laboratuvarda değil; atölyede, mutfakta, tarlada ve hastanede de çalışır.</p>
+        <p class="kucuk-p"><b>Madde:</b> kütlesi ve hacmi olan, taneciklerden oluşan her şey: çini, su, hava, ipek. Işık, ses ve ısı madde değildir.</p>
+        <p class="kucuk-p"><b>Kimya:</b> maddenin <b>yapısını</b>, <b>özelliklerini</b>, <b>etkileşimini</b> ve <b>dönüşümlerini</b> inceleyen; bu bilgiyi üretimde ve günlük hayatta kullanan bilim.</p>
+        <div class="resim" style="width:80%;margin-top:.6mm">{{info|cini_renkleri}}</div>
       </div>
     </div>
-    <div class="kart bilgi-kart" style="display:grid;grid-template-columns:1fr 84mm;gap:3mm;align-items:center;padding:2mm 3mm">
+    <div class="kart bilgi-kart" style="display:grid;grid-template-columns:1fr 76mm;gap:3mm;align-items:center;padding:2mm 3mm">
       <div>
         <span class="et kob">{{ikon|kitap}}Kavram · temel ihtiyaçlar ve kimya</span>
-        <p class="kucuk-p" style="margin-top:.8mm">Beslenme, barınma, giyinme, sağlık, temizlik ve enerji: hepsinde kimya çalışır. Gübre, çimento, boya, ilaç, sabun ve yakıt kimya bilgisiyle <b>tasarlanır</b>, <b>üretilir</b>, <b>kalite kontrolünden</b> geçer ve <b>geri dönüştürülür</b>.</p>
-        <p class="kucuk-p">Etiketi okuyan kişi doğru ürünü doğru amaçla seçer; hem bütçesini hem sağlığını korur.</p>
-        <p class="kucuk-p"><b>Yoldan bir örnek:</b> 20. yüzyılın başında Fritz Haber havadaki azottan amonyak elde etti, Carl Bosch yöntemi fabrikaya taşıdı. Bu amonyaktan yapılan gübreler tarımda verimi büyük ölçüde artırdı.</p>
+        <p class="kucuk-p" style="margin-top:.8mm">Beslenme, barınma, giyinme, sağlık, temizlik, enerji: hepsinde kimya çalışır. Gübre, çimento, boya, ilaç, sabun ve yakıt kimyayla <b>tasarlanır</b>, <b>üretilir</b>, <b>denetlenir</b> ve <b>geri dönüştürülür</b>. Etiketi okuyan, doğru ürünü doğru amaçla seçer.</p>
+        <p class="kucuk-p"><b>Örnek:</b> Haber ve Bosch’un havadaki azottan ürettiği amonyak gübre oldu; tarımda verim büyük ölçüde arttı.</p>
       </div>
       {{info|temel_ihtiyaclar}}
     </div>
-    <div class="bento" style="grid-template-columns:1.1fr .9fr">
+    <div class="bento" style="grid-template-columns:1.14fr .86fr">
       <div class="kart gorev">
         <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 1 · kimyanın konusu mu?</span><span class="sag"><span class="yildiz">★<s>★★</s></span><span class="cip akce">+30 akçe</span></span></div>
         <div class="baglam">İznik’te bir çini atölyesindeyiz.</div>
-        <p class="soru">Hangileri kimyanın inceleme alanına girer? (1) Kobalt oksidin fırında maviye dönmesi (2) Sırın eridiği sıcaklık (3) Panonun asılacağı yükseklik (4) Kurşunsuz sır geliştirmek</p>
-        <ol class="akis"><li><i>1</i><span><b>H2:</b> ölçüt yapı, özellik, etkileşim ya da dönüşüm.</span></li><li><i>2</i><span>(1) dönüşüm · (2) özellik · (4) yapı ve sağlık: kimya.</span></li><li><i>3</i><span>(3) bir ölçü ve süs kararıdır; maddeyi incelemez.</span></li></ol>
+        <p class="soru">Hangileri kimyanın konusudur? (1) Kobalt oksidin maviye dönmesi (2) Sırın eridiği sıcaklık (3) Panonun asılacağı yükseklik (4) Kurşunsuz sır geliştirmek</p>
+        <ol class="akis"><li><i>1</i><span><b>H2:</b> ölçüt yapı, özellik, etkileşim ya da dönüşüm.</span></li><li><i>2</i><span>(1) dönüşüm · (2) özellik · (4) yapı; (3) süs kararıdır, maddeyi incelemez.</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>1, 2 ve 4 kimyanın konusudur</div>
       </div>
-      <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Yoldan · İznik çinisi</span>
-        <p class="kucuk-p" style="margin-top:.6mm">Çini hamurunun yaklaşık <b>%80’i kuvarstır</b> (SiO<sub>2</sub>). Renkler <b>metal oksitlerden</b> gelir; ham tozlar fırında sırla pişince renk kazanır. İznik çinisi en parlak dönemini 16. yüzyılda yaşadı; atölyeler bugün de çalışıyor.</p>
-        <div class="resim" style="width:100%">{{info|cini_renkleri}}</div>
+      <div class="bento dikey">
+        {{hazine|H1}}
+        {{hazine|H2}}
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1fr 1fr">
-      {{hazine|H1}}
-      {{hazine|H2}}
-    </div>
-    <div class="bento esnek" style="grid-template-columns:.86fr .84fr 1.3fr">
+    <div class="bento esnek" style="grid-template-columns:1.04fr .9fr 1.06fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Doğal olan kimyasal değildir; kimyasal madde zararlıdır.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Doğal olan kimyasal değildir.”</p>{{muhur|yanlis}}</div>
         <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Su, oksijen, şeker, limondaki sitrik asit de kimyasal maddedir. Zarar <b>miktara</b> ve <b>kullanıma</b> bağlıdır.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Kahvaltı sofrasından kimyanın katkısı olan üç ürün yaz; her birini bir temel ihtiyaçla eşleştir.</p>
+        <p class="soru">Kahvaltı sofrasından kimyanın katkısı olan üç ürün yaz; her birini bir ihtiyaçla eşleştir.</p>
         <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Ambalaja, suya, sabuna bak.</span></span></div>
         <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">ambalaj: beslenme · sabun: temizlik</span></div><span class="ters-cevap"><span class="ters">Örnek: ambalaj · sabun · ilaç</span></span></div>
       </div>
       <div class="medeniyet">{{kose}}
         <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
-        <div class="haz-ic sag" style="grid-template-columns:1fr 24mm"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
-        <p class="metin"><b>Câbir bin Hayyân</b> (8. yüzyıl): adıyla anılan eserler <b>damıtma</b>, <b>kristallendirme</b> ve <b>süzme</b> gibi işlemleri sistemli biçimde anlatır. “Kimya” kelimesi Arapça <i>el-kîmyâ</i> üzerinden dillere geçti.</p></div>{{info|imbik}}</div>
-        <p class="not">Bir işlemi adım adım yazıp tekrarlamak bugün de kimyanın temelidir.</p>
+        <div><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
+        <p class="metin"><b>Câbir bin Hayyân</b> (8. yüzyıl): adıyla anılan eserler <b>damıtma</b>, <b>kristallendirme</b> ve <b>süzme</b> gibi işlemleri sistemli biçimde anlatır.</p></div></div>
+        <p class="not">“Kimya” kelimesi Arapça <i>el-kîmyâ</i> üzerinden dillere geçti.</p>
       </div>
     </div>
   </main>
@@ -192,56 +194,40 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kaplıca suyuna pH kâğıdı batırdım; kâğıt yeşilimsi oldu. Bu su asidik mi, bazik mi?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Rengi <span class="vurgu">pH cetveliyle</span> karşılaştır: yeşil, nötre yakın demek. Bu sularda ölçülen pH 7’nin biraz üstünde.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @pH</span>Cetvel 0’dan 14’e uzanır, 7 tam ortada. Benim yerim de orası: nötr! Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kaplıca suyuna pH kâğıdı batırdım; yeşilimsi oldu. Bu ne demek?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Rengi <span class="vurgu">pH cetveliyle</span> karşılaştır: yeşil, nötre yakın demek.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @7,6</span>Çekirge suyu kalsiyum ve bikarbonatça zengin; pH ≈ 7,6. Miyav!</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · asit, baz, pH</span></div>
-        <p><b>Asit:</b> suda çözününce H<sup>+</sup> (H<sub>3</sub>O<sup>+</sup>) iyonu derişimini artıran madde. <b>Baz:</b> suda çözününce OH<sup>−</sup> iyonu derişimini artıran madde.</p>
-        <p><b>pH</b> (25 °C): pH &lt; 7 <b>asidik</b> · pH = 7 <b>nötr</b> · pH &gt; 7 <b>bazik</b>. pH küçüldükçe asitlik, büyüdükçe bazlık artar. Derişimi “birim hacimdeki iyon sayısı” gibi düşün.</p>
+        <p class="kucuk-p"><b>Asit:</b> suda çözününce H<sup>+</sup> (H<sub>3</sub>O<sup>+</sup>) iyonu derişimini artıran madde. <b>Baz:</b> suda çözününce OH<sup>−</sup> iyonu derişimini artıran madde.</p>
+        <p class="kucuk-p"><b>pH</b> (25 °C): pH &lt; 7 <b>asidik</b> · 7 <b>nötr</b> · pH &gt; 7 <b>bazik</b>. pH küçüldükçe asitlik, büyüdükçe bazlık artar.</p>
         <div class="hizli-kontrol"><span class="cip akce">+20 akçe</span><span><b>Hızlı kontrol:</b> pH 9: <span class="bos"><span class="ogr">bazik</span></span> · pH 4: <span class="bos"><span class="ogr">asidik</span></span> · pH 7: <span class="bos"><span class="ogr">nötr</span></span></span></div>
       </div>
     </div>
-    <div class="kart" style="padding:1.8mm 2.6mm 1.6mm">
-      <div class="kart-bas" style="margin-bottom:.8mm"><span class="et kob">{{ikon|kitap}}pH cetveli · evden ve yoldan örnekler</span><span class="kucuk">Değerler yaklaşıktır; ürüne ve derişime göre değişir (25 °C).</span></div>
+    <div class="kart" style="padding:1.6mm 2.6mm 1.4mm">
+      <div class="kart-bas" style="margin-bottom:.6mm"><span class="et kob">{{ikon|kitap}}pH cetveli · ≈ değerler, 25 °C</span><span class="sag"><span class="kucuk"><b>Hızlı kontrol:</b> en bazik örnek <span class="bos gg"><span class="ogr">lavabo açıcı</span></span></span><span class="cip akce">+20 akçe</span></span></div>
       {{info|ph_cetveli}}
     </div>
-    <div class="bento" style="grid-template-columns:1.22fr .78fr">
-      <div class="kart kavram yanyana" style="grid-template-columns:1fr 50mm">
+    <div class="kart gorev">
+      <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 2 · su eklersek pH ne olur?</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+40 akçe</span></span></div>
+      <div class="yanyana" style="grid-template-columns:.9fr 1.1fr 40mm;align-items:start">
         <div>
-          <span class="et kob">{{ikon|kitap}}Kavram · su eklersek pH ne olur?</span>
-          <p class="kucuk-p" style="margin-top:.8mm">Asit çözeltisine aynı sıcaklıkta saf su eklenirse birim hacimdeki H<sup>+</sup> azalır; çözelti daha az asidik olur, <b>pH artar</b>. Baz çözeltisine su eklenirse birim hacimdeki OH<sup>−</sup> azalır, <b>pH azalır</b>.</p>
-          <p class="kucuk-p">İkisinde de pH <b>7’ye yaklaşır ama 7’yi geçmez</b>; çünkü saf su nötrdür. Asidik bir çözelti su eklenerek bazik yapılamaz.</p>
+          <div class="baglam">Kaplıcanın kafeteryasında iki bardak.</div>
+          <p class="soru">pH’ı 3 olan limonataya (K) ve pH’ı 11 olan bir temizleyiciye (L) ayrı ayrı saf su ekleniyor. pH nasıl değişir?</p>
+        </div>
+        <div>
+          <ol class="akis"><li><i>1</i><span>K asidik: birim hacimdeki H<sup>+</sup> azalır, pH artar.</span></li><li><i>2</i><span>L bazik: birim hacimdeki OH<sup>−</sup> azalır, pH azalır.</span></li><li><i>3</i><span><b>H4:</b> ikisi de 7’ye yaklaşır, 7’yi geçmez.</span></li></ol>
+          <div class="sonuc"><span>SONUÇ</span>K artar, L azalır; 7’ye yaklaşırlar</div>
         </div>
         {{info|seyreltme}}
       </div>
-      <div class="bento dikey">
-        {{hazine|H3}}
-        {{hazine|H4}}
-      </div>
     </div>
-    <div class="bento" style="grid-template-columns:1fr 1fr">
-      <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 2 · su ekleyince</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30 akçe</span></span></div>
-        <div class="baglam">Kaplıcanın kafeteryasında iki bardak.</div>
-        <p class="soru">pH’ı 3 olan limonataya (K) ve pH’ı 11 olan bir yüzey temizleyici çözeltisine (L) ayrı ayrı saf su ekleniyor. pH nasıl değişir?</p>
-        <ol class="akis"><li><i>1</i><span>K asidik (3 &lt; 7): H<sup>+</sup> seyrelir, pH artar.</span></li><li><i>2</i><span>L bazik (11 &gt; 7): OH<sup>−</sup> seyrelir, pH azalır.</span></li><li><i>3</i><span><b>H4:</b> ikisi de 7’ye yaklaşır, 7’yi geçmez.</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>K: 3’ten 7’ye doğru · L: 11’den 7’ye doğru</div>
-      </div>
-      <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 3 · sırala</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30 akçe</span></span></div>
-        <div class="baglam">pH değerleri: sirke 3 · Çekirge suyu 7,6 · sabunlu su 10 · domates suyu 4,4 · lavabo açıcı 13</div>
-        <p class="soru">Asitten baza doğru sırala. Nötre en yakın hangisi?</p>
-        <ol class="akis"><li><i>1</i><span><b>H3:</b> pH küçük, asitlik büyük: 3 &lt; 4,4 &lt; 7,6 &lt; 10 &lt; 13</span></li><li><i>2</i><span>7’ye uzaklık en az 7,6’da: 0,6.</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>sirke · domates · Çekirge · sabunlu su · lavabo açıcı</div>
-      </div>
-    </div>
-    <div class="bento esnek" style="grid-template-columns:.92fr .82fr 1.26fr">
+    <div class="bento esnek" style="grid-template-columns:1.05fr .95fr 1fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Sirkeye yeterince su eklersem sonunda bazik olur.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>pH 7’ye yaklaşır ama sirke <b>asidik kalır</b>. Bazik yapmak için <b>baz</b> eklemek gerekir.</p></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Sirkeye çok su eklersem bazik olur.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>pH 7’ye yaklaşır ama sirke <b>asidik kalır</b>. Bazik yapmak için <b>baz</b> gerekir.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
@@ -249,11 +235,9 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
         <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Asit + su: pH artar ama 7’yi geçmez.</span></span></div>
         <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">5</span></div><span class="ters-cevap"><span class="ters">Cevap: 5</span></span></div>
       </div>
-      <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Yoldan · Çekirge’nin sıcak suları</span>
-        {{poz|pamuk-sasiran|pamuk-kucuk}}
-        <p class="kucuk-p" style="margin-top:.8mm">Bursa’nın kaplıcaları Uludağ eteğindeki Çekirge çevresinden çıkan sıcak sulardır. Bu sular <b>kalsiyum</b> ve <b>bikarbonat</b> bakımından zengindir; sıcaklık bazı kaynaklarda 45 °C’nin üstüne çıkar.</p>
-        <p class="kucuk-p">Ölçümlerde pH 7’nin biraz üstünde çıkmıştır (yaklaşık <b>7,6</b>): <b>hafif bazik</b>, nötre çok yakın.</p>
+      <div class="bento dikey">
+        {{hazine|H3}}
+        {{hazine|H4}}
       </div>
     </div>
   </main>
@@ -266,44 +250,44 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
   {{hud|4}}
   {{cini}}
   <div class="bant" data-serbest>{{sahne|cumalikizik}}
-    <div class="levha">{{rozet|3}}<div><div class="ust">3. durak · Cumalıkızık · köy evi ve kahvaltı · ikindi</div><h1>Evdeki <em>kimyasallar</em></h1><p class="alt-bas">Etiketi oku: her ürünün bir <b>etken maddesi</b>, bir özelliği, bir görevi var.</p><div class="hedef"><b>Hedef</b>Ev kimyasallarını amacına ve asidik/bazik özelliğine göre ayır; güvenle kullan.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Etiket Okuru</span></div></div></div>
+    <div class="levha">{{rozet|3}}<div><div class="ust">3. durak · Cumalıkızık · köy evi ve kahvaltı · ikindi</div><h1>Evdeki <em>kimyasallar</em></h1><p class="alt-bas">Etiketi oku: her ürünün bir <b>etken maddesi</b> ve bir görevi var.</p><div class="hedef"><b>Hedef</b>Ev kimyasallarını amacına ve pH’ına göre ayır; güvenle kullan.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Etiket Okuru</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Ev sahibimiz çaydanlığın kirecini limon tuzuyla, ocağın yağını başka bir ürünle siliyor. Neden ikisi ayrı?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Kireç (CaCO<sub>3</sub>) <span class="vurgu">asitle</span> çözünür; yağlı kiri ise <span class="vurgu">kuvvetli bazlar</span> parçalar. Temizleyici kire göre seçilir.</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Kireci limon tuzuyla, yağı başka ürünle siliyorlar. Neden?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Kireç <span class="vurgu">asitle</span> çözünür; yağı <span class="vurgu">kuvvetli bazlar</span> parçalar.</div></div>
         <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @etiket</span>Etikette iki satıra bak: etken madde ve uyarı. Miyav!</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · temizliğin kimyası</span></div>
-        <p>Kiri, onunla etkileşen maddeyle temizleriz. <b>Kireç</b> (CaCO<sub>3</sub>) ve <b>pas</b> (demir oksitleri) asitlerle tepkimeye girip çözünür; <b>yağ</b> ve <b>saç</b> gibi kirleri kuvvetli bazlar parçalar.</p>
-        <p><b>Mermer</b> de CaCO<sub>3</sub>’tır: asidik temizleyici mat leke bırakır. Fayans arasındaki çimento esaslı <b>derz</b> bazik yapılıdır, asitten zarar görebilir.</p>
+        <p class="kucuk-p"><b>Kireç</b> (CaCO<sub>3</sub>) ve <b>pas</b> asitlerle çözünür; <b>yağ</b> ve <b>saç</b> gibi kirleri kuvvetli bazlar parçalar. Mermer de CaCO<sub>3</sub>’tır: asitle silinmez.</p>
+        <p class="kucuk-p"><b>Kahvaltıda pekmez:</b> geleneksel üzüm pekmezinde ekşi şıraya kireçli <b>pekmez toprağı</b> (çoğu CaCO<sub>3</sub>) katılır; asit ile karbonat etkileşir, ekşilik azalır.</p>
         <div class="hizli-kontrol"><span class="cip akce">+20 akçe</span><span><b>Hızlı kontrol:</b> çaydanlık kireci: <span class="bos g"><span class="ogr">limon tuzu</span></span> · fırın yağı: <span class="bos g"><span class="ogr">NaOH’lu ürün</span></span></span></div>
       </div>
     </div>
-    <div class="kart" style="padding:1.8mm 2.6mm 2mm">
-      <div class="kart-bas" style="margin-bottom:.9mm"><span class="et">{{ikon|hazine}}Pansiyonun dolabı · etiket ne diyor?</span><span class="sag"><span class="kucuk">Sarı hücreleri doldur: asidik mi, bazik mi?</span><span class="cip akce">+30 akçe</span></span></div>
-      <table class="ev-tablo">
+    <div class="kart" style="padding:1.6mm 2.6mm 1.8mm">
+      <div class="kart-bas" style="margin-bottom:.8mm"><span class="et">{{ikon|hazine}}Pansiyonun dolabı · etiket ne diyor?</span><span class="sag"><span class="kucuk">Sarı hücreleri doldur: asidik mi, bazik mi?</span><span class="cip akce">+30 akçe</span></span></div>
+      <table class="ev-tablo sik-tablo">
+        <colgroup><col style="width:21mm"><col style="width:47mm"><col style="width:23mm"><col><col style="width:30mm"></colgroup>
         <tr><th>Ürün</th><th>Etken madde (örnek)</th><th>Özellik</th><th>Ne işe yarar?</th><th>Grup</th></tr>
-        <tr><td>Sabun</td><td>yağ asidi tuzları</td><td class="b">bazik</td><td>el ve vücut temizliği; doğada kolay parçalanır</td><td>öz bakım</td></tr>
-        <tr><td>Şampuan</td><td>yüzey aktif maddeler</td><td class="n">ürüne göre</td><td>saç ve saç derisi temizliği</td><td>öz bakım</td></tr>
-        <tr><td>Diş macunu</td><td>florür, aşındırıcılar</td><td class="doldur"><span class="ogr">hafif bazik</span></td><td>ağızdaki asitliği azaltır, çürüğe karşı korur</td><td>öz bakım</td></tr>
-        <tr><td>Deterjan</td><td>sentetik yüzey aktif maddeler</td><td class="b">bazik</td><td>bulaşık, çamaşır, yüzey; çoğu sabundan zor parçalanır</td><td>genel temizlik</td></tr>
-        <tr><td>Lavabo açıcı</td><td>sodyum hidroksit, NaOH</td><td class="b">kuvvetli bazik</td><td>giderdeki yağ ve saç tıkanıklığını çözer</td><td>genel temizlik</td></tr>
-        <tr><td>Çamaşır suyu</td><td>sodyum hipoklorit, NaClO</td><td class="b">bazik</td><td>ağartır, mikropları öldürür (dezenfektan)</td><td>genel temizlik</td></tr>
-        <tr><td>Kireç kaymağı</td><td>kalsiyum hipoklorit, Ca(ClO)<sub>2</sub></td><td class="b">bazik</td><td>havuz ve içme suyunun dezenfeksiyonu</td><td>genel temizlik</td></tr>
-        <tr><td>Limon tuzu</td><td>sitrik asit</td><td class="doldur"><span class="ogr">asidik</span></td><td>çaydanlık kirecini çözer; yemeğe ekşilik verir</td><td>temizlik, gıda</td></tr>
-        <tr><td>Sirke</td><td>asetik asit, CH<sub>3</sub>COOH</td><td class="a">asidik</td><td>salata ve turşuda tat ve koruyucu; kireç çözer</td><td>gıda, temizlik</td></tr>
-        <tr><td>Karbonat</td><td>sodyum bikarbonat, NaHCO<sub>3</sub></td><td class="doldur"><span class="ogr">hafif bazik</span></td><td>hamur kabartır, koku giderir, mide ekşimesini azaltır</td><td>gıda, temizlik, ilaç</td></tr>
-        <tr><td>Gazlı içecek</td><td>karbonik asit, fosforik asit</td><td class="a">asidik</td><td>içecek; besin değeri düşük, asitliği kireci çözebilir</td><td>gıda</td></tr>
-        <tr><td>Antiasit tablet</td><td>magnezyum hidroksit, kalsiyum karbonat</td><td class="b">bazik</td><td>midedeki fazla asidi nötrleştirir</td><td>ilaç</td></tr>
+        <tr><td>Sabun</td><td>yağ asidi tuzları</td><td class="b">bazik</td><td>el ve vücut temizliği</td><td>öz bakım</td></tr>
+        <tr><td>Diş macunu</td><td>florür, aşındırıcılar</td><td class="doldur"><span class="ogr">hafif bazik</span></td><td>ağızdaki asitliği azaltır</td><td>öz bakım</td></tr>
+        <tr><td>Deterjan</td><td>sentetik yüzey aktif maddeler</td><td class="b">bazik</td><td>bulaşık, çamaşır, yüzey</td><td>genel temizlik</td></tr>
+        <tr><td>Lavabo açıcı</td><td>sodyum hidroksit, NaOH</td><td class="b">kuvvetli bazik</td><td>giderdeki yağı ve saçı çözer</td><td>genel temizlik</td></tr>
+        <tr><td>Çamaşır suyu</td><td>sodyum hipoklorit, NaClO</td><td class="b">bazik</td><td>ağartır, mikrop öldürür</td><td>genel temizlik</td></tr>
+        <tr><td>Kireç kaymağı</td><td>kalsiyum hipoklorit, Ca(ClO)<sub>2</sub></td><td class="b">bazik</td><td>havuz ve içme suyu dezenfeksiyonu</td><td>genel temizlik</td></tr>
+        <tr><td>Limon tuzu</td><td>sitrik asit</td><td class="doldur"><span class="ogr">asidik</span></td><td>çaydanlık kirecini çözer</td><td>temizlik, gıda</td></tr>
+        <tr><td>Sirke</td><td>asetik asit, CH<sub>3</sub>COOH</td><td class="a">asidik</td><td>salata, turşu; kireç çözer</td><td>gıda, temizlik</td></tr>
+        <tr><td>Karbonat</td><td>sodyum bikarbonat, NaHCO<sub>3</sub></td><td class="doldur"><span class="ogr">hafif bazik</span></td><td>hamur kabartır, mide ekşimesini azaltır</td><td>gıda, temizlik, ilaç</td></tr>
+        <tr><td>Gazlı içecek</td><td>karbonik asit, fosforik asit</td><td class="a">asidik</td><td>içecek; kireci ve pası çözebilir</td><td>gıda</td></tr>
+        <tr><td>Antiasit</td><td>magnezyum hidroksit, CaCO<sub>3</sub></td><td class="b">bazik</td><td>fazla mide asidini nötrleştirir</td><td>ilaç</td></tr>
       </table>
     </div>
-    <div class="bento" style="grid-template-columns:1fr 1fr">
+    <div class="bento" style="grid-template-columns:1.06fr .94fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 4 · gruplara ayır</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30 akçe</span></span></div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 3 · gruplara ayır</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30 akçe</span></span></div>
         <p class="soru">Sirke, şampuan, antiasit tablet ve karbonatı kullanım amacına göre grupla. Hangileri birden çok gruba girer?</p>
         <ol class="akis"><li><i>1</i><span>Şampuan: öz bakım · antiasit: ilaç.</span></li><li><i>2</i><span>Sirke: gıda + temizlik · karbonat: gıda + temizlik + ilaç.</span></li></ol>
         <div class="sonuc"><span>SONUÇ</span>Sirke ve karbonat birden çok gruba girer</div>
@@ -313,11 +297,11 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
         {{hazine|H6}}
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:.95fr .8fr 1.25fr">
+    <div class="bento esnek" style="grid-template-columns:1.08fr .86fr 1.06fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Çamaşır suyuna kireç sökücü katarsam daha iyi temizler.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Asitle karışınca <b>zehirli klor gazı</b>, amonyaklı ürünle zararlı gazlar çıkar. Temizleyiciler <b>karıştırılmaz</b>; ortam havalandırılır.</p></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Çamaşır suyu + kireç sökücü daha iyi temizler.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>Asitle karışınca <b>zehirli klor gazı</b> çıkar. Temizleyiciler <b>karıştırılmaz</b>; ortam havalandırılır.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
@@ -325,17 +309,11 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
         <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Mermer = CaCO₃ = kireç.</span></span></div>
         <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">asit CaCO₃’ı aşındırdı</span></div><span class="ters-cevap"><span class="ters">Asit, mermeri aşındırdı.</span></span></div>
       </div>
-      <div class="bento dikey">
-        <div class="kart kiyidan">
-          <span class="et">{{ikon|dalga}}Yoldan · kahvaltıda pekmez</span>
-          <p class="kucuk-p" style="margin-top:.6mm">Geleneksel üzüm pekmezinde ekşi şıraya kireçli <b>pekmez toprağı</b> (büyük kısmı CaCO<sub>3</sub>) katılır. Asit ile karbonat etkileşir; ekşilik azalır, tortu çöker.</p>
-        </div>
-        <div class="medeniyet">{{kose}}
-          <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
-          <div class="haz-ic sag" style="grid-template-columns:1fr 15mm"><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
-          <p class="metin"><b>el-Kindî</b> (9. yüzyıl): koku ve damıtma üzerine kitabında gül suyu gibi kokulu suların damıtılmasını tarif etti.</p></div>{{info|gul_suyu}}</div>
-          <p class="not">Gül suyu bugün de damıtmayla elde edilir.</p>
-        </div>
+      <div class="medeniyet">{{kose}}
+        <span class="med-bas">{{ikon|medeniyet}}Medeniyetimizden</span>
+        <div><div><div class="zh">{{av|zeynep}}Zeynep Hoca anlatıyor</div>
+        <p class="metin"><b>el-Kindî</b> (9. yüzyıl): koku ve damıtma üzerine kitabında gül suyu gibi kokulu suların damıtılmasını tarif etti.</p></div></div>
+        <p class="not">Gül suyu bugün de damıtmayla elde edilir.</p>
       </div>
     </div>
   </main>
@@ -348,24 +326,24 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
   {{hud|5}}
   {{cini}}
   <div class="bant" data-serbest>{{sahne|uludag}}
-    <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Uludağ · yayla pikniği · öğle</div><h1>Mutfak ve <em>adil deney</em></h1><p class="alt-bas">Hangi kap, hangi sıcaklık, hangi yiyecek? Cevabı <b>deney</b> verir.</p><div class="hedef"><b>Hedef</b>Kap seçimini kimyayla açıkla; bağımsız, bağımlı ve kontrol değişkenlerini ayır.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Deney Kâşifi</span></div></div></div>
+    <div class="levha">{{rozet|4}}<div><div class="ust">4. durak · Uludağ · yayla pikniği · öğle</div><h1>Mutfak ve <em>adil deney</em></h1><p class="alt-bas">Hangi kap, hangi sıcaklık? Cevabı <b>deney</b> verir.</p><div class="hedef"><b>Hedef</b>Kap seçimini açıkla; deneyin değişkenlerini ayır.<span class="cip akce">+150 akçe</span><span class="cip">Nişan: Deney Kâşifi</span></div></div></div>
   </div>
   <main class="ic" style="top:60mm">
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Domatesi folyoya sarıp üstüne limon sıktık. Annem “Ekşi yemeği folyoda pişirme.” der. Neden?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Asidik ya da tuzlu yiyecek sıcakta uzun süre folyoya değerse yiyeceğe geçen <span class="vurgu">alüminyum</span> artar. Bunu <span class="vurgu">adil bir deneyle</span> sınarız.</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @deney</span>Kural tek: bir seferde tek şeyi değiştir. Ben de bir seferde tek köfte yerim. Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Annem “Limonlu domatesi folyoda pişirme.” der. Neden?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Asidik yiyecek sıcakta uzun süre folyoya değerse <span class="vurgu">alüminyum</span> geçişi artar. <span class="vurgu">Adil bir deneyle</span> sınarız.</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @2543 m</span>Marmara’nın en yüksek dağı! Mangalı söndürmeyi unutma. Miyav!</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · folyo ve kap seçimi</span></div>
-        <p>Alüminyum folyo ince, esnek ve dayanıklıdır; ısıyı iyi iletir. Ama <b>asidik</b> (domates, limon, sirke) ya da <b>tuzlu</b> yiyecekler <b>yüksek sıcaklıkta uzun süre</b> folyoya değerse yiyeceğe geçen alüminyum artar; fazlası istenmez.</p>
-        <p>Bu yiyecekler için <b>cam</b>, <b>porselen</b>, <b>emaye</b> ya da <b>paslanmaz çelik</b> kap seçilir; folyo yiyeceğe doğrudan değmez.</p>
+        <p class="kucuk-p">Folyo ısıyı iyi iletir. Ama <b>asidik</b> ya da <b>tuzlu</b> yiyecek <b>yüksek sıcaklıkta uzun süre</b> folyoya değerse yiyeceğe geçen alüminyum artar. Bu yiyecekler için <b>cam</b>, <b>porselen</b>, <b>emaye</b> ya da <b>paslanmaz çelik</b> kap seçilir.</p>
+        <p class="not-satir"><b>Yoldan:</b> Uludağ 1961’de millî park oldu. Yamaçları saran ağaç <b>Uludağ göknarı</b>dır; mangal yalnız izinli alanda yakılır.</p>
         <div class="hizli-kontrol"><span class="cip akce">+20 akçe</span><span><b>Hızlı kontrol:</b> limonlu domates sosu nerede saklanır? <span class="bos gg"><span class="ogr">cam kavanozda</span></span></span></div>
       </div>
     </div>
-    <div class="kart bilgi-kart" style="display:grid;grid-template-columns:1fr 66mm;gap:3mm;align-items:center;padding:2mm 3mm">
+    <div class="kart bilgi-kart" style="display:grid;grid-template-columns:1fr 54mm;gap:3mm;align-items:center;padding:1.8mm 3mm">
       <div>
         <span class="et kob">{{ikon|kitap}}Kavram · deneyde üç değişken</span>
         <div class="uc-degisken">
@@ -373,49 +351,38 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
           <div class="d2"><b>Bağımlı</b>Ölçtüğün sonuç: yiyeceğe geçen alüminyum.</div>
           <div class="d3"><b>Kontrol</b>Hep aynı tuttukların: yiyecek, kütle, pH, süre.</div>
         </div>
-        <p class="kucuk-p" style="margin-top:1mm">Bir etkenin sonucu nasıl değiştirdiğini görmek için iki deneme arasında <b>yalnız o etken</b> farklı olmalı. İki şey birden değişirse farkın nedeni söylenemez.</p>
         <div class="hizli-kontrol"><span class="cip akce">+20 akçe</span><span><b>Hızlı kontrol:</b> “Sıcak sirke kireci daha hızlı mı çözer?” sirkenin sıcaklığı: <span class="bos g"><span class="ogr">bağımsız</span></span> · kireçteki kütle kaybı: <span class="bos g"><span class="ogr">bağımlı</span></span></span></div>
       </div>
       {{info|mangal_deney}}
     </div>
-    <div class="bento" style="grid-template-columns:1fr 1fr">
-      {{hazine|H7}}
-      {{hazine|H8}}
-    </div>
     <div class="kart gorev">
-      <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 5 · hangi karşılaştırma adil?</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+40 akçe</span></span></div>
-      <div class="yanyana" style="grid-template-columns:1fr 1fr 43mm;align-items:start">
+      <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 4 · hangi karşılaştırma adil?</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+40 akçe</span></span></div>
+      <div class="yanyana" style="grid-template-columns:.78fr 1fr 1fr;align-items:start">
+        <p class="soru">Yusuf aynı kütlede sebzeyi folyoya sarıp dört deneme yapıyor (veriler kurgusal). Sıcaklığın etkisini hangi iki deneme gösterir? pH’ın etkisini hangileri?</p>
+        <table class="gorev-tablo dar" style="margin-top:0"><tr><th>No</th><th>pH</th><th>°C</th><th>dk</th><th>Al (mg/kg)</th></tr>
+          <tr><td>1</td><td>4</td><td>180</td><td>20</td><td>2,2</td></tr><tr><td>2</td><td>4</td><td>220</td><td>20</td><td>3,6</td></tr>
+          <tr><td>3</td><td>6</td><td>220</td><td>20</td><td>1,4</td></tr><tr><td>4</td><td>6</td><td>180</td><td>40</td><td>1,1</td></tr></table>
         <div>
-          <div class="baglam">Uludağ’da piknik deneyi (veriler kurgusaldır).</div>
-          <p class="soru">Yusuf aynı kütlede sebzeyi folyoya sarıp dört deneme yapıyor ve sebzeye geçen alüminyumu ölçüyor. Sıcaklığın etkisini hangi iki deneme gösterir? pH’ın etkisini hangileri?</p>
-          <table class="gorev-tablo dar"><tr><th>Deneme</th><th>pH</th><th>Sıcaklık</th><th>Süre</th><th>Al (mg/kg)</th></tr>
-            <tr><td>1</td><td>4</td><td>180 °C</td><td>20 dk</td><td>2,2</td></tr><tr><td>2</td><td>4</td><td>220 °C</td><td>20 dk</td><td>3,6</td></tr>
-            <tr><td>3</td><td>6</td><td>220 °C</td><td>20 dk</td><td>1,4</td></tr><tr><td>4</td><td>6</td><td>180 °C</td><td>40 dk</td><td>1,1</td></tr></table>
-        </div>
-        <div>
-          <ol class="akis"><li><i>1</i><span>Sıcaklık için pH ve süre aynı olmalı: <b>1 ve 2</b> (pH 4, 20 dk).</span></li><li><i>2</i><span>pH için sıcaklık ve süre aynı olmalı: <b>2 ve 3</b> (220 °C, 20 dk).</span></li><li><i>3</i><span>3 ve 4’te hem sıcaklık hem süre farklı: tek bir etken söylenemez.</span></li></ol>
+          <ol class="akis"><li><i>1</i><span><b>H8:</b> sıcaklık için pH ve süre aynı: <b>1 ve 2</b>.</span></li><li><i>2</i><span>pH için sıcaklık ve süre aynı: <b>2 ve 3</b>.</span></li><li><i>3</i><span>3–4’te iki etken farklı: söylenemez.</span></li></ol>
           <div class="sonuc"><span>SONUÇ</span>Sıcaklık: 1–2 · pH: 2–3</div>
         </div>
-        {{info|al_grafik}}
       </div>
     </div>
-    <div class="bento esnek" style="grid-template-columns:.95fr .82fr 1.23fr">
+    <div class="bento esnek" style="grid-template-columns:1.05fr .95fr 1fr">
       <div class="tuzak">
         <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“2. denemede en çok alüminyum geçti; tek nedeni yüksek sıcaklık.”</p>{{muhur|yanlis}}</div>
-        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>2’de hem sıcaklık yüksek hem pH düşük. 1–2 ve 2–3 karşılaştırmaları <b>iki etkenin de</b> geçişi artırdığını gösterir.</p></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“2. denemede çok Al geçti; tek neden sıcaklık.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>2’de pH da düşük. 1–2 ve 2–3 karşılaştırmaları <b>iki etkenin de</b> geçişi artırdığını gösterir.</p></div>
       </div>
       <div class="kart hizli">
         <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-        <p class="soru">Elif tuzun alüminyum geçişine etkisini araştıracak. Bağımsız değişken ne? Hangi iki etkeni sabit tutmalı?</p>
+        <p class="soru">Elif tuzun etkisini araştıracak. Bağımsız değişken ne? Hangi iki etkeni sabit tutmalı?</p>
         <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Soruda ne değişiyor? Tabloya bak.</span></span></div>
         <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">tuz · sıcaklık, süre</span></div><span class="ters-cevap"><span class="ters">tuz miktarı · sıcaklık, süre</span></span></div>
       </div>
-      <div class="kart kiyidan">
-        <span class="et">{{ikon|dalga}}Yoldan · Uludağ</span>
-        {{poz|pamuk-otur|pamuk-kucuk}}
-        <p class="kucuk-p" style="margin-top:.8mm">Marmara Bölgesi’nin en yüksek dağıdır (≈ 2543 m). 1961’de milli park ilan edildi; yamaçlarında Türkiye’ye özgü <b>Uludağ göknarı</b> yetişir.</p>
-        <p class="kucuk-p">Piknikten ayrılmadan önce mangal ateşini <b>tamamen söndür</b>: yanma da bir kimyasal tepkimedir.</p>
+      <div class="bento dikey">
+        {{hazine|H7}}
+        {{hazine|H8}}
       </div>
     </div>
   </main>
@@ -434,65 +401,54 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
     <div class="bento" style="grid-template-columns:1fr 1fr">
       <div class="kart sohbet">
         <div class="sohbet-bas"><b>#yol-sohbeti</b><span class="yigin">{{av|elif}}{{av|yusuf}}{{av|pamuk}}</span></div>
-        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Şalın kırmızısı kök boyadan mı? Bir kumaşa kaç kimyacı bakar?</div></div>
-        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Kök boyanın renk maddesi karbon temelli: <span class="vurgu">organik kimya</span>. Miktarını ölçen <span class="vurgu">analitik</span>, ipeğin proteinine bakan biyokimya…</div></div>
-        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @koza</span>Tek bir kozanın ipliği yüzlerce metre! Miyav!</div></div>
+        <div class="mesaj elif sag">{{av|elif}}<div class="balon"><span class="kim">Elif</span>Bir şala kaç kimyacı bakar?</div></div>
+        <div class="mesaj yusuf">{{av|yusuf}}<div class="balon"><span class="kim">Yusuf</span>Kök boya <span class="vurgu">organik</span>, ölçümü <span class="vurgu">analitik</span>…</div></div>
+        <div class="mesaj pamuk">{{av|pamuk}}<div class="balon"><span class="kim">Pamuk @koza</span>Bir kozada yüzlerce metre ipek! Miyav!</div></div>
       </div>
       <div class="kart kavram">
         <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · nitel ve nicel analiz</span></div>
-        <p>Kimya o kadar geniştir ki <b>alt dallara</b> ayrılır. Analitik kimya iki soru sorar:</p>
-        <p><b>Nitel</b> analiz: “İçinde ne var?” (Suda kurşun var mı?) · <b>Nicel</b> analiz: “Ne kadar var?” (1 L suda kaç mg kurşun?)</p>
-        <div class="hizli-kontrol"><span class="cip akce">+30 akçe</span><span><b>Hızlı kontrol:</b> “Şalda kök boya var mı?” <span class="bos"><span class="ogr">nitel</span></span> · “Kaç mg boya var?” <span class="bos"><span class="ogr">nicel</span></span></span></div>
+        <p class="kucuk-p">Kimya o kadar geniştir ki <b>alt dallara</b> ayrılır. Analitik kimyada <b>nitel</b> analiz “Ne var?” (suda kurşun var mı?), <b>nicel</b> analiz “Ne kadar var?” (1 L suda kaç mg kurşun?) sorusunu yanıtlar.</p>
+        <div class="hizli-kontrol"><span class="cip akce">+30 akçe</span><span><b>Hızlı kontrol:</b> “Şalda kök boya var mı?” <span class="bos"><span class="ogr">nitel</span></span> · “Kaç mg?” <span class="bos"><span class="ogr">nicel</span></span></span></div>
       </div>
     </div>
-    <div class="kart" style="padding:1.8mm 2.6mm 2mm">
-      <span class="et kob">{{ikon|kitap}}Kavram · kimyanın altı alt disiplini · Koza Han’da</span>
+    <div class="kart" style="padding:1.6mm 2.6mm 1.8mm">
+      <div class="kart-bas" style="margin-bottom:0"><span class="et kob">{{ikon|kitap}}Kavram · kimyanın altı alt disiplini · Koza Han’da</span><span class="kucuk">Disiplin bulucu: soruyu tek kelimeye indir.</span></div>
       <div class="disiplin-izgara">
         <div class="disiplin">{{info|disiplin_ikon|analitik}}<div><b>Analitik kimya</b><span>Ne var, ne kadar var?</span><i>boyadaki renk maddesini ölçmek</i></div></div>
         <div class="disiplin">{{info|disiplin_ikon|organik}}<div><b>Organik kimya</b><span>Karbon temelli bileşikler</span><i>kök boyanın renk maddesi (alizarin)</i></div></div>
         <div class="disiplin">{{info|disiplin_ikon|anorganik}}<div><b>Anorganik kimya</b><span>Metaller, mineraller, tuzlar, oksitler</span><i>boyayı sabitleyen şap (mordan)</i></div></div>
         <div class="disiplin">{{info|disiplin_ikon|biyokimya}}<div><b>Biyokimya</b><span>Canlıdaki maddeler ve süreçler</span><i>ipek böceğinin ipek yapması</i></div></div>
         <div class="disiplin">{{info|disiplin_ikon|fizikokimya}}<div><b>Fizikokimya</b><span>Enerji, hız, sıcaklık, basınç</span><i>sıcak banyoda boyanma hızı</i></div></div>
-        <div class="disiplin">{{info|disiplin_ikon|polimer}}<div><b>Polimer kimyası</b><span>Monomerden dev molekül</span><i>ipek lifi; naylon ip</i></div></div>
+        <div class="disiplin">{{info|disiplin_ikon|polimer}}<div><b>Polimer kimyası</b><span>Monomerlerden dev molekül</span><i>doğal: ipek, yün, nişasta · sentetik: naylon, PET</i></div></div>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1fr 1fr">
+    <div class="bento" style="grid-template-columns:1.32fr .68fr">
       <div class="kart gorev">
-        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 6 · bir şal, beş iş</span><span class="sag"><span class="yildiz">★★<s>★</s></span><span class="cip akce">+30 akçe</span></span></div>
-        <p class="soru">Hangi disiplin? (1) Böceğin dut yaprağından ipek yapması (2) Banyodaki şap miktarını ölçmek (3) Sıcaklığın boyanma hızına etkisi (4) İpek lifinin zincir yapısı (5) Kök boyadaki renk maddesinin yapısı</p>
-        <ol class="akis"><li><i>1</i><span>(1) canlıdaki süreç: biyokimya · (2) “ne kadar?”: analitik</span></li><li><i>2</i><span>(3) sıcaklık ve hız: fizikokimya · (4) zincir: polimer · (5) karbon temelli: organik</span></li></ol>
-        <div class="sonuc"><span>SONUÇ</span>biyo · analitik · fizikokimya · polimer · organik</div>
+        <div class="kart-bas"><span class="et">{{ikon|hedef}}Görev 5 · bir havlu fabrikası</span><span class="sag"><span class="yildiz">★★★</span><span class="cip akce">+40 akçe</span></span></div>
+        <p class="soru">Hangi disiplin? (1) Pamuk lifindeki selüloz zinciri (2) Boya banyosundaki boya miktarı (3) Sıcaklığın solma hızına etkisi (4) Atık sudaki metal tuzları (5) Havluya koku veren karbon temelli molekül</p>
+        <ol class="akis"><li><i>1</i><span>(1) zincir: polimer · (2) “ne kadar?” (<b>H9</b>): analitik · (3) hız, ısı: fizikokimya · (4) metal tuzu: anorganik · (5) karbon (<b>H10</b>): organik</span></li></ol>
+        <div class="sonuc"><span>SONUÇ</span>polimer · analitik · fizikokimya · anorganik · organik</div>
       </div>
-      <div class="kart kavram">
-        <div class="kart-bas"><span class="et kob">{{ikon|kitap}}Kavram · doğal ve sentetik polimer</span></div>
-        <p class="kucuk-p"><b>Doğal:</b> ipek, yün, pamuk, nişasta, selüloz, protein, DNA. <b>Sentetik:</b> naylon, PET, polietilen (poşet), PVC, teflon. İpeğe benzeyen naylon, çorapta kısa sürede ipeğin yerini aldı.</p>
-        <div class="resim" style="width:94%">{{info|monomer_polimer}}</div>
+      <div class="tuzak">
+        <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+30 akçe</span></div>
+        <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Karbonlu her bileşik organiktir.”</p>{{muhur|yanlis}}</div>
+        <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>CO, CO<sub>2</sub>, H<sub>2</sub>CO<sub>3</sub>, karbonatlar ve HCN <b>anorganiktir</b>.</p></div>
       </div>
     </div>
-    <div class="bento" style="grid-template-columns:1fr 1fr 1fr 1.15fr;align-items:stretch">
+    <div class="kart" style="padding:1.6mm 2.6mm 1.4mm">
+      <div class="kart-bas" style="margin-bottom:.6mm"><span class="et">{{ikon|harita}}Kimyadan mesleğe · disiplinler iş başında</span><span class="kucuk"><b>Kariyer planlaması:</b> ilgine ve yeteneğine göre hedef seçip yol haritası çizmek.</span></div>
+      {{info|kariyer_haritasi}}
+      <p class="kucuk-p" style="margin-top:.6mm"><b>Bizden:</b> Mardin Savur’da doğan <b>Aziz Sancar</b>, DNA onarımı çalışmalarıyla 2015 Nobel Kimya Ödülü’nü T. Lindahl ve P. Modrich ile paylaştı.</p>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1.22fr .92fr .86fr">
+      <div class="kart hizli">
+        <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
+        <p class="soru">Kobalt oksidin yapısını inceleyen hangi dalda çalışır? Sabunun pH’ını ölçen?</p>
+        <div class="anahtar-ipucu">{{ikon|anahtar}}<span>Anahtar <b>(−10)</b>: <span class="ters">Karbon temelli mi? Ölçüm mü?</span></span></div>
+        <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">anorganik · analitik</span></div><span class="ters-cevap"><span class="ters">anorganik · analitik</span></span></div>
+      </div>
       {{hazine|H9}}
       {{hazine|H10}}
-      {{hazine|H11}}
-      {{hazine|H12}}
-    </div>
-    <div class="bento esnek" style="grid-template-columns:1.32fr .68fr">
-      <div class="kart" style="padding:1.8mm 2.6mm">
-        <div class="kart-bas" style="margin-bottom:.6mm"><span class="et">{{ikon|harita}}Kimyadan mesleğe · disiplinler iş başında</span></div>
-        {{info|kariyer_haritasi}}
-        <p class="kucuk-p" style="margin-top:.8mm"><b>Kariyer planlaması:</b> ilgi ve yeteneğine göre hedef belirleyip yol haritası çizmek. Mardin Savur’da doğan <b>Aziz Sancar</b>, DNA onarımının mekanizmaları üzerine çalışmalarıyla 2015 Nobel Kimya Ödülü’nü T. Lindahl ve P. Modrich ile paylaştı.</p>
-      </div>
-      <div class="bento dikey">
-        <div class="tuzak">
-          <div class="tuzak-ust"><b>{{ikon|tuzak}}Tuzak!</b><span class="cip akce">+20 akçe</span></div>
-          <div class="tuzak-iddia"><small>Yanlış bilinen</small><p>“Karbon içeren her bileşik organiktir.”</p>{{muhur|yanlis}}</div>
-          <div class="tuzak-dogru"><span class="bas">{{ikon|dogru}}Doğrusu</span><p>CO, CO<sub>2</sub>, H<sub>2</sub>CO<sub>3</sub>, CaCO<sub>3</sub>, NaHCO<sub>3</sub>, HCN karbonludur ama <b>anorganik</b>.</p></div>
-        </div>
-        <div class="kart hizli">
-          <div class="kart-bas"><span class="et keh">{{ikon|hedef}}Hızlı görev</span><span class="cip akce">+30 akçe</span></div>
-          <p class="soru">Çinideki kobalt oksidin yapısını inceleyen hangi dalda çalışır? Sabunun pH’ını ölçen?</p>
-          <div class="cevap-satir"><div class="cevap-kutu">CEVABIN:<span class="ogr">anorganik · analitik</span></div><span class="ters-cevap"><span class="ters">anorganik · analitik</span></span></div>
-        </div>
-      </div>
     </div>
   </main>
   {{alt|6}}
@@ -508,9 +464,9 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
   </div>
   <main class="ic" style="top:52.2mm">
     <div class="ozetler" data-tasma-yatay>
-      <div class="ozet-kart koyu"><span class="sira">01/06</span><span class="et">Ünitenin sayısı</span><div class="dev-sayi acik">pH 7</div><p>Asidik ile bazik arasındaki çizgi. Saf su 25 °C’de tam buradadır; evdeki her temizleyici bu çizginin bir yanındadır.</p></div>
-      <div class="ozet-kart gol"><span class="sira">02/06</span><span class="et">Tek kural</span><h3>Su eklersen pH 7’ye yaklaşır.</h3><div class="ozet-f">asit + su: pH artar</div><div class="ozet-f">baz + su: pH azalır</div><p>7’yi geçmez; asit su ile baz olmaz.</p></div>
-      <div class="ozet-kart"><span class="sira">03/06</span><span class="et">Evdeki kimyasallar</span><h3>Kire göre seç</h3><ul class="ozet-liste"><li><b>Asidik:</b> sirke, limon tuzu, gazlı içecek: kireç ve pas</li><li><b>Bazik:</b> sabun, deterjan, NaOH, çamaşır suyu, karbonat: yağ</li><li>Gruplar: öz bakım · temizlik · gıda · ilaç</li></ul></div>
+      <div class="ozet-kart koyu"><span class="sira">01/06</span><span class="et">Ünitenin sayısı</span><div class="dev-sayi acik">pH 7</div><p>Asidik ile bazik arasındaki çizgi; saf su 25 °C’de tam buradadır.</p></div>
+      <div class="ozet-kart gol"><span class="sira">02/06</span><span class="et">Tek kural</span><h3>Su eklersen pH 7’ye yaklaşır.</h3><div class="ozet-f">asit + su: pH artar</div><div class="ozet-f">baz + su: pH azalır</div></div>
+      <div class="ozet-kart"><span class="sira">03/06</span><span class="et">Evdeki kimyasallar</span><h3>Kire göre seç</h3><ul class="ozet-liste"><li><b>Asidik:</b> sirke, limon tuzu: kireç, pas</li><li><b>Bazik:</b> sabun, NaOH, çamaşır suyu: yağ</li><li>Öz bakım · temizlik · gıda · ilaç</li></ul></div>
       <div class="ozet-kart keh"><span class="sira">04/06</span><span class="et keh">Adil deney</span><h3>İki deneme, tek fark</h3><ul class="ozet-liste"><li><b>Bağımsız:</b> değiştirdiğin</li><li><b>Bağımlı:</b> ölçtüğün</li><li><b>Kontrol:</b> sabit tuttukların</li><li>Asidik yiyecek folyoya değmesin</li></ul></div>
       <div class="ozet-kart mer"><span class="sira">05/06</span><span class="et mer">Altı disiplin</span><h3>Soruyu tek kelimeye indir</h3><ul class="ozet-liste"><li>Ne var / ne kadar: <b>analitik</b> (nitel / nicel)</li><li>Karbon: <b>organik</b> · diğerleri: <b>anorganik</b></li><li>Canlı: <b>biyokimya</b> · hız, ısı: <b>fizikokimya</b></li><li>Zincir: <b>polimer</b></li></ul></div>
       <div class="ozet-kart"><span class="sira">06/06</span><span class="et mer">{{ikon|tuzak}}En sık 4 hata</span>
@@ -519,7 +475,7 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
     </div>
     <div class="kart keh-z sandik">
       <div class="kart-bas"><span class="et keh">{{ikon|hazine}}Hazine sandığın · {{meta|hazine_sayisi}} kart</span><span class="kes-not">{{ikon|makas}}Hepsini kesip defterine yapıştırdın mı?</span></div>
-      <div class="sandik-izgara uc">{{sandik}}</div>
+      <div class="sandik-izgara dort">{{sandik}}</div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1.5fr .5fr">
       <div class="kart muhasebe">
@@ -639,7 +595,7 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
           <p class="metin">Mudanya yakınlarındaki bir zeytinyağı ve sabun atölyesinde yapılan işler, kimya disiplinleriyle eşleştirilmiştir.</p>
           <p class="soru">Bu eşleştirmelerden hangisi <u>yanlıştır</u>?</p>
           <div class="karalama"><span class="ogr">Karbon temelli koku molekülünün sentezi organik kimyadır (D yanlış).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>Zeytinyağının asitlik derecesini ölçmek: analitik</div><div class="sik"><b>B</b>Geri dönüşebilen ambalaj filmi geliştirmek: polimer</div><div class="sik"><b>C</b>Yağ ile NaOH tepkimesinin hızının sıcaklıkla değişimi: fizikokimya</div><div class="sik" data-dogru><b>D</b>Sabuna koku veren karbon temelli molekülün sentezi: anorganik</div><div class="sik"><b>E</b>Zeytindeki bir maddenin vücuttaki etkisi: biyokimya</div></div>
+          <div class="siklar tek"><div class="sik"><b>A</b>Zeytinyağının asitliğini ölçmek – analitik</div><div class="sik"><b>B</b>Geri dönüşebilen ambalaj filmi – polimer</div><div class="sik"><b>C</b>Yağ–NaOH tepkimesinin hızı – fizikokimya</div><div class="sik" data-dogru><b>D</b>Karbon temelli koku molekülü – anorganik</div><div class="sik"><b>E</b>Zeytindeki maddenin vücutta etkisi – biyokimya</div></div>
           <div class="hisse"><b>Kıssadan hisse:</b> Bir atölye, birçok disiplin: soruyu tek kelimeye indir.</div>
         </div>
       </div>
@@ -650,7 +606,7 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
           <table class="gorev-tablo dar"><tr><th>Ürün</th><th>P</th><th>R</th><th>S</th><th>T</th></tr><tr><td>pH</td><td>2</td><td>12,5</td><td>7</td><td>9</td></tr></table>
           <p class="soru">Bu bilgilere göre hangi yorum <u>yanlıştır</u>?</p>
           <div class="karalama"><span class="ogr">R bazik; su eklenince pH 7’ye yaklaşır, asidik olmaz (E yanlış).</span></div>
-          <div class="siklar"><div class="sik"><b>A</b>P, banyodaki kireç lekesini çözmede kullanılabilir.</div><div class="sik"><b>B</b>R, fırındaki yağlı kiri çözmeye uygundur.</div><div class="sik"><b>C</b>T’ye saf su eklenirse pH değeri azalır.</div><div class="sik"><b>D</b>S’nin çözeltisi nötrdür.</div><div class="sik" data-dogru><b>E</b>R’ye yeterince su eklenirse çözelti asidik olur.</div></div>
+          <div class="siklar tek"><div class="sik"><b>A</b>P, kireç lekesini çözmede kullanılabilir.</div><div class="sik"><b>B</b>R, fırındaki yağlı kiri çözmeye uygundur.</div><div class="sik"><b>C</b>T’ye saf su eklenirse pH azalır.</div><div class="sik"><b>D</b>S’nin çözeltisi nötrdür.</div><div class="sik" data-dogru><b>E</b>R’ye çok su eklenirse çözelti asidik olur.</div></div>
           <div class="hisse"><b>Kıssadan hisse:</b> Etiketteki pH ürünün işini söyler. P ile R’yi asla karıştırma!</div>
         </div>
       </div>
@@ -681,41 +637,41 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
   <main class="ic" style="top:60mm">
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">1</span><p class="soru">Pansiyon mutfağında etiketsiz üç şişe var: X, Y, Z’den biri limon tuzu çözeltisi, biri lavabo açıcı çözeltisi, biri saf su. (1) X’in pH’ı Y’ninkinden büyük. (2) Z’ye mermer tozu eklenince gaz çıkıyor. (3) Y’ye saf su eklenince pH değişmiyor. Şişelerde ne var? Hangisine su eklenince pH azalır?</p></div>
+        <div class="bas-satir"><span class="no">1</span><p class="soru">Etiketsiz üç şişe: X, Y, Z’den biri limon tuzu çözeltisi, biri lavabo açıcı çözeltisi, biri saf su. X’in pH’ı Y’ninkinden büyük; Z’ye mermer tozu eklenince gaz çıkıyor; Y’ye su eklenince pH değişmiyor. Şişelerde ne var? Hangisine su eklenince pH azalır?</p></div>
         <div class="cozum-alani"><div><span class="ogr">Z: limon tuzu (asit, mermerle CO₂ çıkarır)</span></div><div><span class="ogr">Y: saf su (nötr) · X: lavabo açıcı (pH &gt; 7)</span></div><div><span class="ogr"><b>Su eklenince pH’ı azalan: X</b></span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Mermer CaCO<sub>3</sub>’tır. Mermerle gaz çıkaran asit mi, baz mı?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Su eklenince pH’ı değişmeyen tek çözelti hangisi olabilir?</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Kalan X’in pH’ı 7’den büyük. Baza su eklenince pH ne olur?</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Mermerle (CaCO<sub>3</sub>) gaz çıkaran asit mi, baz mı?</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Su eklenince pH’ı değişmeyen hangisi?</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>X baziktir; baza su eklenince pH?</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">2</span><p class="soru"><span class="resim-sag" style="width:36mm">{{info|lab_duzenek}}</span>Deneyini sen tasarla. Esma “Sıcak sirke kireci soğuk sirkeden daha hızlı çözer mi?” sorusunu araştırıyor. Elinde kireç parçaları, sirke, beherler, termometre, terazi ve kronometre var. Bağımsız, bağımlı ve kontrol değişkenlerini belirle.</p></div>
+        <div class="bas-satir"><span class="no">2</span><p class="soru"><span class="resim-sag" style="width:31mm">{{info|lab_duzenek}}</span>Deneyini tasarla. Esma “Sıcak sirke kireci soğuk sirkeden hızlı mı çözer?” sorusunu araştırıyor; elinde kireç, sirke, beherler, termometre, terazi ve kronometre var. Bağımsız, bağımlı ve kontrol değişkenlerini belirle.</p></div>
         <div class="cozum-alani"><div><span class="ogr">Bağımsız: sirkenin sıcaklığı (20 °C, 50 °C)</span></div><div><span class="ogr">Bağımlı: 10 dakikada kireçteki kütle kaybı</span></div><div><span class="ogr"><b>Kontrol: sirke türü ve hacmi, kireç kütlesi</b></span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Esma’nın bilerek değiştireceği tek şey ne? Soru cümlesine bak.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>“Daha hızlı çözdü”yü nasıl ölçersin? Belli sürede kaybolan kütleyi düşün.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Adil olsun diye her beherde ne aynı olmalı? Sirke, kireç, süre…</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Bilerek değiştirilen tek şey ne?</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Hız nasıl ölçülür? Kütle kaybını düşün.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Her beherde ne aynı olmalı?</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="kart merdiven">
       <div>
-        <div class="bas-satir"><span class="no">3</span><p class="soru">Sınıflandır. Naylon, sofra tuzu (NaCl), glikoz (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>), karbon dioksit, nişasta, ipek, amonyak (NH<sub>3</sub>) ve PET’i “organik bileşik” ve “polimer” kümelerine yerleştir. Hangileri iki kümede, hangileri yalnız organik, hangileri hiçbir kümede değil?</p></div>
+        <div class="bas-satir"><span class="no">3</span><p class="soru">Naylon, sofra tuzu (NaCl), glikoz (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>), karbon dioksit, nişasta, ipek, amonyak (NH<sub>3</sub>) ve PET’i “organik” ve “polimer” kümelerine yerleştir. Hangileri iki kümede, hangileri yalnız organik, hangileri hiçbirinde?</p></div>
         <div class="cozum-alani"><div><span class="ogr">İki kümede: naylon, nişasta, ipek, PET</span></div><div><span class="ogr">Yalnız organik: glikoz</span></div><div><span class="ogr"><b>Hiçbiri (anorganik): NaCl, CO₂, NH₃</b></span></div></div>
         <div class="indigim">İndiğim:<span class="kutucuk"></span>0<span class="kutucuk"></span>1<span class="kutucuk"></span>2<span class="kutucuk"></span>3 &nbsp;·&nbsp; 40 − (<span class="kk"></span> × 10) = <span class="kk"></span> akçe</div>
       </div>
       <div class="basamaklar">
         <div class="et">{{ikon|anahtar}}Takılırsan bir basamak in</div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Önce karbon temelli olanları ayır. CO<sub>2</sub> karbonludur ama organik değildir.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Organikler içinde küçük birimlerin zinciri olanları bul: nişasta glikozdan oluşur.</span><span class="eksi">−10</span></div>
-        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Glikoz tek başına küçük bir moleküldür. Kalan üçü anorganiktir.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 1</small>Karbon temellileri ayır; CO<sub>2</sub> organik değil.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 2</small>Zincir olanları bul: nişasta glikozdan oluşur.</span><span class="eksi">−10</span></div>
+        <div class="basamak">{{ikon|kilit}}<span><small>Basamak 3</small>Glikoz küçük moleküldür; kalan üçü anorganik.</span><span class="eksi">−10</span></div>
       </div>
     </div>
     <div class="bento esnek" style="grid-template-columns:1fr .62fr .7fr">
@@ -744,44 +700,43 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
     <div class="mesveret-izgara esnek">
       <div class="kart mesveret" data-soru="I1">
         <div class="mesveret-bas">{{sno|1}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">İznik’teki bir çini atölyesinde yapılan işlerden hangisi kimyanın inceleme alanına <u>girmez</u>?</p>
+        <p class="soru">Çini atölyesindeki hangi iş kimyanın konusu <u>değildir</u>?</p>
         <div class="karalama"><span class="ogr">Yükseklik seçimi maddeyi incelemez.</span></div>
-        <div class="oy"><div><b>A</b><span>Kobalt oksidin fırında maviye dönmesi</span><em>%__</em></div><div><b>B</b><span>Sırın eridiği sıcaklığın belirlenmesi</span><em>%__</em></div><div data-dogru><b>C</b><span>Panonun asılacağı yüksekliğin seçilmesi</span><em>%__</em></div><div><b>D</b><span>Kurşunsuz bir sır geliştirilmesi</span><em>%__</em></div><div><b>E</b><span>Hamurdaki kuvars oranının ölçülmesi</span><em>%__</em></div></div>
+        <div class="oy yatay"><div><b>A</b><span>Kobaltın maviye dönmesi</span><em>%__</em></div><div><b>B</b><span>Sırın erime sıcaklığı</span><em>%__</em></div><div data-dogru><b>C</b><span>Panonun asılma yüksekliği</span><em>%__</em></div><div><b>D</b><span>Kurşunsuz sır</span><em>%__</em></div><div><b>E</b><span>Hamurdaki kuvars oranı</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I2">
         <div class="mesveret-bas">{{sno|2}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Aşağıdakilerden hangisinin sulu çözeltisi bazik özellik gösterir?</p>
+        <p class="soru">Hangisinin sulu çözeltisi baziktir?</p>
         <div class="karalama"><span class="ogr">Çamaşır suyu (NaClO) baziktir; diğerleri asidik.</span></div>
-        <div class="oy yatay"><div><b>A</b><span>Sirke</span><em>%__</em></div><div><b>B</b><span>Limon suyu</span><em>%__</em></div><div><b>C</b><span>Gazlı içecek</span><em>%__</em></div><div data-dogru><b>D</b><span>Çamaşır suyu</span><em>%__</em></div><div><b>E</b><span>Limon tuzu çözeltisi</span><em>%__</em></div></div>
+        <div class="oy yatay"><div><b>A</b><span>Sirke</span><em>%__</em></div><div><b>B</b><span>Limon suyu</span><em>%__</em></div><div><b>C</b><span>Kola</span><em>%__</em></div><div data-dogru><b>D</b><span>Çamaşır suyu</span><em>%__</em></div><div><b>E</b><span>Limon tuzu</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I3">
         <div class="mesveret-bas">{{sno|3}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">pH değerleri verilen çözeltiler için (25 °C);</p>
-        <table class="gorev-tablo dar"><tr><th>Çözelti</th><th>K</th><th>L</th><th>M</th><th>N</th></tr><tr><td>pH</td><td>4</td><td>10</td><td>7</td><td>2</td></tr></table>
+        <p class="soru">25 °C’de pH’ları K = 4, L = 10, M = 7, N = 2 olan çözeltiler için;</p>
         <ul class="yargi"><li><b>I.</b>N, K’den daha asidiktir.</li><li><b>II.</b>M nötrdür.</li><li><b>III.</b>L’ye saf su eklenirse pH artar.</li></ul>
         <p class="kucuk-soru">yargılarından hangileri doğrudur?</p>
         <div class="karalama"><span class="ogr">2 &lt; 4 (I doğru) · 7 nötr (II doğru) · L bazik, pH azalır (III yanlış)</span></div>
-        <div class="oy yatay"><div data-dogru><b>A</b><span>I ve II</span><em>%__</em></div><div><b>B</b><span>Yalnız I</span><em>%__</em></div><div><b>C</b><span>Yalnız II</span><em>%__</em></div><div><b>D</b><span>I ve III</span><em>%__</em></div><div><b>E</b><span>I, II ve III</span><em>%__</em></div></div>
+        <div class="oy uc"><div data-dogru><b>A</b><span>I ve II</span><em>%__</em></div><div><b>B</b><span>Yalnız I</span><em>%__</em></div><div><b>C</b><span>Yalnız II</span><em>%__</em></div><div><b>D</b><span>I ve III</span><em>%__</em></div><div><b>E</b><span>I, II, III</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I4">
         <div class="mesveret-bas">{{sno|4}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru"><span class="resim-sag" style="width:30mm">{{info|imtihan_seyreltme}}</span>Bir çözeltiye aynı sıcaklıkta saf su eklendikçe pH değişimi grafikteki gibidir. Buna göre;</p>
-        <ul class="yargi"><li><b>I.</b>Çözelti başlangıçta baziktir.</li><li><b>II.</b>Yeterince su eklenirse çözelti asidik olur.</li><li><b>III.</b>Birim hacimdeki OH<sup>−</sup> iyonu sayısı azalmıştır.</li></ul>
+        <p class="soru"><span class="resim-sag" style="width:26mm">{{info|imtihan_seyreltme}}</span>Bir çözeltiye saf su eklendikçe pH grafikteki gibi değişiyor. Buna göre;</p>
+        <ul class="yargi"><li><b>I.</b>Başlangıçta baziktir.</li><li><b>II.</b>Çok su eklenirse asidik olur.</li><li><b>III.</b>Birim hacimdeki OH<sup>−</sup> azalmıştır.</li></ul>
         <p class="kucuk-soru">yargılarından hangileri doğrudur?</p>
         <div class="karalama"><span class="ogr">pH 12: bazik (I) · 7’ye yaklaşır, geçmez (II yanlış) · OH⁻ seyrelir (III)</span></div>
-        <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız III</span><em>%__</em></div><div><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div data-dogru><b>E</b><span>I ve III</span><em>%__</em></div></div>
+        <div class="oy uc"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız III</span><em>%__</em></div><div><b>C</b><span>I ve II</span><em>%__</em></div><div><b>D</b><span>II ve III</span><em>%__</em></div><div data-dogru><b>E</b><span>I ve III</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I5">
         <div class="mesveret-bas">{{sno|5}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Aşağıdaki madde – kullanım eşleştirmelerinden hangisi <u>yanlıştır</u>?</p>
+        <p class="soru">Hangi madde – kullanım eşleştirmesi <u>yanlıştır</u>?</p>
         <div class="karalama"><span class="ogr">Gider tıkanıklığını kuvvetli baz (NaOH) açar.</span></div>
-        <div class="oy"><div><b>A</b><span>Sitrik asit – çaydanlıktaki kireci çözmek</span><em>%__</em></div><div data-dogru><b>B</b><span>Asetik asit – gider tıkanıklığını açmak</span><em>%__</em></div><div><b>C</b><span>Sodyum hipoklorit – çamaşırı ağartmak</span><em>%__</em></div><div><b>D</b><span>Sodyum bikarbonat – hamuru kabartmak</span><em>%__</em></div><div><b>E</b><span>Kalsiyum hipoklorit – havuz suyunu dezenfekte etmek</span><em>%__</em></div></div>
+        <div class="oy yatay"><div><b>A</b><span>Sitrik asit – kireç</span><em>%__</em></div><div data-dogru><b>B</b><span>Asetik asit – gider açma</span><em>%__</em></div><div><b>C</b><span>NaClO – ağartma</span><em>%__</em></div><div><b>D</b><span>NaHCO<sub>3</sub> – hamur</span><em>%__</em></div><div><b>E</b><span>Ca(ClO)<sub>2</sub> – havuz suyu</span><em>%__</em></div></div>
       </div>
       <div class="kart mesveret" data-soru="I6">
         <div class="mesveret-bas">{{sno|6}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Rabia, çamaşır suyuna asidik bir kireç sökücü eklemeyi düşünüyor. Ona verilecek doğru uyarı hangisidir?</p>
-        <div class="karalama"><span class="ogr">Asit + çamaşır suyu: zehirli klor gazı.</span></div>
-        <div class="oy"><div><b>A</b><span>Karışım daha güçlü temizler; eldiven yeter.</span><em>%__</em></div><div><b>B</b><span>İkisi de bazik olduğu için sorun olmaz.</span><em>%__</em></div><div><b>C</b><span>Sıcak suyla karıştırılırsa güvenlidir.</span><em>%__</em></div><div><b>D</b><span>Karışım nötr olur, zararsızdır.</span><em>%__</em></div><div data-dogru><b>E</b><span>Zehirli klor gazı çıkabilir; karıştırılmamalıdır.</span><em>%__</em></div></div>
+        <p class="soru">Çamaşır suyuna asidik kireç sökücü eklenirse ne olur?</p>
+        <div class="karalama"><span class="ogr">Asit + çamaşır suyu: zehirli klor gazı; karıştırılmaz.</span></div>
+        <div class="oy yatay"><div><b>A</b><span>Daha iyi temizler.</span><em>%__</em></div><div><b>B</b><span>Hiçbir şey olmaz.</span><em>%__</em></div><div><b>C</b><span>Sıcak suyla güvenlidir.</span><em>%__</em></div><div><b>D</b><span>Nötr ve zararsız olur.</span><em>%__</em></div><div data-dogru><b>E</b><span>Zehirli klor gazı çıkar.</span><em>%__</em></div></div>
       </div>
     </div>
   </main>
@@ -820,9 +775,9 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
       </div>
       <div class="kart mesveret" data-soru="I10">
         <div class="mesveret-bas">{{sno|10}}<span class="et mer">Meşveret · önce tahmin et</span><span class="cip akce">+25</span></div>
-        <p class="soru">Bir laboratuvarda yapılan;</p>
-        <ul class="yargi"><li><b>I.</b>İçme suyunda kurşun olup olmadığının belirlenmesi</li><li><b>II.</b>Pekmezdeki şeker yüzdesinin ölçülmesi</li><li><b>III.</b>Bir ipek şalda yapay boya aranması</li></ul>
-        <p class="kucuk-soru">çalışmalarından hangileri nitel analizdir?</p>
+        <p class="soru">Bir laboratuvara gelen sorular:</p>
+        <ul class="yargi"><li><b>I.</b>İçme suyunda kurşun var mı?</li><li><b>II.</b>Pekmezin şeker yüzdesi kaç?</li><li><b>III.</b>İpek şalda yapay boya var mı?</li></ul>
+        <p class="kucuk-soru">Hangileri nitel analizle yanıtlanır?</p>
         <div class="karalama"><span class="ogr">I ve III “var mı?” (nitel) · II “ne kadar?” (nicel)</span></div>
         <div class="oy yatay"><div><b>A</b><span>Yalnız I</span><em>%__</em></div><div><b>B</b><span>Yalnız II</span><em>%__</em></div><div><b>C</b><span>I ve II</span><em>%__</em></div><div data-dogru><b>D</b><span>I ve III</span><em>%__</em></div><div><b>E</b><span>II ve III</span><em>%__</em></div></div>
       </div>
@@ -860,21 +815,20 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
     <div class="ustad-izgara esnek">
       <div class="ustad-soru" data-soru="U1">
         <div class="ustad-bas">{{sno|1|laj}}<span class="et">pH · seyreltme</span><span class="ustad-zor">TYT</span></div>
-        <p class="soru">25 °C’de pH değerleri K = 3, L = 5, M = 9 ve N = 12 olan dört çözelti için; <b>I.</b> En asidik K, en bazik N’dir. <b>II.</b> L’ye saf su eklenerek pH’ı M’ninkine eşitlenebilir. <b>III.</b> N’ye saf su eklenerek pH’ı M’ninkine eşitlenebilir. Hangileri doğrudur?</p>
+        <p class="soru">25 °C’de pH’ları K = 3, L = 5, M = 9, N = 12 olan çözeltiler için; <b>I.</b> En asidik K, en bazik N’dir. <b>II.</b> L’ye saf su eklenerek pH’ı M’ninkine eşitlenebilir. <b>III.</b> N’ye saf su eklenerek pH’ı M’ninkine eşitlenebilir. Hangileri doğrudur?</p>
         <div class="karalama"><span class="ogr">I doğru · L asit, 7’yi geçmez (II yanlış) · N: 12’den 7’ye iner, 9’dan geçer (III doğru)</span></div>
         <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik" data-dogru><b>B</b>I ve III</div><div class="sik"><b>C</b>II ve III</div><div class="sik"><b>D</b>I ve II</div><div class="sik"><b>E</b>I, II ve III</div></div>
       </div>
       <div class="ustad-soru" data-soru="U2">
         <div class="ustad-bas">{{sno|2|laj}}<span class="et">Deney · tablo</span><span class="ustad-zor">TYT</span></div>
-        <p class="soru">Folyodaki yiyeceğe geçen alüminyum ölçülüyor (kurgusal veriler).</p>
-        <table class="ustad-tablo"><tr><th>Deneme</th><th>pH</th><th>°C</th><th>dk</th><th>Al</th></tr><tr><td>1</td><td>4</td><td>160</td><td>30</td><td>2,0</td></tr><tr><td>2</td><td>4</td><td>200</td><td>30</td><td>3,1</td></tr><tr><td>3</td><td>6</td><td>200</td><td>30</td><td>1,5</td></tr><tr><td>4</td><td>6</td><td>160</td><td>60</td><td>1,4</td></tr><tr><td>5</td><td>5</td><td>200</td><td>60</td><td>2,6</td></tr></table>
-        <p class="soru" style="margin-top:.6mm">Hangileri <u>kesin olarak</u> söylenebilir? <b>I.</b> Sıcaklık artınca geçen Al artar. <b>II.</b> Asitlik artınca geçen Al artar. <b>III.</b> Süre uzayınca geçen Al artar.</p>
+        <table class="ustad-tablo"><tr><th>Deneme</th><th>1</th><th>2</th><th>3</th><th>4</th></tr><tr><td>pH</td><td>4</td><td>4</td><td>6</td><td>6</td></tr><tr><td>°C</td><td>160</td><td>200</td><td>200</td><td>160</td></tr><tr><td>dk</td><td>30</td><td>30</td><td>30</td><td>60</td></tr><tr><td>Al</td><td>2,0</td><td>3,1</td><td>1,5</td><td>1,4</td></tr></table>
+        <p class="soru">Folyodan geçen Al (mg/kg, kurgusal) için <u>kesin</u> söylenebilen: <b>I.</b> Sıcaklık artınca Al artar. <b>II.</b> Asitlik artınca Al artar. <b>III.</b> Süre uzayınca Al artar.</p>
         <div class="karalama"><span class="ogr">1–2: yalnız sıcaklık · 2–3: yalnız pH · yalnız süresi farklı çift yok</span></div>
         <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>Yalnız III</div><div class="sik"><b>C</b>I ve III</div><div class="sik" data-dogru><b>D</b>I ve II</div><div class="sik"><b>E</b>I, II ve III</div></div>
       </div>
       <div class="ustad-soru" data-soru="U3">
         <div class="ustad-bas">{{sno|3|laj}}<span class="et">Disiplinler · ipek</span><span class="ustad-zor">TYT</span></div>
-        <p class="soru">Bir ipek atölyesindeki çalışmalar ve disiplinler: <b>I.</b> Böceğin dut yaprağındaki besinleri ipek proteinine dönüştürmesi – biyokimya <b>II.</b> Boya banyosundaki şapın kristal yapısı – organik kimya <b>III.</b> Kök boyanın life tutunma hızının sıcaklıkla değişimi – fizikokimya. Hangi eşleştirmeler doğrudur?</p>
+        <p class="soru">İpek atölyesinde: <b>I.</b> Böceğin dut yaprağından ipek proteini yapması – biyokimya <b>II.</b> Boya banyosundaki şapın kristal yapısı – organik kimya <b>III.</b> Kök boyanın life tutunma hızının sıcaklıkla değişimi – fizikokimya. Hangi eşleştirmeler doğrudur?</p>
         <div class="karalama"><span class="ogr">I doğru · şap anorganiktir (II yanlış) · hız ve sıcaklık (III doğru)</span></div>
         <div class="siklar"><div class="sik" data-dogru><b>A</b>I ve III</div><div class="sik"><b>B</b>Yalnız I</div><div class="sik"><b>C</b>Yalnız II</div><div class="sik"><b>D</b>II ve III</div><div class="sik"><b>E</b>I, II ve III</div></div>
       </div>
@@ -886,17 +840,16 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
       </div>
       <div class="ustad-soru" data-soru="U5">
         <div class="ustad-bas">{{sno|5|laj}}<span class="et">İndikatör · mor lahana</span><span class="ustad-zor">TYT</span></div>
-        <p class="soru">Mor lahana suyunun rengi pH’a göre değişir (temsilî tablo).</p>
         <div class="ustad-sekil genis">{{info|lahana_skala}}</div>
-        <p class="soru">Mor lahana suyuyla sirke kırmızı, X sıvısı yeşil, Y sıvısı pembe oluyor. <b>I.</b> X baziktir. <b>II.</b> Y’nin pH’ı sirkeninkinden büyüktür. <b>III.</b> X’e saf su eklenirse renk maviye dönebilir. Hangileri doğrudur?</p>
+        <p class="soru">Mor lahana suyuyla (renkleri temsilî) sirke kırmızı, X yeşil, Y pembe oluyor. <b>I.</b> X baziktir. <b>II.</b> Y’nin pH’ı sirkeninkinden büyüktür. <b>III.</b> X’e su eklenirse renk maviye dönebilir. Hangileri doğrudur?</p>
         <div class="karalama"><span class="ogr">X 11–12 (I) · Y 4–6 &gt; sirke 1–3 (II) · X’in pH’ı 7’ye inerken 8–10’dan geçer (III)</span></div>
         <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik"><b>B</b>I ve II</div><div class="sik" data-dogru><b>C</b>I, II ve III</div><div class="sik"><b>D</b>II ve III</div><div class="sik"><b>E</b>Yalnız III</div></div>
       </div>
       <div class="ustad-soru" data-soru="U6">
         <div class="ustad-bas">{{sno|6|laj}}<span class="et">Analiz raporu</span><span class="ustad-zor">TYT</span></div>
-        <p class="soru">Bir kaplıca suyunun laboratuvar raporu (temsilî değerler):</p>
-        <table class="ustad-tablo"><tr><th>Parametre</th><th>Sonuç</th></tr><tr><td>Kurşun</td><td>tespit edilmedi</td></tr><tr><td>Nitrat</td><td>12 mg/L</td></tr><tr><td>Kalsiyum</td><td>85 mg/L</td></tr><tr><td>pH</td><td>7,6</td></tr></table>
-        <p class="soru" style="margin-top:.6mm"><b>I.</b> Nitrat ve kalsiyum satırları nicel analiz sonucudur. <b>II.</b> Kurşun satırı nitel bir sonuçtur. <b>III.</b> Su asidiktir. Hangileri doğrudur?</p>
+        <p class="soru">Bir kaplıca suyunun raporu (temsilî):</p>
+        <table class="ustad-tablo"><tr><th>Kurşun</th><th>Nitrat</th><th>Kalsiyum</th><th>pH</th></tr><tr><td>tespit edilmedi</td><td>12 mg/L</td><td>85 mg/L</td><td>7,6</td></tr></table>
+        <p class="soru"><b>I.</b> Nitrat ve kalsiyum sonuçları nicel analizdir. <b>II.</b> Kurşun sonucu nitel bir sonuçtur. <b>III.</b> Su asidiktir. Hangileri doğrudur?</p>
         <div class="karalama"><span class="ogr">mg/L: ne kadar (I) · var mı: nitel (II) · 7,6 &gt; 7 bazik (III yanlış)</span></div>
         <div class="siklar"><div class="sik"><b>A</b>Yalnız I</div><div class="sik" data-dogru><b>B</b>I ve II</div><div class="sik"><b>C</b>I ve III</div><div class="sik"><b>D</b>II ve III</div><div class="sik"><b>E</b>I, II ve III</div></div>
       </div>
@@ -957,7 +910,7 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
           <p class="c"><b>1 · C</b> pH yükseldi: tablet bazik (I) · en çok ≈ 3,6: ortam asidik kaldı (II yanlış) · pH yine düştü (III).</p>
           <p class="c"><b>2 · D</b> Karbon temelli koku molekülünün sentezi organik kimyanın konusudur.</p>
           <p class="c"><b>3 · E</b> R baziktir; su eklendikçe pH 7’ye yaklaşır, çözelti asidik olmaz.</p>
-          <p class="c"><b>4 · B</b> 1 ve 3’te hacim ve kireç aynı, yalnız sıcaklık farklı; 1–2 ve 4–5’te iki etken değişir, 1–4 hacmi gösterir.</p>
+          <p class="c"><b>4 · B</b> 1 ve 3’te hacim ve kireç aynı, yalnız sıcaklık farklı.</p>
         </div>
         <div class="grup yan-anahtar"><h4>Yan yollar · hızlı anahtar</h4>
           <p><b>Kıssa</b><span class="ck">1 C</span><span class="ck">2 D</span><span class="ck">3 E</span><span class="ck">4 B</span></p>
@@ -978,7 +931,7 @@ table.ev-tablo td.doldur { background: var(--keh-a); }
           <p class="c"><b>3 · Yusuf</b> Satır 2: kireç asitle çözünür; limon tuzu ya da sirke.</p>
           <p class="c"><b>4 · Pamuk</b> Satır 1: “var mı?” sorusu nitel analizdir.</p>
           <p class="c"><b>Merdiven 1</b> Z limon tuzu, Y saf su, X lavabo açıcı; su eklenince pH’ı azalan X.</p>
-          <p class="c"><b>Merdiven 2</b> Bağımsız: sirkenin sıcaklığı · bağımlı: belli sürede kütle kaybı · kontrol: sirke türü ve hacmi, kireç kütlesi ve büyüklüğü, süre. Denemeyi tekrarlamak sonucu güvenilir kılar.</p>
+          <p class="c"><b>Merdiven 2</b> Bağımsız: sirkenin sıcaklığı · bağımlı: belli sürede kütle kaybı · kontrol: sirke türü ve hacmi, kireç kütlesi, süre.</p>
           <p class="c"><b>Merdiven 3</b> İki kümede naylon, nişasta, ipek, PET · yalnız organik glikoz · hiçbiri NaCl, CO<sub>2</sub>, NH<sub>3</sub>.</p>
         </div>
         <div class="grup"><h4>Hızlı görevler</h4>

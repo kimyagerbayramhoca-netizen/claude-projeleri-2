@@ -267,24 +267,25 @@ def _alev_isareti(x, y, r, izin):
 def cam_takimi(onek):
     """Sekiz cam malzeme, iki panelde: ısıtılabilir kaplar | hacim ölçenler (ısıtılmaz) + duyarlılık şeridi."""
     s = Svg(onek)
-    W, H = 2000, 600
+    W, H = 2000, 470
     renkler = [GOL, KEH, "#7FD3CF", MER, KOB, GOL, "#F2A88A", KEH]
-    s += f'<rect x="4" y="4" width="986" height="592" rx="26" fill="#FFF4DD" stroke="{OBS}" stroke-width="5"/>'
-    s += f'<rect x="1010" y="4" width="986" height="592" rx="26" fill="#E6ECFB" stroke="{OBS}" stroke-width="5"/>'
-    s += _alev_isareti(56, 54, 30, True) + _yazi(100, 66, "ISITILABİLİR KAPLAR · tutar, karıştırır, ısıtır", 32, KEH_K, "start", T9)
-    s += _alev_isareti(1062, 54, 30, False) + _yazi(1106, 66, "HACİM ÖLÇENLER · ısıtılmaz", 32, KOB_K, "start", T9)
-    taban = 440
+    olcek = {"tup": .82, "beher": .98, "erlen": .82, "balon": .8, "joje": .68, "mezur": .73, "pipet": .67, "buret": .66}
+    s += f'<rect x="4" y="4" width="986" height="{H - 8}" rx="26" fill="#FFF4DD" stroke="{OBS}" stroke-width="5"/>'
+    s += f'<rect x="1010" y="4" width="986" height="{H - 8}" rx="26" fill="#E6ECFB" stroke="{OBS}" stroke-width="5"/>'
+    s += _alev_isareti(52, 50, 28, True) + _yazi(94, 62, "ISITILABİLİR KAPLAR · tutar, karıştırır, ısıtır", 31, KEH_K, "start", T9)
+    s += _alev_isareti(1058, 50, 28, False) + _yazi(1100, 62, "HACİM ÖLÇENLER · ısıtılmaz", 31, KOB_K, "start", T9)
+    taban = 318
     for i, (kod, ad, isit, duy, is_) in enumerate(V.CAM):
         x = 130 + i * 245 + (24 if i >= 4 else 0)
-        s += f'<ellipse cx="{x}" cy="{taban + 4}" rx="80" ry="10" fill="{OBS}" opacity=".12"/>'
-        s += cam_parca(s, kod, x, taban, .98 if kod not in ("buret", "joje", "pipet") else .9, renkler[i])
-        s += _yazi(x, taban + 58, ad, 34, OBS, "middle", T9)
-        s += _yazi(x, taban + 94, is_, 25, "#343947", "middle", T7)
+        s += f'<ellipse cx="{x}" cy="{taban + 4}" rx="74" ry="9" fill="{OBS}" opacity=".12"/>'
+        s += cam_parca(s, kod, x, taban, olcek[kod], renkler[i])
+        s += _yazi(x, taban + 44, ad, 33, OBS, "middle", T9)
+        s += _yazi(x, taban + 76, is_, 26, "#343947", "middle", T7)
         if duy:
             r = {"hassas": (KOB, "#FFFFFF", "HASSAS"), "orta": (GUM_A, OBS, "ORTA"), "yaklaşık": ("#FFFFFF", OBS, "YAKLAŞIK")}[duy]
             w = 34 + len(r[2]) * 17
-            s += f'<rect x="{f(x - w / 2)}" y="{taban + 112}" width="{f(w)}" height="36" rx="18" fill="{r[0]}" stroke="{OBS}" stroke-width="3"/>'
-            s += _yazi(x, taban + 138, r[2], 23, r[1], "middle", T9)
+            s += f'<rect x="{f(x - w / 2)}" y="{taban + 94}" width="{f(w)}" height="34" rx="17" fill="{r[0]}" stroke="{OBS}" stroke-width="3"/>'
+            s += _yazi(x, taban + 119, r[2], 22, r[1], "middle", T9)
     return s.cikti(f"0 0 {W} {H}", cls="info cam-takimi")
 
 
@@ -362,32 +363,31 @@ def ekipman_parca(s, tur, x, y, o=1.0):
 def ekipman(onek):
     """On iki yardımcı malzeme, iki sıra; altında ad ve kısa görev."""
     s = Svg(onek)
-    W, H = 2000, 640
+    W, H = 2000, 486
     s += f'<rect x="4" y="4" width="{W - 8}" height="{H - 8}" rx="26" fill="#EEF9F8" stroke="{OBS}" stroke-width="5"/>'
     for i, (kod, ad, is_) in enumerate(V.EKIPMAN):
         sira, sut = divmod(i, 6)
-        x = 170 + sut * 332
-        y = 230 + sira * 304
-        s += f'<ellipse cx="{x}" cy="{y + 4}" rx="76" ry="9" fill="{OBS}" opacity=".1"/>'
-        s += ekipman_parca(s, kod, x, y, .78 if kod in ("spor", "termometre", "spatul", "baget", "ayirma") else .82)
-        s += _yazi(x, y + 44, ad, 32, OBS, "middle", T9)
-        s += _yazi(x, y + 76, is_, 25, "#343947", "middle", T7)
+        x = 172 + sut * 331
+        y = 168 + sira * 232
+        s += f'<ellipse cx="{x}" cy="{y + 3}" rx="62" ry="7" fill="{OBS}" opacity=".1"/>'
+        s += ekipman_parca(s, kod, x, y, .56 if kod in ("spor", "termometre", "spatul", "baget", "ayirma", "sogutucu", "damlalik") else .62)
+        s += _yazi(x, y + 34, ad, 29, OBS, "middle", T9)
+        s += _yazi(x, y + 61, is_, 26, "#343947", "middle", T7)
     return s.cikti(f"0 0 {W} {H}", cls="info ekipman")
 
 
 def isitma(onek):
-    """Isıtma takımı: bunzen beki, ispirto ocağı, sacayağı + tel kafes (üstünde beher), tüp maşası."""
+    """Isıtma takımı (2 × 2): bunzen beki, ispirto ocağı, sacayağı + tel kafes (üstünde beher), tüp maşası."""
     s = Svg(onek)
-    W, H = 1240, 470
-    s += f'<rect x="4" y="4" width="{W - 8}" height="{H - 8}" rx="24" fill="#FFF4DD" stroke="{OBS}" stroke-width="5"/>'
-    xs = [170, 470, 790, 1080]
+    W, H = 760, 560
+    s += f'<rect x="3" y="3" width="{W - 6}" height="{H - 6}" rx="22" fill="#FFF8EA" stroke="{OBS}" stroke-width="4"/>'
     for i, (kod, ad, is_) in enumerate(V.ISITMA):
-        x = xs[i]
-        y = 362
-        s += f'<ellipse cx="{x}" cy="{y + 4}" rx="80" ry="9" fill="{OBS}" opacity=".1"/>'
-        s += ekipman_parca(s, kod, x, y, .9 if kod != "sacayak" else .95)
-        s += _yazi(x, y + 44, ad, 32, OBS, "middle", T9)
-        s += _yazi(x, y + 76, is_, 25, "#343947", "middle", T7)
+        sira, sut = divmod(i, 2)
+        x = 190 + sut * 380
+        y = 210 + sira * 262
+        s += f'<ellipse cx="{x}" cy="{y + 3}" rx="70" ry="8" fill="{OBS}" opacity=".1"/>'
+        s += ekipman_parca(s, kod, x, y, {"bek": .5, "ispirto": .7, "sacayak": .72, "masa": .6}[kod])
+        s += _yazi(x, y + 40, ad, 34, OBS, "middle", T9)
     return s.cikti(f"0 0 {W} {H}", cls="info isitma")
 
 
@@ -396,9 +396,9 @@ def isitma(onek):
 def mezur(onek, deger=V.MEZUR_OKUMA, *_):
     """İmtihan sorusu: 30–40 mL arası büyütülmüş mezür; çukurun alt noktası `deger` mL."""
     s = Svg(onek)
-    W, H = 300, 560
-    x0, x1 = 90, 210
-    ust, alt = 40, 520                 # 40 mL → y=40 · 30 mL → y=520 (her mL 48 birim)
+    W, H = 330, 560
+    x0, x1 = 128, 248
+    alt = 520
     def yy(v):
         return alt - (v - 30) * 48
     cam = _cam(s)
@@ -409,48 +409,36 @@ def mezur(onek, deger=V.MEZUR_OKUMA, *_):
     s += (f'<path d="M{x0 + 3} {f(kenar)} Q{x0 + 14} {f(yd - 2)} {(x0 + x1) / 2} {f(yd)} Q{x1 - 14} {f(yd - 2)} {x1 - 3} {f(kenar)} V{H} H{x0 + 3} Z" fill="{su}" opacity=".9"/>')
     for v in range(30, 41):
         y = yy(v)
-        L = 46 if v % 5 == 0 else 26
-        s += f'<path d="M{x0} {y} h{L}" stroke="{OBS}" stroke-width="{4 if v % 5 == 0 else 3}"/>'
+        L = 50 if v % 5 == 0 else 28
+        s += f'<path d="M{x0} {y} h{L}" stroke="{OBS}" stroke-width="{5 if v % 5 == 0 else 3.4}"/>'
         if v % 5 == 0:
-            s += _yazi(x0 - 12, y + 12, str(v), 38, OBS, "end", B)
-    s += _yazi(x1 + 14, 52, "mL", 30, OBS, "start", T9)
-    # göz (hizada)
-    s += f'<path d="M232 {f(yd - 4)} Q256 {f(yd - 24)} 282 {f(yd - 4)} Q256 {f(yd + 16)} 232 {f(yd - 4)} Z" fill="#FFFFFF" stroke="{OBS}" stroke-width="3"/><circle cx="252" cy="{f(yd - 4)}" r="7" fill="{OBS}"/>'
-    s += f'<path d="M230 {f(yd - 4)} H{(x0 + x1) / 2}" stroke="{OBS}" stroke-width="2.4" stroke-dasharray="7 6"/>'
+            s += _yazi(x0 - 10, y + 22, str(v), 64, OBS, "end", B)
+    s += _yazi(x1 + 6, 70, "mL", 44, OBS, "start", T9)
     return s.cikti(f"0 0 {W} {H}", cls="info mezur")
 
 
 def meniskus(onek):
-    """Su: çukur menisküs, alt nokta · cıva: tümsek, üst nokta · göz hizası (yukarıdan fazla, aşağıdan az)."""
+    """Su: çukur menisküs, alt nokta · göz hizası doğru; yukarıdan fazla, aşağıdan az · cıva: tümseğin tepesi."""
     s = Svg(onek)
-    W, H = 1000, 560
+    W, H = 640, 560
     cam = _cam(s)
     su = s.lin([(0, "#7FD3CF"), (1, "#13A3A6")], 0, 0, 0, 1, ad="su")
     civa = s.lin([(0, "#E6EBEF"), (.5, "#A3B3BE"), (1, "#586874")], 0, 0, 1, 0, ad="cv")
-    s += f'<rect x="4" y="4" width="{W - 8}" height="{H - 8}" rx="24" fill="#FFFFFF" stroke="{OBS}" stroke-width="4"/>'
-    # su sütunu
-    x0, x1, y = 300, 460, 250
-    s += f'<rect x="{x0}" y="70" width="{x1 - x0}" height="440" fill="{cam}" stroke="{OBS}" stroke-width="5"/>'
-    s += f'<path d="M{x0 + 3} {y - 40} Q{x0 + 20} {y} {(x0 + x1) / 2} {y} Q{x1 - 20} {y} {x1 - 3} {y - 40} V508 H{x0 + 3} Z" fill="{su}" opacity=".9"/>'
-    for i in range(9):
-        yy = 110 + i * 45
-        s += f'<path d="M{x0} {yy} h{40 if i % 2 == 0 else 24}" stroke="{OBS}" stroke-width="3"/>'
-    # gözler ve bakış çizgileri
-    for (gy, renk, et, hiza) in ((110, MER_K, "yukarıdan: fazla okunur", -1), (y, ZUMRUT, "göz hizası: doğru", 0), (390, MER_K, "aşağıdan: az okunur", 1)):
-        s += f'<path d="M150 {gy} Q178 {gy - 22} 206 {gy} Q178 {gy + 22} 150 {gy} Z" fill="#FFFFFF" stroke="{OBS}" stroke-width="3.4"/><circle cx="182" cy="{gy}" r="9" fill="{OBS}"/>'
-        s += f'<path d="M210 {gy} L{(x0 + x1) / 2} {y}" stroke="{renk}" stroke-width="3.4" stroke-dasharray="{"" if hiza == 0 else "10 8"}"/>'
-        s += _yazi(24, gy + 52 if hiza >= 0 else gy - 34, et, 30, renk, "start", T9)
-    s += f'<circle cx="{(x0 + x1) / 2}" cy="{y}" r="9" fill="{ZUMRUT}" stroke="{OBS}" stroke-width="3"/>'
-    s += _yazi((x0 + x1) / 2, 50, "SU", 36, GOL_K, "middle", T9)
-    s += _yazi((x0 + x1) / 2, 548, "çukurun dibi okunur", 28, OBS, "middle", T9)
-    # cıva sütunu
-    x0, x1, y = 690, 850, 250
-    s += f'<rect x="{x0}" y="70" width="{x1 - x0}" height="440" fill="{cam}" stroke="{OBS}" stroke-width="5"/>'
-    s += f'<path d="M{x0 + 3} {y + 34} Q{x0 + 20} {y} {(x0 + x1) / 2} {y} Q{x1 - 20} {y} {x1 - 3} {y + 34} V508 H{x0 + 3} Z" fill="{civa}"/>'
-    s += f'<path d="M{x0 + 30} {y + 30} Q{x0 + 50} {y + 14} {x0 + 70} {y + 12}" stroke="#FFFFFF" stroke-width="6" fill="none" opacity=".7"/>'
-    s += f'<path d="M{x0 - 40} {y} H{x1 + 40}" stroke="{ZUMRUT}" stroke-width="3.4"/><circle cx="{(x0 + x1) / 2}" cy="{y}" r="9" fill="{ZUMRUT}" stroke="{OBS}" stroke-width="3"/>'
-    s += _yazi((x0 + x1) / 2, 50, "CIVA", 36, GUM_K, "middle", T9)
-    s += _yazi((x0 + x1) / 2, 548, "tümseğin tepesi okunur", 28, OBS, "middle", T9)
+    s += f'<rect x="3" y="3" width="{W - 6}" height="{H - 6}" rx="22" fill="#FFFFFF" stroke="{OBS}" stroke-width="4"/>'
+    x0, x1, y = 250, 380, 280
+    s += f'<rect x="{x0}" y="70" width="{x1 - x0}" height="470" fill="{cam}" stroke="{OBS}" stroke-width="5"/>'
+    s += f'<path d="M{x0 + 3} {y - 36} Q{x0 + 18} {y} {(x0 + x1) / 2} {y} Q{x1 - 18} {y} {x1 - 3} {y - 36} V537 H{x0 + 3} Z" fill="{su}" opacity=".9"/>'
+    for (gy, renk, et) in ((120, MER_K, "fazla"), (y, ZUMRUT, "doğru"), (440, MER_K, "az")):
+        s += f'<path d="M58 {gy} Q90 {gy - 26} 122 {gy} Q90 {gy + 26} 58 {gy} Z" fill="#FFFFFF" stroke="{OBS}" stroke-width="4"/><circle cx="96" cy="{gy}" r="11" fill="{OBS}"/>'
+        s += f'<path d="M128 {gy} L{(x0 + x1) / 2} {y}" stroke="{renk}" stroke-width="5"{"" if renk == ZUMRUT else " stroke-dasharray=\"12 10\""}/>'
+        s += _yazi(90, gy + 62 if gy > y else gy - 34, et, 40, renk, "middle", T9)
+    s += f'<circle cx="{(x0 + x1) / 2}" cy="{y}" r="11" fill="{ZUMRUT}" stroke="{OBS}" stroke-width="3"/>'
+    s += _yazi((x0 + x1) / 2, 52, "SU", 44, GOL_K, "middle", T9)
+    cx0, cx1, cy = 470, 590, 280
+    s += f'<rect x="{cx0}" y="70" width="{cx1 - cx0}" height="470" fill="{cam}" stroke="{OBS}" stroke-width="5"/>'
+    s += f'<path d="M{cx0 + 3} {cy + 32} Q{cx0 + 16} {cy} {(cx0 + cx1) / 2} {cy} Q{cx1 - 16} {cy} {cx1 - 3} {cy + 32} V537 H{cx0 + 3} Z" fill="{civa}"/>'
+    s += f'<path d="M{cx0 - 24} {cy} H{cx1 + 24}" stroke="{ZUMRUT}" stroke-width="5"/>'
+    s += _yazi((cx0 + cx1) / 2, 52, "CIVA", 44, GUM_K, "middle", T9)
     return s.cikti(f"0 0 {W} {H}", cls="info meniskus")
 
 
@@ -462,27 +450,31 @@ def _rakam(x, y, n, r=22):
 
 
 def etiket_aseton(onek):
-    """Temsilî etiket (aseton · oje çıkarıcıda da bulunur): 1 ürün adı · 2 uyarı kelimesi · 3 piktogram · 4 H · 5 P · 6 tedarikçi."""
+    """Temsilî etiket (aseton · birçok oje çıkarıcıda bulunur) + sağda numaralı açıklamalar:
+    1 ürün adı · 2 uyarı kelimesi · 3 piktogram · 4 zararlılık (H) · 5 önlem (P) · 6 tedarikçi."""
     s = Svg(onek)
-    W, H = 1060, 640
-    s += f'<rect x="40" y="20" width="980" height="600" rx="22" fill="#FFFFFF" stroke="{OBS}" stroke-width="6"/>'
-    s += f'<rect x="40" y="20" width="980" height="96" rx="22" fill="{GOL_A}" stroke="{OBS}" stroke-width="6"/><rect x="43" y="90" width="974" height="26" fill="{GOL_A}"/>'
-    s += _yazi(90, 88, "ASETON", 62, OBS, "start", B) + _yazi(372, 86, "(propan-2-on) · 1 L", 34, "#343947", "start", T)
-    s += _rakam(60, 40, 1)
-    s += ghs_g("GHS02", 74, 140, 200) + ghs_g("GHS07", 270, 140, 200) + _rakam(60, 150, 3)
-    s += f'<rect x="500" y="150" width="270" height="78" rx="12" fill="{MER_A}" stroke="{MER_K}" stroke-width="4"/>'
-    s += _yazi(635, 206, "TEHLİKE", 54, MER_K, "middle", B) + _rakam(796, 190, 2)
-    s += _yazi(500, 270, "Kolay alevlenir sıvı ve buhar.", 30, OBS, "start", T9)
-    s += _yazi(500, 308, "Ciddi göz tahrişine yol açar.", 30, OBS, "start", T9)
-    s += _yazi(500, 346, "Rehavete ya da baş dönmesine", 30, OBS, "start", T9)
-    s += _yazi(500, 382, "yol açabilir.", 30, OBS, "start", T9) + _rakam(996, 300, 4)
-    s += f'<path d="M80 410 H990" stroke="{GUM}" stroke-width="3" stroke-dasharray="10 8"/>'
-    for i, t in enumerate(("Isıdan, kıvılcımdan, açık alevden uzak tutun. Sigara içilmez.", "Kabı sıkıca kapalı tutun.",
-                           "Göz koruması kullanın.")):
-        s += _yazi(80, 456 + i * 38, t, 29, "#343947", "start", T)
-    s += _rakam(996, 474, 5)
-    s += f'<path d="M80 560 H990" stroke="{GUM}" stroke-width="3"/>'
-    s += _yazi(80, 600, "Tedarikçi: Örnek Kimya · Tel: 0 000 000 00 00", 27, "#56636E", "start", T) + _rakam(996, 590, 6)
+    W, H = 1500, 640
+    s += f'<rect x="20" y="20" width="980" height="600" rx="22" fill="#FFFFFF" stroke="{OBS}" stroke-width="6"/>'
+    s += f'<rect x="20" y="20" width="980" height="96" rx="22" fill="{GOL_A}" stroke="{OBS}" stroke-width="6"/><rect x="23" y="90" width="974" height="26" fill="{GOL_A}"/>'
+    s += _yazi(60, 88, "ASETON", 62, OBS, "start", B) + _yazi(330, 86, "(propan-2-on) · 1 L", 34, "#343947", "start", T)
+    s += ghs_g("GHS02", 44, 136, 200) + ghs_g("GHS07", 236, 136, 200)
+    s += f'<rect x="470" y="148" width="270" height="78" rx="12" fill="{MER_A}" stroke="{MER_K}" stroke-width="4"/>'
+    s += _yazi(605, 204, "TEHLİKE", 54, MER_K, "middle", B)
+    for i, t in enumerate(("Kolay alevlenir sıvı ve buhar.", "Ciddi göz tahrişine yol açar.", "Rehavete ya da baş dönmesine", "yol açabilir.")):
+        s += _yazi(470, 270 + i * 38, t, 33, OBS, "start", T9)
+    s += f'<path d="M60 420 H970" stroke="{GUM}" stroke-width="3" stroke-dasharray="10 8"/>'
+    for i, t in enumerate(("Isıdan, kıvılcımdan, açık alevden uzak tutun.", "Kabı sıkıca kapalı tutun.", "Göz koruması kullanın.")):
+        s += _yazi(60, 466 + i * 40, t, 33, "#343947", "start", T)
+    s += f'<path d="M60 566 H970" stroke="{GUM}" stroke-width="3"/>'
+    s += _yazi(60, 604, "Tedarikçi: Örnek Kimya · Tel: 0 000 000 00 00", 29, "#56636E", "start", T)
+    # açıklamalar (sağ sütun): numara + ad + kılavuz çizgisi
+    acik_ = [(1, "ÜRÜN ADI", 68), (2, "UYARI KELİMESİ", 187), (3, "PİKTOGRAMLAR", 300), (4, "ZARARLILIK (H)", 386),
+             (5, "ÖNLEM (P)", 486), (6, "TEDARİKÇİ", 594)]
+    hedef = {1: (300, 68), 2: (740, 187), 3: (436, 236), 4: (1000, 316), 5: (1000, 486), 6: (1000, 594)}
+    for n, ad, y in acik_:
+        hx, hy = hedef[n]
+        s += f'<path d="M{hx + 6} {hy} L1040 {y}" stroke="{KEH_K}" stroke-width="3.4" stroke-dasharray="8 6"/>'
+        s += _rakam(1062, y, n, 23) + _yazi(1098, y + 13, ad, 36, OBS, "start", T9)
     return s.cikti(f"0 0 {W} {H}", cls="info etiket")
 
 
@@ -500,21 +492,22 @@ def _hucre_isaret(x, y, v, r=26):
 def depo_matrisi(onek):
     """Sadeleştirilmiş depolama matrisi (guvenlik_veri.MATRIS): ✓ birlikte · ✗ ayrı · ! yalnızca özel önlemle."""
     s = Svg(onek)
-    W, H = 880, 700
-    hx, hy, c, r = 250, 150, 124, 104
-    s += f'<rect x="4" y="4" width="{W - 8}" height="{H - 8}" rx="24" fill="#FFFFFF" stroke="{OBS}" stroke-width="4"/>'
+    ad = {"Y": "YANICI", "O": "YAKICI", "Z": "ZEHİRLİ", "A": "AŞINDIR.", "T": "TAHRİŞ"}
+    hx, hy, c, r = 190, 132, 112, 84
+    W, H = hx + 5 * c + 8, hy + 5 * r + 8
+    s += f'<rect x="3" y="3" width="{W - 6}" height="{H - 6}" rx="20" fill="#FFFFFF" stroke="{OBS}" stroke-width="4"/>'
     for i, a in enumerate(V.SINIF):
         x = hx + i * c + c / 2
-        s += ghs_g(V.SINIF_GHS[a], x - 34, 22, 68)
-        s += _yazi(x, 128, V.SINIF_AD[a] if a != "T" else "Tahriş", 25, OBS, "middle", T9)
+        s += ghs_g(V.SINIF_GHS[a], x - 32, 14, 64)
+        s += _yazi(x, 116, ad[a], 25, OBS, "middle", T9)
         y = hy + i * r + r / 2
-        s += ghs_g(V.SINIF_GHS[a], 26, y - 30, 60)
-        s += _yazi(96, y + 9, V.SINIF_AD[a] if a != "T" else "Tahriş ed.", 27, OBS, "start", T9)
+        s += ghs_g(V.SINIF_GHS[a], 14, y - 30, 60)
+        s += _yazi(80, y + 10, ad[a], 25, OBS, "start", T9)
         for j, b in enumerate(V.SINIF):
             xx = hx + j * c + c / 2
             zemin = "#F7FAFB" if (i + j) % 2 else "#FFFFFF"
             s += f'<rect x="{hx + j * c}" y="{hy + i * r}" width="{c}" height="{r}" fill="{zemin}" stroke="{GUM}" stroke-width="2"/>'
-            s += _hucre_isaret(xx, y, V.MATRIS[a][b])
+            s += _hucre_isaret(xx, y, V.MATRIS[a][b], 28)
     s += f'<rect x="{hx}" y="{hy}" width="{c * 5}" height="{r * 5}" fill="none" stroke="{OBS}" stroke-width="4"/>'
     return s.cikti(f"0 0 {W} {H}", cls="info depo-matrisi")
 
@@ -530,52 +523,39 @@ def _kutu(s, x, y, w, h, govde, kapak, yazi=None):
 
 
 def atik_semasi(onek):
-    """Atık nereye? Lavabo DEĞİL · altı kutu ve örnekleri (guvenlik_veri.ATIK)."""
+    """Atık nereye? Lavabo DEĞİL · altı kutu (guvenlik_veri.ATIK, kısa adlar ATIK_KISA). ~100 mm sütuna göre."""
     s = Svg(onek)
-    W, H = 2000, 560
-    s += f'<rect x="4" y="4" width="{W - 8}" height="{H - 8}" rx="26" fill="#FFFFFF" stroke="{OBS}" stroke-width="5"/>'
+    W, H = 1120, 330
+    s += f'<rect x="3" y="3" width="{W - 6}" height="{H - 6}" rx="20" fill="#FFFFFF" stroke="{OBS}" stroke-width="4"/>'
     # lavabo (yasak)
-    s += f'<path d="M60 250 H240 Q236 330 150 336 Q64 330 60 250 Z" fill="#E6EBEF" stroke="{OBS}" stroke-width="5"/><path d="M150 250 V196 Q150 176 176 176 H200" stroke="{OBS}" stroke-width="12" fill="none"/>'
-    s += f'<path d="M150 250 V196 Q150 176 176 176 H200" stroke="#B8C3CC" stroke-width="6" fill="none"/><path d="M196 186 v14" stroke="#B8C3CC" stroke-width="8"/>'
-    s += f'<circle cx="150" cy="262" r="96" fill="none" stroke="{KIRMIZI}" stroke-width="14"/><path d="M82 194 L218 330" stroke="{KIRMIZI}" stroke-width="14"/>'
-    s += _yazi(150, 418, "Lavaboya değil!", 32, MER_K, "middle", T9)
-    s += _yazi(150, 456, "seyreltmek de", 25, "#343947", "middle", T7) + _yazi(150, 484, "zararsız yapmaz", 25, "#343947", "middle", T7)
+    cx = 80
+    s += f'<path d="M{cx - 46} 120 H{cx + 46} Q{cx + 44} 158 {cx} 162 Q{cx - 44} 158 {cx - 46} 120 Z" fill="#E6EBEF" stroke="{OBS}" stroke-width="4"/>'
+    s += f'<path d="M{cx} 120 V96 Q{cx} 86 {cx + 14} 86 H{cx + 26}" stroke="{OBS}" stroke-width="8" fill="none"/>'
+    s += f'<circle cx="{cx}" cy="126" r="56" fill="none" stroke="{KIRMIZI}" stroke-width="10"/><path d="M{cx - 40} 86 L{cx + 40} 166" stroke="{KIRMIZI}" stroke-width="10"/>'
+    s += _yazi(cx, 232, "Lavabo", 31, MER_K, "middle", T9) + _yazi(cx, 266, "değil!", 31, MER_K, "middle", T9)
     renk = {"kimyasal": ("#FFE08A", KEH), "cam": ("#D9EEF2", GOL), "tibbi": ("#FFC9C2", KIRMIZI), "pil": ("#C9D3DB", "#56636E"),
             "yag": ("#FFE3B8", "#C8742F"), "ambalaj": ("#DCE6FA", KOB)}
-    for i, (kod, ad, ornek) in enumerate(V.ATIK):
-        x = 330 + i * 278
+    for i, (kod, _ad, _o) in enumerate(V.ATIK):
+        x = 172 + i * 156
         govde, kapak = renk[kod]
-        s += _kutu(s, x, 380, 190, 150, govde, kapak)
-        cx = x + 95
-        # kutunun üstünde küçük nesne + ok
+        s += _kutu(s, x, 190, 112, 78, govde, kapak)
+        c = x + 56
         if kod == "kimyasal":
-            s += f'<g transform="translate({cx} 300) scale(.55)">' + cam_parca(s, "erlen", 0, 0, .8, "#3A8CF2") + "</g>"
+            s += f'<g transform="translate({c} 96) scale(.3)">' + cam_parca(s, "erlen", 0, 0, .8, "#3A8CF2") + "</g>"
         elif kod == "cam":
-            s += f'<path d="M{cx - 40} 296 L{cx - 6} 236 L{cx + 2} 290 Z M{cx + 6} 298 L{cx + 30} 250 L{cx + 44} 296 Z" fill="{GOL_A}" stroke="{OBS}" stroke-width="3.4"/>'
+            s += f'<path d="M{c - 28} 96 L{c - 4} 54 L{c + 2} 92 Z M{c + 6} 96 L{c + 22} 62 L{c + 32} 94 Z" fill="{GOL_A}" stroke="{OBS}" stroke-width="3"/>'
         elif kod == "tibbi":
-            s += (f'<g transform="rotate(-30 {cx} 270)"><rect x="{cx - 50}" y="258" width="76" height="22" rx="4" fill="#FFFFFF" stroke="{OBS}" stroke-width="3.4"/>'
-                  f'<path d="M{cx + 26} 269 h34" stroke="{OBS}" stroke-width="3"/><path d="M{cx - 50} 269 h-20" stroke="{OBS}" stroke-width="7"/>'
-                  f'<rect x="{cx - 40}" y="262" width="40" height="14" fill="{MER}" opacity=".6"/></g>')
+            s += (f'<g transform="rotate(-30 {c} 76)"><rect x="{c - 34}" y="68" width="52" height="16" rx="3" fill="#FFFFFF" stroke="{OBS}" stroke-width="3"/>'
+                  f'<path d="M{c + 18} 76 h22" stroke="{OBS}" stroke-width="2.6"/><path d="M{c - 34} 76 h-14" stroke="{OBS}" stroke-width="6"/></g>')
         elif kod == "pil":
-            s += (f'<rect x="{cx - 20}" y="232" width="40" height="70" rx="6" fill="{KEH}" stroke="{OBS}" stroke-width="3.4"/>'
-                  f'<rect x="{cx - 8}" y="224" width="16" height="9" fill="#C9D3DB" stroke="{OBS}" stroke-width="3"/><rect x="{cx - 18}" y="268" width="36" height="32" fill="{OBS}" opacity=".85"/>')
+            s += f'<rect x="{c - 14}" y="50" width="28" height="48" rx="5" fill="{KEH}" stroke="{OBS}" stroke-width="3"/><rect x="{c - 13}" y="74" width="26" height="22" fill="{OBS}" opacity=".85"/>'
         elif kod == "yag":
-            s += (f'<path d="M{cx - 26} 302 V248 Q{cx - 26} 236 {cx - 12} 232 V218 H{cx + 12} V232 Q{cx + 26} 236 {cx + 26} 248 V302 Z" fill="#F2C94A" stroke="{OBS}" stroke-width="3.4"/>'
-                  f'<rect x="{cx - 14}" y="210" width="28" height="10" fill="#C8742F" stroke="{OBS}" stroke-width="3"/>')
+            s += f'<path d="M{c - 18} 98 V62 Q{c - 18} 54 {c - 8} 52 V42 H{c + 8} V52 Q{c + 18} 54 {c + 18} 62 V98 Z" fill="#F2C94A" stroke="{OBS}" stroke-width="3"/>'
         else:
-            s += (f'<path d="M{cx - 28} 302 V244 Q{cx - 28} 232 {cx - 14} 228 L{cx - 10} 212 H{cx + 10} L{cx + 14} 228 Q{cx + 28} 232 {cx + 28} 244 V302 Z" fill="#DCE6FA" stroke="{OBS}" stroke-width="3.4"/>'
-                  f'<path d="M{cx - 16} 258 H{cx + 16}" stroke="{KOB}" stroke-width="6"/>')
-        satirlar = ad.split(" (")
-        s += _yazi(cx, 432, satirlar[0], 29, OBS, "middle", T9)
-        if len(satirlar) > 1:
-            s += _yazi(cx, 464, "(" + satirlar[1], 25, MER_K if kod == "tibbi" else "#343947", "middle", T)
-            dy = 30
-        else:
-            dy = 0
-        for j, o_ in enumerate(ornek[:1]):
-            parca = o_.split(", ")
-            for k_, p in enumerate(parca[:2]):
-                s += _yazi(cx, 466 + dy + k_ * 30, p + ("," if k_ == 0 and len(parca) > 1 else ""), 24, "#343947", "middle", T7)
+            s += f'<path d="M{c - 18} 98 V60 Q{c - 18} 52 {c - 9} 50 L{c - 6} 40 H{c + 6} L{c + 9} 50 Q{c + 18} 52 {c + 18} 60 V98 Z" fill="#DCE6FA" stroke="{OBS}" stroke-width="3"/>'
+        a1, a2, ornek = V.ATIK_KISA[kod]
+        s += _yazi(c, 230, a1, 30, MER_K if kod == "tibbi" else OBS, "middle", T9) + _yazi(c, 262, a2, 30, MER_K if kod == "tibbi" else OBS, "middle", T9)
+        s += _yazi(c, 300, ornek, 26, "#343947", "middle", T7)
     return s.cikti(f"0 0 {W} {H}", cls="info atik")
 
 
@@ -597,7 +577,7 @@ def asit_su(onek):
             s += f'<path d="M{x + 30} 128 Q{x + 34} 140 {x + 28} 150" stroke="{KEH}" stroke-width="5" fill="none"/>'
             s += (f'<circle cx="{x + 130}" cy="200" r="30" fill="{ZUMRUT}" stroke="{OBS}" stroke-width="4"/>'
                   f'<path d="M{x + 116} 201 L{x + 127} 213 L{x + 145} 189" stroke="#FFFFFF" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>')
-            s += _yazi(x, 400, "asit suya, yavaşça", 30, ZUMRUT, "middle", T9)
+            s += _yazi(x, 404, "asit suya", 48, ZUMRUT, "middle", T9)
         else:
             s += f'<path d="M{x - 76} 250 H{x + 74} V352 Q{x + 74} 356 {x + 70} 356 H{x - 72} Q{x - 76} 356 {x - 76} 352 Z" fill="{KEH}" opacity=".9"/>'
             s += f'<g transform="rotate(50 {x - 70} 80)"><rect x="{x - 96}" y="20" width="56" height="96" rx="10" fill="{cam}" stroke="{OBS}" stroke-width="4"/><rect x="{x - 93}" y="70" width="50" height="43" rx="6" fill="#9FD9E6"/></g>'
@@ -606,7 +586,7 @@ def asit_su(onek):
             s += f'<path d="M{x - 30} 140 q-10 -20 0 -40 M{x + 10} 130 q-10 -20 0 -40 M{x + 50} 140 q-10 -20 0 -40" stroke="{GUM}" stroke-width="5" fill="none" stroke-linecap="round"/>'
             s += (f'<circle cx="{x + 130}" cy="200" r="30" fill="{MER}" stroke="{OBS}" stroke-width="4"/>'
                   f'<path d="M{x + 118} 188 L{x + 142} 212 M{x + 142} 188 L{x + 118} 212" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>')
-            s += _yazi(x, 400, "su asidin üstüne: sıçrar", 30, MER_K, "middle", T9)
+            s += _yazi(x, 404, "su aside", 48, MER_K, "middle", T9)
     return s.cikti(f"0 0 {W} {H}", cls="info asit-su")
 
 
@@ -624,44 +604,57 @@ def _eksenler(s, x0, y0, x1, y1, xs, ys, xet, yet):
 def kaza_grafigi(onek):
     """Kıssa: iki dönemde kaza sayıları (guvenlik_veri.KAZA_GRAFIK)."""
     s = Svg(onek)
-    W, H = 820, 560
-    x0, y0, x1, y1 = 110, 440, 800, 70
-    ust = 12
-    sy = (y0 - y1 - 20) / ust
-    s += f'<rect x="4" y="4" width="{W - 8}" height="{H - 8}" rx="20" fill="#FFFFFF" stroke="{OBS}" stroke-width="3"/>'
-    s += _eksenler(s, x0, y0, x1, y1, [], [(str(v), y0 - v * sy) for v in range(0, ust + 1, 2)], "", "kaza sayısı")
+    W, H = 600, 470
+    x0, y0, x1, y1 = 74, 360, 588, 70
+    ust = 10
+    sy = (y0 - y1 - 10) / ust
+    s += f'<rect x="3" y="3" width="{W - 6}" height="{H - 6}" rx="18" fill="#FFFFFF" stroke="{OBS}" stroke-width="3"/>'
+    s += f'<path d="M{x0} {y1} V{y0} H{x1}" stroke="{OBS}" stroke-width="4" fill="none"/>'
+    for v in range(0, ust + 1, 2):
+        py = y0 - v * sy
+        s += f'<path d="M{x0} {f(py)} h-8" stroke="{OBS}" stroke-width="3"/><path d="M{x0} {f(py)} H{x1}" stroke="{GUM}" stroke-width="1.6" stroke-dasharray="6 6"/>'
+        s += _yazi(x0 - 14, py + 11, str(v), 30, OBS, "end", T9)
+    etiket = {"Kesik": ("Kesik", ""), "Isı yanığı": ("Isı", "yanığı"), "Göze sıçrama": ("Göze", "sıçrama"), "Deriye temas": ("Deriye", "temas")}
     for i, (ad, (a, b)) in enumerate(V.KAZA_GRAFIK.items()):
-        cx = x0 + 90 + i * 172
+        cx = x0 + 66 + i * 128
         for k, (v, renk) in enumerate(((a, "#A3B3BE"), (b, GOL))):
-            x = cx - 46 + k * 50
-            s += f'<rect x="{x}" y="{f(y0 - v * sy)}" width="44" height="{f(v * sy)}" fill="{renk}" stroke="{OBS}" stroke-width="3"/>'
-            s += _yazi(x + 22, y0 - v * sy - 10, str(v), 26, OBS, "middle", B)
-        s += _yazi(cx, y0 + 38, ad, 25, OBS, "middle", T9)
-    s += f'<rect x="460" y="22" width="28" height="22" fill="#A3B3BE" stroke="{OBS}" stroke-width="3"/>' + _yazi(496, 41, "1. dönem", 25, OBS, "start", T9)
-    s += f'<rect x="630" y="22" width="28" height="22" fill="{GOL}" stroke="{OBS}" stroke-width="3"/>' + _yazi(666, 41, "2. dönem", 25, OBS, "start", T9)
+            x = cx - 46 + k * 48
+            s += f'<rect x="{x}" y="{f(y0 - v * sy)}" width="42" height="{f(v * sy)}" fill="{renk}" stroke="{OBS}" stroke-width="3"/>'
+            s += _yazi(x + 21, y0 - v * sy - 8, str(v), 30, OBS, "middle", B)
+        l1, l2 = etiket[ad]
+        s += _yazi(cx, y0 + 38, l1, 29, OBS, "middle", T9) + (_yazi(cx, y0 + 70, l2, 29, OBS, "middle", T9) if l2 else "")
+    s += f'<rect x="96" y="20" width="26" height="22" fill="#A3B3BE" stroke="{OBS}" stroke-width="3"/>' + _yazi(130, 40, "1. dönem", 29, OBS, "start", T9)
+    s += f'<rect x="330" y="20" width="26" height="22" fill="{GOL}" stroke="{OBS}" stroke-width="3"/>' + _yazi(364, 40, "2. dönem", 29, OBS, "start", T9)
     return s.cikti(f"0 0 {W} {H}", cls="info grafik kaza-grafik")
 
 
 def co_grafigi(onek):
-    """Üstad: sobalı odada CO derişimi (ppm) — zaman (dk); kesikli çizgi dedektör eşiği, ok pencerenin açıldığı an."""
+    """Üstad: sobalı odada CO derişimi (ppm) — zaman (dk); kesikli çizgi dedektör eşiği, yeşil çizgi pencerenin açıldığı an."""
     s = Svg(onek)
-    W, H = 760, 520
-    x0, y0, x1, y1 = 110, 420, 730, 60
+    W, H = 560, 440
+    x0, y0, x1, y1 = 92, 350, 548, 40
     tmax, pmax = 70, 120
     def p(t, v):
-        return (x0 + (x1 - x0 - 20) * t / tmax, y0 - (y0 - y1 - 20) * v / pmax)
-    s += f'<rect x="4" y="4" width="{W - 8}" height="{H - 8}" rx="20" fill="#FFFFFF" stroke="{OBS}" stroke-width="3"/>'
-    s += _eksenler(s, x0, y0, x1, y1, [(str(t), p(t, 0)[0]) for t in range(0, 71, 10)], [(str(v), p(0, v)[1]) for v in range(0, 121, 20)],
-                   "zaman (dk)", "CO (ppm)")
+        return (x0 + (x1 - x0 - 16) * t / tmax, y0 - (y0 - y1 - 10) * v / pmax)
+    s += f'<rect x="3" y="3" width="{W - 6}" height="{H - 6}" rx="18" fill="#FFFFFF" stroke="{OBS}" stroke-width="3"/>'
+    s += f'<path d="M{x0} {y1} V{y0} H{x1}" stroke="{OBS}" stroke-width="4" fill="none"/>'
+    for t in range(0, 71, 10):
+        px = p(t, 0)[0]
+        s += f'<path d="M{f(px)} {y0} v9" stroke="{OBS}" stroke-width="3"/>' + _yazi(px, y0 + 38, str(t), 28, OBS, "middle", T9)
+    for v in range(0, 121, 20):
+        py = p(0, v)[1]
+        s += f'<path d="M{x0} {f(py)} h-8" stroke="{OBS}" stroke-width="3"/><path d="M{x0} {f(py)} H{x1 - 10}" stroke="{GUM}" stroke-width="1.5" stroke-dasharray="6 6"/>'
+        s += _yazi(x0 - 12, py + 10, str(v), 28, OBS, "end", T9)
+    s += _yazi(x1, y0 + 78, "ZAMAN (dk)", 28, "#343947", "end", T9) + _yazi(x0 - 70, y1 - 10 + 0, "", 1, OBS)
+    s += _yazi(x0 + 8, y1 + 4, "CO (ppm)", 28, "#343947", "start", T9)
     ye = p(0, V.CO_ESIK)[1]
-    s += f'<path d="M{x0} {f(ye)} H{x1 - 20}" stroke="{MER}" stroke-width="4" stroke-dasharray="14 9"/>' + _yazi(x1 - 22, ye - 12, "dedektör eşiği", 25, MER_K, "end", T9)
+    s += f'<path d="M{x0} {f(ye)} H{x1 - 10}" stroke="{MER}" stroke-width="4" stroke-dasharray="14 9"/>'
     pts = [p(t, v) for t, v in V.CO_GRAFIK]
     s += f'<path d="{cizgi_d(pts)}" stroke="{KOB}" stroke-width="6" fill="none" stroke-linejoin="round"/>'
     for (x, y) in pts:
         s += f'<circle cx="{f(x)}" cy="{f(y)}" r="7" fill="#FFFFFF" stroke="{KOB}" stroke-width="4"/>'
     xp = p(V.CO_PENCERE, 0)[0]
-    s += f'<path d="M{f(xp)} {y0} V{y1 + 30}" stroke="{ZUMRUT}" stroke-width="3" stroke-dasharray="6 6"/>'
-    s += _yazi(xp + 8, y1 + 22, "pencere açıldı", 25, ZUMRUT, "start", T9)
+    s += f'<path d="M{f(xp)} {y0} V{y1 + 20}" stroke="{ZUMRUT}" stroke-width="4" stroke-dasharray="6 6"/>'
     return s.cikti(f"0 0 {W} {H}", cls="info grafik co-grafik")
 
 
@@ -686,8 +679,14 @@ def damitma(onek, hatali=1, *_):
     ust_n, alt_n = (400, 260), (660, 356)   # su bağlantıları
     giris, cikis = (ust_n, alt_n) if hatali else (alt_n, ust_n)
     s += f'<path d="M{ust_n[0]} {ust_n[1] - 20} v-60" stroke="{OBS}" stroke-width="12"/><path d="M{alt_n[0]} {alt_n[1] + 26} v60" stroke="{OBS}" stroke-width="12"/>'
-    s += _yazi(giris[0] + 18, giris[1] - (70 if giris == ust_n else -96), "su girer", 26, KOB_K, "start", T9)
-    s += _yazi(cikis[0] + 18, cikis[1] - (70 if cikis == ust_n else -96), "su çıkar", 26, KOB_K, "start", T9)
+    for (nx, ny), giren in ((giris, True), (cikis, False)):
+        ust = (nx, ny) == ust_n
+        uc = ny - 92 if ust else ny + 118
+        bas, son = ((nx, uc), (nx, uc + (40 if ust else -40))) if giren else ((nx, uc + (40 if ust else -40)), (nx, uc))
+        s += f'<path d="M{nx + 30} {bas[1]} L{nx + 30} {son[1]}" stroke="{KOB}" stroke-width="12"/>'
+        yon = 1 if son[1] > bas[1] else -1
+        s += f'<path d="M{nx + 12} {son[1] - 4 * yon} L{nx + 48} {son[1] - 4 * yon} L{nx + 30} {son[1] + 22 * yon} Z" fill="{KOB}"/>'
+        s += _yazi(nx + 64, (bas[1] + son[1]) / 2 + 16, "su", 46, KOB_K, "start", T9)
     # toplama erleni
     ex, ey = 800, 520
     s += cam_parca(s, "erlen", ex, ey, .62, "#9FD9E6")
@@ -695,27 +694,37 @@ def damitma(onek, hatali=1, *_):
         s += f'<rect x="{ex - 20}" y="{ey - 182}" width="40" height="22" rx="4" fill="{GUM_K}" stroke="{OBS}" stroke-width="3"/>'
     # etiketler I II III
     for (x, y, et) in ((214, 150, "I"), (ust_n[0] - 54, ust_n[1] - 64, "II"), (ex + 52, ey - 196, "III")):
-        s += f'<circle cx="{x}" cy="{y}" r="24" fill="{KEH}" stroke="{OBS}" stroke-width="3.4"/>' + _yazi(x, y + 10, et, 26, OBS, "middle", B)
+        s += f'<circle cx="{x}" cy="{y}" r="40" fill="{KEH}" stroke="{OBS}" stroke-width="4"/>' + _yazi(x, y + 17, et, 46, OBS, "middle", B)
     return s.cikti(f"0 0 {W} {H}", cls="info damitma")
 
 
 def metan_seridi(onek):
     """Metanın havadaki hacim yüzdesi: ≈ %5–15 tutuşabilir aralık; ölçer ve havalandırma derişimi bu aralığın çok altında tutar."""
     s = Svg(onek)
-    W, H = 1000, 250
-    x0, x1, y = 40, 960, 100
+    W, H = 700, 200
+    x0, x1, y = 20, 680, 62
     def px(v):
         return x0 + (x1 - x0) * v / 20
     a, b = V.METAN_ARALIK
-    g = s.lin([(0, "#BFEBD3"), (1, "#E3F6EC")], 0, 0, 1, 0, ad="gv")
-    s += f'<rect x="{x0}" y="{y}" width="{f(px(a) - x0)}" height="56" fill="{g}" stroke="{OBS}" stroke-width="3"/>'
-    s += f'<rect x="{f(px(a))}" y="{y}" width="{f(px(b) - px(a))}" height="56" fill="#FFC9C2" stroke="{OBS}" stroke-width="3"/>'
-    s += f'<rect x="{f(px(b))}" y="{y}" width="{f(x1 - px(b))}" height="56" fill="#E6EBEF" stroke="{OBS}" stroke-width="3"/>'
-    for v in range(0, 21, 5):
-        s += f'<path d="M{f(px(v))} {y + 56} v12" stroke="{OBS}" stroke-width="3"/>' + _yazi(px(v), y + 98, f"%{v}", 28, OBS, "middle", T9)
-    s += _yazi((px(a) + px(b)) / 2, y + 38, "tutuşabilir aralık", 30, MER_K, "middle", T9)
-    s += _yazi((x0 + px(a)) / 2, y + 38, "seyreltilmiş", 26, ZUMRUT, "middle", T9)
-    s += _yazi((px(b) + x1) / 2, y + 38, "O₂ azalır", 26, GUM_K, "middle", T9)
-    s += _yazi(x0, 62, "havalandırma + ölçer: derişim hep en solda tutulur", 28, OBS, "start", T9)
-    s += f'<path d="M{f(px(a) - 20)} 80 H{x0 + 40}" stroke="{ZUMRUT}" stroke-width="6" marker-end=""/><path d="M{x0 + 54} 70 L{x0 + 36} 80 L{x0 + 54} 90 Z" fill="{ZUMRUT}"/>'
+    s += f'<rect x="{x0}" y="{y}" width="{f(px(a) - x0)}" height="60" fill="#BFEBD3" stroke="{OBS}" stroke-width="3"/>'
+    s += f'<rect x="{f(px(a))}" y="{y}" width="{f(px(b) - px(a))}" height="60" fill="#FFC9C2" stroke="{OBS}" stroke-width="3"/>'
+    s += f'<rect x="{f(px(b))}" y="{y}" width="{f(x1 - px(b))}" height="60" fill="#E6EBEF" stroke="{OBS}" stroke-width="3"/>'
+    for v in (0, 5, 15, 20):
+        s += f'<path d="M{f(px(v))} {y + 60} v10" stroke="{OBS}" stroke-width="3"/>' + _yazi(px(v), y + 104, f"%{v}", 32, OBS, "middle", T9)
+    s += _yazi((px(a) + px(b)) / 2, y + 42, "TUTUŞUR", 34, MER_K, "middle", T9)
+    s += _yazi((x0 + px(a)) / 2, y + 42, "ölçer", 30, ZUMRUT, "middle", T9)
+    s += _yazi((px(b) + x1) / 2, y + 42, "O₂ azalır", 28, GUM_K, "middle", T9)
+    s += _yazi(x0, 44, "Metan (grizu) havada, hacimce", 32, OBS, "start", T9)
     return s.cikti(f"0 0 {W} {H}", cls="info metan")
+
+
+def razi_kirpik(onek):
+    """Ortak razi_araclari çiziminin, küçük boyda okunmayan üst yazısı kırpılmış hâli (yalnız araçlar)."""
+    from cizim import infografik as I
+    return I.razi_araclari(onek).replace('viewBox="0 0 560 360"', 'viewBox="0 86 560 274"', 1)
+
+
+def imbik_kirpik(onek):
+    """Ortak imbik çizimi (Câbir kutusu için)."""
+    from cizim import infografik as I
+    return I.imbik(onek)

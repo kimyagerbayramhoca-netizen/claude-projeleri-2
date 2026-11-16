@@ -124,7 +124,7 @@ def _t_isaret(x, y, h, renk="#D9C29A", cz="#8E7552"):
 
 def model_yolculugu(onek="ay-my"):
     s = Svg(onek)
-    W, H = 1820, 400
+    W, H = 1820, 408
     r = RNG(3)
     # zemin: Göbeklitepe bozkırı + yol
     g = s.lin([(0, "#FFF8E8"), (1, "#F6E7BF")], 0, 0, 0, H, kull="userSpaceOnUse", ad="zm")
@@ -135,13 +135,13 @@ def model_yolculugu(onek="ay-my"):
     x0 = 182
     adim = 364
     modeller = [
-        ("Dalton", "1803–1808", "içi dolu küre", "kütlenin korunumu", "bu durak"),
-        ("Thomson", "1897 · 1904", "üzümlü kek", "katot ışınları", "bu durak"),
-        ("Rutherford", "1911", "çekirdek + boşluk", "altın levha deneyi", "2. durak"),
-        ("Bohr", "1913", "enerji katmanları", "H’nin çizgi spektrumu", "2.–3. durak"),
-        ("Modern", "1926 →", "elektron bulutu", "elektronun dalga davranışı", "2.–3. durak"),
+        ("Dalton", "1803–1808", "içi dolu küre", "kütlenin korunumu", "bu durak", "eksik: elektron, iyon, izotop"),
+        ("Thomson", "1897 · 1904", "üzümlü kek", "katot ışınları", "bu durak", "eksik: çekirdek, boşluk"),
+        ("Rutherford", "1911", "çekirdek + boşluk", "altın levha deneyi", "2. durak", "eksik: elektronların düzeni"),
+        ("Bohr", "1913", "enerji katmanları", "H’nin çizgi spektrumu", "2.–3. durak", "eksik: çok elektronlu atomlar"),
+        ("Modern", "1926 →", "elektron bulutu", "elektronun dalga davranışı", "2.–3. durak", "bugünkü model"),
     ]
-    for i, (ad, yil, bicim, kanit, etiket) in enumerate(modeller):
+    for i, (ad, yil, bicim, kanit, etiket, eksik) in enumerate(modeller):
         x = x0 + i * adim
         cy = 128
         # etiket çipi
@@ -182,12 +182,14 @@ def model_yolculugu(onek="ay-my"):
                 if d < 74:
                     s += f'<circle cx="{f(x + d * math.cos(a))}" cy="{f(cy + d * math.sin(a))}" r="1.8" fill="#1B3584" opacity=".55"/>'
             s += _kure(s, x, cy, 9, PROTON)
-        s += f'<text x="{f(x)}" y="{cy + 108}" text-anchor="middle" {T} font-size="21" fill="{GUM_K}">{bicim}</text>'
-        # T taşı + yıl levhası
-        s += _t_isaret(x, 300, 62)
-        s += f'<text x="{f(x)}" y="{252 + 14}" text-anchor="middle" {B} font-size="23" fill="#5A4220">{yil}</text>'
-        s += f'<text x="{f(x)}" y="350" text-anchor="middle" {B} font-size="33" fill="{OBS}">{ad}</text>'
-        s += f'<text x="{f(x)}" y="382" text-anchor="middle" {T7} font-size="21" fill="{KOB_K}">kanıt: {kanit}</text>'
+        s += f'<text x="{f(x)}" y="{cy + 106}" text-anchor="middle" {T} font-size="21" fill="{GUM_K}">{bicim}</text>'
+        s += f'<rect x="{f(x - 78)}" y="250" width="156" height="38" rx="10" fill="#FFF8E6" stroke="#8E7552" stroke-width="2.4"/>'
+        s += f'<text x="{f(x)}" y="278" text-anchor="middle" {B} font-size="25" fill="#5A4220">{yil}</text>'
+        s += f'<text x="{f(x)}" y="336" text-anchor="middle" {B} font-size="33" fill="{OBS}">{ad}</text>'
+        s += f'<text x="{f(x)}" y="366" text-anchor="middle" {T7} font-size="21" fill="{KOB_K}">kanıt: {kanit}</text>'
+        s += f'<text x="{f(x)}" y="394" text-anchor="middle" {T7} font-size="21" fill="{MER_K if i < 4 else ZUMRUT}">{eksik}</text>'
+        if i < 4:
+            s += _t_isaret(x + adim / 2, 304, 44)
         if i < 4:
             s += _ok(x + 96, cy, x + adim - 96, cy, "#C9A25E", 5, 18)
     return s.cikti(f"0 0 {W} {H}", cls="info yolculuk")
@@ -226,9 +228,9 @@ def altin_levha(onek="ay-al"):
         s += f'<circle cx="{ex}" cy="{ey}" r="6" fill="#E6FFE0" stroke="#2F8F5E" stroke-width="2"/>'
     s += f'<path d="M{cx - 6} {cy - 4} L{cx - 150} {cy - 118}" stroke="{MER}" stroke-width="2.6" stroke-dasharray="7 5"/>'
     s += f'<circle cx="{cx - 152}" cy="{cy - 120}" r="6" fill="#E6FFE0" stroke="#2F8F5E" stroke-width="2"/>'
-    s += f'<text x="82" y="{cy + 84}" text-anchor="middle" {T} font-size="22" fill="{OBS}">α kaynağı</text>'
-    s += f'<text x="{cx}" y="{cy + 126}" text-anchor="middle" {T} font-size="22" fill="{ALTIN_K}">ince altın levha</text>'
-    s += f'<text x="{cx + 120}" y="{cy + 192}" text-anchor="middle" {T} font-size="22" fill="#2F8F5E">ışıldayan ekran</text>'
+    s += f'<text x="82" y="{cy + 84}" text-anchor="middle" {T} font-size="26" fill="{OBS}">α kaynağı</text>'
+    s += f'<text x="{cx}" y="{cy + 126}" text-anchor="middle" {T} font-size="26" fill="{ALTIN_K}">ince altın levha</text>'
+    s += f'<text x="{cx + 120}" y="{cy + 192}" text-anchor="middle" {T} font-size="26" fill="#2F8F5E">ışıldayan ekran</text>'
     # yakından: altın atomları (büyük boşluk, minik çekirdek)
     ax0 = 700
     cek = [(ax0 + 110, 140), (ax0 + 300, 170), (ax0 + 140, 320), (ax0 + 340, 340)]
@@ -241,9 +243,9 @@ def altin_levha(onek="ay-al"):
     yol = f"M{ax0 - 20} 168 L{ax0 + 250} 168 Q{ax0 + 290} 168 {ax0 + 330} 140 L{ax0 + 440} 64"
     s += f'<path d="{yol}" fill="none" stroke="{MER}" stroke-width="3.4"/>' + _ok(ax0 + 420, 78, ax0 + 446, 60, MER, 3.4, 15)
     s += f'<path d="M{ax0 - 20} 340 L{ax0 + 322} 340" stroke="{MER}" stroke-width="3.4"/>' + _ok(ax0 + 322, 352, ax0 + 20, 380, MER, 3.4, 15)
-    s += f'<text x="{ax0 + 230}" y="226" text-anchor="middle" {T} font-size="22" fill="{OBS}">çoğu düz geçer</text>'
-    s += f'<text x="{ax0 + 400}" y="128" text-anchor="middle" {T} font-size="22" fill="{OBS}">azı sapar</text>'
-    s += f'<text x="{ax0 + 200}" y="420" text-anchor="middle" {T} font-size="22" fill="{MER_K}">çok azı geri döner</text>'
+    s += f'<text x="{ax0 + 230}" y="226" text-anchor="middle" {T} font-size="26" fill="{OBS}">çoğu düz geçer</text>'
+    s += f'<text x="{ax0 + 400}" y="128" text-anchor="middle" {T} font-size="26" fill="{OBS}">azı sapar</text>'
+    s += f'<text x="{ax0 + 200}" y="420" text-anchor="middle" {T} font-size="26" fill="{MER_K}">çok azı geri döner</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info altinlevha")
 
 
@@ -263,7 +265,7 @@ def bohr_kumbet(onek="ay-bk"):
     for k in range(9):
         yy = yb - 20 - k * 34
         s += f'<path d="M{x0 + 6} {yy} H{x0 + w - 6}" stroke="#8E5730" stroke-width="1.6" opacity=".35"/>'
-    s += f'<text x="{x0 + w / 2}" y="{yb + 34}" text-anchor="middle" {T} font-size="22" fill="#8E5730">kümbet: halka halka kerpiç</text>'
+    s += f'<text x="{x0 + w / 2}" y="{yb + 34}" text-anchor="middle" {T} font-size="28" fill="#8E5730">kümbet: halka halka kerpiç</text>'
     s += _ok(330, 220, 380, 220, GUM_K, 4, 15)
     # sağ: Bohr modeli · Na (2 · 8 · 1)
     cx, cy = 600, 214
@@ -274,7 +276,8 @@ def bohr_kumbet(onek="ay-bk"):
         for j in range(n):
             a = a0 + j * 2 * math.pi / n
             s += _elektron(cx + rr * math.cos(a), cy + rr * math.sin(a), 10)
-XX
+    s += _nk("Na", 446, 424, 36, Z=11, renk=OBS)
+    s += f'<text x="508" y="424" {T} font-size="26" fill="{OBS}">K 2 · L 8 · M 1</text>'
     for rr, ad, c in ((60, "K", KOB), (112, "L", GOL_K), (164, "M", KEH_K)):
         s += f'<text x="{cx + rr * .7 + 6}" y="{cy - rr * .7 - 6}" {B} font-size="28" fill="{c}">{ad}</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info bohr")
@@ -322,7 +325,7 @@ def spektrum(onek="ay-sp"):
     for nm in (400, 500, 600, 700):
         x = _nm_x(nm, xa, xb)
         s += f'<path d="M{f(x)} 156 v10" stroke="{OBS}" stroke-width="2"/><text x="{f(x)}" y="186" text-anchor="middle" {T7} font-size="17" fill="{GUM_K}">{nm}</text>'
-    s += f'<text x="{xa - 8}" y="186" text-anchor="end" {T7} font-size="17" fill="{GUM_K}">nm</text>'
+    s += f'<text x="{xb + 6}" y="186" {T7} font-size="17" fill="{GUM_K}">nm</text>'
     s += f'<text x="{(xa + xb) / 2}" y="352" text-anchor="middle" {T} font-size="21" fill="{KOB_K}">Her çizgi, iki düzey arasındaki bir sıçrama.</text>'
     s += f'<text x="{(xa + xb) / 2}" y="384" text-anchor="middle" {T} font-size="21" fill="{KOB_K}">Çizgiler her elementte farklı: atomun parmak izi.</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info spektrum")
@@ -395,7 +398,7 @@ def orbital_sekilleri(onek="ay-ob"):
 
 def iyon_olusumu(onek="ay-io"):
     s = Svg(onek)
-    W, H = 1000, 380
+    W, H = 1000, 400
     satir = [  # (atom, iyon, r_atom, r_iyon, renk, p, e_atom, e_iyon, eylem, not)
         ("Na", "+", 70, 38, ATOM["Na"], 11, 11, 10, "1 e⁻ verir", "katyon: küçülür"),
         ("Cl", "−", 37, 68, ATOM["Cl"], 17, 17, 18, "1 e⁻ alır", "anyon: büyür"),
@@ -447,7 +450,7 @@ def izo_kutulari(onek="ay-iz"):
             cx = x + (120 + j * 220 if n == 2 else 82 + j * 150)
             s += _nk(el, cx, y + 150, 58 if n == 2 else 52, A=A, Z=Z, yuk=yk, renk=OBS)
         s += _alt(alt.replace("e⁻", "e^{−}"), x + 246, y + 208, 22, renk, font=T)
-    return s.cikti(f"0 0 {W} {H}", cls="info izo")
+    return s.cikti(f"0 0 {W} {H}", cls="info izokutu")
 
 
 # ------------------------------------------------------------------ 5. DURAK · Aufbau köşegen kuralı
@@ -466,26 +469,31 @@ def aufbau(onek="ay-au"):
     def merkez(n, l):
         return bx + l * gx + bw / 2, by + (n - 1) * gy + bh / 2
 
-    # köşegen oklar (önce, kutuların altında kalsın)
-    gruplar = [["1s"], ["2s"], ["2p", "3s"], ["3p", "4s"], ["3d", "4p", "5s"], ["4d", "5p", "6s"], ["4f", "5d", "6p", "7s"], ["5f", "6d", "7p"]]
-    for gi, gr in enumerate(gruplar):
-        n0, l0 = int(gr[0][0]), tur.index(gr[0][1])
-        n1, l1 = int(gr[-1][0]), tur.index(gr[-1][1])
-        x0, y0 = merkez(n0, l0)
-        x1, y1 = merkez(n1, l1)
-        x0, y0 = x0 + 46, y0 - 24
-        x1, y1 = x1 - 46, y1 + 24
-        if len(gr) == 1:
-            x0, y0 = merkez(n0, l0)[0] + 50, merkez(n0, l0)[1] - 22
-            x1, y1 = merkez(n0, l0)[0] - 40, merkez(n0, l0)[1] + 26
-        s += _ok(x0, y0, x1, y1, "#7A8A96", 4, 15)
     for n in range(1, 8):
         for l, t in enumerate(tur):
             if t not in var[n]:
                 continue
             x, y = bx + l * gx, by + (n - 1) * gy
             s += f'<rect x="{x}" y="{y}" width="{bw}" height="{bh}" rx="10" fill="{acik(renk[t], .8)}" stroke="{koyu(renk[t], .35)}" stroke-width="2.4"/>'
-            s += f'<text x="{x + bw / 2}" y="{y + 33}" text-anchor="middle" {B} font-size="29" fill="{koyu(renk[t], .5)}">{n}{t}</text>'
+    yazilar = []
+    for n in range(1, 8):
+        for l, t in enumerate(tur):
+            if t in var[n]:
+                x, y = bx + l * gx, by + (n - 1) * gy
+                yazilar.append(f'<rect x="{x + bw / 2 - 27}" y="{y + 8}" width="54" height="31" rx="9" fill="#FFFFFF" opacity=".92"/>'
+                               f'<text x="{x + bw / 2}" y="{y + 33}" text-anchor="middle" {B} font-size="29" fill="{koyu(renk[t], .5)}">{n}{t}</text>')
+    # köşegen oklar (kutuların üstünde, ince; uçları kutuların dışında)
+    gruplar = [["1s"], ["2s"], ["2p", "3s"], ["3p", "4s"], ["3d", "4p", "5s"], ["4d", "5p", "6s"], ["4f", "5d", "6p", "7s"], ["5f", "6d", "7p"]]
+    for gr in gruplar:
+        n0, l0 = int(gr[0][0]), tur.index(gr[0][1])
+        n1, l1 = int(gr[-1][0]), tur.index(gr[-1][1])
+        x0, y0 = merkez(n0, l0)
+        x1, y1 = merkez(n1, l1)
+        a = math.atan2(y1 - y0, x1 - x0) if len(gr) > 1 else math.atan2(gy, -gx)
+        x0, y0 = x0 - 66 * math.cos(a), y0 - 66 * math.sin(a)
+        x1, y1 = x1 + 70 * math.cos(a), y1 + 70 * math.sin(a)
+        s += _ok(x0, y0, x1, y1, "#46525C", 3.2, 15)
+    s += "".join(yazilar)
     s += f'<text x="{W - 10}" y="{H - 82}" text-anchor="end" {T} font-size="20" fill="{GUM_K}">okları yukarıdan aşağı izle</text>'
     return s.cikti(f"0 0 {W} {H - 60}", cls="info aufbau")
 
@@ -507,7 +515,7 @@ def kissa_grafik(onek="ay-kg"):
     for v in range(0, ymax + 1, 2):
         s += f'<path d="M{x0} {f(Y(v))} H{x1}" stroke="#DCE4E8" stroke-width="1.6"/>'
         if v % 4 == 0:
-            s += f'<text x="{x0 - 8}" y="{f(Y(v) + 7)}" text-anchor="end" {T} font-size="19" fill="{GUM_K}">{v}</text>'
+            s += f'<text x="{x0 - 8}" y="{f(Y(v) + 8)}" text-anchor="end" {T} font-size="24" fill="{GUM_K}">{v}</text>'
     s += f'<path d="M{x0} {y0 - 6} V{y1} H{x1}" fill="none" stroke="{OBS}" stroke-width="2.4"/>'
     renk = (PROTON, NOTRON, ELEKTRON)
     gw = (x1 - x0) / 4
@@ -519,7 +527,7 @@ def kissa_grafik(onek="ay-kg"):
         s += f'<text x="{f(gx + 32)}" y="{y1 + 30}" text-anchor="middle" {B} font-size="26" fill="{OBS}">{ad}</text>'
     for j, (ad, c) in enumerate((("p", PROTON), ("n", NOTRON), ("e", ELEKTRON))):
         s += f'<rect x="{x0 + 14 + j * 76}" y="6" width="18" height="18" fill="{c}" stroke="{OBS}" stroke-width="1.2"/>'
-        s += f'<text x="{x0 + 38 + j * 76}" y="22" {T} font-size="20" fill="{OBS}">{ad}</text>'
+        s += f'<text x="{x0 + 38 + j * 76}" y="23" {T} font-size="25" fill="{OBS}">{ad}</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info grafik")
 
 
@@ -532,16 +540,17 @@ GECIS = {"a": (4, 2), "b": (3, 2), "c": (2, 1), "d": (1, 3)}
 def ustad_enerji(onek="ay-ue"):
     s = Svg(onek)
     W, H = 400, 340
-    duz = {1: 312, 2: 150, 3: 92, 4: 60}
+    duz = {1: 312, 2: 150, 3: 92, 4: 56}
+    s += f'<text x="398" y="30" text-anchor="end" {T7} font-size="22" fill="{GUM_K}">eV</text>'
     for n, y in duz.items():
         s += f'<path d="M58 {y} H278" stroke="{OBS}" stroke-width="2.6"/>'
-        s += f'<text x="50" y="{y + 7}" text-anchor="end" {T} font-size="19" fill="{OBS}">n={n}</text>'
-        s += f'<text x="286" y="{y + 7}" {T7} font-size="18" fill="{GUM_K}">{str(ENERJI_EV[n]).replace(".", ",").replace("-", "−")} eV</text>'
+        s += f'<text x="52" y="{y + 9}" text-anchor="end" {T} font-size="25" fill="{OBS}">n={n}</text>'
+        s += f'<text x="284" y="{y + 9}" {T7} font-size="24" fill="{GUM_K}">{str(ENERJI_EV[n]).replace(".", ",").replace("-", "−")}</text>'
     xs = {"a": 90, "b": 140, "c": 190, "d": 240}
     for k, (a, b) in GECIS.items():
         x = xs[k]
         y0, y1 = duz[a], duz[b]
         renk = GOL_K if b > a else MER
         s += _ok(x, y0, x, y1 + (6 if b < a else -6), renk, 3.4, 13)
-        s += f'<text x="{x + 9}" y="{(y0 + y1) / 2 + 6}" {B} font-size="22" fill="{renk}">{k}</text>'
+        s += f'<text x="{x + 9}" y="{(y0 + y1) / 2 + 9}" {B} font-size="30" fill="{renk}">{k}</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info enerji")

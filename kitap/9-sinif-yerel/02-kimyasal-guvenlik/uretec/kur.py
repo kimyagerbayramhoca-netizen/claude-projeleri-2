@@ -149,15 +149,17 @@ def isaret_izgara():
     out = []
     for aile in ("zor", "uya", "yas", "acil", "yan"):
         ad, bicim, anlam = V.ISARET_AILE[aile]
-        isr = "".join(f'<div>{IU.isaret(u.yeni("is"), k)}<span>{v[1]}</span></div>' for k, v in V.ISARET.items() if v[0] == aile)
-        out.append(f'<div class="isaret-aile {aile}"><div class="ab">{ad}<small>{bicim} · {anlam}</small></div><div class="isr">{isr}</div></div>')
+        isr = "".join(f'<div>{IU.isaret(u.yeni("is"), k)}<span>{V.ISARET_KISA[k]}</span></div>' for k in V.ISARET_IZGARA if V.ISARET[k][0] == aile)
+        out.append(f'<div class="isaret-aile {aile}"><div class="ab">{ad}<small>{bicim}</small></div><div class="isr">{isr}</div></div>')
     return '<div class="isaret-izgara">' + "".join(out) + "</div>"
 
 
 def isaret_dizi(*simgeler):
-    """Soru içi işaret sırası: I, II, III … altında."""
-    return '<div class="isaret-dizi">' + "".join(f'<div>{IU.isaret(u.yeni("is"), s)}<span>{ROMA[i]}</span></div>'
-                                                for i, s in enumerate(simgeler)) + "</div>"
+    """Soru içi işaret sırası: I, II, III … altında. Son argüman 'kare' ise 2 × 2 ızgara."""
+    kare = bool(simgeler) and simgeler[-1] == "kare"
+    simgeler = [x for x in simgeler if x != "kare"]
+    return f'<div class="isaret-dizi{" kare" if kare else ""}">' + "".join(f'<div>{IU.isaret(u.yeni("is"), s)}<span>{ROMA[i]}</span></div>'
+                                                                         for i, s in enumerate(simgeler)) + "</div>"
 
 
 def ghs_dizi(*kodlar):

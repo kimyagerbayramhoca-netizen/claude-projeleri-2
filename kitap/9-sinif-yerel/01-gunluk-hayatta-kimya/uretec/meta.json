@@ -6,66 +6,302 @@
   "klasor": "01-gunluk-hayatta-kimya",
   "tema": "Tema 1 · Bölüm 1",
   "bolge": "Bursa (İznik · Çekirge · Cumalıkızık · Uludağ · Hanlar Bölgesi)",
-  "merkez": {"enlem": 40.25, "boylam": 29.25},
+  "merkez": {
+    "enlem": 40.25,
+    "boylam": 29.25
+  },
   "duraklar": [
-    {"no": 1, "yer": "İznik", "baslik": "Kimya her yerde", "enlem": 40.429, "boylam": 29.721, "sayfa": 2, "akce": 100},
-    {"no": 2, "yer": "Çekirge", "baslik": "Asidik, bazik, nötr", "enlem": 40.198, "boylam": 29.035, "sayfa": 3, "akce": 150},
-    {"no": 3, "yer": "Cumalıkızık", "baslik": "Evdeki kimyasallar", "enlem": 40.174, "boylam": 29.169, "sayfa": 4, "akce": 150},
-    {"no": 4, "yer": "Uludağ", "baslik": "Mutfak ve adil deney", "enlem": 40.124, "boylam": 29.073, "sayfa": 5, "akce": 150},
-    {"no": 5, "yer": "Koza Han", "baslik": "Disiplinler ve meslekler", "enlem": 40.184, "boylam": 29.062, "sayfa": 6, "akce": 150}
+    {
+      "no": 1,
+      "yer": "İznik",
+      "baslik": "Kimya her yerde",
+      "enlem": 40.429,
+      "boylam": 29.721,
+      "sayfa": 2,
+      "akce": 100
+    },
+    {
+      "no": 2,
+      "yer": "Çekirge",
+      "baslik": "Asidik, bazik, nötr",
+      "enlem": 40.198,
+      "boylam": 29.035,
+      "sayfa": 3,
+      "akce": 150
+    },
+    {
+      "no": 3,
+      "yer": "Cumalıkızık",
+      "baslik": "Evdeki kimyasallar",
+      "enlem": 40.174,
+      "boylam": 29.169,
+      "sayfa": 4,
+      "akce": 150
+    },
+    {
+      "no": 4,
+      "yer": "Uludağ",
+      "baslik": "Mutfak ve adil deney",
+      "enlem": 40.124,
+      "boylam": 29.073,
+      "sayfa": 5,
+      "akce": 150
+    },
+    {
+      "no": 5,
+      "yer": "Koza Han",
+      "baslik": "Disiplinler ve meslekler",
+      "enlem": 40.184,
+      "boylam": 29.062,
+      "sayfa": 6,
+      "akce": 150
+    }
   ],
   "kale": "Bursa Hisarı",
-  "kale_konum": {"enlem": 40.188, "boylam": 29.055},
+  "kale_konum": {
+    "enlem": 40.188,
+    "boylam": 29.055
+  },
   "nisanlar": [
-    {"ad": "Çini Ustası", "ikon": "cini", "renk": "kob", "aciklama": "1. durak · kimya her yerde"},
-    {"ad": "pH Bekçisi", "ikon": "ph", "renk": "gol", "aciklama": "2. durak · pH"},
-    {"ad": "Etiket Okuru", "ikon": "sise", "renk": "mer", "aciklama": "3. durak · ev kimyasalları"},
-    {"ad": "Deney Kâşifi", "ikon": "deney", "renk": "keh", "aciklama": "4. durak · adil deney"},
-    {"ad": "Koza Ustası", "ikon": "koza", "renk": "erg", "aciklama": "5. durak · disiplinler"},
-    {"ad": "Kale Kapısı", "ikon": "kale", "renk": "keh", "aciklama": "İmtihan · 10+ doğru"},
-    {"ad": "Üstad Mührü", "ikon": "ustad", "renk": "laj", "aciklama": "Üstad · 6/6 doğru", "bonus": true}
+    {
+      "ad": "Çini Ustası",
+      "ikon": "cini",
+      "renk": "kob",
+      "aciklama": "1. durak · madde"
+    },
+    {
+      "ad": "pH Bekçisi",
+      "ikon": "ph",
+      "renk": "gol",
+      "aciklama": "2. durak · pH"
+    },
+    {
+      "ad": "Etiket Okuru",
+      "ikon": "sise",
+      "renk": "mer",
+      "aciklama": "3. durak · etiket"
+    },
+    {
+      "ad": "Deney Kâşifi",
+      "ikon": "deney",
+      "renk": "keh",
+      "aciklama": "4. durak · deney"
+    },
+    {
+      "ad": "Koza Ustası",
+      "ikon": "koza",
+      "renk": "erg",
+      "aciklama": "5. durak · dallar"
+    },
+    {
+      "ad": "Kale Kapısı",
+      "ikon": "kale",
+      "renk": "keh",
+      "aciklama": "İmtihan · 10+"
+    },
+    {
+      "ad": "Üstad Mührü",
+      "ikon": "ustad",
+      "renk": "laj",
+      "aciklama": "Üstad · 6/6",
+      "bonus": true
+    }
   ],
   "hazine": [
-    {"kod": "H1", "renk": "kob", "baslik": "Maddeyi tanı", "formul": "Kütle + hacim = madde", "not": "ışık, ses, ısı madde değil · +10 akçe", "kisa": "kütle + hacim = madde", "durak": 1},
-    {"kod": "H2", "renk": "gol", "baslik": "Kimyanın dört sorusu", "formul": "Yapı · özellik · etkileşim · dönüşüm", "not": "kimya maddeyi bu dört yönden inceler · +10 akçe", "kisa": "yapı · özellik · etkileşim · dönüşüm", "durak": 1},
-    {"kod": "H3", "renk": "mer", "baslik": "pH cetveli · 25 °C", "formul": "asidik &lt; 7 &lt; bazik", "not": "pH = 7 nötr · küçüldükçe asitlik artar · +10 akçe", "kisa": "asidik &lt; 7 &lt; bazik", "durak": 2},
-    {"kod": "H4", "renk": "gol", "baslik": "Su eklersen", "formul": "pH → 7’ye yaklaşır", "not": "7’yi geçmez; asit asit kalır · +10 akçe", "kisa": "su ekle → pH 7’ye yaklaşır", "durak": 2},
-    {"kod": "H5", "renk": "keh", "baslik": "Kire göre seç", "formul": "Kireç, pas → asit", "not": "yağ, saç → kuvvetli baz · +10 akçe", "kisa": "kireç → asit · yağ → baz", "durak": 3},
-    {"kod": "H6", "renk": "mer", "baslik": "Güvenlik kuralı", "formul": "Temizleyici karıştırılmaz", "not": "çamaşır suyu + asit: zehirli klor gazı · +10 akçe", "kisa": "temizleyici karıştırılmaz", "durak": 3},
-    {"kod": "H7", "renk": "kob", "baslik": "Üç değişken", "formul": "Değiştir · ölç · sabit tut", "not": "bağımsız · bağımlı · kontrol · +10 akçe", "kisa": "değiştir · ölç · sabit tut", "durak": 4},
-    {"kod": "H8", "renk": "zum", "baslik": "Adil deney", "formul": "İki deneme, tek fark", "not": "iki şey değişirse neden bilinmez · +10 akçe", "kisa": "iki deneme, tek fark", "durak": 4},
-    {"kod": "H9", "renk": "kob", "baslik": "Analizin iki sorusu", "formul": "Nitel: ne var? Nicel: ne kadar?", "not": "kurşun var mı? · kaç mg? · +10 akçe", "kisa": "nitel: ne var · nicel: ne kadar", "durak": 5},
-    {"kod": "H10", "renk": "gol", "baslik": "Organik mi?", "formul": "Karbon temelli → organik", "not": "{CO}, {CO2}, {H2CO3}, karbonatlar, {HCN} anorganik · +10 akçe", "kisa": "karbon temelli = organik ({CO2} hariç)", "durak": 5},
-    {"kod": "H11", "renk": "erg", "baslik": "Polimer", "formul": "Monomer × çok → polimer", "not": "ipek doğal, naylon sentetik · +10 akçe", "kisa": "monomer → polimer", "durak": 5},
-    {"kod": "H12", "renk": "laj", "sinif": "strateji", "baslik": "Disiplin bulucu", "adimlar": ["Ne var, ne kadar? <b>Analitik</b>", "Canlıda mı? <b>Biyokimya</b>", "Hız, enerji, ısı? <b>Fizikokimya</b>", "Zincir, lif, plastik? <b>Polimer</b>"], "not": "soruyu tek kelimeye indir · +10 akçe", "kisa": "soruyu tek kelimeye indir", "durak": 5}
+    {
+      "kod": "H1",
+      "renk": "kob",
+      "baslik": "Maddeyi tanı",
+      "formul": "Kütle + hacim = madde",
+      "not": "ışık, ses, ısı madde değil · +10 akçe",
+      "kisa": "kütle + hacim = madde",
+      "durak": 1
+    },
+    {
+      "kod": "H2",
+      "renk": "gol",
+      "baslik": "Kimyanın dört sorusu",
+      "formul": "Yapı · özellik · etkileşim · dönüşüm",
+      "not": "kimya maddeyi bu dört yönden inceler · +10 akçe",
+      "kisa": "yapı · özellik · etkileşim · dönüşüm",
+      "durak": 1
+    },
+    {
+      "kod": "H3",
+      "renk": "mer",
+      "baslik": "pH cetveli · 25 °C",
+      "formul": "asidik &lt; 7 &lt; bazik",
+      "not": "pH = 7 nötr · küçüldükçe asitlik artar · +10 akçe",
+      "kisa": "asidik &lt; 7 &lt; bazik",
+      "durak": 2
+    },
+    {
+      "kod": "H4",
+      "renk": "gol",
+      "baslik": "Su eklersen",
+      "formul": "pH → 7’ye yaklaşır",
+      "not": "7’yi geçmez; asit asit kalır · +10 akçe",
+      "kisa": "su ekle → pH 7’ye yaklaşır",
+      "durak": 2
+    },
+    {
+      "kod": "H5",
+      "renk": "keh",
+      "baslik": "Kire göre seç",
+      "formul": "Kireç, pas → asit",
+      "not": "yağ, saç → kuvvetli baz · +10 akçe",
+      "kisa": "kireç → asit · yağ → baz",
+      "durak": 3
+    },
+    {
+      "kod": "H6",
+      "renk": "mer",
+      "baslik": "Güvenlik kuralı",
+      "formul": "Temizleyici karıştırılmaz",
+      "not": "çamaşır suyu + asit: zehirli klor gazı · +10 akçe",
+      "kisa": "temizleyici karıştırılmaz",
+      "durak": 3
+    },
+    {
+      "kod": "H7",
+      "renk": "kob",
+      "baslik": "Üç değişken",
+      "formul": "Değiştir · ölç · sabit tut",
+      "not": "bağımsız · bağımlı · kontrol · +10 akçe",
+      "kisa": "değiştir · ölç · sabit tut",
+      "durak": 4
+    },
+    {
+      "kod": "H8",
+      "renk": "zum",
+      "baslik": "Adil deney",
+      "formul": "İki deneme, tek fark",
+      "not": "iki şey değişirse neden bilinmez · +10 akçe",
+      "kisa": "iki deneme, tek fark",
+      "durak": 4
+    },
+    {
+      "kod": "H9",
+      "renk": "kob",
+      "baslik": "Analizin iki sorusu",
+      "formul": "Nitel: ne var? Nicel: ne kadar?",
+      "not": "kurşun var mı? · kaç mg? · +10 akçe",
+      "kisa": "nitel: ne var · nicel: ne kadar",
+      "durak": 5
+    },
+    {
+      "kod": "H10",
+      "renk": "gol",
+      "baslik": "Organik mi?",
+      "formul": "Karbon temelli → organik",
+      "not": "{CO}, {CO2}, {H2CO3}, karbonatlar, {HCN} anorganik · +10 akçe",
+      "kisa": "karbon temelli = organik ({CO2} hariç)",
+      "durak": 5
+    }
   ],
   "medeniyet": [
-    {"ad": "Câbir bin Hayyân", "yil": "8. yüzyıl", "katki": "Adıyla anılan eserler damıtma, kristallendirme ve süzme gibi işlemleri sistemli biçimde anlatır.", "sayfa": 2},
-    {"ad": "el-Kindî", "yil": "9. yüzyıl", "katki": "Koku ve damıtma üzerine kitabında gül suyu gibi kokulu suların damıtılmasını tarif etti.", "sayfa": 4}
+    {
+      "ad": "Câbir bin Hayyân",
+      "yil": "8. yüzyıl",
+      "katki": "Adıyla anılan eserler damıtma, kristallendirme ve süzme gibi işlemleri sistemli biçimde anlatır.",
+      "sayfa": 2
+    },
+    {
+      "ad": "el-Kindî",
+      "yil": "9. yüzyıl",
+      "katki": "Koku ve damıtma üzerine kitabında gül suyu gibi kokulu suların damıtılmasını tarif etti.",
+      "sayfa": 4
+    }
   ],
   "kavramlar": [
-    {"terim": "madde", "tanim": "Kütlesi ve hacmi olan, taneciklerden oluşan her şey."},
-    {"terim": "kimya", "tanim": "Maddenin yapısını, özelliklerini, etkileşimlerini ve dönüşümlerini inceleyen; bu bilgiyi üretimde ve günlük hayatta uygulayan bilim."},
-    {"terim": "pigment", "tanim": "Renk veren, çoğu zaman suda çözünmeyen toz madde; çinide kobalt oksit ya da bakır oksit gibi metal oksitler."},
-    {"terim": "asit", "tanim": "Suda çözündüğünde ortamdaki H⁺ (H₃O⁺) iyonu derişimini artıran madde."},
-    {"terim": "baz", "tanim": "Suda çözündüğünde ortamdaki OH⁻ iyonu derişimini artıran madde."},
-    {"terim": "pH", "tanim": "Bir çözeltinin ne kadar asidik ya da bazik olduğunu gösteren sayı; 25 °C’de 7’den küçükse asidik, 7 ise nötr, büyükse bazik."},
-    {"terim": "nötr", "tanim": "Ne asidik ne bazik; 25 °C’de pH’ı 7 olan çözelti (ör. saf su)."},
-    {"terim": "etken madde", "tanim": "Bir ürünün asıl işini gören bileşen; etikette yazılır (ör. çamaşır suyunda sodyum hipoklorit)."},
-    {"terim": "dezenfektan", "tanim": "Yüzeydeki mikroorganizmaları öldüren ya da etkisiz bırakan madde."},
-    {"terim": "bağımsız değişken", "tanim": "Deneyde araştırmacının bilerek değiştirdiği tek etken."},
-    {"terim": "bağımlı değişken", "tanim": "Bağımsız değişkene bağlı olarak ölçülen sonuç."},
-    {"terim": "kontrol değişkeni", "tanim": "Bütün denemelerde aynı tutulan etken."},
-    {"terim": "nitel analiz", "tanim": "Bir örnekte hangi maddelerin bulunduğunu belirleyen analiz: “Ne var?”"},
-    {"terim": "nicel analiz", "tanim": "Bir maddenin örnekte ne kadar bulunduğunu ölçen analiz: “Ne kadar var?”"},
-    {"terim": "analitik kimya", "tanim": "Bir maddenin hangi bileşenlerden oluştuğunu ve bunların miktarını belirleyen kimya dalı."},
-    {"terim": "organik kimya", "tanim": "Karbon temelli bileşiklerin yapısını, özelliklerini ve tepkimelerini inceleyen kimya dalı."},
-    {"terim": "anorganik kimya", "tanim": "Elementleri ve organik olmayan bileşikleri (metaller, mineraller, asitler, bazlar, tuzlar, oksitler) inceleyen kimya dalı."},
-    {"terim": "biyokimya", "tanim": "Canlılardaki maddeleri ve canlıda gerçekleşen kimyasal süreçleri inceleyen kimya dalı."},
-    {"terim": "fizikokimya", "tanim": "Kimyasal olaylardaki enerji değişimlerini, tepkime hızını ve sıcaklık, basınç, derişim gibi etkenleri inceleyen kimya dalı."},
-    {"terim": "polimer", "tanim": "Çok sayıda küçük molekülün (monomer) zincir hâlinde birleşmesiyle oluşan dev molekül; ipek doğal, naylon sentetik polimerdir."},
-    {"terim": "mordan", "tanim": "Boyanın life tutunmasına yardım eden madde; kök boyacılıkta şap kullanılır."},
-    {"terim": "kariyer planlaması", "tanim": "İlgi ve yeteneklere göre hedef belirleyip o hedefe giden yol haritasını çizmek."}
+    {
+      "terim": "madde",
+      "tanim": "Kütlesi ve hacmi olan, taneciklerden oluşan her şey."
+    },
+    {
+      "terim": "kimya",
+      "tanim": "Maddenin yapısını, özelliklerini, etkileşimlerini ve dönüşümlerini inceleyen; bu bilgiyi üretimde ve günlük hayatta uygulayan bilim."
+    },
+    {
+      "terim": "pigment",
+      "tanim": "Renk veren, çoğu zaman suda çözünmeyen toz madde; çinide kobalt oksit ya da bakır oksit gibi metal oksitler."
+    },
+    {
+      "terim": "asit",
+      "tanim": "Suda çözündüğünde ortamdaki H⁺ (H₃O⁺) iyonu derişimini artıran madde."
+    },
+    {
+      "terim": "baz",
+      "tanim": "Suda çözündüğünde ortamdaki OH⁻ iyonu derişimini artıran madde."
+    },
+    {
+      "terim": "pH",
+      "tanim": "Bir çözeltinin ne kadar asidik ya da bazik olduğunu gösteren sayı; 25 °C’de 7’den küçükse asidik, 7 ise nötr, büyükse bazik."
+    },
+    {
+      "terim": "nötr",
+      "tanim": "Ne asidik ne bazik; 25 °C’de pH’ı 7 olan çözelti (ör. saf su)."
+    },
+    {
+      "terim": "etken madde",
+      "tanim": "Bir ürünün asıl işini gören bileşen; etikette yazılır (ör. çamaşır suyunda sodyum hipoklorit)."
+    },
+    {
+      "terim": "dezenfektan",
+      "tanim": "Yüzeydeki mikroorganizmaları öldüren ya da etkisiz bırakan madde."
+    },
+    {
+      "terim": "bağımsız değişken",
+      "tanim": "Deneyde araştırmacının bilerek değiştirdiği tek etken."
+    },
+    {
+      "terim": "bağımlı değişken",
+      "tanim": "Bağımsız değişkene bağlı olarak ölçülen sonuç."
+    },
+    {
+      "terim": "kontrol değişkeni",
+      "tanim": "Bütün denemelerde aynı tutulan etken."
+    },
+    {
+      "terim": "nitel analiz",
+      "tanim": "Bir örnekte hangi maddelerin bulunduğunu belirleyen analiz: “Ne var?”"
+    },
+    {
+      "terim": "nicel analiz",
+      "tanim": "Bir maddenin örnekte ne kadar bulunduğunu ölçen analiz: “Ne kadar var?”"
+    },
+    {
+      "terim": "analitik kimya",
+      "tanim": "Bir maddenin hangi bileşenlerden oluştuğunu ve bunların miktarını belirleyen kimya dalı."
+    },
+    {
+      "terim": "organik kimya",
+      "tanim": "Karbon temelli bileşiklerin yapısını, özelliklerini ve tepkimelerini inceleyen kimya dalı."
+    },
+    {
+      "terim": "anorganik kimya",
+      "tanim": "Elementleri ve organik olmayan bileşikleri (metaller, mineraller, asitler, bazlar, tuzlar, oksitler) inceleyen kimya dalı."
+    },
+    {
+      "terim": "biyokimya",
+      "tanim": "Canlılardaki maddeleri ve canlıda gerçekleşen kimyasal süreçleri inceleyen kimya dalı."
+    },
+    {
+      "terim": "fizikokimya",
+      "tanim": "Kimyasal olaylardaki enerji değişimlerini, tepkime hızını ve sıcaklık, basınç, derişim gibi etkenleri inceleyen kimya dalı."
+    },
+    {
+      "terim": "polimer",
+      "tanim": "Çok sayıda küçük molekülün (monomer) zincir hâlinde birleşmesiyle oluşan dev molekül; ipek doğal, naylon sentetik polimerdir."
+    },
+    {
+      "terim": "mordan",
+      "tanim": "Boyanın life tutunmasına yardım eden madde; kök boyacılıkta şap kullanılır."
+    },
+    {
+      "terim": "kariyer planlaması",
+      "tanim": "İlgi ve yeteneklere göre hedef belirleyip o hedefe giden yol haritasını çizmek."
+    }
   ],
   "akce_toplam": 1400,
   "sayfa_sayisi": 15

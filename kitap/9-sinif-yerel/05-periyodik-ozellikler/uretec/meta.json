@@ -7,57 +7,299 @@
   "klasor": "05-periyodik-ozellikler",
   "tema": "Tema 1 · Bölüm 5",
   "bolge": "Sivas · Elazığ",
-  "merkez": {"enlem": 38.85, "boylam": 38.95},
+  "merkez": {
+    "enlem": 38.85,
+    "boylam": 38.95
+  },
   "duraklar": [
-    {"no": 1, "yer": "Divriği", "baslik": "Atom yarıçapı", "konu": "demir ocağı · basamaklar ve katmanlar", "enlem": 39.372, "boylam": 38.118, "sayfa": 2, "akce": 100},
-    {"no": 2, "yer": "Guleman", "baslik": "İyon yarıçapı", "konu": "krom ocakları · kromitte Fe²⁺, Cr³⁺, O²⁻", "enlem": 38.462, "boylam": 39.863, "sayfa": 3, "akce": 120},
-    {"no": 3, "yer": "Maden", "baslik": "İyonlaşma enerjisi", "konu": "Dicle vadisinde bakır", "enlem": 38.392, "boylam": 39.675, "sayfa": 4, "akce": 120},
-    {"no": 4, "yer": "Hazar Gölü", "baslik": "Ardışık iyonlaşma enerjileri", "konu": "derine indikçe zorlaşır, sonra sıçrar", "enlem": 38.49, "boylam": 39.40, "sayfa": 5, "akce": 120},
-    {"no": 5, "yer": "Keban Baraj Gölü", "baslik": "Elektronegatiflik", "konu": "Karasu ile Murat’ın buluştuğu göl · paylaşılan elektronlar", "enlem": 38.89, "boylam": 38.80, "sayfa": 6, "akce": 120},
-    {"no": 6, "yer": "Keban", "baslik": "Metalik ve ametalik karakter", "konu": "baraj ve gümüşlü kurşun ocakları", "enlem": 38.796, "boylam": 38.737, "sayfa": 7, "akce": 120}
+    {
+      "no": 1,
+      "yer": "Divriği",
+      "baslik": "Atom yarıçapı",
+      "konu": "demir ocağı · basamaklar ve katmanlar",
+      "enlem": 39.372,
+      "boylam": 38.118,
+      "sayfa": 2,
+      "akce": 100
+    },
+    {
+      "no": 2,
+      "yer": "Guleman",
+      "baslik": "İyon yarıçapı",
+      "konu": "krom ocakları · kromitte Fe²⁺, Cr³⁺, O²⁻",
+      "enlem": 38.462,
+      "boylam": 39.863,
+      "sayfa": 3,
+      "akce": 120
+    },
+    {
+      "no": 3,
+      "yer": "Maden",
+      "baslik": "İyonlaşma enerjisi",
+      "konu": "Dicle vadisinde bakır",
+      "enlem": 38.392,
+      "boylam": 39.675,
+      "sayfa": 4,
+      "akce": 120
+    },
+    {
+      "no": 4,
+      "yer": "Hazar Gölü",
+      "baslik": "Ardışık iyonlaşma enerjileri",
+      "konu": "derine indikçe zorlaşır, sonra sıçrar",
+      "enlem": 38.49,
+      "boylam": 39.4,
+      "sayfa": 5,
+      "akce": 120
+    },
+    {
+      "no": 5,
+      "yer": "Keban Baraj Gölü",
+      "baslik": "Elektronegatiflik",
+      "konu": "Karasu ile Murat’ın buluştuğu göl · paylaşılan elektronlar",
+      "enlem": 38.89,
+      "boylam": 38.8,
+      "sayfa": 6,
+      "akce": 120
+    },
+    {
+      "no": 6,
+      "yer": "Keban",
+      "baslik": "Metalik ve ametalik karakter",
+      "konu": "baraj ve gümüşlü kurşun ocakları",
+      "enlem": 38.796,
+      "boylam": 38.737,
+      "sayfa": 7,
+      "akce": 120
+    }
   ],
   "kale": "Divriği Kalesi",
-  "kale_konum": {"enlem": 39.374, "boylam": 38.114},
+  "kale_konum": {
+    "enlem": 39.374,
+    "boylam": 38.114
+  },
   "nisanlar": [
-    {"ad": "Ocak Ölçücüsü", "ikon": "yaricap", "renk": "mer", "aciklama": "1. durak"},
-    {"ad": "Kromit Kâşifi", "ikon": "iyon", "renk": "gol", "aciklama": "2. durak"},
-    {"ad": "Bakır Ustası", "ikon": "bakir", "renk": "keh", "aciklama": "3. durak"},
-    {"ad": "Hazar Dalgıcı", "ikon": "sicrama", "renk": "kob", "aciklama": "4. durak"},
-    {"ad": "Halat Hakemi", "ikon": "halat", "renk": "erg", "aciklama": "5. durak"},
-    {"ad": "Gümüş Ustası", "ikon": "gumus", "renk": "gol", "aciklama": "6. durak"},
-    {"ad": "Kale Kapısı", "ikon": "kale", "renk": "keh", "aciklama": "İmtihan · 10+ doğru"},
-    {"ad": "Üstad Mührü", "ikon": "ustad", "renk": "laj", "aciklama": "Üstad · 6/6 doğru", "bonus": true}
+    {
+      "ad": "Katman Sayıcı",
+      "ikon": "yaricap",
+      "renk": "mer",
+      "aciklama": "1. durak"
+    },
+    {
+      "ad": "Kromit Kâşifi",
+      "ikon": "iyon",
+      "renk": "gol",
+      "aciklama": "2. durak"
+    },
+    {
+      "ad": "Bakır Ustası",
+      "ikon": "bakir",
+      "renk": "keh",
+      "aciklama": "3. durak"
+    },
+    {
+      "ad": "Hazar Dalgıcı",
+      "ikon": "sicrama",
+      "renk": "kob",
+      "aciklama": "4. durak"
+    },
+    {
+      "ad": "Halat Hakemi",
+      "ikon": "halat",
+      "renk": "erg",
+      "aciklama": "5. durak"
+    },
+    {
+      "ad": "Gümüş Ustası",
+      "ikon": "gumus",
+      "renk": "gol",
+      "aciklama": "6. durak"
+    },
+    {
+      "ad": "Kale Kapısı",
+      "ikon": "kale",
+      "renk": "keh",
+      "aciklama": "İmtihan · 10+ doğru"
+    },
+    {
+      "ad": "Üstad Mührü",
+      "ikon": "ustad",
+      "renk": "laj",
+      "aciklama": "Üstad · 6/6 doğru",
+      "bonus": true
+    }
   ],
   "hazine": [
-    {"kod": "H1", "renk": "mer", "baslik": "Atom yarıçapı", "formul": "r = d / 2", "not": "d: bağlı iki özdeş atomun çekirdekleri arası · +10 akçe", "kisa": "r = d / 2", "durak": 1},
-    {"kod": "H2", "renk": "gol", "baslik": "Yarıçap pusulası", "formul": "grupta ↓ artar · periyotta → azalır", "not": "Önce katman sayısı, sonra çekirdek çekimi · +10 akçe", "kisa": "aşağı artar · sağa azalır", "durak": 1},
-    {"kod": "H3", "renk": "kob", "baslik": "Atom mu, iyon mu?", "formul": "anyon > atom > katyon", "not": "Aynı elementin tanecikleri · p/e büyüdükçe küçülür · +10", "kisa": "anyon > atom > katyon", "durak": 2},
-    {"kod": "H4", "renk": "gol", "baslik": "İzoelektronik sıra", "formul": "elektron eşit: proton çok, tanecik küçük", "not": "N³⁻ > O²⁻ > F⁻ > Na⁺ > Mg²⁺ > Al³⁺ · +10 akçe", "kisa": "proton çok, küçük", "durak": 2},
-    {"kod": "H5", "renk": "keh", "baslik": "İyonlaşma enerjisi", "formul": "X(g) + İE₁ → X⁺(g) + e⁻", "not": "Her zaman enerji alır: endotermik · +10 akçe", "kisa": "X(g) + İE₁ → X⁺ + e⁻", "durak": 3},
-    {"kod": "H6", "renk": "mer", "baslik": "Periyotta İE₁ sırası", "formul": "1A < 3A < 2A < 4A < 6A < 5A < 7A < 8A", "not": "İstisnalar: 2A > 3A ve 5A > 6A · +10 akçe", "kisa": "2A > 3A · 5A > 6A", "durak": 3},
-    {"kod": "H7", "renk": "kob", "baslik": "Ardışık İE", "formul": "İE₁ < İE₂ < İE₃ < …", "not": "Elektron sayısı kadar iyonlaşma enerjisi vardır · +10", "kisa": "İE₁ < İE₂ < …", "durak": 4},
-    {"kod": "H8", "renk": "gol", "sinif": "strateji", "baslik": "Grup bulma · 3 adım · +10 akçe", "adimlar": ["<b>Böl:</b> her İE’yi bir öncekine böl.", "<b>Seç:</b> en büyük sıçramayı bul (≈ 3 kat ve üstü).", "<b>Say:</b> sıçramadan önce kopan elektron sayısı = grup (A)."], "kisa": "böl · seç · say", "durak": 4},
-    {"kod": "H9", "renk": "kob", "baslik": "Elektronegatiflik", "formul": "periyotta → artar · grupta ↓ azalır", "not": "Pauling ölçeği: en büyük F (4,0); birimsiz · +10", "kisa": "sağa artar · aşağı azalır", "durak": 5},
-    {"kod": "H10", "renk": "mer", "baslik": "Kısmi yük", "formul": "EN büyük olan (−) · küçük olan (+)", "not": "Fark büyüdükçe bağ daha polar olur · +10 akçe", "kisa": "EN büyük: (−)", "durak": 5},
-    {"kod": "H11", "renk": "gol", "baslik": "Metalik karakter", "formul": "sol alt köşeye doğru artar", "not": "En metalikler Cs ve Fr · elektron vermeye yatkın · +10", "kisa": "sol alt köşe", "durak": 6},
-    {"kod": "H12", "renk": "mer", "baslik": "Ametalik karakter", "formul": "sağ üst köşeye (F) doğru artar", "not": "Soy gazlar bu karşılaştırmaya girmez · +10 akçe", "kisa": "sağ üst: F", "durak": 6}
+    {
+      "kod": "H1",
+      "renk": "mer",
+      "baslik": "Atom yarıçapı",
+      "formul": "r = d / 2",
+      "not": "d: bağlı iki özdeş atomun çekirdekleri arası · +10 akçe",
+      "kisa": "r = d / 2",
+      "durak": 1
+    },
+    {
+      "kod": "H2",
+      "renk": "gol",
+      "baslik": "Yarıçap pusulası",
+      "formul": "grupta ↓ artar · periyotta → azalır",
+      "not": "Önce katman sayısı, sonra çekirdek çekimi · +10 akçe",
+      "kisa": "katman · çekim",
+      "durak": 1
+    },
+    {
+      "kod": "H3",
+      "renk": "kob",
+      "baslik": "Atom mu, iyon mu?",
+      "formul": "anyon > atom > katyon",
+      "not": "Aynı elementin tanecikleri · p/e büyüdükçe küçülür · +10",
+      "kisa": "anyon > atom",
+      "durak": 2
+    },
+    {
+      "kod": "H4",
+      "renk": "gol",
+      "baslik": "İzoelektronik sıra",
+      "formul": "elektron eşit: proton çok, tanecik küçük",
+      "not": "N³⁻ > O²⁻ > F⁻ > Na⁺ > Mg²⁺ > Al³⁺",
+      "kisa": "p çok, küçük",
+      "durak": 2
+    },
+    {
+      "kod": "H5",
+      "renk": "keh",
+      "baslik": "İyonlaşma enerjisi",
+      "formul": "X(g) + İE₁ → X⁺(g) + e⁻",
+      "not": "Her zaman enerji alır: endotermik · +10 akçe",
+      "kisa": "endotermik",
+      "durak": 3
+    },
+    {
+      "kod": "H6",
+      "renk": "mer",
+      "baslik": "Periyotta İE₁ sırası",
+      "formul": "1A < 3A < 2A < 4A < 6A < 5A < 7A < 8A",
+      "not": "İstisnalar: 2A > 3A ve 5A > 6A · +10 akçe",
+      "kisa": "2A>3A · 5A>6A",
+      "durak": 3
+    },
+    {
+      "kod": "H7",
+      "renk": "kob",
+      "baslik": "Ardışık İE",
+      "formul": "İE₁ < İE₂ < İE₃ < …",
+      "not": "Elektron sayısı kadar iyonlaşma enerjisi vardır · +10",
+      "kisa": "İE₁ < İE₂ < …",
+      "durak": 4
+    },
+    {
+      "kod": "H8",
+      "renk": "gol",
+      "sinif": "strateji",
+      "baslik": "Grup bulma · 3 adım · +10 akçe",
+      "adimlar": [
+        "<b>Böl:</b> her İE’yi bir öncekine böl.",
+        "<b>Seç:</b> en büyük sıçramayı bul (≈ 3 kat ve üstü).",
+        "<b>Say:</b> sıçramadan önce kopan elektron sayısı = grup (A)."
+      ],
+      "kisa": "böl · seç · say",
+      "durak": 4
+    },
+    {
+      "kod": "H9",
+      "renk": "kob",
+      "baslik": "Elektronegatiflik",
+      "formul": "periyotta → artar · grupta ↓ azalır",
+      "not": "Pauling ölçeği: en büyük F (4,0); birimsiz · +10",
+      "kisa": "F en büyük: 4,0",
+      "durak": 5
+    },
+    {
+      "kod": "H10",
+      "renk": "mer",
+      "baslik": "Kısmi yük",
+      "formul": "EN büyük olan (−) · küçük olan (+)",
+      "not": "Fark büyüdükçe bağ daha polar olur · +10 akçe",
+      "kisa": "EN büyük: (−)",
+      "durak": 5
+    },
+    {
+      "kod": "H11",
+      "renk": "gol",
+      "baslik": "Metalik karakter",
+      "formul": "sol alt köşeye doğru artar",
+      "not": "En metalikler Cs ve Fr · elektron vermeye yatkın · +10",
+      "kisa": "sol alt köşe",
+      "durak": 6
+    },
+    {
+      "kod": "H12",
+      "renk": "mer",
+      "baslik": "Ametalik karakter",
+      "formul": "sağ üst köşeye (F) doğru artar",
+      "not": "Soy gazlar bu karşılaştırmaya girmez · +10 akçe",
+      "kisa": "sağ üst: F",
+      "durak": 6
+    }
   ],
   "medeniyet": [
-    {"ad": "Divriği Darüşşifası", "yil": "1228", "katki": "Turan Melek Sultan’ın yaptırdığı şifahane (hastane); Ulu Cami ile birlikte 1985’te UNESCO Dünya Mirası Listesi’ne alındı.", "sayfa": 2}
+    {
+      "ad": "Divriği Darüşşifası",
+      "yil": "1228",
+      "katki": "Turan Melek Sultan’ın yaptırdığı şifahane (hastane); Ulu Cami ile birlikte 1985’te UNESCO Dünya Mirası Listesi’ne alındı.",
+      "sayfa": 2
+    }
   ],
   "kavramlar": [
-    {"terim": "atom yarıçapı", "tanim": "Çekirdek ile en dış elektron katmanı arasındaki uzaklık; bağlı iki özdeş atomun çekirdekleri arası uzaklığın yarısı olarak ölçülür (r = d / 2)."},
-    {"terim": "iyon yarıçapı", "tanim": "Bir iyonun boyutu. Atom elektron verince küçülür (katyon), elektron alınca büyür (anyon)."},
-    {"terim": "p/e oranı", "tanim": "Proton sayısının elektron sayısına oranı; katman sayısı aynıyken büyüdükçe elektron başına çekim artar, tanecik küçülür."},
-    {"terim": "izoelektronik tanecikler", "tanim": "Elektron sayıları ve dizilimleri aynı olan tanecikler; proton sayısı büyük olan daha küçüktür."},
-    {"terim": "iyonlaşma enerjisi", "tanim": "Gaz hâlindeki bir atom ya da iyondan bir elektron koparmak için gereken en az enerji; iyonlaşma her zaman endotermiktir."},
-    {"terim": "ardışık iyonlaşma enerjileri", "tanim": "Elektronlar tek tek koparılırken gereken enerjiler (İE₁ < İE₂ < …); değerlik elektronları bitince büyük bir sıçrama görülür."},
-    {"terim": "değerlik elektronu", "tanim": "Baş grup elementlerinde en dış katmandaki elektronlar; sayısı A grubunun numarasına eşittir."},
-    {"terim": "elektronegatiflik", "tanim": "Bir atomun kimyasal bağdaki ortaklaşa kullanılan elektronları kendine çekme yeteneği; Pauling ölçeğinde birimsizdir, en büyük değer F (4,0)."},
-    {"terim": "kısmi yük (δ)", "tanim": "Bağda elektronegatifliği büyük olan atom kısmi negatif (δ⁻), küçük olan kısmi pozitif (δ⁺) yükle gösterilir."},
-    {"terim": "metalik karakter", "tanim": "Atomun elektron verip katyon oluşturma eğilimi; periyodik tabloda sol alt köşeye doğru artar."},
-    {"terim": "ametalik karakter", "tanim": "Atomun elektron alıp anyon oluşturma ya da bağ elektronlarını kendine çekme eğilimi; sağ üst köşeye (F) doğru artar."},
-    {"terim": "aktiflik", "tanim": "Bir elementin tepkimeye girme isteği; metallerde grupta aşağı, halojenlerde grupta yukarı doğru artar."}
+    {
+      "terim": "atom yarıçapı",
+      "tanim": "Çekirdek ile en dış elektron katmanı arasındaki uzaklık; bağlı iki özdeş atomun çekirdekleri arası uzaklığın yarısı olarak ölçülür (r = d / 2)."
+    },
+    {
+      "terim": "iyon yarıçapı",
+      "tanim": "Bir iyonun boyutu. Atom elektron verince küçülür (katyon), elektron alınca büyür (anyon)."
+    },
+    {
+      "terim": "p/e oranı",
+      "tanim": "Proton sayısının elektron sayısına oranı; katman sayısı aynıyken büyüdükçe elektron başına çekim artar, tanecik küçülür."
+    },
+    {
+      "terim": "izoelektronik tanecikler",
+      "tanim": "Elektron sayıları ve dizilimleri aynı olan tanecikler; proton sayısı büyük olan daha küçüktür."
+    },
+    {
+      "terim": "iyonlaşma enerjisi",
+      "tanim": "Gaz hâlindeki bir atom ya da iyondan bir elektron koparmak için gereken en az enerji; iyonlaşma her zaman endotermiktir."
+    },
+    {
+      "terim": "ardışık iyonlaşma enerjileri",
+      "tanim": "Elektronlar tek tek koparılırken gereken enerjiler (İE₁ < İE₂ < …); değerlik elektronları bitince büyük bir sıçrama görülür."
+    },
+    {
+      "terim": "değerlik elektronu",
+      "tanim": "Baş grup elementlerinde en dış katmandaki elektronlar; sayısı A grubunun numarasına eşittir."
+    },
+    {
+      "terim": "elektronegatiflik",
+      "tanim": "Bir atomun kimyasal bağdaki ortaklaşa kullanılan elektronları kendine çekme yeteneği; Pauling ölçeğinde birimsizdir, en büyük değer F (4,0)."
+    },
+    {
+      "terim": "kısmi yük (δ)",
+      "tanim": "Bağda elektronegatifliği büyük olan atom kısmi negatif (δ⁻), küçük olan kısmi pozitif (δ⁺) yükle gösterilir."
+    },
+    {
+      "terim": "metalik karakter",
+      "tanim": "Atomun elektron verip katyon oluşturma eğilimi; periyodik tabloda sol alt köşeye doğru artar."
+    },
+    {
+      "terim": "ametalik karakter",
+      "tanim": "Atomun elektron alıp anyon oluşturma ya da bağ elektronlarını kendine çekme eğilimi; sağ üst köşeye (F) doğru artar."
+    },
+    {
+      "terim": "aktiflik",
+      "tanim": "Bir elementin tepkimeye girme isteği; metallerde grupta aşağı, halojenlerde grupta yukarı doğru artar."
+    }
   ],
   "akce_toplam": 1400,
   "sayfa_sayisi": 16

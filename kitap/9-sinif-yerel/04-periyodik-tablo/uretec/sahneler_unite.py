@@ -545,13 +545,13 @@ def seydisehir():
     s += _baca(s, 1790, taban - 30, 46, 290, 17)
     s += _hol(s, 1500, taban, 600, 118, "#E2E6EA", "#6E7C8A", 18)
     s += _hol(s, 1830, taban - 4, 320, 150, "#D5DBE0", "#5E6C7A", 19, testere=True)
-    s += _kamyon(1080, taban + 44, .78, kasa="#E2E6EA", yuk="#B5482E", yon=-1)
+    s += _kamyon(1190, taban + 46, .72, kasa="#E2E6EA", yuk="#B5482E", yon=-1)
     for i, x in enumerate((1440, 1470, 2060)):
         s += S.kavak(s, x, taban + 6, 120 + i * 14, 24, 20 + i, renk="#5E9A4A")
     # yol
     s += f'<path d="M0 446 C500 430 900 448 1300 432 S1900 440 2100 430 V{H} H0 Z" fill="#8C8070"/>'
     s += f'<path d="M0 452 C500 436 900 454 1300 438 S1900 446 2100 436" stroke="#F4E9D8" stroke-width="3" stroke-dasharray="26 18" fill="none"/>'
-    s += _pamuk(1235, 330, 70, "pamuk-selam")
+    s += _pamuk(1395, 346, 70, "pamuk-selam")
     s += _cerceve(s)
     return _bitir(s)
 
@@ -772,7 +772,7 @@ def emet():
     s += _kamyon(1700, 404 - 250 * 2 / 6 + 2, .55, kasa="#E2533D", yuk="#FFFFFF", yon=-1)
     s += _ekskavator(1480, 404 - 250 * 3 / 6 + 2, .45)
     s += f'<path d="M0 446 C700 434 1300 450 2100 438 V{H} H0 Z" fill="#A89A72"/>'
-    s += '<use href="#elif-dusunen" x="1180" y="280" width="150" height="158"/>'
+    s += '<use href="#elif-dusunen" x="1300" y="284" width="150" height="158"/>'
     s += _cerceve(s)
     return _bitir(s)
 
@@ -961,19 +961,19 @@ def final_kutahya(h=890, nisanlar=None):
 # Seydişehir. Konumlar panorama birimidir (2100×1100); kuzey yukarıdadır. Etiket metinleri kur.py'de (HTML).
 DURAKLAR = [  # (anahtar, x, y, üst satır, ad, "s.N · akçe", tür)
     ("1", 1840, 960, "1. DURAK · SEYDİŞEHİR", "Boşluktan tabloya", "s.2 · +100 akçe", "durak"),
-    ("2", 1268, 688, "2. DURAK · KÜTAHYA", "Dizilimden adrese", "s.3 · +150 akçe", "durak"),
-    ("3", 982, 642, "3. DURAK · GÜMÜŞKÖY", "Kestirme yollar", "s.4 · +150 akçe", "durak"),
-    ("4", 1590, 584, "4. DURAK · KIRKA", "Metal mi, yarı metal mi?", "s.5 · +150 akçe", "durak"),
+    ("2", 1320, 680, "2. DURAK · KÜTAHYA", "Dizilimden adrese", "s.3 · +150 akçe", "durak"),
+    ("3", 880, 600, "3. DURAK · GÜMÜŞKÖY", "Kestirme yollar", "s.4 · +150 akçe", "durak"),
+    ("4", 1620, 560, "4. DURAK · KIRKA", "Metal mi, yarı metal mi?", "s.5 · +150 akçe", "durak"),
     ("5", 300, 476, "5. DURAK · BANDIRMA", "Aileler ve iyonlar", "s.6 · +150 akçe", "durak"),
     ("H", 430, 606, "KUŞCENNETİ", "Hülasa", "s.7 · +40 akçe", "hulasa"),
-    ("M", 330, 830, "BİGADİÇ", "Meclis: Kim haklı?", "s.8 · +120 akçe", "yan"),
-    ("K", 762, 800, "EMET", "Kıssa", "s.9 · +120 akçe", "yan"),
-    ("A", 1188, 838, "GERMİYAN SOKAĞI", "Anahtar merdiveni", "s.10 · +120 akçe", "yan"),
-    ("V", 1106, 722, "KÜTAHYA KALESİ", "Büyük İmtihan", "s.11–12 · +300 akçe", "kale"),
+    ("M", 300, 840, "BİGADİÇ", "Meclis: Kim haklı?", "s.8 · +120 akçe", "yan"),
+    ("K", 700, 860, "EMET", "Kıssa", "s.9 · +120 akçe", "yan"),
+    ("A", 1220, 900, "GERMİYAN SOKAĞI", "Anahtar merdiveni", "s.10 · +120 akçe", "yan"),
+    ("V", 1100, 740, "KÜTAHYA KALESİ", "Büyük İmtihan", "s.11–12 · +300 akçe", "kale"),
 ]
-ROTA_ARA = {("1", "2"): [(1640, 900), (1440, 790)], ("2", "3"): [(1150, 630)], ("3", "4"): [(1120, 560), (1380, 540)],
-            ("4", "5"): [(1360, 500), (980, 520), (620, 560), (420, 520)], ("5", "H"): [(330, 560)], ("H", "M"): [(380, 720)],
-            ("M", "K"): [(540, 850)], ("K", "A"): [(980, 860)], ("A", "V"): [(1150, 780)]}
+ROTA_ARA = {("1", "2"): [(1640, 900), (1460, 780)], ("2", "3"): [(1100, 610)], ("3", "4"): [(1050, 540), (1350, 520)],
+            ("4", "5"): [(1360, 480), (980, 500), (620, 540), (420, 500)], ("5", "H"): [(330, 560)], ("H", "M"): [(360, 720)],
+            ("M", "K"): [(500, 880)], ("K", "A"): [(960, 900)], ("A", "V"): [(1160, 820)]}
 
 
 def maden_panorama(h=1100):
@@ -1023,14 +1023,14 @@ def maden_panorama(h=1100):
     s += halolu_yazi('x="700" y="392" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="24" letter-spacing="2"', "ULUDAĞ", "#3A2E56", "#FFFFFF", 3)
     s += halolu_yazi('x="200" y="400" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="26" letter-spacing="3"', "MARMARA", "#0E4C5A", "#E6F6F8", 3)
     s += halolu_yazi('x="1940" y="1062" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="24" letter-spacing="2"', "TOROSLAR", "#3A2E56", "#FFFFFF", 3)
-    s += _basamakli(s, 1640, 600, 190, 60, 4, "#FFFFFF", "#E4ECF2", "#A9BCCD", 211, yol=False)       # Kırka
-    s += _basamakli(s, 1030, 650, 120, 40, 3, "#E3E8EC", "#A9B4BE", "#6F7C88", 212, yol=False)       # Gümüşköy
-    s += _basamakli(s, 300, 850, 130, 42, 3, "#FBFAF6", "#DCD8CE", "#A8A296", 213, yol=False)        # Bigadiç
-    s += _basamakli(s, 820, 820, 130, 42, 3, "#FBFAF6", "#D9D4C8", "#A49C8E", 214, yol=False)        # Emet
-    kale, _ = _kale(s, 1040, 1180, 726, 90, 215, bayrak=True)
+    s += _basamakli(s, 1720, 610, 190, 60, 4, "#FFFFFF", "#E4ECF2", "#A9BCCD", 211, yol=False)       # Kırka
+    s += _basamakli(s, 960, 640, 120, 40, 3, "#E3E8EC", "#A9B4BE", "#6F7C88", 212, yol=False)       # Gümüşköy
+    s += _basamakli(s, 400, 880, 130, 42, 3, "#FBFAF6", "#DCD8CE", "#A8A296", 213, yol=False)        # Bigadiç
+    s += _basamakli(s, 800, 890, 130, 42, 3, "#FBFAF6", "#D9D4C8", "#A49C8E", 214, yol=False)        # Emet
+    kale, _ = _kale(s, 1020, 1180, 752, 96, 215, bayrak=True)
     s += kale
     for i in range(7):
-        s += _kutahya_evi(s, 1160 + (i % 4) * 46, 760 + (i // 4) * 40, 32, 30, 216 + i)
+        s += _kutahya_evi(s, 1170 + (i % 4) * 46, 790 + (i // 4) * 40, 32, 30, 216 + i)
     for k in range(3):
         s += _silo(s, 1880 + k * 22, 990, 18, 50, "#F2F4F6")
     s += _hol(s, 1760, 1000, 110, 34, "#E2E6EA", "#6E7C8A", 219)

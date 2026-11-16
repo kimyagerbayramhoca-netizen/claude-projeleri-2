@@ -1052,13 +1052,13 @@ def final_urfa(h=900, nisanlar=None):
 # kuzeydoğuda Göbeklitepe, güneydoğuda Harran Ovası ve Harran. Konumlar panorama birimidir (2100×1100);
 # şehir kalabalık olduğu için şehirdeki duraklar aralıklı çizildi (ölçek dışı).
 DURAKLAR = [  # (anahtar, x, y, tür)
-    ("1", 1700, 470, "durak"), ("2", 1790, 975, "durak"), ("3", 1950, 905, "durak"), ("4", 1430, 650, "durak"),
-    ("5", 400, 565, "durak"), ("6", 480, 715, "durak"), ("H", 1130, 700, "hulasa"), ("M", 1270, 800, "yan"),
-    ("K", 1580, 880, "yan"), ("A", 1520, 760, "yan"), ("V", 1310, 590, "kale"),
+    ("1", 1760, 440, "durak"), ("2", 1960, 740, "durak"), ("3", 1800, 1000, "durak"), ("4", 1280, 620, "durak"),
+    ("5", 400, 560, "durak"), ("6", 470, 980, "durak"), ("H", 1000, 660, "hulasa"), ("M", 1040, 900, "yan"),
+    ("K", 1500, 880, "yan"), ("A", 1200, 800, "yan"), ("V", 1100, 560, "kale"),
 ]
-ROTA_ARA = {("1", "2"): [(1760, 640), (1720, 820)], ("2", "3"): [(1880, 970)], ("3", "4"): [(1900, 760), (1640, 690)],
-            ("4", "5"): [(1180, 560), (820, 520), (560, 520)], ("5", "6"): [(380, 650)], ("6", "H"): [(700, 760), (950, 740)],
-            ("H", "M"): [(1170, 790)], ("M", "K"): [(1420, 860)], ("K", "A"): [(1620, 810)], ("A", "V"): [(1400, 720), (1320, 650)]}
+ROTA_ARA = {("1", "2"): [(1900, 560)], ("2", "3"): [(1960, 900)], ("3", "4"): [(1600, 880), (1420, 700)],
+            ("4", "5"): [(1300, 520), (1000, 470), (620, 480)], ("5", "6"): [(330, 700), (380, 900)], ("6", "H"): [(700, 860), (900, 720)],
+            ("H", "M"): [(960, 790)], ("M", "K"): [(1280, 940)], ("K", "A"): [(1360, 860)], ("A", "V"): [(1150, 680)]}
 
 
 def _durak_rozet(k, x, y, tur):
@@ -1124,41 +1124,43 @@ def panorama_urfa(h=1100):
                 sc = .6 + (y - ufuk) / (h - ufuk) * .6
                 s += f'<circle cx="{f(x)}" cy="{f(y)}" r="{f(9 * sc)}" fill="{r.choice(["#7A8E3A", "#6B7F32", "#889B44"])}"/><circle cx="{f(x - 3 * sc)}" cy="{f(y - 3 * sc)}" r="{f(4 * sc)}" fill="#A8BC5E" opacity=".7"/>'
     # Göbeklitepe (kuzeydoğu tepe): oval çukur ve küçük T taşları
-    tb = [(1560, 520), (1630, 440), (1720, 418), (1820, 444), (1880, 520)]
+    tb = [(1590, 500), (1660, 420), (1760, 392), (1860, 418), (1940, 500)]
     s += f'<path d="{egri_d(tb)} Z" fill="#D9AE62"/>'
-    s += f'<ellipse cx="1720" cy="452" rx="58" ry="14" fill="#9C7A48"/>'
+    s += f'<ellipse cx="1660" cy="430" rx="52" ry="13" fill="#9C7A48"/>'
     for k in range(6):
         a = math.pi + k * math.pi / 5
-        s += t_dikilitas(s, 1720 + 50 * math.cos(a), 456 + 12 * math.sin(a), 30, 160 + k, isik=1, oyma=0)
+        s += t_dikilitas(s, 1660 + 45 * math.cos(a), 434 + 11 * math.sin(a), 28, 160 + k, isik=1, oyma=0)
     # Urfa şehri: kale tepesi ve taş evler (stilize, büyütülmüş)
-    s += kale_tepesi(s, 1200, 1430, 640, 540, 170, isik=-1, olcek=.42)
-    for k in range(40):
-        x = r.uniform(1060, 1620)
-        y = r.uniform(600, 820)
-        if any(math.hypot(x - a, y - b) < 52 for _, a, b, _t in DURAKLAR) or (1200 < x < 1430 and y < 650):
+    s += kale_tepesi(s, 1130, 1330, 600, 512, 170, isik=-1, olcek=.4)
+    for k in range(46):
+        x = r.uniform(960, 1460)
+        y = r.uniform(600, 860)
+        if any(math.hypot(x - a, y - b) < 52 for _, a, b, _t in DURAKLAR) or (1120 < x < 1340 and y < 610):
             continue
         sc = .5 + (y - ufuk) / (h - ufuk) * .5
         s += tas_ev(s, x, y, 34 * sc, 22 * sc, 200 + k, tas=r.choice(["#F1E2BF", "#E9D7AE", "#F4E9D0"]), isik=1, kemer=False)
     # Harran Ovası (güneydoğu): yeşil-altın tarlalar, sulama kanalları, pamuk
-    ova = [(1150, 1100), (1240, 900), (1420, 840), (1700, 820), (2100, 800), (2100, 1100)]
+    ova = [(1150, 1100), (1250, 930), (1440, 850), (1700, 700), (2100, 640), (2100, 1100)]
     go = s.lin([(0, "#B9C56E"), (1, "#7FA650")], 0, 820, 0, 1100, kull="userSpaceOnUse", ad="ova")
     s += f'<path d="{egri_d(ova[:-1])} L2100 1100 Z" fill="{go}"/>'
     for k in range(9):
-        s += f'<path d="M{1300 + k * 100} 1100 L{1500 + k * 66} 830" stroke="{["#E6D07A", "#6E9A44"][k % 2]}" stroke-width="{f(18 - k)}" opacity=".45"/>'
-    s += f'<path d="M1240 860 L2100 920" stroke="#3DB5BE" stroke-width="7" opacity=".9"/><path d="M1500 840 L1420 1100" stroke="#3DB5BE" stroke-width="6" opacity=".9"/>'
-    for k in range(80):
-        x = r.uniform(1260, 2080)
-        y = r.uniform(860, 1080)
+        s += f'<path d="M{1300 + k * 100} 1100 L{1560 + k * 60} {760 - k * 12}" stroke="{["#E6D07A", "#6E9A44"][k % 2]}" stroke-width="{f(18 - k)}" opacity=".45"/>'
+    s += f'<path d="M1300 900 L2100 820" stroke="#3DB5BE" stroke-width="7" opacity=".9"/><path d="M1640 760 L1560 1100" stroke="#3DB5BE" stroke-width="6" opacity=".9"/>'
+    for k in range(90):
+        x = r.uniform(1300, 2080)
+        y = r.uniform(780, 1080)
+        if y < 1100 - (x - 1150) * .5:
+            continue
         if any(math.hypot(x - a, y - b) < 50 for _, a, b, _t in DURAKLAR):
             continue
         s += f'<circle cx="{f(x)}" cy="{f(y)}" r="{f(r.uniform(2.4, 4.2))}" fill="#FFFFFF" opacity=".9"/>'
     # Harran ve höyük: kovan ev kümeleri
-    s += harran_kumesi(s, 1760, 1010, .3, 171, n=5, kapi=False)
-    hoy = [(1880, 945), (1930, 905), (2000, 900), (2050, 940)]
+    s += harran_kumesi(s, 1990, 800, .26, 171, n=4, kapi=False)
+    hoy = [(1700, 1060), (1760, 1010), (1860, 1004), (1920, 1060)]
     s += f'<path d="{egri_d(hoy)} Z" fill="#C9A066"/>'
-    s += harran_kumesi(s, 1900, 930, .2, 172, n=4, kapi=False)
+    s += harran_kumesi(s, 1840, 1062, .2, 172, n=4, kapi=False)
     # yollar (ince, açık)
-    for yol in ([(1310, 600), (1500, 560), (1700, 480)], [(1430, 660), (1600, 780), (1790, 970)], [(1300, 610), (900, 560), (420, 560)]):
+    for yol in ([(1200, 600), (1500, 520), (1760, 440)], [(1300, 660), (1600, 760), (1960, 740)], [(1100, 600), (800, 560), (420, 560)]):
         s += f'<path d="{egri_d(yol)}" fill="none" stroke="#F6E7C4" stroke-width="6" opacity=".7"/>'
     # rota (ana yol + yan yollar)
     sira = [d_[0] for d_ in DURAKLAR]

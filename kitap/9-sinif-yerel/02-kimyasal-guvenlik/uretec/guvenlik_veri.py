@@ -11,15 +11,15 @@ Depolama matrisi kitabın SADELEŞTİRİLMİŞ örneğidir (sayfada da öyle yaz
 
 # ------------------------------------------------------------------ GHS piktogramları (kod, tehlike adı, simge adı, anlam, örnek)
 GHS = [
-    ("GHS01", "Patlayıcı", "patlayan bomba", "Isı, darbe, sürtünme ya da kıvılcımla patlayabilir.", "TNT, nitrogliserin"),
-    ("GHS02", "Yanıcı", "alev", "Kolay tutuşur; alevden, kıvılcımdan uzak tutulur.", "etil alkol, aseton, metan"),
-    ("GHS03", "Yakıcı (oksitleyici)", "çember üstünde alev", "Yanmayı başlatır ya da şiddetlendirir.", "oksijen, potasyum permanganat"),
-    ("GHS04", "Basınçlı gaz", "gaz tüpü", "Tüp ısınırsa patlayabilir; soğuk gaz soğuk yanığı yapar.", "oksijen, azot, CO₂ tüpü"),
-    ("GHS05", "Aşındırıcı (korozif)", "aşınma", "Deriyi, gözü ve metali aşındırır; kimyasal yanık yapar.", "tuz ruhu, sud kostik"),
-    ("GHS06", "Zehirli (toksik)", "kurukafa", "Az miktarı bile yutulunca, solununca ağır zehirler.", "metanol, karbon monoksit"),
-    ("GHS07", "Tahriş edici, zararlı", "ünlem", "Deriyi, gözü, solunum yolunu tahriş eder.", "aseton, bazı temizleyiciler"),
-    ("GHS08", "Ciddi sağlık tehlikesi", "sağlık tehlikesi", "Uzun sürede kanser ya da organ hasarı yapabilir.", "benzen, formaldehit"),
-    ("GHS09", "Çevreye zararlı", "ağaç ve balık", "Su canlıları için zehirlidir; lavaboya dökülmez.", "bakır(II) sülfat, cıva bileşikleri"),
+    ("GHS01", "Patlayıcı", "patlayan bomba", "Isı, darbe ya da kıvılcımla patlayabilir.", "TNT, nitrogliserin"),
+    ("GHS02", "Yanıcı", "alev", "Kolay tutuşur; alevden uzak tutulur.", "alkol, aseton, metan"),
+    ("GHS03", "Yakıcı (oksitleyici)", "çember üstünde alev", "Yanmayı başlatır ya da şiddetlendirir.", "oksijen, KMnO₄"),
+    ("GHS04", "Basınçlı gaz", "gaz tüpü", "Tüp ısınırsa patlayabilir; soğuk yanık yapar.", "oksijen, CO₂ tüpü"),
+    ("GHS05", "Aşındırıcı (korozif)", "aşınma", "Deriyi, gözü ve metali aşındırır, yakar.", "tuz ruhu, sud kostik"),
+    ("GHS06", "Zehirli (toksik)", "kurukafa", "Az miktarı bile ağır zehirlenme yapar.", "metanol, CO gazı"),
+    ("GHS07", "Tahriş edici, zararlı", "ünlem", "Deriyi, gözü, solunum yolunu tahriş eder.", "aseton, çamaşır sodası"),
+    ("GHS08", "Ciddi sağlık tehlikesi", "sağlık tehlikesi", "Uzun sürede kanser, organ hasarı yapabilir.", "benzen, formaldehit"),
+    ("GHS09", "Çevreye zararlı", "ağaç ve balık", "Su canlılarına zehirli; lavaboya dökülmez.", "bakır(II) sülfat"),
 ]
 GHS_AD = {k: ad for k, ad, *_ in GHS}
 GHS_SIMGE = {k: sim for k, _a, sim, *_ in GHS}
@@ -36,6 +36,7 @@ MADDE_PIKTO = {
     "oksijen tüpü": {"GHS03", "GHS04"},
     "karbon monoksit": {"GHS02", "GHS04", "GHS06", "GHS08"},
     "amonyum nitrat": {"GHS03", "GHS07"},
+    "çamaşır sodası": {"GHS07"},
 }
 
 # ------------------------------------------------------------------ güvenlik işaretleri (aile: biçim, renk, anlam)
@@ -44,7 +45,7 @@ ISARET_AILE = {
     "uya": ("Uyarı", "sarı üçgen", "dikkat et"),
     "yas": ("Yasak", "kırmızı çizgili daire", "yapma"),
     "acil": ("Acil durum", "yeşil kare", "yardım burada"),
-    "yan": ("Yangın ekipmanı", "kırmızı kare", "söndürücü burada"),
+    "yan": ("Yangın", "kırmızı kare", "söndürücü burada"),
 }
 # simge → (aile, ad)
 ISARET = {
@@ -54,6 +55,10 @@ ISARET = {
     "ilkyardim": ("acil", "İlk yardım"), "gozdusu": ("acil", "Göz duşu"),
     "sondurucu": ("yan", "Yangın söndürücü"),
 }
+# 1. duraktaki işaret ızgarasında gösterilenler (her aileden örnek; sığması için seçilmiş alt küme)
+ISARET_KISA = {"baret": "Baret", "gozluk": "Gözlük", "eldiven": "Eldiven", "elektrik": "Elektrik", "sicak": "Sıcak",
+               "alev_yok": "Alev yok", "yeme_yok": "Yeme yok", "ilkyardim": "İlk yardım", "gozdusu": "Göz duşu", "sondurucu": "Söndürücü"}
+ISARET_IZGARA = ["baret", "gozluk", "eldiven", "elektrik", "sicak", "alev_yok", "yeme_yok", "ilkyardim", "gozdusu", "sondurucu"]
 
 # ------------------------------------------------------------------ depolama matrisi (sadeleştirilmiş örnek)
 # Sınıflar: Y yanıcı (alev) · O yakıcı/oksitleyici · Z zehirli (kurukafa) · A aşındırıcı · T tahriş edici (ünlem)
@@ -145,13 +150,16 @@ ISITMA = [
 
 # ------------------------------------------------------------------ atık sınıfları (kutu, örnekler)
 ATIK = [
-    ("kimyasal", "Kimyasal atık kabı", ["bakır(II) sülfat çözeltisi", "artan asit, baz (ayrı kaplar)"]),
-    ("cam", "Kırık cam kutusu", ["kırılan beher, deney tüpü"]),
-    ("tibbi", "Tıbbi atık (kırmızı torba)", ["kullanılmış enjektör, kanlı pamuk"]),
-    ("pil", "Atık pil kutusu", ["bitmiş kalem pil"]),
-    ("yag", "Bitkisel atık yağ", ["kızartma yağı"]),
-    ("ambalaj", "Ambalaj (geri dönüşüm)", ["boş, durulanmış deterjan şişesi"]),
+    ("kimyasal", "Kimyasal atık (etiketli kap)", ["artan çözeltiler"]),
+    ("cam", "Kırık cam (dayanıklı kutu)", ["kırık beher, tüp"]),
+    ("tibbi", "Tıbbi atık (kırmızı torba)", ["enjektör, kanlı pamuk"]),
+    ("pil", "Atık pil (toplama kutusu)", ["bitmiş kalem pil"]),
+    ("yag", "Atık yağ (bitkisel)", ["kızartma yağı"]),
+    ("ambalaj", "Ambalaj (geri dönüşüm)", ["boş deterjan şişesi"]),
 ]
+ATIK_KISA = {"kimyasal": ("Kimyasal", "atık", "çözeltiler"), "cam": ("Kırık", "cam", "beher, tüp"),
+             "tibbi": ("Tıbbi", "atık", "enjektör"), "pil": ("Atık", "pil", "kalem pil"),
+             "yag": ("Atık", "yağ", "kızartma"), "ambalaj": ("Ambalaj", "geri dön.", "boş şişe")}
 ATIK_KUTU = {o: ad for _k, ad, ornek in ATIK for o in ornek}
 
 # ------------------------------------------------------------------ kaza anı (durum → ilk adım) · güncel ilk yardım önerileri

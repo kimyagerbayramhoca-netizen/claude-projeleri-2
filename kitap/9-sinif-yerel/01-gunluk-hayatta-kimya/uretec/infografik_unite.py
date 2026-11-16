@@ -141,22 +141,23 @@ def temel_ihtiyaclar(onek="ui-tem"):
     cx, cy = 320, 150
     s += f'<rect width="{W}" height="{H}" rx="18" fill="#FFFFFF"/>'
     kartlar = [("Beslenme", "gübre · ambalaj", MER, "bugday"), ("Barınma", "çimento · cam", KEH, "ev"), ("Giyinme", "lif · boya", ERGUVAN, "ipek"),
-               ("Sağlık", "ilaç · dezenfektan", ZUMRUT, "ilac"), ("Temizlik", "sabun · deterjan", GOL, "sabun"), ("Enerji", "yakıt · pil", KOB, "pil")]
+               ("Sağlık", "ilaç · aşı", ZUMRUT, "ilac"), ("Temizlik", "sabun · deterjan", GOL, "sabun"), ("Enerji", "yakıt · pil", KOB, "pil")]
+    KW = 228
     for i, (ad, ornek, renk, ikon) in enumerate(kartlar):
         sol = i < 3
-        x = 14 if sol else 414
+        x = 6 if sol else W - 6 - KW
         y = 16 + (i % 3) * 94
-        ax, ay = (x + 212, y + 40) if sol else (x, y + 40)
+        ax, ay = (x + KW, y + 40) if sol else (x, y + 40)
         s += f'<path d="M{f(ax)} {f(ay)} L{cx} {cy}" stroke="{renk}" stroke-width="4" stroke-dasharray="8 6"/>'
-        s += f'<rect x="{x}" y="{y}" width="212" height="80" rx="14" fill="{acik(renk, .86)}" stroke="{renk}" stroke-width="3.4"/>'
-        s += f'<circle cx="{x + 36}" cy="{y + 40}" r="25" fill="#FFFFFF" stroke="{renk}" stroke-width="3"/>'
-        s += _ihtiyac_ikonu(ikon, x + 36, y + 40, renk)
-        s += _yazi(x + 70, y + 36, ad, 27, OBS, "start", B)
-        s += _yazi(x + 70, y + 64, ornek, 21, koyu(renk, .35), "start", TK)
-    s += f'<path d="{cizgi_d(yildiz_noktalari(cx, cy, 92, 74, 16, -math.pi / 2), True)}" fill="{ALTIN}" stroke="{OBS}" stroke-width="3"/>'
-    s += f'<path d="{cizgi_d(selcuklu_yildizi(cx, cy, 72), True)}" fill="{KOB}" stroke="{OBS}" stroke-width="2.6"/>'
-    s += f'<circle cx="{cx}" cy="{cy}" r="46" fill="#FFFFFF" stroke="{OBS}" stroke-width="2.6"/>'
-    s += _yazi(cx, cy + 10, "KİMYA", 27, KOB_K, "middle", B)
+        s += f'<rect x="{x}" y="{y}" width="{KW}" height="80" rx="14" fill="{acik(renk, .86)}" stroke="{renk}" stroke-width="3.4"/>'
+        s += f'<circle cx="{x + 34}" cy="{y + 40}" r="24" fill="#FFFFFF" stroke="{renk}" stroke-width="3"/>'
+        s += _ihtiyac_ikonu(ikon, x + 34, y + 40, renk)
+        s += _yazi(x + 66, y + 36, ad, 26, OBS, "start", B)
+        s += _yazi(x + 66, y + 63, ornek, 18.5, koyu(renk, .35), "start", TK)
+    s += f'<path d="{cizgi_d(yildiz_noktalari(cx, cy, 76, 62, 16, -math.pi / 2), True)}" fill="{ALTIN}" stroke="{OBS}" stroke-width="3"/>'
+    s += f'<path d="{cizgi_d(selcuklu_yildizi(cx, cy, 60), True)}" fill="{KOB}" stroke="{OBS}" stroke-width="2.6"/>'
+    s += f'<circle cx="{cx}" cy="{cy}" r="39" fill="#FFFFFF" stroke="{OBS}" stroke-width="2.6"/>'
+    s += _yazi(cx, cy + 8, "KİMYA", 22, KOB_K, "middle", B)
     return s.cikti(f"0 0 {W} {H}", cls="info")
 
 
@@ -185,9 +186,9 @@ def cini_renkleri(onek="ui-cin"):
     W, H = 560, 196
     s += f'<rect width="{W}" height="{H}" rx="18" fill="#FFFFFF"/>'
     sutun = [("kobalt oksit", "#2E2E3A", KOB, "lacivert"), ("bakır oksit", "#3A3A36", "#1FB3B0", "turkuaz"),
-             ("hematit", "#8C3A26", MER, "mercan kırmızısı"), ("kuvars", "#F2EEE4", "#FBFDFD", "beyaz hamur")]
+             ("hematit", "#8C3A26", MER, "kırmızı"), ("kuvars", "#F2EEE4", "#FBFDFD", "beyaz")]
     for i, (ham, ham_r, pis_r, ad) in enumerate(sutun):
-        x = 70 + i * 140
+        x = 62 + i * 120
         s += f'<path d="M{x - 34} 52 Q{x} 84 {x + 34} 52 Z" fill="#FFFFFF" stroke="{OBS}" stroke-width="2.4"/>'
         s += f'<path d="M{x - 26} 52 Q{x - 10} 30 {x} 34 Q{x + 14} 30 {x + 26} 52 Z" fill="{ham_r}" stroke="{OBS}" stroke-width="2"/>'
         s += _yazi(x, 22, ham, 21, OBS, font=TK)
@@ -198,7 +199,9 @@ def cini_renkleri(onek="ui-cin"):
         else:
             s += f'<path d="M{x - 12} 134 q12 -16 24 0 q-12 16 -24 0 Z" fill="{KOB}" opacity=".25"/>'
         s += _yazi(x, 182, ad, 21, koyu(pis_r, .45) if pis_r != "#FBFDFD" else GUM_K, font=TK)
-    s += _yazi(W - 14, 98, "fırın", 18, ALTIN_K, "end", TK) + _yazi(W - 14, 116, "≈ 900 °C", 16, GUM_K, "end", TK)
+    s += _yazi(503, 70, "fırında", 20, ALTIN_K, "middle", TK) + _yazi(503, 94, "≈ 900 °C", 19, GUM_K, "middle", TK)
+    s += (f'<path d="M503 172 C478 160 482 138 494 126 C494 140 500 142 503 134 C506 122 500 112 506 104 C522 120 530 140 520 158 C516 166 510 170 503 172 Z" fill="#F08A2A" stroke="{OBS}" stroke-width="2.2"/>'
+          f'<path d="M503 168 C494 162 494 150 502 142 C504 152 510 150 512 146 C516 156 512 164 503 168 Z" fill="#FFD25A"/>')
     return s.cikti(f"0 0 {W} {H}", cls="info")
 
 
@@ -231,7 +234,7 @@ PH_NESNELER = [(1.5, "mide asidi", "mide", 1, 210), (2.2, "limon suyu", "limon",
 def ph_cetveli(onek="ui-phc"):
     """pH cetveli: 0–14 renk çubuğu, üstte ve altta ev ve yol nesneleri (yaklaşık değerler)."""
     s = Svg(onek)
-    W, H = 1900, 452
+    W, H = 1900, 446
     x0, x1 = 70, 1830
     X = lambda p: x0 + (x1 - x0) * p / 14   # noqa: E731
     s += f'<rect width="{W}" height="{H}" rx="20" fill="#FFFFFF"/>'
@@ -251,13 +254,13 @@ def ph_cetveli(onek="ui-phc"):
             s += _nesne(ikon, lx, 44, .9)
             s += _yazi(lx, 108, ad, 28, OBS, font=TK) + _yazi(lx, 136, deger, 24, renk, font=TK)
         else:
-            s += f'<path d="M{f(px)} {yb1} V266 M{f(px)} 266 L{f(lx)} 290" stroke="{renk}" stroke-width="3" fill="none"/>'
+            s += f'<path d="M{f(px)} {yb1} V262 M{f(px)} 262 L{f(lx)} 268" stroke="{renk}" stroke-width="3" fill="none"/>'
             s += f'<circle cx="{f(px)}" cy="{yb1 + 4}" r="6" fill="{renk}" stroke="#FFFFFF" stroke-width="2"/>'
-            s += _nesne(ikon, lx, 322, .9)
-            s += _yazi(lx, 384, ad, 28, OBS, font=TK) + _yazi(lx, 410, deger, 24, renk, font=TK)
-    s += _ok(860, 438, 120, 438, MER_K, 4, 16) + _yazi(160, 430, "ASİDİK · asitlik artar", 24, MER_K, "start", TK)
-    s += _ok(1040, 438, 1780, 438, ERGUVAN, 4, 16) + _yazi(1740, 430, "bazlık artar · BAZİK", 24, ERGUVAN, "end", TK)
-    s += f'<rect x="896" y="414" width="108" height="34" rx="17" fill="{acik(ZUMRUT, .85)}" stroke="{ZUMRUT}" stroke-width="2.4"/>' + _yazi(950, 438, "NÖTR", 24, ZUMRUT, font=TK)
+            s += _nesne(ikon, lx, 298, .9)
+            s += _yazi(lx, 358, ad, 28, OBS, font=TK) + _yazi(lx, 384, deger, 24, renk, font=TK)
+    s += _ok(860, 430, 120, 430, MER_K, 4, 16) + _yazi(160, 422, "ASİDİK · asitlik artar", 24, MER_K, "start", TK)
+    s += _ok(1040, 430, 1780, 430, ERGUVAN, 4, 16) + _yazi(1740, 422, "bazlık artar · BAZİK", 24, ERGUVAN, "end", TK)
+    s += f'<rect x="896" y="414" width="108" height="30" rx="15" fill="{acik(ZUMRUT, .85)}" stroke="{ZUMRUT}" stroke-width="2.4"/>' + _yazi(950, 437, "NÖTR", 23, ZUMRUT, font=TK)
     return s.cikti(f"0 0 {W} {H}", cls="info")
 
 
@@ -303,7 +306,7 @@ def mide_ph(onek="ui-mid"):
     """Kıssa 1: antiasit tabletten sonra mide ortamının pH’ı (temsilî değerler)."""
     s = Svg(onek)
     W, H = 470, 300
-    x0, y0, x1, y1 = 60, 248, 440, 30
+    x0, y0, x1, y1 = 60, 248, 440, 48
     X = lambda t: x0 + (x1 - x0) * t / 60   # noqa: E731
     Y = lambda p: y0 - (y0 - y1) * p / 8    # noqa: E731
     s += f'<rect width="{W}" height="{H}" rx="18" fill="#FFFFFF"/>'
@@ -360,12 +363,12 @@ def mangal_deney(onek="ui-mng"):
         s += _yazi(x + 60, 50, f"{sic} °C", 22, koyu(renk, .3), font=TK)
     s += _ok(232, 120, 300, 120, KOB, 3.4, 12)
     etiket = [("DEĞİŞTİR", "sıcaklık", KOB), ("ÖLÇ", "geçen Al", KEH_K), ("SABİT TUT", "yiyecek, kütle, pH, süre", GOL_K)]
-    x = 14
+    x = 10
     for (bas, ic, renk) in etiket:
-        w = 150 if bas != "SABİT TUT" else 210
+        w = 124 if bas != "SABİT TUT" else 258
         s += f'<rect x="{x}" y="236" width="{w}" height="50" rx="12" fill="{acik(renk, .86)}" stroke="{renk}" stroke-width="2.6"/>'
-        s += _yazi(x + w / 2, 256, bas, 18, renk, font=TK, ek=' letter-spacing="1"') + _yazi(x + w / 2, 278, ic, 19, OBS, font=T)
-        x += w + 12
+        s += _yazi(x + w / 2, 256, bas, 17, renk, font=TK, ek=' letter-spacing="1"') + _yazi(x + w / 2, 278, ic, 18, OBS, font=T)
+        x += w + 10
     return s.cikti(f"0 0 {W} {H}", cls="info")
 
 
@@ -452,33 +455,26 @@ def monomer_polimer(onek="ui-mon"):
     return s.cikti(f"0 0 {W} {H}", cls="info")
 
 
-KARIYER = [("Sağlık ve biyoteknoloji", "eczacı · biyokimyacı", MER), ("Kimya endüstrisi", "kimya mühendisi · kimyager", KOB),
-           ("Gıda ve içecek", "gıda mühendisi · kalite kontrol", KEH), ("Malzeme ve nanoteknoloji", "malzeme mühendisi", ERGUVAN),
-           ("Tarım", "ziraat mühendisi · toprak analizi", ZUMRUT), ("Çevre ve enerji", "çevre mühendisi · pil araştırması", GOL)]
+KARIYER = [("Sağlık", "eczacı", "biyokimyacı", MER), ("Endüstri", "kimya mühendisi", "kimyager", KOB),
+           ("Gıda", "gıda mühendisi", "kalite kontrol", KEH), ("Malzeme", "malzeme mühendisi", "nanoteknoloji", ERGUVAN),
+           ("Tarım", "ziraat mühendisi", "toprak analizi", ZUMRUT), ("Çevre ve enerji", "çevre mühendisi", "pil araştırması", GOL)]
 
 
 def kariyer_haritasi(onek="ui-kar"):
-    """Kimya alanında meslekler: ortada kimya yıldızı, yollarla altı sektör (+ eğitim)."""
+    """Kimya alanında meslekler: KİMYA yıldızından çıkan yol üzerinde altı sektör durağı (yatay, sayfa genişliği)."""
     s = Svg(onek)
-    W, H = 760, 300
-    cx, cy = 380, 132
+    W, H = 1700, 176
     s += f'<rect width="{W}" height="{H}" rx="18" fill="#FFFFFF"/>'
-    for i, (ad, isler, renk) in enumerate(KARIYER):
-        sol = i % 2 == 0
-        x = 12 if sol else 498
-        y = 12 + (i // 2) * 84
-        ax, ay = (x + 250, y + 34) if sol else (x, y + 34)
-        s += f'<path d="M{ax} {ay} Q{(ax + cx) / 2} {ay} {cx} {cy}" stroke="{renk}" stroke-width="4" fill="none" stroke-dasharray="9 6"/>'
-        s += f'<rect x="{x}" y="{y}" width="250" height="68" rx="14" fill="{acik(renk, .87)}" stroke="{renk}" stroke-width="3"/>'
-        s += f'<path d="{cizgi_d(selcuklu_yildizi(x + 26, y + 34, 15), True)}" fill="{renk}" stroke="{OBS}" stroke-width="1.6"/>'
-        s += _yazi(x + 50, y + 30, ad, 21, OBS, "start", B)
-        s += _yazi(x + 50, y + 56, isler, 18, koyu(renk, .35), "start", TK)
-    s += f'<path d="M{cx} {cy} V250" stroke="{ALTIN_K}" stroke-width="4" stroke-dasharray="9 6"/>'
-    s += f'<rect x="{cx - 150}" y="236" width="300" height="52" rx="14" fill="{ALTIN_A}" stroke="{ALTIN_K}" stroke-width="3"/>'
-    s += _yazi(cx, 260, "Eğitim ve araştırma", 21, OBS, font=B) + _yazi(cx, 282, "kimya öğretmeni · bilim insanı", 18, ALTIN_K, font=TK)
-    s += f'<path d="{cizgi_d(yildiz_noktalari(cx, cy, 58, 46, 16, -math.pi / 2), True)}" fill="{ALTIN}" stroke="{OBS}" stroke-width="2.6"/>'
-    s += f'<circle cx="{cx}" cy="{cy}" r="40" fill="{KOB}" stroke="{OBS}" stroke-width="2.6"/>'
-    s += _yazi(cx, cy + 8, "KİMYA", 22, "#FFFFFF", font=B)
+    s += f'<path d="M120 88 H1690" stroke="{OBS}" stroke-width="16" stroke-linecap="round" opacity=".85"/>'
+    s += f'<path d="M120 88 H1690" stroke="#FFF1CF" stroke-width="10" stroke-linecap="round"/>'
+    s += f'<path d="M120 88 H1690" stroke="#E08A1A" stroke-width="3" stroke-dasharray="12 9"/>'
+    s += f'<path d="{cizgi_d(yildiz_noktalari(70, 88, 66, 53, 16, -math.pi / 2), True)}" fill="{ALTIN}" stroke="{OBS}" stroke-width="3"/>'
+    s += f'<circle cx="70" cy="88" r="46" fill="{KOB}" stroke="{OBS}" stroke-width="3"/>' + _yazi(70, 97, "KİMYA", 23, "#FFFFFF", font=B)
+    for i, (ad, is1, is2, renk) in enumerate(KARIYER):
+        x = 152 + i * 258
+        s += f'<rect x="{x}" y="14" width="246" height="148" rx="16" fill="{acik(renk, .87)}" stroke="{renk}" stroke-width="3.4"/>'
+        s += _yazi(x + 123, 54, ad, 31, OBS, font=B)
+        s += _yazi(x + 123, 102, is1, 23, koyu(renk, .35), font=TK) + _yazi(x + 123, 140, is2, 23, koyu(renk, .35), font=TK)
     return s.cikti(f"0 0 {W} {H}", cls="info")
 
 

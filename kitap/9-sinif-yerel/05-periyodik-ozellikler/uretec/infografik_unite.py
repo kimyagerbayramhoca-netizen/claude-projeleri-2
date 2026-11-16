@@ -40,7 +40,7 @@ VERI = {
     "ie": {"C": [1086, 2353, 4621, 6223, 37831], "Rb": [403, 2633, 3860, 5080], "Sr": [549, 1064, 4138, 5500],
            "Al": [578, 1817, 2745, 11577], "Si": [786, 1577, 3232, 4356], "P": [1012, 1907, 2914, 4964, 6274, 21267],
            "B": [801, 2427, 3660, 25026], "O": [1314, 3388, 5301, 7469, 10990, 13327, 71330],
-           "Mg": [738, 1451, 7733], "Na": [496, 4562, 6910, 9543], "Ca": [590, 1145, 4912, 6491]},
+           "Mg": [738, 1451, 7733, 10543], "Na": [496, 4562, 6910, 9543], "Ca": [590, 1145, 4912, 6491]},
     # elektronegatiflik · Pauling ölçeği (F = 4,0) — klasik ünite 'en' + bağlam sorusundaki I
     "en": {"H": 2.2, "Li": 1.0, "Be": 1.6, "B": 2.0, "C": 2.6, "N": 3.0, "O": 3.4, "F": 4.0,
            "Na": 0.9, "Mg": 1.3, "Al": 1.6, "Si": 1.9, "P": 2.2, "S": 2.6, "Cl": 3.2, "K": 0.8, "Ca": 1.0, "Br": 3.0, "I": 2.7},
@@ -138,39 +138,42 @@ def rd_cizim(onek="m2-rd"):
 # ================================================================== 1. DURAK · mini tabloda atom yarıçapları
 
 def yaricap_tablosu(onek="m2-yt"):
-    """Periyot 1–4 × 1A–7A: daire alanı yarıçapla orantılı (ölçekli), değerler pm. Oklar: büyüme yönü."""
+    """Periyot 1–4 × 1A–7A: daire yarıçapı atom yarıçapıyla orantılı (ölçekli), değerler pm. Oklar: büyüme yönü."""
     s = Svg(onek)
-    W, H = 930, 560
-    x0, y0, cw, ch = 74, 54, 112, 112
+    W, H = 960, 400
+    x0, y0, cw, ch = 70, 44, 118, 76
     s += f'<rect width="{W}" height="{H}" rx="18" fill="#FFFFFF"/>'
     for g in range(7):
-        s += f'<text x="{x0 + g * cw + cw / 2}" y="{y0 - 16}" text-anchor="middle" {B} font-size="27" fill="{PAS_K}">{g + 1}A</text>'
+        s += f'<text x="{x0 + g * cw + cw / 2}" y="{y0 - 12}" text-anchor="middle" {B} font-size="26" fill="{PAS_K}">{g + 1}A</text>'
     for p in range(4):
         y = y0 + p * ch
-        s += f'<rect x="{x0 - 2}" y="{y + 2}" width="{7 * cw + 4}" height="{ch - 4}" rx="14" fill="{["#FFF4EC", "#FBEFE6", "#F6E7DD", "#F1DFD4"][p]}"/>'
-        s += f'<text x="{x0 - 30}" y="{y + ch / 2 + 9}" text-anchor="middle" {B} font-size="28" fill="{PAS_K}">{p + 1}</text>'
-    k = 50 / 227
-    for (p, g), sym in sorted(((v, k_) for k_, v in YER.items() if k_ in VERI["r"]), key=lambda t: t[0]):
+        s += f'<rect x="{x0 - 2}" y="{y + 2}" width="{7 * cw + 4}" height="{ch - 4}" rx="12" fill="{["#FFF4EC", "#FBEFE6", "#F6E7DD", "#F1DFD4"][p]}"/>'
+        s += f'<text x="{x0 - 28}" y="{y + ch / 2 + 9}" text-anchor="middle" {B} font-size="27" fill="{PAS_K}">{p + 1}</text>'
+    k = 31 / 227
+    for sym, (p, g) in YER.items():
+        if sym not in VERI["r"] or g > 7:
+            continue
         r_pm = VERI["r"][sym]
-        cx = x0 + (g - 1) * cw + cw / 2
-        cy = y0 + (p - 1) * ch + ch / 2 - 12
+        cx = x0 + (g - 1) * cw + 42
+        cy = y0 + (p - 1) * ch + ch / 2
         R = r_pm * k
         t = r_pm / 227
         dolgu = karis("#F9C9A8", PAS_K, t ** .9)
         hl = s.rad([(0, acik(dolgu, .45)), (1, dolgu)], .35, .3, .75, ad="kr")
-        s += f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(R)}" fill="{hl}" stroke="{PAS_K}" stroke-width="2.4"/>'
-        if R > 17:
-            s += f'<text x="{f(cx)}" y="{f(cy + 9)}" text-anchor="middle" {B} font-size="{f(min(28, 12 + R * .42))}" fill="{"#FFFFFF" if t > .45 else OBS}">{sym}</text>'
+        s += f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(R)}" fill="{hl}" stroke="{PAS_K}" stroke-width="2.2"/>'
+        if R > 15:
+            s += f'<text x="{f(cx)}" y="{f(cy + 8)}" text-anchor="middle" {B} font-size="{f(min(26, 10 + R * .5))}" fill="{"#FFFFFF" if t > .45 else OBS}">{sym}</text>'
+            s += f'<text x="{f(cx + 56)}" y="{f(cy + 8)}" text-anchor="middle" {T} font-size="22" fill="{MER_K if sym == "Ga" else GUM_K}">{r_pm}{"*" if sym == "Ga" else ""}</text>'
         else:
-            s += f'<text x="{f(cx + R + 4)}" y="{f(cy - R + 2)}" text-anchor="start" {B} font-size="22" fill="{OBS}">{sym}</text>'
-        s += f'<text x="{f(cx)}" y="{f(y0 + p * ch - 8)}" text-anchor="middle" {T} font-size="20" fill="{GUM_K}">{r_pm}</text>'
-    xr = x0 + 7 * cw + 40
-    s += _ok(xr, y0 + 10, xr, y0 + 4 * ch - 10, PAS, 7, 22)
-    s += f'<text transform="translate({xr + 34} {y0 + 2 * ch}) rotate(90)" text-anchor="middle" {T9} font-size="22" fill="{PAS_K}">GRUPTA AŞAĞI: ARTAR</text>'
-    yb = y0 + 4 * ch + 26
+            s += f'<text x="{f(cx)}" y="{f(cy - R - 5)}" text-anchor="middle" {B} font-size="21" fill="{OBS}">{sym}</text>'
+            s += f'<text x="{f(cx + 50)}" y="{f(cy + 8)}" text-anchor="middle" {T} font-size="22" fill="{GUM_K}">{r_pm}</text>'
+    xr = x0 + 7 * cw + 32
+    s += _ok(xr, y0 + 6, xr, y0 + 4 * ch - 6, PAS, 7, 22)
+    s += f'<text transform="translate({xr + 30} {y0 + 2 * ch}) rotate(90)" text-anchor="middle" {T9} font-size="20" fill="{PAS_K}">AŞAĞI: ARTAR</text>'
+    yb = y0 + 4 * ch + 22
     s += _ok(x0 + 7 * cw - 10, yb, x0 + 10, yb, PAS, 7, 22)
-    s += f'<text x="{x0 + 3.5 * cw}" y="{yb + 34}" text-anchor="middle" {T9} font-size="22" fill="{PAS_K}">SOLA DOĞRU (PERİYOTTA SAĞA AZALIR)</text>'
-    s += f'<text x="{W - 16}" y="{H - 14}" text-anchor="end" {T} font-size="18" fill="{GUM_K}">pm · yaklaşık</text>'
+    s += f'<text x="{x0 + 3 * cw}" y="{yb + 32}" text-anchor="middle" {T9} font-size="19" fill="{PAS_K}">SOLA: ARTAR (PERİYOTTA SAĞA AZALIR) · pm</text>'
+    s += f'<text x="{W - 12}" y="{yb + 32}" text-anchor="end" {T} font-size="16" fill="{MER_K}">* Ga &lt; Al: küçük istisna</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info yt")
 
 
@@ -191,51 +194,53 @@ def _katmanli(s, cx, cy, R, n_kat, renk, kesik_son=False):
 def iyon_donusum(onek="m2-id"):
     """Na → Na⁺ (bir katman gider: 186 → 102 pm) · Cl → Cl⁻ (katman aynı, p/e azalır: 99 → 181 pm)."""
     s = Svg(onek)
-    W, H = 920, 300
+    W, H = 920, 330
     s += f'<rect width="{W}" height="{H}" rx="18" fill="#FFFFFF"/>'
     k = .5
     r = VERI["r"]
     ri = VERI["ri"]
-    yy = 128
-    parcalar = [(108, r["Na"], 3, GOL, "Na", "11p · 11e · 2-8-1", f'{r["Na"]} pm'),
-                (330, ri["Na+"], 2, GOL, "Na^{+}", "11p · 10e · 2-8", f'{ri["Na+"]} pm'),
-                (568, r["Cl"], 3, MER, "Cl", "17p · 17e · 2-8-7", f'{r["Cl"]} pm'),
-                (800, ri["Cl-"], 3, MER, "Cl^{−}", "17p · 18e · 2-8-8", f'{ri["Cl-"]} pm')]
+    yy = 132
+    parcalar = [(108, r["Na"], 3, GOL, "Na", "11p · 11e · 2-8-1", r["Na"]),
+                (330, ri["Na+"], 2, GOL, "Na^{+}", "11p · 10e · 2-8", ri["Na+"]),
+                (568, r["Cl"], 3, MER, "Cl", "17p · 17e · 2-8-7", r["Cl"]),
+                (800, ri["Cl-"], 3, MER, "Cl^{−}", "17p · 18e · 2-8-8", ri["Cl-"])]
     for cx, rpm, n, renk, ad, alt, deger in parcalar:
         s += _katmanli(s, cx, yy, rpm * k, n, renk)
-        s += _alt(ad, cx, 254, 30, renk=OBS)
-        s += f'<text x="{cx}" y="{282}" text-anchor="middle" {T} font-size="18" fill="{GUM_K}">{alt} · {deger}</text>'
+        s += _alt(ad, cx, 262, 32, renk=OBS)
+        s += f'<text x="{cx}" y="292" text-anchor="middle" {T} font-size="21" fill="{GUM_K}">{alt}</text>'
+        s += f'<text x="{cx}" y="320" text-anchor="middle" {B} font-size="24" fill="{koyu(renk, .3)}">{deger} pm</text>'
     s += _ok(212, yy, 270, yy, OBS, 4, 15)
-    s += _alt("−1 e^{−}", 240, yy - 18, 22, renk=OBS, font=T)
-    s += f'<path d="M449 18 V282" stroke="{GUM}" stroke-width="2.4" stroke-dasharray="6 6"/>'
+    s += _alt("−1 e^{−}", 240, yy - 18, 24, renk=OBS, font=T)
+    s += f'<path d="M449 18 V318" stroke="{GUM}" stroke-width="2.4" stroke-dasharray="6 6"/>'
     s += _ok(626, yy, 702, yy, OBS, 4, 15)
-    s += _alt("+1 e^{−}", 664, yy - 18, 22, renk=OBS, font=T)
-    s += f'<text x="225" y="30" text-anchor="middle" {T9} font-size="19" fill="{GOL_K}">KATMAN GİDER, KÜÇÜLÜR</text>'
-    s += f'<text x="690" y="30" text-anchor="middle" {T9} font-size="19" fill="{MER_K}">ELEKTRON GELİR, BÜYÜR</text>'
+    s += _alt("+1 e^{−}", 664, yy - 18, 24, renk=OBS, font=T)
+    s += f'<text x="225" y="30" text-anchor="middle" {T9} font-size="21" fill="{GOL_K}">KATMAN GİDER, KÜÇÜLÜR</text>'
+    s += f'<text x="690" y="30" text-anchor="middle" {T9} font-size="21" fill="{MER_K}">ELEKTRON GELİR, BÜYÜR</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info id")
 
 
 def izoelektronik(onek="m2-iz"):
     """10 elektronlu altı tanecik: proton arttıkça tanecik küçülür (yarıçap ölçekli)."""
     s = Svg(onek)
-    W, H = 920, 300
+    W, H = 920, 330
     s += f'<rect width="{W}" height="{H}" rx="18" fill="#FFFFFF"/>'
     seri = [("N", "3−", 7, "N3-"), ("O", "2−", 8, "O2-"), ("F", "−", 9, "F-"), ("Na", "+", 11, "Na+"), ("Mg", "2+", 12, "Mg2+"), ("Al", "3+", 13, "Al3+")]
     k = .5
-    toplam = sum(2 * VERI["ri"][a] * k for *_, a in seri) + 5 * 30
+    toplam = sum(2 * VERI["ri"][a] * k for *_, a in seri) + 5 * 32
     x = (W - toplam) / 2
     for sym, q, p, anah in seri:
         R = VERI["ri"][anah] * k
         cx = x + R
-        x += 2 * R + 30
+        x += 2 * R + 32
         an = q.endswith("−")
         renk = MER if an else GOL
         g = s.rad([(0, acik(renk, .55)), (1, acik(renk, .15))], .35, .3, .8, ad="iz")
-        s += f'<circle cx="{f(cx)}" cy="148" r="{f(R)}" fill="{g}" stroke="{koyu(renk, .25)}" stroke-width="3"/>'
-        s += _alt(f"{sym}^{{{q}}}", cx, 158, 30 if R > 30 else 24)
-        s += f'<text x="{f(cx)}" y="250" text-anchor="middle" {T} font-size="20" fill="{GUM_K}">p = {p}</text>'
-        s += f'<text x="{f(cx)}" y="278" text-anchor="middle" {B} font-size="24" fill="{OBS}">{VERI["ri"][anah]} pm</text>'
-    s += f'<text x="{W / 2}" y="40" text-anchor="middle" {T9} font-size="21" fill="{KOB_K}">HEPSİ 10 ELEKTRON (2-8) · PROTON ARTTIKÇA KÜÇÜLÜR</text>'
+        s += f'<circle cx="{f(cx)}" cy="150" r="{f(R)}" fill="{g}" stroke="{koyu(renk, .25)}" stroke-width="3"/>'
+        s += _alt(f"{sym}^{{{q}}}", cx, 160, 32 if R > 30 else 25)
+        s += f'<text x="{f(cx)}" y="262" text-anchor="middle" {T} font-size="24" fill="{GUM_K}">p = {p}</text>'
+        s += f'<text x="{f(cx)}" y="296" text-anchor="middle" {B} font-size="27" fill="{OBS}">{VERI["ri"][anah]}</text>'
+    s += f'<text x="{W / 2}" y="40" text-anchor="middle" {T9} font-size="22" fill="{KOB_K}">HEPSİ 10 ELEKTRON (2-8) · PROTON ARTTIKÇA KÜÇÜLÜR</text>'
+    s += f'<text x="{W - 20}" y="{H - 8}" text-anchor="end" {T} font-size="19" fill="{GUM_K}">pm</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info iz")
 
 
@@ -288,39 +293,39 @@ IE_SIRA = ["H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al
 
 def ie1_grafik(onek="m2-ie"):
     s = Svg(onek)
-    W, H = 1000, 560
-    x0, x1, y0, y1 = 96, 980, 470, 40
+    W, H = 1040, 420
+    x0, x1, y0, y1 = 92, 1024, 352, 22
     vmax = 2500
     X = lambda z: x0 + (z - .5) * (x1 - x0) / 20.2
     Y = lambda v: y0 - v / vmax * (y0 - y1)
     s += f'<rect width="{W}" height="{H}" rx="18" fill="#FFFFFF"/>'
     for a, b, et, c in ((.6, 2.4, "1.", "#E8F4F4"), (2.6, 10.4, "2. periyot", "#FFF2E2"), (10.6, 18.4, "3. periyot", "#E9EEFB"), (18.6, 20.4, "4.", "#F3E8F3")):
         s += f'<rect x="{f(X(a))}" y="{y1}" width="{f(X(b) - X(a))}" height="{y0 - y1}" rx="8" fill="{c}"/>'
-        s += f'<text x="{f((X(a) + X(b)) / 2)}" y="{y1 + 26}" text-anchor="middle" {T9} font-size="20" fill="{GUM_K}">{et}</text>'
+        s += f'<text x="{f((X(a) + X(b)) / 2)}" y="{y0 - 10}" text-anchor="middle" {T9} font-size="20" fill="{GUM_K}">{et}</text>'
     for v in range(0, 2501, 500):
         s += f'<path d="M{x0} {f(Y(v))} H{x1}" stroke="#DCE4E8" stroke-width="2"/>'
         s += f'<text x="{x0 - 10}" y="{f(Y(v) + 8)}" text-anchor="end" {T} font-size="21" fill="{OBS}">{v}</text>'
-    s += f'<path d="M{x0} {y1 - 10} V{y0} H{x1}" stroke="{OBS}" stroke-width="4" fill="none"/>'
+    s += f'<path d="M{x0} {y1 - 6} V{y0} H{x1}" stroke="{OBS}" stroke-width="4" fill="none"/>'
     pts = [(X(z), Y(VERI["ie1"][sym])) for z, sym in enumerate(IE_SIRA, 1)]
-    s += f'<path d="{cizgi_d(pts)}" fill="none" stroke="{KOB}" stroke-width="5" stroke-linejoin="round"/>'
     for za, zb in ((4, 5), (7, 8), (12, 13), (15, 16)):
         (a, b), (c, d) = pts[za - 1], pts[zb - 1]
-        s += f'<path d="M{f(a)} {f(b)} L{f(c)} {f(d)}" stroke="{KEH}" stroke-width="13" stroke-linecap="round" opacity=".85"/>'
+        s += f'<path d="M{f(a)} {f(b)} L{f(c)} {f(d)}" stroke="{KEH}" stroke-width="15" stroke-linecap="round" opacity=".9"/>'
+    s += f'<path d="{cizgi_d(pts)}" fill="none" stroke="{KOB}" stroke-width="4.5" stroke-linejoin="round"/>'
     asagi = {"Li", "Na", "K", "B", "Al", "O", "S", "Ca"}
     for (a, b), sym in zip(pts, IE_SIRA):
         soy = sym in ("He", "Ne", "Ar")
         s += f'<circle cx="{f(a)}" cy="{f(b)}" r="{9 if soy else 7}" fill="{MER_K if soy else KOB}" stroke="#FFFFFF" stroke-width="2.5"/>'
-        dy = 30 if sym in asagi else -15
-        s += f'<text x="{f(a)}" y="{f(b + dy)}" text-anchor="middle" {B} font-size="23" fill="{OBS}">{sym}</text>'
+        dy = 30 if sym in asagi else -14
+        dx = 18 if sym == "He" else 0
+        s += f'<text x="{f(a + dx)}" y="{f(b + dy)}" text-anchor="middle" {B} font-size="23" fill="{OBS}">{sym}</text>'
     for z in range(1, 21):
-        s += f'<text x="{f(X(z))}" y="{y0 + 28}" text-anchor="middle" {T} font-size="18" fill="{GUM_K}">{z}</text>'
-    s += f'<text x="{(x0 + x1) / 2}" y="{y0 + 60}" text-anchor="middle" {T9} font-size="21" fill="{OBS}">atom numarası (Z)</text>'
-    s += _alt("İE_1 (kJ/mol)", 18, 30, 24, anchor="start", font=T9)
-    bx, by = 620, 92
-    s += f'<rect x="{bx}" y="{by}" width="340" height="66" rx="12" fill="#FFFFFF" stroke="{KEH}" stroke-width="3"/>'
-    s += f'<path d="M{bx + 18} {by + 24} H{bx + 58}" stroke="{KEH}" stroke-width="13" stroke-linecap="round"/>'
-    s += f'<text x="{bx + 72}" y="{by + 31}" {T} font-size="20" fill="{OBS}">genel artışa aykırı düşüş</text>'
-    s += f'<text x="{bx + 18}" y="{by + 56}" {T} font-size="19" fill="{GUM_K}">2A’dan 3A’ya ve 5A’dan 6A’ya</text>'
+        s += f'<text x="{f(X(z))}" y="{y0 + 26}" text-anchor="middle" {T} font-size="18" fill="{GUM_K}">{z}</text>'
+    s += f'<text x="{(x0 + x1) / 2}" y="{y0 + 56}" text-anchor="middle" {T9} font-size="20" fill="{OBS}">atom numarası (Z)</text>'
+    s += f'<text transform="translate(24 {(y0 + y1) / 2}) rotate(-90)" text-anchor="middle" {T9} font-size="20" fill="{OBS}">İE₁ (kJ/mol)</text>'
+    bx, by = 600, 40
+    s += f'<rect x="{bx}" y="{by}" width="380" height="40" rx="10" fill="#FFFFFF" stroke="{KEH}" stroke-width="3"/>'
+    s += f'<path d="M{bx + 18} {by + 20} H{bx + 56}" stroke="{KEH}" stroke-width="15" stroke-linecap="round"/>'
+    s += f'<text x="{bx + 70}" y="{by + 27}" {T} font-size="20" fill="{OBS}">genel artışa aykırı düşüş</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info ie")
 
 
@@ -328,38 +333,42 @@ def ie1_grafik(onek="m2-ie"):
 
 def karbon_ie(onek="m2-ci"):
     s = Svg(onek)
-    W, H = 600, 440
-    x0, y0, yt = 92, 352, 70
+    W, H = 660, 330
+    x0, y0, yt = 84, 262, 74
     vmax = 7000
     Y = lambda v: y0 - v / vmax * (y0 - yt)
     v = VERI["ie"]["C"]
     s += f'<rect width="{W}" height="{H}" rx="18" fill="#FFFFFF"/>'
     for t in range(0, 7001, 2000):
-        s += f'<path d="M{x0} {f(Y(t))} H{W - 20}" stroke="#DCE4E8" stroke-width="2"/>'
+        s += f'<path d="M{x0} {f(Y(t))} H{W - 16}" stroke="#DCE4E8" stroke-width="2"/>'
         s += f'<text x="{x0 - 10}" y="{f(Y(t) + 7)}" text-anchor="end" {T} font-size="19" fill="{OBS}">{t}</text>'
-    s += f'<path d="M{x0} {yt - 30} V{y0} H{W - 20}" stroke="{OBS}" stroke-width="4" fill="none"/>'
-    bw, ara = 62, 32
+    s += f'<path d="M{x0} {yt - 30} V{y0} H{W - 16}" stroke="{OBS}" stroke-width="4" fill="none"/>'
+    bw, ara = 70, 44
+    xs = []
     for i, val in enumerate(v):
-        x = x0 + 26 + i * (bw + ara)
+        x = x0 + 30 + i * (bw + ara)
+        xs.append(x)
         if i < 4:
             g = s.lin([(0, "#6FD3D2"), (1, GOL_K)], 0, 0, 0, 1, ad="cb")
             s += f'<rect x="{x}" y="{f(Y(val))}" width="{bw}" height="{f(y0 - Y(val))}" rx="6" fill="{g}" stroke="{OBS}" stroke-width="2.4"/>'
-            s += f'<text x="{x + bw / 2}" y="{f(Y(val) - 10)}" text-anchor="middle" {B} font-size="22" fill="{OBS}">{_bin(val)}</text>'
+            s += f'<text x="{x + bw / 2}" y="{f(Y(val) - 9)}" text-anchor="middle" {B} font-size="22" fill="{OBS}">{_bin(val)}</text>'
         else:
             g = s.lin([(0, "#FFB59F"), (1, MER_K)], 0, 0, 0, 1, ad="cs")
-            top = yt - 34
+            top = 34
             s += f'<rect x="{x}" y="{top}" width="{bw}" height="{y0 - top}" rx="6" fill="{g}" stroke="{OBS}" stroke-width="2.4"/>'
-            s += f'<path d="M{x - 8} {top + 84} l{bw + 16} -18 M{x - 8} {top + 100} l{bw + 16} -18" stroke="#FFFFFF" stroke-width="9"/>'
-            s += f'<path d="M{x - 8} {top + 84} l{bw + 16} -18 M{x - 8} {top + 100} l{bw + 16} -18" stroke="{OBS}" stroke-width="2.4"/>'
-            s += halolu_yazi(f'x="{x + bw / 2}" y="{top + 150}" text-anchor="middle" {B} font-size="23"', _bin(val), "#FFFFFF", MER_K, 1.6)
+            s += f'<path d="M{x - 8} {top + 62} l{bw + 16} -16 M{x - 8} {top + 76} l{bw + 16} -16" stroke="#FFFFFF" stroke-width="8"/>'
+            s += f'<path d="M{x - 8} {top + 62} l{bw + 16} -16 M{x - 8} {top + 76} l{bw + 16} -16" stroke="{OBS}" stroke-width="2.4"/>'
+            s += halolu_yazi(f'x="{x + bw / 2}" y="{top + 130}" text-anchor="middle" {B} font-size="22"', _bin(val), "#FFFFFF", MER_K, 1.6)
         s += _alt(f"İE_{i + 1}", x + bw / 2, y0 + 30, 22, font=T)
-        if i:
-            oran = v[i] / v[i - 1]
-            xm = x - ara / 2
-            renk = MER_K if oran >= 3 else GUM_K
-            s += f'<text x="{f(xm)}" y="{f(Y(min(v[i - 1], 6400)) - 46)}" text-anchor="middle" {B} font-size="{26 if oran >= 3 else 20}" fill="{renk}">×{_vir(oran)}</text>'
-    s += f'<text x="{W / 2 + 20}" y="{H - 22}" text-anchor="middle" {T9} font-size="19" fill="{MER_K}">4 ELEKTRON GÖRECE KOLAY · 5.Sİ İÇ KATMANDAN: 4A</text>'
-    s += f'<text x="20" y="34" {T9} font-size="20" fill="{OBS}">kJ/mol · ₆C (2-4)</text>'
+    for i in range(1, 5):
+        oran = v[i] / v[i - 1]
+        xm = (xs[i - 1] + bw + xs[i]) / 2
+        buyuk = oran >= 3
+        c = MER if buyuk else GUM_K
+        yy = y0 + 58
+        s += f'<rect x="{f(xm - 34)}" y="{yy - 21}" width="68" height="28" rx="14" fill="{MER_A if buyuk else GUM_A}" stroke="{c}" stroke-width="2"/>'
+        s += f'<text x="{f(xm)}" y="{yy}" text-anchor="middle" {B} font-size="21" fill="{MER_K if buyuk else OBS}">×{_vir(oran)}</text>'
+    s += f'<text x="18" y="30" {T9} font-size="19" fill="{OBS}">kJ/mol · ₆C (2-4)</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info ci")
 
 
@@ -374,13 +383,13 @@ def _en_renk(v):
 
 def en_tablosu(onek="m2-en"):
     s = Svg(onek)
-    W, H = 940, 500
-    x0, y0, cw, ch = 70, 50, 104, 86
+    W, H = 960, 396
+    x0, y0, cw, ch = 64, 44, 106, 74
     s += f'<rect width="{W}" height="{H}" rx="18" fill="#FFFFFF"/>'
     for g in range(8):
-        s += f'<text x="{x0 + g * cw + cw / 2}" y="{y0 - 14}" text-anchor="middle" {B} font-size="26" fill="{KOB_K}">{g + 1}A</text>'
+        s += f'<text x="{x0 + g * cw + cw / 2}" y="{y0 - 12}" text-anchor="middle" {B} font-size="25" fill="{KOB_K}">{g + 1}A</text>'
     for p in range(4):
-        s += f'<text x="{x0 - 28}" y="{y0 + p * ch + ch / 2 + 9}" text-anchor="middle" {B} font-size="27" fill="{KOB_K}">{p + 1}</text>'
+        s += f'<text x="{x0 - 26}" y="{y0 + p * ch + ch / 2 + 9}" text-anchor="middle" {B} font-size="26" fill="{KOB_K}">{p + 1}</text>'
         for g in range(8):
             sym = TABLO[p][g]
             x, y = x0 + g * cw, y0 + p * ch
@@ -388,25 +397,25 @@ def en_tablosu(onek="m2-en"):
                 continue
             if SINIF.get(sym) == "soy":
                 s += f'<rect x="{x + 4}" y="{y + 4}" width="{cw - 8}" height="{ch - 8}" rx="10" fill="#FFFFFF" stroke="#B8C3CC" stroke-width="2.4" stroke-dasharray="7 6"/>'
-                s += f'<text x="{x + cw / 2}" y="{y + 38}" text-anchor="middle" {B} font-size="28" fill="{GUM_K}">{sym}</text>'
-                s += f'<text x="{x + cw / 2}" y="{y + 68}" text-anchor="middle" {T} font-size="22" fill="{GUM_K}">—</text>'
+                s += f'<text x="{x + cw / 2}" y="{y + 32}" text-anchor="middle" {B} font-size="26" fill="{GUM_K}">{sym}</text>'
+                s += f'<text x="{x + cw / 2}" y="{y + 59}" text-anchor="middle" {T} font-size="21" fill="{GUM_K}">—</text>'
                 continue
             if sym not in VERI["en"]:
                 s += f'<rect x="{x + 4}" y="{y + 4}" width="{cw - 8}" height="{ch - 8}" rx="10" fill="#F4F6F8" stroke="#DCE2E6" stroke-width="2"/>'
-                s += f'<text x="{x + cw / 2}" y="{y + 52}" text-anchor="middle" {B} font-size="24" fill="#B8C3CC">{sym}</text>'
+                s += f'<text x="{x + cw / 2}" y="{y + 45}" text-anchor="middle" {B} font-size="22" fill="#B8C3CC">{sym}</text>'
                 continue
             v = VERI["en"][sym]
             yazi = "#FFFFFF" if v >= 2.6 else OBS
             s += f'<rect x="{x + 4}" y="{y + 4}" width="{cw - 8}" height="{ch - 8}" rx="10" fill="{_en_renk(v)}" stroke="{OBS}" stroke-width="2"/>'
-            s += f'<text x="{x + cw / 2}" y="{y + 38}" text-anchor="middle" {B} font-size="29" fill="{yazi}">{sym}</text>'
-            s += f'<text x="{x + cw / 2}" y="{y + 68}" text-anchor="middle" {T} font-size="23" fill="{yazi}">{_vir(v)}</text>'
-    yy = y0 + 4 * ch + 26
+            s += f'<text x="{x + cw / 2}" y="{y + 33}" text-anchor="middle" {B} font-size="27" fill="{yazi}">{sym}</text>'
+            s += f'<text x="{x + cw / 2}" y="{y + 60}" text-anchor="middle" {T} font-size="22" fill="{yazi}">{_vir(v)}</text>'
+    yy = y0 + 4 * ch + 18
     for i in range(48):
-        s += f'<rect x="{f(190 + i * 11)}" y="{yy}" width="11.6" height="20" fill="{_en_renk(.8 + 3.2 * i / 47)}"/>'
-    s += f'<rect x="190" y="{yy}" width="528" height="20" fill="none" stroke="{OBS}" stroke-width="2"/>'
-    s += f'<text x="178" y="{yy + 17}" text-anchor="end" {T} font-size="20" fill="{GUM_K}">düşük</text>'
-    s += f'<text x="730" y="{yy + 17}" {T} font-size="20" fill="{GUM_K}">yüksek</text>'
-    s += f'<text x="{W / 2}" y="{yy + 52}" text-anchor="middle" {T9} font-size="19" fill="{KOB_K}">PAULING ÖLÇEĞİ (F = 4,0) · BİRİMSİZ · SOY GAZLARA DEĞER VERİLMEZ</text>'
+        s += f'<rect x="{f(150 + i * 10)}" y="{yy}" width="10.6" height="18" fill="{_en_renk(.8 + 3.2 * i / 47)}"/>'
+    s += f'<rect x="150" y="{yy}" width="480" height="18" fill="none" stroke="{OBS}" stroke-width="2"/>'
+    s += f'<text x="140" y="{yy + 16}" text-anchor="end" {T} font-size="19" fill="{GUM_K}">düşük</text>'
+    s += f'<text x="640" y="{yy + 16}" {T} font-size="19" fill="{GUM_K}">yüksek</text>'
+    s += f'<text x="{W - 16}" y="{yy + 16}" text-anchor="end" {T9} font-size="18" fill="{KOB_K}">PAULING · F = 4,0</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info en")
 
 
@@ -437,7 +446,7 @@ def halat(onek="m2-ht"):
     s += f'<text x="112" y="74" text-anchor="middle" {DJ} font-size="32" fill="{GOL_K}">δ+</text>'
     s += f'<text x="500" y="60" text-anchor="middle" {DJ} font-size="32" fill="{MER_K}">δ−</text>'
     s += f'<text x="112" y="214" text-anchor="middle" {T} font-size="21" fill="{OBS}">EN 2,2</text>'
-    s += f'<text x="500" y="234" text-anchor="middle" {T} font-size="21" fill="#FFFFFF">EN 3,4</text>'
+    s += f'<text x="500" y="236" text-anchor="middle" {T9} font-size="21" fill="{MER_K}">EN 3,4</text>'
     s += f'<text x="300" y="{H - 16}" text-anchor="middle" {T9} font-size="18" fill="{DERIN}">FARK 1,2 · BAĞ ELEKTRONLARI O’YA KAYAR</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info ht")
 
@@ -451,20 +460,20 @@ SINIF_RENK = {"metal": ("#CFE3F7", "#3A6EA8"), "yari": ("#E3D6F4", "#6B4BA0"), "
 def ozellik_haritasi(onek="m2-oh"):
     """Baş gruplar (1–6. periyot): sınıf renkleri kitabın tablosundaki gibi; oklar eğilimleri gösterir."""
     s = Svg(onek)
-    W, H = 940, 640
-    x0, y0, cw, ch = 96, 92, 88, 68
+    W, H = 960, 520
+    x0, y0, cw, ch = 92, 78, 92, 56
     s += f'<rect width="{W}" height="{H}" rx="18" fill="#FFFFFF"/>'
-    # üst ok: periyotta sağa
-    s += _ok(x0 + 6, 42, x0 + 8 * cw - 6, 42, MER, 7, 22)
-    s += f'<text x="{x0 + 4 * cw}" y="30" text-anchor="middle" {T9} font-size="19" fill="{MER_K}">İE₁ · ELEKTRONEGATİFLİK · AMETALİK KARAKTER ARTAR</text>'
-    s += _ok(x0 + 8 * cw - 6, y0 + 6 * ch + 28, x0 + 6, y0 + 6 * ch + 28, KOB, 7, 22)
-    s += f'<text x="{x0 + 4 * cw}" y="{y0 + 6 * ch + 64}" text-anchor="middle" {T9} font-size="19" fill="{KOB_K}">ATOM YARIÇAPI · METALİK KARAKTER ARTAR</text>'
-    s += _ok(x0 - 52, y0 + 6, x0 - 52, y0 + 6 * ch - 6, KOB, 7, 22)
-    s += f'<text transform="translate({x0 - 72} {y0 + 3 * ch}) rotate(-90)" text-anchor="middle" {T9} font-size="18" fill="{KOB_K}">YARIÇAP · METALİK ARTAR</text>'
-    s += _ok(x0 + 8 * cw + 34, y0 + 6 * ch - 6, x0 + 8 * cw + 34, y0 + 6, MER, 7, 22)
-    s += f'<text transform="translate({x0 + 8 * cw + 56} {y0 + 3 * ch}) rotate(90)" text-anchor="middle" {T9} font-size="18" fill="{MER_K}">İE₁ · EN · AMETALİK ARTAR</text>'
+    s += _ok(x0 + 6, 26, x0 + 8 * cw - 6, 26, MER, 7, 20)
+    s += f'<text x="{x0 + 4 * cw}" y="18" text-anchor="middle" {T9} font-size="17" fill="{MER_K}">İE₁ · ELEKTRONEGATİFLİK · AMETALİK KARAKTER ARTAR</text>'
+    yb = y0 + 6 * ch + 22
+    s += _ok(x0 + 8 * cw - 6, yb, x0 + 6, yb, KOB, 7, 20)
+    s += f'<text x="{x0 + 4 * cw}" y="{yb + 30}" text-anchor="middle" {T9} font-size="17" fill="{KOB_K}">ATOM YARIÇAPI · METALİK KARAKTER ARTAR</text>'
+    s += _ok(x0 - 46, y0 + 6, x0 - 46, y0 + 6 * ch - 6, KOB, 7, 20)
+    s += f'<text transform="translate({x0 - 66} {y0 + 3 * ch}) rotate(-90)" text-anchor="middle" {T9} font-size="16" fill="{KOB_K}">YARIÇAP · METALİK ARTAR</text>'
+    s += _ok(x0 + 8 * cw + 28, y0 + 6 * ch - 6, x0 + 8 * cw + 28, y0 + 6, MER, 7, 20)
+    s += f'<text transform="translate({x0 + 8 * cw + 48} {y0 + 3 * ch}) rotate(90)" text-anchor="middle" {T9} font-size="16" fill="{MER_K}">İE₁ · EN · AMETALİK ARTAR</text>'
     for g in range(8):
-        s += f'<text x="{x0 + g * cw + cw / 2}" y="{y0 - 10}" text-anchor="middle" {B} font-size="22" fill="{OBS}">{g + 1}A</text>'
+        s += f'<text x="{x0 + g * cw + cw / 2}" y="{y0 - 8}" text-anchor="middle" {B} font-size="20" fill="{OBS}">{g + 1}A</text>'
     for p in range(6):
         for g in range(8):
             sym = TABLO[p][g]
@@ -472,24 +481,22 @@ def ozellik_haritasi(onek="m2-oh"):
                 continue
             x, y = x0 + g * cw, y0 + p * ch
             zm, cz = SINIF_RENK[SINIF[sym]]
-            s += f'<rect x="{x + 3}" y="{y + 3}" width="{cw - 6}" height="{ch - 6}" rx="9" fill="{zm}" stroke="{cz}" stroke-width="2.2"/>'
-            s += f'<text x="{x + cw / 2}" y="{y + ch / 2 + 10}" text-anchor="middle" {B} font-size="28" fill="{koyu(cz, .25)}">{sym}</text>'
-    # vurgular: Cs (en metalik bölge) ve F (en ametalik)
+            s += f'<rect x="{x + 3}" y="{y + 3}" width="{cw - 6}" height="{ch - 6}" rx="8" fill="{zm}" stroke="{cz}" stroke-width="2.2"/>'
+            s += f'<text x="{x + cw / 2}" y="{y + ch / 2 + 9}" text-anchor="middle" {B} font-size="26" fill="{koyu(cz, .25)}">{sym}</text>'
     xc, yc = x0 + cw / 2, y0 + 5 * ch + ch / 2
-    s += f'<circle cx="{xc}" cy="{yc}" r="40" fill="none" stroke="{KOB}" stroke-width="5"/>'
+    s += f'<circle cx="{xc}" cy="{yc}" r="33" fill="none" stroke="{KOB}" stroke-width="5"/>'
     xf, yf = x0 + 6 * cw + cw / 2, y0 + ch + ch / 2
-    s += f'<circle cx="{xf}" cy="{yf}" r="40" fill="none" stroke="{MER}" stroke-width="5"/>'
-    # Keban: kurşun
+    s += f'<circle cx="{xf}" cy="{yf}" r="33" fill="none" stroke="{MER}" stroke-width="5"/>'
     xp, yp = x0 + 3 * cw, y0 + 5 * ch
-    s += f'<path d="{cizgi_d(selcuklu_yildizi(xp + cw - 12, yp + 12, 13), True)}" fill="{KEH}" stroke="{OBS}" stroke-width="2"/>'
-    ly = y0 + 6 * ch + 86
+    s += f'<path d="{cizgi_d(selcuklu_yildizi(xp + cw - 12, yp + 12, 12), True)}" fill="{KEH}" stroke="{OBS}" stroke-width="2"/>'
+    ly = H - 28
     for k, (ad, sin) in enumerate((("metal", "metal"), ("yarı metal", "yari"), ("ametal", "ametal"), ("soy gaz", "soy"), ("sınıfı değişen", "belirsiz"))):
-        lx = 40 + k * 178
+        lx = 16 + k * 136
         zm, cz = SINIF_RENK[sin]
-        s += f'<rect x="{lx}" y="{ly}" width="30" height="24" rx="6" fill="{zm}" stroke="{cz}" stroke-width="2.2"/>'
-        s += f'<text x="{lx + 38}" y="{ly + 20}" {T} font-size="20" fill="{OBS}">{ad}</text>'
-    s += f'<path d="{cizgi_d(selcuklu_yildizi(W - 236, ly - 34, 11), True)}" fill="{KEH}" stroke="{OBS}" stroke-width="2"/>'
-    s += f'<text x="{W - 220}" y="{ly - 27}" {T} font-size="19" fill="{OBS}">Keban: gümüşlü kurşun</text>'
+        s += f'<rect x="{lx}" y="{ly}" width="26" height="22" rx="5" fill="{zm}" stroke="{cz}" stroke-width="2.2"/>'
+        s += f'<text x="{lx + 33}" y="{ly + 18}" {T} font-size="18" fill="{OBS}">{ad}</text>'
+    s += f'<path d="{cizgi_d(selcuklu_yildizi(W - 168, ly + 11, 10), True)}" fill="{KEH}" stroke="{OBS}" stroke-width="2"/>'
+    s += f'<text x="{W - 154}" y="{ly + 18}" {T} font-size="18" fill="{OBS}">Keban: kurşun</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info oh")
 
 

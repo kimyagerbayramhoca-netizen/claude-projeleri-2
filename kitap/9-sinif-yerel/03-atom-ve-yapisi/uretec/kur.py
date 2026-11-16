@@ -36,7 +36,7 @@ SAYFA = {
     1: ('Yola çıkış', 'Şanlıurfa–Harran yolu · yola çıkış', 0),
     2: ('1. durak · <b>Göbeklitepe</b>', '1. durak · Atom modellerinin yolculuğu', 0),
     3: ('2. durak · <b>Harran</b>', '2. durak · Çekirdek, katmanlar, elektron bulutu', 7),
-    4: ('3. durak · <b>Harran Höyüğü</b>', '3. durak · Işık, enerji düzeyleri, orbitaller', 16),
+    4: ('3. durak · <b>Höyük</b>', '3. durak · Işık, enerji düzeyleri, orbitaller', 16),
     5: ('4. durak · <b>Urfa çarşısı</b>', '4. durak · p, n, e ve iyonlar', 24),
     6: ('5. durak · <b>Halfeti</b>', '5. durak · Elektron dizilimi kuralları', 33),
     7: ('6. durak · <b>Fırat kıyısı</b>', '6. durak · Değerlik elektronu, küresel simetri', 41),
@@ -59,17 +59,17 @@ import sahneler_unite as SU  # noqa: E402  (Unite uretec'i sys.path'e ekledikten
 # ------------------------------------------------------------------ açılış panoramasının durak etiketleri
 # anahtar: (üst satır, ad, alt [sayfa · akçe], tür, (sol mm, üst mm) rozet merkezine göre)
 ETIKET = {
-    "1": ("1. DURAK · GÖBEKLİTEPE", "Fikirlerin yolculuğu", "2|+100 akçe", "durak", (-19, -13.8)),
-    "2": ("2. DURAK · HARRAN", "Çekirdek ve katmanlar", "3|+120 akçe", "durak", (-46.5, -4.4)),
-    "3": ("3. DURAK · HARRAN HÖYÜĞÜ", "Işık ve orbitaller", "4|+120 akçe", "durak", (-21, 4.4)),
-    "4": ("4. DURAK · URFA ÇARŞISI", "p, n, e ve iyonlar", "5|+120 akçe", "durak", (4.6, -4.4)),
+    "1": ("1. DURAK · GÖBEKLİTEPE", "Fikirlerin yolculuğu", "2|+100 akçe", "durak", (-50, 4.4)),
+    "2": ("2. DURAK · HARRAN", "Çekirdek ve katmanlar", "3|+120 akçe", "durak", (-52, -4.4)),
+    "3": ("3. DURAK · HARRAN HÖYÜĞÜ", "Işık ve orbitaller", "4|+120 akçe", "durak", (-52, -4.4)),
+    "4": ("4. DURAK · URFA ÇARŞISI", "p, n, e ve iyonlar", "5|+120 akçe", "durak", (4.4, -4.4)),
     "5": ("5. DURAK · HALFETİ", "Dizilim kuralları", "6|+120 akçe", "durak", (4.4, -4.4)),
-    "6": ("6. DURAK · FIRAT KIYISI", "Değerlik ve simetri", "7|+120 akçe", "durak", (4.4, -4.4)),
-    "H": ("GÜMRÜK HANI", "Hülasa", "8|+40 akçe", "hul", (-31, -4.2)),
-    "M": ("SIRA GECESİ", "Meclis: Kim haklı?", "9|+120 akçe", "yan", (-44, -4.2)),
-    "K": ("HARRAN OVASI", "Kıssa", "10|+120 akçe", "yan", (-26, 4.2)),
-    "A": ("URFA EVLERİ", "Anahtar merdiveni", "11|+120 akçe", "yan", (-17, 4.4)),
-    "V": ("URFA KALESİ", "Büyük İmtihan", "12–13|+300 akçe", "kale", (-36, -13.4)),
+    "6": ("6. DURAK · FIRAT KIYISI", "Değerlik ve simetri", "7|+120 akçe", "durak", (4.4, -2.6)),
+    "H": ("GÜMRÜK HANI", "Hülasa", "8|+40 akçe", "hul", (-40, -4.2)),
+    "M": ("SIRA GECESİ", "Meclis: Kim haklı?", "9|+120 akçe", "yan", (-48, -4.2)),
+    "K": ("HARRAN OVASI", "Kıssa", "10|+120 akçe", "yan", (-36, -3)),
+    "A": ("URFA EVLERİ", "Anahtar merdiveni", "11|+120 akçe", "yan", (-44, -4.2)),
+    "V": ("URFA KALESİ", "Büyük İmtihan", "12–13|+300 akçe", "kale", (-49, -14)),
 }
 
 
@@ -139,7 +139,7 @@ def orb_svg(kodlar, cls="orb", renk="#FFFFFF"):
 def iz(A, Z, sembol, yuk=""):
     """Çekirdek gösterimi: üstte kütle numarası, altta atom numarası (HTML; SVG değil)."""
     y = f"<sup>{yuk}</sup>" if yuk else ""
-    return f'<span class="iz"><span class="iz-s"><i>{A}</i><i>{Z}</i></span>{sembol}{y}</span>'
+    return f'<span class="iz"><span class="izo"><span>{A}</span><span>{Z}</span></span>{sembol}{y}</span>'
 
 
 def rozet_tik():
