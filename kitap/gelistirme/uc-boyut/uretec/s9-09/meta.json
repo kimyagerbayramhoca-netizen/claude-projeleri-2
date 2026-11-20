@@ -1,0 +1,40 @@
+{
+ "not": "3B örneği için GEÇİCİ künye: 9/09 Katılar ünitesi henüz yazılmadı. Rota ve durak önerileri yerel-ortak/ROTALAR.md'den; durak adları ünite yazılırken kesinleşir.",
+ "sinif": 9,
+ "yol": 9,
+ "rota": "Mardin–Midyat Yolu",
+ "hud": "Mardin–Midyat",
+ "unite": "Katılar",
+ "klasor": "uc-boyut",
+ "duraklar": [
+  {
+   "no": 1,
+   "yer": "Mardin taş evleri",
+   "baslik": "Kristal ve amorf katı"
+  },
+  {
+   "no": 2,
+   "yer": "Midyat",
+   "baslik": "Metalik katı"
+  },
+  {
+   "no": 3,
+   "yer": "Cam atölyesi",
+   "baslik": "Amorf katı"
+  },
+  {
+   "no": 4,
+   "yer": "Mardin çarşısı",
+   "baslik": "Katı türleri: kristalin içi"
+  },
+  {
+   "no": 5,
+   "yer": "Hasankeyf",
+   "baslik": "Allotropi ve özet"
+  }
+ ],
+ "kale": "Mardin Kalesi",
+ "hazine": [],
+ "nisanlar": [],
+ "akce_toplam": 1400
+}

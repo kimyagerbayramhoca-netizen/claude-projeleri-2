@@ -1,0 +1,88 @@
+/* =====================================================================
+   3B ÖRNEĞİ · anaglif kartları ve gözlük sayfası (stil.css + gelistirme.css'ten sonra yüklenir)
+   Kural: anaglifin çevresi BEYAZ ya da nötr gri; yanında kırmızı / camgöbeği süs yok (etiketler mürekkep rengi).
+   Kırmızı ve camgöbeği yalnız gözlük sayfasındaki çizimlerde (satır içi SVG, data-tema-sabit) bulunur.
+   ===================================================================== */
+.bant.b40 .levha { top: 3.2mm; max-width: 126mm; }
+.bant.b30 .levha { top: 2.6mm; max-width: 126mm; }
+.s1 .levha h1, .s2 .levha h1, .s3 .levha h1 { font-size: 23pt; }
+
+/* gözlük şeridi: her 3B sayfasının başında kısa kullanım notu */
+.ub-serit { display: flex; align-items: center; gap: 2mm; background: var(--gum-a); border: .3mm solid var(--gum); border-radius: 2.4mm; padding: .9mm 2.6mm; font-size: 9.5pt; line-height: 1.2; }
+.ub-serit svg.ubi { width: 9mm; height: 4.5mm; flex: none; }
+.ub-serit .sag { margin-left: auto; font-size: 7.2pt; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--gum-k); white-space: nowrap; padding-left: 2mm; }
+
+/* 3B kartı: solda anaglif (beyaz zemin), sağda düz resim ve kısa bilgi */
+.ub-izgara { display: grid; grid-template-columns: 1fr 1fr; gap: 2.3mm; }
+.kart.ub { padding: 1.8mm 2.6mm 2mm; background: #FFFFFF; }
+.kart.ub .kart-bas { margin-bottom: .7mm; align-items: baseline; }
+.kart.ub .et, .kart.ub .et.kob { color: var(--obs); font-size: 8.2pt; }
+.kart.ub .sekil-ad { font-family: var(--baslik); font-weight: 800; font-size: 11pt; line-height: 1; color: var(--obs); white-space: nowrap; }
+.ub-govde { display: grid; grid-template-columns: auto 1fr; gap: 2.2mm; align-items: stretch; }
+img.ana { display: block; background: #FFFFFF; }
+img.duz { display: block; }
+.ub-yan { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .9mm; text-align: center; border-left: .3mm dashed var(--gum); padding-left: 2mm; min-width: 0; }
+.duz-et { display: block; font-size: 6.4pt; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; color: var(--gum-k); line-height: 1.1; }
+.ub-yan p { font-size: 9.5pt; line-height: 1.2; font-weight: 700; }
+.kutup { display: inline-block; border: var(--cz-i) solid var(--obs); border-radius: 9mm; padding: .4mm 2.8mm .3mm; font-weight: 900; font-size: 8pt; letter-spacing: .1em; text-transform: uppercase; line-height: 1.15; }
+.kutup.polar { background: var(--obs); color: #FFFFFF; }
+.kutup.apolar { background: #FFFFFF; color: var(--obs); }
+
+/* "Şekil polarlığı nasıl belirler?" kartı */
+.sekil-kart { padding: 2mm 2.8mm 2mm; display: flex; flex-direction: column; }
+.sekil-kart p { font-size: 9.5pt; line-height: 1.22; }
+.sk-izgara { display: grid; grid-template-columns: 20mm 56mm; gap: 4mm; align-items: center; justify-content: center; margin: .8mm 0 .6mm; }
+.sk-izgara svg.info { display: block; width: 100%; height: auto; }
+.sk-sol { text-align: center; }
+.sk-alt { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm; font-size: 9.5pt; line-height: 1.15; text-align: center; margin-top: .4mm; }
+.kucuk-not { margin-top: auto; padding-top: .8mm; border-top: .3mm dashed var(--cizgi); color: var(--soluk); font-weight: 700; }
+
+/* kristal kartı: sağda komşu sayısı, altta bilgi satırı */
+.kart.ub.kr .tur { font-weight: 900; font-size: 7.2pt; letter-spacing: .08em; text-transform: uppercase; border: var(--cz-i) solid var(--obs); border-radius: 9mm; padding: .3mm 2mm .2mm; white-space: nowrap; }
+.kr .sayi { font-family: var(--baslik); font-weight: 800; font-size: 34pt; line-height: .74; margin-top: 1.6mm; }
+.kr .sayi-et { font-weight: 900; font-size: 7.6pt; letter-spacing: .1em; text-transform: uppercase; }
+.ub-not { font-size: 9.5pt; line-height: 1.22; margin-top: 1mm; padding-top: .9mm; border-top: .3mm dashed var(--gum); }
+.ub-not .veri { display: inline-block; font-weight: 800; color: var(--soluk); white-space: nowrap; }
+
+/* 10. sınıf: geniş kartlar (anaglif solda, açıklama sağda) */
+.kart.ub.genis .ub-yan { align-items: stretch; text-align: left; justify-content: space-between; gap: 1mm; }
+.kart.ub.genis ul.ozet-liste { font-size: 9.5pt; line-height: 1.22; }
+.kart.ub.genis ul.ozet-liste li { margin-bottom: .5mm; }
+.kart.ub.genis ul.ozet-liste li::before { background: var(--obs); }
+.duz-satir { display: flex; align-items: center; gap: 2.4mm; }
+.duz-satir .duz-et { text-align: left; }
+.kart.ub.genis ol.akis { margin-top: .6mm; }
+.kart.ub.genis ol.akis li { font-size: 9.5pt; line-height: 1.22; padding-bottom: .9mm; }
+.kart.ub.genis ol.akis li > i { border-color: var(--obs); color: var(--obs); }
+.kart.ub.genis ol.akis li:not(:last-child)::after { border-left-color: var(--obs); }
+.kart.ub.genis .soru { font-weight: 800; font-size: 9.8pt; line-height: 1.22; }
+.kart.ub.genis .sonuc { font-size: 9.5pt; align-self: flex-start; }
+.cift-ana { display: grid; grid-template-columns: auto auto; gap: 1.6mm; }
+.cift-ana figure { margin: 0; text-align: center; }
+.cift-ana figcaption { font-size: 8.4pt; font-weight: 800; color: var(--obs); line-height: 1.15; margin-top: .2mm; }
+
+/* gözlük sayfası */
+.nasil { display: grid; grid-template-columns: 74mm 1fr; gap: 3.4mm; align-items: center; }
+.nasil svg.info { display: block; width: 100%; height: auto; }
+.nasil ol.akis { margin-top: 0; }
+.nasil ol.akis li { font-size: 9.6pt; line-height: 1.24; padding-bottom: 1.1mm; }
+.sablon-bas { display: flex; align-items: center; justify-content: space-between; gap: 2mm; }
+.sablon-alan { position: relative; }
+.sablon-alan svg.sablon { display: block; width: 188mm; height: 80mm; }
+.s4 .kart ol.akis { margin-top: .4mm; }
+.s4 .kart ol.akis li { font-size: 9.5pt; line-height: 1.2; padding-bottom: .8mm; }
+ul.ipucu { list-style: none; font-size: 9.5pt; line-height: 1.2; }
+ul.ipucu li { display: grid; grid-template-columns: 5.6mm 1fr; gap: 1.6mm; align-items: center; margin-top: 1.1mm; }
+ul.ipucu li svg { width: 5.6mm; height: 5.6mm; display: block; }
+.test-kart { background: #FFFFFF; }
+.test-kart img { display: block; margin: .6mm auto; }
+.test-kart p { font-size: 9.5pt; line-height: 1.2; }
+.s4 .hb p { font-size: 9.5pt; line-height: 1.22; }
+.kucuk-p { font-size: 9.5pt; line-height: 1.22; }
+.kf { text-transform: none; letter-spacing: .02em; }                 /* büyük harfe çevrilen etiketlerde kimyasal formül aynen kalır (NaCl ≠ NACL) */
+.ub-serit { white-space: nowrap; }
+.sohbet-serit .mesaj .balon { font-size: 9.5pt; line-height: 1.2; }
+.s1 .kendini-dene .soru-k { margin-top: .7mm; }
+.s1 .kendini-dene .yaz { height: 3.1mm; }
+.s1 .kendini-dene .ters-alan { margin-top: .6mm; padding-top: .6mm; }
+.s4 .hb-hap p { padding-right: 3mm; white-space: nowrap; }

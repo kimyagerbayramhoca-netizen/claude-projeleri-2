@@ -1,0 +1,40 @@
+{
+ "not": "3B örneği için GEÇİCİ künye: 9/06 Kimyasal Etkileşimler ünitesi henüz yazılmadı. Rota ve durak önerileri yerel-ortak/ROTALAR.md'den; durak adları ünite yazılırken kesinleşir.",
+ "sinif": 9,
+ "yol": 6,
+ "rota": "Tuz Gölü–Aksaray Yolu",
+ "hud": "Tuz Gölü–Aksaray",
+ "unite": "Kimyasal Etkileşimler",
+ "klasor": "uc-boyut",
+ "duraklar": [
+  {
+   "no": 1,
+   "yer": "Tuz Gölü",
+   "baslik": "İyonik bağ"
+  },
+  {
+   "no": 2,
+   "yer": "Tuzla",
+   "baslik": "İyonik örgü"
+  },
+  {
+   "no": 3,
+   "yer": "Aksaray",
+   "baslik": "Kovalent bağ ve Lewis"
+  },
+  {
+   "no": 4,
+   "yer": "Bakırcılar çarşısı",
+   "baslik": "Metalik bağ"
+  },
+  {
+   "no": 5,
+   "yer": "Hasan Dağı",
+   "baslik": "Molekül şekli ve polarlık"
+  }
+ ],
+ "kale": "Sultanhanı Kervansarayı",
+ "hazine": [],
+ "nisanlar": [],
+ "akce_toplam": 1400
+}

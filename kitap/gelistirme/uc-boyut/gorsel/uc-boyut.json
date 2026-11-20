@@ -1,0 +1,315 @@
+{
+ "sabit": {
+  "goz_araligi_mm": 62.0,
+  "okuma_mm": 375.0,
+  "k_orto": 0.08267,
+  "ayriklik_ust_mm": 3.0,
+  "dpi": 300,
+  "mol_olcek_mm": 15.0,
+  "test_ayriklik_mm": 2.4
+ },
+ "ch4": {
+  "ad": "CH4",
+  "en_mm": 55,
+  "yuk_mm": 40,
+  "mm_birim": 15.0,
+  "k": 0.08267,
+  "z_mm": 16.89,
+  "ayriklik_mm": 2.793,
+  "derinlik_orani": 1.0,
+  "W": 650,
+  "H": 472,
+  "tasma_mm": 0.0,
+  "birim": "Å",
+  "kure": 5,
+  "donus": [
+   [
+    20,
+    18,
+    0
+   ]
+  ],
+  "kb": 53
+ },
+ "nh3": {
+  "ad": "NH3",
+  "en_mm": 55,
+  "yuk_mm": 40,
+  "mm_birim": 15.0,
+  "k": 0.08267,
+  "z_mm": 15.32,
+  "ayriklik_mm": 2.533,
+  "derinlik_orani": 1.0,
+  "W": 650,
+  "H": 472,
+  "tasma_mm": 0.0,
+  "birim": "Å",
+  "kure": 6,
+  "donus": [
+   [
+    24,
+    14,
+    0
+   ]
+  ],
+  "kb": 45
+ },
+ "h2o": {
+  "ad": "H2O",
+  "en_mm": 55,
+  "yuk_mm": 40,
+  "mm_birim": 15.0,
+  "k": 0.08267,
+  "z_mm": 11.01,
+  "ayriklik_mm": 1.821,
+  "derinlik_orani": 1.0,
+  "W": 650,
+  "H": 472,
+  "tasma_mm": 0.0,
+  "birim": "Å",
+  "kure": 7,
+  "donus": [
+   [
+    10,
+    35,
+    0
+   ]
+  ],
+  "kb": 38
+ },
+ "co2": {
+  "ad": "CO2",
+  "en_mm": 55,
+  "yuk_mm": 40,
+  "mm_birim": 15.0,
+  "k": 0.08267,
+  "z_mm": 17.33,
+  "ayriklik_mm": 2.866,
+  "derinlik_orani": 1.0,
+  "W": 650,
+  "H": 472,
+  "tasma_mm": 0.0,
+  "birim": "Å",
+  "kure": 3,
+  "donus": [
+   [
+    12,
+    40,
+    0
+   ]
+  ],
+  "kb": 38
+ },
+ "bf3": {
+  "ad": "BF3",
+  "en_mm": 55,
+  "yuk_mm": 40,
+  "mm_birim": 15.0,
+  "k": 0.07867,
+  "z_mm": 19.07,
+  "ayriklik_mm": 3.0,
+  "derinlik_orani": 0.952,
+  "W": 650,
+  "H": 472,
+  "tasma_mm": 0.0,
+  "birim": "Å",
+  "kure": 4,
+  "donus": [
+   [
+    -50,
+    18,
+    0
+   ]
+  ],
+  "kb": 58
+ },
+ "nacl": {
+  "ad": "NaCl",
+  "en_mm": 58,
+  "yuk_mm": 55,
+  "mm_birim": 5.5398,
+  "k": 0.05409,
+  "z_mm": 27.73,
+  "ayriklik_mm": 3.0,
+  "derinlik_orani": 0.654,
+  "W": 685,
+  "H": 650,
+  "tasma_mm": 0.0,
+  "birim": "Å",
+  "kure": 27,
+  "donus": [
+   [
+    14,
+    -22,
+    0
+   ]
+  ],
+  "kb": 207
+ },
+ "elmas": {
+  "ad": "elmas",
+  "en_mm": 58,
+  "yuk_mm": 55,
+  "mm_birim": 8.8377,
+  "k": 0.05448,
+  "z_mm": 27.53,
+  "ayriklik_mm": 3.0,
+  "derinlik_orani": 0.659,
+  "W": 685,
+  "H": 650,
+  "tasma_mm": 0.0,
+  "birim": "Å",
+  "kure": 18,
+  "donus": [
+   [
+    16,
+    -27,
+    0
+   ]
+  ],
+  "kb": 142
+ },
+ "grafit": {
+  "ad": "grafit",
+  "en_mm": 58,
+  "yuk_mm": 55,
+  "mm_birim": 5.8849,
+  "k": 0.05827,
+  "z_mm": 25.74,
+  "ayriklik_mm": 3.0,
+  "derinlik_orani": 0.705,
+  "W": 685,
+  "H": 650,
+  "tasma_mm": 0.0,
+  "birim": "Å",
+  "kure": 48,
+  "donus": [
+   [
+    24,
+    -20,
+    0
+   ]
+  ],
+  "kb": 182
+ },
+ "buz": {
+  "ad": "buz",
+  "en_mm": 58,
+  "yuk_mm": 55,
+  "mm_birim": 4.5838,
+  "k": 0.08076,
+  "z_mm": 18.57,
+  "ayriklik_mm": 3.0,
+  "derinlik_orani": 0.977,
+  "W": 685,
+  "H": 650,
+  "tasma_mm": 0.0,
+  "birim": "Å",
+  "kure": 60,
+  "donus": [
+   [
+    0,
+    4,
+    0
+   ],
+   [
+    66,
+    0,
+    0
+   ]
+  ],
+  "kb": 132
+ },
+ "gaz": {
+  "ad": "gaz kutusu",
+  "en_mm": 92,
+  "yuk_mm": 51,
+  "mm_birim": 6.8106,
+  "k": 0.04713,
+  "z_mm": 31.83,
+  "ayriklik_mm": 3.0,
+  "derinlik_orani": 0.57,
+  "W": 1087,
+  "H": 602,
+  "tasma_mm": 0.0,
+  "birim": "birim",
+  "kure": 28,
+  "donus": [
+   [
+    12,
+    -18,
+    0
+   ]
+  ],
+  "kb": 174
+ },
+ "kup": {
+  "ad": "22,4 L küp",
+  "en_mm": 78,
+  "yuk_mm": 49,
+  "mm_birim": 1.1987,
+  "k": 0.05477,
+  "z_mm": 27.39,
+  "ayriklik_mm": 3.0,
+  "derinlik_orani": 0.663,
+  "W": 921,
+  "H": 579,
+  "tasma_mm": 0.0,
+  "birim": "cm",
+  "kure": 25,
+  "donus": [
+   [
+    14,
+    -24,
+    0
+   ]
+  ],
+  "kb": 107
+ },
+ "hid-na": {
+  "ad": "hidrasyon Na",
+  "en_mm": 46,
+  "yuk_mm": 46,
+  "mm_birim": 6.3346,
+  "k": 0.08045,
+  "z_mm": 18.64,
+  "ayriklik_mm": 3.0,
+  "derinlik_orani": 0.973,
+  "W": 543,
+  "H": 543,
+  "tasma_mm": 0.0,
+  "birim": "Å",
+  "kure": 19,
+  "donus": [
+   [
+    20,
+    -28,
+    0
+   ]
+  ],
+  "kb": 76
+ },
+ "hid-cl": {
+  "ad": "hidrasyon Cl",
+  "en_mm": 46,
+  "yuk_mm": 46,
+  "mm_birim": 6.1506,
+  "k": 0.07878,
+  "z_mm": 19.04,
+  "ayriklik_mm": 3.0,
+  "derinlik_orani": 0.953,
+  "W": 543,
+  "H": 543,
+  "tasma_mm": 0.0,
+  "birim": "Å",
+  "kure": 19,
+  "donus": [
+   [
+    20,
+    -28,
+    0
+   ]
+  ],
+  "kb": 76
+ }
+}

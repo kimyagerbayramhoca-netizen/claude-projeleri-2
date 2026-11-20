@@ -1,0 +1,39 @@
+{
+ "not": "3B örneği: künye 10-sinif-yerel/04-gazlar/uretec/meta.json'dan (karma-temalar kopyası üzerinden) aynen; hazine ve nişan listeleri bu örnekte kullanılmadığı için boş.",
+ "sinif": 10,
+ "yol": 4,
+ "rota": "Kapadokya Yolu",
+ "unite": "Gazlar",
+ "klasor": "uc-boyut",
+ "duraklar": [
+  {
+   "no": 1,
+   "yer": "Erciyes",
+   "baslik": "Gaz ve basınç"
+  },
+  {
+   "no": 2,
+   "yer": "Göreme",
+   "baslik": "Boyle ve Charles"
+  },
+  {
+   "no": 3,
+   "yer": "Avanos",
+   "baslik": "Üç yasa bir arada"
+  },
+  {
+   "no": 4,
+   "yer": "Kızılçukur",
+   "baslik": "İdeal gaz"
+  },
+  {
+   "no": 5,
+   "yer": "Derinkuyu",
+   "baslik": "Yoğunluk, yayılma"
+  }
+ ],
+ "kale": "Uçhisar Kalesi",
+ "hazine": [],
+ "nisanlar": [],
+ "akce_toplam": 1400
+}
