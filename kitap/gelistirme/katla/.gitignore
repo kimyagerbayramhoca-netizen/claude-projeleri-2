@@ -1,0 +1,8 @@
+# ara dosyalar (python3 uretec/kur.py her seferinde yeniden üretir)
+/*.html
+/onizleme-*/
+/gorsel/
+__pycache__/
+/katla-9.pdf
+/katla-10.pdf
+/kur-raporu.json

@@ -1,0 +1,19 @@
+{
+ "not": "Geliştirme örneği (katla): yalnız künye. Duraklar ve rota yerel-ortak/ROTALAR.md ile 10-sinif-yerel/01-kimyasal-degisimler/uretec/meta.json'dan.",
+ "sinif": 9,
+ "yol": 6,
+ "rota": "Tuz Gölü–Aksaray Yolu",
+ "unite": "Kimyasal Etkileşimler",
+ "klasor": "katla",
+ "duraklar": [
+  {
+   "no": 1,
+   "yer": "Tuz Gölü",
+   "baslik": "Katla örneği",
+   "sayfa": 1,
+   "akce": 100
+  }
+ ],
+ "hazine": [],
+ "nisanlar": []
+}
