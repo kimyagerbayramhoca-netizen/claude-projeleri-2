@@ -5,6 +5,12 @@ Yeni oturumda yalnızca bunu oku. Ayrıntı gerekirse `kitap/PROJE-AYRINTI.md` i
 ## Kurallar
 Depo kökündeki `CLAUDE.md` dosyasında; oturum başında kendiliğinden yüklenir.
 
+## Şu an
+- Kullanıcı "başla" dedi (21 Kasım 2026): yaygınlaştırma planı (AYRINTI §4) başladı. Şimdilik yalnız tasarım yapılıyor.
+- Adım 1: özellikleri ortak kütüphaneye taşıma sürüyor.
+- Adım 2: 9/03 pilotu. Planı `9-sinif-yerel/03-atom-ve-yapisi/PILOT-PLAN.md`.
+- Pilot bitince kullanıcıya gösterilecek. Onayı gelmeden öteki ünitelere geçilmeyecek.
+
 ## Durum
 - **Klasik tasarım:** 16 ünitenin hepsi tamam (`kitap/9-sinif`, `kitap/10-sinif`).
 - **Yeni tasarım** (`kitap/*-sinif-yerel`; ortak kod `kitap/yerel-ortak`, belgesi `yerel-ortak/TASARIM-SISTEMI.md`):
@@ -19,7 +25,7 @@ Depo kökündeki `CLAUDE.md` dosyasında; oturum başında kendiliğinden yükle
 - **Yeni fikir örnekleri** (`kitap/gelistirme/yeni-fikirler`): Usturlap Çarkı, Gizli cevap, Kâğıtta animasyon, Ustanın Sırrı (ebru). Kullanıcıya gönderildi, görüşü bekleniyor.
 
 ## Kullanıcıdan beklenenler
-1. **"başla":** Yaygınlaştırma planı (AYRINTI §4). Sırası: ortak kütüphaneye taşı → 9/03 ile pilot → bütün üniteler → birleşik kitaplar.
+1. **Pilot 9/03'e görüş.** Onay gelirse plan sürer: bütün üniteler → birleşik kitaplar (AYRINTI §4).
 2. **Yeni fikir örneklerine görüş** ve kitaba hangi oranda gireceği. Seçilmemiş öteki fikirler: AYRINTI §5.
 3. **Deneme baskısı geri bildirimi:** 3B derinliği ve katlama.
 4. **Eski kararlar:**
