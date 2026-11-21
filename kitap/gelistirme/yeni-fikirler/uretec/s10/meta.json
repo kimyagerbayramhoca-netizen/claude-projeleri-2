@@ -1,0 +1,19 @@
+{
+ "not": "Geliştirme örneği (yeni fikirler): yalnız künye; kur_ortak.Unite için gerekli.",
+ "sinif": 10,
+ "yol": 4,
+ "rota": "Kapadokya Yolu",
+ "unite": "Gazlar",
+ "klasor": "yeni-fikirler",
+ "duraklar": [
+  {
+   "no": 1,
+   "yer": "Göreme",
+   "baslik": "Yeni fikirler",
+   "sayfa": 1,
+   "akce": 100
+  }
+ ],
+ "hazine": [],
+ "nisanlar": []
+}
