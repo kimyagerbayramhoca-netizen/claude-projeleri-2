@@ -7,9 +7,13 @@ Depo kökündeki `CLAUDE.md` dosyasında; oturum başında kendiliğinden yükle
 
 ## Şu an
 - Kullanıcı "başla" dedi (21 Kasım 2026): yaygınlaştırma planı (AYRINTI §4) başladı. Şimdilik yalnız tasarım yapılıyor.
-- Adım 1: özellikleri ortak kütüphaneye taşıma sürüyor.
-- Adım 2: 9/03 pilotu. Planı `9-sinif-yerel/03-atom-ve-yapisi/PILOT-PLAN.md`.
-- Pilot bitince kullanıcıya gösterilecek. Onayı gelmeden öteki ünitelere geçilmeyecek.
+- Adım 1 bitti: özellikler ortak kütüphanede. API: `yerel-ortak/TASARIM-SISTEMI.md` §16; örnek: `yerel-ortak/katalog/bilesenler/`.
+  - Tırnaksız font hatası düzeltildi. SVG yazıları artık Baloo; biten üniteler yeniden kurulunca görsel kontrol gerekir.
+  - `yeni_unite.py` iskelete `palet` alanını koymuyor (eklenecek).
+- Adım 2: 9/03 pilotu kuruldu (16 → 26 sayfa; dogrula 324 denetim doğru, taşma yok, Type 3 = 0). Planı ve sapmalar: `9-sinif-yerel/03-atom-ve-yapisi/PILOT-PLAN.md` §0.1.
+  - Görsel kontrol ve kullanıcının görüşü bekleniyor. Onayı gelmeden öteki ünitelere geçilmeyecek.
+  - Karar bekleyenler: ünite başına akçe 1400 → 1600 oldu (kitap çerçevesi hâlâ 1400 diyor); 3B iki sayfa oldu; ünite 10 sayfa uzadı.
+  - 9/06'da Şifreli Kapı için PROTON dışında bir kelime seçilmeli.
 
 ## Durum
 - **Klasik tasarım:** 16 ünitenin hepsi tamam (`kitap/9-sinif`, `kitap/10-sinif`).
@@ -38,4 +42,3 @@ Depo kökündeki `CLAUDE.md` dosyasında; oturum başında kendiliğinden yükle
 - Sürümler: `node kitap/yerel-ortak/render.js <ünite> --hepsi`
 - Kontrol: `pdffonts x.pdf | grep -c "Type 3"` → 0 olmalı
 - Kayıt: `git add -A kitap ':!kitap/kimya-rotasi-*-yerel*.pdf'`, ardından commit ve push
-- Bilinen hata (yaygınlaştırırken düzelt): `yerel-ortak/cizim` içinde SVG'de `font-family="Baloo Bhaijaan 2"` tırnaksız yazılmış, `"'Baloo Bhaijaan 2'"` olmalı.

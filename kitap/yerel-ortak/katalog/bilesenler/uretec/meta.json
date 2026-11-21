@@ -1,0 +1,68 @@
+{
+  "sinif": 9,
+  "yol": 6,
+  "rota": "Tuz Gölü–Aksaray Yolu",
+  "unite": "Yeni Bileşenler Kataloğu",
+  "klasor": "bilesenler",
+  "hud": "Bileşen kataloğu",
+  "tema": "Ortak kütüphane deneme sayfaları",
+  "palet": "cini-toprak",
+  "uc_boyut": [
+    "ch4",
+    "nacl"
+  ],
+  "duraklar": [
+    {
+      "no": 1,
+      "yer": "Hap Bilgi",
+      "baslik": "Kısa bileşenler",
+      "enlem": 38.7,
+      "boylam": 33.4,
+      "sayfa": 1,
+      "akce": 100
+    },
+    {
+      "no": 2,
+      "yer": "Pano ve 3B",
+      "baslik": "Çizgi roman, 3B",
+      "enlem": 38.4,
+      "boylam": 34.0,
+      "sayfa": 2,
+      "akce": 150
+    }
+  ],
+  "kale": "Katalog",
+  "nisanlar": [
+    {
+      "ad": "Deneme Nişanı",
+      "ikon": "deste",
+      "renk": "gol",
+      "aciklama": "katalog"
+    },
+    {
+      "ad": "Üstad Mührü",
+      "ikon": "ustad",
+      "renk": "laj",
+      "aciklama": "katalog",
+      "bonus": true
+    }
+  ],
+  "hazine": [
+    {
+      "kod": "H1",
+      "baslik": "Bağ türü",
+      "formul": "metal + ametal: iyonik",
+      "not": "+10 akçe",
+      "durak": 1
+    },
+    {
+      "kod": "H10",
+      "renk": "kob",
+      "baslik": "Üç haneli kod",
+      "formul": "ametal + ametal: kovalent",
+      "not": "rozet yazısı küçülür",
+      "durak": 2
+    }
+  ],
+  "sayfa_sayisi": 8
+}

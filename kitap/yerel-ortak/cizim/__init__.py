@@ -13,6 +13,10 @@ Modüller (bağımlılık sırasıyla):
   infografik  sayısal bilgi grafikleri (Avogadro cetveli, bor madalyonları, mol haritası, karışım kapları …)
   sahneler    sayfa sahneleri (başlık bantları, açılış panoraması, kale, final) = yukarıdaki parçaların birleşimi
   ebru        matematiksel ebru (marmorlama) → JPEG doku
+  konu_karakterleri  atom modelleri, tanecikler, fotonlar, gaz tanecikleri (kk-* <symbol>; yalnız kullanılınca gömülür)
+  hap_bilgi   Hap Bilgi ailesi ikonları, metin içi ok, sıklık noktaları
+  katla       kat sayfaları (fontTools ile ölçülü yazı), köşe sineması kareleri, köşeyi katla, karma sayfa ikonları
+  uc_boyut    3B anaglif motoru (numpy + PIL; PNG üretir) ve ünite resim önbelleği · gozluk: gözlük sayfası çizimleri
 
 Bütün fonksiyonlar SVG METNİ döndürür; gradyan/klip tanımları verilen Svg nesnesinin <defs>'ine yazılır.
 Her çizim kendi önekini (onek) taşır: aynı HTML'de yüzlerce satır içi SVG'nin kimlikleri çakışmaz.

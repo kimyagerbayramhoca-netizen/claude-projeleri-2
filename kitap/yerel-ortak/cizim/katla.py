@@ -766,7 +766,7 @@ def kose_adimlar(cevap="3 L"):
             o.append(f'<path d="M{px + 3} {py + 5 + j * 3.6} h{(w - 6) if j < 3 else 8}" stroke="{GUM}" stroke-width=".5" stroke-linecap="round"/>')
         if i < 2:
             o.append(_ok(x + 40, 28, x + 50, 28, GUM_K, .7, 2.2))
-    return f'<svg class="adimlar" viewBox="0 0 168 44">{"".join(o)}</svg>'
+    return f'<svg class="kose-adimlar" viewBox="0 0 168 44">{"".join(o)}</svg>'
 
 
 def kose_harita(cevap="3 L"):
@@ -792,7 +792,7 @@ def kose_harita(cevap="3 L"):
         if i < 2:
             o.append(_ok(x + 39, 35, x + 59, 35, GUM_K, .7, 2.2))
     o.append(yazi("çevir", 52, 33, 2.75, GUM_K, "nunito", "orta")[0] + yazi("katla", 112, 33, 2.75, GUM_K, "nunito", "orta")[0])
-    return f'<svg class="harita" viewBox="0 0 176 62">{"".join(o)}</svg>'
+    return f'<svg class="kose-harita" viewBox="0 0 176 62">{"".join(o)}</svg>'
 
 
 # ------------------------------------------------------------------ karma sayfa ikonları

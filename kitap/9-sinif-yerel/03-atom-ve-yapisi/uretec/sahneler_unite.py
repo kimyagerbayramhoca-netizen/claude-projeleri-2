@@ -1065,13 +1065,13 @@ def _durak_rozet(k, x, y, tur):
     if tur == "durak":
         return (f'<path d="{cizgi_d(selcuklu_yildizi(x, y, 36), True)}" fill="#F0C14A" stroke="#1B1D26" stroke-width="3" stroke-linejoin="round"/>'
                 f'<path d="{cizgi_d(selcuklu_yildizi(x, y, 29), True)}" fill="#13A3A6" stroke="#1B1D26" stroke-width="2" stroke-linejoin="round"/>'
-                f'<text x="{f(x)}" y="{f(y + 11)}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="32" fill="#FFFFFF">{k}</text>')
+                f'<text x="{f(x)}" y="{f(y + 11)}" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="32" fill="#FFFFFF">{k}</text>')
     if tur == "kale":
         return (f'<circle cx="{f(x)}" cy="{f(y)}" r="34" fill="#E2533D" stroke="#1B1D26" stroke-width="3"/>'
                 f'<path d="M{f(x - 18)} {f(y + 14)} V{f(y - 6)} h6 v-6 h6 v6 h4 v-6 h6 v6 h4 v-6 h6 v6 h4 V{f(y + 14)} Z" fill="#FFFFFF" stroke="#1B1D26" stroke-width="1.6"/>')
     renk = "#F0A21A" if tur == "yan" else "#7B3F8C"
     return (f'<path d="M{f(x)} {f(y - 32)} L{f(x + 32)} {f(y)} L{f(x)} {f(y + 32)} L{f(x - 32)} {f(y)} Z" fill="{renk}" stroke="#1B1D26" stroke-width="3" stroke-linejoin="round"/>'
-            f'<text x="{f(x)}" y="{f(y + 10)}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="27" fill="#FFFFFF">{k}</text>')
+            f'<text x="{f(x)}" y="{f(y + 10)}" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="27" fill="#FFFFFF">{k}</text>')
 
 
 def panorama_urfa(h=1100):
@@ -1181,5 +1181,5 @@ def panorama_urfa(h=1100):
     s += f'<circle cx="{px}" cy="{py}" r="42" fill="#FFFFFF" stroke="#1B1D26" stroke-width="3"/>'
     s += f'<path d="M{px} {py - 34} L{px + 8} {py} L{px} {py + 34} L{px - 8} {py} Z" fill="#13A3A6" stroke="#1B1D26" stroke-width="2"/>'
     s += f'<path d="M{px - 34} {py} L{px} {py - 8} L{px + 34} {py} L{px} {py + 8} Z" fill="#F0C14A" stroke="#1B1D26" stroke-width="2"/>'
-    s += f'<text x="{px}" y="{py - 50}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="24" fill="#1B1D26">K</text>'
+    s += f'<text x="{px}" y="{py - 50}" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="24" fill="#1B1D26">K</text>'
     return s.cikti(f"0 0 {W} {h}", cls="sahne", par="xMidYMid slice")

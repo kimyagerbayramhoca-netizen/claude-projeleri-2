@@ -898,6 +898,12 @@ def imza(t, y):
     return hashlib.sha1(json.dumps(veri, sort_keys=True, default=str).encode()).hexdigest()[:16]
 
 
+def fotokopi_gri(dizi, aciklik=.3):
+    """Fotokopi yedeği: renkli düz resim → gri (algısal parlaklık), mürekkep %30 azaltılır (yalnız fotokopi nüshasında görünür)."""
+    L = dizi[..., :3].astype(np.float32) @ np.array([.299, .587, .114], np.float32)
+    return np.clip(255 - (255 - L) * (1 - aciklik), 0, 255).astype(np.uint8)
+
+
 def unite_gorselleri(klasor, girisler, moduller=(), zorla=False, sessiz=False):
     """Ünitenin gorsel/ klasörüne 3B resimlerini üretir (gerekirse) → {ad: bilgi} (gorsel/uc-boyut.json'a da yazılır).
     Her yapı için: ana-<ad>.png (anaglif, basılı boyutunda 300 dpi), duz-<ad>.png (düz, küçük), duz-<ad>-b.png
@@ -922,7 +928,7 @@ def unite_gorselleri(klasor, girisler, moduller=(), zorla=False, sessiz=False):
         s = uret(y, t["en"], t["yuk"], t["mm_birim"])
         kaydet(s.anaglif, dosya["ana"])
         kaydet(duz_resim(y, *t["duz"], golge=t["golge"]), dosya["duz"])
-        kaydet(duz_resim(y, t["en"], t["yuk"], golge=t["golge"]), dosya["buyuk"])
+        kaydet(fotokopi_gri(duz_resim(y, t["en"], t["yuk"], golge=t["golge"])), dosya["buyuk"])
         b = {k: (float(v) if isinstance(v, (float, np.floating)) else v) for k, v in s.bilgi.items()}
         b.update(imza=im, yapi=t["yapi"], birim=y.birim, kure=len(y.kure), donus=[list(d) for d in t["donus"]],
                  duz_en=t["duz"][0], duz_yuk=t["duz"][1], kb=round(os.path.getsize(dosya["ana"]) / 1024))

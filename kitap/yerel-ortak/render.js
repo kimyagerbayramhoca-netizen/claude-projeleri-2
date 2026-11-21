@@ -11,6 +11,8 @@
 //   --fotokopi   <klasör>-fotokopi.pdf          unite-fotokopi.html (kur.py --fotokopi), sayfa başına mürekkep raporu
 //   --baski      <klasör>-baski.pdf             3,2 mm taşma payı, kesim izleri, TrimBox/BleedBox (pypdf; pdf_kutular.py)
 //   --hazine     <klasör>-hazine-kartlari.pdf   hazine-kartlari.html (kur.py --hazine): meta.json H kartları, tek A4 kesme yaprağı
+//   --tema <ad>  <klasör>-<ad>.pdf              unite-<ad>.html (önce python3 uretec/kur.py --tema <ad>): paletli deneme nüshası
+//                (meta.json "palet" alanı varsa unite.html zaten o paletle kurulur; --tema meta.json'a dokunmadan başka palet dener)
 //   --onizleme   varyantların PNG'leri de: onizleme/varyant/<ad>/sNN.png
 // Denetim iki tür sorunu listeler (yatayda bilerek taşan dekorlu kapsayıcılar data-tasma-yatay ile işaretlenir):
 //   • alan dışı   : HUD+çini şeridi altı (12 mm) ile altbilgi üstü (283 mm) arasındaki alandan taşan öğe
@@ -24,8 +26,13 @@ const { chromium } = require('playwright');
 
 const ORTAK = __dirname;
 const _arg = process.argv.slice(2);
+// --tema <ad>: palet adı bir sonraki argümandır (hedef ve sayfa seçimi sayılmaz)
+const _temaYeri = _arg.indexOf('--tema');
+const TEMA = _temaYeri >= 0 ? _arg[_temaYeri + 1] : null;
+if (_temaYeri >= 0 && (!TEMA || TEMA.startsWith('--'))) { console.error('HATA: --tema bir palet adı ister (cini-toprak · gol-rasathane)'); process.exit(1); }
+const _argTemasiz = _temaYeri >= 0 ? _arg.filter((a, i) => i !== _temaYeri + 1) : _arg;
 // hedef: ünite klasörü ya da doğrudan bir .html dosyası (ör. YEREL_CIKTI ile başka yere kurulmuş ünite)
-const _hedef = _arg.find(a => !a.startsWith('--') && fs.existsSync(a) && (fs.statSync(a).isDirectory() || a.endsWith('.html')));
+const _hedef = _argTemasiz.find(a => !a.startsWith('--') && fs.existsSync(a) && (fs.statSync(a).isDirectory() || a.endsWith('.html')));
 const _dosya = _hedef && fs.statSync(_hedef).isFile();
 const UNITE = _dosya ? path.dirname(path.resolve(_hedef)) : path.resolve(_hedef || process.cwd());
 const HTML = _dosya ? path.resolve(_hedef) : path.join(UNITE, 'unite.html');
@@ -34,10 +41,10 @@ const KOK = _ad === 'unite' ? path.basename(UNITE) : _ad;
 const PDF = path.join(UNITE, KOK + '.pdf');
 const ONIZ = path.join(UNITE, _ad === 'unite' ? 'onizleme' : 'onizleme-' + _ad);
 
-const argv = _arg.filter(a => a !== _hedef);
+const argv = _argTemasiz.filter(a => a !== _hedef);
 const bayrak = b => argv.includes(b);
 const HEPSI = bayrak('--hepsi');
-const VAR = { ogretmen: HEPSI || bayrak('--ogretmen'), fotokopi: HEPSI || bayrak('--fotokopi'), baski: HEPSI || bayrak('--baski'), hazine: HEPSI || bayrak('--hazine') };
+const VAR = { ogretmen: HEPSI || bayrak('--ogretmen'), fotokopi: HEPSI || bayrak('--fotokopi'), baski: HEPSI || bayrak('--baski'), hazine: HEPSI || bayrak('--hazine'), tema: !!TEMA };
 const yalnizVaryant = !HEPSI && Object.values(VAR).some(Boolean);
 const pdfsiz = bayrak('--pdfsiz');
 const pngsiz = bayrak('--pngsiz');
@@ -61,9 +68,18 @@ function tasmaDenetimi() {
       if (r.bottom > alt + 1 || r.top < ust - 1 || r.left < sol - 1 || r.right > sag + 1)
         out.push(`s${i + 1}: alan dışı [${ad}] "${metin}" alt=${((r.bottom - sr.top) * 25.4 / 96).toFixed(1)}mm`);
       const cs = getComputedStyle(el);
-      if (cs.overflow !== 'visible' || el.matches('.kart,.tuzak,.ozet-kart,.balon,.sik,.oy > div,.hazine,.levha,.durak-et,.basamak,.meclis,.kissa,.mesveret,.medeniyet,.esnek,.bento,.mesveret-izgara,.ozetler,.unvanlar,.sandik-izgara,.cozumler,.ustad-soru,.ustad-izgara,.ustad-muhur'))
+      if (cs.overflow !== 'visible' || el.matches('.kart,.tuzak,.ozet-kart,.balon,.sik,.oy > div,.hazine,.levha,.durak-et,.basamak,.meclis,.kissa,.mesveret,.medeniyet,.esnek,.bento,.mesveret-izgara,.ozetler,.unvanlar,.sandik-izgara,.cozumler,.ustad-soru,.ustad-izgara,.ustad-muhur,.hb,.bakista,.ikili .yan,.tahmin .yan,.rn-sec > div,.bot-cevap,.kol,.kose-ic,.film-alt > .kart,.ub-serit'))
         if (el.scrollHeight > el.clientHeight + 2 || (el.scrollWidth > el.clientWidth + 2 && !el.hasAttribute('data-tasma-yatay')))
           out.push(`s${i + 1}: kutu taşması [${ad}] "${metin}" (${el.scrollWidth}x${el.scrollHeight} > ${el.clientWidth}x${el.clientHeight})`);
+    });
+    // köşe sineması karesi (svg.film-kose, sağ alt köşe) içerik kutularının üstüne binmesin
+    s.querySelectorAll(':scope > svg.film-kose').forEach(k => {
+      const kr = k.getBoundingClientRect();
+      s.querySelectorAll('.kart,.tuzak,.hb,.bakista,.hazine,.medeniyet,.mesveret,.kissa,.meclis,.ustad-soru,.bento > *').forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.width && r.right > kr.left + .5 && r.left < kr.right - .5 && r.bottom > kr.top + .5 && r.top < kr.bottom - .5)
+          out.push(`s${i + 1}: köşe sineması karesi kutunun üstünde [${el.className}] "${(el.textContent || '').trim().slice(0, 30)}"`);
+      });
     });
     // levha ve etiketler sayfa dışına taşmasın
     s.querySelectorAll('.levha,.durak-et').forEach(el => {
@@ -218,8 +234,14 @@ async function pngYaz(page, klasor, secim = []) {
   if (HEPSI && !_dosya) {
     const kur = path.join(UNITE, 'uretec', 'kur.py');
     if (fs.existsSync(kur)) {
-      console.log('kurulum: python3 uretec/kur.py --hepsi');
-      execFileSync('python3', [kur, '--hepsi'], { stdio: 'inherit' });
+      console.log('kurulum: python3 uretec/kur.py --hepsi' + (TEMA ? ' --tema ' + TEMA : ''));
+      execFileSync('python3', [kur, '--hepsi'].concat(TEMA ? ['--tema', TEMA] : []), { stdio: 'inherit' });
+    }
+  } else if (TEMA && !_dosya) {
+    const kur = path.join(UNITE, 'uretec', 'kur.py');
+    if (fs.existsSync(kur)) {
+      console.log('kurulum: python3 uretec/kur.py --tema ' + TEMA);
+      execFileSync('python3', [kur, '--tema', TEMA], { stdio: 'inherit' });
     }
   }
   const tarayici = await chromium.launch();
@@ -246,7 +268,7 @@ async function pngYaz(page, klasor, secim = []) {
     await page.evaluate(() => document.documentElement.classList.add('ogretmen'));
     const sorunlar = await page.evaluate(ogretmenDenetimi);
     const dogru = await page.evaluate(() => document.querySelectorAll('[data-dogru]').length);
-    const ogr = await page.evaluate(() => document.querySelectorAll('.ogr').length);
+    const ogr = await page.evaluate(() => document.querySelectorAll('.ogr, .ogr-svg').length);
     console.log(`öğretmen: ${dogru} doğru işareti, ${ogr} kırmızı cevap` + (sorunlar.length ? '\n' + sorunlar.join('\n') : ' · taşma yok'));
     if (varyantPng) await pngYaz(page, path.join(ONIZ, 'varyant', 'ogretmen'), sec);
     const hedef = path.join(UNITE, KOK + '-ogretmen.pdf');
@@ -301,6 +323,20 @@ async function pngYaz(page, klasor, secim = []) {
       execFileSync('python3', [path.join(ORTAK, 'pdf_kutular.py'), hedef, String(KAGIT.kenar * 25.4 / 96), String(KAGIT.tasma * 25.4 / 96)], { stdio: 'inherit' });
     } catch (e) { console.error('UYARI: TrimBox/BleedBox yazılamadı (python3 + pypdf gerekli)'); }
     ozet.push(['baskı', hedef]);
+  }
+
+  // ---------------------------------------------------------------- palet denemesi (--tema <ad>)
+  if (VAR.tema) {
+    const html = path.join(UNITE, _ad + '-' + TEMA + '.html');
+    if (!fs.existsSync(html)) { console.error(`HATA: ${path.basename(html)} yok; önce python3 uretec/kur.py --tema ${TEMA}`); process.exit(1); }
+    const page = await sayfaAc(tarayici, html);
+    const sorunlar = await page.evaluate(tasmaDenetimi);
+    console.log(`palet ${TEMA}: ` + (sorunlar.length ? '\n' + sorunlar.join('\n') : 'taşma yok'));
+    if (varyantPng) await pngYaz(page, path.join(ONIZ, 'varyant', TEMA), sec);
+    const hedef = path.join(UNITE, KOK + '-' + TEMA + '.pdf');
+    await page.pdf({ path: hedef, preferCSSPageSize: true, printBackground: true });
+    ozet.push(['palet ' + TEMA, hedef]);
+    await page.close();
   }
 
   // ---------------------------------------------------------------- hazine kartları kesme yaprağı

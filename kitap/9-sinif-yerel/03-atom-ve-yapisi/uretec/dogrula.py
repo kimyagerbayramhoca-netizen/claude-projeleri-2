@@ -31,7 +31,8 @@ def _ortak():
 sys.path.insert(0, _ortak())
 sys.path.insert(0, BURA)
 from dogrula_ortak import (D, kontrol, tek_sik, yargi, dagilim, sayfa_oku, sayfa_isaretleri_ayni,  # noqa: E402
-                           meclis_hukumleri, ogretmen_metinleri, anahtar_izgarasi)
+                           meclis_hukumleri, ogretmen_metinleri, anahtar_izgarasi, kendini_dene_ayni, sifreli_kapi_ayni,
+                           celdirici_ayni, robot_ayni, katla_ayni, uc_boyut_resimleri)
 import infografik_unite as IU  # noqa: E402  (çizimdeki veriler: spektrum çizgileri, kıssa grafiği, enerji düzeyleri)
 
 META = json.load(open(os.path.join(BURA, "meta.json"), encoding="utf-8"))
@@ -361,7 +362,7 @@ if HTML:
                      "n = A − Z", "n = 59 − 27 = 32", "anyon e− alır", "e = 15 + 3 = 18", "4s önce dolar", "Ca: [Ar] 4s2", "4s1 eksik",
                      "6 yarı dolu orbital", "A = 16 + 18 = 34", "Z = 24 · değerlik 1 + 5 = 6", "A = 56 · Fe: [Ar] 4s2 3d6"):
         kontrol(f"öğretmen metni var: {beklenen}", any(beklenen in o.replace(" (kükürdün 34S izotopu)", "") for o in ogr))
-    kontrol("her cevap kutusunda öğretmen metni (6 hızlı görev)", HTML.count('<div class="cevap-kutu">CEVABIN:<span class="ogr">') == 6)
+    kontrol("her cevap kutusunda öğretmen metni (6 durak köşesi + 3B köşesi)", HTML.count('<div class="cevap-kutu">CEVABIN:<span class="ogr">') == 7)
     kontrol("meclis NEDEN çizgileri ≤ 14 harf", all(len(re.sub(r"<[^>]+>", "", n_)) <= 14 for n_ in
                                                    re.findall(r'NEDEN\?<span class="cizgili"><span class="ogr">(.*?)</span></span>', HTML)))
 
@@ -373,49 +374,208 @@ def bolum(n_):
     return re.search(rf'<section class="sayfa s{n_}\b.*?</section>', SABLON, re.S).group(0)
 
 
+def bolumler(ss):
+    return "".join(bolum(n_) for n_ in ss)
+
+
+def ana_kisim(n_):
+    """Sayfanın <main>'den sonrası (levha çipi sayılmaz; alt banttaki .kose-ic kutuları sayılır)."""
+    t_ = bolum(n_)
+    return t_[t_.index("<main"):]
+
+
+CIP = r'<span class="cip akce">\+(\d+)(?: akçe)?</span>'
 for d in META["duraklar"]:
     t = bolum(d["sayfa"])
-    ana = t[t.index("<main"):]
-    cipler = [int(v_) for v_ in re.findall(r'<span class="cip akce">\+(\d+)(?: akçe)?</span>', ana)]
+    ana = "".join(ana_kisim(n_) for n_ in d["sayfalar"])
+    cipler = [int(v_) for v_ in re.findall(CIP, ana)]
     hazine = len(re.findall(r"\{\{hazine\|H\d+\}\}", ana)) * 10
-    kontrol(f"{d['no']}. durak (s.{d['sayfa']}): {cipler} + hazine {hazine} = {d['akce']}", sum(cipler) + hazine == d["akce"])
+    kontrol(f"{d['no']}. durak (s.{d['sayfalar']}): {cipler} + hazine {hazine} = {d['akce']}", sum(cipler) + hazine == d["akce"])
     kontrol(f"{d['no']}. durak levhasında +{d['akce']} akçe ve yer adı", f'+{d["akce"]} akçe' in t[:t.index("<main")] and d["yer"] in t[:t.index("<main")])
     kontrol(f"{d['no']}. durağın hazine kartları meta ile aynı",
             sorted(re.findall(r"\{\{hazine\|(H\d+)\}\}", ana)) == sorted(h["kod"] for h in META["hazine"] if h["durak"] == d["no"]))
 duraklar = sum(d["akce"] for d in META["duraklar"])
 kontrol("duraklar 100 + 5 × 120 = 700", duraklar == 700 and [d["akce"] for d in META["duraklar"]] == [100] + [120] * 5)
-kontrol("Hülasa: muhasebe 6 satır = +40", "6 satır = +40 akçe" in bolum(8) and bolum(8).count("{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}") == 6)
-mec = sum(int(v_) for v_ in re.findall(r'<span class="cip akce">\+(\d+)</span>', bolum(9)))
-kis = sum(int(v_) for v_ in re.findall(r'<span class="cip akce">\+(\d+)</span>', bolum(10)))
-anh = 40 * bolum(11).count('<div class="kart merdiven">')
-imt = sum(int(v_) for n_ in (12, 13) for v_ in re.findall(r'<span class="cip akce">\+(\d+)</span>', bolum(n_)))
+kontrol("Hülasa (s.16): muhasebe 6 satır = +40", "6 satır = +40 akçe" in bolum(16) and bolum(16).count("{{cay|0|b}}{{cay|0|b}}{{cay|0|b}}") == 6)
+import katla_unite as KU  # noqa: E402
+kat = 10 * len(KU.KATLA_CUMLE)
+karma = sum(int(v_) for v_ in re.findall(CIP, bolum(18)))
+kontrol(f"katla (s.17) {len(KU.KATLA_CUMLE)} tahmin × 10 = {kat} · karma (s.18) {karma} = 60 + 30 + 30 + 40", (kat, karma) == (40, 160))
+mec = sum(int(v_) for v_ in re.findall(r'<span class="cip akce">\+(\d+)</span>', bolum(19)))
+kis = sum(int(v_) for v_ in re.findall(r'<span class="cip akce">\+(\d+)</span>', bolum(20)))
+anh = 40 * bolum(21).count('<div class="kart merdiven">')
+imt = sum(int(v_) for n_ in (22, 23) for v_ in re.findall(r'<span class="cip akce">\+(\d+)</span>', bolum(n_)))
 kontrol(f"yan yollar: meclis {mec}, kıssa {kis}, anahtar {anh} = 120 + 120 + 120", (mec, kis, anh) == (120, 120, 120))
 kontrol(f"imtihan 12 × 25 = {imt}", imt == 300)
-toplam = duraklar + 40 + mec + kis + anh + imt
-kontrol(f"toplam akçe {toplam} == 1400; s.1 çipinde de 1400", toplam == 1400 and re.search(r"</svg> ?1400 akçe", HTML or "") is not None)
-defter = [int(v_) for v_ in re.findall(r'<td class="n">(\d+)</td>', bolum(16))]
-kontrol(f"final defteri {defter}: kalemler toplamı = TOPLAM = 1400", sum(defter[:-1]) == defter[-1] == 1400)
+toplam = duraklar + 40 + kat + karma + mec + kis + anh + imt
+kontrol(f"toplam akçe {toplam} == 1600 == meta.akce_toplam; s.1 çipinde de 1600",
+        toplam == 1600 == META["akce_toplam"] and re.search(r"</svg> ?1600 akçe", HTML or "") is not None)
+defter = [int(v_) for v_ in re.findall(r'<td class="n">(\d+)</td>', bolum(26))]
+kontrol(f"final defteri {defter}: kalemler toplamı = TOPLAM = 1600", sum(defter[:-1]) == defter[-1] == 1600 and defter[6:9] == [40, 40, 160])
 kontrol("defter durak satırları meta ile aynı (akçe ve yer)", defter[:6] == [d["akce"] for d in META["duraklar"]]
-        and all(f"{d['no']}. durak · {d['yer']}" in bolum(16) for d in META["duraklar"]))
+        and all(f"{d['no']}. durak · {d['yer']}" in bolum(26) for d in META["duraklar"]))
 kur = open(os.path.join(BURA, "kur.py"), encoding="utf-8").read()
 cubuk = [int(v_) for v_ in re.findall(r"^\s+\d+: \('.*?', '.*?', (\d+)\),", kur, re.M)]
-once_ = [0, 0, 100, 220, 340, 460, 580, 700, 740, 860, 980, 1100, 1250, 1400, 1400, 1400]
-kontrol(f"HUD çubukları {cubuk}", cubuk == [round(100 * a / 1400) for a in once_])
-for esik in ("400+", "800+", "1150+"):
+once_ = [0, 0, 50, 100, 130, 220, 280, 340, 340, 340, 400, 460, 520, 580, 640, 700, 740, 780, 940, 1060, 1180, 1300, 1450, 1600, 1600, 1600]
+sayfa_cip = {n_: sum(int(v_) for v_ in re.findall(CIP, ana_kisim(n_) if "<main" in bolum(n_) else bolum(n_))) + 10 * len(re.findall(r"\{\{hazine\|H\d+\}\}", bolum(n_)))
+             for n_ in range(1, 27)}
+sayfa_cip[16] = 40                     # muhasebe çipi “6 satır = +40 akçe”
+sayfa_cip[17] = kat
+sayfa_cip[21] = anh
+kontrol(f"sayfa başına akçe birikimi = HUD hesabı ({[sayfa_cip[n_] for n_ in range(1, 27)]})",
+        [sum(sayfa_cip[k_] for k_ in range(1, n_)) for n_ in range(1, 27)] == once_)
+kontrol(f"HUD çubukları {cubuk}", cubuk == [round(100 * a / 1600) for a in once_])
+for esik in ("450+", "900+", "1300+"):
     kontrol(f"Ahilik eşiği {esik} (s.1)", esik in bolum(1))
-kontrol("final unvan aralıkları", all(t in bolum(16) for t in ("0–399", "400–799", "800–1149", "1150–1400")))
-kontrol("Üstad soruları akçe çipi taşımaz", 'cip akce' not in bolum(14))
+kontrol("final unvan aralıkları", all(t in bolum(26) for t in ("0–449", "450–899", "900–1299", "1300–1600")))
+kontrol("akçe rayı (ünite sürümü) 1600 ölçeğinde, eşikler 450 · 900 · 1300", IU.AKCE_TOPLAM == META["akce_toplam"] == 1600 and IU.AHILIK == (450, 900, 1300)
+        and all(f">{a_}</text>" in IU.akce_rayi() for a_ in (450, 900, 1300, 1600)) and "{{info|akce_rayi|ATOM ÜSTADI}}" in bolum(26))
+kontrol("Üstad soruları akçe çipi taşımaz", 'cip akce' not in bolum(24))
+kontrol("3B sayfaları (s.8–9) bonus: akçe çipi yok", all('cip akce' not in bolum(n_) for n_ in (8, 9)))
 kontrol("8 nişan: 6 durak + Kale Kapısı + Üstad Mührü (bonus)", len(META["nisanlar"]) == 8 and META["nisanlar"][-1].get("bonus") is True)
+
+# ================================================================== YENİ DÜZEN (pilot): sayfa yapısı, köşeler, kat, karma, 3B
+print("— Yeni düzen: sayfa yapısı ve katlama çiftleri")
+from cizim import katla as KC  # noqa: E402
+KOSE_ON = [3, 5, 7, 9, 11, 13, 15]
+kontrol("26 sayfa (çift), meta ile aynı", SABLON.count('<section class="sayfa s') == 26 == META["sayfa_sayisi"])
+for n_ in range(1, 27):
+    t_ = bolum(n_)
+    kontrol(f"s.{n_}: köşe ön yüzü yalnız tek sayfada, arka yüzü hemen sonraki çift sayfada",
+            ("{{kose-on}}" in t_) == (n_ in KOSE_ON) == (f"{{{{alt|{n_}|kose-on}}}}" in t_)
+            and ("{{kose-arka|" in t_) == (n_ - 1 in KOSE_ON) == (f"{{{{alt|{n_}|kose-arka}}}}" in t_))
+kontrol("kat sayfası s.17 (tek, sağ), karma s.18 arka yüzü (3 sütun)", "{{katla-cumle}}" in bolum(17) and "{{hud|17|kat}}" in bolum(17)
+        and all(f'class="kol k{k_}"' in bolum(18) for k_ in (1, 2, 3)))
+kontrol("3B açılımı s.8–9: 8 anaglif, meta.uc_boyut ile aynı", sorted(re.findall(r"\{\{ana\|([\w-]+)\}\}", bolum(8) + bolum(9)))
+        == sorted(g["ad"] for g in META["uc_boyut"]) and len(META["uc_boyut"]) == 8)
+for d in META["duraklar"]:
+    t_ = bolumler(d["sayfalar"])
+    hb = len(re.findall(r'class="hb hb-(hap|kural|unutma|radar|dikkat|kilit)\b', t_))
+    kontrol(f"{d['no']}. durak (s.{d['sayfalar']}): sol + sağ sayfa, 1 Bir bakışta, 1 Kendini dene, 1 köşe, {hb} Hap Bilgi (≥ 3)",
+            d["sayfalar"][0] % 2 == 0 and d["sayfalar"][1] == d["sayfalar"][0] + 1 and t_.count('class="bakista"') == 1
+            and t_.count('class="kart kendini-dene"') == 1 and t_.count("{{kose-on}}") == 1 and hb >= 3)
+for n_ in range(1, 27):
+    say = {k_: len(re.findall(rf'class="hb hb-{k_}\b', bolum(n_))) for k_ in ("hap", "kural", "unutma", "radar", "dikkat", "kilit")}
+    if sum(say.values()):
+        kontrol(f"s.{n_}: Hap Bilgi {sum(say.values())} ≤ 4, aynı türden ≤ 2", sum(say.values()) <= 4 and max(say.values()) <= 2)
+
+print("— Köşeyi katla (cevap = hesap = kart = arka yüz)")
+KOSE = {3: ("2", sum(THOMSON.values()) == 2, "2"), 5: ("8", 2 * 2 ** 2 == 8, "8 e^−"), 7: ("H ve Na", var == ["H", "Na"], "H ve Na"),
+        9: ("100 000", round(1e-10 / 1e-15) == 100000, "10^5 kat"), 11: ("13", 10 + 3 == 13, "Z = 13"),
+        13: ("3", yari_dolu(dizilim(15)) == 3, "3"), 15: ("4 · 2", (degerlik(dizilim(14)), yari_dolu(dizilim(14))) == (4, 2), "4 · 2")}
+for n_, (c_, ok_, arka) in KOSE.items():
+    m_ = re.search(r"\{\{kose-arka\|CEVAP\|([^|}]+)\|([^}]*)\}\}", bolum(n_ + 1))
+    kontrol(f"köşe s.{n_}: {c_} hesapla doğru, kartın öğretmen cevabı aynı, s.{n_ + 1} köşesinde “{arka}”",
+            ok_ and f'<span class="ogr">{c_}</span>' in bolum(n_) and m_ is not None and m_.group(1) == arka)
+    ana_w = KC.genislik(m_.group(1), 6.2, "baloo")
+    alt_w = KC.genislik(m_.group(2), 3.2, "baloo")
+    kontrol(f"köşe cevabı s.{n_ + 1} üçgene sığıyor (ana {ana_w:.1f} ≤ 36 · alt {alt_w:.1f} ≤ 30 mm)", ana_w <= 36 and alt_w <= 30)
+
+print("— Kendini dene")
+kontrol("KD1: Thomson'da (+) yük dağınık", "(+) yük düzgün" in MODEL["Thomson"])
+kontrol("KD2: boşluk ve (+) çekirdek Rutherford modelinde", {"boşluk", "çekirdek"} <= MODEL["Rutherford"])
+kontrol(f"KD3: 4→2 {balmer[2]} nm yayılır; 6→2 ({balmer[0]}) < 3→2 ({balmer[3]})", balmer[2] == 486 and balmer[0] < balmer[3])
+kontrol("KD4: Mg2+ 10 e · 12C–13C izotop", pne(24, 12, 2)[2] == 10 and izo((12, 6, 0), (13, 6, 0)) == {"izotop"})
+kontrol("KD5: Cl [Ne] 3s2 3p5", yazim(dizilim(17)) == "[Ne] 3s2 3p5")
+kontrol("KD6: K değerlik 1 · Ar simetrik", degerlik(dizilim(19)) == 1 and kuresel(dizilim(18)))
+kontrol("KD7 (3B): bir p orbitali (iki lob) en çok 2 e", KAP["p"] // ORB["p"] == 2)
+if HTML:
+    kendini_dene_ayni(HTML, {"KD1": ["her yere dağılmış", "modern model"], "KD2": ["atomun büyük kısmı boşluk", "(+) çekirdek"],
+                             "KD3": ["yayar (486 nm)", "6’dan 2’ye (410 nm)"], "KD4": ["10", "izotop"],
+                             "KD5": ["[Ne] 3s2 3p5", "hayır (Pauli)"], "KD6": ["1", "evet"], "KD7": ["2pz", "2"]})
+
+print("— Kat sayfası: Katla, doğrusu kalsın!")
+OLGU = {"C1": not ({"elektron", "çekirdek"} & MODEL["Dalton"]),
+        "C2": True,                                       # gözlem: çoğu sapmadan geçti (çizgi roman 2. pano, Görev 2)
+        "C3": izo((35, 17, 0), (37, 17, 0)) == {"izotop"} and pne(35, 17)[1] != pne(37, 17)[1],
+        "C4": iyon_dizilim(20, 2) == dizilim(18) and dizilim(20)["4s"] == 2}
+boy_ = KU.serit_boyu()
+for c_ in KU.KATLA_CUMLE:
+    gs, go, gg = (KC.genislik(c_[k_], boy_, KU.FONT) for k_ in ("sol", "orta", "sag"))
+    kontrol(f'{c_["kod"]}: açık “{KC.duz(KU.acik(c_))}” yanlış, katlı “{KC.duz(KU.katli(c_))}” doğru · sol {gs:.1f} orta {go:.1f} sağ {gg:.1f} mm',
+            OLGU[c_["kod"]] and gs <= KC.A_X - KC.GUVEN - 8 and go <= KC.B_X - KC.A_X - 2 * KC.GUVEN and gg <= 202 - KC.B_X - KC.GUVEN
+            and KU.katli(c_).endswith(".") and c_["orta"] not in KU.katli(c_))
+kontrol("DOĞRU kurdelesinde bölünen harf güvenli (O)", "O" in KC.GUVENLI_HARF)
+if HTML:
+    katla_ayni(HTML, {c_["kod"]: (KC.duz(KU.katli(c_)), KC.duz(c_["orta"])) for c_ in KU.KATLA_CUMLE})
+
+print("— Karma sayfa")
+ilk = next(m_ for m_ in ("Dalton", "Thomson", "Rutherford", "Bohr", "Modern") if "elektron" in MODEL[m_])
+RUTH_ACIKLAR = {"çoğu geçer", "geri döner", "(+) yük küçük bölgede", "kütle çekirdekte"}
+SK = {"SK1": tek_sik("SK1 ilk elektronlu model", {"N": "Demokritos", "M": "Dalton", "P": "Thomson", "Ç": "Bohr", "Z": "Modern"}, lambda m_: m_ == ilk, "P"),
+      "SK2": tek_sik("SK2 Rutherford açıklayamaz", {"C": "çoğu geçer", "Ş": "geri döner", "V": "(+) yük küçük bölgede", "Y": "kütle çekirdekte",
+                                                     "R": "elektron neden düşmez"}, lambda g_: g_ not in RUTH_ACIKLAR, "R"),
+      "SK3": tek_sik("SK3 n = 2'de orbital", {"B": 2, "O": 4, "D": 6, "G": 8, "H": 9}, lambda v_: v_ == 2 ** 2, "O"),
+      "SK4": tek_sik("SK4 X2+ e 18, n 20 → A", {"Ğ": 20, "J": 36, "V": 38, "T": 40, "Ş": 58}, lambda v_: v_ == (18 + 2) + 20, "T"),
+      "SK5": tek_sik("SK5 Pauli", {"O": "Pauli", "B": "Aufbau", "D": "Hund", "G": "Bohr", "H": "simetri"}, lambda v_: v_ == "Pauli", "O"),
+      "SK6": tek_sik("SK6 küresel simetrik", {"Ç": 14, "N": 15, "J": 13, "Ğ": 16, "V": 17}, lambda z_: kuresel(dizilim(z_)), "N")}
+kontrol("Şifreli Kapı: hesaplanan doğru harfler PROTON", "".join(SK.values()) == "PROTON")
+import itertools  # noqa: E402
+if HTML:
+    sifreli_kapi_ayni(HTML, "PROTON")
+    kodlar = [re.findall(r"<li(?: data-dogru)?><b>(.)</b>", re.search(rf'data-soru="SK{i_}".*?</ol>', HTML, re.S).group(0)) for i_ in range(1, 7)]
+    SESLI = set("AEIİOÖUÜ")
+    IZINLI = {"PR", "TR", "KR", "BR", "GR", "DR", "FR", "PL", "KL", "BL", "GL", "FL", "SL", "ST", "SP", "SK"}
+    okunur = []
+    for dizi in itertools.product(*kodlar):
+        w_ = "".join(dizi)
+        if w_[:2] not in IZINLI and w_[1] not in SESLI and w_[0] not in SESLI:
+            continue
+        if re.search(r"[^AEIİOÖUÜ]{3}", w_) or not set(w_) & SESLI:
+            continue
+        okunur.append(w_)
+    kontrol(f"Şifreli Kapı: 5⁶ dizilimden okunabilen yalnız PRO?O? kalıbı ({len(okunur)} dizi; PROTON dışında hiçbiri kelime değil)",
+            len(okunur) == 25 and all(w_.startswith("PRO") and w_[4] == "O" for w_ in okunur) and "PROTON" in okunur)
+A_, Z_, q_ = 19, 9, -1
+e_ = Z_ - q_
+tani = {"A": (Z_, A_ - Z_, Z_), "B": (Z_, A_ - e_, e_), "C": (Z_, A_ - Z_, e_), "D": (Z_, A_, e_), "E": (Z_, A_ - Z_, Z_ + q_)}
+kontrol(f"Röntgen 19F−: doğru {tani['C']} (C); beş seçenek farklı ve her biri tanıdaki hatadan", tani["C"] == pne(19, 9, -1) == (9, 10, 10)
+        and len(set(tani.values())) == 5)
+lam_ = {n_: round(1e9 / (R * (1 / 4 - 1 / n_ ** 2))) for n_ in (3, 6)}
+fark_ = {n_: 13.6 * (1 / 4 - 1 / n_ ** 2) for n_ in (3, 6)}
+iddia = {1: True, 2: True, 3: (fark_[6] > fark_[3]) == (lam_[6] > lam_[3]), 4: True}
+kontrol(f"Robot: tek hata 3. cümlede (6→2 {lam_[6]} nm < 3→2 {lam_[3]} nm; fark büyüdükçe dalga boyu kısalır)",
+        [k_ for k_, v_ in iddia.items() if not v_] == [3])
+if HTML:
+    celdirici_ayni(HTML, {"CR1": ("C", ", ".join(map(str, tani["C"])))})
+    for h_, (p_, n__, e__) in tani.items():
+        kontrol(f"Röntgen {h_}: sayfadaki sayılar tanıdaki hatayla aynı", re.search(rf'<b>{h_}</b><span class="say">{p_}, {n__}, {e__}</span>', HTML) is not None)
+    robot_ayni(HTML, {"RB1": 3})
+M02 = json.load(open(os.path.join(BURA, "..", "..", "02-kimyasal-guvenlik", "uretec", "meta.json"), encoding="utf-8"))
+M01 = json.load(open(os.path.join(BURA, "..", "..", "01-gunluk-hayatta-kimya", "uretec", "meta.json"), encoding="utf-8"))
+kontrol("Heybe 1 (Yol 2): asit suya — 9/02 H3 ile aynı", any(h_["kod"] == "H3" and "asit → su" in h_["formul"] for h_ in M02["hazine"]))
+kontrol("Heybe 2 (Yol 1): pH 9 bazik — 9/01 H3: asidik < 7 < bazik", any(h_["kod"] == "H3" and "bazik" in h_["formul"] for h_ in M01["hazine"]) and 9 > 7)
+kontrol("Heybe 3–4: O 2p4 → 2 yarı dolu · M katmanı 2·3² = 18", yari_dolu({"2p": dizilim(8)["2p"]}) == 2 and 2 * 3 ** 2 == 18)
+kontrol("Heybe: ters cevaplar", "Cevaplar: asit suya · bazik · 2 · 18" in bolum(18))
+
+print("— 3B")
+kontrol("3B: n = 2'de 2s + üç 2p = 4 orbital · alfa 2 p + 2 n, yük +2", 1 + ORB["p"] == 4 and pne(4, 2, 2) == (2, 2, 0))
+import uc_unite as UU  # noqa: E402
+kontrol("3B alfa levhası: 7 düz + 1 sapan + 1 geri dönen iz; 24 seyrek çekirdek", len(UU.DUZ_IZ) == 7 and len(UU.CEKIRDEKLER) == 24)
+if HTML:
+    sorun = uc_boyut_resimleri(HTML, os.path.join(BURA, "..", "unite.html"))
+    kontrol(f"3B resimleri: dosya var, mm ölçüsü = piksel / 300 dpi {sorun or ''}", not sorun)
+    bilgi = json.load(open(os.path.join(BURA, "..", "gorsel", "uc-boyut.json"), encoding="utf-8"))
+    bilgi = {k_: v_ for k_, v_ in bilgi.items() if k_ != "sabit"}
+    kontrol(f"3B ayrıklık ≤ 3,0 mm, taşma yok ({len(bilgi)} resim)", len(bilgi) == 8 and all(b_["ayriklik_mm"] <= 3.0001 and b_["tasma_mm"] == 0 for b_ in bilgi.values()))
+kontrol("palet: meta.json cini-toprak", META.get("palet") == "cini-toprak")
+kontrol("Halfeti teknesi: N 1s2 2s2 2p3, tekneler Hund'a uygun, yanlış örnek Hund'a aykırı",
+        dizilim(7) == {"1s": 2, "2s": 2, "2p": 3} and sum(len(y_) for _, y_ in IU.TEKNE) == 7
+        and all(hund_uygun(list(y_) if len(y_) != 2 else ["ud"]) for _, y_ in IU.TEKNE)
+        and not hund_uygun(["ud", "u", "0"]))
+kontrol("Dış katman: Mg 2 · 8 · 2, değerlik 2", [sum(k_ for a_, k_ in dizilim(12).items() if int(a_[0]) == n_) for n_ in (1, 2, 3)] == list(IU.DIS_KATMAN[3])
+        and degerlik(dizilim(12)) == 2)
 
 # ================================================================== SAYFA GÖNDERMELERİ ve BİLGİLER
 print("— Sayfa göndermeleri ve bilgiler")
-konu = {2: "Dalton", 3: "Rutherford", 4: "spektrum", 5: "proton", 6: "Aufbau", 7: "simetri", 15: "Cevaplar"}
+konu = {2: "Dalton", 4: "Rutherford", 5: "Bohr", 6: "enerji", 9: "3B", 10: "proton", 11: "iyon", 12: "Aufbau",
+        13: "Hund", 14: "simetri", 15: "Değerlik", 25: "Cevaplar"}
 for n_ in sorted(set(int(v_) for v_ in re.findall(r"\{\{sayfa\|(\d+)\}\}", SABLON))):
     kontrol(f"s.{{{{sayfa|{n_}}}}} → {konu.get(n_)}", n_ in konu and konu[n_] in bolum(n_))
 for m_ in META["medeniyet"]:
     kutu = bolum(m_["sayfa"])
     kontrol(f"Medeniyetimizden {m_['ad']} ({m_['yil']}) s.{m_['sayfa']}'de", m_["ad"] in kutu and m_["yil"] in kutu)
-kontrol("el-Battânî güneş yılı 365 gün 5 saat 46 dakika 24 saniye", "365 gün 5 saat 46 dakika 24 saniye" in bolum(4)
+kontrol("el-Battânî güneş yılı 365 gün 5 saat 46 dakika 24 saniye", "365 gün 5 saat 46 dakika 24 saniye" in bolum(next(m_["sayfa"] for m_ in META["medeniyet"] if m_["ad"] == "el-Battânî"))
         and "365 gün 5 saat 46 dakika 24 saniye" in json.dumps(META, ensure_ascii=False))
 kontrol("model yılları: Dalton 1803–1808, Thomson 1897 · 1904, Rutherford 1911 (deney 1909–1911), Bohr 1913",
         all(t in SABLON for t in ("1803–1808", "1897 · 1904", "1909–1911", "Bohr (1913)", "Rutherford (1911)")))

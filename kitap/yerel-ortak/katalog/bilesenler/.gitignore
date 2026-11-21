@@ -1,0 +1,7 @@
+# deneme ünitesinin çıktıları (python3 uretec/kur.py --hepsi && node ../../render.js . --hepsi yeniden üretir)
+unite*.html
+hazine-kartlari.html
+*.pdf
+onizleme/
+gorsel/
+__pycache__/

@@ -56,7 +56,7 @@ ORTAK = os.path.dirname(os.path.abspath(__file__))
 if ORTAK not in sys.path:
     sys.path.insert(0, ORTAK)
 
-from cizim.temel import Svg, f, cizgi_d, selcuklu_yildizi, karis  # noqa: E402
+from cizim.temel import Svg, f, cizgi_d, selcuklu_yildizi, yildiz_noktalari, karis  # noqa: E402
 from cizim import sahneler as SH, karakter as K, sus as U, molekul as M, infografik as I, ebru as E  # noqa: E402
 from cizim import konu_karakterleri as KK, hap_bilgi as HB, gozluk as GZ  # noqa: E402
 from cizim.renkler import (GOL, GOL_K, KEH, KEH_K, MER, MER_K, KOB, KOB_K, ALTIN, ALTIN_K, OBS, ERGUVAN,  # noqa: E402
@@ -70,6 +70,12 @@ RENK = {
 # nişan ikonlarının varsayılan renkleri (meta.json'da "renk" verilmezse)
 NISAN_RENK = {"deste": "gol", "izotop": "kob", "kefal": "gol", "mizan": "mer", "karisim": "erg", "kale": "keh", "ustad": "laj"}
 AKCE_TOPLAM = 1400
+# Baloo Bhaijaan 2'de olmayan rozet sembolleri: yazı yerine şekil ({{rozet|✓|-}}, {{rozet|★|-}}); yazı yedek fonta düşüp
+# PDF'te Type 3 olmasın (TASARIM-SISTEMI.md §14). Şekiller 0 0 100 100 rozetinin beyaz göbeğine (r = 27) oturur.
+ROZET_SEKIL = {
+    "✓": f'<path d="M33 51 L45 63 L68 37" fill="none" stroke="{OBS}" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>',
+    "★": f'<path d="{cizgi_d(yildiz_noktalari(50, 50.5, 18, 7.4, kose=5), True, 2)}" fill="{OBS}" stroke="{OBS}" stroke-width="1.2" stroke-linejoin="round"/>',
+}
 
 
 # ------------------------------------------------------------------ meta.json metinleri: kısa yazım → HTML
@@ -176,6 +182,17 @@ def cini_serit(sol_ek=0):
     karo = U.cini_serit_ince().split(">", 1)[1].rsplit("</svg>", 1)[0]
     parca = "".join(f'<g transform="translate({k * 24} 0)">{karo}</g>' for k in range(-sol_ek, 30))
     return f'<svg class="cini-serit" viewBox="0 0 700 8" preserveAspectRatio="none">{parca}</svg>'
+
+
+def tema_modulu():
+    """yerel-ortak/tema.py (paletler). Adıyla değil yoluyla yüklenir: ünite ya da örnek klasöründeki başka bir tema.py karışmasın."""
+    if "yerel_ortak_tema" not in sys.modules:
+        import importlib.util
+        sp = importlib.util.spec_from_file_location("yerel_ortak_tema", os.path.join(ORTAK, "tema.py"))
+        mod = importlib.util.module_from_spec(sp)
+        sys.modules["yerel_ortak_tema"] = mod
+        sp.loader.exec_module(mod)
+    return sys.modules["yerel_ortak_tema"]
 
 
 def cini14():
@@ -359,6 +376,12 @@ class Unite:
 
         def rozet(metin, ust="DURAK", renk="gol"):
             r = RENK[renk]
+            if metin in ROZET_SEKIL:         # Baloo'da ✓ ★ yok: şekille çizilir (yedek yazı tipine düşüp Type 3 olmasın)
+                sekil = ROZET_SEKIL[metin]
+                if ust == "-":
+                    return U.durak_rozeti(u.yeni("dr"), sekil, "", r[0], r[1])
+                ust_yazi = f'<text x="50" y="38" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="7.4" letter-spacing="1.2" fill="{r[1]}">{ust}</text>'
+                return U.durak_rozeti(u.yeni("dr"), ust_yazi + f'<g transform="translate(50 56) scale(.78) translate(-50 -50)">{sekil}</g>', "", r[0], r[1])
             if ust == "-":
                 harf = f'<text x="50" y="64" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="40" fill="{OBS}">{metin}</text>'
                 return U.durak_rozeti(u.yeni("dr"), harf, "", r[0], r[1])
@@ -366,7 +389,8 @@ class Unite:
 
         def hno(metin, renk="keh"):
             r = RENK[renk]
-            return U.durak_rozeti(u.yeni("hn"), f'<text x="50" y="60" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="30" fill="{OBS}">{metin}</text>', "", r[0], r[1], cls="hno")
+            y, boy = (58, 23) if len(metin) >= 3 else (60, 30)        # üç haneli kod (H10–H12) dairenin içinde kalsın
+            return U.durak_rozeti(u.yeni("hn"), f'<text x="50" y="{y}" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="{boy}" fill="{OBS}">{metin}</text>', "", r[0], r[1], cls="hno")
 
         def sno(metin, renk="mer"):
             r = RENK[renk]
@@ -447,7 +471,8 @@ class Unite:
             u._sag_sayfa_denetle("kat sayfası")
             kare_svg, kare_no = (u._film_karesi(KC), u._film_no()) if film else ("", 1)
             rozet = u.yt["rozet"](str(u.meta["yol"]), "YOL")
-            rota = f'Yol {u.meta["yol"]} · {re.sub(r"\s+(Yolu|Turu)$", "", u.meta["rota"])}'
+            kisa_rota = re.sub(r"\s+(Yolu|Turu)$", "", u.meta["rota"])          # "Kars–Erzurum Yolu" → "Kars–Erzurum"
+            rota = f'Yol {u.meta["yol"]} · {kisa_rota}'
             if tur == "bag":
                 s, _ = KC.bag_sayfasi(u.yeni("kb"), rozet, kare_svg, kare_no, satirlar=u._bul("KATLA_BAG"), rota=rota)
             elif tur == "tepkime":
@@ -753,7 +778,7 @@ class Unite:
             palet = tema
         html = self._stil_baglantisi(html, hedef)
         if palet:
-            import tema as TM
+            TM = tema_modulu()
             html = TM.tema_html(html, palet, hedef)
         os.makedirs(os.path.dirname(os.path.abspath(hedef)), exist_ok=True)
         with open(hedef, "w", encoding="utf-8") as fp:
@@ -767,7 +792,7 @@ class Unite:
         hedef = os.path.join(self.klasor, "hazine-kartlari.html")
         html = self._stil_baglantisi(yaprak_html(self), hedef)
         if self.palet:
-            import tema as TM
+            TM = tema_modulu()
             html = TM.tema_html(html, self.palet, hedef)
         with open(hedef, "w", encoding="utf-8") as fp:
             fp.write(html)

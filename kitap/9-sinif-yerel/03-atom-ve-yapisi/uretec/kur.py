@@ -10,6 +10,7 @@ açılış panoramasının durak etiketleri, final sahnesi, mühürdeki rota ad�
   {{orb|ud,u,0}}        orbital şeması (kutu + ok; ok çizgidir, fonta bağlı değil): ud ↑↓ · u ↑ · d ↓ · 0 boş
   {{iz|35|17|Cl|−}}     çekirdek gösterimi (kütle no üstte, atom no altta, isteğe bağlı yük)
   {{rozet-tik}} {{rozet-yildiz|renk}}   yazısız (çizgi) rozetler: fontta olmayan ✓ ★ yerine
+  {{katla-cumle}}       kat sayfası "Katla, doğrusu kalsın!" (uretec/katla_unite.py · satırlar KATLA_CUMLE)
 Hazine kartları, nişanlar ve duraklar uretec/meta.json'dadır; sahneler uretec/sahneler_unite.py'dedir.
 """
 import os
@@ -31,27 +32,40 @@ import kur_ortak as KO  # noqa: E402
 from cizim import sus as U  # noqa: E402
 from cizim.temel import f, cizgi_d, selcuklu_yildizi  # noqa: E402
 
-# no: (HUD'daki yer, altbilgideki konu, akçe çubuğu %) — çubuk: o sayfanın başına kadar alınabilecek en çok akçe / 1400
+# no: (HUD'daki yer, altbilgideki konu, akçe çubuğu %) — çubuk: o sayfanın başına kadar alınabilecek en çok akçe / 1600
+# Yeni düzen (26 sayfa): her durak iki sayfa (sol: bant + büyük çizim · sağ: tekrar + köşeyi katla); 3B açılımı s.8–9;
+# kat yaprağı s.17 (kat sayfası) + s.18 (karma sayfa, arka yüz). Köşesi katlanan sağ sayfalar: 3 5 7 9 11 13 15.
 SAYFA = {
     1: ('Yola çıkış', 'Şanlıurfa–Harran yolu · yola çıkış', 0),
     2: ('1. durak · <b>Göbeklitepe</b>', '1. durak · Atom modellerinin yolculuğu', 0),
-    3: ('2. durak · <b>Harran</b>', '2. durak · Çekirdek, katmanlar, elektron bulutu', 7),
-    4: ('3. durak · <b>Höyük</b>', '3. durak · Işık, enerji düzeyleri, orbitaller', 16),
-    5: ('4. durak · <b>Urfa çarşısı</b>', '4. durak · p, n, e ve iyonlar', 24),
-    6: ('5. durak · <b>Halfeti</b>', '5. durak · Elektron dizilimi kuralları', 33),
-    7: ('6. durak · <b>Fırat kıyısı</b>', '6. durak · Değerlik elektronu, küresel simetri', 41),
-    8: ('Hülasa · <b>Gümrük Hanı</b>', 'Hülasa · atomun özeti', 50),
-    9: ('Yan yol · <b>Sıra gecesi</b>', 'Yan yol 1 · Meclis: kim haklı?', 53),
-    10: ('Yan yol · <b>Harran Ovası</b>', 'Yan yol 2 · Kıssalar', 61),
-    11: ('Yan yol · <b>Urfa evleri</b>', 'Yan yol 3 · Anahtar merdiveni', 70),
-    12: ('<b>Urfa Kalesi</b> · 1/2', 'Büyük İmtihan · 1. bölüm', 79),
-    13: ('<b>Urfa Kalesi</b> · 2/2', 'Büyük İmtihan · 2. bölüm', 89),
-    14: ('<b>Üstad</b> · bonus', 'Üstad soruları · bonus', 100),
-    15: ('<b>Cevaplar</b>', 'Cevaplar ve çözümler', 100),
-    16: ('<b>Final</b>', 'Final · akçe rayı ve unvan', 100),
+    3: ('1. durak · <b>Göbeklitepe</b>', '1. durak · Model zinciri: tekrar ve köşe', 3),
+    4: ('2. durak · <b>Harran</b>', '2. durak · Altın levha çizgi romanı', 6),
+    5: ('2. durak · <b>Harran</b>', '2. durak · Çekirdek, katmanlar, elektron bulutu', 8),
+    6: ('3. durak · <b>Höyük</b>', '3. durak · Enerji merdiveni ve ışık', 14),
+    7: ('3. durak · <b>Höyük</b>', '3. durak · Orbitaller, lamba spektrumu', 18),
+    8: ('3. durak · <b>3B</b>', '3B · Orbitaller üç boyutta', 21),
+    9: ('3. durak · <b>3B</b>', '3B · Alfa tanecikleri üç boyutta', 21),
+    10: ('4. durak · <b>Urfa çarşısı</b>', '4. durak · p, n, e ve iyonlar', 21),
+    11: ('4. durak · <b>Urfa çarşısı</b>', '4. durak · Tanecikler ve izo kardeşler', 25),
+    12: ('5. durak · <b>Halfeti</b>', '5. durak · Elektron dizilimi kuralları', 29),
+    13: ('5. durak · <b>Halfeti</b>', '5. durak · Aufbau, Pauli, Hund: tekrar', 32),
+    14: ('6. durak · <b>Fırat kıyısı</b>', '6. durak · Değerlik elektronu, küresel simetri', 36),
+    15: ('6. durak · <b>Fırat kıyısı</b>', '6. durak · Dış katman konuşuyor', 40),
+    16: ('Hülasa · <b>Gümrük Hanı</b>', 'Hülasa · atomun özeti', 44),
+    17: ('Hülasa · <b>Katla</b>', 'Katla sayfası · doğrusu kalsın', 46),
+    18: ('Hülasa · <b>Karma</b>', 'Karma sayfa · kapıyı aç', 49),
+    19: ('Yan yol · <b>Sıra gecesi</b>', 'Yan yol 1 · Meclis: kim haklı?', 59),
+    20: ('Yan yol · <b>Harran Ovası</b>', 'Yan yol 2 · Kıssalar', 66),
+    21: ('Yan yol · <b>Urfa evleri</b>', 'Yan yol 3 · Anahtar merdiveni', 74),
+    22: ('<b>Urfa Kalesi</b> · 1/2', 'Büyük İmtihan · 1. bölüm', 81),
+    23: ('<b>Urfa Kalesi</b> · 2/2', 'Büyük İmtihan · 2. bölüm', 91),
+    24: ('<b>Üstad</b> · bonus', 'Üstad soruları · bonus', 100),
+    25: ('<b>Cevaplar</b>', 'Cevaplar ve çözümler', 100),
+    26: ('<b>Final</b>', 'Final · akçe rayı ve unvan', 100),
 }
-# HUD ilerleme noktaları: 6 durak + Hülasa + 3 yan yol + kale; her sayfada "şimdi" olan (−1: yok, 11: hepsi tamam)
-SIMDI = {1: -1, 2: 0, 3: 1, 4: 2, 5: 3, 6: 4, 7: 5, 8: 6, 9: 7, 10: 8, 11: 9, 12: 10, 13: 10, 14: 11, 15: 11, 16: 11}
+# HUD ilerleme noktaları: 6 durak + Hülasa + 3 yan yol + kale; 3B yanındaki durağın, kat ve karma Hülasa'nın noktasında
+SIMDI = {1: -1, 2: 0, 3: 0, 4: 1, 5: 1, 6: 2, 7: 2, 8: 2, 9: 2, 10: 3, 11: 3, 12: 4, 13: 4, 14: 5, 15: 5,
+         16: 6, 17: 6, 18: 6, 19: 7, 20: 8, 21: 9, 22: 10, 23: 10, 24: 11, 25: 11, 26: 11}
 
 u = KO.Unite(__file__, SAYFA, SIMDI)
 import sahneler_unite as SU  # noqa: E402  (Unite uretec'i sys.path'e ekledikten sonra)
@@ -59,17 +73,17 @@ import sahneler_unite as SU  # noqa: E402  (Unite uretec'i sys.path'e ekledikten
 # ------------------------------------------------------------------ açılış panoramasının durak etiketleri
 # anahtar: (üst satır, ad, alt [sayfa · akçe], tür, (sol mm, üst mm) rozet merkezine göre)
 ETIKET = {
-    "1": ("1. DURAK · GÖBEKLİTEPE", "Fikirlerin yolculuğu", "2|+100 akçe", "durak", (-50, 4.4)),
-    "2": ("2. DURAK · HARRAN", "Çekirdek ve katmanlar", "3|+120 akçe", "durak", (-52, -4.4)),
-    "3": ("3. DURAK · HARRAN HÖYÜĞÜ", "Işık ve orbitaller", "4|+120 akçe", "durak", (-52, -4.4)),
-    "4": ("4. DURAK · URFA ÇARŞISI", "p, n, e ve iyonlar", "5|+120 akçe", "durak", (4.4, -4.4)),
-    "5": ("5. DURAK · HALFETİ", "Dizilim kuralları", "6|+120 akçe", "durak", (4.4, -4.4)),
-    "6": ("6. DURAK · FIRAT KIYISI", "Değerlik ve simetri", "7|+120 akçe", "durak", (4.4, -2.6)),
-    "H": ("GÜMRÜK HANI", "Hülasa", "8|+40 akçe", "hul", (-40, -4.2)),
-    "M": ("SIRA GECESİ", "Meclis: Kim haklı?", "9|+120 akçe", "yan", (-48, -4.2)),
-    "K": ("HARRAN OVASI", "Kıssa", "10|+120 akçe", "yan", (-36, -3)),
-    "A": ("URFA EVLERİ", "Anahtar merdiveni", "11|+120 akçe", "yan", (-44, -4.2)),
-    "V": ("URFA KALESİ", "Büyük İmtihan", "12–13|+300 akçe", "kale", (-49, -14)),
+    "1": ("1. DURAK · GÖBEKLİTEPE", "Fikirlerin yolculuğu", "2–3|+100 akçe", "durak", (-50, 4.4)),
+    "2": ("2. DURAK · HARRAN", "Çekirdek ve katmanlar", "4–5|+120 akçe", "durak", (-52, -4.4)),
+    "3": ("3. DURAK · HARRAN HÖYÜĞÜ", "Işık ve orbitaller · 3B", "6–9|+120 akçe", "durak", (-52, -4.4)),
+    "4": ("4. DURAK · URFA ÇARŞISI", "p, n, e ve iyonlar", "10–11|+120 akçe", "durak", (4.4, -4.4)),
+    "5": ("5. DURAK · HALFETİ", "Dizilim kuralları", "12–13|+120 akçe", "durak", (4.4, -4.4)),
+    "6": ("6. DURAK · FIRAT KIYISI", "Değerlik ve simetri", "14–15|+120 akçe", "durak", (4.4, -2.6)),
+    "H": ("GÜMRÜK HANI", "Hülasa · katla · karma", "16–18|+240 akçe", "hul", (-40, -4.2)),
+    "M": ("SIRA GECESİ", "Meclis: Kim haklı?", "19|+120 akçe", "yan", (-48, -4.2)),
+    "K": ("HARRAN OVASI", "Kıssa", "20|+120 akçe", "yan", (-36, -3)),
+    "A": ("URFA EVLERİ", "Anahtar merdiveni", "21|+120 akçe", "yan", (-44, -4.2)),
+    "V": ("URFA KALESİ", "Büyük İmtihan", "22–23|+300 akçe", "kale", (-49, -14)),
 }
 
 
@@ -153,20 +167,22 @@ def rozet_yildiz(renk="keh"):
     return U.durak_rozeti(u.yeni("dr"), y, "", *KO.RENK[renk])
 
 
-def _rozet_duzelt(html):
-    """Ortak hazine rozetinde yazı boyu sabit (30): üç haneli kodlar (H10–H12) dairenin dışına taşar. Burada küçültülür."""
-    return re.sub(r'<text x="50" y="60" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="30" fill="#1B1D26">(H\d\d)</text>',
-                  r'<text x="50" y="58" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="23" fill="#1B1D26">\1</text>', html)
-
-
-_html_kur = u.html_kur
-u.html_kur = lambda: _rozet_duzelt(_html_kur())
-import hazine_yapragi as _HY  # noqa: E402  (hazine-kartlari.html de aynı rozeti kullanır)
+import hazine_yapragi as _HY  # noqa: E402  (kesme yaprağı)
 _yaprak = _HY.yaprak_html
 # kesme yaprağının üst satırına uzun rota adı sığmıyor: "Yol 3 · Şanlıurfa–Harran"
-_HY.yaprak_html = lambda birim: (_rozet_duzelt(_yaprak(birim))
+_HY.yaprak_html = lambda birim: (_yaprak(birim)
                                  .replace("<span>Yol 3 · Şanlıurfa–Harran Yolu</span>", "<span>Yol 3 · Şanlıurfa–Harran</span>")
                                  .replace("</head>", "<style>.hy-kart { zoom: 1.06; }</style></head>", 1))
+
+
+def katla_cumle():
+    """{{katla-cumle}}: "Katla, doğrusu kalsın!" (katla_unite.py; ortak katla parçaları). Kat sayfası TEK numaralı sayfadır."""
+    import katla_unite as KU
+    u._sag_sayfa_denetle("kat sayfası")
+    rozet = u.yt["rozet"](str(u.meta["yol"]), "YOL")
+    s, _ = KU.cumle_sayfasi(u.yeni("kc"), rozet, lambda: muhur("yanlis"), rota="Yol 3 · Şanlıurfa–Harran")
+    return s.cikti()
+
 
 u.yer_tutucu("panorama", panorama)
 u.yer_tutucu("panorama-etiket", panorama_etiket)
@@ -176,6 +192,7 @@ u.yer_tutucu("orb", lambda kodlar, cls="orb": orb_svg(kodlar, cls))
 u.yer_tutucu("iz", iz)
 u.yer_tutucu("rozet-tik", rozet_tik)
 u.yer_tutucu("rozet-yildiz", rozet_yildiz)
+u.yer_tutucu("katla-cumle", katla_cumle)
 
 if __name__ == "__main__":
     u.calistir()

@@ -103,7 +103,7 @@ Her ünite 15–16 sayfadır: açılış haritası, 4–6 durak, Hülasa, Meclis
 - d-blok değerlik sayımı, lantanit yerleşimi (IUPAC kullanıldı), Roma rakamı boşluğu ("demir(III)" mü "demir (III)" mü).
 
 ## 7. Bilinen sorunlar ve yapılacak düzeltmeler
-- **Ortak kod hatası:** `yerel-ortak/cizim` içinde 15 yerde SVG'de `font-family="Baloo Bhaijaan 2"` tırnaksız yazılmış. Bu geçersiz CSS; Chrome Nunito'ya düşüyor.
+- **Ortak kod hatası (düzeltildi, 21 Kasım 2026; üniteler yeniden kurulunca görsel kontrol gerekir):** `yerel-ortak/cizim` içinde 19 yerde SVG'de `font-family="Baloo Bhaijaan 2"` tırnaksız yazılmış. Bu geçersiz CSS; Chrome Nunito'ya düşüyor.
   - Düzeltme: `font-family="'Baloo Bhaijaan 2'"`.
   - Düzeltince SVG başlıklarının ölçüsü değişir. Bütün üniteleri yeniden kur ve kontrol et.
 - **rotalar.json:** ünitelerin meta.json'larından güncellenmeli (9/03 ve 9/05 altı durak oldu, 9/04'ün sırası değişti). Ardından albüm, harita ve sözlük yeniden kurulmalı.

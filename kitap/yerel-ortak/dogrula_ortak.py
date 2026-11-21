@@ -184,3 +184,162 @@ def anahtar_izgarasi(html):
     """Cevaplar sayfasındaki anahtar ızgarası: {1: 'D', 2: 'C', …} (<i>n</i><b>H</b> hücreleri)."""
     izgara = re.search(r'<div class="anahtar-izgara">(.*?)</div>\s*</div>', html, re.S)
     return dict((int(n), h) for n, h in re.findall(r"<i>(\d+)</i><b>([A-E])</b>", izgara.group(1))) if izgara else {}
+
+
+# ------------------------------------------------------------------ yeni bileşenler (TASARIM-SISTEMI.md §16): sayfadan okuma
+# Kendini dene, Şifreli Kapı, Çeldirici Röntgeni, Robot yanıldı mı?, kat sayfası cevapları, 3B resimleri.
+# Okuyucular yalnız veri döndürür; *_ayni denetçileri hesapla karşılaştırır (kontrol satırı yazar).
+
+def _div_bloklari(html, sinif):
+    """class listesinde `sinif` geçen her <div …> bloğu: [(açılış etiketi, iç HTML)] (iç içe div'ler sayılır)."""
+    out = []
+    for m in re.finditer(r'<div\b[^>]*\bclass="([^"]*)"[^>]*>', html):
+        if sinif not in m.group(1).split():
+            continue
+        derinlik, i = 1, m.end()
+        for t in re.finditer(r"<(/?)div\b[^>]*>", html[m.end():]):
+            derinlik += -1 if t.group(1) else 1
+            if derinlik == 0:
+                out.append((m.group(0), html[m.end():m.end() + t.start()]))
+                break
+    return out
+
+
+def _nitelik(etiket, ad):
+    m = re.search(rf'\s{ad}="([^"]*)"', etiket)
+    return m.group(1) if m else None
+
+
+def _duz(s):
+    import html as _h
+    return re.sub(r"\s+", " ", _h.unescape(re.sub(r"<[^>]+>", "", s))).strip()
+
+
+def kendini_dene(html):
+    """{kod: [öğretmen cevabı …]} — her .kendini-dene kartındaki .soru-k satırlarının .ogr metni (yoksa None).
+    kod: kartın data-soru'su, yoksa KD1, KD2 … (sayfa sırası)."""
+    out = {}
+    for n, (ac, ic) in enumerate(_div_bloklari(html, "kendini-dene"), 1):
+        kod = _nitelik(ac, "data-soru") or f"KD{n}"
+        cevap = []
+        for _, soru in _div_bloklari(ic, "soru-k"):
+            o = re.findall(r'<span class="ogr">(.*?)</span>', soru, re.S)
+            cevap.append(_duz(o[0]) if o else None)
+        out[kod] = cevap
+    return out
+
+
+def kendini_dene_ayni(html, beklenen):
+    """beklenen: {kod: ["apolar", "olmazdı"]} — sayfadaki öğretmen cevapları (sırayla) aynı mı? Her soruda bir cevap olmalı."""
+    oku = kendini_dene(html)
+    for kod, b in beklenen.items():
+        kontrol(f"Kendini dene {kod}: öğretmen cevapları {oku.get(kod)} == {b}", oku.get(kod) == list(b))
+    return oku
+
+
+def sifreli_kapi(html):
+    """Şifreli Kapı: {"sorular": {kod: harf}, "sifre": doğru harflerin sırası, "kutular": .sifre kutularındaki .ogr harfleri,
+    "tek": her soruda tam bir data-dogru, "benzersiz": kartta seçenek harfleri tekrarsız}. Soru kartı: .kart.sk
+    (kod: data-soru, yoksa data-sk; sıra: data-sk, yoksa sayfa sırası)."""
+    sorular, tek, benzersiz = [], True, True
+    for n, (ac, ic) in enumerate(_div_bloklari(html, "sk"), 1):
+        dogru = re.findall(r"<li\b[^>]*\bdata-dogru(?:=\"[^\"]*\")?[^>]*>\s*<b>([^<]+)</b>", ic)
+        harfler = re.findall(r"<li\b[^>]*>\s*<b>([^<]+)</b>", ic)
+        tek &= len(dogru) == 1
+        benzersiz &= len(harfler) == len(set(harfler))
+        sira = int(_nitelik(ac, "data-sk") or n)
+        sorular.append((sira, _nitelik(ac, "data-soru") or f"SK{sira}", dogru[0] if dogru else None))
+    sorular.sort()
+    kutu = ""
+    for _, ic in _div_bloklari(html, "sifre")[:1]:
+        kutu = "".join(_duz(x) for x in re.findall(r'<span class="ogr">(.*?)</span>', ic, re.S))
+    return {"sorular": {k: h for _, k, h in sorular}, "sifre": "".join(h or "?" for _, _, h in sorular), "kutular": kutu,
+            "tek": tek, "benzersiz": benzersiz}
+
+
+def sifreli_kapi_ayni(html, sifre):
+    """Sayfadaki doğru seçenekler sırayla `sifre`yi yazıyor mu; öğretmen kutuları aynı mı; her soruda tek doğru var mı?"""
+    s = sifreli_kapi(html)
+    kontrol(f"Şifreli Kapı: her soruda tek data-dogru ({len(s['sorular'])} soru)", s["tek"] and len(s["sorular"]) == len(sifre))
+    kontrol("Şifreli Kapı: kartlarda seçenek harfleri tekrarsız", s["benzersiz"])
+    kontrol(f"Şifreli Kapı: doğru harfler {s['sifre']} == {sifre}", s["sifre"] == sifre)
+    kontrol(f"Şifreli Kapı: öğretmen kutuları {s['kutular'] or '—'} == {sifre}", s["kutular"] == sifre)
+    return s
+
+
+def celdirici_rontgeni(html):
+    """{kod: {"dogru": [harf], "secenekler": {harf: sayı metni}}} — .rn kartları (kod: data-soru, yoksa CR1, CR2 …)."""
+    out = {}
+    for n, (ac, ic) in enumerate(_div_bloklari(html, "rn"), 1):
+        kod = _nitelik(ac, "data-soru") or f"CR{n}"
+        sec, dogru = {}, []
+        for _, sat in [x for x in _div_bloklari(ic, "rn-sec")][:1]:
+            for m in re.finditer(r'<div\b([^>]*)>\s*<b>([A-E])</b>\s*<span class="say">(.*?)</span>', sat, re.S):
+                sec[m.group(2)] = _duz(m.group(3))
+                if "data-dogru" in m.group(1):
+                    dogru.append(m.group(2))
+        out[kod] = {"dogru": dogru, "secenekler": sec}
+    return out
+
+
+def celdirici_ayni(html, beklenen):
+    """beklenen: {kod: ("B", "13, 14, 10")} — tek doğru seçenek ve sayıları aynı mı?"""
+    oku = celdirici_rontgeni(html)
+    for kod, (harf, sayi) in beklenen.items():
+        r = oku.get(kod, {})
+        kontrol(f"Çeldirici röntgeni {kod}: doğru {r.get('dogru')} == ['{harf}']", r.get("dogru") == [harf])
+        kontrol(f"Çeldirici röntgeni {kod}: {harf} = {sayi}", r.get("secenekler", {}).get(harf) == sayi)
+    return oku
+
+
+def robot_hatalari(html):
+    """{kod: [hatalı cümle no …]} — Robot yanıldı mı? kartlarında (.robot-kart; kod: data-soru, yoksa RB1 …) .bot-cevap
+    listesinde data-dogru ile işaretli cümlelerin sırası (1'den)."""
+    out = {}
+    for n, (ac, ic) in enumerate(_div_bloklari(html, "robot-kart"), 1):
+        kod = _nitelik(ac, "data-soru") or f"RB{n}"
+        li = re.findall(r"<li\b([^>]*)>", "".join(x for _, x in _div_bloklari(ic, "bot-cevap")))
+        out[kod] = [i for i, n_ in enumerate(li, 1) if "data-dogru" in n_]
+    return out
+
+
+def robot_ayni(html, beklenen):
+    """beklenen: {kod: 3} — her kartta TEK hatalı cümle işaretli ve beklenen cümle mi?"""
+    oku = robot_hatalari(html)
+    for kod, no in beklenen.items():
+        kontrol(f"Robot yanıldı mı? {kod}: işaretli cümle {oku.get(kod)} == [{no}]", oku.get(kod) == [no])
+    return oku
+
+
+def katla_cevaplari(html):
+    """{kod: {"urun": "NaCl", "tur": "iyonik"}} — kat sayfalarının öğretmen cevapları (<g class="ogr-svg" data-katla=…>)."""
+    return {m.group(1): {"urun": m.group(2), "tur": m.group(3)}
+            for m in re.finditer(r'<g class="ogr-svg" data-katla="([^"]+)" data-urun="([^"]*)" data-tur="([^"]*)">', html)}
+
+
+def katla_ayni(html, beklenen):
+    """beklenen: {kod: (ürün, tür)} ya da {kod: ürün} — kat sayfasındaki öğretmen cevapları hesapla aynı mı?"""
+    oku = katla_cevaplari(html)
+    for kod, b in beklenen.items():
+        urun, tur = (b, None) if isinstance(b, str) else b
+        r = oku.get(kod, {})
+        kontrol(f"katla {kod}: ürün {r.get('urun')} == {urun}", r.get("urun") == urun)
+        if tur is not None:
+            kontrol(f"katla {kod}: tür {r.get('tur')} == {tur}", r.get("tur") == tur)
+    return oku
+
+
+def uc_boyut_resimleri(html, html_yolu, dpi=300, tol_mm=.3):
+    """Sayfadaki 3B resimleri (img.ana, img.duz): dosya var mı, basılı ölçü (style mm) = piksel / dpi mi? → [(src, sorun)]."""
+    from PIL import Image
+    klasor = os.path.dirname(os.path.abspath(html_yolu))
+    sorun = []
+    for m in re.finditer(r'<img class="(?:ana|duz)[^"]*" src="([^"]+)"[^>]*style="width:([\d.]+)mm;height:([\d.]+)mm"', html):
+        yol = os.path.normpath(os.path.join(klasor, m.group(1)))
+        if not os.path.exists(yol):
+            sorun.append((m.group(1), "dosya yok"))
+            continue
+        w, h = Image.open(yol).size
+        if abs(w / dpi * 25.4 - float(m.group(2))) > tol_mm or abs(h / dpi * 25.4 - float(m.group(3))) > tol_mm:
+            sorun.append((m.group(1), f"{w}×{h} px ≠ {m.group(2)}×{m.group(3)} mm @ {dpi} dpi"))
+    return sorun

@@ -9,7 +9,8 @@ basım betiğini (`render.js`) kullanır. Referans ünite: `10-sinif-yerel/02-mo
 - Kimlik kuralları: `kitap/YEREL-KIMLIK.md` (terimler, karakterler, örnek havuzu, Medeniyetimizden bilgileri).
 - Sayılar ve yazım: `kitap/YAZIM-REHBERI.md`. Rota tablosu ve ünite iskeleti: `yerel-ortak/ROTALAR.md`.
 - Görsel kataloglar: `yerel-ortak/katalog/*.png` (`python3 kitap/yerel-ortak/katalog.py` ile yeniden üretilir).
-- **Yeni ünite mi yapacaksın? Doğrudan §15'e git.**
+- **Yeni ünite mi yapacaksın? Doğrudan §15'e git.** Yaygınlaştırılan yeni bileşenler (Hap Bilgi ailesi, konu karakterleri,
+  sınıf paletleri, katla, 3B): **§16**; canlı örnek `yerel-ortak/katalog/bilesenler/uretec/sablon.html`.
 
 ---
 
@@ -48,15 +49,18 @@ kitap/
     fotokopi.py                  fotokopi varyantı: SVG renklerini kurulumda griye eşler (§12)
     hazine_yapragi.py            meta.json H kartlarından A4 kesme yaprağı (§12)
     pdf_kutular.py               baskı PDF'ine TrimBox/BleedBox yazar (pypdf; §12)
+    tema.py                      sınıf paletleri (Çini ve Toprak, Göl ve Rasathane): kurulumda palet eşlemesi (§16.3)
     katalog.py, katalog/*.png    görsel katalog
+    katalog/bilesenler/uretec/   yeni bileşenlerin deneme ünitesi (8 sayfa; §16 · çıktıları git'e girmez)
     fotograf.js                  HTML → PNG (katalog için)
-    gorsel/ebru-*.jpg            ÜRETİLİR (kur_ortak, yoksa)
+    gorsel/ebru-*.jpg            ÜRETİLİR (kur_ortak, yoksa) · ebru-gol-<palet>.jpg (tema.py) · test-yazi/derinlik.png (3B gözlük testi)
   9-sinif-yerel/  10-sinif-yerel/
     NN-unite-adi/
       README.md                  ünitenin kısa kılavuzu ve sayfa planı
       unite.html                 ÜRETİLİR (elle düzenleme; değişiklik kurulumda kaybolur)
       NN-unite-adi.pdf           ÜRETİLİR (+ -ogretmen, -fotokopi, -baski, -hazine-kartlari .pdf, §12)
       onizleme/sNN.png           ÜRETİLİR (deviceScaleFactor 2)
+      gorsel/                    ÜRETİLİR yalnız meta.json "uc_boyut" varsa: ana-/duz-*.png + uc-boyut.json (§16.5)
       uretec/
         sablon.html              sayfaların içeriği + {{yer-tutucular}}
         meta.json                künye ve tek doğruluk kaynağı (§9)
@@ -171,6 +175,10 @@ Mevcut kalınlıklar: Baloo 400–800, Nunito 400–900 (italik 400, 600–900),
 | `.harita-kart` + `{{info|mol_haritasi|kilitli/acik}}` | "göl üstünde köprüler" mol haritası (Mol'e özel) |
 | `.iskelet-alan` | iskeletin yer tutucu alanı (çizgili gri); içerik gelince silinir |
 
+> **Yeni bileşenler** (stil.css §37–§44, belge §16): Hap Bilgi ailesi (`.hb.hb-hap|kural|unutma|radar|dikkat|kilit`),
+> `.sohbet-serit`, çizgi roman (`.roman-kart .roman .pano`), `.bakista`, `.kendini-dene`, `.ikili-kart .ikili`,
+> `.tahmin-kart .tahmin`, konu karakteri `svg.konu-k`; katla (kat sayfası, karma sayfa, köşe sineması, köşeyi katla); 3B (`.kart.ub`).
+
 ### Hülasa, yan yollar, imtihan, Üstad, cevaplar, final
 | Bileşen | Ne için |
 |---|---|
@@ -192,6 +200,7 @@ Mevcut kalınlıklar: Baloo 400–800, Nunito 400–900 (italik 400, 600–900),
 Bütün fonksiyonlar **SVG metni döndürür**; gradyan/klip/maske tanımları verilen `Svg` nesnesinin `<defs>`'ine yazılır.
 Koordinatlarda sahneler için 1 birim = 0,1 mm (bant 2100×460). `tohum` aynı kaldıkça çizim aynı kalır.
 **API yalnız eklemeyle büyür** (geriye uyumlu); ünite yazarı ortak modülü değiştirmez, kendi `uretec/sahneler_unite.py`'sine yazar.
+SVG'de yazı tipi adı **tırnakla** yazılır: `font-family="'Baloo Bhaijaan 2'"` (tırnaksız "…2" geçersiz CSS'tir, yazı Nunito'ya düşer; §14).
 
 | Modül | Ne çizer | Başlıca fonksiyonlar |
 |---|---|---|
@@ -205,6 +214,11 @@ Koordinatlarda sahneler için 1 birim = 0,1 mm (bant 2100×460). `tohum` aynı k
 | `infografik.py` | sayısal grafikler | `avogadro_merdiveni`, `cekirdekler`, `bor_madalyon`, `mol_haritasi(kutle_acik)`, `karisim_kaplari`, `esit_kutle_terazi`, `hazini_kart`, `imbik`, `razi_araclari`, `halka_aleti`, `ozgul_agirlik`, `soda_resmi`, `bor_resmi`, `grafik_xy`, `raf_kaplari`, `merdiven_akce`, `elmas`, `balon`, `akce_rayi(onek, ust_unvan="MOL ÜSTADI")`, `unvan_rozeti` |
 | `sahneler.py` | sayfa sahneleri | Van turu: `edremit`, `gevas`, `tatvan`, `ahlat`, `adilcevaz`, `suphan`, `ercis`, `muradiye`, `iskele`, `kale_buyuk`, `kale_kapi`, `gece`, `final(nisanlar)`, `panorama()` (+ `DURAKLAR`, `_proje`). **Genel:** `ustad_bandi()` (Üstad sayfası, her ünitede aynı), `rota_haritasi(duraklar, kale)` (meta.json'dan genel tur haritası) |
 | `ebru.py` | ebru dokusu | `Teknede`: `damla`, `biz`, `dalga`, `battal`, `gelgit`, `tarak`, `resim` → JPEG; `ebru_gol`, `ebru_gun` |
+| `konu_karakterleri.py` | konu karakterleri (§16.1) | 51 sembol `kk-*` (atom modelleri, tanecikler, fotonlar, iyonlar, 7 gaz × 3 ifade); `semboller(gerekli)`, `kimlikler()`, `vb(kimlik)`, `kullan(kimlik, x, y, w)` (SVG içinde `<use>`), `nm_renk(nm)` |
+| `hap_bilgi.py` | Hap Bilgi ikonları (§16.2) | `IKON` (`hap yildiz radar dikkat anahtar delik carpi tik ciftok`), `ikon(ad, cls)`, `ok()`, `siklik(dolu, toplam)`, `yildiz_satir(n)` |
+| `katla.py` | katla sayfaları (§16.4) | `bag_sayfasi`, `tepkime_sayfasi` (+ `BAG`, `TEPKIME` satırları), `kare(i)` + `film_izgara()` (köşe sineması), `kose_on`, `kose_arka(cevap)`, `kose_adimlar`, `kose_harita`, `ikon`, `robot`, `kapi`, `zemin14` · yazı genişliği fontTools ile |
+| `uc_boyut.py` | 3B anaglif motoru (§16.5) | `Yapi`, kurucular (`ch4 nh3 h2o co2 bf3 nacl elmas grafit buz gaz_kutusu mol_kupu hidrasyon`), `uret`, `duz_resim`, `KATALOG`, `unite_gorselleri(klasor, liste)` (imzalı önbellek), `gozluk_testleri()` · numpy + PIL |
+| `gozluk.py` | 3B gözlük sayfası çizimleri | `bant_atolye` (sahne), `nasil_calisir`, `gozluk_sablonu` (gerçek ölçü), `ub_ikon(onek, ad)` (`gozluk cetvel duz saat damla goz`) |
 
 ### Sahne kompozisyon kuralı (başlık bantları)
 - Bant 2100×460 birim, `preserveAspectRatio="xMidYMid slice"`.
@@ -302,6 +316,11 @@ u.calistir()
 | `{{kilim}}` | kilim şeridi |
 | `{{av|kim}}` `{{poz|sembol|sınıf}}` `{{ikon|ad|sınıf}}` `{{sikke|sınıf}}` | karakter, ikon, akçe |
 | `{{info|fonksiyon|arg…}}` | bilgi grafiği (`fonksiyon(önek, *arg)`; sayı gibi görünen arg sayıya çevrilir) |
+| `{{hud|n|kat}}` `{{alt|n|kat}}` `{{alt|n|kose-on}}` `{{alt|n|kose-arka}}` | katla sayfalarının çerçevesi (§16.4); ikinci argümansız biçim aynen eskisi gibi |
+| `{{kk|…}}` `{{hbi|…}}` `{{ok}}` `{{siklik|…}}` · katla · 3B | yeni bileşenlerin yer tutucuları: tam liste **§16.7** |
+
+`{{rozet|✓|-}}` ve `{{rozet|★|-}}`: Baloo'da ✓ ★ yok; rozet bunları yazı yerine şekille çizer (Type 3 olmasın, §14).
+`{{hno|H10}}`: üç haneli kod kendiliğinden küçük yazılır (23 birim; daireye sığar).
 
 **Ortam değişkenleri** (kitap birleştirme betiği için):
 
@@ -344,6 +363,8 @@ node kitap/yerel-ortak/render.js /tmp/kitap/mol.html --pngsiz     # yalnız /tmp
 | `medeniyet[]` | | `ad`, `yil`, `katki`, `sayfa`: kitap dizini (sayfadaki kutu şablonda yazılır) |
 | `kavramlar[]` | | `terim`, `tanim`: kitap sözlüğü |
 | `sayfa_sayisi`, `akce_toplam` (1400), `hud` | | künye / HUD |
+| `palet` | | sınıf paleti: 9. sınıf `"cini-toprak"` (Çini ve Toprak), 10. sınıf `"gol-rasathane"` (Göl ve Rasathane). Varsa unite.html (öğrenci, öğretmen, baskı) ve hazine yaprağı bu paletle kurulur; fotokopi paletsiz. **Yoksa çıktı hiç değişmez** (§16.3) |
+| `uc_boyut` | | 3B yapı listesi: `["ch4", "nacl", {"ad": "ch4-yan", "yapi": "ch4", "donus": [[60, 10, 0]], "en": 55, "yuk": 40, "duz": [22, 19]}]` → ünitenin `gorsel/` klasörüne PNG'ler; `{{ana|ad}}`, `{{duz|ad}}` (§16.5) |
 
 **Metin alanları HTML olabilir**; ayrıca etiket dışındaki metinde kısa yazım çalışır (`kur_ortak.zengin`):
 `{H2O}` → H₂O (formül), `N_A`, `n_{atom}` → alt simge, `10^23`, `10^-23`, `^{2−}` → üst simge, `10²³`, `CO₂` (Unicode) → `<sup>`/`<sub>`.
@@ -367,9 +388,17 @@ Kırmızı metin yerleşimi bozmaz: karalama, hüküm çizgisi ve merdiven satı
 karalamada 1–2 kısa satır (dar karalamada tek satır ≈ 40 harf), meclis NEDEN çizgisinde ≤ 12 harf (≈ 17 mm; ör. “çeşit sayılmış”),
 DOĞRUSU çizgisinde ≤ 45 harf, merdiven satırında ≤ 50 harf. `render.js --ogretmen` taşan kırmızı metni sayfa ve metinle bildirir. Öğretmen baskısının her sayfasında sağ üstte "ÖĞRETMEN NÜSHASI" sekmesi vardır.
 
+Yeni bileşenlerin işaretleri (§16.6): Kendini dene `.yaz > .ogr` · Şifreli Kapı `ol.sk-sec > li[data-dogru]` + `.sifre > span > .ogr` ·
+Çeldirici Röntgeni `.rn-sec > div[data-dogru]` · Robot yanıldı mı? `.bot-cevap li[data-dogru]` (hatalı cümle) · Heybe ve öbür
+yazı satırları `.yaz-satir > .ogr` · kat sayfası SVG içinde `<g class="ogr-svg" data-katla data-urun data-tur>` (kendiliğinden) ·
+köşeyi katla `.bosluk > .ogr`, `.karalama > .ogr`.
+
 `dogrula_ortak` yardımcıları: `isaretli_dogrular(html)` → `{kod: ['C']}`, `sik_harfleri(html)`, `sayfa_isaretleri_ayni(html, {"I1": "D", …})`
 (her kartta tek işaret + A–E beş şık), `meclis_hukumleri(html)` → `{kod: (kişi, satır)}`, `anahtar_izgarasi(html)` (Cevaplar ızgarası),
 `ogretmen_metinleri(html)`. Böylece soru sayfasındaki işaret, Cevaplar sayfasındaki anahtar ve hesap üçlüsü birbirine kilitlenir.
+Yeni bileşenler için: `kendini_dene` / `kendini_dene_ayni`, `sifreli_kapi` / `sifreli_kapi_ayni(html, "PROTON")`,
+`celdirici_rontgeni` / `celdirici_ayni`, `robot_hatalari` / `robot_ayni`, `katla_cevaplari` / `katla_ayni`,
+`uc_boyut_resimleri(html, html_yolu)` (PNG var mı, mm ölçüsü = piksel / 300 dpi mi) — §16.6.
 
 ---
 
@@ -419,6 +448,11 @@ node kitap/yerel-ortak/render.js <ünite-klasörü> --ogretmen          # tek te
 | `<klasör>-baski.pdf` | matbaa: kâğıt 9,21×12,64 inç, kesim 210×297 mm, **3,2 mm taşma**, kesim izleri taşmanın dışında, kenarda künye satırı; **TrimBox ve BleedBox** pypdf ile yazılır (`yerel-ortak/pdf_kutular.py`) | aynı `unite.html`, `<html class="baski">` (stil.css §35) + render.js DOM hazırlığı: kenara değen her şey taşma payına uzar — sayfa zemini, HUD, çini şeridi (sola bir karo), sahne bantları ve panorama (viewBox kenarında **ayna kopya**), altbilgi ebru şeridi, Hülasa ebru zemini. Kesim kutusunun içi öğrenci baskısıyla aynı (piksel karşılaştırmasıyla denetlendi) |
 | `<klasör>-hazine-kartlari.pdf` | tek A4 kesme yaprağı: meta.json'daki bütün H kartları, sayfadaki `.hazine` bileşeniyle aynı (1,3×), her hücrede yol adı ve durak, kesik çizgiler ve makaslar (≤ 10 kart 2×5, ≤ 14 kart 2×7, daha çoksa 3 sütun) | `hazine-kartlari.html` (kur.py --hazine; `yerel-ortak/hazine_yapragi.py`); önizleme `onizleme/hazine-kartlari.png` |
 
+| `<klasör>-<palet>.pdf` | palet denemesi (meta.json'a dokunmadan): `node render.js <ünite> --tema gol-rasathane` | `unite-<palet>.html` (`kur.py --tema <palet>`; render.js önce kendisi kurar); `--onizleme` ile `onizleme/varyant/<palet>/` |
+
+**Palet ve nüshalar:** meta.json'da `palet` varsa öğrenci, öğretmen, baskı ve hazine yaprağı paletlidir; fotokopi her zaman
+Van Gölü renklerinden griye eşlenir (paletsiz). `--tema` ayrıca bir deneme nüshası üretir.
+
 Her PDF'te Type 3 font sayısı tablo hâlinde yazılır (`pdffonts`); hepsi **0** olmalı. Ara dosyalar (`unite-fotokopi.html`,
 `hazine-kartlari.html`, `onizleme/varyant/`) her çalıştırmada yeniden üretilir; ünitenin `.gitignore`'unda durur.
 
@@ -461,7 +495,14 @@ Toplam değişirse `kur.py:SAYFA`, `dogrula.py` akçe bölümü, açılış roze
      `temel.halolu_yazi(nitelik, metin, dolgu, hale, kalinlik)` kullan (8 yöne kaydırılmış koyu kopya + asıl yazı, aynı görünüm).
   3. Fontta olmayan sembol (✶ ★ ✓ ✗ → ⇄ gibi) kalın bağlamda yedek fonta düşüp sahte kalınlık alırsa Type 3 olur.
      Mühürde ✶ yerine • kullanılır; yeni sembolü ya fontta olan bir karakterle ya da SVG path / CSS kenarlığıyla çiz (öğretmen tiki CSS'tir).
+  4. Tırnaksız `font-family="Baloo Bhaijaan 2"` geçersizdir ("2" bir CSS adı olamaz): yazı Nunito'ya düşer. Doğrusu
+     `font-family="'Baloo Bhaijaan 2'"`. Bu yazıda Baloo'da olmayan karakter (✓ ★ Δ Σ α δ ↔) yedek sistem fontuna düşer ve
+     **Type 3** olur: rozetteki ✓ ★ bu yüzden şekille çizilir. Baloo'da → ↓ ↑ ² ³ ° × √ − · var; Nunito'da → yok.
   Denetim: `pdffonts <klasor>.pdf | grep -c "Type 3"` → `0` olmalı.
+- **Palet (tema.py) ve fiziksel renk:** spektrum çizgileri, alev renkleri, fotonlar, gözlük camları gibi gerçek rengi anlam taşıyan
+  SVG grupları `<g data-tema-sabit="">` içine alınır (palet eşlemesi dokunmaz). Konu karakterleri (`kk-*`) ve insan karakterleri
+  zaten sabittir; `<img>` (3B PNG) hiç eşlenmez. stil.css'te eşlenmemesi gereken bölge `/* tema-sabit */ … /* /tema-sabit */`
+  arasına yazılır (öğretmen kırmızısı, fotokopi kuralları).
 - Mol: 15 sayfa ≈ 8,4 MB (hedef ≤ 25 MB), bütün yazı tipleri CID TrueType olarak gömülü. `unite.html` ≈ 4 MB (satır içi SVG'ler).
   Varyantlar: öğretmen ≈ 8,4 MB, fotokopi ≈ 7,7 MB, baskı ≈ 9 MB, hazine kartları ≈ 0,25 MB.
 - Her SVG'nin kimlik öneki benzersizdir (`Svg(onek)`, `u.yeni()` sayacı); çakışırsa Chrome ilk tanımı kullanır ve renkler bozulur.
@@ -506,3 +547,160 @@ Toplam değişirse `kur.py:SAYFA`, `dogrula.py` akçe bölümü, açılış roze
 - [ ] PDF ≤ 25 MB; `pdffonts … | grep -c "Type 3"` → 0
 - [ ] Karakter elleri açık avuç (tek parmaklı yumruk yok)
 - [ ] Öğretmen baskısında her soruda tek kırmızı şık; kırmızı metin kutusundan taşmıyor
+
+---
+
+## 16. Yeni bileşenler (yaygınlaştırma) · konu karakterleri, Hap Bilgi ailesi, paletler, katla, 3B
+
+`gelistirme/` örneklerinden (atom-modelleri, karma-temalar, katla, uc-boyut) ortak kütüphaneye taşındı. **Kullanmayan ünitenin
+çıktısı değişmez**: yeni sınıflar yeni adlarla başlar, semboller yalnız kullanılınca gömülür, `palet` ve `uc_boyut` alanları
+yoksa hiçbir şey yapılmaz. Canlı örnek (her bileşen bir kez, 8 sayfa): `yerel-ortak/katalog/bilesenler/` →
+`python3 uretec/kur.py --hepsi && python3 uretec/dogrula.py && node ../../render.js . --hepsi` (çıktılar git'e girmez).
+
+### 16.1 Konu karakterleri (`cizim/konu_karakterleri.py`)
+`{{kk|kimlik|sınıf}}` → `<svg class="konu-k sınıf" viewBox="…"><use href="#kimlik"/></svg>` (blok; boyu sayfanın kuralıyla).
+SVG içinde: `KK.kullan("kk-foton-656", x, y, w)`. Kur sırasında sayfada geçen `href="#kk-…"` sembolleri (ve gradyanları)
+gizli `<defs>`'e eklenir; hiç kullanılmıyorsa HTML değişmez. Renkler sabittir (palet dokunmaz). El ve gerçek kişi yüzü çizilmez.
+
+| Grup | Kimlikler (viewBox) |
+|---|---|
+| modeller | `kk-atomos` `kk-dalton[-sasiran]` `kk-thomson[-endiseli]` `kk-rutherford` `kk-bohr` `kk-bulut` (120×120) · `kk-cekirdek[-sasiran]` (60×60) |
+| tanecikler | `kk-proton` `kk-notron` `kk-elektron[-heyecan|-sasiran|-sakin|-sersem]` (60×60) · `kk-alfa[-mutlu|-sasiran|-sersem]` (72×66) · `kk-foton-656|-486|-434|-410|-uv` (92×50) |
+| genel | `kk-su` (100×84) · `kk-iyon-arti` `kk-iyon-eksi` (64×64) · `kk-atom` (80×80) |
+| gazlar | `kk-gaz-he|-h2|-o2|-n2|-co2|-so2|-ch4` + `-soguk` / `-sicak` ifadesi (renkler `renkler.ATOM`) |
+
+### 16.2 Hap Bilgi ailesi ve kısa bileşenler (stil.css §37–§40, ikonlar `cizim/hap_bilgi.py`)
+Her dikkat görselinin kendine özgü **biçimi** vardır (renksiz ve fotokopide de tanınır). Sayfa başına 3–4 tane yeter;
+Tuzak! yanlış inancı, Dikkat! işlem/okuma hatasını yakalar.
+
+| Bileşen | HTML |
+|---|---|
+| Hap Bilgi (kapsül) | `<div class="hb hb-hap"><span class="kap">{{hbi|hap}}Hap<br>bilgi</span><p>Tek bilgi<small>açıklama</small></p></div>` · kapak rengi `.gol .kob .mer` |
+| Altın Kural (tezhipli) | `<div class="hb hb-kural">{{kose}}<span class="serit">{{hbi|yildiz}}ALTIN KURAL</span><p class="kural">… <em>…</em></p><p class="alt-not">…</p></div>` |
+| Unutma! (yapışkan not) | `<div class="hb hb-unutma"><b class="bas">Unutma!</b><p>…</p></div>` |
+| Sınav Radarı | `<div class="hb hb-radar"><span class="kurdele"><span>TYT</span></span>{{hbi|radar}}<div><b class="bas">Sınav radarı</b><p>…</p><span class="siklik">sık sorulur {{siklik|3|3}}</span></div></div>` |
+| Dikkat! | `<div class="hb hb-dikkat">{{hbi|dikkat}}<div><b class="bas">Dikkat!</b><p>… <span class="cizgi-alti">…</span></p></div></div>` |
+| Kilit Bilgi | `<div class="hb hb-kilit"><span class="madalyon">{{hbi|anahtar}}</span><div><b class="bas">Kilit bilgi</b><p>…</p></div>{{hbi|delik|anahtar-delik}}</div>` |
+| Sohbet şeridi | `<div class="kart sohbet-serit"><b>#yol-<br>sohbeti</b>` + 3 × `.mesaj` (§5) `</div>` |
+| Çizgi roman panosu | `<div class="kart roman-kart">` .kart-bas (+ `<span class="sag"><span class="anlatan">{{av|pamuk}}Pamuk anlatıyor</span>…</span>`) `<div class="roman">` 6 × `<div class="pano">{{info|pano_…}}<span class="pno">1</span><div class="anlatici"><b>…</b> …</div><div class="konus asagi|yukari|sola" style="left:…;top:…;--k:…%">…</div><span class="etiket" style="…">…</span></div>`; son pano `.pano.sonuc-pano` (`.anlatici` + `<ol><li><i>1</i><span>…</span></li></ol>`). Pano resimleri ünitenin `infografik_unite.py`'sinde `<svg class="resim">` döndürür |
+| Bir bakışta (koyu özet) | `<div class="bakista"><span class="et">{{ikon|hulasa}}Bir bakışta</span><ol><li><i>1</i><span>…</span></li>…</ol></div>` |
+| Kendini dene | `<div class="kart kendini-dene" data-soru="KD1">` .kart-bas + `<div class="soru-k"><i>1</i><div><b>Soru?</b><span class="yaz"><span class="ogr">cevap</span></span></div></div>` … + `<div class="ters-alan"><span class="ters">Cevaplar: …</span></div>` |
+| Yanlış bilinen ↔ Doğrusu | `<div class="kart ikili-kart">` .kart-bas + `<div class="ikili"><div class="yan y"><span class="bas">{{hbi|carpi}}Yanlış bilinen</span><p>…</p>(svg.mini)</div><div class="ara">{{hbi|ciftok}}</div><div class="yan d"><span class="bas">{{hbi|tik}}Doğrusu</span><p>…</p></div></div>` |
+| Tahmin et, sonra gözle | `<div class="kart tahmin-kart">` .kart-bas (+ `<span class="ust-not">…</span>`) + `<div class="tahmin"><div class="yan b"><span class="bas">Beklenen</span>(svg)<p>…</p></div><div class="yan g"><span class="bas">Gözlenen</span>…</div></div>` |
+
+Yazıda ok: `{{ok}}` (Nunito'da → yok). Model Zinciri ve enerji merdiveni konuya özeldir: 9/03'ün kendi modülüne ve `<style>`'ına girer.
+
+### 16.3 Sınıf paletleri (`yerel-ortak/tema.py`)
+- **meta.json `"palet"`**: 9. sınıf `"cini-toprak"` (Çini ve Toprak: taban İznik Çini, vurgu Selçuklu Toprak, kutular pastel,
+  sahneler "sıcak ikindi") · 10. sınıf `"gol-rasathane"` (Göl ve Rasathane: taban Van Gölü, vurgu Rasathane Gecesi, sahneler
+  "alacakaranlık"). Alan yoksa çıktı hiç değişmez.
+- Nasıl: ünite Van Gölü renkleriyle kurulur, `tema_html` sonra uygular: stil.css satır içi `<style data-tema>` olarak gömülüp
+  eşlenir, SVG renkleri ve ünitenin `<style>` blokları eşlenir, ebru `yerel-ortak/gorsel/ebru-gol-<palet>.jpg` olarak bir kez
+  boyanır, paletin "vurgu katmanı" (HUD, levha, bant çizgisi, `.bakista`, `.sonuc`, son pano) eklenir, `<html data-tema="…">`.
+- Nüshalar: öğrenci, öğretmen, baskı, hazine yaprağı paletli; **fotokopi paletsiz** (griye Van Gölü renklerinden eşlenir).
+- Deneme: `python3 uretec/kur.py --tema gol-rasathane` → `unite-gol-rasathane.html`; `node render.js <ünite> --tema gol-rasathane`
+  → `<klasör>-gol-rasathane.pdf` (önce kendisi kurar; `--onizleme` ile `onizleme/varyant/<palet>/`). Kaynak temalar da denenebilir:
+  `van-golu iznik-cini selcuklu-toprak rasathane-gecesi yumusak-pastel`.
+  (Karıştırma: meta.json `tema` alanı ve `yeni_unite.py --tema` müfredat temasıdır, "Tema 1 · Bölüm 2"; renk paleti `palet` alanıdır.)
+- **Sabit kalanlar:** fiziksel renk taşıyan SVG grupları `<g data-tema-sabit="">` (spektrum, alev, foton, gözlük camı, kap
+  çözeltileri — ünite yazarı işaretler), karakterler (`pamuk- elif- yusuf- zeynep- av- kk- kr-`), `<img>` (3B PNG), mask/clipPath,
+  stil.css'te `/* tema-sabit */ … /* /tema-sabit */` (öğretmen kırmızısı, fotokopi kuralları). Anlam renkleri ailede kalır:
+  keh = akçe, mer = Tuzak/Dikkat, zumrut = doğru.
+- Ünite yazarı renkleri tokenlardan alır (`renkler.py`, `var(--…)`); tokena yakın olmayan elle seçilmiş renk değişmez.
+
+### 16.4 Katla (`cizim/katla.py`, stil.css §41)
+**Sayfa sırası kuralı:** kat sayfası ve köşesi katlanan sayfa kitapta **TEK numaralı (sağ) sayfadır**; arka yüzleri hemen sonraki
+ÇİFT sayfadır (kat sayfasının arkası: karma sayfa ya da köşe sineması; köşe sayfasının arkası: köşenin sırrı). Çift taraflı,
+uzun kenardan çevirme. kur_ortak kitap numarasıyla (`YEREL_SAYFA_BASLANGIC`) denetler, kural bozulursa `UYARI:` yazar.
+Arka yüze kat yerinden (70 ve 140 mm) geçen ince çizgi, tablo ya da resim konmaz; sütun aralıkları oraya denk gelir.
+
+| Sayfa | Şablon |
+|---|---|
+| Kat sayfası (sağ) | `<section class="sayfa kat">{{zemin14}}{{hud|n|kat}}{{cini14}}{{katla|bag|film}}{{alt|n|kat}}</section>` · `{{katla|tepkime}}`. Satırlar `cizim/katla.py` `BAG` / `TEPKIME`; ünite kendi 4 satırını `sahneler_unite.KATLA_BAG` / `KATLA_TEPKIME` ile verir (aynı biçim; yeni tepkimede ürün kabı `urun_renk` ya da `urun_resmi`). Başlık satırı meta.json'dan ("Yol 6 · Tuz Gölü–Aksaray"). `film`: köşede sinema karesi. HUD yazısı sağ parçaya (142–199 mm) sığmalı |
+| Karma sayfa (arka) | `{{hud|n}}` + `<div class="k-bas">{{rozet|…}}<div><h1>… <em>…</em></h1><p>…</p></div><span class="kat-not">{{kikon|katla}}…</span></div>` + `<div class="kol k1|k2|k3">` (11–67 · 73–137 · 143–199 mm) içinde kartlar |
+| Köşe sineması (arka) | `{{film}}` (24 kare) + `<div class="film-alt">` 3 kart (`.enerji-tablo`) |
+| Köşeyi katla ön (sağ) | `{{kose-on}}` + `{{alt|n|kose-on}}`; içerik `<div class="kose-ic" style="left:…;top:…;…">` kutularında, sağ alt 64 × 64 mm boş · `{{kose-adimlar|3 L}}` |
+| Köşenin sırrı (arka) | `{{kose-arka|CEVAP|V_2 = 3 L|260 K → 300 K}}` (çip, büyük cevap, alt satır; ölçülü yazım `_2` `^{−}`) + `{{alt|n|kose-arka}}`; sol alt 64 × 64 mm boş · `{{kose-harita|3 L}}` |
+
+Karma sayfa bileşenleri:
+- **Şifreli Kapı:** `<div class="kart kapi-kart keh-z">` .kart-bas (`{{kikon|kapi}}`) + `<div class="kapi-ic">{{kapi}}<p>…</p></div>` +
+  `<div class="sifre"><span><i>1</i><span class="ogr">P</span></span>…</div>`; soru kartları `<div class="kart sk" data-sk="1" data-soru="SK1">
+  <div class="sk-bas"><span class="sk-no">1</span><span class="kaynak">Yol 3 · …</span></div><p class="soru">…</p><ol class="sk-sec [uc|bes]">
+  <li data-dogru><b>P</b>…</li>…</ol></div>`. Seçenek etiketleri kod harfleridir; doğru harfler sırayla şifreyi yazar, yanlışlar kelime kurmamalı.
+- **Çeldirici Röntgeni:** `<div class="kart rn" data-soru="CR1">` + `<div class="rn-sec"><div class="y"><b>A</b><span class="say">…</span><span class="tani">…</span></div>
+  <div class="d" data-dogru>…</div>…</div>` + `<div class="isaret-acik"><span class="id">doğru</span><span class="iy">çeldirici</span></div>` (doğru düz yeşil, çeldirici kesik kırmızı).
+- **Robot yanıldı mı?:** `<div class="kart robot-kart" data-soru="RB1">` + `<div class="robot-bas">{{robot}}<p>…</p></div><div class="bot-cevap"><ol><li>…</li>
+  <li data-dogru>hatalı cümle</li>…</ol></div>` + `<p class="kurgu">KimyaBot kurgusal…</p>` (tek hata; kurgu notu zorunlu).
+- **Heybe:** `<div class="kart heybe-kart">` + `<div class="heybe-sor"><span class="heybe-cip [y3|y5]">1 yol önce · Yol 5</span><p>…</p><div class="yaz-satir">Cevap:<span class="ogr">…</span></div></div>` + `<p class="ters-satir"><span class="ters">Cevaplar: …</span></p>`.
+- **Nineme Anlat:** `<div class="kart nine-kart esnek">` + `<div class="yaz-satir">1.</div>…`. Yazı satırı her yerde `.yaz-satir`.
+
+**Köşe sineması (her sağ sayfa):** `{{film-kose}}` doğrudan `<section>` içine; sayfa kitapta tek numaralıysa dış alt köşeye
+(185–199 × 266,8–280,8 mm) kare `((s + 1) / 2 − 1) mod 24 + 1` basılır, sol sayfada boş döner. O köşe boş bırakılır (render.js
+çakışmayı "köşe sineması karesi kutunun üstünde" diye bildirir). Belirli kare: `{{film-kare|k}}`. Köşesi katlanan sayfaya kare konmaz.
+
+### 16.5 3B anaglif (`cizim/uc_boyut.py`, `cizim/gozluk.py`, stil.css §42)
+- **meta.json `"uc_boyut"`**: hazır yapı adları (`ch4 nh3 h2o co2 bf3 nacl elmas grafit buz gaz kup hid-na hid-cl`) ya da
+  `{"ad", "yapi", "donus", "en", "yuk", "mm_birim", "duz", "golge"}`; yeni yapı için ünitenin modülüne `Yapi` döndüren kurucu
+  yazılır, adı `"yapi"`'ye. Kurulumdan önce ünitenin `gorsel/` klasörüne `ana-<ad>.png` (anaglif, 300 dpi), `duz-<ad>.png`
+  (gözlüksüz küçük), `duz-<ad>-b.png` (fotokopi yedeği, gri, anaglif boyunda) ve `uc-boyut.json` yazılır. İmza (tanım +
+  koordinatlar + motor kodu) değişmedikçe **yeniden çizilmez**; `--3b` zorlar. Resimler ünitenin malıdır (git'e girer).
+- Sayfada: `{{ana|ad}}` (anaglif + gizli yedek), `{{duz|ad}}`, `{{ub-ikon|gozluk}}` (nötr gri ikonlar: `gozluk cetvel duz saat damla goz`),
+  `{{test|yazi}}` `{{test|derinlik}}` (`yerel-ortak/gorsel/test-*.png`), **gözlük sayfası** `{{gozluk-sayfasi|n}}` (bütün sayfa;
+  SAYFA'da n olmalı; kitap ekine sonra `yerel-cerceve` alacak). Yollar `YEREL_CIKTI`'ya göre kendiliğinden düzelir.
+- Kart: `<div class="ub-serit">{{ub-ikon|gozluk}}<span><b>3B gözlükle bak:</b> …</span></div>` · `<div class="ub-izgara"><div class="kart ub">
+  <div class="kart-bas"><span class="et">CH<sub>4</sub> · metan</span><span class="sekil-ad">…</span></div><div class="ub-govde">{{ana|ch4}}
+  <div class="ub-yan">{{duz|ch4}}<span class="duz-et">gözlüksüz</span><span class="kutup apolar|polar">…</span><p>…</p></div></div></div></div>` ·
+  kristal `.kart.ub.kr` (`.tur`, `.sayi`, `.sayi-et`, `.ub-not` + `.veri`) · geniş `.kart.ub.genis` · `.duz-satir` · `.cift-ana > figure + figcaption` · `.kf`
+  (büyük harfli etikette formül: NaCl ≠ NACL).
+- Kurallar: anaglifin çevresi beyaz, yanında kırmızı/camgöbeği süs yok; renk yalnız gözlük sayfasında (`data-tema-sabit`).
+  Baskı ve gözlük önerileri: `gelistirme/uc-boyut/README.md` §6; fiziksel deneme baskısı yapılmadı.
+
+### 16.6 Varyant kuralları (öğretmen · fotokopi · palet)
+| Bileşen | Öğretmen nüshası | Fotokopi |
+|---|---|---|
+| Kendini dene | `.yaz > .ogr` cevap satıra kırmızı | numara kutusu beyaz + siyah çizgi |
+| Şifreli Kapı | `li[data-dogru]` kırmızı harf; `.sifre > span > .ogr` kutuda harf | `.sk-no` beyaz halka |
+| Çeldirici Röntgeni | `div[data-dogru]` kırmızı halka; `.yaz-satir > .ogr` | doğru düz, çeldirici kesik çerçeve (renksiz ayrılır) |
+| Robot yanıldı mı? | hatalı cümle `li[data-dogru]` kırmızı dalgalı alt çizgi; `.yaz-satir > .ogr` | konuşma balonu beyaz |
+| Heybe · Nineme | `.yaz-satir > .ogr` | `.heybe-cip` beyaz + siyah çizgi |
+| Kat sayfası | `g.ogr-svg` (ürün, tür, neden; kendiliğinden) | SVG gri (fotokopi.py); kat şeridi üst çizgili |
+| Köşeyi katla | `.bosluk > .ogr`, `.karalama > .ogr` | köşe SVG gri |
+| Hap Bilgi ailesi | — | kapsül kapağı, Altın Kural kurdelesi, radar kurdelesi açık gri; madalyon açık gri; yapışkan not beyaz + gri çizgi |
+| Bir bakışta · son pano | — | beyaz + siyah çerçeve, yazı siyah |
+| Yanlış ↔ Doğrusu | — | yanlış kesik, doğru düz çerçeve (outline: yerleşim değişmez) |
+| 3B | — | `img.ana` gizli, yerine aynı kutuda gri `img.duz.yedek`; küçük düz resim ve "gözlüksüz" gizli; `.kutup.polar` gri |
+
+Öğretmen metni yerleşimi bozmaz (mutlak ya da satır içi); `render.js --ogretmen` taşanı bildirir. Dogrulama yardımcıları
+(`dogrula_ortak`): `kendini_dene_ayni(html, {"KD1": ["apolar", "olmazdı"]})`, `sifreli_kapi_ayni(html, "PROTON")`,
+`celdirici_ayni(html, {"CR1": ("B", "13, 14, 10")})`, `robot_ayni(html, {"RB1": 3})`, `katla_ayni(html, {"B1": ("NaCl", "iyonik")})`,
+`uc_boyut_resimleri(html, html_yolu)` → `[]`; okuyucuları `kendini_dene`, `sifreli_kapi`, `celdirici_rontgeni`, `robot_hatalari`, `katla_cevaplari`.
+
+### 16.7 Yeni yer tutucular (tam liste)
+| Yer tutucu | Üretir |
+|---|---|
+| `{{kk|kimlik|sınıf}}` | konu karakteri `svg.konu-k` (16.1) |
+| `{{hbi|ad|sınıf}}` | Hap Bilgi ikonu (`hap yildiz radar dikkat anahtar delik carpi tik ciftok`; sınıf yoksa `hbi`, `{{hbi|ad|}}` sınıfsız) |
+| `{{ok}}` · `{{siklik|dolu|toplam}}` | metin içi SVG ok · radar sıklık noktaları |
+| `{{hud|n|kat}}` · `{{alt|n|kat}}` | kat sayfası şeridi (logo solda, yer sağ parçada) · düz alt şerit (dikişte kopmaz) |
+| `{{alt|n|kose-on}}` · `{{alt|n|kose-arka}}` | köşe boş kalan altbilgi (ön: sağ alt · arka: sol alt) |
+| `{{zemin14}}` · `{{cini14}}` | kat sayfasının 14 mm adımlı zemini · 7 mm karolu çini şeridi |
+| `{{katla|bag}}` · `{{katla|tepkime}}` · `…|film}}` | tam sayfa kat SVG'si (+ köşe sineması karesi) |
+| `{{kikon|ad}}` · `{{robot}}` · `{{kapi}}` | karma sayfa ikonları (`kapi rontgen robot heybe nine film kose katla`) · KimyaBot · kemerli kapı |
+| `{{film}}` · `{{film-kose}}` · `{{film-kose|n}}` · `{{film-kare|k}}` | 24 karelik ızgara · sağ sayfa köşe karesi (kendiliğinden) · belirli kare |
+| `{{kose-on}}` · `{{kose-arka|baş|cevap|alt}}` · `{{kose-adimlar|c}}` · `{{kose-harita|c}}` | köşeyi katla |
+| `{{ana|ad}}` · `{{duz|ad}}` · `{{test|yazi|derinlik}}` · `{{ub-ikon|ad}}` · `{{gozluk-sayfasi|n}}` | 3B (16.5) |
+| `{{sahne|bant_atolye}}` · `{{info|nasil_calisir}}` · `{{info|gozluk_sablonu}}` · `{{info|ub_ikon|ad}}` | gözlük sayfasının parçaları (tek tek kullanım) |
+
+### 16.8 Yeni CSS sınıfları (stil.css §37–§44)
+§37 `.hb` `.hb-hap` (`.kap`, `.gol .kob .mer`) `.hb-kural` (`.serit .kural .alt-not`) `.hb-unutma` (`b.bas`) `.hb-radar` (`.kurdele .bas .siklik`)
+`.hb-dikkat` (`.bas .cizgi-alti`) `.hb-kilit` (`.madalyon .bas .anahtar-delik`) · §38 `.sohbet-serit` · §39 `.roman-kart` (`.anlatan`) `.roman`
+`.pano` (`.pno .anlatici .konus.asagi|yukari|sola|bagir .etiket svg.resim`) `.pano.sonuc-pano` · §40 `svg.konu-k` `.bakista` `.kendini-dene`
+(`.soru-k .yaz .ters-alan`) `.ikili-kart` `.ikili` (`.yan.y .yan.d .bas .ara svg.mini`) `.tahmin-kart` `.tahmin` (`.yan.b .yan.g`) `.ust-not` ·
+§41 `svg.katla-svg` `.kat-hud` `.hud.kat-serit` `.alt.kat-alt` `.k-bas` `.kat-not` `.kol.k1|k2|k3` `.kapi-kart` `.kapi-ic` `.sifre` `.sk` `.sk-bas`
+`.sk-no` `.kaynak` `.sk-sec.uc|bes` `.rn` `.rn-sec` (`.y .d .say .tani`) `.isaret-acik` (`.id .iy`) `.robot-kart` `.robot-bas` `.bot-cevap` `.kurgu`
+`.yaz-satir` `.heybe-kart` `.heybe-sor` `.heybe-cip.y3|y5` `.ters-satir` `.nine-kart` `svg.film-svg` `.film-alt` `.enerji-tablo` `svg.film-kose`
+`svg.kose-svg.on|arka` `.ebru-alt.kose-on|kose-arka` `.alt.kose-on-alt|kose-arka-alt` `.kose-ic` `svg.kose-adimlar` `svg.kose-harita` ·
+§42 `.ub-serit` `.ub-izgara` `.kart.ub` (`.kr .genis`) `.sekil-ad` `.ub-govde` `img.ana` `img.duz(.yedek)` `.ub-yan` `.duz-et` `.kutup.polar|apolar`
+`.ub-not` `.veri` `.duz-satir` `.cift-ana` `.kf` `section.gozluk-sayfa` (`.nasil .sablon-bas .sablon-alan ul.ipucu .test-kart .kucuk-p`) ·
+§43 öğretmen (`.ogr-svg` + yukarıdaki işaretler) · §44 fotokopi. Taşma denetimi (render.js) `.hb .bakista .ikili .yan .tahmin .yan .rn-sec > div
+.bot-cevap .kol .kose-ic .film-alt > .kart .ub-serit` kutularını da ölçer.

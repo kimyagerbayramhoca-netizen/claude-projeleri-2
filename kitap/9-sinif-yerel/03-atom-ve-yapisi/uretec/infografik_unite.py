@@ -12,7 +12,7 @@ from cizim.renkler import (OBS, GOL, GOL_K, GOL_A, GOL_AA, DERIN, KEH, KEH_K, KE
 
 T = 'font-family="Nunito" font-weight="800"'
 T7 = 'font-family="Nunito" font-weight="700"'
-B = 'font-family="Baloo Bhaijaan 2" font-weight="800"'
+B = 'font-family="\'Baloo Bhaijaan 2\'" font-weight="800"'
 PROTON, NOTRON, ELEKTRON = "#E2533D", "#9AA8B6", "#2B50B5"
 
 # görünür ışık: dalga boyu (nm) → renk (temsilî, baskıya uygun doygun tonlar)
@@ -328,7 +328,7 @@ def spektrum(onek="ay-sp"):
     s += f'<text x="{xb + 6}" y="186" {T7} font-size="17" fill="{GUM_K}">nm</text>'
     s += f'<text x="{(xa + xb) / 2}" y="352" text-anchor="middle" {T} font-size="21" fill="{KOB_K}">Her çizgi, iki düzey arasındaki bir sıçrama.</text>'
     s += f'<text x="{(xa + xb) / 2}" y="384" text-anchor="middle" {T} font-size="21" fill="{KOB_K}">Çizgiler her elementte farklı: atomun parmak izi.</text>'
-    return s.cikti(f"0 0 {W} {H}", cls="info spektrum")
+    return s.cikti(f"0 0 {W} {H}", cls="info spektrum", oz='data-tema-sabit=""')
 
 
 def lamba_spektrumu(onek="ay-ls"):
@@ -347,7 +347,7 @@ def lamba_spektrumu(onek="ay-ls"):
     for nm in (400, 450, 500, 550, 600, 650, 700):
         x = _nm_x(nm, xa, xb)
         s += f'<path d="M{f(x)} 292 v10" stroke="{OBS}" stroke-width="2"/><text x="{f(x)}" y="326" text-anchor="middle" {T7} font-size="19" fill="{GUM_K}">{nm}</text>'
-    return s.cikti(f"0 0 {W} {H}", cls="info lamba")
+    return s.cikti(f"0 0 {W} {H}", cls="info lamba", oz='data-tema-sabit=""')
 
 
 # ------------------------------------------------------------------ 3. DURAK · orbital biçimleri
@@ -554,3 +554,44 @@ def ustad_enerji(onek="ay-ue"):
         s += _ok(x, y0, x, y1 + (6 if b < a else -6), renk, 3.4, 13)
         s += f'<text x="{x + 9}" y="{(y0 + y1) / 2 + 9}" {B} font-size="30" fill="{renk}">{k}</text>'
     return s.cikti(f"0 0 {W} {H}", cls="info enerji")
+
+# yeni düzen: atom-modelleri çizimleri, konu karakterli yeni çizimler ve 3B kurucuları ({{info|ad}} ve "uc_boyut" bu ad alanında arar)
+from model_ciz import (zincir_yolu, pano_duzenek, pano_gecer, pano_sapar, pano_doner, pano_neden, pano_sonuc,  # noqa: E402,F401
+                       enerji_merdiveni, mini_yorunge, mini_bulut, tekne_iskelesi, dis_katman, TEKNE, DIS_KATMAN)
+from uc_unite import orbital_s, orbital_p, orbital_p_uc, alfa_levha, alfa_tanecik, atom_bosluk  # noqa: E402,F401
+
+
+# ------------------------------------------------------------------ final · akçe rayı (yeni düzen: 1600 akçe)
+AKCE_TOPLAM = 1600                                     # meta.json "akce_toplam" ile aynı (dogrula denetler)
+AHILIK = (450, 900, 1300)                              # Kalfa, Usta, Atom Üstadı (s.1 ve final unvanlarıyla aynı)
+
+
+def akce_rayi(onek="ay-ray", ust_unvan="ATOM ÜSTADI"):
+    """Ortak cizim/infografik.akce_rayi'nin 1600 ölçekli eşi (ortaktaki 0–1400 sabit; kat 40 + karma 160 eklendi).
+    {{info|akce_rayi|ATOM ÜSTADI}} önce bu modülde aranır."""
+    s = Svg(onek)
+    W, H = 1880, 260
+    x0, x1, y = 60, 1820, 150
+    T_ = AKCE_TOPLAM
+
+    def X(a):
+        return x0 + (x1 - x0) * a / T_
+    kalfa, usta, ustad = AHILIK
+    g = s.lin([(0, GUM), (kalfa / T_, GOL_A), (usta / T_, GOL), (ustad / T_, KEH), (1, KEH)], x0, 0, x1, 0, kull="userSpaceOnUse", ad="ry")
+    s += f'<path d="M{x0} {y + 30} H{x1}" stroke="#9A6B42" stroke-width="12"/>'
+    for k in range(0, T_ + 1, 50):
+        s += f'<rect x="{f(X(k) - 6)}" y="{y + 18}" width="12" height="30" rx="3" fill="#7A4E2E"/>'
+    s += f'<rect x="{x0}" y="{y - 20}" width="{x1 - x0}" height="40" rx="20" fill="{g}" stroke="{OBS}" stroke-width="4"/>'
+    for a in range(0, T_ + 1, 100):
+        s += f'<path d="M{f(X(a))} {y - 20} v{12 if a % 200 else 18}" stroke="{OBS}" stroke-width="3"/>'
+    esik = [(0, "ÇIRAK", GUM_K), (kalfa, "KALFA", GOL_K), (usta, "USTA", DERIN), (ustad, ust_unvan, KEH_K), (T_, "", OBS)]
+    for a, ad, c in esik:
+        x = X(a)
+        s += f'<path d="M{f(x)} {y - 26} V{y - 74}" stroke="{c}" stroke-width="4"/>'
+        s += f'<path d="{cizgi_d(selcuklu_yildizi(x, y - 92, 20), True)}" fill="{KEH if a == ustad else "#FFFFFF"}" stroke="{OBS}" stroke-width="3"/>'
+        anc = "start" if a == 0 else ("end" if a == T_ else "middle")
+        s += f'<text x="{f(x)}" y="{y + 92}" text-anchor="{anc}" {B} font-size="34" fill="{c}">{a}</text>'
+        if ad:
+            s += f'<text x="{f(x + (6 if a == 0 else 0))}" y="{y - 124}" text-anchor="{"start" if a == 0 else "middle"}" {T} font-size="26" fill="{c}">{ad}</text>'
+    s += f'<text x="{x1}" y="{y - 124}" text-anchor="end" {T} font-size="26" fill="{OBS}">TOPLAM</text>'
+    return s.cikti(f"0 0 {W} {H}", cls="info ray-svg")

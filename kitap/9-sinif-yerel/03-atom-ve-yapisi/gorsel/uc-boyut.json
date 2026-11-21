@@ -1,0 +1,226 @@
+{
+ "sabit": {
+  "goz_araligi_mm": 62.0,
+  "okuma_mm": 375.0,
+  "k_orto": 0.08267,
+  "ayriklik_ust_mm": 3.0,
+  "dpi": 300,
+  "mol_olcek_mm": 15.0
+ },
+ "orb-s": {
+  "ad": "orbital_s",
+  "en_mm": 92.0,
+  "yuk_mm": 40.0,
+  "mm_birim": 13.9394,
+  "k": 0.06811,
+  "z_mm": 22.02,
+  "ayriklik_mm": 3.0,
+  "derinlik_orani": 0.824,
+  "W": 1087,
+  "H": 472,
+  "tasma_mm": 0.0,
+  "imza": "f142068b6b8c8a19",
+  "yapi": "orbital_s",
+  "birim": "",
+  "kure": 2,
+  "donus": [
+   [
+    12,
+    -18,
+    0
+   ]
+  ],
+  "duz_en": 28.0,
+  "duz_yuk": 13.0,
+  "kb": 84
+ },
+ "orb-px": {
+  "ad": "orbital_p_x",
+  "en_mm": 54.0,
+  "yuk_mm": 40.0,
+  "mm_birim": 6.5599,
+  "k": 0.08267,
+  "z_mm": 17.54,
+  "ayriklik_mm": 2.899,
+  "derinlik_orani": 1.0,
+  "W": 638,
+  "H": 472,
+  "tasma_mm": 0.0,
+  "imza": "5715b1f1b17786be",
+  "yapi": "orbital_p:x",
+  "birim": "",
+  "kure": 36,
+  "donus": [
+   [
+    12,
+    -18,
+    0
+   ]
+  ],
+  "duz_en": 24.0,
+  "duz_yuk": 18.0,
+  "kb": 43
+ },
+ "orb-py": {
+  "ad": "orbital_p_y",
+  "en_mm": 54.0,
+  "yuk_mm": 40.0,
+  "mm_birim": 6.5599,
+  "k": 0.08267,
+  "z_mm": 17.54,
+  "ayriklik_mm": 2.899,
+  "derinlik_orani": 1.0,
+  "W": 638,
+  "H": 472,
+  "tasma_mm": 0.0,
+  "imza": "28b984627fd7362d",
+  "yapi": "orbital_p:y",
+  "birim": "",
+  "kure": 36,
+  "donus": [
+   [
+    12,
+    -18,
+    0
+   ]
+  ],
+  "duz_en": 24.0,
+  "duz_yuk": 18.0,
+  "kb": 40
+ },
+ "orb-pz": {
+  "ad": "orbital_p_z",
+  "en_mm": 54.0,
+  "yuk_mm": 40.0,
+  "mm_birim": 6.5599,
+  "k": 0.08267,
+  "z_mm": 17.54,
+  "ayriklik_mm": 2.899,
+  "derinlik_orani": 1.0,
+  "W": 638,
+  "H": 472,
+  "tasma_mm": 0.0,
+  "imza": "9faf5e528ba12673",
+  "yapi": "orbital_p:z",
+  "birim": "",
+  "kure": 36,
+  "donus": [
+   [
+    12,
+    -18,
+    0
+   ]
+  ],
+  "duz_en": 24.0,
+  "duz_yuk": 18.0,
+  "kb": 36
+ },
+ "orb-p3": {
+  "ad": "orbital_p_uc",
+  "en_mm": 54.0,
+  "yuk_mm": 40.0,
+  "mm_birim": 6.5599,
+  "k": 0.08267,
+  "z_mm": 17.54,
+  "ayriklik_mm": 2.899,
+  "derinlik_orani": 1.0,
+  "W": 638,
+  "H": 472,
+  "tasma_mm": 0.0,
+  "imza": "1e565fbee8c7532f",
+  "yapi": "orbital_p_uc",
+  "birim": "",
+  "kure": 100,
+  "donus": [
+   [
+    12,
+    -18,
+    0
+   ]
+  ],
+  "duz_en": 24.0,
+  "duz_yuk": 18.0,
+  "kb": 64
+ },
+ "alfa-levha": {
+  "ad": "alfa_levha",
+  "en_mm": 118.0,
+  "yuk_mm": 66.0,
+  "mm_birim": 13.7957,
+  "k": 0.04602,
+  "z_mm": 32.59,
+  "ayriklik_mm": 3.0,
+  "derinlik_orani": 0.557,
+  "W": 1394,
+  "H": 780,
+  "tasma_mm": 0.0,
+  "imza": "0b02639666ec092c",
+  "yapi": "alfa_levha",
+  "birim": "",
+  "kure": 33,
+  "donus": [
+   [
+    0,
+    0,
+    0
+   ]
+  ],
+  "duz_en": 46.0,
+  "duz_yuk": 26.0,
+  "kb": 87
+ },
+ "alfa-tanecik": {
+  "ad": "alfa_tanecik",
+  "en_mm": 42.0,
+  "yuk_mm": 42.0,
+  "mm_birim": 22.6582,
+  "k": 0.08267,
+  "z_mm": 17.9,
+  "ayriklik_mm": 2.959,
+  "derinlik_orani": 1.0,
+  "W": 496,
+  "H": 496,
+  "tasma_mm": 0.0,
+  "imza": "22d5eae5a12f6316",
+  "yapi": "alfa_tanecik",
+  "birim": "",
+  "kure": 4,
+  "donus": [
+   [
+    0,
+    0,
+    0
+   ]
+  ],
+  "duz_en": 22.0,
+  "duz_yuk": 22.0,
+  "kb": 72
+ },
+ "atom-bosluk": {
+  "ad": "atom_bosluk",
+  "en_mm": 50.0,
+  "yuk_mm": 44.0,
+  "mm_birim": 9.1682,
+  "k": 0.07524,
+  "z_mm": 19.94,
+  "ayriklik_mm": 3.0,
+  "derinlik_orani": 0.91,
+  "W": 591,
+  "H": 520,
+  "tasma_mm": 0.0,
+  "imza": "508a727871b1b847",
+  "yapi": "atom_bosluk",
+  "birim": "",
+  "kure": 171,
+  "donus": [
+   [
+    0,
+    0,
+    0
+   ]
+  ],
+  "duz_en": 24.0,
+  "duz_yuk": 21.0,
+  "kb": 61
+ }
+}

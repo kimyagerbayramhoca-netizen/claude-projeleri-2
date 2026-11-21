@@ -8,3 +8,12 @@ kitap/*-yerel/*/unite-fotokopi.html
 kitap/*-yerel/*/hazine-kartlari.html
 kitap/*-yerel/*/onizleme/varyant/
 kitap/*-yerel/*/onizleme/fotokopi-murekkep.json
+# --tema ile üretilen ek palet sürümleri (render.js --tema <ad> yeniden üretir)
+kitap/*-yerel/*/unite-*.html
+kitap/*-yerel/*/*-van-golu.pdf
+kitap/*-yerel/*/*-iznik-cini.pdf
+kitap/*-yerel/*/*-selcuklu-toprak.pdf
+kitap/*-yerel/*/*-rasathane-gecesi.pdf
+kitap/*-yerel/*/*-yumusak-pastel.pdf
+kitap/*-yerel/*/*-cini-toprak.pdf
+kitap/*-yerel/*/*-gol-rasathane.pdf

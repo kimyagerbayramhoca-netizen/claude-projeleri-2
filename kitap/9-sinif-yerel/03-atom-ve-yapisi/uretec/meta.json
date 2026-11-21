@@ -19,7 +19,11 @@
       "enlem": 37.223,
       "boylam": 38.922,
       "sayfa": 2,
-      "akce": 100
+      "akce": 100,
+      "sayfalar": [
+        2,
+        3
+      ]
     },
     {
       "no": 2,
@@ -28,8 +32,12 @@
       "konu": "kümbet evleri: altın levha, Bohr katmanları, elektron bulutu",
       "enlem": 36.862,
       "boylam": 39.031,
-      "sayfa": 3,
-      "akce": 120
+      "sayfa": 4,
+      "akce": 120,
+      "sayfalar": [
+        4,
+        5
+      ]
     },
     {
       "no": 3,
@@ -38,8 +46,12 @@
       "konu": "Harran'ın gökbilimcileri: çizgi spektrumu, enerji düzeyleri, s p d f",
       "enlem": 36.866,
       "boylam": 39.036,
-      "sayfa": 4,
-      "akce": 120
+      "sayfa": 6,
+      "akce": 120,
+      "sayfalar": [
+        6,
+        7
+      ]
     },
     {
       "no": 4,
@@ -48,8 +60,12 @@
       "konu": "bakırcılar ve isot: tanecik sayımı, iyon, izotop",
       "enlem": 37.159,
       "boylam": 38.792,
-      "sayfa": 5,
-      "akce": 120
+      "sayfa": 10,
+      "akce": 120,
+      "sayfalar": [
+        10,
+        11
+      ]
     },
     {
       "no": 5,
@@ -58,8 +74,12 @@
       "konu": "su en alttan dolar: Aufbau, Pauli, Hund",
       "enlem": 37.246,
       "boylam": 37.87,
-      "sayfa": 6,
-      "akce": 120
+      "sayfa": 12,
+      "akce": 120,
+      "sayfalar": [
+        12,
+        13
+      ]
     },
     {
       "no": 6,
@@ -68,8 +88,12 @@
       "konu": "tekneyle Fırat: değerlik elektronu, küresel simetri, Cr ve Cu",
       "enlem": 37.205,
       "boylam": 37.885,
-      "sayfa": 7,
-      "akce": 120
+      "sayfa": 14,
+      "akce": 120,
+      "sayfalar": [
+        14,
+        15
+      ]
     }
   ],
   "kale": "Urfa Kalesi",
@@ -248,7 +272,7 @@
         "Ibn al-Haytham"
       ],
       "kaynak": "zaman şeridinde zaten var (medeniyet.py); tarih ve katkı oradakiyle aynı",
-      "sayfa": 2
+      "sayfa": 3
     },
     {
       "ad": "Sâbit bin Kurra",
@@ -261,7 +285,7 @@
         "Thâbit ibn Qurra"
       ],
       "kaynak": "TDV İslâm Ansiklopedisi, “Sâbit b. Kurre” (doğum 221/836, Harran); Britannica (ölüm 901, Bağdat)",
-      "sayfa": 3
+      "sayfa": 5
     },
     {
       "ad": "el-Battânî",
@@ -274,7 +298,7 @@
         "al-Battānī"
       ],
       "kaynak": "Britannica ve TDV İslâm Ansiklopedisi, “Bettânî” (doğum y. 858 Harran, ölüm 929 Kasrülcis/Sâmerrâ yakını)",
-      "sayfa": 4
+      "sayfa": 7
     }
   ],
   "kavramlar": [
@@ -371,6 +395,133 @@
       "tanim": "Dizilimi tam dolu ya da yarı dolu orbital türüyle (s¹, s², p³, p⁶, d⁵, d¹⁰) biten taneciklerin her yöne eşit yük dağılımı."
     }
   ],
-  "sayfa_sayisi": 16,
-  "hud": "Urfa–Harran"
+  "sayfa_sayisi": 26,
+  "hud": "Urfa–Harran",
+  "palet": "cini-toprak",
+  "akce_toplam": 1600,
+  "uc_boyut": [
+    {
+      "ad": "orb-s",
+      "yapi": "orbital_s",
+      "donus": [
+        [
+          12,
+          -18,
+          0
+        ]
+      ],
+      "en": 92,
+      "yuk": 40,
+      "mm_birim": null,
+      "duz": [
+        28,
+        13
+      ]
+    },
+    {
+      "ad": "orb-px",
+      "yapi": "orbital_p:x",
+      "donus": [
+        [
+          12,
+          -18,
+          0
+        ]
+      ],
+      "en": 54,
+      "yuk": 40,
+      "mm_birim": null,
+      "duz": [
+        24,
+        18
+      ]
+    },
+    {
+      "ad": "orb-py",
+      "yapi": "orbital_p:y",
+      "donus": [
+        [
+          12,
+          -18,
+          0
+        ]
+      ],
+      "en": 54,
+      "yuk": 40,
+      "mm_birim": null,
+      "duz": [
+        24,
+        18
+      ]
+    },
+    {
+      "ad": "orb-pz",
+      "yapi": "orbital_p:z",
+      "donus": [
+        [
+          12,
+          -18,
+          0
+        ]
+      ],
+      "en": 54,
+      "yuk": 40,
+      "mm_birim": null,
+      "duz": [
+        24,
+        18
+      ]
+    },
+    {
+      "ad": "orb-p3",
+      "yapi": "orbital_p_uc",
+      "donus": [
+        [
+          12,
+          -18,
+          0
+        ]
+      ],
+      "en": 54,
+      "yuk": 40,
+      "mm_birim": null,
+      "duz": [
+        24,
+        18
+      ]
+    },
+    {
+      "ad": "alfa-levha",
+      "yapi": "alfa_levha",
+      "en": 118,
+      "yuk": 66,
+      "mm_birim": null,
+      "duz": [
+        46,
+        26
+      ]
+    },
+    {
+      "ad": "alfa-tanecik",
+      "yapi": "alfa_tanecik",
+      "en": 42,
+      "yuk": 42,
+      "mm_birim": null,
+      "duz": [
+        22,
+        22
+      ]
+    },
+    {
+      "ad": "atom-bosluk",
+      "yapi": "atom_bosluk",
+      "en": 50,
+      "yuk": 44,
+      "mm_birim": null,
+      "duz": [
+        24,
+        21
+      ]
+    }
+  ]
 }
