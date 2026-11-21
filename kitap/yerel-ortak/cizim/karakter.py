@@ -140,7 +140,7 @@ def akce_sikke(s, cx, cy, r, yazi=None):
          f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(r * .14)}" fill="#5E6C78"/>'
          f'<path d="M{f(cx - r * .55)} {f(cy - r * .62)} A{f(r * .8)} {f(r * .8)} 0 0 1 {f(cx + r * .2)} {f(cy - r * .82)}" stroke="#FFFFFF" stroke-width="{f(r * .1)}" fill="none" stroke-linecap="round" opacity=".9"/>')
     if yazi:
-        o += f'<text x="{f(cx)}" y="{f(cy + r * .2)}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="{f(r * .55)}" fill="#3B4652">{yazi}</text>'
+        o += f'<text x="{f(cx)}" y="{f(cy + r * .2)}" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="{f(r * .55)}" fill="#3B4652">{yazi}</text>'
     return o
 
 
@@ -224,9 +224,9 @@ def pamuk_poz(s, poz):
     o.append(f'<g transform="translate(20 4) rotate({rot} 50 60)">{pamuk_bas(s, ifade)}</g>')
     if poz == "dusunen":
         o.append(f'<circle cx="126" cy="14" r="12" fill="#FFFFFF" stroke="{CZ}" stroke-width="1.8"/><circle cx="114" cy="30" r="3" fill="#FFFFFF" stroke="{CZ}" stroke-width="1.4"/>'
-                 f'<text x="126" y="20.5" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="18" fill="{GOL_K}">?</text>')
+                 f'<text x="126" y="20.5" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="18" fill="{GOL_K}">?</text>')
     if poz == "sasiran":
-        o.append(f'<text x="122" y="22" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="22" fill="{MER}">!</text>')
+        o.append(f'<text x="122" y="22" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="22" fill="{MER}">!</text>')
     o.append("</g>")
     return "".join(o)
 
@@ -418,13 +418,13 @@ def insan_poz(s, kim, poz):
     o.append(insan_bas(s, kim, ifade))
     o += on
     if poz == "soru":
-        o.append(halolu_yazi('x="30" y="58" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="34"', "?", KEH, CZ, 1.1))
+        o.append(halolu_yazi('x="30" y="58" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="34"', "?", KEH, CZ, 1.1))
     if poz == "aha":
         o.append(f'<path d="M30 40 l8 8 M24 60 h12 M34 24 l4 10" stroke="{KEH}" stroke-width="3.4" stroke-linecap="round"/>'
                  f'<circle cx="30" cy="76" r="9" fill="#FFF6C8" stroke="{CZ}" stroke-width="1.6"/><path d="M27 86 h6" stroke="{CZ}" stroke-width="2"/>')
     if poz == "dusunen":
         o.append(f'<circle cx="170" cy="42" r="15" fill="#FFFFFF" stroke="{CZ}" stroke-width="1.8"/><circle cx="154" cy="62" r="4" fill="#FFFFFF" stroke="{CZ}" stroke-width="1.6"/>'
-                 f'<text x="170" y="50" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="22" fill="{GOL_K}">?</text>')
+                 f'<text x="170" y="50" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="22" fill="{GOL_K}">?</text>')
     return "".join(o)
 
 

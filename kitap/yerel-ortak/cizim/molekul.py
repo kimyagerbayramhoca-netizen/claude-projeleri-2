@@ -195,7 +195,7 @@ def molekul_ciz(s, atomlar, baglar, donus=(0, 0, 0), olcek=40, merkez=(0, 0), ba
         if etiket and (e != "H" or etiket == "hepsi"):
             fs = r * (.95 if len(e) == 1 else .78)
             renk = "#FFFFFF" if e not in ("H", "S", "He", "B", "Ca", "Mg") else OBS
-            out.append(f'<text x="{f(x)}" y="{f(y + fs * .36)}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="{f(fs)}" fill="{renk}">{e}</text>')
+            out.append(f'<text x="{f(x)}" y="{f(y + fs * .36)}" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="{f(fs)}" fill="{renk}">{e}</text>')
     return "".join(out), (sol, ust, sag, alt + (olcek * .45 if yer_golgesi else 0))
 
 
@@ -214,7 +214,7 @@ def molekul_svg(onek, ad, donus=(0, 0, 0), en=None, yuk=None, etiket=False, pay=
                 s += f'<circle cx="{f(X)}" cy="{f(Y)}" r="{f(olcek * .2)}" fill="#FFFFFF" stroke="{OBS}" stroke-width="1.2"/><path d="M{f(X - olcek * .11)} {f(Y)} h{f(olcek * .22)} M{f(X)} {f(Y - olcek * .11)} v{f(olcek * .22)}" stroke="{OBS}" stroke-width="2"/>'
         s += (f'<path d="M{f(-1.95 * olcek)} {f(-1.95 * olcek)} q-8 0 -8 10 v{f(3.2 * olcek)} q0 10 8 10" fill="none" stroke="{OBS}" stroke-width="2" opacity=".55"/>'
               f'<path d="M{f(1.95 * olcek)} {f(-1.95 * olcek)} q8 0 8 10 v{f(3.2 * olcek)} q0 10 -8 10" fill="none" stroke="{OBS}" stroke-width="2" opacity=".55"/>'
-              f'<text x="{f(1.95 * olcek + 12)}" y="{f(-1.7 * olcek)}" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="{f(olcek * .42)}" fill="{OBS}">2−</text>')
+              f'<text x="{f(1.95 * olcek + 12)}" y="{f(-1.7 * olcek)}" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="{f(olcek * .42)}" fill="{OBS}">2−</text>')
         x0, x1 = min(x0, -2.3 * olcek), max(x1, 2.4 * olcek + 30)
         y0 = min(y0, -2.1 * olcek)
     vb = f"{f(x0 - pay)} {f(y0 - pay)} {f(x1 - x0 + 2 * pay)} {f(y1 - y0 + 2 * pay)}"

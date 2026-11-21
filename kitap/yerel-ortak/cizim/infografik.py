@@ -13,7 +13,7 @@ from . import sahne as S
 from . import yapilar as Y
 
 T = 'font-family="Nunito" font-weight="800"'
-B = 'font-family="Baloo Bhaijaan 2" font-weight="800"'
+B = 'font-family="\'Baloo Bhaijaan 2\'" font-weight="800"'
 
 
 def _sup(taban, us, x, y, fs, renk=OBS, anchor="middle", font=B):

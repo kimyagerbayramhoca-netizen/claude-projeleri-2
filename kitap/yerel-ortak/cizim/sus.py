@@ -192,7 +192,7 @@ def durak_rozeti(onek, metin, ust="DURAK", renk=GOL, renk2=GOL_K, altin=ALTIN, c
     s += f'<circle cx="50" cy="50" r="23.5" fill="none" stroke="{renk}" stroke-width="1.2" stroke-dasharray="2 1.6"/>'
     if ust:
         s += f'<text x="50" y="38" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="7.4" letter-spacing="1.2" fill="{renk2}">{ust}</text>'
-        s += f'<text x="50" y="67" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="31" fill="{OBS}">{metin}</text>'
+        s += f'<text x="50" y="67" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="31" fill="{OBS}">{metin}</text>'
     else:
         s += metin
     return s.cikti("0 0 100 100", cls=cls)

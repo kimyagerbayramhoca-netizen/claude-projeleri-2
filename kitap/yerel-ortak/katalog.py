@@ -96,7 +96,7 @@ def susler():
     g.append(oge(U.muhur("m1", "yanlis", boy=150), "{{muhur|yanlis}}", "Tuzak · YANLIŞ"))
     g.append(oge(U.muhur("m2", "dogru", boy=150), "{{muhur|dogru}}", "DOĞRU mührü"))
     g.append(oge(U.durak_rozeti("r1", "3").replace("<svg ", '<svg width="120" ', 1), "{{rozet|3}}", "durak rozeti"))
-    harf = '<text x="50" y="64" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="40" fill="#1B1D26">K</text>'
+    harf = '<text x="50" y="64" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="40" fill="#1B1D26">K</text>'
     g.append(oge(U.durak_rozeti("r2", harf, "", MER, "#A12817").replace("<svg ", '<svg width="120" ', 1), "{{rozet|K|-|mer}}", "harf rozeti (yan yol, kale)"))
     for i, (k, r) in enumerate((("deste", (GOL, GOL_K)), ("izotop", (KOB, "#1B3584")), ("kefal", (GOL, GOL_K)), ("mizan", (MER, "#A12817")), ("karisim", (ERGUVAN, "#4E2760")), ("kale", (KEH, "#8C5500")), ("ustad", ("#1D3A8A", "#13285E")))):
         g.append(oge(U.nisan(f"n{i}", U.NISAN_IKON[k], r[0], r[1], kurdele="#E2533D").replace("<svg ", '<svg width="100" ', 1), f"{{{{nisan|{k}}}}}", "boyanacak nişan"))

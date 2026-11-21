@@ -848,20 +848,20 @@ def panorama(h=1100):
         if tur == "durak":
             s += f'<path d="{cizgi_d(_y8(x, y, 36), True)}" fill="#F0C14A" stroke="#1B1D26" stroke-width="3" stroke-linejoin="round"/>'
             s += f'<path d="{cizgi_d(_y8(x, y, 29), True)}" fill="#13A3A6" stroke="#1B1D26" stroke-width="2" stroke-linejoin="round"/>'
-            s += f'<text x="{f(x)}" y="{f(y + 11)}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="32" fill="#FFFFFF">{k}</text>'
+            s += f'<text x="{f(x)}" y="{f(y + 11)}" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="32" fill="#FFFFFF">{k}</text>'
         elif tur == "kale":
             s += f'<circle cx="{f(x)}" cy="{f(y)}" r="34" fill="#E2533D" stroke="#1B1D26" stroke-width="3"/>'
             s += f'<path d="M{f(x - 18)} {f(y + 14)} V{f(y - 6)} h6 v-6 h6 v6 h4 v-6 h6 v6 h4 v-6 h6 v6 h4 V{f(y + 14)} Z" fill="#FFFFFF" stroke="#1B1D26" stroke-width="1.6"/>'
         else:
             renk = "#F0A21A" if tur == "yan" else "#7B3F8C"
             s += f'<path d="M{f(x)} {f(y - 32)} L{f(x + 32)} {f(y)} L{f(x)} {f(y + 32)} L{f(x - 32)} {f(y)} Z" fill="{renk}" stroke="#1B1D26" stroke-width="3" stroke-linejoin="round"/>'
-            s += f'<text x="{f(x)}" y="{f(y + 10)}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="27" fill="#FFFFFF">{k}</text>'
+            s += f'<text x="{f(x)}" y="{f(y + 10)}" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="27" fill="#FFFFFF">{k}</text>'
     # başlangıç bayrağı
     x, y = konum["1"]
     s += f'<path d="M{f(x + 36)} {f(y + 40)} v-64" stroke="#1B1D26" stroke-width="4"/><path d="M{f(x + 38)} {f(y - 22)} h44 l-10 13 l10 13 h-44 Z" fill="#E2533D" stroke="#1B1D26" stroke-width="2.4"/>'
     # Van Gölü yazısı
     x, y, _ = P(38.62, 42.86)
-    s += (f'<g opacity=".96">' + halolu_yazi(f'x="{f(x)}" y="{f(y + 70)}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="76"', "Van Gölü", "#FFFFFF", "#0A5A66", 1.6) + '</g>'
+    s += (f'<g opacity=".96">' + halolu_yazi(f'x="{f(x)}" y="{f(y + 70)}" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="76"', "Van Gölü", "#FFFFFF", "#0A5A66", 1.6) + '</g>'
           f'<text x="{f(x)}" y="{f(y + 108)}" text-anchor="middle" font-family="Nunito" font-weight="900" font-size="25" letter-spacing="1.5" fill="#FFFFFF" opacity=".95">SODALI GÖL · pH ≈ 9,5–10</text>')
     # gölde inci kefalleri + yüzen Pamuk
     for k, (a, b, aci) in enumerate(((38.43, 42.98, -20), (38.40, 43.06, -32), (38.47, 42.62, -14))):
@@ -881,7 +881,7 @@ def panorama(h=1100):
     s += f'<path d="{cizgi_d(yildiz_noktalari(px, py, 66, 14, 4, -math.pi / 2), True)}" fill="#1D3A8A" stroke="#1B1D26" stroke-width="2"/>'
     s += f'<path d="{cizgi_d(selcuklu_yildizi(px, py, 34), True)}" fill="#13A3A6" stroke="#1B1D26" stroke-width="2"/>'
     s += f'<circle cx="{px}" cy="{py}" r="10" fill="#F0A21A" stroke="#1B1D26" stroke-width="2"/>'
-    s += f'<text x="{px}" y="{py - 76}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="30" fill="#1B1D26">K</text>'
+    s += f'<text x="{px}" y="{py - 76}" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="30" fill="#1B1D26">K</text>'
     return s.cikti(f"0 0 {W} {h}", cls="sahne panorama", par="xMidYMid slice"), konum
 
 
@@ -1033,7 +1033,7 @@ def rota_haritasi(duraklar, kale=None, h=1100, tohum=1, tema="gunbatimi"):
         else:
             s += f'<path d="{cizgi_d(selcuklu_yildizi(x, y, 36), True)}" fill="#F0C14A" stroke="#1B1D26" stroke-width="3" stroke-linejoin="round"/>'
             s += f'<path d="{cizgi_d(selcuklu_yildizi(x, y, 29), True)}" fill="#13A3A6" stroke="#1B1D26" stroke-width="2" stroke-linejoin="round"/>'
-            s += f'<text x="{f(x)}" y="{f(y + 11)}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="32" fill="#FFFFFF">{k}</text>'
+            s += f'<text x="{f(x)}" y="{f(y + 11)}" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="32" fill="#FFFFFF">{k}</text>'
     x, y = konum["1"]
     s += f'<path d="M{f(x + 36)} {f(y + 40)} v-64" stroke="#1B1D26" stroke-width="4"/><path d="M{f(x + 38)} {f(y - 22)} h44 l-10 13 l10 13 h-44 Z" fill="#E2533D" stroke="#1B1D26" stroke-width="2.4"/>'
     for k, (x, y, o) in enumerate(((1000, 200, 1.1), (1066, 232, .8), (1500, 150, .7), (820, 290, .6))):
@@ -1043,5 +1043,5 @@ def rota_haritasi(duraklar, kale=None, h=1100, tohum=1, tema="gunbatimi"):
     s += f'<path d="{cizgi_d(yildiz_noktalari(px, py, 66, 14, 4, -math.pi / 2), True)}" fill="#1D3A8A" stroke="#1B1D26" stroke-width="2"/>'
     s += f'<path d="{cizgi_d(selcuklu_yildizi(px, py, 34), True)}" fill="#13A3A6" stroke="#1B1D26" stroke-width="2"/>'
     s += f'<circle cx="{px}" cy="{py}" r="10" fill="#F0A21A" stroke="#1B1D26" stroke-width="2"/>'
-    s += f'<text x="{px}" y="{py - 76}" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="30" fill="#1B1D26">K</text>'
+    s += f'<text x="{px}" y="{py - 76}" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="30" fill="#1B1D26">K</text>'
     return s.cikti(f"0 0 {W} {h}", cls="sahne panorama", par="xMidYMid slice"), konum

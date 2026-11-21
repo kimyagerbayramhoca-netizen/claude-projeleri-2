@@ -20,7 +20,12 @@ Komut satırı (ünite klasöründen ya da herhangi bir yerden):
     python3 uretec/kur.py --fotokopi   unite-fotokopi.html (siyah-beyaz, az mürekkep; render.js --fotokopi kullanır)
     python3 uretec/kur.py --hazine     hazine-kartlari.html (meta.json'daki H kartlarının kesme yaprağı)
     python3 uretec/kur.py --hepsi      üçü birden
+    python3 uretec/kur.py --tema <ad>  unite-<ad>.html (palet denemesi; meta.json'a dokunmaz; render.js --tema <ad> basar)
     python3 uretec/kur.py --ebru       ebru dokularını (yerel-ortak/gorsel/ebru-*.jpg) yeniden üretir
+    python3 uretec/kur.py --3b         3B resimlerini (meta.json "uc_boyut") imza değişmemiş olsa da yeniden çizer
+
+meta.json isteğe bağlı alanları: "palet" ("cini-toprak" · "gol-rasathane"; yoksa çıktı Van Gölü renkleriyle, hiç değişmeden),
+"uc_boyut" (3B yapı listesi → gorsel/ana-*.png, duz-*.png; TASARIM-SISTEMI.md §16).
 
 Ortam değişkenleri (kitap birleştirme betiği için):
     YEREL_SAYFA_BASLANGIC=37   ünitenin 1. sayfası kitapta 37. sayfa olur: altbilgi numarası ve {{sayfa|n}} göndermeleri kayar
@@ -35,6 +40,10 @@ Yer tutucuların tam listesi: yerel-ortak/TASARIM-SISTEMI.md §8. Kısaca:
     meta      {{hazine|H1}} {{sandik}} {{nisan-izgara}} {{nisan-sayim}} {{meta|alan}}
               {{rota-haritasi}} {{rota-etiket}} (meta.json duraklarından genel rota haritası)
     sayfa     {{sayfa|13}} → 13 (+ kayma) · {{sayfa|13|de}} → 13’te · {{ek|13|de}} → te
+    yeni      {{kk|kimlik|sınıf}} konu karakteri · {{hbi|ad|sınıf}} {{ok}} {{siklik|n|m}} Hap Bilgi ailesi
+              {{hud|n|kat}} {{alt|n|kat|kose-on|kose-arka}} {{zemin14}} {{cini14}} {{katla|bag|tepkime|film}} {{kikon|ad}} {{robot}} {{kapi}}
+              {{film}} {{film-kose}} {{film-kare|k}} {{kose-on}} {{kose-arka|baş|cevap|alt}} {{kose-adimlar|c}} {{kose-harita|c}}
+              {{ana|ad}} {{duz|ad}} {{test|yazi|derinlik}} {{ub-ikon|ad}} {{gozluk-sayfasi|n}}
 """
 import html as _html
 import json
@@ -49,6 +58,7 @@ if ORTAK not in sys.path:
 
 from cizim.temel import Svg, f, cizgi_d, selcuklu_yildizi, karis  # noqa: E402
 from cizim import sahneler as SH, karakter as K, sus as U, molekul as M, infografik as I, ebru as E  # noqa: E402
+from cizim import konu_karakterleri as KK, hap_bilgi as HB, gozluk as GZ  # noqa: E402
 from cizim.renkler import (GOL, GOL_K, KEH, KEH_K, MER, MER_K, KOB, KOB_K, ALTIN, ALTIN_K, OBS, ERGUVAN,  # noqa: E402
                            LAJVER, ZUMRUT, GUM, GUM_K)
 
@@ -168,6 +178,11 @@ def cini_serit(sol_ek=0):
     return f'<svg class="cini-serit" viewBox="0 0 700 8" preserveAspectRatio="none">{parca}</svg>'
 
 
+def cini14():
+    """Kat sayfası çini şeridi: 7 mm karolar (30 karo = 210 mm): 70 ve 140 mm karo sınırına düşer, katlayınca desen sürer."""
+    return cini_serit().replace('viewBox="0 0 700 8"', 'viewBox="0 0 720 8"', 1)
+
+
 def zemin():
     """Sayfa zemini: çok açık Selçuklu yıldız geçmesi, tek path (210×297 mm; kenarlardan 7,5 mm taşar → baskı payını da doldurur)."""
     d = []
@@ -226,6 +241,9 @@ class Unite:
         self.sayac = 0
         self.ek_defs = ""
         self.yt = {}
+        self.simdiki = None         # son {{hud|n}} sayfası (katla / köşe / film kurallarında kullanılır)
+        self.uc_bilgi = None        # 3B resim ölçüleri (meta.json "uc_boyut"; uc_boyut_hazirla doldurur)
+        self.uyarilar = []
         self.moduller = []          # sahne/info aramasında önce bakılan ünite modülleri
         for ad in ("sahneler_unite", "infografik_unite"):
             if os.path.exists(os.path.join(self.uretec, ad + ".py")):
@@ -275,9 +293,16 @@ class Unite:
         return " ".join(k[:-1] + [tr_kucuk(k[-1])]) if len(k) > 1 else self.meta["rota"]
 
     # ------------------------------------------------------------------ çerçeve
-    def hud(self, no):
+    def hud(self, no, tur=""):
+        """{{hud|n}} · {{hud|n|kat}}: kat sayfası şeridi (logo sol parçada, yer adı sağ parçada; nokta ve akçe yok)."""
         no = int(no)
+        self.simdiki = no
         yer, _, bar = self.sayfa_kunye[no]
+        if tur == "kat":
+            return (f'<header class="hud kat-hud"><span class="logo"><svg viewBox="0 0 24 24"><use href="#logo-yildiz"/></svg>{self.sinif_adi}</span>'
+                    f'<span class="yer">{yer}</span></header>')
+        if tur:
+            raise ValueError(f"bilinmeyen HUD türü: {tur} (yalnız 'kat')")
         s = self.simdi.get(no, -1)
         noktalar = []
         for i, t in enumerate(self.hud_noktalar):
@@ -293,18 +318,28 @@ class Unite:
                 f'<span class="akce"><svg viewBox="0 0 40 40"><use href="#akce"/></svg>Akçe <span class="yaz"></span> /{self.akce_toplam} '
                 f'<span class="bar"><i style="width:{bar}%"></i></span></span></header>')
 
-    def alt(self, no):
+    def alt(self, no, tur=""):
+        """{{alt|n}} · {{alt|n|kat}} (dikişte kopmayan düz şerit) · {{alt|n|kose-on}} / {{alt|n|kose-arka}} (köşe boş kalır)."""
         no = int(no)
         _, konu, _ = self.sayfa_kunye[no]
+        no_html = f'<span class="no"><svg viewBox="0 0 100 100"><use href="#no-yildiz"/></svg><b>{self.sayfa_no(no)}</b></span>'
+        if tur == "kat":
+            return f'<footer class="alt kat-alt"><span>{self.sinif_adi} · {konu}</span>{no_html}</footer><div class="hud kat-serit"></div>'
+        if tur == "kose-on":
+            return f'<footer class="alt kose-on-alt">{no_html}<span>{self.sinif_adi} · {konu}</span></footer><div class="ebru-alt kose-on"></div>'
+        if tur == "kose-arka":
+            return f'<footer class="alt kose-arka-alt"><span>{self.sinif_adi} · {konu}</span>{no_html}</footer><div class="ebru-alt kose-arka"></div>'
+        if tur:
+            raise ValueError(f"bilinmeyen altbilgi türü: {tur} (kat · kose-on · kose-arka)")
         return (f'<footer class="alt"><span>{self.sinif_adi} · {self.meta["unite"]}</span><span>{konu}</span>'
-                f'<span class="no"><svg viewBox="0 0 100 100"><use href="#no-yildiz"/></svg><b>{self.sayfa_no(no)}</b></span></footer><div class="ebru-alt"></div>')
+                f'{no_html}</footer><div class="ebru-alt"></div>')
 
     # ------------------------------------------------------------------ genel yer tutucular
     def _genel_yer_tutucular(self):
         u = self
 
         def sahne(ad, *arg):
-            fn = u._bul(ad) or getattr(SH, ad, None)
+            fn = u._bul(ad) or getattr(SH, ad, None) or getattr(GZ, ad, None)
             if fn is None:
                 raise KeyError(f"sahne yok: {ad} (uretec/sahneler_unite.py ya da cizim/sahneler.py)")
             sonuc = fn(*arg)
@@ -325,17 +360,17 @@ class Unite:
         def rozet(metin, ust="DURAK", renk="gol"):
             r = RENK[renk]
             if ust == "-":
-                harf = f'<text x="50" y="64" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="40" fill="{OBS}">{metin}</text>'
+                harf = f'<text x="50" y="64" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="40" fill="{OBS}">{metin}</text>'
                 return U.durak_rozeti(u.yeni("dr"), harf, "", r[0], r[1])
             return U.durak_rozeti(u.yeni("dr"), metin, ust, r[0], r[1])
 
         def hno(metin, renk="keh"):
             r = RENK[renk]
-            return U.durak_rozeti(u.yeni("hn"), f'<text x="50" y="60" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="30" fill="{OBS}">{metin}</text>', "", r[0], r[1], cls="hno")
+            return U.durak_rozeti(u.yeni("hn"), f'<text x="50" y="60" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="30" fill="{OBS}">{metin}</text>', "", r[0], r[1], cls="hno")
 
         def sno(metin, renk="mer"):
             r = RENK[renk]
-            return U.durak_rozeti(u.yeni("sn"), f'<text x="50" y="62" text-anchor="middle" font-family="Baloo Bhaijaan 2" font-weight="800" font-size="36" fill="{OBS}">{metin}</text>', "", r[0], r[1], cls="sno")
+            return U.durak_rozeti(u.yeni("sn"), f'<text x="50" y="62" text-anchor="middle" font-family="\'Baloo Bhaijaan 2\'" font-weight="800" font-size="36" fill="{OBS}">{metin}</text>', "", r[0], r[1], cls="sno")
 
         def nisan(ad, kurdele="#E2533D", renk=""):
             r = RENK[renk or u._nisan_renk(ad)]
@@ -365,7 +400,7 @@ class Unite:
             return f'<svg class="{cls}" viewBox="0 0 40 40"><use href="#akce"/></svg>'
 
         def info(ad, *arg):
-            fn = u._bul(ad) or getattr(I, ad, None)
+            fn = u._bul(ad) or getattr(I, ad, None) or getattr(GZ, ad, None)
             if fn is None:
                 raise KeyError(f"infografik yok: {ad}")
             if ad == "mol_haritasi":
@@ -390,6 +425,153 @@ class Unite:
             "hazine": self.yt_hazine, "sandik": self.yt_sandik, "nisan-izgara": self.yt_nisan_izgara, "nisan-sayim": self.yt_nisan_sayim,
             "sayfa": self.yt_sayfa, "ek": self.yt_ek, "rota-haritasi": self.yt_rota_haritasi, "rota-etiket": self.yt_rota_etiket,
         })
+        self._yeni_yer_tutucular()
+
+    # ------------------------------------------------------------------ yeni bileşenler (konu karakterleri, Hap Bilgi, katla, 3B)
+    def _yeni_yer_tutucular(self):
+        u = self
+
+        def kk(kimlik, cls=""):
+            if kimlik not in KK.kimlikler():
+                raise KeyError(f"konu karakteri yok: {kimlik} (cizim/konu_karakterleri.py · {len(KK.kimlikler())} kimlik)")
+            return f'<svg class="konu-k{(" " + cls) if cls else ""}" viewBox="{KK.vb(kimlik)}" aria-hidden="true"><use href="#{kimlik}"/></svg>'
+
+        def hbi(ad, *cls):
+            if ad not in HB.IKON:
+                raise KeyError(f"Hap Bilgi ikonu yok: {ad} ({' '.join(HB.IKON)})")
+            return HB.ikon(ad, cls[0] if cls else "hbi")
+
+        # --- katla (fontTools'lu modül yalnız gerekince yüklenir)
+        def katla(tur, film=""):
+            KC = u._katla()
+            u._sag_sayfa_denetle("kat sayfası")
+            kare_svg, kare_no = (u._film_karesi(KC), u._film_no()) if film else ("", 1)
+            rozet = u.yt["rozet"](str(u.meta["yol"]), "YOL")
+            rota = f'Yol {u.meta["yol"]} · {re.sub(r"\s+(Yolu|Turu)$", "", u.meta["rota"])}'
+            if tur == "bag":
+                s, _ = KC.bag_sayfasi(u.yeni("kb"), rozet, kare_svg, kare_no, satirlar=u._bul("KATLA_BAG"), rota=rota)
+            elif tur == "tepkime":
+                s, _ = KC.tepkime_sayfasi(u.yeni("kt"), rozet, kare_svg, kare_no, satirlar=u._bul("KATLA_TEPKIME"), rota=rota)
+            else:
+                raise ValueError(f"kat sayfası türü: bag · tepkime (verilen: {tur})")
+            return s.cikti()
+
+        def film_kose(n=""):
+            """Köşe sineması karesi: bu sayfa kitapta SAĞ (tek numaralı) sayfaysa dış alt köşeye (14 × 14 mm) sıradaki kare."""
+            KC = u._katla()
+            no = int(n) if n else u.simdiki
+            if no is None or u.sayfa_no(no) % 2 == 0:
+                return ""
+            return u._film_karesi(KC, no, sinif="film-kose")
+
+        def film_kare(k):
+            KC = u._katla()
+            return KC.kare(int(k) - 1, u.yeni("fk")).replace('class="kare"', 'class="kare film-kose"', 1).replace("<svg ", '<svg data-serbest="" ', 1)
+
+        def kose_on():
+            u._sag_sayfa_denetle("köşesi katlanan sayfa")
+            return u._katla().kose_on()
+
+        def kose_arka(*cevap):
+            if u.simdiki is not None and u.sayfa_no(u.simdiki) % 2 == 1:
+                u._uyar(f"köşenin arka yüzü s.{u.simdiki} (kitapta {u.sayfa_no(u.simdiki)}) tek numaralı: arka yüz, köşesi katlanan sağ sayfanın hemen ardındaki ÇİFT sayfadır")
+            KC = u._katla()
+            c = tuple(cevap) + KC.KOSE_CEVAP[len(cevap):] if cevap else KC.KOSE_CEVAP
+            return KC.kose_arka(cevap=c[:3])
+
+        def ana(ad):
+            b = u._uc(ad)
+            yedek = (f'<img class="duz yedek" src="{u._gorsel_yolu(f"duz-{ad}-b.png")}" alt="" '
+                     f'style="width:{f(b["en_mm"], 2)}mm;height:{f(b["yuk_mm"], 2)}mm">')
+            return (f'<img class="ana" src="{u._gorsel_yolu(f"ana-{ad}.png")}" alt="3B (anaglif) resim: {ad}" data-ayriklik="{b["ayriklik_mm"]}" '
+                    f'style="width:{f(b["en_mm"], 2)}mm;height:{f(b["yuk_mm"], 2)}mm">' + yedek)
+
+        def duz(ad):
+            b = u._uc(ad)
+            return (f'<img class="duz" src="{u._gorsel_yolu(f"duz-{ad}.png")}" alt="düz resim: {ad}" '
+                    f'style="width:{f(b["duz_en"], 2)}mm;height:{f(b["duz_yuk"], 2)}mm">')
+
+        def test(ad):
+            from cizim import uc_boyut as UB
+            yol = UB.gozluk_testleri()[ad]
+            en, yuk = UB.TEST[ad]
+            return (f'<img class="ana test" src="{u._gorsel_yolu(yol)}" alt="gözlük testi" style="width:{en}mm;height:{yuk}mm">')
+
+        def ub_ikon(ad, cls="ubi"):
+            return GZ.ub_ikon("", ad, cls)
+
+        def gozluk_sayfasi(n):
+            return u._cozumle(GOZLUK_SAYFASI.replace("@N@", str(int(n))))
+
+        self.yt.update({
+            "kk": kk, "hbi": hbi, "ok": lambda: HB.ok(), "siklik": HB.siklik,
+            "zemin14": lambda: u._katla().zemin14(), "cini14": cini14, "katla": katla,
+            "kikon": lambda ad: u._katla().ikon(ad), "robot": lambda: u._katla().robot(), "kapi": lambda: u._katla().kapi(),
+            "film": lambda: u._katla().film_izgara(u.yeni("fz")), "film-kose": film_kose, "film-kare": film_kare,
+            "kose-on": kose_on, "kose-arka": kose_arka,
+            "kose-adimlar": lambda cevap="3 L": u._katla().kose_adimlar(cevap),
+            "kose-harita": lambda cevap="3 L": u._katla().kose_harita(cevap),
+            "ana": ana, "duz": duz, "test": test, "ub-ikon": ub_ikon, "gozluk-sayfasi": gozluk_sayfasi,
+        })
+
+    # ------------------------------------------------------------------ yeni bileşen yardımcıları
+    def _katla(self):
+        from cizim import katla as KC
+        return KC
+
+    def _uyar(self, metin):
+        if metin not in self.uyarilar:
+            self.uyarilar.append(metin)
+            print("UYARI: " + metin, file=sys.stderr)
+
+    def _sag_sayfa_denetle(self, ne):
+        """Kat sayfası ve köşesi katlanan sayfa kitapta TEK numaralı (sağ) sayfada olmalı; değilse uyarır."""
+        if self.simdiki is not None and self.sayfa_no(self.simdiki) % 2 == 0:
+            self._uyar(f"{ne} s.{self.simdiki} (kitapta {self.sayfa_no(self.simdiki)}) çift numaralı (sol) sayfada: tek numaralı sağ sayfada olmalı")
+
+    def _film_no(self, no=None):
+        """Bu sağ sayfanın köşe sineması karesi (1–24): kitap sayfa numarasından; sağ sayfalar sırayla 1, 2, … 24, 1 …"""
+        no = self.simdiki if no is None else no
+        return ((self.sayfa_no(no) + 1) // 2 - 1) % 24 + 1 if no is not None else 1
+
+    def _film_karesi(self, KC, no=None, sinif=None):
+        k = self._film_no(no)
+        svg = KC.kare(k - 1, self.yeni("fk"))
+        if sinif:
+            svg = svg.replace('class="kare"', f'class="kare {sinif}"', 1).replace("<svg ", '<svg data-serbest="" ', 1)
+        return svg
+
+    def _cikti_klasoru(self):
+        return os.path.dirname(os.path.abspath(self.cikti_yolu()))
+
+    def _gorsel_yolu(self, dosya):
+        """Ünitenin gorsel/ dosyasının (ya da mutlak yolun) HTML'in yazılacağı yere göre göreli yolu."""
+        yol = dosya if os.path.isabs(dosya) else os.path.join(self.klasor, "gorsel", dosya)
+        return os.path.relpath(yol, self._cikti_klasoru()).replace(os.sep, "/")
+
+    def uc_boyut_hazirla(self, zorla=False):
+        """meta.json "uc_boyut" listesindeki 3B resimleri ünitenin gorsel/ klasörüne üretir (değişmeyen yeniden çizilmez)."""
+        from cizim import uc_boyut as UB
+        self.uc_bilgi = UB.unite_gorselleri(self.klasor, self.meta.get("uc_boyut", []), self.moduller, zorla=zorla)
+        return self.uc_bilgi
+
+    def _uc(self, ad):
+        if self.uc_bilgi is None:
+            self.uc_boyut_hazirla()
+        if ad not in self.uc_bilgi:
+            raise KeyError(f"3B resim yok: {ad} · meta.json \"uc_boyut\" listesine ekle (var olanlar: {', '.join(self.uc_bilgi) or 'yok'})")
+        return self.uc_bilgi[ad]
+
+    def _kk_ekle(self, html):
+        """Sayfada kullanılan konu karakteri sembollerini gizli <defs>'e ekler (kullanılmıyorsa HTML değişmez)."""
+        gerekli = set(re.findall(r'href="#(kk-[\w-]+)"', html))
+        if not gerekli:
+            return html
+        sy = KK.semboller(gerekli)
+        yer = '<svg class="gizli-defs" aria-hidden="true"><defs>'
+        if yer in html:
+            return html.replace(yer, yer + sy, 1)
+        return html.replace("</body>", f'<svg class="gizli-defs" aria-hidden="true"><defs>{sy}</defs></svg>\n</body>', 1)
 
     # ------------------------------------------------------------------ nişanlar
     def _nisan_ikon(self, ad):
@@ -540,21 +722,39 @@ class Unite:
             del self._rota_onbellek
         with open(os.path.join(self.uretec, "sablon.html"), encoding="utf-8") as fp:
             sablon = fp.read()
-        return self._cozumle(sablon)
+        return self._kk_ekle(self._cozumle(sablon))
 
     def cikti_yolu(self):
         return os.environ.get("YEREL_CIKTI") or os.path.join(self.klasor, "unite.html")
 
-    def kur(self, varyant=None):
-        """unite.html'i (ya da varyantı) yazar ve yolunu döndürür. varyant: None | 'fotokopi'."""
+    @property
+    def palet(self):
+        """meta.json "palet" (yoksa None: Van Gölü renkleri, çıktı değişmez)."""
+        return self.meta.get("palet") or None
+
+    def kur(self, varyant=None, tema=None):
+        """unite.html'i (ya da varyantı) yazar ve yolunu döndürür. varyant: None | 'fotokopi' | 'tema' (tema=<palet adı>).
+        meta.json'da "palet" varsa unite.html o paletle yazılır; fotokopi nüshası paletsizdir."""
         ebru_hazirla("--ebru" in sys.argv)
+        if self.meta.get("uc_boyut") and self.uc_bilgi is None:
+            self.uc_boyut_hazirla(zorla="--3b" in sys.argv)
         html = self.html_kur()
         hedef = self.cikti_yolu()
+        palet = self.palet
         if varyant == "fotokopi":
             from fotokopi import fotokopi_html
             html = fotokopi_html(html)
             hedef = os.path.splitext(hedef)[0] + "-fotokopi.html"
+            palet = None
+        elif varyant == "tema":
+            if not tema:
+                raise ValueError("--tema bir palet adı ister (ör. --tema cini-toprak)")
+            hedef = os.path.splitext(hedef)[0] + f"-{tema}.html"
+            palet = tema
         html = self._stil_baglantisi(html, hedef)
+        if palet:
+            import tema as TM
+            html = TM.tema_html(html, palet, hedef)
         os.makedirs(os.path.dirname(os.path.abspath(hedef)), exist_ok=True)
         with open(hedef, "w", encoding="utf-8") as fp:
             fp.write(html)
@@ -566,6 +766,9 @@ class Unite:
         from hazine_yapragi import yaprak_html
         hedef = os.path.join(self.klasor, "hazine-kartlari.html")
         html = self._stil_baglantisi(yaprak_html(self), hedef)
+        if self.palet:
+            import tema as TM
+            html = TM.tema_html(html, self.palet, hedef)
         with open(hedef, "w", encoding="utf-8") as fp:
             fp.write(html)
         print(f"{os.path.relpath(hedef)} yazıldı ({len(html) / 1024:.0f} KB)")
@@ -574,13 +777,18 @@ class Unite:
     def calistir(self, argv=None):
         argv = sys.argv[1:] if argv is None else argv
         hepsi = "--hepsi" in argv
-        yalniz = [a for a in argv if a in ("--fotokopi", "--hazine")]
+        tema = argv[argv.index("--tema") + 1] if "--tema" in argv and argv.index("--tema") + 1 < len(argv) else None
+        if "--tema" in argv and not tema:
+            raise SystemExit("--tema bir palet adı ister: cini-toprak · gol-rasathane (ya da kaynak temalar: tema.py KAYNAK_SIRA)")
+        yalniz = [a for a in argv if a in ("--fotokopi", "--hazine", "--tema")]
         if hepsi or not yalniz:
             self.kur()
         if hepsi or "--fotokopi" in argv:
             self.kur("fotokopi")
         if hepsi or "--hazine" in argv:
             self.hazine_yapragi()
+        if tema:
+            self.kur("tema", tema)
 
 
 def _sayi_mi(a):
@@ -595,3 +803,66 @@ def _sayi_mi(a):
 
 def tr_buyuk(s):
     return s.replace("i", "İ").replace("ı", "I").upper()
+
+
+# ------------------------------------------------------------------ 3B gözlük sayfası ({{gozluk-sayfasi|n}}; @N@ = ünitedeki sayfa no)
+GOZLUK_SAYFASI = """<section class="sayfa gozluk-sayfa">
+  {{zemin}}
+  {{hud|@N@}}
+  {{cini}}
+  <div class="bant b30" data-serbest>{{sahne|bant_atolye}}
+    <div class="levha kucuk">{{rozet|3B|ATÖLYE|keh}}<div><div class="ust">Ek · 3B atölyesi</div><h1>3B gözlüğünü <em>hazırla</em></h1><p class="alt-bas">Kırmızı cam <b>sol</b> göze, camgöbeği (mavi-yeşil) cam <b>sağ</b> göze.</p></div></div>
+  </div>
+  <main class="ic" style="top:44.5mm">
+    <div class="kart">
+      <div class="kart-bas"><span class="et">{{ikon|isik}}Nasıl çalışır? · her göze kendi resmi</span></div>
+      <div class="nasil">
+        {{info|nasil_calisir}}
+        <ol class="akis">
+          <li><i>1</i><span><b>İki göz, iki bakış.</b> Gözlerinin arası yaklaşık 6 cm’dir; her göz cismi biraz farklı yerden görür. Beyin bu farktan <b>derinliği</b> çıkarır.</span></li>
+          <li><i>2</i><span><b>Kâğıtta iki resim üst üste.</b> Sol gözün resmi camgöbeği, sağ gözün resmi kırmızı mürekkeple basılır.</span></li>
+          <li><i>3</i><span><b>Camlar resimleri ayırır.</b> Kırmızı cam kırmızı baskıyı gizler, camgöbeği baskıyı koyu gösterir; camgöbeği cam tersini yapar. Her göz yalnız kendi resmini görür.</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="sablon-bas"><span class="ara-bas">{{ikon|makas}}Karton çerçeve · kes, katla, yapıştır</span><span class="cip">Sayfayı kesme: fotokopisini kartona yapıştır</span></div>
+    <div class="sablon-alan">{{info|gozluk_sablonu}}</div>
+    <div class="bento" style="grid-template-columns:1fr 1fr 64mm;align-items:stretch">
+      <div class="kart">
+        <div class="kart-bas"><span class="et">{{ikon|makas}}Yapılışı</span></div>
+        <ol class="akis">
+          <li><i>1</i><span>Şablonun <b>fotokopisini</b> ince kartona yapıştır.</span></li>
+          <li><i>2</i><span>Düz çizgilerden kes; iki pencereyi oyup çıkar.</span></li>
+          <li><i>3</i><span>İç yüzde sol pencereye <b>kırmızı</b>, sağ pencereye <b>camgöbeği</b> asetat yapıştır.</span></li>
+          <li><i>4</i><span>Sapları yapıştır, noktalı çizgiden katla.</span></li>
+        </ol>
+        <p class="kucuk-p">Renkli asetat ya da şeffaf dosya kırtasiyede bulunur. Renk açıksa iki kat kullan.</p>
+      </div>
+      <div class="kart">
+        <div class="kart-bas"><span class="et">{{ikon|dogru}}Böyle kullan</span></div>
+        <ul class="ipucu">
+          <li>{{ikon|isik|}}<span><b>Aydınlık ortam:</b> gün ışığı ya da beyaz lamba.</span></li>
+          <li>{{ub-ikon|cetvel}}<span>Kitap <b>30–40 cm</b> uzakta, sayfa düz, başın dik.</span></li>
+          <li>{{ub-ikon|damla}}<span><b>Renkli baskı</b> şart.</span></li>
+          <li>{{ub-ikon|saat}}<span>Birkaç saniye bekle; arada gözünü dinlendir.</span></li>
+          <li>{{ub-ikon|goz}}<span>Numaralı gözlüğün varsa 3B gözlüğü üstüne tak.</span></li>
+          <li>{{hbi|dikkat|}}<span>Gözlük takılıyken yürüme; güneşe bakma.</span></li>
+        </ul>
+      </div>
+      <div class="kart test-kart" data-tema-sabit>
+        <div class="kart-bas"><span class="et obs">{{ikon|hedef}}Doğru taktın mı?</span></div>
+        {{test|yazi}}
+        <p><b>Test 1.</b> Sağ gözünü kapat: yalnız <b>SOL</b> yazısı koyu görünmeli.</p>
+        {{test|derinlik}}
+        <p><b>Test 2.</b> İki gözle bak: <b>A</b> önde, <b>B</b> arkada durmalı. Tersse gözlüğü çevir.</p>
+      </div>
+    </div>
+    <div class="bento esnek" style="grid-template-columns:1.15fr 1.1fr 1fr;align-items:stretch">
+      <div class="hb hb-dikkat">{{hbi|dikkat}}<div><b class="bas">Dikkat!</b><p>Siyah-beyaz fotokopide <span class="cizgi-alti">3B&nbsp;olmaz</span>: iki resim aynı griye döner, derinlik kaybolur. O zaman küçük <b>düz resimlere</b> bak; bilgi aynıdır.</p></div></div>
+      <div class="hb hb-unutma"><b class="bas">Unutma!</b><p>Derinliği herkes aynı kolaylıkla görmez. Göremiyorsan sorun değil: düz resimler aynı şekli anlatır.</p></div>
+      <div class="hb hb-hap" style="align-self:center"><span class="kap">{{hbi|hap}}Hap<br>bilgi</span><p><span>Kırmızı = sol</span><small>camgöbeği = sağ</small></p></div>
+    </div>
+  </main>
+  {{alt|@N@}}
+</section>"""
+
