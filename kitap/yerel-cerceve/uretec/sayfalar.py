@@ -207,18 +207,18 @@ def _rehber1(k, p):
                 '<i class="kale"><svg viewBox="0 0 24 22"><path d="M2 21 V8 H6 V4 H9 V8 H11 V4 H13 V8 H15 V4 H18 V8 H22 V21 Z" fill="none" stroke="#8FA3AD" stroke-width="2.2" stroke-linejoin="round"/></svg></i>')
     hud = (f'<div class="hud-ornek"><header class="hud"><span class="logo"><svg viewBox="0 0 24 24"><use href="#logo-yildiz"/></svg>Kimya Rotası {k.sinif}</span>'
            f'<span class="yer">… turu · 3. durak · <b>yer adı</b></span><span class="noktalar">{noktalar}</span>'
-           f'<span class="akce"><svg viewBox="0 0 40 40"><use href="#akce"/></svg>Akçe <span class="yaz"></span> /1400</span></header>'
+           f'<span class="akce"><svg viewBox="0 0 40 40"><use href="#akce"/></svg>Akçe <span class="yaz"></span> /1600</span></header>'
            f'<p><b>Üst şerit pusulandır.</b> ● durak · ■ Hülasa · ◆ yan yol · kale: Büyük İmtihan. Dolu nokta geçtiğin yeri, halkalı nokta '
            f'bulunduğun durağı gösterir. Sağdaki kutuya o ana kadar topladığın <b>akçeyi</b> yaz.</p></div>')
     akis_kart = (f'<div class="kart akis-kart"><span class="et">{_ik("harita")}Bir yol nasıl akar?</span>'
                  f'<div class="akis">{yol_svg}{"".join(akis)}</div>{hud}</div>')
     import infografik_kopru as IK
     unvan = "".join(f'<div class="ah-basamak b{i + 1}">{IK.unvan(yeni("ur"), i + 1, renk)}<b>{ad}</b><small>{esik}</small></div>'
-                    for i, (ad, esik, renk) in enumerate((("Çırak", "0+", "#A3B3BE"), ("Kalfa", "400+", "#13A3A6"),
-                                                          ("Usta", "800+", "#0E4C5A"), ("Üstad", "1150+", "#F0A21A"))))
+                    for i, (ad, esik, renk) in enumerate((("Çırak", "0+", "#A3B3BE"), ("Kalfa", "450+", "#13A3A6"),
+                                                          ("Usta", "900+", "#0E4C5A"), ("Üstad", "1300+", "#F0A21A"))))
     akce = (f'<div class="kart akce-kart"><span class="et keh">{_sikke()}Akçe ve Ahilik basamakları</span>'
             f'<p><b>Akçe</b>, Osmanlı’nın gümüş sikkesidir; bu kitapta puanın akçedir. Kavram, görev, hazine kartı, Tuzak! ve hızlı görevler '
-            f'akçe kazandırır. İpucu için <b>anahtar</b> açmak <b>−10 akçe</b>. Her yolda en çok <b>1400 akçe</b> var.</p>'
+            f'akçe kazandırır. İpucu için <b>anahtar</b> açmak <b>−10 akçe</b>. Her yolda en çok <b>1600 akçe</b> var.</p>'
             f'<div class="ah-merdiven">{unvan}</div>'
             f'<p class="ah-not"><b>Ahilik:</b> Anadolu’da zanaatkârın çıraklıktan ustalığa adım adım yetiştiği gelenek. Yolun sonunda '
             f'toplam akçen unvanını belirler.</p></div>')
@@ -468,7 +468,7 @@ def _album_yol(k, y):
             f'<div class="ay-bas">{_yol_rozet(y)}<div><b>Yol {y["yol"]} · {e(y["rota"])}</b><span>{e(y["unite"])} · {e(y["tema"])}</span></div>{durum}</div>'
             f'<div class="ay-govde"><div class="ay-nisanlar" style="--n:{len(nis)}">{"".join(nis)}</div>'
             f'<div class="ay-ustad">{ustad}<b>Üstad Mührü</b><small>6 Üstad sorusu</small></div>'
-            f'<div class="ay-akce"><span class="et keh">Akçe</span><div class="ay-kutu"><i></i><span>/1400</span></div>'
+            f'<div class="ay-akce"><span class="et keh">Akçe</span><div class="ay-kutu"><i></i><span>/1600</span></div>'
             f'<div class="ay-unvan"><span><i></i>Çırak</span><span><i></i>Kalfa</span><span><i></i>Usta</span><span><i></i>Üstad</span></div></div></div>{alt}</div>')
 
 
@@ -481,13 +481,13 @@ def album(k, p):
     if son:
         import infografik_kopru as IK
         unv = "".join(f'<div class="at-unvan">{IK.unvan(yeni("tu"), i + 1, r)}<b>{ad}</b><small>ortalama {esik}</small></div>'
-                      for i, (ad, esik, r) in enumerate((("Çırak", "0+", "#A3B3BE"), ("Kalfa", "400+", "#13A3A6"),
-                                                         ("Usta", "800+", "#0E4C5A"), ("Üstad", "1150+", "#F0A21A"))))
+                      for i, (ad, esik, r) in enumerate((("Çırak", "0+", "#A3B3BE"), ("Kalfa", "450+", "#13A3A6"),
+                                                         ("Usta", "900+", "#0E4C5A"), ("Üstad", "1300+", "#F0A21A"))))
         toplam = (f'<div class="kart album-toplam"><span class="et keh">{_sikke()}Ahilik toplamı · kitabın unvanı</span>'
                   f'<div class="at-satir"><div class="at-hesap">Toplam akçe <i></i> ÷ biten yol <i class="k"></i> = ortalama <i></i></div>'
                   f'<div class="at-hesap">Boyanan Üstad Mührü <i class="k"></i> / {len(k.yollar)}</div></div>'
                   f'<div class="at-unvanlar">{unv}</div>'
-                  f'<p>Her yolun eşikleri aynıdır: Kalfa 400, Usta 800, Üstad 1150 akçe (1400 üzerinden). Kitap unvanın, yol başına '
+                  f'<p>Her yolun eşikleri aynıdır: Kalfa 450, Usta 900, Üstad 1300 akçe (1600 üzerinden). Kitap unvanın, yol başına '
                   f'ortalama akçene göre verilir. Unvanını yuvarlak içine al; nişanlarını boya, albümü tamamla!</p></div>')
     if parca == 1:
         bant = (f'<div class="bant b30" data-serbest>{CZ.album_bandi(yeni("ab"), 300)}'

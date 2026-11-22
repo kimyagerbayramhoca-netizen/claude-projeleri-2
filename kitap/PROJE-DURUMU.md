@@ -11,8 +11,10 @@ Depo kökündeki `CLAUDE.md` dosyasında; oturum başında kendiliğinden yükle
   - Tırnaksız font hatası düzeltildi. SVG yazıları artık Baloo; biten üniteler yeniden kurulunca görsel kontrol gerekir.
   - `yeni_unite.py` iskelete `palet` alanını koymuyor (eklenecek).
 - Adım 2: 9/03 pilotu kuruldu (16 → 26 sayfa; dogrula 324 denetim doğru, taşma yok, Type 3 = 0). Planı ve sapmalar: `9-sinif-yerel/03-atom-ve-yapisi/PILOT-PLAN.md` §0.1.
-  - Görsel kontrol ve kullanıcının görüşü bekleniyor. Onayı gelmeden öteki ünitelere geçilmeyecek.
-  - Karar bekleyenler: ünite başına akçe 1400 → 1600 oldu (kitap çerçevesi hâlâ 1400 diyor); 3B iki sayfa oldu; ünite 10 sayfa uzadı.
+  - Kullanıcı onayladı ("olur yap bakalım"): ünitenin 10 sayfa uzaması, iki sayfa 3B, ünite başına 1600 akçe (Kalfa 450, Usta 900, Üstad 1300).
+  - Deneme baskısı hazır ve gönderildi: `9-sinif-yerel/03-atom-ve-yapisi/DENEME-BASKISI.md` ve `03-atom-ve-yapisi-deneme.pdf` (10 sayfa, A4). Kâğıt geri bildirimi bekleniyor. Bütün ünitelere ancak bu geri bildirim ve onaydan sonra geçilir.
+  - Çerçeve kaynağı (`yerel-cerceve/uretec/sayfalar.py`) 1600'e güncellendi. Çerçeve, üniteler 1600'e dönünce yeniden kurulacak (adım 4).
+  - 3. adımdan önce: `yeni_unite.py` ve infografik akçe rayı (`yerel-ortak/cizim/infografik.py`) hâlâ 1400 kullanıyor, 1600'e çekilecek.
   - 9/06'da Şifreli Kapı için PROTON dışında bir kelime seçilmeli.
 
 ## Durum
@@ -29,10 +31,9 @@ Depo kökündeki `CLAUDE.md` dosyasında; oturum başında kendiliğinden yükle
 - **Yeni fikir örnekleri** (`kitap/gelistirme/yeni-fikirler`): Usturlap Çarkı, Gizli cevap, Kâğıtta animasyon, Ustanın Sırrı (ebru). Kullanıcıya gönderildi, görüşü bekleniyor.
 
 ## Kullanıcıdan beklenenler
-1. **Pilot 9/03'e görüş.** Onay gelirse plan sürer: bütün üniteler → birleşik kitaplar (AYRINTI §4).
+1. **Deneme baskısının kâğıt sonucu** (3B derinliği, katlama, gözlük; tablo `DENEME-BASKISI.md` içinde). İyiyse onayla plan sürer: bütün üniteler → birleşik kitaplar (AYRINTI §4).
 2. **Yeni fikir örneklerine görüş** ve kitaba hangi oranda gireceği. Seçilmemiş öteki fikirler: AYRINTI §5.
-3. **Deneme baskısı geri bildirimi:** 3B derinliği ve katlama.
-4. **Eski kararlar:**
+3. **Eski kararlar:**
    - Kitap adı ve yazar
    - Elektronegatiflik değerleri (şu an Pauling ölçeği kullanılıyor)
    - Roma rakamından önce boşluk olacak mı
