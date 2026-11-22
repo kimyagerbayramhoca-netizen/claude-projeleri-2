@@ -567,31 +567,7 @@ AHILIK = (450, 900, 1300)                              # Kalfa, Usta, Atom Üsta
 
 
 def akce_rayi(onek="ay-ray", ust_unvan="ATOM ÜSTADI"):
-    """Ortak cizim/infografik.akce_rayi'nin 1600 ölçekli eşi (ortaktaki 0–1400 sabit; kat 40 + karma 160 eklendi).
+    """Ortak cizim/infografik.akce_rayi'nin 1600 ölçekli çağrısı (kat 40 + karma 160 eklendi).
     {{info|akce_rayi|ATOM ÜSTADI}} önce bu modülde aranır."""
-    s = Svg(onek)
-    W, H = 1880, 260
-    x0, x1, y = 60, 1820, 150
-    T_ = AKCE_TOPLAM
-
-    def X(a):
-        return x0 + (x1 - x0) * a / T_
-    kalfa, usta, ustad = AHILIK
-    g = s.lin([(0, GUM), (kalfa / T_, GOL_A), (usta / T_, GOL), (ustad / T_, KEH), (1, KEH)], x0, 0, x1, 0, kull="userSpaceOnUse", ad="ry")
-    s += f'<path d="M{x0} {y + 30} H{x1}" stroke="#9A6B42" stroke-width="12"/>'
-    for k in range(0, T_ + 1, 50):
-        s += f'<rect x="{f(X(k) - 6)}" y="{y + 18}" width="12" height="30" rx="3" fill="#7A4E2E"/>'
-    s += f'<rect x="{x0}" y="{y - 20}" width="{x1 - x0}" height="40" rx="20" fill="{g}" stroke="{OBS}" stroke-width="4"/>'
-    for a in range(0, T_ + 1, 100):
-        s += f'<path d="M{f(X(a))} {y - 20} v{12 if a % 200 else 18}" stroke="{OBS}" stroke-width="3"/>'
-    esik = [(0, "ÇIRAK", GUM_K), (kalfa, "KALFA", GOL_K), (usta, "USTA", DERIN), (ustad, ust_unvan, KEH_K), (T_, "", OBS)]
-    for a, ad, c in esik:
-        x = X(a)
-        s += f'<path d="M{f(x)} {y - 26} V{y - 74}" stroke="{c}" stroke-width="4"/>'
-        s += f'<path d="{cizgi_d(selcuklu_yildizi(x, y - 92, 20), True)}" fill="{KEH if a == ustad else "#FFFFFF"}" stroke="{OBS}" stroke-width="3"/>'
-        anc = "start" if a == 0 else ("end" if a == T_ else "middle")
-        s += f'<text x="{f(x)}" y="{y + 92}" text-anchor="{anc}" {B} font-size="34" fill="{c}">{a}</text>'
-        if ad:
-            s += f'<text x="{f(x + (6 if a == 0 else 0))}" y="{y - 124}" text-anchor="{"start" if a == 0 else "middle"}" {T} font-size="26" fill="{c}">{ad}</text>'
-    s += f'<text x="{x1}" y="{y - 124}" text-anchor="end" {T} font-size="26" fill="{OBS}">TOPLAM</text>'
-    return s.cikti(f"0 0 {W} {H}", cls="info ray-svg")
+    from cizim import infografik as _ortak
+    return _ortak.akce_rayi(onek, ust_unvan, toplam=AKCE_TOPLAM, esikler=AHILIK)

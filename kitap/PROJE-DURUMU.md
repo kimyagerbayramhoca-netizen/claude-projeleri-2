@@ -9,13 +9,14 @@ Depo kökündeki `CLAUDE.md` dosyasında; oturum başında kendiliğinden yükle
 - Kullanıcı "başla" dedi (21 Kasım 2026): yaygınlaştırma planı (AYRINTI §4) başladı. Şimdilik yalnız tasarım yapılıyor.
 - Adım 1 bitti: özellikler ortak kütüphanede. API: `yerel-ortak/TASARIM-SISTEMI.md` §16; örnek: `yerel-ortak/katalog/bilesenler/`.
   - Tırnaksız font hatası düzeltildi. SVG yazıları artık Baloo; biten üniteler yeniden kurulunca görsel kontrol gerekir.
-  - `yeni_unite.py` iskelete `palet` alanını koymuyor (eklenecek).
+  - `yeni_unite.py` iskelete sınıfa göre `palet` alanını koyuyor (9 → `cini-toprak`, 10 → `gol-rasathane`; `--palet` seçeneği var).
 - Adım 2: 9/03 pilotu kuruldu (16 → 26 sayfa; dogrula 324 denetim doğru, taşma yok, Type 3 = 0). Planı ve sapmalar: `9-sinif-yerel/03-atom-ve-yapisi/PILOT-PLAN.md` §0.1.
   - Kullanıcı onayladı ("olur yap bakalım"): ünitenin 10 sayfa uzaması, iki sayfa 3B, ünite başına 1600 akçe (Kalfa 450, Usta 900, Üstad 1300).
   - Deneme baskısı hazır ve gönderildi: `9-sinif-yerel/03-atom-ve-yapisi/DENEME-BASKISI.md` ve `03-atom-ve-yapisi-deneme.pdf` (10 sayfa, A4). Kâğıt geri bildirimi bekleniyor. Bütün ünitelere ancak bu geri bildirim ve onaydan sonra geçilir.
   - Çerçeve kaynağı (`yerel-cerceve/uretec/sayfalar.py`) 1600'e güncellendi. Çerçeve, üniteler 1600'e dönünce yeniden kurulacak (adım 4).
-  - 3. adımdan önce: `yeni_unite.py` ve infografik akçe rayı (`yerel-ortak/cizim/infografik.py`) hâlâ 1400 kullanıyor, 1600'e çekilecek.
-  - 9/06'da Şifreli Kapı için PROTON dışında bir kelime seçilmeli.
+  - 3. adım hazırlığı (22 Kasım 2026): `yeni_unite.py` iskeleti 1600 düzeninde (Hülasa → Katla 40 → Karma 160; tek durak sayısında Hülasa'dan önce akçesiz bonus sayfa; 4/5/6 durakta 16/18/18 sayfa; 5 ve 6 duraklı denemeler kur, dogrula, olc ve Type 3 denetiminden geçti).
+    Ortak akçe rayı parametreli: `{{info|akce_rayi|ÜSTAD|1600}}`; varsayılan 1400, çünkü öteki üniteler 3. adıma kadar 1400'de kalıyor. 9/03 bu ortak rayı kullanıyor (çıktısı değişmedi).
+  - 9/06 Şifreli Kapı kelimesi: **İYONİK** (6 soru; kullanıcı seçti, 22 Kasım 2026). Yanlış harfler başka Türkçe kelime kurmamalı (bkz. `gelistirme/katla/README.md`).
 
 ## Durum
 - **Klasik tasarım:** 16 ünitenin hepsi tamam (`kitap/9-sinif`, `kitap/10-sinif`).

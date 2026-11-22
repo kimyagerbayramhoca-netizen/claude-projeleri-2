@@ -191,7 +191,7 @@ Mevcut kalınlıklar: Baloo 400–800, Nunito 400–900 (italik 400, 600–900),
 | `.mesveret-izgara` + `.mesveret` + `{{sno|n}}` + `.oy` (`.yatay .uc`) | Meşveret (test) kartı: tahmin yüzdesi `%__`, karalama alanı |
 | `.ustad-izgara` + `.ustad-soru` + `.ustad-muhur` | Üstad soruları (§11) |
 | `.anahtar-izgara`, `.cozumler`, `.yan-anahtar` | cevaplar (durak etiketli anahtar, iki sütun çözüm, yan yol hızlı anahtarı) |
-| `.ray-kart` + `{{info|akce_rayi|ÜSTAD}}`, `.unvanlar`, `table.defter` (`.sik`), `{{nisan-sayim}}` | final: akçe rayı, Ahilik unvanları, akçe defteri, nişan sayımı (7–8 nişanda `.nisan-say.cok`) |
+| `.ray-kart` + `{{info|akce_rayi|ÜSTAD}}` (yeni düzen `{{info|akce_rayi|ÜSTAD|1600}}`), `.unvanlar`, `table.defter` (`.sik`), `{{nisan-sayim}}` | final: akçe rayı, Ahilik unvanları, akçe defteri, nişan sayımı (7–8 nişanda `.nisan-say.cok`) |
 
 ---
 
@@ -211,7 +211,7 @@ SVG'de yazı tipi adı **tırnakla** yazılır: `font-family="'Baloo Bhaijaan 2'
 | `karakter.py` | karakterler | bkz. §7 |
 | `molekul.py` | 3B moleküller | `molekul_svg(onek, AD, donus=(x°,y°,z°), etiket, iyon_etiket)`: H2O, CO2, O2, N2, CO, SO2, SO3, NH3, CH4, C2H6, C2H4, C3H8, He, C6H12O6, Na2CO3, NaCl, CaCO3 · `cekirdek_ciz(p, n)` · `kristal_nacl()` |
 | `sus.py` | süs ve işaret | `cini_serit_ince/genis`, `zemin_gecme`, `tezhip_kose`, `kilim_serit`, `muhur("yanlis"|"dogru")`, `durak_rozeti`, `nisan(ikon, kurdele)` + `NISAN_IKON` (`deste izotop kefal mizan karisim kale ustad`), `cay_bardagi`, `IKON` + `ikon_sembolleri()` |
-| `infografik.py` | sayısal grafikler | `avogadro_merdiveni`, `cekirdekler`, `bor_madalyon`, `mol_haritasi(kutle_acik)`, `karisim_kaplari`, `esit_kutle_terazi`, `hazini_kart`, `imbik`, `razi_araclari`, `halka_aleti`, `ozgul_agirlik`, `soda_resmi`, `bor_resmi`, `grafik_xy`, `raf_kaplari`, `merdiven_akce`, `elmas`, `balon`, `akce_rayi(onek, ust_unvan="MOL ÜSTADI")`, `unvan_rozeti` |
+| `infografik.py` | sayısal grafikler | `avogadro_merdiveni`, `cekirdekler`, `bor_madalyon`, `mol_haritasi(kutle_acik)`, `karisim_kaplari`, `esit_kutle_terazi`, `hazini_kart`, `imbik`, `razi_araclari`, `halka_aleti`, `ozgul_agirlik`, `soda_resmi`, `bor_resmi`, `grafik_xy`, `raf_kaplari`, `merdiven_akce`, `elmas`, `balon`, `akce_rayi(onek, ust_unvan="MOL ÜSTADI", toplam=1400, esikler=None)` (eşikler `AHILIK_ESIK`), `unvan_rozeti` |
 | `sahneler.py` | sayfa sahneleri | Van turu: `edremit`, `gevas`, `tatvan`, `ahlat`, `adilcevaz`, `suphan`, `ercis`, `muradiye`, `iskele`, `kale_buyuk`, `kale_kapi`, `gece`, `final(nisanlar)`, `panorama()` (+ `DURAKLAR`, `_proje`). **Genel:** `ustad_bandi()` (Üstad sayfası, her ünitede aynı), `rota_haritasi(duraklar, kale)` (meta.json'dan genel tur haritası) |
 | `ebru.py` | ebru dokusu | `Teknede`: `damla`, `biz`, `dalga`, `battal`, `gelgit`, `tarak`, `resim` → JPEG; `ebru_gol`, `ebru_gun` |
 | `konu_karakterleri.py` | konu karakterleri (§16.1) | 51 sembol `kk-*` (atom modelleri, tanecikler, fotonlar, iyonlar, 7 gaz × 3 ifade); `semboller(gerekli)`, `kimlikler()`, `vb(kimlik)`, `kullan(kimlik, x, y, w)` (SVG içinde `<use>`), `nm_renk(nm)` |
@@ -479,6 +479,8 @@ Hülasa · Hazine kartı · Anahtar · Tuzak! (mühür) · Kıssa (Kıssadan his
 HUD çubuğu = o sayfanın başına kadar alınabilecek en çok akçe / 1400 (Mol: `0 0 7 18 29 39 50 53 61 70 79 89 100 100 100`).
 Toplam değişirse `kur.py:SAYFA`, `dogrula.py` akçe bölümü, açılış rozetleri, final rayı ve defteri birlikte değişir.
 
+**Yeni düzen: 1600** (kullanıcı onayı 22.11.2026; 9/03 pilotu, dağılım `9-sinif-yerel/03-atom-ve-yapisi/PILOT-PLAN.md` §1.4): yukarıdakilere Katla 40 (4×10) ve Karma sayfa 160 (Kapı 60 · Röntgen 30 · Robot 30 · Heybe 40) eklenir; eşikler Kalfa 450 · Usta 900 · Üstad 1300. Üniteler 3. adımda geçer; o zamana kadar ortak varsayılan 1400 kalır.
+
 ---
 
 ## 14. PDF ve baskı kuralları (deneyle bulundu)
@@ -517,8 +519,10 @@ Toplam değişirse `kur.py:SAYFA`, `dogrula.py` akçe bölümü, açılış roze
            --unite "Günlük Hayatta Kimya" --kale "Bursa Hisarı" --durak 5 --tema "Tema 1 · Bölüm 1" --merkez 40.2,29.3
    cd kitap/9-sinif-yerel/01-gunluk-hayatta-kimya && python3 uretec/kur.py && python3 uretec/dogrula.py && bash uretec/olc.sh
    ```
-   Hemen kurulur ve basılır: ROTALAR.md §2'deki bütün sayfa türleri (açılış, N durak, Hülasa, Meclis, Kıssa, Anahtar merdiveni,
-   Büyük İmtihan 1–2, Üstad, Cevaplar, Final; 4/5/6 durakta 14/15/16 sayfa), örnek bileşenler ve yorumlu kullanım notlarıyla.
+   Hemen kurulur ve basılır: ROTALAR.md §2'deki bütün sayfa türleri (açılış, N durak, tek durak sayısında akçesiz bonus sayfa, Hülasa,
+   Katla (tek sayfa, arkası Karma), Karma sayfa, Meclis, Kıssa, Anahtar merdiveni, Büyük İmtihan 1–2, Üstad, Cevaplar, Final; 1600 akçe;
+   4/5/6 durakta 16/18/18 sayfa),
+   örnek bileşenler ve yorumlu kullanım notlarıyla.
 2. **`uretec/meta.json`'u doldur:** gerçek duraklar (yer, başlık, enlem–boylam, sayfa, akçe), kale ve konumu, nişanlar (ikon adları:
    ortak `deste izotop kefal mizan karisim kale ustad` ya da `sahneler_unite.NISAN_IKON`), hazine kartları, medeniyet, kavramlar.
    Açılıştaki tur haritası ve etiketleri buradan kendiliğinden güncellenir.

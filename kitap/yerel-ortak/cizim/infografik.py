@@ -407,28 +407,37 @@ def raf_kaplari(onek="inf-raf"):
 
 # ------------------------------------------------------------------ final: akçe rayı + unvan rozetleri
 
-def akce_rayi(onek="inf-ray", ust_unvan="MOL ÜSTADI"):
-    """Final sayfası akçe rayı (0–1400; Kalfa 400, Usta 800, Üstad 1150). ust_unvan: en üst basamağın adı
-    (ör. {{info|akce_rayi|ÜSTAD}}; Mol ünitesinde varsayılan "MOL ÜSTADI")."""
+# Ahilik eşikleri (Kalfa, Usta, Üstad) ünite toplamına göre. 1600: kullanıcı onayı 2026-11-22 (9/03 pilotu);
+# 1400: eski düzen, üniteler 1600'e dönene kadar varsayılan.
+AHILIK_ESIK = {1400: (400, 800, 1150), 1600: (450, 900, 1300)}
+
+
+def akce_rayi(onek="inf-ray", ust_unvan="MOL ÜSTADI", toplam=1400, esikler=None):
+    """Final sayfası akçe rayı (0–toplam; eşikler AHILIK_ESIK'ten). ust_unvan: en üst basamağın adı.
+    Eski düzen: {{info|akce_rayi|ÜSTAD}} (0–1400; Kalfa 400, Usta 800, Üstad 1150; Mol ünitesinde varsayılan "MOL ÜSTADI").
+    Yeni düzen: {{info|akce_rayi|ÜSTAD|1600}} (Kalfa 450, Usta 900, Üstad 1300)."""
     s = Svg(onek)
     W, H = 1880, 260
     x0, x1, y = 60, 1820, 150
+    toplam = int(toplam)
+    kalfa, usta, ustad = esikler or AHILIK_ESIK[toplam]
+
     def X(a):
-        return x0 + (x1 - x0) * a / 1400
-    g = s.lin([(0, GUM), (.2857, GOL_A), (.5714, GOL), (.8214, KEH), (1, KEH)], x0, 0, x1, 0, kull="userSpaceOnUse", ad="ry")
+        return x0 + (x1 - x0) * a / toplam
+    g = s.lin([(0, GUM), (kalfa / toplam, GOL_A), (usta / toplam, GOL), (ustad / toplam, KEH), (1, KEH)], x0, 0, x1, 0, kull="userSpaceOnUse", ad="ry")
     s += f'<path d="M{x0} {y + 30} H{x1}" stroke="#9A6B42" stroke-width="12"/>'
-    for k in range(0, 1401, 50):
+    for k in range(0, toplam + 1, 50):
         s += f'<rect x="{f(X(k) - 6)}" y="{y + 18}" width="12" height="30" rx="3" fill="#7A4E2E"/>'
     s += f'<rect x="{x0}" y="{y - 20}" width="{x1 - x0}" height="40" rx="20" fill="{g}" stroke="{OBS}" stroke-width="4"/>'
-    for a in range(0, 1401, 100):
+    for a in range(0, toplam + 1, 100):
         s += f'<path d="M{f(X(a))} {y - 20} v{12 if a % 200 else 18}" stroke="{OBS}" stroke-width="3"/>'
-    esik = [(0, "ÇIRAK", GUM_K), (400, "KALFA", GOL_K), (800, "USTA", DERIN), (1150, ust_unvan, KEH_K), (1400, "", OBS)]
+    esik = [(0, "ÇIRAK", GUM_K), (kalfa, "KALFA", GOL_K), (usta, "USTA", DERIN), (ustad, ust_unvan, KEH_K), (toplam, "", OBS)]
     for a, ad, c in esik:
         x = X(a)
         s += f'<path d="M{f(x)} {y - 26} V{y - 74}" stroke="{c}" stroke-width="4"/>'
         y8 = selcuklu_yildizi(x, y - 92, 20)
-        s += f'<path d="{cizgi_d(y8, True)}" fill="{KEH if a == 1150 else "#FFFFFF"}" stroke="{OBS}" stroke-width="3"/>'
-        anc = "start" if a == 0 else ("end" if a == 1400 else "middle")
+        s += f'<path d="{cizgi_d(y8, True)}" fill="{KEH if a == ustad else "#FFFFFF"}" stroke="{OBS}" stroke-width="3"/>'
+        anc = "start" if a == 0 else ("end" if a == toplam else "middle")
         s += f'<text x="{f(x)}" y="{y + 92}" text-anchor="{anc}" {B} font-size="34" fill="{c}">{a}</text>'
         if ad:
             s += f'<text x="{f(x + (6 if a == 0 else 0))}" y="{y - 124}" text-anchor="{"start" if a == 0 else "middle"}" {T} font-size="26" fill="{c}">{ad}</text>'
